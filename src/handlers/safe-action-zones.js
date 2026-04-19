@@ -164,7 +164,7 @@ const ACTION_REGISTRY = {
   'cleanup_stale_sessions': {
     action_id: 'cleanup_stale_sessions',
     category: ACTION_CATEGORY.HOUSEKEEPING,
-    classification: ACTION_CLASS.SAFE_AUTONOMOUS,
+    classification: ACTION_CLASS.SUPERVISED,  // RECLASSIFIED: State mutation — requires approval
     description: 'Remove stale session records older than 24h',
     safe_conditions: ['HEALTHY'],
     frequency_limit: { count: 4, window_ms: 3600000 },  // 4/hour max
@@ -182,7 +182,7 @@ const ACTION_REGISTRY = {
   'rotate_audit_logs': {
     action_id: 'rotate_audit_logs',
     category: ACTION_CATEGORY.HOUSEKEEPING,
-    classification: ACTION_CLASS.SAFE_AUTONOMOUS,
+    classification: ACTION_CLASS.SUPERVISED,  // RECLASSIFIED: File mutation — requires approval
     description: 'Archive and rotate audit logs older than 7 days',
     safe_conditions: ['HEALTHY'],
     frequency_limit: { count: 2, window_ms: 86400000 },  // 2/day max
@@ -209,12 +209,12 @@ const ACTION_REGISTRY = {
     reversible: true,
   },
   
-  // ── CACHE: SAFE_AUTONOMOUS ───────────────────────────────────────────────
+  // ── CACHE: SUPERVISED ───────────────────────────────────────────────
   
   'invalidate_cache_pattern': {
     action_id: 'invalidate_cache_pattern',
     category: ACTION_CATEGORY.CACHE,
-    classification: ACTION_CLASS.SAFE_AUTONOMOUS,
+    classification: ACTION_CLASS.SUPERVISED,  // RECLASSIFIED: Cache mutation — requires approval
     description: 'Invalidate cached pattern data for specific key',
     safe_conditions: ['HEALTHY'],
     frequency_limit: { count: 20, window_ms: 60000 },
