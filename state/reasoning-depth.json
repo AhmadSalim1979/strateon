@@ -1,0 +1,79 @@
+{
+  "current_mode": "HIGH",
+  "active_indicators": [
+    {
+      "type": "critical_risk",
+      "weight": 1,
+      "source": "risk"
+    }
+  ],
+  "complexity_score": 0.2,
+  "mode_history": [
+    {
+      "mode": "HIGH",
+      "reason": [
+        "force_high_indicator",
+        "critical_risk_escalation"
+      ],
+      "indicators": 1,
+      "timestamp": "2026-04-19T07:45:46.689Z"
+    },
+    {
+      "mode": "HIGH",
+      "reason": [
+        "force_high_indicator"
+      ],
+      "indicators": 4,
+      "timestamp": "2026-04-19T07:45:46.689Z"
+    },
+    {
+      "mode": "HIGH",
+      "reason": [
+        "force_high_indicator",
+        "critical_risk_escalation"
+      ],
+      "indicators": 1,
+      "timestamp": "2026-04-19T07:45:46.690Z"
+    }
+  ],
+  "audit_log": [
+    {
+      "event_type": "REASONING_MODE_CHANGED",
+      "target_id": null,
+      "details": {
+        "mode": "HIGH",
+        "reason": [
+          "force_high_indicator",
+          "critical_risk_escalation"
+        ],
+        "indicators": 1
+      },
+      "timestamp": "2026-04-19T07:45:46.689Z"
+    },
+    {
+      "event_type": "REASONING_MODE_CHANGED",
+      "target_id": null,
+      "details": {
+        "mode": "HIGH",
+        "reason": [
+          "force_high_indicator"
+        ],
+        "indicators": 4
+      },
+      "timestamp": "2026-04-19T07:45:46.689Z"
+    },
+    {
+      "event_type": "REASONING_MODE_CHANGED",
+      "target_id": null,
+      "details": {
+        "mode": "HIGH",
+        "reason": [
+          "force_high_indicator",
+          "critical_risk_escalation"
+        ],
+        "indicators": 1
+      },
+      "timestamp": "2026-04-19T07:45:46.690Z"
+    }
+  ]
+}
