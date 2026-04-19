@@ -326,11 +326,15 @@ function _evaluateStep(plan, step) {
   }
   
   // Terminal-like states we don't auto-change
-  if (step.step_status === STEP_STATUS.APPROVED ||
-      step.step_status === STEP_STATUS.EXECUTING ||
+  if (step.step_status === STEP_STATUS.EXECUTING ||
       step.step_status === STEP_STATUS.AWAITING_APPROVAL) {
     return; // Keep current status until something changes
   }
+  
+  // Note: APPROVED steps ARE re-evaluated because a dependency completing
+  // (e.g., step_1 completes) may change the step from APPROVED→READY.
+  // Both READY and APPROVED are executable; READY is just the normalized state.
+  // COMPLETED and FAILED are terminal and cannot change.
   
   // Check dependency statuses
   let allDependenciesReady = true;
@@ -711,7 +715,7 @@ function completeStep(planId, stepId, result = {}) {
     s.step_status === STEP_STATUS.BLOCKED // Blocked steps won't complete
   );
   
-  if (allComplete && plan.completed_steps === plan.steps.length) {
+  if (allComplete && plan.steps.every(s => s.step_status === STEP_STATUS.COMPLETED)) {
     completePlan(planId);
   }
   
@@ -743,9 +747,8 @@ function failStep(planId, stepId, reason = '') {
   plan.failed_steps++;
   plan.updated_at = new Date().toISOString();
   
-  // CRITICAL: Do NOT cascade. Just mark plan as needing evaluation.
-  // The plan can either be failed (if step was critical) or remain active
-  // Decision layer will evaluate.
+  // Re-evaluate all steps (dependents may need to become BLOCKED)
+  _evaluateAllSteps(plan);
   
   _auditLog('STEP_FAILED', planId, { step_id: stepId, reason });
   saveState();
