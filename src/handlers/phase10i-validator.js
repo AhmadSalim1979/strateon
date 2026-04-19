@@ -20,9 +20,11 @@ const {
   completeStep,
   failStep,
   getPlan,
+  getStep,
   getActivePlans,
   getPlanSummary,
   getPendingApprovals,
+  getPlansForGoal,
   validatePlanForWorkload,
   getReasoningDepthRecommendation,
   getPlanningStats,
@@ -392,6 +394,7 @@ section('V6: Lifecycle Integration (Phase 10H)');
   }
   
   // V6.4: Terminal states are protected
+  const plan = getPlan('dep_plan');
   if (plan && plan.is_terminal) {
     pass('V6.4: Terminal state is_terminal flag set');
   } else {
