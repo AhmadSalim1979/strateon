@@ -1,7 +1,7 @@
 {
   "goals": [
     {
-      "goal_id": "goal_1776580049961_98wlj7407",
+      "goal_id": "goal_1776580474074_wk71a0t80",
       "goal_type": "stability",
       "priority": 0.7,
       "description": "Active goal 1",
@@ -10,8 +10,8 @@
         "Goal achieved"
       ],
       "current_status": "active",
-      "created_at": "2026-04-19T06:27:29.961Z",
-      "updated_at": "2026-04-19T06:27:29.961Z",
+      "created_at": "2026-04-19T06:34:34.074Z",
+      "updated_at": "2026-04-19T06:34:34.074Z",
       "last_progress_at": null,
       "progress_state": {
         "steps_total": 2,
@@ -36,7 +36,7 @@
       "tags": []
     },
     {
-      "goal_id": "goal_1776580049961_xqu745afl",
+      "goal_id": "goal_1776580474074_gr2zykblx",
       "goal_type": "optimization",
       "priority": 0.5,
       "description": "Active goal 2",
@@ -45,8 +45,8 @@
         "Goal achieved"
       ],
       "current_status": "active",
-      "created_at": "2026-04-19T06:27:29.961Z",
-      "updated_at": "2026-04-19T06:27:29.961Z",
+      "created_at": "2026-04-19T06:34:34.074Z",
+      "updated_at": "2026-04-19T06:34:34.074Z",
       "last_progress_at": null,
       "progress_state": {
         "steps_total": 1,
@@ -70,7 +70,7 @@
       "tags": []
     },
     {
-      "goal_id": "goal_1776580049961_rxeqim96e",
+      "goal_id": "goal_1776580474074_h8oxv7yem",
       "goal_type": "preventive",
       "priority": 0.3,
       "description": "Paused goal",
@@ -79,8 +79,8 @@
         "Goal achieved"
       ],
       "current_status": "active",
-      "created_at": "2026-04-19T06:27:29.961Z",
-      "updated_at": "2026-04-19T06:27:29.961Z",
+      "created_at": "2026-04-19T06:34:34.074Z",
+      "updated_at": "2026-04-19T06:34:34.074Z",
       "last_progress_at": null,
       "progress_state": {
         "steps_total": 1,
@@ -106,5 +106,5 @@
   ],
   "goal_history": [],
   "cycle_count": 0,
-  "last_updated": "2026-04-19T06:27:29.961Z"
+  "last_updated": "2026-04-19T06:34:34.074Z"
 }

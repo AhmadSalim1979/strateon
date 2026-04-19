@@ -449,11 +449,20 @@ function resetCaches() {
  * 
  * Goals should not override critical system state but should persist
  * and be pursued when system is HEALTHY.
+ * 
+ * REFINEMENT R9.1: STABILITY goals in CRITICAL may only produce
+ * diagnostic or containment steps — not actions competing with incident handling.
+ * 
+ * REFINEMENT R9.2: Active issues always outrank goals EXCEPT when
+ * a STABILITY goal directly addresses the same issue.
  */
 function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWork = [], pausedChains = []) {
   const { systemStatus = 'HEALTHY', isCritical, isUnhealthy } = systemState;
   
   const interactionResults = [];
+  
+  // REFINEMENT R9.2: Build map of issue_id to active issue for quick lookup
+  const activeIssueIds = new Set(activeIssues.map(i => i.issue_id || i.pattern_key || i.description));
   
   for (const goal of goals) {
     const result = {
@@ -461,19 +470,59 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
       goal_type: goal.goal_type,
       priority: goal.priority,
       current_status: goal.current_status,
-      recommendation: 'pursue',  // pursue | pause | suppress
+      recommendation: 'pursue',  // pursue | pause | suppress | diagnostic_only | containment_only
       reason: '',
       blocked_by: [],
+      step_type: 'full',  // full | diagnostic_only | containment_only — R9.1 refinement
     };
     
-    // CRITICAL system: suppress all non-stability goals
+    // REFINEMENT R9.1: CRITICAL system — STABILITY goals restricted to diagnostic/containment
     if (isCritical) {
       if (goal.goal_type === GOAL_TYPE.STABILITY) {
-        result.recommendation = 'pursue';
-        result.reason = 'Stability goal aligns with critical system needs';
+        // STABILITY goals in CRITICAL may only produce diagnostic or containment steps
+        // They must not recommend actions that compete with immediate incident handling
+        result.recommendation = 'diagnostic_or_containment_only';
+        result.reason = 'System is CRITICAL — STABILITY goal limited to diagnostic/containment steps only';
+        result.step_type = 'diagnostic_or_containment_only';
+        
+        // Check if this STABILITY goal is addressing a currently active issue (R9.2 exception)
+        // If so, it may be co-prioritized (but still diagnostic/containment only)
+        const goalAddressesActiveIssue = _goalAddressesIssue(goal, activeIssues);
+        if (goalAddressesActiveIssue) {
+          result.recommendation = 'diagnostic_or_containment_only';
+          result.reason = 'System is CRITICAL — STABILITY goal addressing active issue, limited to diagnostic/containment';
+        }
       } else {
         result.recommendation = 'suppress';
         result.reason = 'System is CRITICAL — non-stability goals suppressed';
+      }
+      interactionResults.push(result);
+      continue;
+    }
+    
+    // REFINEMENT R9.2: Active issues outrank goals EXCEPT STABILITY addressing same issue
+    const activeHighPriorityIssues = activeIssues.filter(i => i.priority_score > 0.7);
+    
+    if (activeHighPriorityIssues.length > 0) {
+      // Check if STABILITY goal directly addresses one of the active issues
+      const stabilityGoalAddressingIssue = 
+        goal.goal_type === GOAL_TYPE.STABILITY && 
+        _goalAddressesIssue(goal, activeHighPriorityIssues);
+      
+      if (stabilityGoalAddressingIssue) {
+        // R9.2 Exception: STABILITY goal directly addressing active issue — co-prioritized
+        result.recommendation = 'pursue';
+        result.reason = 'STABILITY goal addressing active issue — co-prioritized';
+        result.step_type = 'full';  // Full scope since it's addressing the issue directly
+      } else if (goal.goal_type === GOAL_TYPE.STABILITY) {
+        // STABILITY goal not addressing active issue — still pursue but lower priority
+        result.recommendation = 'pursue';
+        result.reason = 'STABILITY goal — higher priority than blocking issues';
+      } else {
+        // Non-STABILITY goals are paused by active high-priority issues
+        result.recommendation = 'pause';
+        result.reason = 'Active high-priority issues present — goal paused';
+        result.blocked_by = activeHighPriorityIssues.map(i => i.issue_id || i.pattern_key || i.description);
       }
       interactionResults.push(result);
       continue;
@@ -484,6 +533,7 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
       if (goal.goal_type === GOAL_TYPE.STABILITY) {
         result.recommendation = 'pursue';
         result.reason = 'Stability goal aligns with unhealthy system needs';
+        result.step_type = 'full';
       } else {
         result.recommendation = 'pause';
         result.reason = 'System is UNHEALTHY — non-stability goals paused';
@@ -498,6 +548,7 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
       if (goal.goal_type === GOAL_TYPE.STABILITY || goal.goal_type === GOAL_TYPE.PREVENTIVE) {
         result.recommendation = 'pursue';
         result.reason = `${goal.goal_type} goal aligns with degraded system`;
+        result.step_type = 'full';
       } else {
         result.recommendation = 'pause';
         result.reason = 'System is DEGRADED — pausing non-critical goals';
@@ -520,6 +571,7 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
       } else {
         result.recommendation = 'pursue';
         result.reason = 'System is HEALTHY — pursuing goal';
+        result.step_type = 'full';
       }
     } else if (goal.current_status === GOAL_STATUS.PAUSED) {
       // Check if can resume
@@ -530,6 +582,7 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
       } else {
         result.recommendation = 'resume';
         result.reason = 'Blockers cleared — goal eligible to resume';
+        result.step_type = 'full';
       }
     }
     
@@ -543,8 +596,51 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
       to_pause: interactionResults.filter(r => r.recommendation === 'pause').length,
       to_resume: interactionResults.filter(r => r.recommendation === 'resume').length,
       suppressed: interactionResults.filter(r => r.recommendation === 'suppress').length,
+      diagnostic_or_containment_only: interactionResults.filter(r => r.recommendation === 'diagnostic_or_containment_only').length,
     },
   };
+}
+
+/**
+ * _goalAddressesIssue(goal, activeIssues)
+ * 
+ * Internal helper: checks if a goal is addressing a specific active issue.
+ * A STABILITY goal addresses an issue if:
+ * - The goal has an addressing_issue_id field matching the issue, OR
+ * - The goal's description/reason matches the issue description
+ */
+function _goalAddressesIssue(goal, activeIssues) {
+  if (!goal || !activeIssues || activeIssues.length === 0) return false;
+  
+  // Check explicit addressing
+  if (goal.addressing_issue_id) {
+    return activeIssues.some(i => 
+      i.issue_id === goal.addressing_issue_id || 
+      i.pattern_key === goal.addressing_issue_id
+    );
+  }
+  
+  // Check if goal description mentions the issue description
+  // This is a fuzzy match — more precise matching would use explicit issue IDs
+  const goalText = `${goal.description} ${goal.creation_reason}`.toLowerCase();
+  
+  for (const issue of activeIssues) {
+    const issueText = (issue.description || issue.pattern_key || '').toLowerCase();
+    // Simple substring match
+    if (issueText && goalText.includes(issueText.substring(0, 20))) {
+      return true;
+    }
+    // Also check if issue description is contained in goal text
+    if (issueText && goalText.length > 10) {
+      // Partial match for longer descriptions
+      const shortIssue = issueText.substring(0, Math.min(30, issueText.length));
+      if (goalText.includes(shortIssue)) {
+        return true;
+      }
+    }
+  }
+  
+  return false;
 }
 
 // ─── Progress Discipline ──────────────────────────────────────────────────
@@ -553,6 +649,9 @@ function assessGoalInteraction(goals, systemState, activeIssues = [], deferredWo
  * getNextActionableGoal(goals, systemState, activeIssues)
  * 
  * Returns the goal with the highest priority that should be acted on now.
+ * 
+ * Handles R9.1 refinement: diagnostic_or_containment_only goals are actionable
+ * but only for diagnostic or containment steps.
  */
 function getNextActionableGoal(goals, systemState, activeIssues = []) {
   const activeGoals = goals.filter(g => g.current_status === GOAL_STATUS.ACTIVE);
@@ -565,8 +664,9 @@ function getNextActionableGoal(goals, systemState, activeIssues = []) {
   // Check interaction
   for (const goal of sorted) {
     const interaction = assessGoalInteraction([goal], systemState, activeIssues);
+    const interactionResult = interaction.interactions[0];
     
-    if (interaction.interactions[0]?.recommendation === 'pursue') {
+    if (interactionResult?.recommendation === 'pursue') {
       // Verify no duplication - goal has remaining steps
       if (goal.progress_state.remaining_steps.length > 0 || goal.progress_state.steps_completed < goal.progress_state.steps_total) {
         return {
@@ -574,6 +674,7 @@ function getNextActionableGoal(goals, systemState, activeIssues = []) {
           next_step: goal.progress_state.current_step,
           progress: goal.progress_state.progress_percent,
           recommendation: 'proceed',
+          step_type: interactionResult.step_type || 'full',
         };
       } else {
         // All steps done but not marked complete
@@ -582,6 +683,20 @@ function getNextActionableGoal(goals, systemState, activeIssues = []) {
           next_step: 'complete_goal',
           progress: goal.progress_state.progress_percent,
           recommendation: 'complete',
+          step_type: interactionResult.step_type || 'full',
+        };
+      }
+    } else if (interactionResult?.recommendation === 'diagnostic_or_containment_only') {
+      // R9.1: CRITICAL state — STABILITY goal limited to diagnostic/containment
+      // Still actionable but step_type signals restricted scope
+      if (goal.progress_state.remaining_steps.length > 0 || goal.progress_state.steps_completed < goal.progress_state.steps_total) {
+        return {
+          goal,
+          next_step: goal.progress_state.current_step,
+          progress: goal.progress_state.progress_percent,
+          recommendation: 'proceed_diagnostic_or_containment',  // Different recommendation
+          step_type: 'diagnostic_or_containment_only',  // Explicit step type
+          reason: 'CRITICAL state — only diagnostic/containment steps allowed',
         };
       }
     }
