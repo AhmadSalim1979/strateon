@@ -1,0 +1,132 @@
+{
+  "plans": {
+    "pause_test": {
+      "plan_id": "pause_test",
+      "goal_id": null,
+      "parent_task_id": null,
+      "description": "Unnamed plan",
+      "created_by": "system",
+      "created_at": "2026-04-19T12:48:35.977Z",
+      "updated_at": "2026-04-19T12:48:35.985Z",
+      "plan_status": "PAUSED",
+      "steps": [
+        {
+          "step_id": "p1",
+          "plan_id": "pause_test",
+          "description": "Pause test 1",
+          "action_type": "SAFE_AUTONOMOUS",
+          "dependencies": [],
+          "approval_required": false,
+          "approval_token": null,
+          "approved_at": null,
+          "approved_by": null,
+          "step_status": "COMPLETED",
+          "executed_at": "2026-04-19T12:48:35.985Z",
+          "execution_result": {},
+          "failure_reason": null,
+          "estimated_duration": null,
+          "created_at": "2026-04-19T12:48:35.978Z",
+          "updated_at": "2026-04-19T12:48:35.981Z",
+          "sequence_order": 0,
+          "execution_context": {},
+          "completed_at": "2026-04-19T12:48:35.985Z"
+        },
+        {
+          "step_id": "p2",
+          "plan_id": "pause_test",
+          "description": "Pause test 2",
+          "action_type": "SAFE_AUTONOMOUS",
+          "dependencies": [],
+          "approval_required": false,
+          "approval_token": null,
+          "approved_at": null,
+          "approved_by": null,
+          "step_status": "READY",
+          "executed_at": null,
+          "execution_result": null,
+          "failure_reason": null,
+          "estimated_duration": null,
+          "created_at": "2026-04-19T12:48:35.981Z",
+          "updated_at": "2026-04-19T12:48:35.985Z",
+          "sequence_order": 1
+        }
+      ],
+      "current_step_index": 0,
+      "completed_steps": 1,
+      "failed_steps": 0,
+      "blocked_steps": 0,
+      "execution_history": [],
+      "last_executed_step": "p1",
+      "last_executed_at": "2026-04-19T12:48:35.985Z",
+      "is_terminal": false,
+      "terminal_reason": null,
+      "terminal_at": null
+    }
+  },
+  "audit_log": [
+    {
+      "event_type": "PLAN_CREATED",
+      "plan_id": "pause_test",
+      "details": {
+        "description": "Unnamed plan",
+        "goal_id": null
+      },
+      "timestamp": "2026-04-19T12:48:35.978Z"
+    },
+    {
+      "event_type": "STEP_ADDED",
+      "plan_id": "pause_test",
+      "details": {
+        "step_id": "p1",
+        "dependencies": []
+      },
+      "timestamp": "2026-04-19T12:48:35.978Z"
+    },
+    {
+      "event_type": "STEP_ADDED",
+      "plan_id": "pause_test",
+      "details": {
+        "step_id": "p2",
+        "dependencies": []
+      },
+      "timestamp": "2026-04-19T12:48:35.981Z"
+    },
+    {
+      "event_type": "PLAN_ACTIVATED",
+      "plan_id": "pause_test",
+      "details": {
+        "ready_steps": 2,
+        "total_steps": 2
+      },
+      "timestamp": "2026-04-19T12:48:35.981Z"
+    },
+    {
+      "event_type": "STEP_EXECUTING",
+      "plan_id": "pause_test",
+      "details": {
+        "step_id": "p1"
+      },
+      "timestamp": "2026-04-19T12:48:35.985Z"
+    },
+    {
+      "event_type": "STEP_COMPLETED",
+      "plan_id": "pause_test",
+      "details": {
+        "step_id": "p1"
+      },
+      "timestamp": "2026-04-19T12:48:35.985Z"
+    },
+    {
+      "event_type": "PLAN_PAUSED",
+      "plan_id": "pause_test",
+      "details": {
+        "reason": ""
+      },
+      "timestamp": "2026-04-19T12:48:35.985Z"
+    }
+  ],
+  "total_plans_created": 1,
+  "total_steps_executed": 1,
+  "total_plans_completed": 0,
+  "total_plans_abandoned": 0
+}
