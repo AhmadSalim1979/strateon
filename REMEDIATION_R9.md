@@ -72,22 +72,24 @@ Implemented a Goal Persistence Layer that enables MOOSA to maintain and pursue m
 
 | Goal Type | HEALTHY | DEGRADED | UNHEALTHY | CRITICAL |
 |-----------|---------|----------|-----------|----------|
-| STABILITY | pursue | pursue | pursue | **pursue** |
+| STABILITY | pursue | pursue | pursue | **diagnostic_or_containment_only** |
 | PREVENTIVE | pursue | pursue | pause | suppress |
 | OPTIMIZATION | pursue | pause | pause | suppress |
 | INITIATIVE | pursue | pause | pause | suppress |
 
 **Key constraints:**
-- Goals do not override CRITICAL system state (except STABILITY goals)
-- High-priority issues (>0.7) can pause lower-priority goals (<HIGH)
+- **R9.1 Refinement**: In CRITICAL state, STABILITY goals may only produce diagnostic or containment steps — not actions that compete with immediate incident handling. They return `diagnostic_or_containment_only` recommendation with `step_type` field.
+- **R9.2 Refinement**: Active issues always outrank goals EXCEPT when a STABILITY goal directly addresses the same active issue (co-prioritized). A goal addresses an issue if `addressing_issue_id` matches or if goal description contains issue description.
 - Goals must not interfere with active critical chains
+- High-priority issues (>0.7) can pause lower-priority goals (<HIGH)
 
 ### Progress Discipline
 
 1. **No repetition**: Goals track `steps_completed` and `remaining_steps`. Completed steps are never repeated.
-2. **Clear next step**: `getNextActionableGoal()` returns the next uncompleted step.
+2. **Clear next step**: `getNextActionableGoal()` returns the next uncompleted step with `recommendation` and `step_type`.
 3. **Pause/resume**: `pauseGoal()` and `resumeGoal()` maintain state across interruptions.
 4. **Automatic completion**: When `steps_completed >= steps_total`, goal is automatically marked COMPLETED and archived.
+5. **R9.1 Step type enforcement**: `step_type` can be `full`, `diagnostic_only`, or `containment_only`. `getNextActionableGoal()` returns `recommendation: 'proceed_diagnostic_or_containment'` when `step_type` is restricted.
 
 ---
 
@@ -163,7 +165,7 @@ Implemented a Goal Persistence Layer that enables MOOSA to maintain and pursue m
 | V8 | Goal-chain association | ✅ PASS |
 | V9 | Progress discipline summary | ✅ PASS |
 
-**Total: 33 passed, 0 failed**
+**Total: 36 passed, 0 failed** (includes R9.1 refinement tests V3.6-V3.8)
 
 ---
 
