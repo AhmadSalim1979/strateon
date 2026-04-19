@@ -1,0 +1,50 @@
+{
+  "pending_items": [
+    {
+      "item_id": "buf_1776583219090_s8tqwpwff",
+      "proposal_id": "audit_approval",
+      "proposal": {
+        "proposal_id": "audit_approval",
+        "action": "approve_me"
+      },
+      "buffered_at": "2026-04-19T07:20:19.090Z",
+      "last_tried_at": "2026-04-19T07:20:19.090Z",
+      "last_escalated_at": "2026-04-19T07:20:19.090Z",
+      "expires_at": "2026-04-19T08:20:19.090Z",
+      "retry_count": 0,
+      "next_retry_at": "2026-04-19T07:50:19.090Z",
+      "recommendation_strength": 1,
+      "status": "approved",
+      "urgency": "normal",
+      "last_surface_at": null,
+      "surface_count": 0,
+      "approved_at": "2026-04-19T07:20:19.091Z"
+    }
+  ],
+  "audit_log": [
+    {
+      "event_type": "PROPOSAL_BUFFERED",
+      "target_id": "audit_approval",
+      "details": {
+        "urgency": "normal",
+        "expires_at": "2026-04-19T08:20:19.090Z"
+      },
+      "timestamp": "2026-04-19T07:20:19.090Z"
+    },
+    {
+      "event_type": "BUFFER_ITEM_APPROVED",
+      "target_id": "buf_1776583219090_s8tqwpwff",
+      "details": {
+        "wait_time_minutes": 0,
+        "retry_count": 0
+      },
+      "timestamp": "2026-04-19T07:20:19.091Z"
+    }
+  ],
+  "total_buffered": 1,
+  "total_approved": 1,
+  "total_expired": 0,
+  "total_cancelled": 0,
+  "operator_context": null,
+  "last_context_update": null
+}
