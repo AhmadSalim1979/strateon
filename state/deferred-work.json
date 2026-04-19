@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "deferred_id": "deferred_1776575924084_4ygckhjio",
+      "deferred_issue_id": "deferred_cleanup_001",
+      "deferred_reason": "Lower priority than active work",
+      "deferred_category": "housekeeping",
+      "deferred_priority": 0.4,
+      "deferred_at": "2026-04-19T05:18:44.084Z",
+      "deferred_at_relative_cycles": 0,
+      "revisit_after": 12,
+      "max_cycles": 36,
+      "cycles_deferred": 6,
+      "revisit_status": "pending",
+      "last_revisited_at": null,
+      "revisit_count": 0,
+      "description": "Stale session cleanup",
+      "related_pattern": null,
+      "recommended_action": "cleanup_stale_sessions",
+      "promotion_reason": null,
+      "suppression_reason": null,
+      "promoted_at": null,
+      "resolved_at": null,
+      "last_refreshed_at": "2026-04-19T05:20:03.617Z"
+    }
+  ],
+  "cycle_count": 6
+}
