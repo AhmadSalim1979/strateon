@@ -283,7 +283,8 @@ section('V3: Goal Pauses When Higher-Priority Issue Appears');
     fail('V3.4', `Expected suppress, got ${criticalResult.interactions[0]?.recommendation}`);
   }
   
-  // Stability goal should still be pursued in CRITICAL
+  // R9.1 Refinement: Stability goal in CRITICAL is diagnostic_or_containment_only
+  // It can still be acted upon but only for diagnostic/containment steps
   const stabilityGoal = createGoal({
     goal_type: GOAL_TYPE.STABILITY,
     priority: GOAL_PRIORITY.HIGH,
@@ -299,10 +300,67 @@ section('V3: Goal Pauses When Higher-Priority Issue Appears');
     []
   );
   
-  if (criticalStabilityResult.interactions[0]?.recommendation === 'pursue') {
-    pass('V3.5: Stability goal pursued even when system is CRITICAL');
+  // R9.1: STABILITY in CRITICAL → diagnostic_or_containment_only (not full pursue)
+  if (criticalStabilityResult.interactions[0]?.recommendation === 'diagnostic_or_containment_only') {
+    pass('V3.5: STABILITY goal in CRITICAL is diagnostic_or_containment_only (R9.1)');
   } else {
-    fail('V3.5', `Expected pursue, got ${criticalStabilityResult.interactions[0]?.recommendation}`);
+    fail('V3.5', `Expected diagnostic_or_containment_only, got ${criticalStabilityResult.interactions[0]?.recommendation}`);
+  }
+  
+  // Verify step_type is set correctly
+  if (criticalStabilityResult.interactions[0]?.step_type === 'diagnostic_or_containment_only') {
+    pass('V3.6: step_type correctly set to diagnostic_or_containment_only');
+  } else {
+    fail('V3.6', `Expected step_type=diagnostic_or_containment_only, got ${criticalStabilityResult.interactions[0]?.step_type}`);
+  }
+  
+  // R9.2: STABILITY goal addressing same active issue is co-prioritized
+  resetState();
+  
+  const activeIssue = {
+    issue_id: 'critical_cpu_spike',
+    priority_score: 0.9,
+    description: 'Critical CPU spike detected',
+  };
+  
+  const stabilityGoalAddressingIssue = createGoal({
+    goal_type: GOAL_TYPE.STABILITY,
+    priority: GOAL_PRIORITY.MEDIUM,  // Same priority as non-stability
+    description: 'Fix critical CPU spike issue',
+    addressing_issue_id: 'critical_cpu_spike',  // Explicitly addresses this issue
+    initial_steps: ['Analyze CPU spike', 'Apply fix'],
+  });
+  
+  const nonStabilityGoal = createGoal({
+    goal_type: GOAL_TYPE.OPTIMIZATION,
+    priority: GOAL_PRIORITY.MEDIUM,
+    description: 'Optimize database queries',
+    initial_steps: ['Review queries', 'Optimize'],
+  });
+  
+  const r9_2Result = assessGoalInteraction(
+    [stabilityGoalAddressingIssue, nonStabilityGoal],
+    { systemStatus: 'HEALTHY' },
+    [activeIssue],  // Active high-priority issue
+    [],
+    []
+  );
+  
+  const stabilityInteraction = r9_2Result.interactions.find(i => i.goal_type === GOAL_TYPE.STABILITY);
+  const nonStabilityInteraction = r9_2Result.interactions.find(i => i.goal_type === GOAL_TYPE.OPTIMIZATION);
+  
+  // R9.2: STABILITY addressing same issue should be pursued (not paused) even with high-priority issue
+  if (stabilityInteraction?.recommendation === 'pursue') {
+    pass('V3.7: STABILITY goal addressing active issue is co-prioritized (R9.2)');
+  } else {
+    fail('V3.7', `Expected pursue for STABILITY addressing same issue, got ${stabilityInteraction?.recommendation}`);
+  }
+  
+  // Non-STABILITY should be paused
+  if (nonStabilityInteraction?.recommendation === 'pause') {
+    pass('V3.8: Non-STABILITY goal paused by active high-priority issue');
+  } else {
+    fail('V3.8', `Expected pause for non-STABILITY, got ${nonStabilityInteraction?.recommendation}`);
   }
 }
 
