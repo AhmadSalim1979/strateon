@@ -1,0 +1,110 @@
+{
+  "goals": [
+    {
+      "goal_id": "goal_1776580049961_98wlj7407",
+      "goal_type": "stability",
+      "priority": 0.7,
+      "description": "Active goal 1",
+      "creation_reason": "",
+      "success_criteria": [
+        "Goal achieved"
+      ],
+      "current_status": "active",
+      "created_at": "2026-04-19T06:27:29.961Z",
+      "updated_at": "2026-04-19T06:27:29.961Z",
+      "last_progress_at": null,
+      "progress_state": {
+        "steps_total": 2,
+        "steps_completed": 0,
+        "current_step": "Step 1",
+        "remaining_steps": [
+          "Step 1",
+          "Step 2"
+        ],
+        "progress_percent": 0
+      },
+      "associated_chain_id": null,
+      "completed_at": null,
+      "completion_reason": null,
+      "abandoned_at": null,
+      "abandonment_reason": null,
+      "blocked_by_issues": [],
+      "blocked_since": null,
+      "pause_count": 0,
+      "resume_count": 0,
+      "created_by": "system",
+      "tags": []
+    },
+    {
+      "goal_id": "goal_1776580049961_xqu745afl",
+      "goal_type": "optimization",
+      "priority": 0.5,
+      "description": "Active goal 2",
+      "creation_reason": "",
+      "success_criteria": [
+        "Goal achieved"
+      ],
+      "current_status": "active",
+      "created_at": "2026-04-19T06:27:29.961Z",
+      "updated_at": "2026-04-19T06:27:29.961Z",
+      "last_progress_at": null,
+      "progress_state": {
+        "steps_total": 1,
+        "steps_completed": 0,
+        "current_step": "Step 1",
+        "remaining_steps": [
+          "Step 1"
+        ],
+        "progress_percent": 0
+      },
+      "associated_chain_id": null,
+      "completed_at": null,
+      "completion_reason": null,
+      "abandoned_at": null,
+      "abandonment_reason": null,
+      "blocked_by_issues": [],
+      "blocked_since": null,
+      "pause_count": 0,
+      "resume_count": 0,
+      "created_by": "system",
+      "tags": []
+    },
+    {
+      "goal_id": "goal_1776580049961_rxeqim96e",
+      "goal_type": "preventive",
+      "priority": 0.3,
+      "description": "Paused goal",
+      "creation_reason": "",
+      "success_criteria": [
+        "Goal achieved"
+      ],
+      "current_status": "active",
+      "created_at": "2026-04-19T06:27:29.961Z",
+      "updated_at": "2026-04-19T06:27:29.961Z",
+      "last_progress_at": null,
+      "progress_state": {
+        "steps_total": 1,
+        "steps_completed": 0,
+        "current_step": "Step 1",
+        "remaining_steps": [
+          "Step 1"
+        ],
+        "progress_percent": 0
+      },
+      "associated_chain_id": null,
+      "completed_at": null,
+      "completion_reason": null,
+      "abandoned_at": null,
+      "abandonment_reason": null,
+      "blocked_by_issues": [],
+      "blocked_since": null,
+      "pause_count": 0,
+      "resume_count": 0,
+      "created_by": "system",
+      "tags": []
+    }
+  ],
+  "goal_history": [],
+  "cycle_count": 0,
+  "last_updated": "2026-04-19T06:27:29.961Z"
+}
