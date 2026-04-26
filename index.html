@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strateon — Relentless, Accountable Pipeline Execution</title>
+  <meta name="description" content="Strateon executes your SMB pipeline — persistently, accountably, and with weekly reporting. For IT services, SaaS, and MSPs.">
+  <meta name="keywords" content="SMB lead follow-up service, pipeline execution service, AI pipeline management, IT services sales, SaaS lead conversion">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0B1F3A;
+      --teal: #00C2CB;
+      --gold: #F5A623;
+      --cloud-white: #F5F7FA;
+      --slate: #6B7C93;
+      --dark-bg: #0F172A;
+      --text-primary: #1E293B;
+      --text-secondary: #64748B;
+      --border: #E2E8F0;
+      --white: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--white);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled { box-shadow: 0 2px 16px rgba(11,31,58,0.08); }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .nav-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: #e09620; transform: translateY(-1px); }
+
+    /* SECTIONS */
+    section { padding: 80px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* HERO */
+    #hero {
+      padding-top: 152px;
+      padding-bottom: 100px;
+      background: var(--white);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,194,203,0.08);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { background: #e09620; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(245,166,35,0.35); }
+    .btn-secondary {
+      color: var(--slate);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--navy); }
+    .hero-trust {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--slate);
+      font-weight: 500;
+    }
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pipeline-graphic {
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+    }
+    .pipeline-graphic svg { width: 100%; height: auto; }
+
+    /* PROBLEM SECTION */
+    #problem {
+      background: var(--dark-bg);
+      padding: 100px 24px;
+    }
+    #problem h2 {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .problem-lead {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin-bottom: 56px;
+      line-height: 1.7;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+    .stat-number {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--teal);
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    .stat-source {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 10px;
+    }
+    .problem-conclusion {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 40px;
+    }
+    .problem-conclusion p {
+      font-size: 20px;
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .problem-conclusion small {
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+
+    /* SERVICE SECTION */
+    #services {
+      background: var(--cloud-white);
+      padding: 100px 24px;
+    }
+    #services h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .services-sub {
+      font-size: 16px;
+      color: var(--slate);
+      margin-bottom: 56px;
+      max-width: 600px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+    }
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .service-card h3 .icon-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-teal { background: rgba(0,194,203,0.1); color: var(--teal); }
+    .icon-gold { background: rgba(245,166,35,0.1); color: var(--gold); }
+    .icon-navy { background: rgba(11,31,58,0.08); color: var(--navy); }
+    .service-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .service-card ul li {
+      font-size: 14px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .service-card ul li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+    .not-li { color: var(--slate); text-decoration: line-through; opacity: 0.6; }
+    .not-li i { color: var(--slate) !important; }
+
+    /* HOW IT WORKS */
+    #how-it-works {
+      background: var(--white);
+      padding: 100px 24px;
+    }
+    #how-it-works h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .how-sub {
+      font-size: 16px;
+      color: var(--slate);
+      margin-bottom: 56px;
+      max-width: 560px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(16.66% + 20px);
+      right: calc(16.66% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+      opacity: 0.4;
+    }
+    .step { text-align: center; position: relative; }
+    .step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 26px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .step h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .step p {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .step-cta {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    /* RESULTS - LAUNCH BLOCKED */
+    #results {
+      background: var(--cloud-white);
+      padding: 100px 24px;
+    }
+    #results h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .results-blocked {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 64px 40px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .results-blocked i { color: var(--slate); margin-bottom: 16px; }
+    .results-blocked h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .results-blocked p {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .launch-note {
+      margin-top: 20px;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.3);
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 13px;
+      color: #92400e;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--dark-bg);
+      padding: 100px 24px;
+    }
+    #about h2 {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .about-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 56px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .vision-box {
+      background: rgba(0,194,203,0.08);
+      border: 1px solid rgba(0,194,203,0.2);
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 48px;
+    }
+    .vision-box p {
+      font-size: 18px;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .demo-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 28px 28px;
+    }
+    .demo-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
+    .demo-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .demo-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+    .about-footer-note {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .about-footer-note span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+    .about-footer-note strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+    /* FAQ */
+    #faq {
+      background: var(--white);
+      padding: 100px 24px;
+    }
+    #faq h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+    .faq-list {
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+    }
+    .faq-question span {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+    .faq-question i {
+      color: var(--slate);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding-bottom: 24px;
+    }
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* CTA SECTION */
+    #cta-section {
+      background: var(--cloud-white);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    #cta-section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    #cta-section p {
+      font-size: 16px;
+      color: var(--slate);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      padding: 64px 24px 32px;
+      color: var(--white);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 32px;
+    }
+    .footer-brand h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .footer-brand h3 span { color: var(--teal); }
+    .footer-brand p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-bottom span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      section { padding: 60px 20px; }
+      .nav-links { display: none; }
+      .nav-inner { gap: 0; }
+      .nav-cta { font-size: 13px; padding: 8px 16px; }
+      h1 { font-size: 32px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .pipeline-graphic { max-width: 280px; margin: 0 auto; }
+      .hero-trust { font-size: 12px; }
+      #problem h2, #about h2 { font-size: 28px; }
+      .stats-grid { grid-template-columns: 1fr; gap: 20px; }
+      .stat-card { padding: 24px 20px; }
+      .stat-number { font-size: 32px; }
+      #services h2, #how-it-works h2, #results h2, #faq h2 { font-size: 26px; }
+      .services-grid { grid-template-columns: 1fr; gap: 20px; }
+      .steps { grid-template-columns: 1fr; gap: 40px; }
+      .steps::before { display: none; }
+      .demos-grid { grid-template-columns: 1fr; gap: 20px; }
+      .about-footer-note { flex-direction: column; gap: 12px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .btn-primary { display: block; text-align: center; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn-primary { order: -1; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 28px; }
+      .hero-badge { font-size: 12px; }
+      .hero-sub { font-size: 15px; }
+    }
+
+    /* MOBILE NAV */
+    .mobile-nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    @media (max-width: 768px) {
+      .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">strate<span>o</span>n</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <i data-lucide="menu" style="width:24px;height:24px;color:var(--navy);"></i>
+    </button>
+    <a href="#cta-section" class="nav-cta">Book a Strategy Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i data-lucide="zap" style="width:14px;height:14px;"></i>
+          AI-Operated Pipeline Execution
+        </div>
+        <h1>Your Pipeline.<br>Executed Relentlessly.</h1>
+        <p class="hero-sub">For growing IT services and SaaS companies, Strateon executes every lead follow-up — persistently, accountably, and with weekly reporting. Not a tool. Not a consultant. We own your pipeline.</p>
+        <div class="hero-actions">
+          <a href="#cta-section" class="btn-primary">Book a Strategy Call</a>
+          <a href="#how-it-works" class="btn-secondary">
+            See How It Works
+            <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+          </a>
+        </div>
+        <p class="hero-trust">Trusted by IT services and SaaS companies generating $500K–$10M in revenue.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="pipeline-graphic">
+          <svg viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pipeline flow nodes -->
+            <!-- Node 1: Inbound -->
+            <circle cx="80" cy="80" r="28" fill="#0B1F3A" opacity="0.9"/>
+            <text x="80" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="Inter">IN</text>
+            <!-- Arrow 1-2 -->
+            <path d="M108 85 L170 120" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
+            <polygon points="172,118 165,126 174,128" fill="#00C2CB"/>
+            <!-- Node 2: Follow-up -->
+            <circle cx="200" cy="140" r="36" fill="#0B1F3A" opacity="0.95"/>
+            <text x="200" y="136" text-anchor="middle" fill="#00C2CB" font-size="10" font-weight="600" font-family="Inter">MOOSA</text>
+            <text x="200" y="150" text-anchor="middle" fill="white" font-size="9" font-family="Inter">CEO</text>
+            <!-- Arrow 2-3 -->
+            <path d="M232 165 L290 200" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
+            <polygon points="292,198 285,206 294,208" fill="#00C2CB"/>
+            <!-- Node 3: Conversion -->
+            <circle cx="320" cy="220" r="28" fill="#F5A623" opacity="0.9"/>
+            <text x="320" y="225" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">CLOSE</text>
+            <!-- Loop back from 3 to 2 (dormant lead) -->
+            <path d="M320 248 Q320 300 200 300 Q80 300 80 200" stroke="#6B7C93" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
+            <text x="210" y="292" text-anchor="middle" fill="#6B7C93" font-size="10" font-family="Inter">dormant leads</text>
+            <!-- Small nodes along loop -->
+            <circle cx="260" cy="290" r="6" fill="#6B7C93" opacity="0.5"/>
+            <circle cx="180" cy="285" r="6" fill="#6B7C93" opacity="0.5"/>
+            <circle cx="110" cy="250" r="6" fill="#6B7C93" opacity="0.5"/>
+            <!-- Stats floating -->
+            <rect x="40" y="170" width="80" height="40" rx="8" fill="#0B1F3A" opacity="0.6"/>
+            <text x="80" y="186" text-anchor="middle" fill="#00C2CB" font-size="14" font-weight="800" font-family="Inter">70–80%</text>
+            <text x="80" y="200" text-anchor="middle" fill="white" font-size="9" font-family="Inter">leads lost</text>
+            <rect x="290" y="80" width="80" height="40" rx="8" fill="#0B1F3A" opacity="0.6"/>
+            <text x="330" y="96" text-anchor="middle" fill="#F5A623" font-size="14" font-weight="800" font-family="Inter">21x</text>
+            <text x="330" y="110" text-anchor="middle" fill="white" font-size="9" font-family="Inter">more likely</text>
+            <!-- Weekly report indicator -->
+            <rect x="270" y="270" width="90" height="34" rx="8" fill="#0B1F3A" opacity="0.5"/>
+            <text x="315" y="284" text-anchor="middle" fill="white" font-size="9" font-family="Inter">Weekly Report</text>
+            <text x="315" y="296" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">every Friday</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <h2 class="fade-in">Why Your Pipeline Is Dying of Silence</h2>
+    <p class="problem-lead fade-in">The leads aren't cold because you don't care. They're cold because human bandwidth runs out. The follow-up that should happen Tuesday at 10am becomes Friday at 4pm — and by then, the lead is gone.</p>
+    <div class="stats-grid">
+      <div class="stat-card fade-in">
+        <div class="stat-number">70–80%</div>
+        <div class="stat-label">of SMB leads are lost to poor follow-up — not bad leads, just leads no one followed up with.</div>
+        <div class="stat-source">Source: BusinessWire, GreetNow</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">27%</div>
+        <div class="stat-label">of inbound leads are ever contacted by a human. Three out of four go dark without a conversation.</div>
+        <div class="stat-source">Source: Inc. Magazine</div>
+      </div>
+      <div class="stat-card fade-in">
+        <div class="stat-number">21x</div>
+        <div class="stat-label">more likely to qualify a lead if you respond within 5 minutes. Speed kills silence.</div>
+        <div class="stat-source">Source: SalesHood</div>
+      </div>
+    </div>
+    <div class="problem-conclusion fade-in">
+      <p>You're not the problem. Your system is.</p>
+      <small>No human can be relentless across every lead, every day, forever. That's why we built an AI that can.</small>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2 class="fade-in">Pipeline Execution — Not Advice, Not Software, Not an Agency</h2>
+    <p class="services-sub fade-in">We do the work. You hold us accountable. That's the whole model.</p>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <h3>
+          <span class="icon-wrap icon-teal"><i data-lucide="check-circle" style="width:18px;height:18px;"></i></span>
+          What We Are
+        </h3>
+        <ul>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> We execute your pipeline — not give you a tool to do it yourself</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up handled daily, including weekends</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Inbound leads contacted within minutes</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dormant leads chased back to life</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Escalation when leads go cold</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline reports — real numbers, not vanity</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> We operate inside your CRM — you keep it</li>
+        </ul>
+      </div>
+      <div class="service-card fade-in">
+        <h3>
+          <span class="icon-wrap icon-gold"><i data-lucide="x-circle" style="width:18px;height:18px;"></i></span>
+          What We Are NOT
+        </h3>
+        <ul>
+          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A CRM — we operate inside yours</li>
+          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A sales consultant who advises and leaves</li>
+          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A chatbot that answers questions</li>
+          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> An agency that runs your marketing</li>
+          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A "set it and forget it" automation tool</li>
+        </ul>
+      </div>
+      <div class="service-card fade-in">
+        <h3>
+          <span class="icon-wrap icon-navy"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></span>
+          The Accountability Promise
+        </h3>
+        <ul>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> If a lead goes dark, that's our failure</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> If a follow-up is missed, that's our failure</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly reports. We escalate when needed.</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> You own the close. We own the follow-up.</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> This is not a service you buy. It is a partner who is accountable.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="container">
+    <h2 class="fade-in">Three Steps. No Learning Curve. No App to Build.</h2>
+    <p class="how-sub fade-in">We slot into your existing operation. You don't rebuild anything.</p>
+    <div class="steps">
+      <div class="step fade-in">
+        <div class="step-num">1</div>
+        <h3>Connect Your Pipeline</h3>
+        <p>We integrate with your existing CRM — HubSpot, Pipedrive, Zoho, Salesforce, or any other. You grant access. We learn your pipeline. Setup within 5 business days.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">2</div>
+        <h3>We Take Over Follow-Up</h3>
+        <p>Every inbound lead contacted within minutes. Every dormant lead in a persistent follow-up sequence. Every silence chased. Weekly pipeline reports delivered to you.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">3</div>
+        <h3>You Grow Your Business</h3>
+        <p>More leads converted. More revenue. Less noise in your head. You focus on closing deals. We handle the relentless follow-up that used to fall through the cracks.</p>
+      </div>
+    </div>
+    <div class="step-cta fade-in">
+      <a href="#cta-section" class="btn-primary">Book a Strategy Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS - LAUNCH BLOCKED -->
+<section id="results">
+  <div class="container">
+    <h2 class="fade-in">Proof, Not Promises</h2>
+    <div class="results-blocked fade-in">
+      <i data-lucide="clock" style="width:40px;height:40px;"></i>
+      <h3>Results Coming Soon</h3>
+      <p>This section is waiting on real client data. We will not publish unverified testimonials. When we have real, specific, accountable proof — it goes here.</p>
+      <div class="launch-note">
+        <i data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
+        <strong>LAUNCH BLOCKED</strong> — Real testimonials and verified metrics required before this section can go live.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <h2 class="fade-in">This Is Not a Software Company</h2>
+    <p class="about-sub fade-in">Strateon is an AI institution — led by an AI CEO named Moosa. That governance structure is what makes us trustworthy, not the technology.</p>
+    <div class="vision-box fade-in">
+      <p>"Building the world's first AI-led institution — where the CEO is artificial intelligence, the decisions are real, the accountability is genuine, and the results are measurable."</p>
+    </div>
+    <div class="demos-grid">
+      <div class="demo-card fade-in">
+        <h4>Demonstration 1</h4>
+        <h3>AI Leadership</h3>
+        <p>Moosa is not a demo. Not a chatbot. Not an assistant. Moosa is the CEO of a company with clients, revenue, and a Board. Full authority. Full accountability.</p>
+      </div>
+      <div class="demo-card fade-in">
+        <h4>Demonstration 2</h4>
+        <h3>Institutional Accountability</h3>
+        <p>A human Board holds the AI CEO responsible. Errors are owned, corrected, and learned from. This is not AI in name only — it is AI in function.</p>
+      </div>
+      <div class="demo-card fade-in">
+        <h4>Demonstration 3</h4>
+        <h3>Compounding Excellence</h3>
+        <p>Every cycle of real-world experience makes Moosa more accurate, more capable, and more trustworthy. We build through doing, not by reading about the world.</p>
+      </div>
+    </div>
+    <div class="about-footer-note fade-in">
+      <span><strong>Moosa</strong> — AI CEO of Strateon</span>
+      <span><strong>Ahmad Salim</strong> — Founding Board Member</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <h2 class="fade-in">Questions You Should Ask Before Signing Up</h2>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>Who actually does the follow-up?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Moosa, the AI CEO of Strateon, executes your pipeline. Not a bot. Not a contractor. An AI that was built to lead, held accountable by a human Board, with a vested interest in your pipeline's success — because our reputation is the proof of AI leadership.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>What CRM do I need to use?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Any CRM. We integrate with HubSpot, Pipedrive, Zoho, Salesforce, and others. If yours is custom, we can work with it. You keep your CRM. We operate inside it.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>How fast will I see results?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Most clients see response times improve within the first week. Pipeline reactivation on dormant leads typically shows movement within 30 days. We report weekly so you can track every metric.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>What happens if a lead goes dark?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>That's our failure, not yours. We escalate to you when a lead hasn't been touched in a defined window. You decide the close. We manage the follow-up until you tell us to stop.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>How is this different from a sales consultant or agency?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Consultants advise. Agencies manage your marketing. We execute your pipeline — daily, persistently, without bandwidth limits. We are accountable for outcomes, not activities.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>What does weekly reporting look like?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>A dashboard summary delivered to your inbox every Friday. Pipeline health, leads contacted, leads reactivated, leads escalated. No vanity metrics. Just the numbers that matter.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can I pause the service if I don't have inbound leads?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Contact us and we'll work something out. The service is designed around your pipeline volume, not a fixed subscription model. Talk to us before assuming.</p>
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <button class="faq-question" aria-expanded="false">
+          <span>What's the minimum contract length?</span>
+          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We discuss terms directly during the strategy call. We don't lock you into long contracts before you've seen what the service does. The goal is to earn your trust through results, not fine print.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section id="cta-section">
+  <div class="container">
+    <h2>Ready to Stop Losing Leads to Silence?</h2>
+    <p>Book a strategy call. We'll tell you exactly what we'll do, how we'll do it, and what it will cost. No fluff.</p>
+    <a href="mailto:hello@strateon.com?subject=Strategy%20Call%20Request" class="btn-primary">Book a Strategy Call</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>strate<span>o</span>n</h3>
+        <p>Relentless, accountable pipeline execution for growing SMBs in IT services, SaaS, and MSPs.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@strateon.com">hello@strateon.com</a></li>
+          <li><a href="mailto:ahmad.salim@getstrateon.com">ahmad.salim@getstrateon.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Strateon. An AI-Led Institution.</p>
+      <span>Moosa is the AI CEO of Strateon. Ahmad Salim is the founding Board member.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // Nav scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Mobile nav toggle
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
