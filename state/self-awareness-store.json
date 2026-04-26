@@ -1,0 +1,304 @@
+{
+  "verifications": [
+    {
+      "cycle": 1,
+      "verified_at": "2026-04-19T05:36:34.530Z",
+      "overall_status": "verified",
+      "reported_state": {
+        "status": "HEALTHY",
+        "health_score": 0.95,
+        "_verified_at": "2026-04-19T05:36:34.530Z"
+      },
+      "component_verification": {
+        "worker": {
+          "component": "worker",
+          "component_full_name": "Worker Process",
+          "status": "verified",
+          "age_ms": 0,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "health_score": 0.95,
+            "cycle_count": 1,
+            "pid": 1264123,
+            "last_cycle_at": "2026-04-19T05:36:34.530Z"
+          },
+          "verified_at": "2026-04-19T05:36:34.530Z"
+        },
+        "self-check": {
+          "component": "self-check",
+          "component_full_name": "Self-Check",
+          "status": "verified",
+          "age_ms": 0,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "alert_sent": false
+          },
+          "verified_at": "2026-04-19T05:36:34.530Z"
+        },
+        "thinking-loop": {
+          "component": "thinking-loop",
+          "component_full_name": "Thinking Loop",
+          "status": "verified",
+          "age_ms": 0,
+          "threshold_ms": 180000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "active",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "last_decision": null,
+            "guard_blocked": false
+          },
+          "verified_at": "2026-04-19T05:36:34.530Z"
+        },
+        "decision-cycle": {
+          "component": "decision-cycle",
+          "component_full_name": "Decision Cycle",
+          "status": "verified",
+          "age_ms": 0,
+          "threshold_ms": 900000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_cycle_at": "2026-04-19T05:36:34.530Z",
+            "active_issues": []
+          },
+          "verified_at": "2026-04-19T05:36:34.530Z"
+        }
+      },
+      "discrepancies_count": 0,
+      "inconsistencies_count": 0,
+      "silent_degradation_count": 0
+    },
+    {
+      "cycle": 2,
+      "verified_at": "2026-04-19T05:36:34.531Z",
+      "overall_status": "verified",
+      "reported_state": {
+        "status": "HEALTHY",
+        "health_score": 0.95,
+        "_verified_at": "2026-04-19T05:36:34.531Z"
+      },
+      "component_verification": {
+        "worker": {
+          "component": "worker",
+          "component_full_name": "Worker Process",
+          "status": "verified",
+          "age_ms": 1,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "health_score": 0.95,
+            "cycle_count": 1,
+            "pid": 1264123,
+            "last_cycle_at": "2026-04-19T05:36:34.530Z"
+          },
+          "verified_at": "2026-04-19T05:36:34.531Z"
+        },
+        "self-check": {
+          "component": "self-check",
+          "component_full_name": "Self-Check",
+          "status": "verified",
+          "age_ms": 1,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "alert_sent": false
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        },
+        "thinking-loop": {
+          "component": "thinking-loop",
+          "component_full_name": "Thinking Loop",
+          "status": "verified",
+          "age_ms": 2,
+          "threshold_ms": 180000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "active",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "last_decision": null,
+            "guard_blocked": false
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        },
+        "decision-cycle": {
+          "component": "decision-cycle",
+          "component_full_name": "Decision Cycle",
+          "status": "verified",
+          "age_ms": 2,
+          "threshold_ms": 900000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_cycle_at": "2026-04-19T05:36:34.530Z",
+            "active_issues": []
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        }
+      },
+      "discrepancies_count": 0,
+      "inconsistencies_count": 0,
+      "silent_degradation_count": 0
+    },
+    {
+      "cycle": 3,
+      "verified_at": "2026-04-19T05:36:34.532Z",
+      "overall_status": "verified",
+      "reported_state": {
+        "status": "HEALTHY",
+        "health_score": 0.95,
+        "_verified_at": "2026-04-19T05:36:34.532Z"
+      },
+      "component_verification": {
+        "worker": {
+          "component": "worker",
+          "component_full_name": "Worker Process",
+          "status": "verified",
+          "age_ms": 2,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "health_score": 0.95,
+            "cycle_count": 1,
+            "pid": 1264123,
+            "last_cycle_at": "2026-04-19T05:36:34.530Z"
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        },
+        "self-check": {
+          "component": "self-check",
+          "component_full_name": "Self-Check",
+          "status": "verified",
+          "age_ms": 2,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "alert_sent": false
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        },
+        "thinking-loop": {
+          "component": "thinking-loop",
+          "component_full_name": "Thinking Loop",
+          "status": "verified",
+          "age_ms": 2,
+          "threshold_ms": 180000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "active",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "last_decision": null,
+            "guard_blocked": false
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        },
+        "decision-cycle": {
+          "component": "decision-cycle",
+          "component_full_name": "Decision Cycle",
+          "status": "verified",
+          "age_ms": 2,
+          "threshold_ms": 900000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_cycle_at": "2026-04-19T05:36:34.530Z",
+            "active_issues": []
+          },
+          "verified_at": "2026-04-19T05:36:34.532Z"
+        }
+      },
+      "discrepancies_count": 0,
+      "inconsistencies_count": 0,
+      "silent_degradation_count": 0
+    },
+    {
+      "cycle": 4,
+      "verified_at": "2026-04-19T05:36:34.533Z",
+      "overall_status": "verified",
+      "reported_state": {
+        "status": "HEALTHY",
+        "health_score": 0.95
+      },
+      "component_verification": {
+        "worker": {
+          "component": "worker",
+          "component_full_name": "Worker Process",
+          "status": "verified",
+          "age_ms": 3,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "health_score": 0.95,
+            "cycle_count": 1,
+            "pid": 1264123,
+            "last_cycle_at": "2026-04-19T05:36:34.530Z"
+          },
+          "verified_at": "2026-04-19T05:36:34.533Z"
+        },
+        "self-check": {
+          "component": "self-check",
+          "component_full_name": "Self-Check",
+          "status": "verified",
+          "age_ms": 3,
+          "threshold_ms": 600000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "alert_sent": false
+          },
+          "verified_at": "2026-04-19T05:36:34.533Z"
+        },
+        "thinking-loop": {
+          "component": "thinking-loop",
+          "component_full_name": "Thinking Loop",
+          "status": "verified",
+          "age_ms": 3,
+          "threshold_ms": 180000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "active",
+            "last_run_at": "2026-04-19T05:36:34.530Z",
+            "last_decision": null,
+            "guard_blocked": false
+          },
+          "verified_at": "2026-04-19T05:36:34.533Z"
+        },
+        "decision-cycle": {
+          "component": "decision-cycle",
+          "component_full_name": "Decision Cycle",
+          "status": "verified",
+          "age_ms": 3,
+          "threshold_ms": 900000,
+          "last_run_at": "2026-04-19T05:36:34.530Z",
+          "actual_state": {
+            "status": "HEALTHY",
+            "last_cycle_at": "2026-04-19T05:36:34.530Z",
+            "active_issues": []
+          },
+          "verified_at": "2026-04-19T05:36:34.533Z"
+        }
+      },
+      "discrepancies_count": 0,
+      "inconsistencies_count": 0,
+      "silent_degradation_count": 0
+    }
+  ],
+  "discrepancies": [],
+  "last_full_verification_at": "2026-04-19T05:36:34.533Z",
+  "last_verification_cycle": 4,
+  "consecutive_failures": 0,
+  "history": []
+}

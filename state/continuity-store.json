@@ -1,0 +1,40 @@
+{
+  "chains": [
+    {
+      "chain_id": "chain_paused_001",
+      "chain_issue": "Database optimization investigation",
+      "continuity_status": "chain_paused",
+      "created_at": "2026-04-19T05:18:44.085Z",
+      "updated_at": "2026-04-19T05:20:03.618Z",
+      "paused_at": "2026-04-19T05:20:03.618Z",
+      "paused_reason": "Critical instability preemption",
+      "resume_condition": "Cannot resume while system is UNHEALTHY.",
+      "preemption": {
+        "interrupting_issue": "system_unhealthy",
+        "preemption_decision": "preempt_and_pause_current"
+      },
+      "completed_steps": [
+        {
+          "step_number": 1,
+          "action_id": "analyze_db_performance",
+          "description": "Analyze DB performance"
+        }
+      ],
+      "remaining_steps": [
+        {
+          "step_number": 2,
+          "action_id": "identify_bottlenecks",
+          "description": "Identify bottlenecks"
+        },
+        {
+          "step_number": 3,
+          "action_id": "implement_optimization",
+          "description": "Implement optimization"
+        }
+      ],
+      "paused_age_cycles": 0,
+      "is_stale": false
+    }
+  ],
+  "last_updated": "2026-04-19T05:20:03.618Z"
+}
