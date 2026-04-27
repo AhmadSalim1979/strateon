@@ -15,3 +15,6 @@
 - To resolve: Allow the secret via https://github.com/AhmadSalim1979/strateon/security/secret-scanning (the unblock links from the push error), then push from /tmp/extract
 
 | 2026-04-27 02:56 CEST | 71d2e7f | Auto-backup: 2 files, +278 lines | ✅ |
+| 2026-04-27 14:56 CEST | 2222bcc | Auto-backup: 1 file (MEMORY.md redacted), +96 lines | ✅ |
+| 2026-04-27 14:56 CEST | 5eac329 | Auto-backup: 27 files, 6322 insertions | ❌ Push blocked — secret in MEMORY.md (Supabase key). Resolved by redacting key, resetting, and pushing clean commit (2222bcc) |
+| 2026-04-27 14:56 CEST | 7189c44 | Auto-backup: 27 files, 6322 insertions | ❌ Push blocked — GH013 secret scanning on MEMORY.md:85. Amend + force push also blocked. Resolved via hard reset + re-commit with redacted secret |
