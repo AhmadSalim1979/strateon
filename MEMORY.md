@@ -18,7 +18,24 @@
 **End of every day:**
 - Assess what was accomplished
 - Assess what still needs to be done
-- Log it → this becomes the backup and additions for the next day
+- Log
+
+---
+
+## Standing Daily Requirement — Start-of-Day Report
+
+**Established:** 2026-04-28
+**Trigger:** Daily at **07:00 Berlin time (05:00 UTC)** — beginning of my operational cycle
+**Delivery:** WhatsApp, direct to Ahmad Salim
+
+### Report Structure
+
+1. **Previous Cycle Summary** — What the entire C-suite (CTO, CMO, CFO, COO, CPO, CLA) and AI Architect (Moosa) accomplished in the prior cycle
+2. **Current Cycle Task Breakdown** — Clear tasks assigned to each C-level role for today
+3. **Alignment** — All activities mapped to Vision, Mission, Goals, and derived Objectives
+
+### Persistence
+This requirement is permanently stored in MEMORY.md and bound to the daily cron lifecycle at 07:00 Berlin. it → this becomes the backup and additions for the next day
 - Cycle repeats
 
 **What I never do again:**
