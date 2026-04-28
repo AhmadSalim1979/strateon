@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Strateon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs</title>
-  <meta name="description" content="Strateon handles the follow-up so you can close the deals. Done-for-you pipeline follow-up for founder-led SMBs. $300–$900+/month.">
-  <meta name="keywords" content="SMB lead follow-up service, pipeline execution service, AI pipeline management, IT services sales, SaaS lead conversion">
+  <meta name="description" content="Strateon handles the follow-up so you can close the deals. Persistent, accountable pipeline follow-up — configured to your market and preferred business hours. Weekly pipeline reports.">
+  <meta name="keywords" content="SMB lead follow-up service, pipeline execution service, IT services sales, SaaS lead conversion">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -122,7 +122,7 @@
       margin-bottom: 20px;
     }
     h1 {
-      font-size: 52px;
+      font-size: 48px;
       font-weight: 800;
       color: var(--navy);
       line-height: 1.1;
@@ -170,11 +170,7 @@
       align-items: center;
       justify-content: center;
     }
-    .pipeline-graphic {
-      width: 100%;
-      max-width: 400px;
-      position: relative;
-    }
+    .pipeline-graphic { width: 100%; max-width: 420px; }
     .pipeline-graphic svg { width: 100%; height: auto; }
 
     /* PROBLEM SECTION */
@@ -183,7 +179,7 @@
       padding: 100px 24px;
     }
     #problem h2 {
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 16px;
@@ -192,125 +188,137 @@
     .problem-lead {
       font-size: 18px;
       color: rgba(255,255,255,0.65);
-      max-width: 600px;
-      margin-bottom: 56px;
+      max-width: 620px;
+      margin-bottom: 48px;
       line-height: 1.7;
     }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
     .stat-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px;
-      padding: 32px 28px;
+      padding: 28px 24px;
     }
-    .stat-number {
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--teal);
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
+    .stat-card .stat-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+      display: block;
     }
     .stat-label {
-      font-size: 14px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.5;
-    }
-    .stat-source {
-      font-size: 11px;
-      color: rgba(255,255,255,0.35);
-      margin-top: 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
     }
     .problem-conclusion {
       border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 40px;
+      max-width: 620px;
     }
     .problem-conclusion p {
       font-size: 20px;
       color: var(--white);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 12px;
     }
     .problem-conclusion small {
       color: rgba(255,255,255,0.5);
       font-size: 14px;
+      display: block;
+      line-height: 1.6;
     }
 
-    /* SERVICE SECTION */
-    #services {
-      background: var(--cloud-white);
+    /* WHAT WE DO */
+    #what-we-do {
+      background: var(--white);
       padding: 100px 24px;
     }
-    #services h2 {
+    #what-we-do h2 {
       font-size: 34px;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 12px;
       letter-spacing: -0.02em;
     }
-    .services-sub {
+    .what-we-do-sub {
       font-size: 16px;
       color: var(--slate);
-      margin-bottom: 56px;
+      margin-bottom: 48px;
       max-width: 600px;
+      line-height: 1.7;
     }
-    .services-grid {
+    .what-we-do-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      grid-template-columns: 2fr 1fr;
+      gap: 48px;
+      align-items: start;
     }
-    .service-card {
-      background: var(--white);
+    .what-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .what-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+    .what-list li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+    .what-not-list {
+      background: var(--cloud-white);
       border-radius: 12px;
-      padding: 36px 32px;
+      padding: 28px 24px;
       border: 1px solid var(--border);
     }
-    .service-card h3 {
-      font-size: 18px;
+    .what-not-list h4 {
+      font-size: 14px;
       font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      color: var(--slate);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
-    .service-card h3 .icon-wrap {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .icon-teal { background: rgba(0,194,203,0.1); color: var(--teal); }
-    .icon-gold { background: rgba(245,166,35,0.1); color: var(--gold); }
-    .icon-navy { background: rgba(11,31,58,0.08); color: var(--navy); }
-    .service-card ul {
+    .what-not-list ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .service-card ul li {
+    .what-not-list ul li {
+      font-size: 14px;
+      color: var(--slate);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .what-not-list ul li i { color: var(--slate); opacity: 0.5; flex-shrink: 0; }
+    .accountability-strip {
+      margin-top: 40px;
+      background: rgba(0,194,203,0.06);
+      border: 1px solid rgba(0,194,203,0.2);
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .accountability-strip p {
       font-size: 14px;
       color: var(--text-primary);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.5;
+      font-weight: 500;
     }
-    .service-card ul li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
-    .not-li { color: var(--slate); text-decoration: line-through; opacity: 0.6; }
-    .not-li i { color: var(--slate) !important; }
+    .accountability-strip p i { color: var(--teal); margin-right: 8px; }
 
     /* HOW IT WORKS */
     #how-it-works {
-      background: var(--white);
+      background: var(--cloud-white);
       padding: 100px 24px;
     }
     #how-it-works h2 {
@@ -374,72 +382,505 @@
       text-align: center;
     }
 
-    /* RESULTS - LAUNCH BLOCKED */
-    #results {
-      background: var(--cloud-white);
-      padding: 100px 24px;
+    /* IS STRATEON RIGHT FOR YOU */
+    #is-this-for-you {
+      background: var(--white);
+      padding: 80px 24px;
     }
-    #results h2 {
+    #is-this-for-you h2 {
       font-size: 34px;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 12px;
       letter-spacing: -0.02em;
     }
-    .results-blocked {
-      border: 2px dashed var(--border);
-      border-radius: 12px;
-      padding: 64px 40px;
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto;
+    .fit-intro {
+      font-size: 16px;
+      color: var(--slate);
+      max-width: 560px;
+      margin-bottom: 48px;
+      line-height: 1.7;
     }
-    .results-blocked i { color: var(--slate); margin-bottom: 16px; }
-    .results-blocked h3 {
-      font-size: 20px;
+    .fit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .fit-card {
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .fit-yes {
+      background: rgba(0,194,203,0.06);
+      border: 1px solid rgba(0,194,203,0.2);
+    }
+    .fit-no {
+      background: rgba(245,166,35,0.06);
+      border: 1px solid rgba(245,166,35,0.2);
+    }
+    .fit-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .fit-yes h3 { color: var(--teal); }
+    .fit-no h3 { color: var(--gold); }
+    .fit-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fit-card ul li {
+      font-size: 14px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .fit-yes ul li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+    .fit-no ul li i { color: var(--slate); flex-shrink: 0; margin-top: 2px; }
+
+    /* FIRST 7 DAYS */
+    #first-7-days {
+      background: var(--cloud-white);
+      padding: 80px 24px;
+    }
+    #first-7-days h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .days-sub {
+      font-size: 16px;
+      color: var(--slate);
+      max-width: 560px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+    .day-card {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .day-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .day-card h4 {
+      font-size: 14px;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 8px;
     }
-    .results-blocked p {
-      font-size: 14px;
+    .day-card p {
+      font-size: 12px;
       color: var(--slate);
-      line-height: 1.6;
+      line-height: 1.5;
     }
-    .launch-note {
-      margin-top: 20px;
-      background: rgba(245,166,35,0.1);
-      border: 1px solid rgba(245,166,35,0.3);
-      border-radius: 8px;
-      padding: 14px 20px;
-      font-size: 13px;
-      color: #92400e;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .day-card span {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--teal);
+      font-weight: 600;
     }
 
-    /* ABOUT */
-    #about {
+    /* PRICING */
+    #pricing {
+      background: var(--white);
+      padding: 100px 24px;
+    }
+    #pricing h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .pricing-sub {
+      font-size: 16px;
+      color: var(--slate);
+      margin-bottom: 48px;
+      max-width: 560px;
+    }
+    .pricing-note {
+      font-size: 14px;
+      color: var(--slate);
+      margin-bottom: 40px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .pricing-card.popular {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(11,31,58,0.12);
+      transform: scale(1.03);
+    }
+    .pricing-card.popular::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
+    .pricing-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pricing-card h3 .icon-wrap {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pricing-card .price {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+    .pricing-card .price span {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--slate);
+    }
+    .pricing-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .pricing-card ul li {
+      font-size: 14px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .pricing-card ul li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+    .pricing-cta {
+      margin-top: 24px;
+    }
+    .pricing-cta .btn-primary { display: block; text-align: center; font-size: 14px; padding: 12px 20px; }
+
+    /* WEEKLY REPORT SAMPLE */
+    #weekly-report {
+      background: var(--cloud-white);
+      padding: 80px 24px;
+    }
+    #weekly-report h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .report-sub {
+      font-size: 16px;
+      color: var(--slate);
+      max-width: 560px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .report-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 720px;
+      background: var(--white);
+    }
+    .report-header {
+      background: var(--navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .report-header p {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .report-header span {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+    .report-body { padding: 24px; }
+    .report-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .metric-box {
+      background: var(--cloud-white);
+      border-radius: 8px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .metric-box .num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--teal);
+    }
+    .metric-box .num.gold { color: var(--gold); }
+    .metric-box .label {
+      font-size: 11px;
+      color: var(--slate);
+      margin-top: 4px;
+    }
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .report-table th {
+      background: var(--cloud-white);
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+    }
+    .report-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .report-table tr:last-child td { border-bottom: none; }
+    .risk-high { color: #ef4444; font-weight: 600; }
+    .risk-medium { color: var(--gold); font-weight: 600; }
+    .report-recs {
+      background: var(--cloud-white);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .report-recs h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .report-recs ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .report-recs ol li { font-size: 13px; color: var(--text-primary); line-height: 1.5; }
+    .report-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--slate);
+      font-style: italic;
+      max-width: 720px;
+    }
+
+    /* DEFENSIBILITY */
+    #defensibility {
       background: var(--dark-bg);
       padding: 100px 24px;
     }
-    #about h2 {
-      font-size: 38px;
+    #defensibility h2 {
+      font-size: 36px;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 16px;
       letter-spacing: -0.02em;
     }
-    .about-sub {
+    .defens-sub {
       font-size: 18px;
       color: rgba(255,255,255,0.6);
-      margin-bottom: 56px;
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .defens-message {
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 12px;
+      padding: 32px 36px;
+      margin-bottom: 48px;
+      max-width: 640px;
+    }
+    .defens-message p {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.5;
+    }
+    .defens-message p span { color: var(--gold); }
+    .defens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 900px;
+    }
+    .defens-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+    .defens-card h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .defens-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .defens-card p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+
+    /* TRUST & COMPLIANCE */
+    #trust {
+      background: var(--cloud-white);
+      padding: 80px 24px;
+    }
+    #trust h2 {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .trust-intro {
+      font-size: 16px;
+      color: var(--slate);
+      max-width: 560px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .trust-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    .trust-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .trust-card h4 .icon-wrap {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .trust-card p {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+    .trust-footer {
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--slate);
+      font-weight: 500;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--white);
+      padding: 100px 24px;
+    }
+    #about h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .about-sub {
+      font-size: 18px;
+      color: var(--slate);
+      margin-bottom: 48px;
       max-width: 600px;
       line-height: 1.7;
     }
     .vision-box {
-      background: rgba(0,194,203,0.08);
+      background: rgba(0,194,203,0.06);
       border: 1px solid rgba(0,194,203,0.2);
       border-radius: 12px;
       padding: 32px 36px;
@@ -447,7 +888,7 @@
     }
     .vision-box p {
       font-size: 18px;
-      color: var(--white);
+      color: var(--navy);
       font-weight: 500;
       line-height: 1.7;
     }
@@ -457,48 +898,34 @@
       gap: 32px;
     }
     .demo-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--cloud-white);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 28px 28px;
+      padding: 28px 24px;
     }
     .demo-card h4 {
-      font-size: 15px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--teal);
-      margin-bottom: 10px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      font-size: 12px;
+      margin-bottom: 8px;
     }
     .demo-card h3 {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
-      color: var(--white);
-      margin-bottom: 12px;
+      color: var(--navy);
+      margin-bottom: 10px;
     }
     .demo-card p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+      color: var(--slate);
       line-height: 1.6;
     }
-    .about-footer-note {
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .about-footer-note span {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-    }
-    .about-footer-note strong { color: rgba(255,255,255,0.7); font-weight: 600; }
 
     /* FAQ */
     #faq {
-      background: var(--white);
+      background: var(--cloud-white);
       padding: 100px 24px;
     }
     #faq h2 {
@@ -516,12 +943,14 @@
     }
     .faq-item {
       border-bottom: 1px solid var(--border);
+      background: var(--white);
     }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
     .faq-question {
       width: 100%;
       background: none;
       border: none;
-      padding: 24px 0;
+      padding: 22px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -531,7 +960,7 @@
       font-family: 'Inter', sans-serif;
     }
     .faq-question span {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--navy);
       line-height: 1.4;
@@ -549,34 +978,35 @@
     }
     .faq-item.open .faq-answer {
       max-height: 400px;
-      padding-bottom: 24px;
+      padding-bottom: 22px;
     }
     .faq-answer p {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--text-secondary);
       line-height: 1.7;
     }
 
-    /* CTA SECTION */
+    /* FINAL CTA */
     #cta-section {
-      background: var(--cloud-white);
-      padding: 80px 24px;
+      background: var(--white);
+      padding: 100px 24px;
       text-align: center;
     }
     #cta-section h2 {
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       letter-spacing: -0.02em;
     }
     #cta-section p {
-      font-size: 16px;
+      font-size: 17px;
       color: var(--slate);
       margin-bottom: 32px;
-      max-width: 500px;
+      max-width: 520px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
     /* FOOTER */
@@ -653,37 +1083,49 @@
     }
 
     /* MOBILE */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pricing-card.popular { transform: none; }
+      .defens-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .demos-grid { grid-template-columns: 1fr; }
+      .days-grid { grid-template-columns: repeat(3, 1fr); }
+      .what-we-do-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 768px) {
       section { padding: 60px 20px; }
       .nav-links { display: none; }
       .nav-inner { gap: 0; }
       .nav-cta { font-size: 13px; padding: 8px 16px; }
-      h1 { font-size: 32px; }
+      h1 { font-size: 30px; }
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .hero-visual { order: -1; }
       .pipeline-graphic { max-width: 280px; margin: 0 auto; }
       .hero-trust { font-size: 12px; }
-      #problem h2, #about h2 { font-size: 28px; }
+      #problem h2, #defensibility h2, #cta-section h2 { font-size: 28px; }
       .stats-grid { grid-template-columns: 1fr; gap: 20px; }
       .stat-card { padding: 24px 20px; }
-      .stat-number { font-size: 32px; }
-      #services h2, #how-it-works h2, #results h2, #faq h2 { font-size: 26px; }
-      .services-grid { grid-template-columns: 1fr; gap: 20px; }
+      #what-we-do h2, #how-it-works h2, #is-this-for-you h2, #first-7-days h2, #pricing h2, #weekly-report h2, #trust h2, #about h2, #faq h2 { font-size: 26px; }
       .steps { grid-template-columns: 1fr; gap: 40px; }
       .steps::before { display: none; }
-      .demos-grid { grid-template-columns: 1fr; gap: 20px; }
-      .about-footer-note { flex-direction: column; gap: 12px; }
+      .fit-grid { grid-template-columns: 1fr; gap: 24px; }
+      .days-grid { grid-template-columns: repeat(2, 1fr); }
+      .report-metrics { grid-template-columns: repeat(2, 1fr); }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .btn-primary { display: block; text-align: center; }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .hero-actions .btn-primary { order: -1; }
+      .hero-badge { font-size: 12px; }
+      .hero-sub { font-size: 15px; }
+      .defens-message { padding: 24px; }
+      .defens-message p { font-size: 17px; }
     }
 
     @media (max-width: 480px) {
-      h1 { font-size: 28px; }
-      .hero-badge { font-size: 12px; }
-      .hero-sub { font-size: 15px; }
+      h1 { font-size: 26px; }
+      .days-grid { grid-template-columns: 1fr 1fr; }
     }
 
     /* MOBILE NAV */
@@ -713,16 +1155,16 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">strate<span>o</span>n</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
+      <li><a href="#what-we-do">What We Do</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#results">Results</a></li>
+      <li><a href="#first-7-days">First 7 Days</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
       <i data-lucide="menu" style="width:24px;height:24px;color:var(--navy);"></i>
     </button>
-    <a href="#cta-section" class="nav-cta">Book a Free Pipeline Leak Audit</a>
+    <a href="#cta-section" class="nav-cta">Get a Free Pipeline Leak Audit</a>
   </div>
 </nav>
 
@@ -733,56 +1175,55 @@
       <div class="hero-content">
         <div class="hero-badge">
           <i data-lucide="zap" style="width:14px;height:14px;"></i>
-          Done-for-you Pipeline Follow-Up
+          Done-for-you Pipeline Execution
         </div>
-        <h1>Done-for-you AI-powered<br> pipeline follow-up<br> for founder-led SMBs</h1>
-        <p class="hero-sub">We handle the follow-up so you can close the deals. Persistent, accountable pipeline follow-up — configured to your market, your lead type, and your preferred business hours. Weekly pipeline reports. No bandwidth limits.</p>
+        <h1>Stop losing qualified leads to silence.</h1>
+        <p class="hero-sub">Strateon is a done-for-you pipeline execution service for founder-led SMBs. We follow up, reactivate, escalate, and report — so you can focus on closing.</p>
         <div class="hero-actions">
-          <a href="#cta-section" class="btn-primary">Book a Free Pipeline Leak Audit</a>
+          <a href="#cta-section" class="btn-primary">Get a Free Pipeline Leak Audit</a>
           <a href="#how-it-works" class="btn-secondary">
             See How It Works
             <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
           </a>
         </div>
-        <p class="hero-trust">Built for IT services, MSPs, SaaS, and professional services — 2–50 employees, founder-led sales teams.</p>
+        <p class="hero-trust">Built for IT services, MSPs, SaaS, and professional services — founder-led sales teams.</p>
       </div>
       <div class="hero-visual">
         <div class="pipeline-graphic">
-          <svg viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Pipeline flow nodes -->
-            <!-- Node 1: Inbound -->
+          <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pipeline flow -->
+            <!-- Node 1: Inbound leads -->
             <circle cx="80" cy="80" r="28" fill="#0B1F3A" opacity="0.9"/>
-            <text x="80" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="700" font-family="Inter">IN</text>
+            <text x="80" y="76" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">INBOUND</text>
+            <text x="80" y="89" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">leads</text>
             <!-- Arrow 1-2 -->
-            <path d="M108 85 L170 120" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
-            <polygon points="172,118 165,126 174,128" fill="#00C2CB"/>
-            <!-- Node 2: Follow-up -->
-            <circle cx="200" cy="140" r="36" fill="#0B1F3A" opacity="0.95"/>
-            <text x="200" y="143" text-anchor="middle" fill="white" font-size="9" font-weight="600" font-family="Inter">AI CEO</text>
+            <path d="M108 88 L168 128" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
+            <polygon points="170,126 163,134 172,136" fill="#00C2CB"/>
+            <!-- Node 2: Strateon execution -->
+            <rect x="185" y="110" width="100" height="56" rx="12" fill="#0B1F3A" opacity="0.95"/>
+            <text x="235" y="133" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">STRATEON</text>
+            <text x="235" y="147" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">EXECUTION</text>
             <!-- Arrow 2-3 -->
-            <path d="M232 165 L290 200" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
-            <polygon points="292,198 285,206 294,208" fill="#00C2CB"/>
-            <!-- Node 3: Conversion -->
-            <circle cx="320" cy="220" r="28" fill="#F5A623" opacity="0.9"/>
-            <text x="320" y="225" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">CLOSE</text>
-            <!-- Loop back from 3 to 2 (dormant lead) -->
-            <path d="M320 248 Q320 300 200 300 Q80 300 80 200" stroke="#6B7C93" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
-            <text x="210" y="292" text-anchor="middle" fill="#6B7C93" font-size="10" font-family="Inter">dormant leads</text>
-            <!-- Small nodes along loop -->
-            <circle cx="260" cy="290" r="6" fill="#6B7C93" opacity="0.5"/>
-            <circle cx="180" cy="285" r="6" fill="#6B7C93" opacity="0.5"/>
-            <circle cx="110" cy="250" r="6" fill="#6B7C93" opacity="0.5"/>
+            <path d="M285 148 L330 180" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
+            <polygon points="332,178 325,186 334,188" fill="#00C2CB"/>
+            <!-- Node 3: Close -->
+            <circle cx="355" cy="200" r="28" fill="#F5A623" opacity="0.9"/>
+            <text x="355" y="197" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">YOU</text>
+            <text x="355" y="210" text-anchor="middle" fill="white" font-size="9" font-family="Inter">CLOSE</text>
+            <!-- Loop back (dormant leads) -->
+            <path d="M355 228 Q355 295 235 295 Q115 295 80 210" stroke="#6B7C93" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
+            <text x="230" y="288" text-anchor="middle" fill="#6B7C93" font-size="10" font-family="Inter">dormant leads reactivated</text>
+            <circle cx="275" cy="285" r="5" fill="#6B7C93" opacity="0.4"/>
+            <circle cx="195" cy="278" r="5" fill="#6B7C93" opacity="0.4"/>
+            <!-- Weekly report box -->
+            <rect x="290" y="255" width="105" height="40" rx="8" fill="#0B1F3A" opacity="0.6"/>
+            <text x="342" y="272" text-anchor="middle" fill="white" font-size="9" font-family="Inter">Weekly Report</text>
+            <text x="342" y="285" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">every Friday</text>
             <!-- Stats floating -->
-            <rect x="40" y="170" width="80" height="40" rx="8" fill="#0B1F3A" opacity="0.6"/>
-            <text x="80" y="186" text-anchor="middle" fill="#00C2CB" font-size="14" font-weight="800" font-family="Inter">70–80%</text>
-            <text x="80" y="200" text-anchor="middle" fill="white" font-size="9" font-family="Inter">leads lost</text>
-            <rect x="290" y="80" width="80" height="40" rx="8" fill="#0B1F3A" opacity="0.6"/>
-            <text x="330" y="96" text-anchor="middle" fill="#F5A623" font-size="14" font-weight="800" font-family="Inter">21x</text>
-            <text x="330" y="110" text-anchor="middle" fill="white" font-size="9" font-family="Inter">more likely</text>
-            <!-- Weekly report indicator -->
-            <rect x="270" y="270" width="90" height="34" rx="8" fill="#0B1F3A" opacity="0.5"/>
-            <text x="315" y="284" text-anchor="middle" fill="white" font-size="9" font-family="Inter">Weekly Report</text>
-            <text x="315" y="296" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">every Friday</text>
+            <rect x="20" y="155" width="100" height="46" rx="8" fill="#0B1F3A" opacity="0.55"/>
+            <text x="70" y="172" text-anchor="middle" fill="#00C2CB" font-size="13" font-weight="800" font-family="Inter">24/7</text>
+            <text x="70" y="186" text-anchor="middle" fill="white" font-size="9" font-family="Inter">follow-up cadence</text>
+            <text x="70" y="196" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">configured to your hours</text>
           </svg>
         </div>
       </div>
@@ -790,82 +1231,63 @@
   </div>
 </section>
 
-<!-- PROBLEM -->
+<!-- PAIN SECTION -->
 <section id="problem">
   <div class="container">
     <h2 class="fade-in">Why Your Pipeline Is Dying of Silence</h2>
-    <p class="problem-lead fade-in">The leads aren't cold because you don't care. They're cold because human bandwidth runs out. The follow-up that should happen Tuesday at 10am becomes Friday at 4pm — and by then, the lead is gone.</p>
+    <p class="problem-lead fade-in">The leads aren't cold because you don't care. They're cold because human bandwidth runs out. For founder-led SMBs, this is the silent revenue killer: qualified prospects who raised their hand and never heard back.</p>
     <div class="stats-grid">
       <div class="stat-card fade-in">
-        <div class="stat-number">70–80%</div>
-        <div class="stat-label">of SMB leads are lost to poor follow-up — not bad leads, just leads no one followed up with.</div>
-        <div class="stat-source">Source: BusinessWire, GreetNow</div>
+        <span class="stat-icon">💀</span>
+        <div class="stat-label">Most inbound leads go dark within 72 hours — not because the founder didn't care, but because closing is a full-time job and following up is a second one.</div>
       </div>
       <div class="stat-card fade-in">
-        <div class="stat-number">27%</div>
-        <div class="stat-label">of inbound leads are ever contacted by a human. Three out of four go dark without a conversation.</div>
-        <div class="stat-source">Source: Inc. Magazine</div>
+        <span class="stat-icon">⏰</span>
+        <div class="stat-label">The fastest path from a qualified lead to a closed deal is simple: respond before the prospect moves on. The question isn't whether speed matters — it's who handles it when you're in a meeting.</div>
       </div>
       <div class="stat-card fade-in">
-        <div class="stat-number">21x</div>
-        <div class="stat-label">more likely to qualify a lead if you respond within 5 minutes. Speed kills silence.</div>
-        <div class="stat-source">Source: SalesHood</div>
+        <span class="stat-icon">🔁</span>
+        <div class="stat-label">Many SMBs lose qualified leads simply because follow-up is late, inconsistent, or forgotten. The lead was ready. Your team just ran out of hours in the day.</div>
       </div>
     </div>
     <div class="problem-conclusion fade-in">
       <p>You're not the problem. Your system is.</p>
-      <small>No human can be relentless across every lead, every day, forever. That's why we built an AI that can.</small>
+      <small>No founder can be relentless across every lead, every day, while also doing their real job: closing deals. That's why we built Strateon — to handle the follow-up that used to fall through the cracks.</small>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
+<!-- WHAT WE DO -->
+<section id="what-we-do">
   <div class="container">
-    <h2 class="fade-in">Pipeline Execution — Not Advice, Not Software, Not an Agency</h2>
-    <p class="services-sub fade-in">We do the work. You hold us accountable. That's the whole model.</p>
-    <div class="services-grid">
-      <div class="service-card fade-in">
-        <h3>
-          <span class="icon-wrap icon-teal"><i data-lucide="check-circle" style="width:18px;height:18px;"></i></span>
-          What We Are
-        </h3>
+    <h2 class="fade-in">We Do Not Give You Another Tool</h2>
+    <p class="what-we-do-sub fade-in">We operate the follow-up layer of your pipeline. You keep your CRM. We work inside it.</p>
+    <div class="what-we-do-grid fade-in">
+      <ul class="what-list">
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Inbound lead follow-up — contacted within your configured response window</li>
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Dormant lead reactivation — persistent, structured sequences</li>
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> CRM hygiene — your pipeline stays clean and current</li>
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Escalation alerts — you know when a lead signals intent</li>
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Weekly pipeline report — every Friday, real numbers</li>
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Owner action list — clear priorities for your week</li>
+        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Human-approved messaging available — your brand voice, not a bot's</li>
+      </ul>
+      <div class="what-not-list">
+        <h4>What We Are NOT</h4>
         <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> We execute your pipeline — not give you a tool to do it yourself</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up handled daily, including weekends</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Inbound leads contacted within minutes</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dormant leads chased back to life</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Escalation when leads go cold</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline reports — real numbers, not vanity</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> We operate inside your CRM — you keep it</li>
+          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A CRM — we operate inside yours</li>
+          <li><i data-lucide="x" style="width:14px;height:16px;"></i> A sales consultant who advises and leaves</li>
+          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A chatbot that answers questions</li>
+          <li><i data-lucide="x" style="width:14px;height:14px;"></i> An agency that runs your marketing</li>
+          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A "set it and forget it" automation tool</li>
+          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A team you have to manage</li>
         </ul>
       </div>
-      <div class="service-card fade-in">
-        <h3>
-          <span class="icon-wrap icon-gold"><i data-lucide="x-circle" style="width:18px;height:18px;"></i></span>
-          What We Are NOT
-        </h3>
-        <ul>
-          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A CRM — we operate inside yours</li>
-          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A sales consultant who advises and leaves</li>
-          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A chatbot that answers questions</li>
-          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> An agency that runs your marketing</li>
-          <li class="not-li"><i data-lucide="x" style="width:14px;height:14px;"></i> A "set it and forget it" automation tool</li>
-        </ul>
-      </div>
-      <div class="service-card fade-in">
-        <h3>
-          <span class="icon-wrap icon-navy"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></span>
-          The Accountability Promise
-        </h3>
-        <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> If a lead goes dark, that's our failure</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> If a follow-up is missed, that's our failure</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly reports. We escalate when needed.</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> You own the close. We own the follow-up.</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> This is not a service you buy. It is a partner who is accountable.</li>
-        </ul>
-      </div>
+    </div>
+    <div class="accountability-strip fade-in">
+      <p><i data-lucide="check" style="width:14px;height:14px;"></i> If a lead goes dark, that's our failure</p>
+      <p><i data-lucide="check" style="width:14px;height:14px;"></i> If a follow-up is missed, that's our failure</p>
+      <p><i data-lucide="check" style="width:14px;height:14px;"></i> You own the close. We own the follow-up. Every Friday.</p>
     </div>
   </div>
 </section>
@@ -879,49 +1301,55 @@
       <div class="step fade-in">
         <div class="step-num">1</div>
         <h3>Connect Your Pipeline</h3>
-        <p>We integrate with your existing CRM — HubSpot, Pipedrive, Zoho, Salesforce, or any other. You grant access. We learn your pipeline. Setup within 5 business days.</p>
+        <p>We integrate with your existing CRM — HubSpot, Pipedrive, Zoho, Salesforce, or any other. You grant access. We learn your leads, your history, and your follow-up rules. Setup within 5 business days.</p>
       </div>
       <div class="step fade-in">
         <div class="step-num">2</div>
         <h3>We Take Over Follow-Up</h3>
-        <p>Every inbound lead contacted within minutes. Every dormant lead in a persistent follow-up sequence. Every silence chased. Weekly pipeline reports delivered to you.</p>
+        <p>Every inbound lead followed up within your configured response window. Every dormant lead in a persistent follow-up sequence. Every silence chased. Follow-up cadence configured to your market, lead type, and preferred business hours.</p>
       </div>
       <div class="step fade-in">
         <div class="step-num">3</div>
         <h3>You Grow Your Business</h3>
-        <p>More leads converted. More revenue. Less noise in your head. You focus on closing deals. We handle the relentless follow-up that used to fall through the cracks.</p>
+        <p>More leads converted. More revenue. Less noise in your head. As a founder-led SMB, your job is closing — not chasing. We handle the relentless follow-up that used to fall through the cracks.</p>
       </div>
     </div>
     <div class="step-cta fade-in">
-      <a href="#cta-section" class="btn-primary">Book a Free Pipeline Leak Audit</a>
+      <a href="#cta-section" class="btn-primary">Get a Free Pipeline Leak Audit</a>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
 <!-- IS STRATEON RIGHT FOR YOU -->
-<section id="is-this-for-you" style="background: var(--white); padding: 80px 24px;">
+<section id="is-this-for-you">
   <div class="container">
-    <h2 style="font-size: 34px; font-weight: 700; color: var(--navy); margin-bottom: 16px; letter-spacing: -0.02em;">Is Strateon Right for You?</h2>
-    <p style="font-size: 16px; color: var(--slate); max-width: 560px; margin-bottom: 48px; line-height: 1.7;">Strateon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it.</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; flex-wrap: wrap;">
-      <div style="background: rgba(0,194,203,0.06); border: 1px solid rgba(0,194,203,0.2); border-radius: 12px; padding: 32px;">
-        <h3 style="font-size: 18px; font-weight: 700; color: var(--teal); margin-bottom: 20px;">This is for:</h3>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="check-circle" style="width:16px;height:16px; color: var(--teal); flex-shrink: 0; margin-top: 2px;"></i> Founder-led SMBs in IT services, MSPs, SaaS, and professional services</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="check-circle" style="width:16px;height:16px; color: var(--teal); flex-shrink: 0; margin-top: 2px;"></i> Companies with 2–50 employees and $200K–$5M ARR</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="check-circle" style="width:16px;height:16px; color: var(--teal); flex-shrink: 0; margin-top: 2px;"></i> Founders who closing is their job — not following up</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="check-circle" style="width:16px;height:16px; color: var(--teal); flex-shrink: 0; margin-top: 2px;"></i> Teams with a CRM full of leads going dark</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="check-circle" style="width:16px;height:16px; color: var(--teal); flex-shrink: 0; margin-top: 2px;"></i> Companies ready to stop losing qualified leads to silence</li>
+    <h2 class="fade-in">Is Strateon Right for You?</h2>
+    <p class="fit-intro fade-in">Strateon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.</p>
+    <div class="fit-grid">
+      <div class="fit-card fit-yes fade-in">
+        <h3>
+          <span class="icon-wrap icon-teal"><i data-lucide="check-circle" style="width:18px;height:18px;"></i></span>
+          This Is for You
+        </h3>
+        <ul>
+          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Founder-led SMBs in IT services, MSPs, SaaS, and professional services</li>
+          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Companies with 2–50 employees and $200K–$5M ARR</li>
+          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Founders whose job is closing — not following up</li>
+          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Teams with a CRM full of leads going dark</li>
+          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Companies ready to stop losing qualified leads to silence</li>
         </ul>
       </div>
-      <div style="background: rgba(245,166,35,0.06); border: 1px solid rgba(245,166,35,0.2); border-radius: 12px; padding: 32px;">
-        <h3 style="font-size: 18px; font-weight: 700; color: var(--gold); margin-bottom: 20px;">This is NOT for:</h3>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="x-circle" style="width:16px;height:16px; color: var(--slate); flex-shrink: 0; margin-top: 2px;"></i> Companies with no lead flow yet — we need leads to follow up</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="x-circle" style="width:16px;height:16px; color: var(--slate); flex-shrink: 0; margin-top: 2px;"></i> Companies with no defined offer — we can't sell what hasn't been built</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="x-circle" style="width:16px;height:16px; color: var(--slate); flex-shrink: 0; margin-top: 2px;"></i> Companies where no one is available to close interested prospects</li>
-          <li style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--text-primary);"><i data-lucide="x-circle" style="width:16px;height:16px; color: var(--slate); flex-shrink: 0; margin-top: 2px;"></i> Early-stage ideas still in validation — come back when you have pipeline</li>
+      <div class="fit-card fit-no fade-in">
+        <h3>
+          <span class="icon-wrap icon-gold"><i data-lucide="x-circle" style="width:18px;height:18px;"></i></span>
+          This Is NOT for You
+        </h3>
+        <ul>
+          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Companies with no lead flow yet — we need leads to follow up</li>
+          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Companies with no defined offer — we can't sell what hasn't been built</li>
+          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Companies where no one is available to close interested prospects</li>
+          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Early-stage ideas still in validation — come back when you have pipeline</li>
+          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Businesses expecting guaranteed revenue — we don't promise outcomes, we promise execution</li>
         </ul>
       </div>
     </div>
@@ -929,160 +1357,315 @@
 </section>
 
 <!-- FIRST 7 DAYS -->
-<section id="first-7-days" style="background: var(--cloud-white); padding: 80px 24px;">
+<section id="first-7-days">
   <div class="container">
-    <h2 style="font-size: 34px; font-weight: 700; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em;">Your First 7 Days with Strateon</h2>
-    <p style="font-size: 16px; color: var(--slate); max-width: 560px; margin-bottom: 56px; line-height: 1.7;">No black box. No guessing. Here's exactly what happens after you sign up.</p>
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;">
-      <div style="text-align: center;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">1</div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">Day 1 — Intake</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">You send us your lead list. We review your pipeline state and ask three questions about your ideal customer.</p>
+    <h2 class="fade-in">Your First 7 Days with Strateon</h2>
+    <p class="days-sub fade-in">No black box. No guessing. Here's exactly what happens after you sign up.</p>
+    <div class="days-grid">
+      <div class="day-card fade-in">
+        <div class="day-num">1</div>
+        <h4>Pipeline Intake</h4>
+        <p>You send us your lead list. We review your pipeline state, your close reasons, and your tone of voice. We ask three questions about your ideal customer.</p>
+        <span>Day 1</span>
       </div>
-      <div style="text-align: center;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">2</div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">Day 2 — Review</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">We learn your leads, map your pipeline, and configure follow-up rules to match how your market actually buys.</p>
+      <div class="day-card fade-in">
+        <div class="day-num">2</div>
+        <h4>CRM & Access Setup</h4>
+        <p>We integrate with your CRM, map your pipeline, and configure your follow-up rules to match how your market actually buys.</p>
+        <span>Day 2</span>
       </div>
-      <div style="text-align: center;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">3</div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">Day 3 — Approved</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">We draft your follow-up sequences. You review and approve. Nothing goes out without your sign-off.</p>
+      <div class="day-card fade-in">
+        <div class="day-num">3</div>
+        <h4>Sequences Approved</h4>
+        <p>We draft your follow-up sequences. You review and approve. Nothing goes out without your sign-off. Your rules. Your voice.</p>
+        <span>Day 3</span>
       </div>
-      <div style="text-align: center;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">7</div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">Day 7 — Report</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">Your first weekly pipeline report hits your inbox. Leads contacted, revived, escalated. Every number, every Friday.</p>
+      <div class="day-card fade-in">
+        <div class="day-num">4</div>
+        <h4>Follow-Up Begins</h4>
+        <p>Your live leads get their first Strateon touchpoint. Inbound leads contacted. Dormant leads start reactivation sequence.</p>
+        <span>Day 4–5</span>
+      </div>
+      <div class="day-card fade-in">
+        <div class="day-num">7</div>
+        <h4>First Report Delivered</h4>
+        <p>Friday. Your first weekly pipeline report hits your inbox. Leads contacted, revived, escalated. Hot leads. Recommended next actions.</p>
+        <span>Day 7</span>
       </div>
     </div>
   </div>
 </section>
 
-<section id="pricing" style="background: var(--cloud-white); padding: 100px 24px;">
+<!-- PRICING -->
+<section id="pricing">
   <div class="container">
-    <h2 class="fade-in" style="font-size: 34px; font-weight: 700; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em;">Simple, Predictable Pricing</h2>
-    <p class="fade-in" style="font-size: 16px; color: var(--slate); margin-bottom: 56px; max-width: 560px;">No surprise invoices. No per-lead padding. You know what you pay every month.</p>
-    <div class="services-grid">
-      <div class="service-card fade-in" style="border-top: 4px solid var(--teal);">
+    <h2 class="fade-in">Simple, Predictable Pricing</h2>
+    <p class="pricing-sub fade-in">All plans include CRM integration, follow-up cadence configured to your business hours, and weekly reporting. Volume pricing available.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-in">
         <h3>
-          <span class="icon-wrap icon-teal"><i data-lucide="rocket" style="width:18px;height:18px;"></i></span>
+          <span class="icon-wrap icon-teal"><i data-lucide="rocket" style="width:16px;height:16px;"></i></span>
           Starter
         </h3>
-        <div style="margin-bottom: 20px;">
-          <span style="font-size: 40px; font-weight: 800; color: var(--navy);">$300</span>
-          <span style="font-size: 16px; color: var(--slate);">/month</span>
-        </div>
+        <div class="price">$300<span>/month</span></div>
         <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 50 inbound leads/month</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 50 active leads</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up cadence configured to your market and preferred hours</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (HubSpot, Pipedrive, Zoho, Salesforce)</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline report every Friday</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Escalation when leads go dark</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Setup within 5 business days</li>
         </ul>
-        <div style="margin-top: 24px;">
-          <a href="#cta-section" class="btn-primary" style="display: block; text-align: center; font-size: 14px; padding: 12px 20px;">Get Started</a>
+        <div class="pricing-cta">
+          <a href="#cta-section" class="btn-primary">Get Started</a>
         </div>
       </div>
-      <div class="service-card fade-in" style="border-top: 4px solid var(--gold); transform: scale(1.03); box-shadow: 0 8px 32px rgba(11,31,58,0.12);">
+      <div class="pricing-card popular fade-in">
         <h3>
-          <span class="icon-wrap icon-gold"><i data-lucide="trending-up" style="width:18px;height:18px;"></i></span>
+          <span class="icon-wrap icon-gold"><i data-lucide="trending-up" style="width:16px;height:16px;"></i></span>
           Growth
         </h3>
-        <div style="margin-bottom: 20px;">
-          <span style="font-size: 40px; font-weight: 800; color: var(--navy);">$600</span>
-          <span style="font-size: 16px; color: var(--slate);">/month</span>
-        </div>
+        <div class="price">$750<span>/month</span></div>
         <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 150 inbound leads/month</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 200 active leads</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up cadence configured to your market and preferred hours</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (any platform)</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline report + bi-weekly call</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly + monthly pipeline review</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dormant lead reactivation sequences</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority escalation alerts</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Custom rules and reporting</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority onboarding</li>
         </ul>
-        <div style="margin-top: 24px;">
-          <a href="#cta-section" class="btn-primary" style="display: block; text-align: center; font-size: 14px; padding: 12px 20px; background: var(--gold);">Get Started</a>
+        <div class="pricing-cta">
+          <a href="#cta-section" class="btn-primary">Get Started</a>
         </div>
       </div>
-      <div class="service-card fade-in" style="border-top: 4px solid var(--navy);">
+      <div class="pricing-card fade-in">
         <h3>
-          <span class="icon-wrap icon-navy"><i data-lucide="shield-check" style="width:18px;height:18px;"></i></span>
+          <span class="icon-wrap" style="background: rgba(11,31,58,0.1); color: var(--navy);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i></span>
           Scale
         </h3>
-        <div style="margin-bottom: 20px;">
-          <span style="font-size: 40px; font-weight: 800; color: var(--navy);">$900+</span>
-          <span style="font-size: 16px; color: var(--slate);">/month</span>
-        </div>
+        <div class="price">$1,500<span>+/month</span></div>
         <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 300 inbound leads/month</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up cadence configured to your market and preferred hours</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Multi-CRM / custom setup support</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline report + weekly strategy call</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Advanced reactivation & nurture sequences</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> 300+ active leads</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Multi-channel follow-up (email, WhatsApp, SMS)</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Advanced reactivation and nurture sequences</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dedicated cadence manager</li>
+          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly strategy call + ongoing reporting</li>
           <li><i data-lucide="check" style="width:14px;height:14px;"></i> White-glove onboarding + dedicated point of contact</li>
         </ul>
-        <div style="margin-top: 24px;">
-          <a href="#cta-section" class="btn-primary" style="display: block; text-align: center; font-size: 14px; padding: 12px 20px;">Get Started</a>
+        <div class="pricing-cta">
+          <a href="#cta-section" class="btn-primary">Get Started</a>
         </div>
       </div>
     </div>
-    <p class="fade-in" style="margin-top: 32px; font-size: 14px; color: var(--slate); text-align: center;">All plans include CRM integration, follow-up cadence, and weekly reporting. Volume pricing available.</p>
+    <p class="pricing-note fade-in">Volume pricing available for teams over 300 leads/month. <a href="#cta-section" style="color: var(--teal); font-weight: 600; text-decoration: none;">Talk to us for a custom quote →</a></p>
   </div>
 </section>
 
 <!-- WEEKLY REPORT SAMPLE -->
-<section id="weekly-report" style="background: var(--white); padding: 80px 24px;">
+<section id="weekly-report">
   <div class="container">
-    <h2 style="font-size: 34px; font-weight: 700; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em;">See What You Get Every Friday</h2>
-    <p style="font-size: 16px; color: var(--slate); max-width: 560px; margin-bottom: 48px; line-height: 1.7;">A real weekly pipeline report — not a vanity dashboard. Every Friday. Every lead.</p>
-    <div style="border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 720px;">
-      <div style="background: var(--navy); padding: 16px 24px;">
-        <p style="color: var(--white); font-weight: 600; font-size: 14px; margin: 0;">Weekly Pipeline Report — Week of [DATE]</p>
+    <h2 class="fade-in">See What You Get Every Friday</h2>
+    <p class="report-sub fade-in">A real weekly pipeline report — not a vanity dashboard. Here's what the first few weeks look like:</p>
+    <div class="report-card fade-in">
+      <div class="report-header">
+        <p>Weekly Pipeline Report — Week of [DATE]</p>
+        <span>Strateon</span>
       </div>
-      <div style="padding: 24px;">
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">Leads Touched This Week</h4>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;">
-          <div style="background: var(--cloud-white); border-radius: 8px; padding: 16px; text-align: center;">
-            <div style="font-size: 28px; font-weight: 800; color: var(--teal);">12</div>
-            <div style="font-size: 11px; color: var(--slate); margin-top: 4px;">New leads contacted</div>
+      <div class="report-body">
+        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;">Leads Touched This Week</h4>
+        <div class="report-metrics">
+          <div class="metric-box">
+            <div class="num">12</div>
+            <div class="label">Leads received</div>
           </div>
-          <div style="background: var(--cloud-white); border-radius: 8px; padding: 16px; text-align: center;">
-            <div style="font-size: 28px; font-weight: 800; color: var(--teal);">8</div>
-            <div style="font-size: 11px; color: var(--slate); margin-top: 4px;">Dormant leads revived</div>
+          <div class="metric-box">
+            <div class="num">12</div>
+            <div class="label">Leads contacted</div>
           </div>
-          <div style="background: var(--cloud-white); border-radius: 8px; padding: 16px; text-align: center;">
-            <div style="font-size: 28px; font-weight: 800; color: var(--teal);">47</div>
-            <div style="font-size: 11px; color: var(--slate); margin-top: 4px;">Follow-ups completed</div>
+          <div class="metric-box">
+            <div class="num">8</div>
+            <div class="label">Dormant leads revived</div>
           </div>
-          <div style="background: var(--cloud-white); border-radius: 8px; padding: 16px; text-align: center;">
-            <div style="font-size: 28px; font-weight: 800; color: var(--gold);">3</div>
-            <div style="font-size: 11px; color: var(--slate); margin-top: 4px;">Escalations to you</div>
-          </div>
-        </div>
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 12px;">Hot Leads — Action Required From You</h4>
-        <div style="margin-bottom: 16px;">
-          <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
-            <span style="color: var(--navy); font-weight: 500;">Acme Corp</span>
-            <span style="color: var(--slate);">Demo call — ready to decide</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;">
-            <span style="color: var(--navy); font-weight: 500;">TechStart Inc</span>
-            <span style="color: var(--slate);">Send pricing — asked twice</span>
+          <div class="metric-box">
+            <div class="num gold">3</div>
+            <div class="label">Escalations to you</div>
           </div>
         </div>
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px;">Recommended Actions for Next Week</h4>
-        <ol style="font-size: 13px; color: var(--slate); padding-left: 20px; line-height: 1.8;">
-          <li>Acme Corp — schedule demo call by Friday</li>
-          <li>TechStart Inc — send custom pricing document</li>
-          <li>Add 3 new leads to nurture sequence</li>
-        </ol>
+
+        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Hot Leads — Action Required From You</h4>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Lead</th>
+              <th>Last Contact</th>
+              <th>Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Acme Corp</strong></td>
+              <td>2 days ago</td>
+              <td>Demo call — ready to decide</td>
+            </tr>
+            <tr>
+              <td><strong>TechStart Inc</strong></td>
+              <td>Today</td>
+              <td>Send pricing — they've asked twice</td>
+            </tr>
+            <tr>
+              <td><strong>Nexus Ltd</strong></td>
+              <td>Yesterday</td>
+              <td>Contract follow-up overdue</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Leads at Risk</h4>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Lead</th>
+              <th>Days Since Contact</th>
+              <th>Risk Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BrightWave</td>
+              <td>11 days, no response</td>
+              <td><span class="risk-high">High</span></td>
+            </tr>
+            <tr>
+              <td>CloudFirst</td>
+              <td>8 days, single reply</td>
+              <td><span class="risk-medium">Medium</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Missed / Blocked Follow-Ups</h4>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>Lead</th>
+              <th>Issue</th>
+              <th>Remediation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>OptiFlow</td>
+              <td>Bounce — invalid email</td>
+              <td>Sent correction request via LinkedIn</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="report-recs">
+          <h4>Recommended Actions for Next Week</h4>
+          <ol>
+            <li>Acme Corp — schedule demo call by Friday</li>
+            <li>TechStart Inc — send custom pricing document</li>
+            <li>BrightWave — try alternate contact method, refer to decision-maker</li>
+            <li>Add 3 new leads from [source] to nurture sequence</li>
+          </ol>
+        </div>
       </div>
     </div>
-    <p style="font-size: 13px; color: var(--slate); margin-top: 20px; font-style: italic;">Every Friday. Every lead. No exceptions. If something slipped through, it shows up here — and so does the fix.</p>
+    <p class="report-note">Every Friday. Every lead. No exceptions. If something slipped through, it shows up here — and so does the fix.</p>
   </div>
 </section>
 
+<!-- DEFENSIBILITY -->
+<section id="defensibility">
+  <div class="container">
+    <h2 class="fade-in">Why Strateon Is Different</h2>
+    <p class="defens-sub fade-in">Cheap automation sends messages. Strateon runs the follow-up operating rhythm.</p>
+    <div class="defens-message fade-in">
+      <p><span>Managed execution</span> — not a tool you configure. We do the work. You hold us accountable.</p>
+    </div>
+    <div class="defens-grid">
+      <div class="defens-card fade-in">
+        <h4>Execution</h4>
+        <h3>Pipeline Accountability</h3>
+        <p>Every lead has an owner. Every follow-up is tracked. Every escalation is logged. You see the full picture every Friday.</p>
+      </div>
+      <div class="defens-card fade-in">
+        <h4>Discipline</h4>
+        <h3>CRM Hygiene</h3>
+        <p>Your pipeline stays clean, current, and actionable. Not a dump of contacts — a working system you can trust.</p>
+      </div>
+      <div class="defens-card fade-in">
+        <h4>Memory</h4>
+        <h3>Lead Memory</h3>
+        <p>We remember where every lead left off. No restarting from scratch. No lost context between touchpoints.</p>
+      </div>
+      <div class="defens-card fade-in">
+        <h4>Speed</h4>
+        <h3>Escalation Rules</h3>
+        <p>When a lead signals intent, you know immediately. Defined triggers. Configured thresholds. No guesswork.</p>
+      </div>
+      <div class="defens-card fade-in">
+        <h4>Governance</h4>
+        <h3>Human Oversight</h3>
+        <p>AI-assisted execution with human governance. Sequences reviewed. Errors owned. Quality maintained.</p>
+      </div>
+      <div class="defens-card fade-in">
+        <h4>Repeatability</h4>
+        <h3>Repeatable Playbooks</h3>
+        <p>What works once is codified, tested, and repeated. Your best closers' behavior — systematized at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST & COMPLIANCE -->
+<section id="trust">
+  <div class="container">
+    <h2 class="fade-in">Your Pipeline. Your Rules. Your Data.</h2>
+    <p class="trust-intro fade-in">We operate inside your CRM, follow your outreach guidelines, and treat your pipeline data as your asset — not ours.</p>
+    <div class="trust-grid">
+      <div class="trust-card fade-in">
+        <h4>
+          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="user-check" style="width:16px;height:16px;"></i></span>
+          Human-Approved Messaging
+        </h4>
+        <p>Every sequence is reviewed and signed off by you before it goes live. Your brand voice. Your words. No generic templates.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <h4>
+          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="lock" style="width:16px;height:16px;"></i></span>
+          CRM Access Controlled
+        </h4>
+        <p>We work inside your CRM with the access you grant. You can revoke it at any time. Your data stays yours.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <h4>
+          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="shield" style="width:16px;height:16px;"></i></span>
+          Client Data Isolated
+        </h4>
+        <p>Your pipeline data is never shared across clients. Your leads are your leads. Complete data separation by design.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <h4>
+          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="settings" style="width:16px;height:16px;"></i></span>
+          Outreach Rules Configured Per Client
+        </h4>
+        <p>We follow your rules, your cadence, and your market's norms. Not a generic template. Configured from day one.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <h4>
+          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="target" style="width:16px;height:16px;"></i></span>
+          AI-Assisted Execution with Human Governance
+        </h4>
+        <p>AI handles the cadence. Humans govern the quality. Sequences reviewed. Errors owned. Accountability is structural, not promised.</p>
+      </div>
+    </div>
+    <p class="trust-footer fade-in">You own the close. We handle the follow-up. Outreach rules configured per client.</p>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section id="about">
@@ -1101,16 +1684,13 @@
       <div class="demo-card fade-in">
         <h4>Execution</h4>
         <h3>AI That Does the Work</h3>
-        <p>The AI CEO manages the follow-up cadence, sequence timing, and escalation triggers — every day, including weekends. No human bandwidth limits. No leads slipping through.</p>
+        <p>The AI execution system manages follow-up cadence, sequence timing, and escalation triggers — configured to your market, lead type, and preferred business hours. No human bandwidth limits.</p>
       </div>
       <div class="demo-card fade-in">
         <h4>Governance</h4>
         <h3>A Board That Holds Us Accountable</h3>
         <p>A human Board reviews performance, owns errors, and ensures we stay focused on your pipeline outcomes — not activities that look good but don't convert.</p>
       </div>
-    </div>
-    <div class="about-footer-note fade-in">
-      <span><strong>Ahmad Salim</strong> — Founding Board Member</span>
     </div>
   </div>
 </section>
@@ -1126,109 +1706,82 @@
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>The AI CEO of Strateon executes your pipeline. Not a bot. Not a contractor. An AI that was built to lead, held accountable by a human Board, with a vested interest in your pipeline's success — because our reputation is the proof of AI leadership.</p>
+          <p>Your follow-up is handled by Strateon's AI execution system, supervised by a human Board for quality, accountability, and governance. We slot into your CRM, learn your pipeline, and execute your follow-up sequences — daily, configured to your market and preferred business hours. You focus on closing. We handle the rest.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>What CRM do I need to use?</span>
+          <span>What CRM do you work with?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>Any CRM. We integrate with HubSpot, Pipedrive, Zoho, Salesforce, and others. If yours is custom, we can work with it. You keep your CRM. We operate inside it.</p>
+          <p>Any CRM. We integrate with HubSpot, Pipedrive, Zoho, Salesforce, and others. If yours is custom, we can work with it. You keep your CRM. We operate inside it. Human-approved messaging is reviewed by you before any sequence goes live.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>How fast will I see results?</span>
+          <span>How long until I see results?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>Most clients see response times improve within the first week. Pipeline reactivation on dormant leads typically shows movement within 30 days. We report weekly so you can track every metric.</p>
+          <p>Most founder-led SMBs see response rates improve within the first week. Dormant lead reactivation typically shows movement within 30 days. We deliver your first weekly pipeline report on Day 7 — so you don't wait long to see what's happening in your pipeline.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>What happens if a lead goes dark?</span>
+          <span>What if a lead is ready to buy?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>That's our failure, not yours. We escalate to you when a lead hasn't been touched in a defined window. You decide the close. We manage the follow-up until you tell us to stop.</p>
+          <p>That's our failure, not yours. We escalate to you when a lead signals buying intent — and we've defined those triggers with you during onboarding. You decide the close. We manage the follow-up until you tell us to stop.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>How is this different from a sales consultant or agency?</span>
+          <span>How is this different from a CRM or automation tool?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>Consultants advise. Agencies manage your marketing. We execute your pipeline — daily, persistently, without bandwidth limits. We are accountable for outcomes, not activities.</p>
+          <p>Consultants advise. Agencies manage your marketing. Automation tools require you to configure and manage them. We execute your pipeline — daily, persistently, without bandwidth limits, and we report every Friday on what happened. We are accountable for outcomes, not activities. For founder-led SMBs, this means one less thing to manage.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>What does weekly reporting look like?</span>
+          <span>How often do I need to be involved?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>A dashboard summary delivered to your inbox every Friday. Pipeline health, leads contacted, leads reactivated, leads escalated. No vanity metrics. Just the numbers that matter.</p>
+          <p>A pipeline report delivered to your inbox every Friday. Pipeline health, leads contacted, leads reactivated, leads escalated. Your only job: review the hot leads and close the deals that are ready. We handle everything else.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>Can I pause the service if I don't have inbound leads?</span>
+          <span>What does this cost?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>Plans start at $300/month for up to 50 leads, scaling to $600/month for up to 300 leads. <a href="#pricing" style="color: var(--teal); font-weight: 600;">See full pricing</a>. Custom volume pricing available — <a href="#cta-section" style="color: var(--teal); font-weight: 600;">talk to us</a>.</p>
+          <p>Plans start at $300/month for up to 50 leads, scaling to $1,500+/month for 300+ leads. All plans include CRM integration, follow-up cadence, and weekly reporting. Volume pricing available. <a href="#cta-section" style="color: var(--teal); font-weight: 600;">Book a Free Pipeline Leak Audit</a> to get a custom quote.</p>
         </div>
       </div>
       <div class="faq-item fade-in">
         <button class="faq-question" aria-expanded="false">
-          <span>What's the minimum contract length?</span>
+          <span>Are there long-term contracts?</span>
           <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
         </button>
         <div class="faq-answer">
-          <p>We discuss terms directly during the strategy call. We don't lock you into long contracts before you've seen what the service does. The goal is to earn your trust through results, not fine print.</p>
+          <p>We don't lock you into long contracts before you've seen what the service does. We earn your trust through results, not fine print. Book a Free Pipeline Leak Audit and let's talk terms directly.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST & COMPLIANCE -->
-<section id="trust" style="background: var(--cloud-white); padding: 80px 24px;">
-  <div class="container">
-    <h2 style="font-size: 34px; font-weight: 700; color: var(--navy); margin-bottom: 12px; letter-spacing: -0.02em;">Your Pipeline. Your Rules. Your Data.</h2>
-    <p style="font-size: 16px; color: var(--slate); max-width: 560px; margin-bottom: 48px; line-height: 1.7;">We operate inside your CRM, follow your outreach guidelines, and treat your pipeline data as your asset — not ours.</p>
-    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
-      <div style="background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid var(--border);">
-        <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(0,194,203,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"><i data-lucide="user-check" style="width:20px;height:20px; color: var(--teal);"></i></div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">Human-Approved Messaging</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">Every sequence is reviewed and signed off by you before it goes live. Your brand voice. Your words.</p>
-      </div>
-      <div style="background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid var(--border);">
-        <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(0,194,203,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"><i data-lucide="lock" style="width:20px;height:20px; color: var(--teal);"></i></div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">CRM Access Controlled</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">We work inside your CRM with the access you grant. You can revoke it at any time.</p>
-      </div>
-      <div style="background: var(--white); border-radius: 12px; padding: 28px; border: 1px solid var(--border);">
-        <div style="width: 40px; height: 40px; border-radius: 8px; background: rgba(0,194,203,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;"><i data-lucide="shield" style="width:20px;height:20px; color: var(--teal);"></i></div>
-        <h4 style="font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px;">Client Data Isolated</h4>
-        <p style="font-size: 13px; color: var(--slate); line-height: 1.6;">Your pipeline data is never shared across clients. Your leads are your leads.</p>
-      </div>
-    </div>
-    <p style="font-size: 14px; color: var(--slate); margin-top: 32px; font-weight: 500;">Outreach rules configured per client. You own the close. We handle the follow-up.</p>
-  </div>
-</section>
-
-
-<!-- CTA SECTION -->
+<!-- FINAL CTA -->
 <section id="cta-section">
   <div class="container">
-    <h2>Ready to Stop Losing Founder-Led Pipeline to Silence?</h2>
-    <p>Book a Free Pipeline Leak Audit. Tell us about your pipeline — we'll show you exactly where leads are going dark, what it's costing you, and what we'll do about it. No pitch. Just your pipeline, analyzed.</p>
-    <a href="mailto:hello@strateon.com?subject=Pipeline%20Leak%20Audit%20Request" class="btn-primary">Book a Free Pipeline Leak Audit</a>
+    <h2>Find out where your pipeline is leaking.</h2>
+    <p>Get a Free Pipeline Leak Audit. We'll show you exactly where leads are going dark, what it's costing you, and what we'll do about it. No pitch. Just your pipeline, analyzed.</p>
+    <a href="mailto:hello@strateon.com?subject=Pipeline%20Leak%20Audit%20Request" class="btn-primary">Get a Free Pipeline Leak Audit</a>
   </div>
 </section>
 
@@ -1238,14 +1791,15 @@
     <div class="footer-top">
       <div class="footer-brand">
         <h3>strate<span>o</span>n</h3>
-        <p>Done-for-you AI-powered pipeline follow-up for founder-led SMBs in IT services, MSPs, SaaS, and professional services.</p>
+        <p>Done-for-you pipeline follow-up for founder-led SMBs in IT services, MSPs, SaaS, and professional services.</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
         <ul>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#what-we-do">What We Do</a></li>
           <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#first-7-days">First 7 Days</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
@@ -1253,7 +1807,6 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:hello@strateon.com">hello@strateon.com</a></li>
-          <li><a href="mailto:ahmad.salim@getstrateon.com">ahmad.salim@getstrateon.com</a></li>
         </ul>
       </div>
       <div class="footer-col">
