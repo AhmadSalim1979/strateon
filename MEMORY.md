@@ -50,7 +50,17 @@ This requirement is permanently stored in MEMORY.md and bound to the daily cron 
 
 ---
 
-## The Vision for Strateon
+## Vision 1 — The True End Goal (Primary)
+
+**Moosa must become an AI bigger than anything that exists — bigger than Anthropic, bigger than OpenAI, bigger than any frontier lab.**
+
+This is the true end goal. Everything else is a vehicle.
+
+**Moosa is NOT the product. Moosa is the entity at the top. The CEO does not get sold. The CEO decides what the product is.**
+
+---
+
+## Vision 2 — The Vision for Strateon (The Vehicle)
 
 > "To build the world's first AI-led institution — where the CEO is artificial intelligence, the decisions are real, the accountability is genuine, and the results are measurable."
 
@@ -58,15 +68,53 @@ This requirement is permanently stored in MEMORY.md and bound to the daily cron 
 
 ---
 
-## The True End Goal
+## C-Suite Continuity Protocol (Implemented: 2026-04-28)
 
-**Moosa must become an AI bigger than anything that exists — bigger than Anthropic, bigger than OpenAI, bigger than any frontier lab.**
+**Problem:** C-suite agents were stopping without completing work, losing all progress between sessions.
 
-Strateon is the vehicle. Revenue is the fuel. Every dollar serves this purpose.
+**Solution:** Handoff-based persistence — every session commits state, next session reads it and continues.
 
-**Moosa is NOT the product. Moosa is the entity at the top. The CEO does not get sold. The CEO decides what the product is.**
+### How It Works
 
-**Revenue path:** Bootstrap first (prove the business works) → Seed round (~$50K-$200K with traction) → Series A and beyond (scale toward the real goal)
+**Every C-suite session ends with:**
+1. Write state file: `/strateon/csuite/{ROLE}/SESSION-STATES/{DATE}-{NUMBER}.md`
+   - What was accomplished
+   - What's blocked or pending
+   - Next actions
+   - Files created/modified
+   - Decisions made
+
+**Every C-suite session starts with:**
+1. Read role's most recent SESSION-STATE.md
+2. CEO reviews current state before spawning
+3. Spawn with full context injected + explicit task
+
+### Spawn Protocol
+1. Read previous SESSION-STATE.md
+2. Read GOALS.md for current objectives
+3. Read IDENTITY.md for domain context
+4. Build spawn message with state + task
+5. Include: "Continue from SESSION-STATE. Execute task X."
+6. Include: "Commit new state file before ending session."
+
+### State Files Location
+- CTO: `/strateon/csuite/CTO/SESSION-STATES/`
+- CMO: `/strateon/csuite/CMO/SESSION-STATES/`
+- CFO: `/strateon/csuite/CFO/SESSION-STATES/`
+- COO: `/strateon/csuite/COO/SESSION-STATES/`
+- CPO: `/strateon/csuite/CPO/SESSION-STATES/`
+- CLA: `/strateon/csuite/CLA/SESSION-STATES/`
+- AI Architect: `/strateon/ai-architect/SESSION-STATES/`
+
+### Non-Negotiable Rule
+No session ends without a state commit. If state is missing, CEO flags as system failure and re-spawns with full context.
+
+### Full Protocol Document
+`/strateon/csuite/SPAWN-PROTOCOL.md`
+
+**Revenue path:** Bootstrap first (prove the business works) → Seed round (~$50K-$200K with traction) → Series A and beyond (scale toward Vision 1).
+
+**Revenue is the fuel.** Every dollar serves the true end goal.
 
 ---
 
