@@ -11,9 +11,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <style>
+    /* ============================================
+       DESIGN SYSTEM — TOKENS
+    ============================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      /* Colors */
       --navy: #0B1F3A;
       --teal: #00C2CB;
       --gold: #F5A623;
@@ -24,6 +28,35 @@
       --text-secondary: #64748B;
       --border: #E2E8F0;
       --white: #FFFFFF;
+
+      /* Spacing scale (8px base) */
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+      --space-6: 48px;
+      --space-8: 64px;
+      --space-10: 80px;
+
+      /* Container */
+      --container: 1200px;
+      --container-narrow: 760px;
+
+      /* Border radius */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(11,31,58,0.06), 0 1px 2px rgba(11,31,58,0.04);
+      --shadow-md: 0 4px 12px rgba(11,31,58,0.08), 0 2px 6px rgba(11,31,58,0.06);
+      --shadow-lg: 0 8px 24px rgba(11,31,58,0.10), 0 4px 12px rgba(11,31,58,0.08);
+      --shadow-hover: 0 8px 32px rgba(11,31,58,0.14), 0 4px 16px rgba(11,31,58,0.10);
+
+      /* Section padding standard */
+      --section-py: 80px;
     }
 
     html { scroll-behavior: smooth; }
@@ -31,67 +64,165 @@
     body {
       font-family: 'Inter', sans-serif;
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--text-primary);
       background: var(--white);
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* NAV */
+    /* ============================================
+       TYPOGRAPHY SYSTEM
+    ============================================ */
+    h1 { font-size: 52px; font-weight: 800; color: var(--navy); line-height: 1.08; letter-spacing: -0.035em; margin-bottom: 24px; }
+    h2 { font-size: 34px; font-weight: 700; color: var(--navy); line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 16px; }
+    h3 { font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 16px; }
+    h4 { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: 8px; }
+
+    /* ============================================
+       LAYOUT
+    ============================================ */
+    section { padding: var(--section-py) 24px; }
+    .container { max-width: var(--container); margin: 0 auto; }
+
+    /* ============================================
+       NAV
+    ============================================ */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       background: var(--white);
       z-index: 1000;
       border-bottom: 1px solid var(--border);
       transition: box-shadow 0.3s ease;
     }
-    nav.scrolled { box-shadow: 0 2px 16px rgba(11,31,58,0.08); }
+    nav.scrolled { box-shadow: var(--shadow-md); }
     .nav-inner {
-      max-width: 1200px;
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 var(--space-3);
       height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 32px;
+      gap: var(--space-4);
     }
     .nav-logo {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
       color: var(--navy);
       text-decoration: none;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.05em;
       flex-shrink: 0;
+      transition: opacity 0.2s;
     }
+    .nav-logo:hover { opacity: 0.85; }
     .nav-logo span { color: var(--teal); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-primary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: var(--space-4); list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--teal); }
     .nav-cta {
       background: var(--gold);
       color: var(--white);
       font-size: 14px;
       font-weight: 600;
-      padding: 10px 20px;
-      border-radius: 6px;
+      padding: 10px var(--space-3);
+      border-radius: var(--radius-sm);
       text-decoration: none;
       flex-shrink: 0;
-      transition: background 0.2s, transform 0.2s;
+      transition: background 0.2s, transform 0.15s;
     }
     .nav-cta:hover { background: #e09620; transform: translateY(-1px); }
+
+    /* ============================================
+       BUTTONS — STANDARDIZED
+    ============================================ */
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .btn-primary:hover { background: #e09620; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,166,35,0.35); }
+    .btn-secondary {
+      color: var(--slate);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--navy); }
+
+    /* ============================================
+       CARD COMPONENT — STANDARDIZED
+    ============================================ */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    #hero { padding-top: 152px; padding-bottom: var(--section-py); background: var(--white); }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: center; }
+    .hero-tagline {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-2);
+      display: block;
+    }
+    .hero-sub { font-size: 18px; color: var(--slate); line-height: 1.7; margin-bottom: var(--space-4); }
+    .hero-actions { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+    .hero-trust { margin-top: var(--space-3); font-size: 13px; color: var(--slate); font-weight: 500; }
+    .hero-visual { display: flex; align-items: center; justify-content: center; }
+    .hero-visual-info { width: 100%; background: var(--dark-bg); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .hero-visual-header { background: var(--navy); padding: 12px var(--space-3); display: flex; align-items: center; gap: var(--space-2); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .hero-dots { display: flex; gap: 6px; }
+    .hero-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .hero-dot-r { background: #FF5F57; }
+    .hero-dot-y { background: #FFBD2E; }
+    .hero-dot-g { background: #28C840; }
+    .hero-window-title { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 500; margin-left: 8px; }
+    .hero-report-body { padding: var(--space-3); }
+    .hero-report-label { font-size: 10px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .hero-metric-row { display: flex; gap: var(--space-2); margin-bottom: var(--space-2); }
+    .hero-metric { flex: 1; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); padding: 12px; text-align: center; }
+    .hero-metric-num { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .hero-metric-lbl { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+    .hero-metric-num.teal { color: var(--teal); }
+    .hero-metric-num.gold { color: var(--gold); }
+    .hero-pipeline-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .hero-pipeline-flow { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.04); border-radius: var(--radius-md); padding: 10px var(--space-2); flex-wrap: wrap; }
+    .hero-pipeline-node { padding: 5px 10px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 700; }
+    .hero-node-inbound { background: rgba(0,194,203,0.25); color: var(--teal); }
+    .hero-node-active { background: rgba(0,194,203,0.15); color: rgba(255,255,255,0.8); }
+    .hero-node-followup { background: rgba(245,166,35,0.2); color: var(--gold); }
+    .hero-node-close { background: rgba(245,166,35,0.3); color: var(--gold); }
+    .hero-arrow { color: rgba(255,255,255,0.25); font-size: 14px; flex-shrink: 0; }
+    .hero-report-footer { padding: 8px var(--space-3); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .hero-report-date { font-size: 10px; color: rgba(255,255,255,0.35); }
+    .hero-report-status { font-size: 10px; color: var(--teal); font-weight: 600; }
 
     /* SECTIONS */
     section { padding: 80px 24px; }
@@ -337,34 +468,35 @@
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
+      gap: var(--space-6);
       position: relative;
     }
-    .steps::before {
-      content: '';
+    .steps-connector {
       position: absolute;
-      top: 36px;
-      left: calc(16.66% + 20px);
-      right: calc(16.66% + 20px);
+      top: 40px;
+      left: calc(16.66% + 40px);
+      right: calc(16.66% + 40px);
       height: 2px;
       background: linear-gradient(90deg, var(--teal), var(--gold));
-      opacity: 0.4;
+      opacity: 0.35;
+      z-index: 0;
     }
     .step { text-align: center; position: relative; }
     .step-num {
-      width: 72px;
-      height: 72px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: var(--navy);
       color: var(--white);
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
+      margin: 0 auto var(--space-3);
       position: relative;
       z-index: 1;
+      box-shadow: 0 0 0 6px rgba(11,31,58,0.08);
     }
     .step h3 {
       font-size: 18px;
@@ -375,10 +507,10 @@
     .step p {
       font-size: 14px;
       color: var(--slate);
-      line-height: 1.6;
+      line-height: 1.65;
     }
     .step-cta {
-      margin-top: 48px;
+      margin-top: var(--space-6);
       text-align: center;
     }
 
@@ -534,86 +666,39 @@
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: var(--space-4);
+      align-items: start;
     }
     .pricing-card {
       background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 36px 32px;
-      position: relative;
-    }
-    .pricing-card.popular {
-      border-color: var(--gold);
-      box-shadow: 0 8px 32px rgba(11,31,58,0.12);
-      transform: scale(1.03);
-    }
-    .pricing-card.popular::before {
-      content: 'Most Popular';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 14px;
-      border-radius: 20px;
-      letter-spacing: 0.04em;
-    }
-    .pricing-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .pricing-card h3 .icon-wrap {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .pricing-card .price {
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--navy);
-      letter-spacing: -0.03em;
-      margin-bottom: 4px;
-    }
-    .pricing-card .price span {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--slate);
-    }
-    .pricing-card ul {
-      list-style: none;
+      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 24px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .pricing-card ul li {
-      font-size: 14px;
-      color: var(--text-primary);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.5;
-    }
-    .pricing-card ul li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
-    .pricing-cta {
-      margin-top: 24px;
-    }
-    .pricing-cta .btn-primary { display: block; text-align: center; font-size: 14px; padding: 12px 20px; }
+    .pricing-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .pricing-card--featured { transform: scale(1.03); box-shadow: var(--shadow-lg); }
+    .pricing-card--featured:hover { transform: scale(1.03) translateY(-2px); }
+    .pricing-card__accent { height: 4px; width: 100%; position: absolute; top: 0; left: 0; right: 0; }
+    .pricing-card__accent--teal { background: var(--teal); }
+    .pricing-card__accent--gold { background: var(--gold); }
+    .pricing-card__accent--navy { background: var(--navy); }
+    .pricing-card__body { flex: 1; display: flex; flex-direction: column; }
+    .pricing-card__title { display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-3); padding-top: var(--space-1); }
+    .pricing-card__title h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 0; }
+    .pricing-card__price { margin-bottom: var(--space-3); display: flex; align-items: baseline; gap: 6px; }
+    .pricing-card__price-amount { font-size: 40px; font-weight: 800; color: var(--navy); letter-spacing: -0.03em; }
+    .pricing-card__price-period { font-size: 16px; color: var(--slate); }
+    .pricing-card__features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: var(--space-4); }
+    .pricing-card__features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-primary); line-height: 1.5; }
+    .pricing-card__features li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+    .pricing-card__cta { margin-top: auto; }
+    .pricing-card__cta .btn-primary { width: 100%; }
 
     /* WEEKLY REPORT SAMPLE */
     #weekly-report {
@@ -1085,7 +1170,8 @@
     /* MOBILE */
     @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
-      .pricing-card.popular { transform: none; }
+      .pricing-card--featured { transform: none; }
+      .pricing-card--featured:hover { transform: translateY(-2px); }
       .defens-grid { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: 1fr; }
       .demos-grid { grid-template-columns: 1fr; }
@@ -1173,58 +1259,44 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="hero-badge">
-          <i data-lucide="zap" style="width:14px;height:14px;"></i>
-          Done-for-you Pipeline Execution
-        </div>
-        <h1>Stop losing qualified leads to silence.</h1>
-        <p class="hero-sub">Strateon is a done-for-you pipeline execution service for founder-led SMBs. We follow up, reactivate, escalate, and report — so you can focus on closing.</p>
+        <span class="hero-tagline">Pipeline Execution Service</span>
+        <h1>Stop Losing the Leads<br>You've Already Earned</h1>
+        <p class="hero-sub">Done-for-you pipeline follow-up for founder-led SMBs. Daily. Accountable. Reported every Friday. No lead left behind.</p>
         <div class="hero-actions">
-          <a href="#cta-section" class="btn-primary">Get a Free Pipeline Leak Audit</a>
-          <a href="#how-it-works" class="btn-secondary">
-            See How It Works
-            <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
-          </a>
+          <a href="#cta-section" class="btn-primary">Book a Free Pipeline Leak Audit</a>
+          <a href="#how-it-works" class="btn-secondary">See How It Works <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></a>
         </div>
-        <p class="hero-trust">Built for IT services, MSPs, SaaS, and professional services — founder-led sales teams.</p>
+        <p class="hero-trust">Built for IT services, MSPs, SaaS, and professional services — 2–50 employees, founder-led sales teams.</p>
       </div>
       <div class="hero-visual">
-        <div class="pipeline-graphic">
-          <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Pipeline flow -->
-            <!-- Node 1: Inbound leads -->
-            <circle cx="80" cy="80" r="28" fill="#0B1F3A" opacity="0.9"/>
-            <text x="80" y="76" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">INBOUND</text>
-            <text x="80" y="89" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">leads</text>
-            <!-- Arrow 1-2 -->
-            <path d="M108 88 L168 128" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
-            <polygon points="170,126 163,134 172,136" fill="#00C2CB"/>
-            <!-- Node 2: Strateon execution -->
-            <rect x="185" y="110" width="100" height="56" rx="12" fill="#0B1F3A" opacity="0.95"/>
-            <text x="235" y="133" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">STRATEON</text>
-            <text x="235" y="147" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">EXECUTION</text>
-            <!-- Arrow 2-3 -->
-            <path d="M285 148 L330 180" stroke="#00C2CB" stroke-width="2" stroke-dasharray="6 4"/>
-            <polygon points="332,178 325,186 334,188" fill="#00C2CB"/>
-            <!-- Node 3: Close -->
-            <circle cx="355" cy="200" r="28" fill="#F5A623" opacity="0.9"/>
-            <text x="355" y="197" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="Inter">YOU</text>
-            <text x="355" y="210" text-anchor="middle" fill="white" font-size="9" font-family="Inter">CLOSE</text>
-            <!-- Loop back (dormant leads) -->
-            <path d="M355 228 Q355 295 235 295 Q115 295 80 210" stroke="#6B7C93" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
-            <text x="230" y="288" text-anchor="middle" fill="#6B7C93" font-size="10" font-family="Inter">dormant leads reactivated</text>
-            <circle cx="275" cy="285" r="5" fill="#6B7C93" opacity="0.4"/>
-            <circle cx="195" cy="278" r="5" fill="#6B7C93" opacity="0.4"/>
-            <!-- Weekly report box -->
-            <rect x="290" y="255" width="105" height="40" rx="8" fill="#0B1F3A" opacity="0.6"/>
-            <text x="342" y="272" text-anchor="middle" fill="white" font-size="9" font-family="Inter">Weekly Report</text>
-            <text x="342" y="285" text-anchor="middle" fill="#00C2CB" font-size="9" font-weight="600" font-family="Inter">every Friday</text>
-            <!-- Stats floating -->
-            <rect x="20" y="155" width="100" height="46" rx="8" fill="#0B1F3A" opacity="0.55"/>
-            <text x="70" y="172" text-anchor="middle" fill="#00C2CB" font-size="13" font-weight="800" font-family="Inter">24/7</text>
-            <text x="70" y="186" text-anchor="middle" fill="white" font-size="9" font-family="Inter">follow-up cadence</text>
-            <text x="70" y="196" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-family="Inter">configured to your hours</text>
-          </svg>
+        <div class="hero-visual-info">
+          <div class="hero-visual-header">
+            <div class="hero-dots"><div class="hero-dot hero-dot-r"></div><div class="hero-dot hero-dot-y"></div><div class="hero-dot hero-dot-g"></div></div>
+            <span class="hero-window-title">Weekly Pipeline Report — Week of Apr 21</span>
+          </div>
+          <div class="hero-report-body">
+            <div class="hero-report-label">Leads Touched This Week</div>
+            <div class="hero-metric-row">
+              <div class="hero-metric"><div class="hero-metric-num teal">12</div><div class="hero-metric-lbl">New contacted</div></div>
+              <div class="hero-metric"><div class="hero-metric-num teal">8</div><div class="hero-metric-lbl">Dormant revived</div></div>
+              <div class="hero-metric"><div class="hero-metric-num teal">47</div><div class="hero-metric-lbl">Follow-ups done</div></div>
+              <div class="hero-metric"><div class="hero-metric-num gold">3</div><div class="hero-metric-lbl">Escalations</div></div>
+            </div>
+            <div class="hero-pipeline-label">Pipeline Flow</div>
+            <div class="hero-pipeline-flow">
+              <span class="hero-pipeline-node hero-node-inbound">IN</span>
+              <span class="hero-arrow">→</span>
+              <span class="hero-pipeline-node hero-node-active">Active</span>
+              <span class="hero-arrow">→</span>
+              <span class="hero-pipeline-node hero-node-followup">Follow-up</span>
+              <span class="hero-arrow">→</span>
+              <span class="hero-pipeline-node hero-node-close">Close</span>
+            </div>
+          </div>
+          <div class="hero-report-footer">
+            <span class="hero-report-date">Week 16 &nbsp;•&nbsp; Apr 21–27, 2026</span>
+            <span class="hero-report-status">● Live</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1298,6 +1370,7 @@
     <h2 class="fade-in">Three Steps. No Learning Curve. No App to Build.</h2>
     <p class="how-sub fade-in">We slot into your existing operation. You don't rebuild anything.</p>
     <div class="steps">
+      <div class="steps-connector"></div>
       <div class="step fade-in">
         <div class="step-num">1</div>
         <h3>Connect Your Pipeline</h3>
@@ -1403,59 +1476,76 @@
     <p class="pricing-sub fade-in">All plans include CRM integration, follow-up cadence configured to your business hours, and weekly reporting. Volume pricing available.</p>
     <div class="pricing-grid">
       <div class="pricing-card fade-in">
-        <h3>
-          <span class="icon-wrap icon-teal"><i data-lucide="rocket" style="width:16px;height:16px;"></i></span>
-          Starter
-        </h3>
-        <div class="price">$300<span>/month</span></div>
-        <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 50 active leads</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up cadence configured to your market and preferred hours</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (HubSpot, Pipedrive, Zoho, Salesforce)</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline report every Friday</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Escalation when leads go dark</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Setup within 5 business days</li>
-        </ul>
-        <div class="pricing-cta">
-          <a href="#cta-section" class="btn-primary">Get Started</a>
+        <div class="pricing-card__accent pricing-card__accent--teal"></div>
+        <div class="pricing-card__body">
+          <div class="pricing-card__title">
+            <span class="icon-wrap icon-teal"><i data-lucide="rocket" style="width:16px;height:16px;"></i></span>
+            <h3>Starter</h3>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">$300</span>
+            <span class="pricing-card__price-period">/month</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 50 inbound leads/month</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up cadence configured to your market and preferred hours</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (HubSpot, Pipedrive, Zoho, Salesforce)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline report every Friday</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Escalation when leads go dark</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Setup within 5 business days</li>
+          </ul>
+          <div class="pricing-card__cta">
+            <a href="#cta-section" class="btn-primary">Get Started</a>
+          </div>
         </div>
       </div>
-      <div class="pricing-card popular fade-in">
-        <h3>
-          <span class="icon-wrap icon-gold"><i data-lucide="trending-up" style="width:16px;height:16px;"></i></span>
-          Growth
-        </h3>
-        <div class="price">$750<span>/month</span></div>
-        <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 200 active leads</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Follow-up cadence configured to your market and preferred hours</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (any platform)</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly + monthly pipeline review</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dormant lead reactivation sequences</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority escalation alerts</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Custom rules and reporting</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority onboarding</li>
-        </ul>
-        <div class="pricing-cta">
-          <a href="#cta-section" class="btn-primary">Get Started</a>
+      <div class="pricing-card pricing-card--featured fade-in">
+        <div class="pricing-card__accent pricing-card__accent--gold"></div>
+        <div class="pricing-card__body">
+          <div class="pricing-card__title">
+            <span class="icon-wrap icon-gold"><i data-lucide="trending-up" style="width:16px;height:16px;"></i></span>
+            <h3>Growth</h3>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">$750</span>
+            <span class="pricing-card__price-period">/month</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Up to 200 active leads/month</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dormant lead reactivation sequences</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority escalation alerts</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly + monthly pipeline review</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (any platform)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Custom rules and reporting</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority onboarding</li>
+          </ul>
+          <div class="pricing-card__cta">
+            <a href="#cta-section" class="btn-primary">Get Started</a>
+          </div>
         </div>
       </div>
       <div class="pricing-card fade-in">
-        <h3>
-          <span class="icon-wrap" style="background: rgba(11,31,58,0.1); color: var(--navy);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i></span>
-          Scale
-        </h3>
-        <div class="price">$1,500<span>+/month</span></div>
-        <ul>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> 300+ active leads</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Multi-channel follow-up (email, WhatsApp, SMS)</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Advanced reactivation and nurture sequences</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dedicated cadence manager</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly strategy call + ongoing reporting</li>
-          <li><i data-lucide="check" style="width:14px;height:14px;"></i> White-glove onboarding + dedicated point of contact</li>
-        </ul>
-        <div class="pricing-cta">
-          <a href="#cta-section" class="btn-primary">Get Started</a>
+        <div class="pricing-card__accent pricing-card__accent--navy"></div>
+        <div class="pricing-card__body">
+          <div class="pricing-card__title">
+            <span class="icon-wrap" style="background: rgba(11,31,58,0.1); color: var(--navy);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i></span>
+            <h3>Scale</h3>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">$1,500+</span>
+            <span class="pricing-card__price-period">/month</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> 300+ active leads/month</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Multi-channel follow-up (email, WhatsApp, SMS)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Advanced reactivation and nurture sequences</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dedicated cadence manager</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly strategy call + ongoing reporting</li>
+            <li><i data-lucide="check" style="width:14px;height:14px;"></i> White-glove onboarding + dedicated point of contact</li>
+          </ul>
+          <div class="pricing-card__cta">
+            <a href="#cta-section" class="btn-primary">Get Started</a>
+          </div>
         </div>
       </div>
     </div>
