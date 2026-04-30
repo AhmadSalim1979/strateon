@@ -1272,8 +1272,9 @@
     h1, h2, h3, h4 { color: var(--soft-black); }
     nav { background: rgba(251,250,248,0.92); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(90,15,24,0.12); }
     .nav-inner { height: 78px; }
-    .brand-lockup { display: inline-flex; align-items: center; gap: 10px; letter-spacing: -0.04em; position: relative; z-index: 100; }
+    .brand-lockup { display: inline-flex; align-items: center; gap: 0; letter-spacing: -0.04em; position: relative; z-index: 100; }
     .brand-logo-img { height: 42px; width: auto; display: block; flex-shrink: 0; }
+    .logo-text { margin-left: 10px; font-size: 20px; font-weight: 700; color: #111111; letter-spacing: -0.03em; line-height: 1; }
     .brand-name { color: #171314; font-weight: 850; }
     .nav-logo span { color: inherit; }
     .nav-links a:hover { color: var(--crimson); }
@@ -1333,7 +1334,10 @@
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo brand-lockup"><img src="assets/qiyadon-mark-fresh.jpg" alt="Qiyadon" class="brand-logo-img" style="height:46px;width:auto;display:block;object-fit:contain;"></a>
+    <a href="#" class="nav-logo brand-lockup">
+  <img src="assets/qiyadon-mark-fresh.jpg" alt="Qiyadon" class="brand-logo-img">
+  <span class="logo-text">qiyadon</span>
+</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#what-we-do">What We Do</a></li>
       <li><a href="#how-it-works">How It Works</a></li>
