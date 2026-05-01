@@ -890,7 +890,7 @@
     submitBtn.classList.add('loading');
 
     try {
-      const res = await fetch('/submit-audit.js', {
+      const res = await fetch('/submit-audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
