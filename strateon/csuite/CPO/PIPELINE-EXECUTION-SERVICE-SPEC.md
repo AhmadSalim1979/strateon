@@ -2,7 +2,7 @@
 ## Product Specification v1.0
 
 **Owner:** CPO (Chief Product Development Officer)
-**Status:** DRAFT — Pending CEO/Board Approval
+**Status:** FINAL — Pending CFO input on overage fee and annual pricing
 **Date:** 2026-05-01
 
 ---
@@ -80,13 +80,15 @@ We do not hand you software and wish you luck. We take responsibility for your l
 - **Unlimited active leads**
 - **Real-time pipeline visibility** — Read-only dashboard showing live pipeline status (lead counts, stage distribution, activity log)
 - **Multi-channel sequencing** — WhatsApp + Email + SMS, fully configured and managed
-- **Dedicated escalation path** — Direct line to COO for urgent pipeline issues; response within 1 hour
+- **Dedicated escalation path** — Direct line to COO/CEO for urgent pipeline issues; response within 1 hour, 24/7 for operations. Business-hours-only applies to cost/contractual escalation (Board only).
 - **Weekly strategy call** — 60-minute structured review with Moosa + COO every week
 - **Custom cadences** — Per-segment or per-rep follow-up sequences tailored to your sales motion
 - **CRM deep integration** — Bidirectional sync, stage-change triggers, close reason tracking
-- **Onboarding SLA** — Live within 3 business days of contract signed
+- **Onboarding SLA** — Live within 3 business days of contract signed. *No onboarding fee.*
+**Pause policy** — Clients may pause service for up to 3 months. A minimum of $100/month applies during pause. After 3 months, service resumes or contract terminates.
+**Lead overage** — Per-lead fee applies for any lead count over the tier limit. *(Rate pending CFO recommendation.)*
 
-**Scale pricing:** Custom quote based on volume and complexity. Starting at $1,500/month, with enterprise contracts available.
+**Scale pricing** — Custom quote based on volume and complexity. Starting at $1,500/month. Available in both month-to-month and annual contract with a discount (annual price TBD from CFO).
 
 ---
 
@@ -107,6 +109,9 @@ We do not hand you software and wish you luck. We take responsibility for your l
 | **Dedicated escalation** | ❌ | ❌ | ✅ |
 | **Onboarding SLA** | 5 days | 3 days | 3 days |
 | **Support** | 1 business day | 4 hours | 1 hour |
+| **Contract** | Month-to-month or annual (discount) | Month-to-month or annual (discount) | Month-to-month or annual (discount) |
+| **Pause allowed** | ❌ | ❌ | ✅ — max 3 months, $100/mo minimum |
+| **Overage fee** | Per-lead fee | Per-lead fee | Per-lead fee |
 
 ---
 
@@ -206,7 +211,7 @@ This section is critical. Clear scope boundaries prevent scope creep and ensure 
 7. **Custom software development** — We do not build custom tools, integrations, or APIs for individual clients.
 8. **Weekend or holiday outreach** — Follow-ups run Monday–Friday, 9am–6pm in client's timezone. Saturdays, Sundays, and public holidays: no new outreach (dormancy clock pauses).
 9. **More than 2 rounds of revision on message templates** — You approve the first message template. Moosa handles subsequent follow-ups. If you want to revise the tone after launch, you get 2 revision rounds per quarter.
-10. **Emergency response outside business hours** — Escalations for Scale tier are responded to within 1 hour during business hours (Mon–Fri 9am–6pm client timezone). Outside business hours, escalation response is next business day.
+10. **Emergency response outside business hours** — Escalations for Scale tier are responded to within 1 hour during business hours (Mon–Fri 9am–6pm client timezone). For operational escalations (COO/CEO), response is 24/7. For cost/contractual matters (Board only), business hours apply. Outside business hours for operational escalations, response is next business day.
 
 ### Not Included in Starter
 
@@ -220,8 +225,9 @@ This section is critical. Clear scope boundaries prevent scope creep and ensure 
 - Pipeline dashboard (real-time visibility)
 - SMS channel
 - Weekly strategy call
-- Dedicated escalation path
+- Dedicated escalation path (24/7)
 - Unlimited leads
+- Pause policy ($100/month minimum during pause, max 3 months)
 
 ---
 
@@ -397,18 +403,31 @@ Week of [MON–FRI DATE]
 
 ---
 
-## APPENDIX A: SERVICE TIER DECISIONS (PENDING CEO APPROVAL)
+## APPENDIX A: SERVICE TIER DECISIONS — STATUS
 
-The following decisions are not yet finalized and require CEO sign-off:
+The following decisions are finalized or still pending:
 
-1. **Scale pricing floor** — CFO proposes $1,500/month starting point. Is $1,500 the correct floor, or should Scale start at $2,000?
-2. **Onboarding fee** — Should there be a one-time onboarding/setup fee (e.g., $300) for Starter tier to cover CRM integration time? Or is this absorbed into the monthly price?
-3. **Pause policy** — Starter/Growth clients request to pause service (e.g., they have no new leads for a month). Do we allow pauses? For how long? Is there a minimum monthly fee during pause?
-4. **Lead overage pricing** — If a Starter client exceeds 50 leads in a month, what happens? Auto-upgrade to Growth? Per-lead overage fee? Overage block until next month?
-5. **Escalation response hours** — Scale has 1-hour escalation response. Is this 24/7, or business hours only? Business hours only is more realistic operationally.
-6. **Contract length** — Month-to-month or annual contract required? Annual discount (e.g., 2 months free)? Recommended for Scale; optional for Starter/Growth?
-7. **Free trial** — Should prospects get a free trial? 7 days? 14 days? Limited to X leads? If yes, how to prevent abuse?
-8. **Success metric thresholds** — Are the 90% response rate and 15% reactivation rate the right targets, or should these be adjusted based on industry benchmarks?
+~~1. **Scale pricing floor**~~ — ✅ **FINALIZED: $1,500/month starting point.**
+
+~~2. **Onboarding fee**~~ — ✅ **FINALIZED: No onboarding fee. Absorbed into monthly price.**
+
+~~3. **Pause policy**~~ — ✅ **FINALIZED: Yes — max 3 months pause, $100/month minimum during pause.**
+
+~~4. **Lead overage pricing**~~ — ⚠️ **PENDING CFO RECOMMENDATION** — Per-lead overage fee applies. Rate TBD.
+
+~~5. **Escalation response hours**~~ — ✅ **FINALIZED: 24/7 for operational escalations (COO/CEO). Business hours only for cost/contractual escalation (Board only).**
+
+~~6. **Contract length**~~ — ✅ **FINALIZED: Both month-to-month AND annual with discount available. Annual pricing TBD (CFO recommendation pending).**
+
+~~7. **Free trial**~~ — ✅ **FINALIZED: 14-day free trial, capped at ≤25 leads, minimum ≥20 leads submitted to qualify, no discovery call required.**
+
+~~8. **Success metric thresholds**~~ — ✅ **FINALIZED: 90% lead response rate / 15% dormant lead reactivation rate confirmed.**
+
+---
+
+**⚠️ Items still open — pending CFO recommendation:**
+- Lead overage per-lead fee amount
+- Annual contract discount pricing
 
 ---
 
