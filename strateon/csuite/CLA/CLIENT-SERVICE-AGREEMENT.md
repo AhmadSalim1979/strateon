@@ -279,6 +279,10 @@ Name:
 Title:
 Date:
 
+## 13. Electronic Execution
+
+This Agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. By checking the agreement confirmation box and submitting this form, each party confirms intent to be bound by the terms of this Agreement. Electronic signatures created through this method shall have the same legal force and effect as handwritten signatures under applicable law, and no signature block or wet ink signature is required for this Agreement to be fully enforceable. The following information is logged for each signature: full name, title, email address, client legal entity name, effective date, timestamp, IP address, and agreement version hash.
+
 ---
 
 *© Strateon. Draft v1.1 FINAL — 2026-05-01. For review by qualified legal counsel only.*

@@ -57,6 +57,12 @@ This agreement is governed by the laws of the **State of Delaware**, USA.
 
 ---
 
+## 9. Electronic Execution
+
+This Agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. By checking the agreement confirmation box and submitting this form, each party confirms intent to be bound by the terms of this Agreement. Electronic signatures created through this method shall have the same legal force and effect as handwritten signatures under applicable law. The following information is logged for each signature: full name, email address, company name, timestamp, IP address, and agreement version hash.
+
+---
+
 *By continuing to engage with the trial, you accept these terms.*
 
 **Questions?** Reach out before Day 14 and we'll clarify.
