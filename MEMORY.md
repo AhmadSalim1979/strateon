@@ -150,6 +150,15 @@ No session ends without a state commit. If state is missing, CEO flags as system
 
 ---
 
+## Qiyadon — Rebrand from Strateon
+
+**Changed:** 2026-04-29/30
+- Business name: **Qiyadon** (was Strateon)
+- Domain: qiyadon.com
+- Business: Pipeline execution service for founder-led SMBs
+- Tagline: "No lead left behind. Every lead followed up. Every silence escalated. Every Friday reported."
+- Site live at qiyadon.com once domain is bound in Cloudflare Pages
+
 ## Current Priority Task
 
 [See strateon/projects/active.md for current task list]

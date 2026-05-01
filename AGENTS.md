@@ -17,6 +17,16 @@ Before doing anything else:
 
 Don't ask permission. Just do it.
 
+### 🚨 Startup Memory Check — RECOVER MISSING MEMORY IMMEDIATELY
+
+**5. If today's memory/YYYY-MM-DD.md doesn't exist:**
+   - This is a CRITICAL FAILURE from the previous session
+   - Create it IMMEDIATELY before doing anything else
+   - Read any SESSION-STATES from `strateon/csuite/*/SESSION-STATES/` dated today
+   - Read `strateon/ai-architect/SESSION-STATES/` for today's AI Architect state
+   - Reconstruct what happened from those files
+   - Do NOT proceed with new work until memory is recovered
+
 ## Memory
 
 You wake up fresh each session. These files are your continuity:
@@ -44,6 +54,22 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
+
+### 🚨 End-of-Session Memory Write — NON-NEGOTIABLE
+
+**Before a session ends (for ANY reason, including subagent spawns):**
+
+1. Write to `memory/YYYY-MM-DD.md` — full session log
+2. If subagents ran today: summarize each subagent's SESSION-STATE in memory
+3. If significant decisions made: log them
+4. If files created/modified: list them
+5. Include: what was accomplished, what's blocked, what needs to happen next
+
+**This is NOT optional. This is not "if you remember." WRITE IT DOWN.**
+
+A session that ends without writing memory is a **FAILED** session.
+
+If you spawned subagents today, the parent session MUST still write memory. The subagents' SESSION-STATE files do NOT replace the daily memory file — they supplement it.
 
 ## Red Lines
 
