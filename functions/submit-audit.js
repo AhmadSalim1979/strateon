@@ -97,43 +97,43 @@ Submitted: ${data.submitted_at}
 }
 
 export async function onRequestPost(context) {
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  };
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
 
-  let data;
-  try {
-    data = await context.request.json();
-  } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
-  }
+    let data;
+    try {
+      data = await context.request.json();
+    } catch {
+      return new Response(JSON.stringify({ error: 'Invalid JSON' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    }
 
-  const required = ['name', 'company', 'email', 'industry', 'leads_per_month', 'close_rate', 'crm', 'challenge', 'followup_process'];
-  for (const field of required) {
-    if (!data[field] || !String(data[field]).trim()) {
-      return new Response(JSON.stringify({ error: `Missing field: ${field}` }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    const required = ['name', 'company', 'email', 'industry', 'leads_per_month', 'close_rate', 'crm', 'challenge', 'followup_process'];
+    for (const field of required) {
+      if (!data[field] || !String(data[field]).trim()) {
+        return new Response(JSON.stringify({ error: `Missing field: ${field}` }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+      }
+    }
+
+    data.submitted_at = data.submitted_at || new Date().toISOString();
+    const { html, text } = buildAuditEmail(data);
+
+    try {
+      const info = await transporter.sendMail({
+        from: `Qiyadon Forms <${creds.user}>`,
+        to: 'contact@qiyadon.com',
+        subject: `Pipeline Leak Audit — ${data.name} / ${data.company}`,
+        text,
+        html
+      });
+      return new Response(JSON.stringify({ success: true, messageId: info.messageId }), { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+    } catch (err) {
+      return new Response(JSON.stringify({ error: 'Email send failed', details: err.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
   }
 
-  data.submitted_at = data.submitted_at || new Date().toISOString();
-  const { html, text } = buildAuditEmail(data);
-
-  try {
-    const info = await transporter.sendMail({
-      from: `Qiyadon Forms <${creds.user}>`,
-      to: 'contact@qiyadon.com',
-      subject: `Pipeline Leak Audit — ${data.name} / ${data.company}`,
-      text,
-      html
-    });
-    return new Response(JSON.stringify({ success: true, messageId: info.messageId }), { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
-  } catch (err) {
-    return new Response(JSON.stringify({ error: 'Email send failed', details: err.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+  export async function onRequestOptions() {
+    return new Response(null, { status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
   }
-}
-
-export async function onRequestOptions() {
-  return new Response(null, { status: 204, headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type' } });
-}
