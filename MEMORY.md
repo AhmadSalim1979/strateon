@@ -162,3 +162,12 @@ No session ends without a state commit. If state is missing, CEO flags as system
 ## Current Priority Task
 
 [See strateon/projects/active.md for current task list]
+
+## Pipeline Leak Audit Form & Email Setup
+
+**Files:**
+- `strateon-site/pipeline-leak-audit.html` — Full audit form, Qiyadon 2026 brand
+- `strateon-site/submit-audit.js` — Node.js HTTP server → emails results to ahmad.salim@getstrateon.com
+
+**Run:** `node /home/node/.openclaw/workspace/strateon-site/submit-audit.js` (PORT env or 3000)
+**Git:** committed as `feat: add Pipeline Leak Audit form + email handler` (55c85be)
