@@ -252,7 +252,7 @@ $500/month
 - Priority onboarding
 
 **GROWTH CARD — REVISED:**
-$600/month *(raised from $500 to create meaningful gap)*
+$750/month
 - Up to 150 inbound leads/month
 - Follow-up cadence configured to your market and preferred business hours
 - CRM integration (any platform)
@@ -272,9 +272,8 @@ $600/month
 - White-glove onboarding + dedicated point of contact
 
 **SCALE CARD — REVISED:**
-$900+/month *(raised from $600, gap signals real tier distinction)*
-**OR: "Custom" with "Talk to us for volume pricing"**
-- Up to 300 inbound leads/month
+$1,500+/month *(custom pricing — volume, complexity, and scope determine final price)*
+- Unlimited inbound leads/month
 - Follow-up cadence configured to your market and preferred business hours
 - Multi-CRM / custom setup support
 - Weekly pipeline report + weekly strategy call
@@ -287,7 +286,7 @@ $900+/month *(raised from $600, gap signals real tier distinction)*
 All plans include CRM integration, daily follow-up, and weekly reporting. [See FAQ](#faq) for custom volume pricing.
 
 **BOTTOM PRICING NOTE — REVISED:**
-All plans include CRM integration, daily follow-up, and weekly reporting. Volume pricing available for teams over 300 leads/month.
+All plans include CRM integration, daily follow-up, and weekly reporting. Annual plans save 25% — Starter at $2,700/yr, Growth at $6,750/yr. Volume pricing and Scale custom plans available for teams over 300 leads/month.
 
 *(Replace the FAQ link with the new CTA: "Volume pricing available — Book a Free Pipeline Leak Audit")*
 
@@ -576,7 +575,7 @@ A pipeline report delivered to your inbox every Friday. Pipeline health, leads c
 Plans start at $300/month for up to 50 leads, scaling to $600/month for up to 300 leads. See full pricing. Custom volume pricing available — talk to us.
 
 **REVISED:**
-Plans start at $300/month for up to 50 leads, scaling to $900+/month for up to 300 leads. All plans include CRM integration, daily follow-up, and weekly reporting. Volume pricing available for larger pipelines. Book a Free Pipeline Leak Audit to get a custom quote.
+Plans start at $300/month for up to 50 leads (Starter), $750/month for up to 150 leads (Growth), and $1,500+/month for unlimited leads (Scale). All plans include CRM integration, daily follow-up, and weekly reporting. Annual plans save 25%. Overage pricing applies above plan limits. Book a Free Pipeline Leak Audit to get a custom quote.
 
 ---
 

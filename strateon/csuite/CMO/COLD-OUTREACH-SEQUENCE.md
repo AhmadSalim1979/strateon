@@ -32,7 +32,7 @@ Ahmad
 ---
 
 **Trial offer (add as a PS or inline alternative for lower-friction prospects):**
-> By the way — we also offer a free 14-day trial. No commitment, no credit card, just execution. Apply at qiyadon.com.
+> By the way — we also offer a free 14-day trial. No discovery call, no commitment, no credit card. Up to 25 leads followed up with real sequences. Apply at qiyadon.com/sign-trial.
 
 ---
 
