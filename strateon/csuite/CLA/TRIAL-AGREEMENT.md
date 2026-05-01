@@ -3,6 +3,8 @@
 **Effective Date:** Day 1 of outreach  
 **Governing Law:** State of Delaware, USA
 
+> **Electronic Signature Notice:** This agreement may be executed electronically via Dropbox Sign (or any equivalent e-signature platform) and shall constitute a valid and binding signature. Electronic execution shall have the same legal force and effect as a handwritten signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law.
+
 ---
 
 ## 1. Trial Period

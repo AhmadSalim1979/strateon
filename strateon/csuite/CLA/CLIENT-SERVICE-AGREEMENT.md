@@ -244,7 +244,9 @@ Failure to enforce any provision of this Agreement shall not constitute a waiver
 The Parties are independent contractors. Nothing in this Agreement creates a partnership, joint venture, agency, or employment relationship.
 
 ### 12.8 Counterparts
-This Agreement may be executed in counterparts, each of which shall be deemed an original, and all of which together shall constitute one instrument. Electronic signatures are valid.
+This Agreement may be executed in counterparts, each of which shall be deemed an original, and all of which together shall constitute one instrument.
+
+> **Electronic Signature Notice:** This Agreement may be executed electronically via Dropbox Sign (or any equivalent e-signature platform) and shall constitute a valid and binding signature. Electronic execution shall have the same legal force and effect as a handwritten signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. Each signatory's electronic signature shall be sufficient to bind that party, and no signature block or wet ink signature is required for this Agreement to be fully enforceable.
 
 ---
 
