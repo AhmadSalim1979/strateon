@@ -1,9 +1,14 @@
 # STRATEON — Standard Client Service Agreement
 **Classification:** Internal Template — For Review by Qualified Legal Counsel Before Use
-**Version:** 1.0 Draft
+**Version:** 1.1 FINAL
 **Date:** 2026-04-29
+**Last Updated:** 2026-05-01
 
 > ⚠️ **Legal Disclaimer:** This is a draft template for review purposes only. Strateon must have this agreement reviewed and approved by a qualified attorney licensed in the relevant jurisdiction before use with any client. This template is not legal advice.
+
+---
+
+**FINAL — All 6 decisions confirmed by Ahmad Salim on 2026-05-01**
 
 ---
 
@@ -120,6 +125,9 @@ Strateon shall process only the minimum personal data necessary to perform the S
 ### 6.3 Client as Data Controller
 Unless otherwise agreed in writing, the Client is the data controller with respect to any personal data processed in connection with this Agreement. Client warrants that it has all necessary consents and legal bases for Strateon to process such data on its behalf.
 
+### 6.4 Data Residency
+**All personal data processed by Strateon under this Agreement shall be stored and processed within the European Union (EU) only.** Data shall not be transferred to, stored in, or accessed from any jurisdiction outside the EU without the prior written consent of the Client and in accordance with applicable data protection law.
+
 ---
 
 ## 7. INTELLECTUAL PROPERTY
@@ -143,10 +151,12 @@ The Client grants Strateon a limited license to use Client-provided materials so
 ### 8.1 Limitation of Liability
 **TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:**
 - NEITHER PARTY SHALL BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, REGARDLESS OF THE CAUSE OF ACTION OR WHETHER SUCH DAMAGES WERE FORESEEABLE
-- EACH PARTY'S TOTAL CUMULATIVE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE TOTAL FEES PAID OR PAYABLE BY CLIENT TO STRATEON IN THE **[12] MONTHS** PRECEDING THE CLAIM
+- EACH PARTY'S TOTAL CUMULATIVE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE TOTAL FEES PAID OR PAYABLE BY CLIENT TO STRATEON IN THE **[6] MONTHS** PRECEDING THE CLAIM
 
 ### 8.2 Indemnification by Strateon
-Strateon shall indemnify, defend, and hold harmless the Client from any third-party claims arising directly from: (a) Strateon's gross negligence or willful misconduct; (b) Strateon's breach of its confidentiality obligations; (c) Strateon's unlawful processing of personal data in violation of applicable data protection law, except to the extent caused by Client's instructions or materials.
+**Strateon's indemnification obligation under this Agreement is limited to direct negligence only.** Strateon shall indemnify, defend, and hold harmless the Client from any third-party claims arising directly from Strateon's direct negligence in the performance of the Services under this Agreement.
+
+> *Note: This indemnification does not cover gross negligence, willful misconduct, confidentiality breaches, or unlawful data processing. Those exposures are governed by separate arrangements or applicable law.*
 
 ### 8.3 Indemnification by Client
 The Client shall indemnify, defend, and hold harmless Strateon from any third-party claims arising directly from: (a) Client's breach of this Agreement; (b) Client's provision of inaccurate or incomplete information; (c) Client's failure to obtain necessary consents; (d) Client's gross negligence or willful misconduct.
@@ -162,9 +172,14 @@ Neither Party shall be liable for any failure to perform due to events beyond it
 Each Party warrants that: (a) it has full power and authority to enter into this Agreement; (b) its performance will not violate any other agreement; (c) it will comply with all applicable laws and regulations.
 
 ### 9.2 Strateon Warranties
-Strateon warrants that: (a) it will perform Services with reasonable skill and care; (b) all deliverables will be reviewed by qualified personnel before delivery; (c) it has adequate technical and organizational measures to protect personal data.
+Strateon warrants that: (a) it will perform the Services using **best efforts**, in accordance with the service level commitments and response times defined in **Schedule A (Statement of Work)** or any applicable SLA addendum; (b) all deliverables will be reviewed by qualified personnel before delivery; (c) it has adequate technical and organizational measures to protect personal data.
 
-### 9.3 No Other Warranties
+> *Note: Strateon does not guarantee specific outcomes. Performance levels and remedies (excluding SLA credits per Section 9.3) are as defined in the applicable SLA.*
+
+### 9.3 Performance Guarantees and SLA Credits
+Strateon's performance guarantees are set out in the applicable SLA (Schedule A or attached SLA addendum). **Under this Agreement, Strateon does not provide SLA credits to Clients.** Where an SLA is defined, the Client's sole remedy for failure to meet defined service levels is the remediation process and corrective actions as described in the applicable SLA schedule. No credit, refund, or financial compensation shall be due to the Client for SLA failures.
+
+### 9.4 No Other Warranties
 EXCEPT AS EXPRESSLY SET FORTH IN THIS AGREEMENT, STRATEON MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
 
 ---
@@ -194,7 +209,7 @@ Upon termination:
 ## 11. GOVERNING LAW AND DISPUTE RESOLUTION
 
 ### 11.1 Governing Law
-This Agreement shall be governed by and construed in accordance with the laws of **[JURISDICTION — e.g., England & Wales / State of Delaware / Dubai, UAE]**, without regard to its conflict of laws principles.
+This Agreement shall be governed by and construed in accordance with the laws of the **State of Delaware, United States of America**, without regard to its conflict of laws principles.
 
 ### 11.2 Dispute Resolution
 - The Parties shall attempt in good faith to resolve any dispute arising out of or relating to this Agreement through negotiation within **[30] days** of written notice of the dispute
@@ -235,7 +250,7 @@ This Agreement may be executed in counterparts, each of which shall be deemed an
 
 ## SCHEDULE A — STATEMENT OF WORK
 
-*[To be completed per engagement. Include: specific services, deliverables, timeline/milestones, fees, payment schedule, and any project-specific terms.]*
+*[To be completed per engagement. Include: specific services, deliverables, timeline/milestones, fees, payment schedule, SLA commitments and remediation procedures, and any project-specific terms.]*
 
 ---
 
@@ -264,4 +279,17 @@ Date:
 
 ---
 
-*© Strateon. Draft v1.0 — 2026-04-29. For review by qualified legal counsel only.*
+*© Strateon. Draft v1.1 FINAL — 2026-05-01. For review by qualified legal counsel only.*
+
+---
+
+## Summary of Confirmed Decisions (for reference)
+
+| # | Decision | Value |
+|---|----------|-------|
+| 1 | Governing Law | Delaware (State of, USA) |
+| 2 | Liability Cap | 6 months fees (fees paid in preceding 6 months) |
+| 3 | Data Residency | EU only |
+| 4 | Indemnification Scope | NARROW — direct negligence only |
+| 5 | Performance Guarantees | Best efforts with defined SLA (no specific outcome guarantee) |
+| 6 | SLA Credit Policy | Option A — No SLA credits given to clients |
