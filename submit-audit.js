@@ -3,7 +3,9 @@
  * 
  * Run as: node submit-audit.js
  * Starts an HTTP server that receives form submissions from pipeline-leak-audit.html
- * and emails the results to ahmad.salim@getstrateon.com
+ * and emails the results to contact@qiyadon.com
+ *
+ * Credentials: /home/node/.openclaw/secrets/qiyadon-email.json
  * 
  * Uses the same email credentials as email-worker.js
  */
@@ -13,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load secrets (same as email-worker.js)
-const credsPath = '/home/node/.openclaw/secrets/strateon-email.json';
+const credsPath = '/home/node/.openclaw/secrets/qiyadon-email.json';
 let creds = null;
 try {
   creds = JSON.parse(fs.readFileSync(credsPath, 'utf8'));
@@ -163,7 +165,7 @@ function buildAuditEmail(data) {
         <!-- Next step CTA -->
         <div class="cta-row">
           <p>Respond within 1 business day</p>
-          <a href="mailto:ahmad.salim@getstrateon.com?subject=Re%3A%20Pipeline%20Leak%20Audit%20-%20${encodeURIComponent(data.name)}">ahmad.salim@getstrateon.com</a>
+          <a href="mailto:contact@qiyadon.com?subject=Re%3A%20Pipeline%20Leak%20Audit%20-%20${encodeURIComponent(data.name)}">contact@qiyadon.com</a>
         </div>
       </div>
       <div class="email-footer">
@@ -223,7 +225,7 @@ function sendAuditEmail(data, callback) {
   const { html, text } = buildAuditEmail(data);
   const mailOptions = {
     from: creds.user,
-    to: 'ahmad.salim@getstrateon.com',
+    to: 'contact@qiyadon.com',
     subject: `Pipeline Leak Audit Request — ${data.name} / ${data.company}`,
     text: text,
     html: html
