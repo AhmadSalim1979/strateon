@@ -1,14 +1,17 @@
 /**
  * Qiyadon Pipeline Leak Audit — HTTP Form Handler
- * Listens on PORT, handles POST /submit-audit
+ * Handles POST /submit-audit and POST /submit-signature
  */
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
 
 // Inline minimal nodemailer to avoid module issues
 const nodemailer = require('/home/node/.openclaw/imap-worker/node_modules/nodemailer');
 
 const creds = JSON.parse(fs.readFileSync('/home/node/.openclaw/secrets/qiyadon-email.json', 'utf8'));
+const SIGNED_AGREEMENTS_DIR = '/home/node/.openclaw/workspace/strateon/signed-agreements';
 
 const transporter = nodemailer.createTransport({
   host: 'smtp0001.neo.space',
@@ -57,6 +60,73 @@ ${data.found_us?`<div class="field"><div class="field-label">How Found Qiyadon</
 </div><div class="footer">Received: ${new Date().toUTCString()} · Qiyadon Pipeline Execution</div></div></body></html>`;
 }
 
+function buildSignatureEmailHtml(data) {
+  const escape = (s) => !s ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const typeLabel = data.type === 'trial' ? '14-Day Free Trial Agreement' : 'Client Service Agreement';
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px}
+.container{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.header{background:#171314;padding:24px 32px}
+.header h1{color:#fff;font-size:20px;font-weight:800;margin:0}
+.header p{color:rgba(255,255,255,0.6);font-size:13px;margin:6px 0 0}
+.status-badge{display:inline-block;background:rgba(0,194,203,0.2);color:#00C2CB;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.body{padding:28px 32px}
+.field{margin-bottom:20px}
+.field-label{font-size:11px;font-weight:700;color:#6E6A68;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.field-value{font-size:15px;color:#171314;font-weight:500}
+.field-value.mono{font-family:monospace;font-size:13px;color:#5F5A58}
+hr{margin:24px 0;border:none;border-top:1px solid #E5DEDA}
+.cta{background:#00C2CB;color:#0B1F3A;text-decoration:none;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;display:inline-block;margin-top:8px}
+.footer{background:#F6F3F1;padding:16px 32px;font-size:12px;color:#6E6A68}
+</style></head><body><div class="container"><div class="header">
+<div class="status-badge">AGREEMENT SIGNED</div>
+<h1>${escape(typeLabel)}</h1>
+<p>${escape(data.name)} · ${escape(data.company)}</p>
+</div><div class="body">
+<div class="field"><div class="field-label">Signer Name</div><div class="field-value">${escape(data.name)}</div></div>
+<div class="field"><div class="field-label">Email</div><div class="field-value">${escape(data.email)}</div></div>
+<div class="field"><div class="field-label">Company</div><div class="field-value">${escape(data.company)}</div></div>
+${data.title ? `<div class="field"><div class="field-label">Title</div><div class="field-value">${escape(data.title)}</div></div>` : ''}
+${data.effectiveDate ? `<div class="field"><div class="field-label">Effective Date</div><div class="field-value">${escape(data.effectiveDate)}</div></div>` : ''}
+<hr>
+<div class="field"><div class="field-label">Agreement Type</div><div class="field-value">${escape(typeLabel)}</div></div>
+<div class="field"><div class="field-label">Agreement Version</div><div class="field-value">${escape(data.agreementVersion)}</div></div>
+<div class="field"><div class="field-label">Signed At</div><div class="field-value">${new Date(data.agreedAt).toUTCString()}</div></div>
+<div class="field"><div class="field-label">Signer IP</div><div class="field-value mono">${escape(data.ip)}</div></div>
+<div class="field"><div class="field-label">Agreement Hash (SHA-256)</div><div class="field-value mono">${escape(data.agreementHash)}</div></div>
+<hr>
+<a href="mailto:${escape(data.email)}?subject=Re:%20${escape(typeLabel)}" class="cta">Reply to ${escape(data.name)} →</a>
+</div><div class="footer">Qiyadon — Agreement Signed via Click-Through Electronic Signature</div></div></body></html>`;
+}
+
+function hashAgreement(text) {
+  return crypto.createHash('sha256').update(text, 'utf8').digest('hex');
+}
+
+function storeSignature(data, ip, agreementHash) {
+  if (!fs.existsSync(SIGNED_AGREEMENTS_DIR)) {
+    fs.mkdirSync(SIGNED_AGREEMENTS_DIR, { recursive: true });
+  }
+  const id = data.type + '-' + data.email.split('@')[0] + '-' + Date.now();
+  const record = {
+    id,
+    type: data.type,
+    name: data.name,
+    title: data.title || null,
+    email: data.email,
+    company: data.company,
+    effectiveDate: data.effectiveDate || null,
+    agreedAt: data.agreedAt,
+    agreementVersion: data.agreementVersion,
+    ip,
+    agreementHash,
+    storedAt: new Date().toISOString()
+  };
+  const filePath = path.join(SIGNED_AGREEMENTS_DIR, id + '.json');
+  fs.writeFileSync(filePath, JSON.stringify(record, null, 2), 'utf8');
+  return id;
+}
+
 const server = http.createServer((req, res) => {
   const t = Date.now();
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -66,6 +136,62 @@ const server = http.createServer((req, res) => {
   if (req.method === 'OPTIONS') {
     res.writeHead(204); res.end(); return;
   }
+
+  const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+
+  // ── /submit-signature ────────────────────────────────────────────────────
+  if (req.method === 'POST' && req.url === '/submit-signature') {
+    let body = '';
+    req.on('data', c => body += c);
+    req.on('end', () => {
+      let data;
+      try { data = JSON.parse(body); } catch (e) {
+        res.writeHead(400, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({error:'Invalid JSON'})); return;
+      }
+
+      const required = ['type','name','email','company','agreed','agreedAt','agreementVersion'];
+      for (const f of required) {
+        if (!data[f]?.toString().trim()) {
+          res.writeHead(400, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({error:'Missing: '+f})); return;
+        }
+      }
+      if (data.type !== 'trial' && data.type !== 'csa') {
+        res.writeHead(400, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({error:'Invalid agreement type'})); return;
+      }
+
+      const agreementHash = hashAgreement(data.agreementVersion + '|' + data.type);
+      const id = storeSignature(data, ip, agreementHash);
+      const typeLabel = data.type === 'trial' ? '14-Day Free Trial Agreement' : 'Client Service Agreement';
+
+      console.log('[' + new Date().toISOString() + '] Signature recorded:', data.name, data.email, data.type);
+
+      transporter.sendMail({
+        from: `Qiyadon Agreements <${creds.user}>`,
+        to: data.email,
+        subject: `✓ Agreement Signed — ${typeLabel}`,
+        text: `Dear ${data.name},\n\nThis email confirms that you have successfully signed the ${typeLabel} on behalf of ${data.company}.\n\nSignatory: ${data.name}\nCompany: ${data.company}\nSigned at: ${new Date(data.agreedAt).toUTCString()}\nAgreement version: ${data.agreementVersion}\n\nThis electronic signature is legally binding under the ESIGN Act (15 U.S.C. § 7001), UETA, and Delaware law.\n\nRecord ID: ${id}\n\n— Qiyadon / Strateon`,
+        html: buildSignatureEmailHtml({...data, ip, agreementHash})
+      }, (err, info) => {
+        const ms = Date.now() - t;
+        if (err) {
+          console.log('[' + new Date().toISOString() + '] Signature stored but email failed:', err.message, ms+'ms');
+          // Still return success — signature is stored
+          res.writeHead(200, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({success: true, id, emailed: false}));
+        } else {
+          console.log('[' + new Date().toISOString() + '] Signature OK', info.messageId, ms+'ms');
+          res.writeHead(200, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({success: true, id, messageId: info.messageId}));
+        }
+      });
+    });
+    return;
+  }
+
+  // ── /submit-audit ───────────────────────────────────────────────────────
   if (req.method !== 'POST' || req.url !== '/submit-audit') {
     res.writeHead(404, {'Content-Type':'application/json'});
     res.end('{}'); return;
