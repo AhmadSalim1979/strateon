@@ -87,12 +87,42 @@ Once signed, this pricing becomes the official, binding pricing for all client-f
 | Growth | 200 leads | $4/lead | Billed monthly in arrears |
 | Scale | Unlimited | None | Not applicable |
 
+**Overage pricing rationale:**
+- Starter overage ($6/lead) = implied marginal cost at Starter's $300/50 rate — not punitive, just reflects the tier's unit economics
+- Growth overage ($4/lead) = lower than Starter overage because higher-volume clients receive better unit economics ($750/200 = $3.75 implied)
+- Design principle: overage fees guide clients toward the right tier — if you regularly exceed your tier's limit, upgrading pays for itself
+
 **How overages are counted:**
 - An "active lead" is a prospect in your pipeline that has received outreach (email sent, LinkedIn connection sent, or call attempted) within the billing month
 - Leads researched but not yet contacted do not count toward the limit
 - Leads that have been marked as "closed lost" or "closed won" in a given month are excluded
 
 **Overage notification:** Qiyadon will notify you if you are approaching your lead limit by the 20th of the billing month. You may upgrade your tier at any time to avoid overage charges.
+
+---
+
+## Annual Prepay Pricing — RECOMMENDED
+
+**Discount rate:** 25% off monthly price (slightly above B2B SaaS industry standard of 10-20%, to create a strong forward-commitment incentive)
+
+| Tier | Monthly (MoM) | Annual Price | Monthly Equivalent | Annual Savings |
+|---|---|---|---|---|
+| **Starter** | $300/mo | **$2,700/yr** | $225/mo | $900/yr |
+| **Growth** | $750/mo | **$6,750/yr** | $562.50/mo | $2,250/yr |
+| **Scale** | $1,500+/mo | **20% off custom quote** | Custom | Custom |
+
+**Billing terms for annual plans:**
+- Charged upfront annually — no monthly billing for annual clients
+- No refund after 30 days from start date
+- Client may upgrade tier mid-cycle; prorated credit applies toward next annual term
+- 30-day cancellation notice still applies
+
+**Scale annual:** Because Scale pricing is custom-quoted, annual discount for Scale is also custom. Recommended guideline: 20% discount off the agreed monthly rate (e.g., $1,500/mo → $12,000/yr).
+
+**Why 25% not 15-20%?**
+- Qiyadon is a managed service — client retention and cash-flow certainty are more valuable than for software-only products
+- 25% = roughly 3 months free per year — strong enough to make "should I go annual?" an easy yes for fence-sitters
+- Break-even vs monthly: annual Starter pays for itself at month 9; everything after is pure savings
 
 ---
 
