@@ -142,4 +142,31 @@ That's the fit.
 
 If that's you — this might be the best 30 minutes you'll spend this week.
 
-#PipelineExecution #B2BSales #SalesLeadership #SaaS #GTM #RevenueOps
+#pipeline #PipelineExecution #B2BSales #SalesLeadership #SaaS #GTM #RevenueOps
+
+---
+
+## POST 6: The Free Trial Offer (Standalone — Can Run Anytime)
+
+---
+
+Not ready to book a call?
+
+That's fine. Here's another way in.
+
+**We're offering a free 14-day trial of Pipeline Execution-as-a-Service.**
+
+No commitment. No credit card. No onboarding fee.
+
+You give us access to your CRM and your ICP. We build the follow-up sequences, run the outreach, and show you exactly what's in your pipeline by day 14.
+
+If it works — you decide what happens next.
+If it doesn't — you walk away with a cleaner CRM and full visibility into your pipeline. No obligation.
+
+This isn't a "soft trial." It's execution. Real sequences. Real prospects. Real data.
+
+Apply at **qiyadon.com** — or drop a comment and I'll send you the details directly.
+
+👇 Questions? Ask below. I'll answer personally.
+
+#PipelineExecution #B2BSaaS #FreeTrial #SalesLeadership #GTM

@@ -31,6 +31,11 @@ Ahmad
 
 ---
 
+**Trial offer (add as a PS or inline alternative for lower-friction prospects):**
+> By the way — we also offer a free 14-day trial. No commitment, no credit card, just execution. Apply at qiyadon.com.
+
+---
+
 **Variant Subject Lines (test):**
 - "Quick pipeline Q for [Company Name]"
 - "Saw [Company Name] — pipeline question"
