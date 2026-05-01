@@ -2,7 +2,7 @@
 ## Product Specification v1.0
 
 **Owner:** CPO (Chief Product Development Officer)
-**Status:** FINAL — Pending CFO input on overage fee and annual pricing
+**Status:** FINAL — All decisions confirmed by Ahmad Salim 2026-05-01
 **Date:** 2026-05-01
 
 ---
@@ -42,11 +42,12 @@ We do not hand you software and wish you luck. We take responsibility for your l
 
 ## 3. WHAT YOU GET — TIER COMPARISON
 
-### STARTER — $300/month
+### STARTER — $300/month ($2,700/year if annual — 25% discount)
 *Best for: Early-stage SaaS with under 50 active leads in pipeline*
 
 **Includes:**
 - Up to **50 active leads** at any time
+- **Lead overage** — $6 per lead per month if over 50 (billed monthly)
 - **WhatsApp follow-up** — Moosa sends outreach, reminders, and check-ins via WhatsApp
 - **Lead ingestion** — You forward leads via WhatsApp/email; Moosa scores and queues them within 2 hours
 - **Follow-up sequences** — 3-touch cadence per lead (configurable)
@@ -59,11 +60,12 @@ We do not hand you software and wish you luck. We take responsibility for your l
 
 ---
 
-### GROWTH — $750/month
+### GROWTH — $750/month ($6,750/year if annual — 25% discount)
 *Best for: Growing SaaS with 50–200 leads and a need for faster execution*
 
 **Everything in Starter, plus:**
 - Up to **200 active leads**
+- **Lead overage** — $4 per lead per month if over 200
 - **Daily pipeline tracking** — Moosa sends a brief daily status update (Mon–Fri) via WhatsApp
 - **Enhanced follow-up cadence** — Up to 5 touches per lead with varied channels (WhatsApp primary, email secondary)
 - **Faster lead ingestion** — Within 1 hour
@@ -73,11 +75,11 @@ We do not hand you software and wish you luck. We take responsibility for your l
 
 ---
 
-### SCALE — $1,500+/month (custom quote)
+### SCALE — $1,500/month minimum (custom quote)
 *Best for: Series B+ SaaS with high lead volume, multiple reps, or complex pipeline requirements*
 
 **Everything in Growth, plus:**
-- **Unlimited active leads**
+- **Unlimited active leads** (no per-lead overage charges)
 - **Real-time pipeline visibility** — Read-only dashboard showing live pipeline status (lead counts, stage distribution, activity log)
 - **Multi-channel sequencing** — WhatsApp + Email + SMS, fully configured and managed
 - **Dedicated escalation path** — Direct line to COO/CEO for urgent pipeline issues; response within 1 hour, 24/7 for operations. Business-hours-only applies to cost/contractual escalation (Board only).
@@ -85,10 +87,9 @@ We do not hand you software and wish you luck. We take responsibility for your l
 - **Custom cadences** — Per-segment or per-rep follow-up sequences tailored to your sales motion
 - **CRM deep integration** — Bidirectional sync, stage-change triggers, close reason tracking
 - **Onboarding SLA** — Live within 3 business days of contract signed. *No onboarding fee.*
-**Pause policy** — Clients may pause service for up to 3 months. A minimum of $100/month applies during pause. After 3 months, service resumes or contract terminates.
-**Lead overage** — Per-lead fee applies for any lead count over the tier limit. *(Rate pending CFO recommendation.)*
+- **Pause policy** — Clients may pause service for up to 3 months. A minimum of $100/month applies during pause. After 3 months, service resumes or contract terminates.
 
-**Scale pricing** — Custom quote based on volume and complexity. Starting at $1,500/month. Available in both month-to-month and annual contract with a discount (annual price TBD from CFO).
+**Scale pricing** — Custom quote based on volume and complexity. $1,500/month minimum. Available in both month-to-month and annual contract. **Annual pricing: 20% discount** (custom, confirmed with Ahmad Salim 2026-05-01).
 
 ---
 
@@ -96,8 +97,10 @@ We do not hand you software and wish you luck. We take responsibility for your l
 
 | | Starter | Growth | Scale |
 |---|---|---|---|
-| **Price** | $300/mo | $750/mo | $1,500+/mo |
+| **Monthly price** | $300/mo | $750/mo | $1,500/mo minimum |
+| **Annual price** | $2,700/yr (25% off) | $6,750/yr (25% off) | Custom — 20% discount |
 | **Active leads** | Up to 50 | Up to 200 | Unlimited |
+| **Lead overage fee** | $6/lead/month | $4/lead/month | No overage (unlimited) |
 | **Follow-up channels** | WhatsApp | WhatsApp + Email | WhatsApp + Email + SMS |
 | **Touches per lead** | 3 | 5 | Unlimited |
 | **Lead ingestion SLA** | 2 hours | 1 hour | 30 minutes |
@@ -109,9 +112,13 @@ We do not hand you software and wish you luck. We take responsibility for your l
 | **Dedicated escalation** | ❌ | ❌ | ✅ |
 | **Onboarding SLA** | 5 days | 3 days | 3 days |
 | **Support** | 1 business day | 4 hours | 1 hour |
-| **Contract** | Month-to-month or annual (discount) | Month-to-month or annual (discount) | Month-to-month or annual (discount) |
+| **Contract** | Month-to-month or annual (25% off) | Month-to-month or annual (25% off) | Month-to-month or annual (20% off) |
 | **Pause allowed** | ❌ | ❌ | ✅ — max 3 months, $100/mo minimum |
-| **Overage fee** | Per-lead fee | Per-lead fee | Per-lead fee |
+| **Overage fee** | $6/lead/month | $4/lead/month | No overage |
+
+---
+
+*Annual pricing: Save 25% on Starter and Growth when paying annually. Scale uses custom annual pricing (20% discount confirmed).*
 
 ---
 
@@ -413,11 +420,11 @@ The following decisions are finalized or still pending:
 
 ~~3. **Pause policy**~~ — ✅ **FINALIZED: Yes — max 3 months pause, $100/month minimum during pause.**
 
-~~4. **Lead overage pricing**~~ — ⚠️ **PENDING CFO RECOMMENDATION** — Per-lead overage fee applies. Rate TBD.
+~~4. **Lead overage pricing**~~ — ✅ **APPROVED — Starter: $6/lead/month. Growth: $4/lead/month. Scale: No overage (unlimited leads). Confirmed by Ahmad Salim 2026-05-01.**
 
 ~~5. **Escalation response hours**~~ — ✅ **FINALIZED: 24/7 for operational escalations (COO/CEO). Business hours only for cost/contractual escalation (Board only).**
 
-~~6. **Contract length**~~ — ✅ **FINALIZED: Both month-to-month AND annual with discount available. Annual pricing TBD (CFO recommendation pending).**
+~~6. **Contract length**~~ — ✅ **APPROVED — Annual pricing confirmed. Starter: $2,700/yr. Growth: $6,750/yr. Scale: 20% discount (custom). Month-to-month still available. Confirmed by Ahmad Salim 2026-05-01.**
 
 ~~7. **Free trial**~~ — ✅ **FINALIZED: 14-day free trial, capped at ≤25 leads, minimum ≥20 leads submitted to qualify, no discovery call required.**
 
@@ -425,9 +432,7 @@ The following decisions are finalized or still pending:
 
 ---
 
-**⚠️ Items still open — pending CFO recommendation:**
-- Lead overage per-lead fee amount
-- Annual contract discount pricing
+**✅ Appendix A Status: FINAL — All decisions confirmed by Ahmad Salim 2026-05-01**
 
 ---
 
@@ -442,9 +447,9 @@ The following decisions are finalized or still pending:
 
 ---
 
-**Document Status:** DRAFT
-**Next Step:** CEO review and approval
-**Escalation:** Pending CEO + Board sign-off on Appendix A decisions before this spec is considered final
+**Document Status:** FINAL — All decisions confirmed by Ahmad Salim 2026-05-01
+**Next Step:** Ready for publication and client-facing use
+**Escalation:** All Appendix A decisions confirmed. Spec is complete.
 
 *Prepared by: CPO, Strateon*
 *Date: 2026-05-01*
