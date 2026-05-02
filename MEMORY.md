@@ -171,3 +171,41 @@ No session ends without a state commit. If state is missing, CEO flags as system
 
 **Run:** `node /home/node/.openclaw/workspace/strateon-site/submit-audit.js` (PORT env or 3000)
 **Git:** committed as `feat: add Pipeline Leak Audit form + email handler` (55c85be)
+
+---
+
+## COMPLETED ASSETS — Always Check Before Promising
+
+> Last verified: 2026-05-02. Do NOT offer to build what is already built.
+
+### Website (All Live)
+- `qiyadon.com` — Cloudflare Pages ✅
+- `qiyadon.com/pricing` ✅
+- `qiyadon.com/sign-trial` ✅
+- `qiyadon.com/privacy-policy` ✅
+- `qiyadon.com/terms-of-service` ✅
+- `qiyadon.com/pipeline-leak-audit` — Full form with email handler ✅ (April 28)
+- `qiyadon.com/sign-csa` ✅
+
+### Backend / Infrastructure
+- Form handler server.js — PM2 process `qiyadon-audit-form` on port 3001 ✅ (May 1)
+- Email routing to contact@qiyadon.com ✅
+- DKIM verified ✅
+
+### Legal / Contracts
+- CSA (Client Service Agreement) — 16 sections complete
+- DPA (Data Processing Addendum) — complete
+- Trial Policy — confirmed (14-day, ≤25 leads, no discovery call)
+- All 6 contract decisions confirmed (governing law, liability cap, data residency, indemnification, guarantees, SLA credits)
+
+### Product
+- Pricing: $300/$750/$1,500+ with per-lead overages ($6/$4/unlimited) ✅
+- Annual discount: 25% ✅
+- Pipeline Execution Flow — operational ✅
+- Onboarding Protocol — ready ✅
+
+### GTM
+- LinkedIn posts drafted (3 ready, awaiting Ahmad approval)
+- ICP confirmed: VP Sales / Head of Sales at B2B SaaS Series A–C
+- Partnership channels identified: MSP Soul, RevGenius, SaaStr, r/msp, r/SaaS
+
