@@ -1,2431 +1,362 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Qiyadon — Pipeline Execution for Founder-Led SMBs</title>
-  <meta name="description" content="Qiyadon is a done-for-you pipeline execution service for founder-led SMBs. We follow up, escalate, reactivate dormant leads, and report every Friday.">
-  <meta name="keywords" content="pipeline execution service, SMB lead follow-up, founder-led sales, lead reactivation, CRM follow-up, MSP sales follow-up, SaaS lead conversion">
-  <meta property="og:title" content="Qiyadon — Pipeline Execution for Founder-Led SMBs">
-  <meta property="og:description" content="No lead left behind. Every lead followed up. Every silence escalated. Every Friday reported.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://qiyadon.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-  <style>
-    /* ============================================
-       DESIGN SYSTEM — QIYADON BRAND TOKENS
-       Dark theme: near-black bg, red accents
-    ============================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      /* Colors */
-      --bg-primary: #171314;
-      --bg-surface: #1E1A1D;
-      --bg-card: #1E1A1D;
-      --red-accent: #b81414;
-      --red-featured: #c91818;
-      --text-primary: #ffffff;
-      --text-secondary: rgba(255,255,255,0.72);
-      --text-muted: rgba(255,255,255,0.45);
-      --border: rgba(255,255,255,0.08);
-      --border-card: rgba(255,255,255,0.08);
-      --white: #ffffff;
-      /* Brand color overrides (light sections need these) */
-      --navy: #120b0d;
-      --slate: #3f3638;
-      --teal: #c91818;
-      --gold: #d4a012;
-      --cloud-white: #fbf7f4;
-      --green: #22c55e;
-      --text-dark: #120b0d;
-
-      --space-1: 8px;
-      --space-2: 16px;
-      --space-3: 24px;
-      --space-4: 32px;
-      --space-5: 40px;
-      --space-6: 48px;
-      --space-8: 64px;
-      --space-10: 80px;
-
-      --container: 1200px;
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 14px;
-      --radius-xl: 20px;
-
-      --shadow-card: 0 4px 20px rgba(0,0,0,0.4);
-      --shadow-hover: 0 8px 32px rgba(184,20,20,0.15);
-      --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);
-
-      --section-py: 80px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-primary);
-      background: var(--bg-primary);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ============================================
-       TYPOGRAPHY SYSTEM
-    ============================================ */
-    h1 { font-size: 58px; font-weight: 800; color: var(--text-primary); line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
-    h2 { font-size: 40px; font-weight: 700; color: var(--text-primary); line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 16px; }
-    h3 { font-size: 20px; font-weight: 700; color: var(--text-primary); line-height: 1.3; margin-bottom: 16px; }
-    h4 { font-size: 16px; font-weight: 700; color: var(--text-secondary); line-height: 1.4; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
-
-    /* ============================================
-       LAYOUT
-    ============================================ */
-    section { padding: var(--section-py) 24px; }
-    .container { max-width: var(--container); margin: 0 auto; }
-
-    /* ============================================
-       NAV — DARK HEADER
-    ============================================ */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(15,13,14,0.92);
-      backdrop-filter: blur(18px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
-      transition: box-shadow 0.3s ease;
-    }
-    nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-    .nav-inner {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 var(--space-3);
-      height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
-    .nav-logo {
-      font-size: 28px;
-      font-weight: 850;
-      color: var(--text-primary);
-      text-decoration: none;
-      letter-spacing: -0.05em;
-      flex-shrink: 0;
-      transition: opacity 0.2s;
-    }
-    .nav-logo:hover { opacity: 0.8; }
-    .nav-logo span { color: var(--red-accent); }
-    .nav-links { display: flex; gap: var(--space-4); list-style: none; }
-    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text-primary); }
-    .nav-links a.active { color: var(--red-accent); font-weight: 600; }
-    .nav-cta {
-      background: var(--red-accent);
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 10px var(--space-3);
-      border-radius: 999px;
-      text-decoration: none;
-      flex-shrink: 0;
-      transition: background 0.2s, transform 0.15s;
-      box-shadow: 0 4px 16px rgba(184,20,20,0.3);
-    }
-    .nav-cta:hover { background: var(--red-featured); transform: translateY(-1px); }
-
-    /* ============================================
-       BUTTONS — STANDARDIZED
-    ============================================ */
-    .btn-primary {
-      background: var(--red-accent);
-      color: var(--white);
-      font-size: 16px;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 999px;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      border: none;
-      cursor: pointer;
-      line-height: 1;
-      letter-spacing: -0.01em;
-      box-shadow: 0 6px 20px rgba(184,20,20,0.25);
-    }
-    .btn-primary:hover { background: var(--red-featured); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,20,20,0.35); }
-    .btn-secondary {
-      color: var(--text-secondary);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-      border: 1px solid var(--border);
-      padding: 13px 24px;
-      border-radius: 999px;
-    }
-    .btn-secondary:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-
-    /* ============================================
-       CARD COMPONENT — STANDARDIZED
-    ============================================ */
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      border: 1px solid var(--border-card);
-      box-shadow: var(--shadow-card);
-      transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-    }
-    .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: rgba(184,20,20,0.25); }
-
-    /* ============================================
-       HERO — dark theme, cinematic
-    ============================================ */
-    #hero {
-      padding-top: 158px;
-      padding-bottom: 80px;
-      background: var(--bg-primary);
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(184,20,20,0.10) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-8);
-      align-items: center;
-    }
-    .hero-tagline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(184,20,20,0.10);
-      color: var(--red-featured);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(184,20,20,0.20);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    h1 {
-      font-size: clamp(46px, 5vw, 58px);
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 24px;
-    }
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 600px;
-    }
-    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .hero-trust {
-      margin-top: 24px;
-      font-size: 13px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-    .hero-visual { display: flex; align-items: center; justify-content: center; }
-    .hero-visual-info {
-      width: 100%;
-      background: var(--bg-surface);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5);
-      border: 1px solid var(--border);
-    }
-    .hero-visual-header {
-      background: linear-gradient(135deg, #171314 0%, #3B0D13 100%);
-      padding: 12px var(--space-3);
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .hero-dots { display: flex; gap: 6px; }
-    .hero-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .hero-dot-r { background: #FF5F57; }
-    .hero-dot-y { background: #FFBD2E; }
-    .hero-dot-g { background: #28C840; }
-    .hero-window-title { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 500; margin-left: 8px; }
-    .hero-report-body { padding: var(--space-3); }
-    .hero-report-label { font-size: 10px; font-weight: 700; color: var(--red-featured); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
-    .hero-metric-row { display: flex; gap: var(--space-2); margin-bottom: var(--space-2); }
-    .hero-metric { flex: 1; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); padding: 12px; text-align: center; }
-    .hero-metric-num { font-size: 22px; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
-    .hero-metric-lbl { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 3px; }
-    .hero-metric-num.teal { color: var(--red-accent); }
-    .hero-metric-num.gold { color: var(--red-featured); }
-    .hero-pipeline-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-    .hero-pipeline-flow { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.04); border-radius: var(--radius-md); padding: 10px var(--space-2); flex-wrap: wrap; }
-    .hero-pipeline-node { padding: 5px 10px; border-radius: var(--radius-sm); font-size: 10px; font-weight: 700; }
-    .hero-node-inbound { background: rgba(184,20,20,0.20); color: var(--red-featured); }
-    .hero-node-active { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); }
-    .hero-node-followup { background: rgba(184,20,20,0.15); color: var(--red-featured); }
-    .hero-node-close { background: rgba(184,20,20,0.25); color: #FFB4A8; }
-    .hero-arrow { color: rgba(255,255,255,0.25); font-size: 14px; flex-shrink: 0; }
-    .hero-report-footer { padding: 8px var(--space-3); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
-    .hero-report-date { font-size: 10px; color: rgba(255,255,255,0.35); }
-    .hero-report-status { font-size: 10px; color: var(--teal); font-weight: 600; }
-
-    /* SECTIONS */
-    section { padding: 80px 24px; }
-    .container { max-width: 1200px; margin: 0 auto; }
-
-    /* HERO */
-    #hero {
-      padding-top: 108px;
-      padding-bottom: 96px;
-      background: #090708;
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 55%;
-      height: 100%;
-      background: radial-gradient(ellipse at 80% 60%, rgba(184,20,20,0.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 72px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(184,20,20,0.10);
-      color: #c91818;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(184,20,20,0.22);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    h1 {
-      font-size: clamp(46px, 5.5vw, 66px);
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1.0;
-      letter-spacing: -0.04em;
-      margin-bottom: 20px;
-    }
-    .hero-sub {
-      font-size: 18px;
-      color: rgba(255,255,255,0.70);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 600px;
-    }
-    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .btn-primary {
-      background: #b81414;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 14px 28px;
-      border-radius: 999px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover { background: #c91818; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(184,20,20,0.4); }
-    .btn-secondary {
-      color: rgba(255,255,255,0.60);
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
-    }
-    .btn-secondary:hover { color: #ffffff; }
-    .hero-trust {
-      margin-top: 28px;
-      font-size: 13px;
-      color: var(--slate);
-      font-weight: 500;
-    }
-    .hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .pipeline-graphic { width: 100%; max-width: 420px; }
-    .pipeline-graphic svg { width: 100%; height: auto; }
-
-    /* PROBLEM SECTION */
-    #problem {
-      background: var(--dark-bg);
-      padding: 100px 24px;
-    }
-    #problem h2 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .problem-lead {
-      font-size: 18px;
-      color: rgba(255,255,255,0.65);
-      max-width: 620px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-bottom: 48px;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 28px 24px;
-    }
-    .stat-card .stat-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .stat-label {
-      font-size: 15px;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.6;
-    }
-    .problem-conclusion {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 40px;
-      max-width: 620px;
-    }
-    .problem-conclusion p {
-      font-size: 20px;
-      color: var(--white);
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .problem-conclusion small {
-      color: rgba(255,255,255,0.5);
-      font-size: 14px;
-      display: block;
-      line-height: 1.6;
-    }
-
-    /* WHAT WE DO */
-    #what-we-do {
-      /* background controlled by .section-light on the element */
-      padding: 100px 24px;
-    }
-    #what-we-do h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .what-we-do-sub {
-      font-size: 16px;
-      color: var(--slate);
-      margin-bottom: 48px;
-      max-width: 600px;
-      line-height: 1.7;
-    }
-    .what-we-do-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 48px;
-      align-items: stretch;
-    }
-    .what-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      background: var(--white);
-      border-radius: 12px;
-      padding: 28px 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(11,31,58,0.06);
-    }
-    .what-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--text-primary);
-      line-height: 1.5;
-    }
-    .what-list li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
-    .what-not-list {
-      background: var(--cloud-white);
-      border-radius: 12px;
-      padding: 28px 24px;
-      border: 1px solid var(--border);
-    }
-    .what-not-list h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--slate);
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .what-not-list ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .what-not-list ul li {
-      font-size: 14px;
-      color: var(--slate);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .what-not-list ul li i { color: var(--slate); opacity: 0.5; flex-shrink: 0; }
-    .accountability-strip {
-      margin-top: 40px;
-      background: rgba(0,194,203,0.06);
-      border: 1px solid rgba(0,194,203,0.2);
-      border-radius: 10px;
-      padding: 20px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .accountability-strip p {
-      font-size: 14px;
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-    .accountability-strip p i { color: var(--teal); margin-right: 8px; }
-
-    /* HOW IT WORKS */
-    #how-it-works {
-      /* background controlled by .section-light on the element */
-      padding: 100px 24px;
-    }
-    #how-it-works h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .how-sub {
-      font-size: 16px;
-      color: var(--slate);
-      margin-bottom: 56px;
-      max-width: 560px;
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-6);
-      position: relative;
-    }
-    .steps-connector {
-      position: absolute;
-      top: 40px;
-      left: calc(16.66% + 40px);
-      right: calc(16.66% + 40px);
-      height: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--gold));
-      opacity: 0.35;
-      z-index: 0;
-    }
-    .step { text-align: center; position: relative; }
-    .step-num {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 30px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto var(--space-3);
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 0 6px rgba(11,31,58,0.08);
-    }
-    .step h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-    .step p {
-      font-size: 14px;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-    .step-cta {
-      margin-top: var(--space-6);
-      text-align: center;
-    }
-
-    /* IS STRATEON RIGHT FOR YOU */
-    #is-this-for-you {
-      /* background controlled by .section-white on the element */
-      padding: 80px 24px;
-    }
-    #is-this-for-you h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .fit-intro {
-      font-size: 16px;
-      color: var(--slate);
-      max-width: 560px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .fit-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    .fit-card {
-      border-radius: 12px;
-      padding: 32px;
-    }
-    .fit-yes {
-      background: rgba(0,194,203,0.06);
-      border: 1px solid rgba(0,194,203,0.2);
-    }
-    .fit-no {
-      background: rgba(245,166,35,0.06);
-      border: 1px solid rgba(245,166,35,0.2);
-    }
-    .fit-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .fit-yes h3 { color: var(--teal); }
-    .fit-no h3 { color: var(--gold); }
-    .fit-card ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .fit-card ul li {
-      font-size: 14px;
-      color: var(--text-primary);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.5;
-    }
-    .fit-yes ul li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
-    .fit-no ul li i { color: var(--slate); flex-shrink: 0; margin-top: 2px; }
-
-    /* FIRST 7 DAYS */
-    #first-7-days {
-      /* background controlled by .section-light on the element */
-      padding: 80px 24px;
-    }
-    #first-7-days h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .days-sub {
-      font-size: 16px;
-      color: var(--slate);
-      max-width: 560px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .days-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 24px;
-    }
-    .day-card {
-      text-align: center;
-      padding: 24px 16px;
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid rgba(120,20,24,0.12);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    .day-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 18px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .day-card h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .day-card p {
-      font-size: 12px;
-      color: var(--slate);
-      line-height: 1.5;
-    }
-    .day-card span {
-      display: block;
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--teal);
-      font-weight: 600;
-    }
-
-    /* PRICING */
-    #pricing {
-      /* background controlled by .section-white on the element */
-      padding: 100px 24px;
-    }
-    #pricing h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .pricing-sub {
-      font-size: 16px;
-      color: var(--slate);
-      margin-bottom: 48px;
-      max-width: 560px;
-    }
-    .pricing-note {
-      font-size: 14px;
-      color: var(--slate);
-      margin-bottom: 40px;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-4);
-      align-items: stretch;
-    }
-    .pricing-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .pricing-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
-    .pricing-card--featured { transform: scale(1.03); box-shadow: var(--shadow-lg); }
-    .pricing-card--featured:hover { transform: scale(1.03) translateY(-2px); }
-    .pricing-card__accent { height: 4px; width: 100%; position: absolute; top: 0; left: 0; right: 0; }
-    .pricing-card__accent--teal { background: var(--teal); }
-    .pricing-card__accent--gold { background: var(--gold); }
-    .pricing-card__accent--navy { background: var(--navy); }
-    .pricing-card__body { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-    .pricing-card__title { display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-3); padding-top: var(--space-1); }
-    .pricing-card__title h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 0; }
-    .pricing-card__price { margin-bottom: var(--space-3); display: flex; align-items: baseline; gap: 6px; }
-    .pricing-card__price-amount { font-size: 40px; font-weight: 800; color: var(--navy); letter-spacing: -0.03em; }
-    .pricing-card__price-period { font-size: 16px; color: var(--slate); }
-    .pricing-card__features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: var(--space-4); }
-    .pricing-card__features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-primary); line-height: 1.5; }
-    .pricing-card__features li i { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
-    .pricing-card__cta { margin-top: auto; padding-top: var(--space-4); }
-    .pricing-card__cta .btn-primary { width: 100%; }
-
-    /* WEEKLY REPORT SAMPLE */
-    #weekly-report {
-      /* background controlled by .section-light on the element */
-      padding: 80px 24px;
-    }
-    #weekly-report h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .report-sub {
-      font-size: 16px;
-      color: var(--slate);
-      max-width: 560px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .report-card {
-      border: 1px solid rgba(120,20,24,0.14);
-      border-radius: 12px;
-      overflow: hidden;
-      max-width: 720px;
-      background: var(--white);
-    }
-    .report-header {
-      background: var(--navy);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .report-header p {
-      color: var(--white);
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .report-header span {
-      font-size: 12px;
-      color: rgba(255,255,255,0.6);
-    }
-    .report-body { padding: 24px; }
-    .report-metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    .metric-box {
-      background: var(--cloud-white);
-      border-radius: 8px;
-      padding: 16px 12px;
-      text-align: center;
-    }
-    .metric-box .num {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--teal);
-    }
-    .metric-box .num.gold { color: var(--gold); }
-    .metric-box .label {
-      font-size: 11px;
-      color: var(--slate);
-      margin-top: 4px;
-    }
-    .report-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      margin-bottom: 16px;
-    }
-    .report-table th {
-      background: var(--cloud-white);
-      padding: 10px 12px;
-      text-align: left;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--slate);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      border-bottom: 1px solid var(--border);
-    }
-    .report-table td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-primary);
-    }
-    .report-table tr:last-child td { border-bottom: none; }
-    .risk-high { color: #ef4444; font-weight: 600; }
-    .risk-medium { color: var(--gold); font-weight: 600; }
-    .report-recs {
-      background: var(--cloud-white);
-      border-radius: 8px;
-      padding: 16px 20px;
-    }
-    .report-recs h4 {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .report-recs ol {
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .report-recs ol li { font-size: 13px; color: var(--text-primary); line-height: 1.5; }
-    .report-note {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--slate);
-      font-style: italic;
-      max-width: 720px;
-    }
-
-    /* DEFENSIBILITY */
-    #defensibility {
-      background: var(--dark-bg);
-      padding: 100px 24px;
-    }
-    #defensibility h2 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .defens-sub {
-      font-size: 18px;
-      color: rgba(255,255,255,0.6);
-      max-width: 600px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .defens-message {
-      background: rgba(245,166,35,0.1);
-      border: 1px solid rgba(245,166,35,0.25);
-      border-radius: 12px;
-      padding: 32px 36px;
-      margin-bottom: 48px;
-      max-width: 640px;
-    }
-    .defens-message p {
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.5;
-    }
-    .defens-message p span { color: var(--gold); }
-    .defens-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 900px;
-    }
-    .defens-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 24px 20px;
-    }
-    .defens-card h4 {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-    .defens-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .defens-card p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.5;
-    }
-
-    /* TRUST & COMPLIANCE */
-    #trust {
-      /* background controlled by .section-white on the element */
-      padding: 80px 24px;
-    }
-    #trust h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-    .trust-intro {
-      font-size: 16px;
-      color: var(--slate);
-      max-width: 560px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .trust-card {
-      background: var(--white);
-      border: 1px solid rgba(120,20,24,0.12);
-      border-radius: 12px;
-      padding: 28px 24px;
-    }
-    .trust-card h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .trust-card h4 .icon-wrap {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .trust-card p {
-      font-size: 13px;
-      color: var(--slate);
-      line-height: 1.6;
-    }
-    .trust-footer {
-      margin-top: 32px;
-      font-size: 14px;
-      color: var(--slate);
-      font-weight: 500;
-    }
-
-    /* ABOUT */
-    #about {
-      /* background controlled by .section-light on the element */
-      padding: 100px 24px;
-    }
-    #about h2 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .about-sub {
-      font-size: 18px;
-      color: var(--slate);
-      margin-bottom: 48px;
-      max-width: 600px;
-      line-height: 1.7;
-    }
-    .vision-box {
-      background: rgba(0,194,203,0.06);
-      border: 1px solid rgba(0,194,203,0.2);
-      border-radius: 12px;
-      padding: 32px 36px;
-      margin-bottom: 48px;
-    }
-    .vision-box p {
-      font-size: 18px;
-      color: var(--navy);
-      font-weight: 500;
-      line-height: 1.7;
-    }
-    .demos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .demo-card {
-      background: var(--cloud-white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px 24px;
-    }
-    .demo-card h4 {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-    .demo-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .demo-card p {
-      font-size: 13px;
-      color: var(--slate);
-      line-height: 1.6;
-    }
-
-    /* FAQ */
-    #faq {
-      /* background controlled by .section-white on the element */
-      padding: 100px 24px;
-    }
-    #faq h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 40px;
-      letter-spacing: -0.02em;
-    }
-    .faq-list {
-      max-width: 760px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      background: var(--white);
-    }
-    .faq-item:first-child { border-top: 1px solid var(--border); }
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 22px 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      cursor: pointer;
-      text-align: left;
-      font-family: 'Inter', sans-serif;
-    }
-    .faq-question span {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.4;
-    }
-    .faq-question i {
-      color: var(--slate);
-      flex-shrink: 0;
-      transition: transform 0.3s;
-    }
-    .faq-item.open .faq-question i { transform: rotate(180deg); }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-    .faq-item.open .faq-answer {
-      max-height: 400px;
-      padding-bottom: 22px;
-    }
-    .faq-answer p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-
-    /* FINAL CTA */
-    #cta-section {
-      /* background controlled by .section-white on the element */
-      padding: 100px 24px;
-      text-align: center;
-    }
-    #cta-section h2 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    #cta-section p {
-      font-size: 17px;
-      color: var(--slate);
-      margin-bottom: 32px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--navy);
-      padding: 64px 24px 32px;
-      color: var(--white);
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      margin-bottom: 32px;
-    }
-    .footer-brand h3 {
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .footer-brand h3 { color: rgba(255,255,255,0.9); }
-    .footer-brand h3 span { color: #E03131; }
-    .footer-brand p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.6;
-      max-width: 260px;
-    }
-    .footer-col h4 {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 16px;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      font-size: 14px;
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--teal); }
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-bottom p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-bottom span {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-    }
-
-    /* SCROLL ANIMATIONS */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* MOBILE */
-    @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; gap: 24px; }
-      .pricing-card--featured { transform: none; }
-      .pricing-card--featured:hover { transform: translateY(-2px); }
-      .defens-grid { grid-template-columns: 1fr; }
-      .trust-grid { grid-template-columns: 1fr; }
-      .demos-grid { grid-template-columns: 1fr; }
-      .days-grid { grid-template-columns: repeat(3, 1fr); }
-      .what-we-do-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 768px) {
-      section { padding: 60px 20px; }
-      .nav-links { display: none; }
-      .nav-inner { gap: 0; }
-      .nav-cta { font-size: 13px; padding: 8px 16px; }
-      h1 { font-size: 30px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero-visual { order: -1; }
-      .pipeline-graphic { max-width: 280px; margin: 0 auto; }
-      .hero-trust { font-size: 12px; }
-      #problem h2, #defensibility h2, #cta-section h2 { font-size: 28px; }
-      .stats-grid { grid-template-columns: 1fr; gap: 20px; }
-      .stat-card { padding: 24px 20px; }
-      #what-we-do h2, #how-it-works h2, #is-this-for-you h2, #first-7-days h2, #pricing h2, #weekly-report h2, #trust h2, #about h2, #faq h2 { font-size: 26px; }
-      .steps { grid-template-columns: 1fr; gap: 40px; }
-      .steps::before { display: none; }
-      .fit-grid { grid-template-columns: 1fr; gap: 24px; }
-      .days-grid { grid-template-columns: repeat(2, 1fr); }
-      .report-metrics { grid-template-columns: repeat(2, 1fr); }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .btn-primary { display: block; text-align: center; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .btn-primary { order: -1; }
-      .hero-badge { font-size: 12px; }
-      .hero-sub { font-size: 15px; }
-      .defens-message { padding: 24px; }
-      .defens-message p { font-size: 17px; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 26px; }
-      .days-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    /* MOBILE NAV */
-    .mobile-nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    @media (max-width: 768px) {
-      .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: rgba(15,13,14,0.98);
-        padding: 24px;
-        border-bottom: 1px solid var(--border);
-        gap: 20px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      }
-      .nav-links.active a { color: var(--text-secondary); }
-      .nav-links.active a:hover { color: var(--text-primary); }
-    }
-
-    /* ============================================
-       QIYADON BRAND OVERRIDE — DARK THEME
-       Full dark theme overrides applied after
-       all component styles for specificity
-    ============================================ */
-    :root {
-      --red-accent: #b81414;
-      --red-featured: #c91818;
-      --bg-primary: #171314;
-      --bg-surface: #1E1A1D;
-    }
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-    }
-    h1, h2, h3, h4 { color: var(--text-primary); }
-
-    /* Dark nav */
-    nav {
-      background: rgba(15,13,14,0.95);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { height: 78px; }
-    .nav-logo { color: var(--text-primary); font-weight: 850; letter-spacing: -0.05em; }
-    .nav-logo span { color: var(--red-accent); }
-    .nav-links a { color: var(--text-secondary); }
-    .nav-links a:hover { color: var(--text-primary); }
-    .nav-cta {
-      background: var(--red-accent);
-      color: var(--white);
-      border-radius: 999px;
-      box-shadow: 0 4px 16px rgba(184,20,20,0.25);
-    }
-    .nav-cta:hover { background: var(--red-featured); }
-
-    #problem {
-      background: var(--bg-primary);
-      padding: 100px 24px;
-    }
-    #problem h2 {
-      color: var(--text-primary);
-    }
-    .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-    }
-    .stat-card .stat-icon { font-size: 24px; }
-    .problem-conclusion {
-      background: rgba(184,20,20,0.08);
-      border: 1px solid rgba(184,20,20,0.20);
-      border-radius: var(--radius-lg);
-      color: var(--text-primary);
-    }
-    .problem-conclusion p { color: var(--red-featured); font-weight: 700; font-size: 22px; }
-
-    /* Dark hero */
-    #hero {
-      background: var(--bg-primary);
-      padding-top: 158px;
-    }
-    h1 {
-      font-size: clamp(46px, 5vw, 58px);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      color: var(--text-primary);
-    }
-    .hero-tagline {
-      color: var(--red-featured);
-      background: rgba(184,20,20,0.10);
-      border: 1px solid rgba(184,20,20,0.20);
-    }
-    .hero-sub { color: var(--text-secondary); }
-    .hero-trust { color: var(--text-muted); }
-
-    /* Primary button — red, rounded pill */
-    .btn-primary {
-      background: var(--red-accent);
-      color: var(--white);
-      border-radius: 999px;
-      box-shadow: 0 6px 20px rgba(184,20,20,0.25);
-      font-size: 16px;
-      padding: 14px 28px;
-    }
-    .btn-primary:hover { background: var(--red-featured); }
-    .btn-secondary {
-      color: var(--text-secondary);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-    }
-    .btn-secondary:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-
-    /* Dark sections — IDs keep structural styles only, not backgrounds */
-    #what-we-do {
-      /* background set by .section-light class */
-    }
-    #what-we-do h2 { /* color set by .section-light class */ }
-    .what-list { background: var(--bg-card); border: 1px solid var(--border-card); }
-    .what-list li i { color: var(--red-accent); }
-    .what-not-list { background: var(--bg-card); border: 1px solid var(--border-card); }
-    .accountability-strip {
-      background: rgba(184,20,20,0.08);
-      border: 1px solid rgba(184,20,20,0.20);
-      color: var(--text-primary);
-    }
-    .accountability-strip p i { color: var(--red-accent); }
-
-    #how-it-works { /* background set by .section-light class */ }
-    .steps-connector { background: linear-gradient(90deg, #b81414, #c91818); }
-    .step {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-    }
-    .step-num {
-      background: linear-gradient(135deg, #171314 0%, #3B0D13 100%);
-      color: var(--red-featured);
-      box-shadow: 0 0 0 6px rgba(184,20,20,0.08);
-    }
-
-    #is-this-for-you { /* background set by .section-white class */ }
-    .fit-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-    }
-    .fit-yes { background: rgba(184,20,20,0.06); border-color: rgba(184,20,20,0.2); }
-    .fit-yes h3 { color: var(--red-featured); }
-    .fit-yes ul li i { color: var(--red-accent); }
-    .fit-no { background: rgba(255,255,255,0.03); border-color: var(--border-card); }
-    .fit-no h3 { color: var(--text-secondary); }
-    .fit-no ul li i { color: var(--text-muted); }
-
-    #first-7-days { /* background set by .section-light class */ }
-    .day-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-    }
-    .day-num {
-      background: linear-gradient(135deg, #171314 0%, #3B0D13 100%);
-      color: var(--red-featured);
-    }
-    .day-card span { color: var(--red-featured); }
-
-    #pricing {
-      /* background and text set by .section-white class on the section */
-    }
-    .pricing-grid { gap: var(--space-4); }
-    .pricing-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-    }
-    .pricing-card--featured {
-      border-color: rgba(184,20,20,0.3);
-      box-shadow: 0 8px 32px rgba(184,20,20,0.12);
-    }
-    .pricing-card__features li i { color: var(--red-accent); }
-    .pricing-card__accent--teal, .pricing-card__accent--gold, .pricing-card__accent--navy {
-      background: linear-gradient(90deg, #b81414, #c91818);
-    }
-
-    /* ============================================
-       SECTION THEME CLASSES
-    ============================================ */
-    .section-dark {
-      background: #ffffff;
-      color: #120b0d;
-    }
-    .section-dark p,
-    .section-dark li,
-    .section-dark span {
-      color: #3f3638;
-    }
-    .section-dark h1,
-    .section-dark h2,
-    .section-dark h3,
-    .section-dark h4 {
-      color: #120b0d;
-    }
-
-    .section-light {
-      background: #ffffff;
-      color: #120b0d;
-    }
-    .section-light h1,
-    .section-light h2,
-    .section-light h3,
-    .section-light h4 {
-      color: #120b0d;
-    }
-    .section-light p,
-    .section-light li,
-    .section-light span {
-      color: #3f3638;
-    }
-
-    .section-white {
-      background: #ffffff;
-      color: #120b0d;
-    }
-    .section-white h1,
-    .section-white h2,
-    .section-white h3,
-    .section-white h4 {
-      color: #120b0d;
-    }
-    .section-white p,
-    .section-white li,
-    .section-white span {
-      color: #3f3638;
-    }
-
-    /* CARD VARIANTS — all sections now white, cards use light style */
-    .card-dark {
-      background: #ffffff;
-      color: #120b0d;
-      border: 1px solid rgba(120,20,24,0.16);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    .card-dark h1,
-    .card-dark h2,
-    .card-dark h3,
-    .card-dark h4 {
-      color: #120b0d;
-    }
-    .card-dark p,
-    .card-dark li,
-    .card-dark span {
-      color: #3f3638;
-    }
-
-    /* CARD VARIANTS — inside light/white sections */
-    .card-light {
-      background: #ffffff;
-      color: #120b0d;
-      border: 1px solid rgba(120,20,24,0.16);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    .card-light h1,
-    .card-light h2,
-    .card-light h3,
-    .card-light h4 {
-      color: #120b0d;
-    }
-    .card-light p,
-    .card-light li,
-    .card-light span {
-      color: #3f3638;
-    }
-
-    /* ============================================
-       SECTION-SPECIFIC OVERRIDES
-    ============================================ */
-    .section-light #weekly-report { background: #fbf7f4; }
-    .section-light .report-card {
-      background: #ffffff;
-      border: 1px solid rgba(120,20,24,0.14);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    .section-light .report-header {
-      background: linear-gradient(135deg, #c91818 0%, #b81414 100%);
-      border-bottom: 1px solid rgba(120,20,24,0.2);
-    }
-    .metric-box .num { color: var(--red-accent); }
-    .metric-box .num.gold { color: var(--red-featured); }
-
-    #defensibility { /* background set by .section-dark class */ }
-    .section-dark #defensibility { /* background: #120b0d; set by .section-dark */ }
-    .defens-message {
-      background: rgba(184,20,20,0.10);
-      border: 1px solid rgba(184,20,20,0.25);
-      border-radius: var(--radius-lg);
-    }
-    .section-dark .defens-card {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-    }
-    .section-dark .defens-card h4 { color: rgba(255,255,255,0.6); }
-    .section-dark .defens-card h3 { color: #ffffff; }
-    .section-dark .defens-card p { color: rgba(255,255,255,0.72); }
-    .defens-message p span { color: var(--red-featured); }
-
-    #trust { /* background set by .section-white class */ }
-    .section-white #trust { /* background: #ffffff; set by .section-white */ }
-    .trust-card {
-      background: #ffffff;
-      border: 1px solid rgba(120,20,24,0.12);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-    }
-    .trust-card h4 { color: var(--navy); }
-    .icon-wrap { background: rgba(0,194,203,0.10); color: var(--teal); }
-
-    #about { /* background set by .section-light class */ }
-    .section-light #about { /* background: #fbf7f4; set by .section-light */ }
-    .section-light .vision-box {
-      background: rgba(184,20,20,0.06);
-      border: 1px solid rgba(184,20,24,0.16);
-      border-radius: var(--radius-lg);
-    }
-    .section-light .vision-box p { color: #3f3638; }
-    .section-light .demo-card {
-      background: #ffffff;
-      border: 1px solid rgba(120,20,24,0.12);
-      border-radius: var(--radius-lg);
-      padding: var(--space-4);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .section-light .demo-card h4 { color: rgba(0,194,203,0.8); }
-    .section-light .demo-card h3 { color: var(--navy); }
-    .section-light .demo-card p { color: #3f3638; }
-
-    #faq { /* background set by .section-white class */ }
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: var(--space-3);
-      margin-bottom: 12px;
-    }
-    .faq-question { color: var(--text-primary); }
-    .faq-question:hover { color: var(--red-featured); }
-
-    #cta-section { /* background set by .section-white class */ }
-    .section-white #cta-section { /* background: #ffffff; set by .section-white */ }
-    #cta-section h2 { /* color set by .section-white */ }
-    #cta-section p { /* color set by .section-white */ }
-
-    footer { background: #120b0d; }
-    footer.section-dark {
-      background: #120b0d;
-      border-top: 1px solid rgba(120,20,24,0.12);
-    }
-    .footer-brand h3 { color: var(--text-primary); }
-    .footer-brand p { color: var(--text-secondary); }
-    .footer-col h4 { color: var(--text-secondary); }
-    .footer-col ul li a { color: var(--text-secondary); }
-    .footer-col ul li a:hover { color: var(--text-primary); }
-    .footer-bottom { border-top: 1px solid var(--border); color: var(--text-muted); }
-    .footer-bottom a { color: var(--text-secondary); }
-    .footer-bottom a:hover { color: var(--text-primary); }
-
-    @media (max-width: 768px) {
-      .nav-inner { height: 68px; }
-      #hero { padding-top: 108px; }
-      h1 { font-size: 36px; }
-    }
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Qiyadon",
-    "url": "https://qiyadon.com/",
-    "email": "contact@qiyadon.com",
-    "description": "Pipeline execution service for founder-led SMBs.",
-    "slogan": "Autonomous Leadership Infrastructure"
-  }
-  </script>
+  <meta name="description" content="Qiyadon operates the follow-up layer of your pipeline. Every lead followed up. Every silence escalated. Every Friday reported." />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
+  <header class="site-header" data-header>
+    <div class="nav-shell">
+      <a href="#" class="brand" aria-label="Qiyadon home">qiyadon</a>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo"><span>qiyadon</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#what-we-do">What We Do</a></li>
-      <li><a href="/#how-it-works">How It Works</a></li>
-      <li><a href="/#first-7-days">First 7 Days</a></li>
-      <li><a href="/pricing.html">Pricing</a></li>
-      <li><a href="/#faq">FAQ</a></li>
-    </ul>
-    <a href="/pipeline-leak-audit.html" class="nav-cta">Get a Free Pipeline Leak Audit</a>
-  </div>
-</nav>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
 
-<!-- HERO — dark, integrated, no billboard -->
-<section id="hero" class="section-dark">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="hero-tagline">Autonomous Leadership Infrastructure</span>
-        <h1>Stop Losing the Leads You've Already Earned</h1>
-        <p class="hero-sub">Qiyadon operates the follow-up layer of your pipeline. Every lead followed up. Every silence escalated. Every Friday reported — so founder-led teams can focus on closing.</p>
-        <div class="hero-actions">
-          <a href="/pipeline-leak-audit.html" class="btn-primary">Book a Free Pipeline Leak Audit</a>
-          <a href="#how-it-works" class="btn-secondary">See How It Works <i data-lucide="arrow-right" style="width:16px;height:16px;"></i></a>
+      <nav class="nav-links" data-nav>
+        <a href="#what-we-do">What We Do</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#first-7-days">First 7 Days</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="nav-cta" href="/pipeline-leak-audit">Get a Free Pipeline Leak Audit</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-dark">
+      <div class="hero-bg" aria-hidden="true">
+        <svg class="network" viewBox="0 0 900 700" preserveAspectRatio="xMidYMid slice">
+          <g class="lines">
+            <path d="M35 535 L150 450 L260 505 L370 380 L500 440 L650 300 L820 355" />
+            <path d="M90 320 L240 260 L370 380 L520 205 L650 300 L855 140" />
+            <path d="M185 610 L260 505 L500 440 L790 600" />
+            <path d="M240 260 L500 440 L855 140" />
+            <path d="M520 205 L820 355 L790 600" />
+            <path d="M150 450 L370 380 L650 300" />
+          </g>
+          <g class="nodes">
+            <circle cx="35" cy="535" r="5" /><circle cx="150" cy="450" r="8" />
+            <circle cx="260" cy="505" r="6" /><circle cx="370" cy="380" r="9" />
+            <circle cx="500" cy="440" r="7" /><circle cx="650" cy="300" r="10" />
+            <circle cx="820" cy="355" r="8" /><circle cx="90" cy="320" r="5" />
+            <circle cx="240" cy="260" r="7" /><circle cx="520" cy="205" r="7" />
+            <circle cx="855" cy="140" r="10" /><circle cx="790" cy="600" r="6" />
+            <circle cx="185" cy="610" r="5" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Autonomous Leadership Infrastructure</p>
+          <h1>Stop Losing the Leads You’ve Already Earned</h1>
+          <p class="hero-subcopy">
+            Qiyadon operates the follow-up layer of your pipeline. Every lead followed up.
+            Every silence escalated. Every Friday reported — so founder-led teams can focus on closing.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/pipeline-leak-audit">Book a Free Pipeline Leak Audit</a>
+            <a class="button button-secondary" href="#how-it-works">See How It Works</a>
+          </div>
+          <p class="hero-note">Built for IT services, MSPs, SaaS, and professional services — 2–50 employees, founder-led sales teams.</p>
         </div>
-        <p class="hero-trust">Built for IT services, MSPs, SaaS, and professional services — 2–50 employees, founder-led sales teams.</p>
+
+        <aside class="report-card" aria-label="Weekly pipeline report preview">
+          <div class="window-bar">
+            <span></span><span></span><span></span>
+            <strong>Weekly Pipeline Report — Week of Apr 21</strong>
+          </div>
+          <div class="report-content">
+            <p class="report-label">Leads touched this week</p>
+            <div class="metric-grid">
+              <div><strong>12</strong><span>New contacted</span></div>
+              <div><strong>8</strong><span>Dormant revived</span></div>
+              <div><strong>47</strong><span>Follow-ups done</span></div>
+              <div><strong>3</strong><span>Escalations</span></div>
+            </div>
+            <p class="report-label">Pipeline flow</p>
+            <div class="pipeline-flow">
+              <span>In</span><i></i><span>Active</span><i></i><span>Follow-up</span><i></i><span>Close</span>
+            </div>
+            <small>Week 16 · Apr 21–27, 2026 · Live</small>
+          </div>
+        </aside>
       </div>
-      <div class="hero-visual">
-        <div class="hero-visual-info">
-          <div class="hero-visual-header">
-            <div class="hero-dots"><div class="hero-dot hero-dot-r"></div><div class="hero-dot hero-dot-y"></div><div class="hero-dot hero-dot-g"></div></div>
-            <span class="hero-window-title">Weekly Pipeline Report — Week of Apr 21</span>
-          </div>
-          <div class="hero-report-body">
-            <div class="hero-report-label">Leads Touched This Week</div>
-            <div class="hero-metric-row">
-              <div class="hero-metric"><div class="hero-metric-num teal">12</div><div class="hero-metric-lbl">New contacted</div></div>
-              <div class="hero-metric"><div class="hero-metric-num teal">8</div><div class="hero-metric-lbl">Dormant revived</div></div>
-              <div class="hero-metric"><div class="hero-metric-num teal">47</div><div class="hero-metric-lbl">Follow-ups done</div></div>
-              <div class="hero-metric"><div class="hero-metric-num gold">3</div><div class="hero-metric-lbl">Escalations</div></div>
-            </div>
-            <div class="hero-pipeline-label">Pipeline Flow</div>
-            <div class="hero-pipeline-flow">
-              <span class="hero-pipeline-node hero-node-inbound">IN</span>
-              <span class="hero-arrow">→</span>
-              <span class="hero-pipeline-node hero-node-active">Active</span>
-              <span class="hero-arrow">→</span>
-              <span class="hero-pipeline-node hero-node-followup">Follow-up</span>
-              <span class="hero-arrow">→</span>
-              <span class="hero-pipeline-node hero-node-close">Close</span>
-            </div>
-          </div>
-          <div class="hero-report-footer">
-            <span class="hero-report-date">Week 16 &nbsp;•&nbsp; Apr 21–27, 2026</span>
-            <span class="hero-report-status">● Live</span>
-          </div>
+    </section>
+
+    <section id="what-we-do" class="section section-dark problem">
+      <div class="container narrow">
+        <p class="eyebrow">The silent revenue leak</p>
+        <h2>Why Your Pipeline Is Dying of Silence</h2>
+        <p class="section-lede">
+          The leads are not cold because you do not care. They are cold because human bandwidth runs out.
+          For founder-led SMBs, this is the silent revenue killer: qualified prospects who raised their hand and never heard back.
+        </p>
+        <div class="card-grid three">
+          <article class="dark-card">
+            <span class="card-icon">☠️</span>
+            <h3>Most inbound leads go dark within 72 hours</h3>
+            <p>Not because the founder did not care, but because closing is a full-time job and following up is a second one.</p>
+          </article>
+          <article class="dark-card">
+            <span class="card-icon">⏰</span>
+            <h3>The fastest path from qualified lead to closed deal is simple</h3>
+            <p>Respond before the prospect moves on. The question is whether speed matters — it does.</p>
+          </article>
+          <article class="dark-card">
+            <span class="card-icon">📉</span>
+            <h3>Many SMBs lose qualified leads silently</h3>
+            <p>Follow-up is late, inconsistent, or forgotten. The lead was ready. Your team just ran out of hours.</p>
+          </article>
+        </div>
+        <div class="insight-line">
+          <strong>You are not the problem. Your system is.</strong>
+          <span>No founder can be relentless across every lead, every day, while also doing their real job: closing deals.</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- PAIN SECTION -->
-<section id="problem" class="section-dark">
-  <div class="container">
-    <h2 class="fade-in">Why Your Pipeline Is Dying of Silence</h2>
-    <p class="problem-lead fade-in">The leads aren't cold because you don't care. They're cold because human bandwidth runs out. For founder-led SMBs, this is the silent revenue killer: qualified prospects who raised their hand and never heard back.</p>
-    <div class="stats-grid">
-      <div class="stat-card fade-in">
-        <span class="stat-icon">💀</span>
-        <div class="stat-label">Most inbound leads go dark within 72 hours — not because the founder didn't care, but because closing is a full-time job and following up is a second one.</div>
+    <section class="section section-white">
+      <div class="container split">
+        <div>
+          <p class="eyebrow red">Managed execution</p>
+          <h2>We Do Not Give You Another Tool</h2>
+          <p class="section-lede">We operate the follow-up layer of your pipeline. You keep your CRM. We work inside it.</p>
+        </div>
+        <div class="feature-panel">
+          <ul class="check-list">
+            <li>Inbound lead follow-up — contacted within your configured response window</li>
+            <li>Dormant lead reactivation — persistent, structured sequences</li>
+            <li>CRM hygiene — your pipeline stays clean and current</li>
+            <li>Escalation alerts — you know when a lead signals intent</li>
+            <li>Weekly pipeline report — every Friday, real numbers</li>
+            <li>Owner action list — clear priorities for your week</li>
+            <li>Human-approved messaging available — your brand voice, not a bot’s</li>
+          </ul>
+        </div>
       </div>
-      <div class="stat-card fade-in">
-        <span class="stat-icon">⏰</span>
-        <div class="stat-label">The fastest path from a qualified lead to a closed deal is simple: respond before the prospect moves on. The question isn't whether speed matters — it's who handles it when you're in a meeting.</div>
+      <div class="container">
+        <div class="promise-strip">
+          <span>If a lead goes dark, that is our failure.</span>
+          <span>If a follow-up is missed, that is our failure.</span>
+          <span>You own the close. We own the follow-up. Every Friday.</span>
+        </div>
       </div>
-      <div class="stat-card fade-in">
-        <span class="stat-icon">🔁</span>
-        <div class="stat-label">Many SMBs lose qualified leads simply because follow-up is late, inconsistent, or forgotten. The lead was ready. Your team just ran out of hours in the day.</div>
-      </div>
-    </div>
-    <div class="problem-conclusion fade-in">
-      <p>You're not the problem. Your system is.</p>
-      <small>No founder can be relentless across every lead, every day, while also doing their real job: closing deals. That's why we built Qiyadon — to handle the follow-up that used to fall through the cracks.</small>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- WHAT WE DO -->
-<section id="what-we-do" class="section-light">
-  <div class="container">
-    <h2 class="fade-in">We Do Not Give You Another Tool</h2>
-    <p class="what-we-do-sub fade-in">We operate the follow-up layer of your pipeline. You keep your CRM. We work inside it.</p>
-    <div class="what-we-do-grid fade-in">
-      <ul class="what-list">
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Inbound lead follow-up — contacted within your configured response window</li>
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Dormant lead reactivation — persistent, structured sequences</li>
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> CRM hygiene — your pipeline stays clean and current</li>
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Escalation alerts — you know when a lead signals intent</li>
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Weekly pipeline report — every Friday, real numbers</li>
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Owner action list — clear priorities for your week</li>
-        <li><i data-lucide="check" style="width:16px;height:16px;"></i> Human-approved messaging available — your brand voice, not a bot's</li>
-      </ul>
-      <div class="what-not-list">
-        <h4>What We Are NOT</h4>
-        <ul>
-          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A CRM — we operate inside yours</li>
-          <li><i data-lucide="x" style="width:14px;height:16px;"></i> A sales consultant who advises and leaves</li>
-          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A chatbot that answers questions</li>
-          <li><i data-lucide="x" style="width:14px;height:14px;"></i> An agency that runs your marketing</li>
-          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A "set it and forget it" automation tool</li>
-          <li><i data-lucide="x" style="width:14px;height:14px;"></i> A team you have to manage</li>
-        </ul>
+    <section id="how-it-works" class="section section-soft">
+      <div class="container centered">
+        <p class="eyebrow red">Operational in days</p>
+        <h2>Three Steps. No Learning Curve. No App to Build.</h2>
+        <p class="section-lede">We slot into your existing operation. You do not rebuild anything.</p>
+        <div class="steps">
+          <article>
+            <span>1</span>
+            <h3>Connect Your Pipeline</h3>
+            <p>We integrate with your existing CRM — HubSpot, Pipedrive, Zoho, Salesforce, or any other. You grant access.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>We Take Over Follow-Up</h3>
+            <p>Every inbound lead receives your configured response window. Every dormant lead is reactivated.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>You Grow Your Business</h3>
+            <p>More leads converted. Less noise in your head. Every Friday shows what moved and what needs you.</p>
+          </article>
+        </div>
+        <a class="button button-primary" href="/pipeline-leak-audit">Get a Free Pipeline Leak Audit</a>
       </div>
-    </div>
-    <div class="accountability-strip fade-in">
-      <p><i data-lucide="check" style="width:14px;height:14px;"></i> If a lead goes dark, that's our failure</p>
-      <p><i data-lucide="check" style="width:14px;height:14px;"></i> If a follow-up is missed, that's our failure</p>
-      <p><i data-lucide="check" style="width:14px;height:14px;"></i> You own the close. We own the follow-up. Every Friday.</p>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- HOW IT WORKS -->
-<section id="how-it-works" class="section-light">
-  <div class="container">
-    <h2 class="fade-in">Three Steps. No Learning Curve. No App to Build.</h2>
-    <p class="how-sub fade-in">We slot into your existing operation. You don't rebuild anything.</p>
-    <div class="steps">
-      <div class="steps-connector"></div>
-      <div class="step fade-in">
-        <div class="step-num">1</div>
-        <h3>Connect Your Pipeline</h3>
-        <p>We integrate with your existing CRM — HubSpot, Pipedrive, Zoho, Salesforce, or any other. You grant access. We learn your leads, your history, and your follow-up rules. Setup within 5 business days.</p>
+    <section class="section section-white">
+      <div class="container">
+        <p class="eyebrow red">Fit matters</p>
+        <h2>Is Qiyadon Right for You?</h2>
+        <p class="section-lede">Qiyadon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it.</p>
+        <div class="fit-grid">
+          <article class="light-card">
+            <h3>This Is for You</h3>
+            <ul>
+              <li>Founder-led SMBs in IT services, MSPs, SaaS, and professional services</li>
+              <li>Companies with 2–50 employees and $200k–$5M ARR</li>
+              <li>Founders who are closing — not following up</li>
+              <li>Teams with a CRM full of leads going dark</li>
+              <li>Companies ready to stop losing qualified leads to silence</li>
+            </ul>
+          </article>
+          <article class="light-card">
+            <h3>This Is Not for You</h3>
+            <ul>
+              <li>Companies with no lead flow yet</li>
+              <li>Companies satisfied with “we will call when we remember”</li>
+              <li>Companies where no one is available to close interested prospects</li>
+              <li>Early-stage ideas still in validation</li>
+              <li>Businesses expecting guaranteed revenue</li>
+            </ul>
+          </article>
+        </div>
       </div>
-      <div class="step fade-in">
-        <div class="step-num">2</div>
-        <h3>We Take Over Follow-Up</h3>
-        <p>Every inbound lead followed up within your configured response window. Every dormant lead in a persistent follow-up sequence. Every silence chased. Follow-up cadence configured to your market, lead type, and preferred business hours.</p>
-      </div>
-      <div class="step fade-in">
-        <div class="step-num">3</div>
-        <h3>You Grow Your Business</h3>
-        <p>More leads converted. More revenue. Less noise in your head. As a founder-led SMB, your job is closing — not chasing. We handle the relentless follow-up that used to fall through the cracks.</p>
-      </div>
-    </div>
-    <div class="step-cta fade-in">
-      <a href="/pipeline-leak-audit.html" class="btn-primary">Get a Free Pipeline Leak Audit</a>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- IS STRATEON RIGHT FOR YOU -->
-<section id="is-this-for-you" class="section-white">
-  <div class="container">
-    <h2 class="fade-in">Is Qiyadon Right for You?</h2>
-    <p class="fit-intro fade-in">Qiyadon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.</p>
-    <div class="fit-grid">
-      <div class="fit-card fit-yes fade-in">
-        <h3>
-          <span class="icon-wrap icon-teal"><i data-lucide="check-circle" style="width:18px;height:18px;"></i></span>
-          This Is for You
-        </h3>
-        <ul>
-          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Founder-led SMBs in IT services, MSPs, SaaS, and professional services</li>
-          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Companies with 2–50 employees and $200K–$5M ARR</li>
-          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Founders whose job is closing — not following up</li>
-          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Teams with a CRM full of leads going dark</li>
-          <li><i data-lucide="check-circle" style="width:16px;height:16px;"></i> Companies ready to stop losing qualified leads to silence</li>
-        </ul>
+    <section id="first-7-days" class="section section-soft">
+      <div class="container centered">
+        <p class="eyebrow red">Fast start</p>
+        <h2>Your First 7 Days with Qiyadon</h2>
+        <p class="section-lede">No black box. No guessing. Here is exactly what happens after you sign up.</p>
+        <div class="timeline">
+          <article><span>1</span><h3>Pipeline Intake</h3><p>You send your lead list, CRM access, and outreach context.</p><small>Day 1</small></article>
+          <article><span>2</span><h3>CRM & Access Setup</h3><p>We integrate with your CRM, map your pipeline, and configure follow-up rules.</p><small>Day 2</small></article>
+          <article><span>3</span><h3>Sequences Approved</h3><p>We draft your follow-up sequences and escalation triggers.</p><small>Day 3</small></article>
+          <article><span>4</span><h3>Follow-Up Begins</h3><p>Your first-touch, dormant, and escalation sequences start.</p><small>Days 4–6</small></article>
+          <article><span>7</span><h3>First Report Delivered</h3><p>You receive your first weekly pipeline report.</p><small>Day 7</small></article>
+        </div>
       </div>
-      <div class="fit-card fit-no fade-in">
-        <h3>
-          <span class="icon-wrap icon-gold"><i data-lucide="x-circle" style="width:18px;height:18px;"></i></span>
-          This Is NOT for You
-        </h3>
-        <ul>
-          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Companies with no lead flow yet — we need leads to follow up</li>
-          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Companies with no defined offer — we can't sell what hasn't been built</li>
-          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Companies where no one is available to close interested prospects</li>
-          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Early-stage ideas still in validation — come back when you have pipeline</li>
-          <li><i data-lucide="x-circle" style="width:16px;height:16px;"></i> Businesses expecting guaranteed revenue — we don't promise outcomes, we promise execution</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FIRST 7 DAYS -->
-<section id="first-7-days" class="section-light">
-  <div class="container">
-    <h2 class="fade-in">Your First 7 Days with Qiyadon</h2>
-    <p class="days-sub fade-in">No black box. No guessing. Here's exactly what happens after you sign up.</p>
-    <div class="days-grid">
-      <div class="day-card fade-in">
-        <div class="day-num">1</div>
-        <h4>Pipeline Intake</h4>
-        <p>You send us your lead list. We review your pipeline state, your close reasons, and your tone of voice. We ask three questions about your ideal customer.</p>
-        <span>Day 1</span>
-      </div>
-      <div class="day-card fade-in">
-        <div class="day-num">2</div>
-        <h4>CRM & Access Setup</h4>
-        <p>We integrate with your CRM, map your pipeline, and configure your follow-up rules to match how your market actually buys.</p>
-        <span>Day 2</span>
-      </div>
-      <div class="day-card fade-in">
-        <div class="day-num">3</div>
-        <h4>Sequences Approved</h4>
-        <p>We draft your follow-up sequences. You review and approve. Nothing goes out without your sign-off. Your rules. Your voice.</p>
-        <span>Day 3</span>
-      </div>
-      <div class="day-card fade-in">
-        <div class="day-num">4</div>
-        <h4>Follow-Up Begins</h4>
-        <p>Your live leads get their first Qiyadon touchpoint. Inbound leads contacted. Dormant leads start reactivation sequence.</p>
-        <span>Day 4–5</span>
-      </div>
-      <div class="day-card fade-in">
-        <div class="day-num">7</div>
-        <h4>First Report Delivered</h4>
-        <p>Friday. Your first weekly pipeline report hits your inbox. Leads contacted, revived, escalated. Hot leads. Recommended next actions.</p>
-        <span>Day 7</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="section-white">
-  <div class="container">
-    <h2 class="fade-in">Simple, Predictable Pricing</h2>
-    <p class="pricing-sub fade-in">All plans include CRM integration, follow-up cadence configured to your business hours, and weekly reporting. Volume pricing available.</p>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-in">
-        <div class="pricing-card__accent pricing-card__accent--teal"></div>
-        <div class="pricing-card__body">
-          <div class="pricing-card__title">
-            <span class="icon-wrap icon-teal"><i data-lucide="rocket" style="width:16px;height:16px;"></i></span>
+    <section id="pricing" class="section section-white pricing-preview">
+      <div class="container centered">
+        <p class="eyebrow red">Simple, predictable pricing</p>
+        <h2>Plans Built Around Follow-Up Volume</h2>
+        <p class="section-lede">All plans include CRM integration, follow-up cadence configured to your business hours, and weekly reporting.</p>
+        <div class="pricing-grid">
+          <article class="price-card">
             <h3>Starter</h3>
-          </div>
-          <div class="pricing-card__price">
-            <span class="pricing-card__price-amount">$300</span>
-            <span class="pricing-card__price-period">/month</span>
-          </div>
-          <p style="font-size:12px;color:var(--text-secondary);margin-top:4px;">billed annually ($2,700/year)</p>
-          <ul class="pricing-card__features">
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> 50 leads/month</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> WhatsApp follow-up (3-touch sequence)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly pipeline report</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (HubSpot, Pipedrive, Zoho, Salesforce)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Escalation when leads go dark</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Setup within 5 business days</li>
-          </ul>
-          <div class="pricing-card__cta">
-            <a href="/sign-trial.html" class="btn-primary">Start Free Trial</a>
-          </div>
-        </div>
-      </div>
-      <div class="pricing-card pricing-card--featured fade-in">
-        <div class="pricing-card__accent pricing-card__accent--gold"></div>
-        <div class="pricing-card__body">
-          <div class="pricing-card__title">
-            <span class="icon-wrap icon-gold"><i data-lucide="trending-up" style="width:16px;height:16px;"></i></span>
+            <p><strong>$300</strong><span>/month</span></p>
+            <ul><li>50 leads/month</li><li>WhatsApp follow-up</li><li>Weekly pipeline report</li><li>CRM integration</li></ul>
+            <a class="button button-primary" href="/sign-trial">Start Free Trial</a>
+          </article>
+          <article class="price-card featured">
+            <div class="tag">Most Popular</div>
             <h3>Growth</h3>
-          </div>
-          <div class="pricing-card__price">
-            <span class="pricing-card__price-amount">$750</span>
-            <span class="pricing-card__price-period">/month</span>
-          </div>
-          <p style="font-size:12px;color:var(--text-secondary);margin-top:4px;">billed annually ($6,750/year)</p>
-          <ul class="pricing-card__features">
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> 200 leads/month</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> WhatsApp + Email follow-up (5-touch sequence)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Daily pipeline brief</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Monthly strategy call</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> CRM integration (any platform)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Priority onboarding</li>
-          </ul>
-          <div class="pricing-card__cta">
-            <a href="/sign-trial.html" class="btn-primary">Start Free Trial</a>
-          </div>
-        </div>
-      </div>
-      <div class="pricing-card fade-in">
-        <div class="pricing-card__accent pricing-card__accent--navy"></div>
-        <div class="pricing-card__body">
-          <div class="pricing-card__title">
-            <span class="icon-wrap" style="background: rgba(11,31,58,0.1); color: var(--navy);"><i data-lucide="shield-check" style="width:16px;height:16px;"></i></span>
+            <p><strong>$750</strong><span>/month</span></p>
+            <ul><li>200 leads/month</li><li>WhatsApp + Email</li><li>Daily pipeline brief</li><li>Priority onboarding</li></ul>
+            <a class="button button-primary" href="/sign-trial">Start Free Trial</a>
+          </article>
+          <article class="price-card">
             <h3>Scale</h3>
-          </div>
-          <div class="pricing-card__price">
-            <span class="pricing-card__price-amount">$1,500+</span>
-            <span class="pricing-card__price-period">/month</span>
-          </div>
-          <p style="font-size:12px;color:var(--text-secondary);margin-top:4px;">billed annually (20% off — custom)</p>
-          <ul class="pricing-card__features">
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Unlimited leads/month</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> All channels — WhatsApp, Email, SMS</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Real-time pipeline dashboard</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Weekly strategy call</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> Dedicated cadence manager</li>
-            <li><i data-lucide="check" style="width:14px;height:14px;"></i> White-glove onboarding + dedicated point of contact</li>
-          </ul>
-          <div class="pricing-card__cta">
-            <a href="/sign-trial.html" class="btn-primary">Start Free Trial</a>
-          </div>
+            <p><strong>$1,500+</strong><span>/month</span></p>
+            <ul><li>Unlimited leads</li><li>All channels</li><li>Real-time dashboard</li><li>Dedicated cadence manager</li></ul>
+            <a class="button button-primary" href="/sign-trial">Start Free Trial</a>
+          </article>
         </div>
       </div>
-    </div>
-    <p class="pricing-note fade-in">Overage: $6/lead (Starter), $4/lead (Growth). Scale has no overage — unlimited leads. <a href="/sign-trial.html" style="color: var(--teal); font-weight: 600; text-decoration: none;">Start your 14-day free trial →</a></p>
-    <p class="pricing-note fade-in" style="margin-top:8px;">Want to scale beyond 300 leads? <a href="/pipeline-leak-audit.html" style="color: var(--teal); font-weight: 600; text-decoration: none;">Talk to us for a custom quote →</a></p>
-  </div>
-</section>
+    </section>
 
-<!-- WEEKLY REPORT SAMPLE -->
-<section id="weekly-report" class="section-light">
-  <div class="container">
-    <h2 class="fade-in">See What You Get Every Friday</h2>
-    <p class="report-sub fade-in">A real weekly pipeline report — not a vanity dashboard. Here's what the first few weeks look like:</p>
-    <div class="report-card fade-in">
-      <div class="report-header">
-        <p>Weekly Pipeline Report — Week of [DATE]</p>
-        <span>Qiyadon</span>
-      </div>
-      <div class="report-body">
-        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;">Leads Touched This Week</h4>
-        <div class="report-metrics">
-          <div class="metric-box">
-            <div class="num">12</div>
-            <div class="label">Leads received</div>
-          </div>
-          <div class="metric-box">
-            <div class="num">12</div>
-            <div class="label">Leads contacted</div>
-          </div>
-          <div class="metric-box">
-            <div class="num">8</div>
-            <div class="label">Dormant leads revived</div>
-          </div>
-          <div class="metric-box">
-            <div class="num gold">3</div>
-            <div class="label">Escalations to you</div>
-          </div>
+    <section class="section section-dark">
+      <div class="container">
+        <p class="eyebrow">Operating system, not automation toy</p>
+        <h2>Why Qiyadon Is Different</h2>
+        <p class="section-lede">Cheap automation sends messages. Qiyadon runs the follow-up operating rhythm.</p>
+        <div class="statement-card">
+          Managed execution — not a tool you configure. We do the work. You hold us accountable.
         </div>
-
-        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Hot Leads — Action Required From You</h4>
-        <table class="report-table">
-          <thead>
-            <tr>
-              <th>Lead</th>
-              <th>Last Contact</th>
-              <th>Recommended Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Acme Corp</strong></td>
-              <td>2 days ago</td>
-              <td>Demo call — ready to decide</td>
-            </tr>
-            <tr>
-              <td><strong>TechStart Inc</strong></td>
-              <td>Today</td>
-              <td>Send pricing — they've asked twice</td>
-            </tr>
-            <tr>
-              <td><strong>Nexus Ltd</strong></td>
-              <td>Yesterday</td>
-              <td>Contract follow-up overdue</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Leads at Risk</h4>
-        <table class="report-table">
-          <thead>
-            <tr>
-              <th>Lead</th>
-              <th>Days Since Contact</th>
-              <th>Risk Level</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>BrightWave</td>
-              <td>11 days, no response</td>
-              <td><span class="risk-high">High</span></td>
-            </tr>
-            <tr>
-              <td>CloudFirst</td>
-              <td>8 days, single reply</td>
-              <td><span class="risk-medium">Medium</span></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h4 style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;">Missed / Blocked Follow-Ups</h4>
-        <table class="report-table">
-          <thead>
-            <tr>
-              <th>Lead</th>
-              <th>Issue</th>
-              <th>Remediation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>OptiFlow</td>
-              <td>Bounce — invalid email</td>
-              <td>Sent correction request via LinkedIn</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="report-recs">
-          <h4>Recommended Actions for Next Week</h4>
-          <ol>
-            <li>Acme Corp — schedule demo call by Friday</li>
-            <li>TechStart Inc — send custom pricing document</li>
-            <li>BrightWave — try alternate contact method, refer to decision-maker</li>
-            <li>Add 3 new leads from [source] to nurture sequence</li>
-          </ol>
+        <div class="card-grid three">
+          <article class="dark-card"><h3>Pipeline Accountability</h3><p>Every lead has an owner. Every silence is tracked. Every Friday is logged.</p></article>
+          <article class="dark-card"><h3>CRM Hygiene</h3><p>Your pipeline stays clean, current, and actionable.</p></article>
+          <article class="dark-card"><h3>Lead Memory</h3><p>We remember where every lead left off. No context gets lost.</p></article>
+          <article class="dark-card"><h3>Escalation Rules</h3><p>When a lead signals intent, you know immediately.</p></article>
+          <article class="dark-card"><h3>Human Oversight</h3><p>AI-assisted execution with human governance.</p></article>
+          <article class="dark-card"><h3>Repeatable Playbook</h3><p>What works once is codified, tested, and repeated.</p></article>
         </div>
       </div>
-    </div>
-    <p class="report-note">Every Friday. Every lead. No exceptions. If something slipped through, it shows up here — and so does the fix.</p>
-  </div>
-</section>
+    </section>
 
-<!-- DEFENSIBILITY -->
-<section id="defensibility" class="section-dark">
-  <div class="container">
-    <h2 class="fade-in">Why Qiyadon Is Different</h2>
-    <p class="defens-sub fade-in">Cheap automation sends messages. Qiyadon runs the follow-up operating rhythm.</p>
-    <div class="defens-message fade-in">
-      <p><span>Managed execution</span> — not a tool you configure. We do the work. You hold us accountable.</p>
-    </div>
-    <div class="defens-grid">
-      <div class="defens-card fade-in">
-        <h4>Execution</h4>
-        <h3>Pipeline Accountability</h3>
-        <p>Every lead has an owner. Every follow-up is tracked. Every escalation is logged. You see the full picture every Friday.</p>
+    <section class="section section-white">
+      <div class="container">
+        <p class="eyebrow red">Control stays with you</p>
+        <h2>Your Pipeline. Your Rules. Your Data.</h2>
+        <p class="section-lede">We operate inside your CRM, follow your outreach guidelines, and treat your pipeline data as your asset — not ours.</p>
+        <div class="card-grid three">
+          <article class="light-card"><h3>Human-Approved Messaging</h3><p>Every sequence is reviewed and signed off by you before it goes live.</p></article>
+          <article class="light-card"><h3>CRM Access Controlled</h3><p>You can revoke access at any time. Your data stays yours.</p></article>
+          <article class="light-card"><h3>Client Data Isolated</h3><p>Your pipeline data is never shared across clients.</p></article>
+          <article class="light-card"><h3>Outreach Rules Configured Per Client</h3><p>We follow your rules, cadence, and tone.</p></article>
+          <article class="light-card"><h3>AI-Assisted Execution with Human Governance</h3><p>AI handles cadence. Humans govern quality and accountability.</p></article>
+        </div>
       </div>
-      <div class="defens-card fade-in">
-        <h4>Discipline</h4>
-        <h3>CRM Hygiene</h3>
-        <p>Your pipeline stays clean, current, and actionable. Not a dump of contacts — a working system you can trust.</p>
-      </div>
-      <div class="defens-card fade-in">
-        <h4>Memory</h4>
-        <h3>Lead Memory</h3>
-        <p>We remember where every lead left off. No restarting from scratch. No lost context between touchpoints.</p>
-      </div>
-      <div class="defens-card fade-in">
-        <h4>Speed</h4>
-        <h3>Escalation Rules</h3>
-        <p>When a lead signals intent, you know immediately. Defined triggers. Configured thresholds. No guesswork.</p>
-      </div>
-      <div class="defens-card fade-in">
-        <h4>Governance</h4>
-        <h3>Human Oversight</h3>
-        <p>AI-assisted execution with human governance. Sequences reviewed. Errors owned. Quality maintained.</p>
-      </div>
-      <div class="defens-card fade-in">
-        <h4>Repeatability</h4>
-        <h3>Repeatable Playbooks</h3>
-        <p>What works once is codified, tested, and repeated. Your best closers' behavior — systematized at scale.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- TRUST & COMPLIANCE -->
-<section id="trust" class="section-white">
-  <div class="container">
-    <h2 class="fade-in">Your Pipeline. Your Rules. Your Data.</h2>
-    <p class="trust-intro fade-in">We operate inside your CRM, follow your outreach guidelines, and treat your pipeline data as your asset — not ours.</p>
-    <div class="trust-grid">
-      <div class="trust-card fade-in">
-        <h4>
-          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="user-check" style="width:16px;height:16px;"></i></span>
-          Human-Approved Messaging
-        </h4>
-        <p>Every sequence is reviewed and signed off by you before it goes live. Your brand voice. Your words. No generic templates.</p>
+    <section class="section section-soft">
+      <div class="container">
+        <p class="eyebrow red">Accountability</p>
+        <h2>Built for Accountability, Not Just Automation</h2>
+        <p class="section-lede">Your follow-up is handled by Qiyadon’s AI execution system, supervised by a human board for quality, accountability, and governance.</p>
+        <div class="quote-box">
+          “We are not a software company that added AI. We are a pipeline execution company where AI does the work — daily, without excuse, and with a Board that holds us responsible.”
+        </div>
+        <div class="card-grid three">
+          <article class="light-card"><h3>You Never Left Guessing</h3><p>Every lead in your pipeline has an owner, a status, and a next action.</p></article>
+          <article class="light-card"><h3>AI That Does the Work</h3><p>The AI execution system manages follow-up cadence and CRM updates.</p></article>
+          <article class="light-card"><h3>A Board That Holds Us Accountable</h3><p>A human Board reviews performance, errors, exceptions, and weekly output.</p></article>
+        </div>
       </div>
-      <div class="trust-card fade-in">
-        <h4>
-          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="lock" style="width:16px;height:16px;"></i></span>
-          CRM Access Controlled
-        </h4>
-        <p>We work inside your CRM with the access you grant. You can revoke it at any time. Your data stays yours.</p>
-      </div>
-      <div class="trust-card fade-in">
-        <h4>
-          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="shield" style="width:16px;height:16px;"></i></span>
-          Client Data Isolated
-        </h4>
-        <p>Your pipeline data is never shared across clients. Your leads are your leads. Complete data separation by design.</p>
-      </div>
-      <div class="trust-card fade-in">
-        <h4>
-          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="settings" style="width:16px;height:16px;"></i></span>
-          Outreach Rules Configured Per Client
-        </h4>
-        <p>We follow your rules, your cadence, and your market's norms. Not a generic template. Configured from day one.</p>
-      </div>
-      <div class="trust-card fade-in">
-        <h4>
-          <span class="icon-wrap" style="background: rgba(0,194,203,0.1); color: var(--teal);"><i data-lucide="target" style="width:16px;height:16px;"></i></span>
-          AI-Assisted Execution with Human Governance
-        </h4>
-        <p>AI handles the cadence. Humans govern the quality. Sequences reviewed. Errors owned. Accountability is structural, not promised.</p>
-      </div>
-    </div>
-    <p class="trust-footer fade-in">You own the close. We handle the follow-up. Outreach rules configured per client.</p>
-  </div>
-</section>
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="section-light">
-  <div class="container">
-    <h2 class="fade-in">Built for Accountability, Not Just Automation</h2>
-    <p class="about-sub fade-in">Your follow-up is handled by Qiyadon's AI execution system, supervised by a human Board for quality, accountability, and governance.</p>
-    <div class="vision-box fade-in">
-      <p>"We're not a software company that added AI. We're a pipeline execution company where AI does the work — daily, without excuse, and with a Board that holds us responsible. Your pipeline results are not our side project. They are the entire point."</p>
-    </div>
-    <div class="demos-grid">
-      <div class="demo-card fade-in">
-        <h4>Accountability</h4>
-        <h3>You're Never Left Guessing</h3>
-        <p>Every lead in your pipeline has an owner. If a follow-up is missed, we know. If a lead goes dark, you get a report. Accountability isn't a promise — it's a system.</p>
+    <section id="faq" class="section section-white">
+      <div class="container narrow">
+        <p class="eyebrow red">FAQ</p>
+        <h2>Questions You Should Ask Before Signing Up</h2>
+        <div class="faq-list">
+          <details><summary>Who actually does the follow-up?</summary><p>Qiyadon operates the follow-up using your approved rules, cadence, and messaging.</p></details>
+          <details><summary>What CRM do you work with?</summary><p>HubSpot, Pipedrive, Zoho, Salesforce, and most structured CRMs.</p></details>
+          <details><summary>How long until I see results?</summary><p>You receive activity within the first week and your first Friday report after launch.</p></details>
+          <details><summary>What if a lead is ready to buy?</summary><p>We escalate it to your team immediately based on agreed rules.</p></details>
+          <details><summary>How is this different from a CRM or automation tool?</summary><p>We are not another tool. We operate the follow-up layer for you.</p></details>
+          <details><summary>How often do I need to be involved?</summary><p>Upfront approval, then weekly review unless escalation is needed.</p></details>
+          <details><summary>What does this cost?</summary><p>Plans start at $300/month with a 14-day free trial.</p></details>
+          <details><summary>Are there long-term contracts?</summary><p>No long-term contract is required for the trial.</p></details>
+        </div>
       </div>
-      <div class="demo-card fade-in">
-        <h4>Execution</h4>
-        <h3>AI That Does the Work</h3>
-        <p>The AI execution system manages follow-up cadence, sequence timing, and escalation triggers — configured to your market, lead type, and preferred business hours. No human bandwidth limits.</p>
-      </div>
-      <div class="demo-card fade-in">
-        <h4>Governance</h4>
-        <h3>A Board That Holds Us Accountable</h3>
-        <p>A human Board reviews performance, owns errors, and ensures we stay focused on your pipeline outcomes — not activities that look good but don't convert.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FAQ -->
-<section id="faq" class="section-white">
-  <div class="container">
-    <h2 class="fade-in">Questions You Should Ask Before Signing Up</h2>
-    <div class="faq-list">
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>Who actually does the follow-up?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>Your follow-up is handled by Qiyadon's AI execution system, supervised by a human Board for quality, accountability, and governance. We slot into your CRM, learn your pipeline, and execute your follow-up sequences — daily, configured to your market and preferred business hours. You focus on closing. We handle the rest.</p>
-        </div>
+    <section class="section final-cta section-dark">
+      <div class="container centered">
+        <p class="eyebrow">Free audit</p>
+        <h2>Find Out Where Your Pipeline Is Leaking.</h2>
+        <p class="section-lede">We will show you exactly where leads are going dark, what it is costing you, and what we will do about it.</p>
+        <a class="button button-primary" href="/pipeline-leak-audit">Get a Free Pipeline Leak Audit</a>
       </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>What CRM do you work with?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>Any CRM. We integrate with HubSpot, Pipedrive, Zoho, Salesforce, and others. If yours is custom, we can work with it. You keep your CRM. We operate inside it. Human-approved messaging is reviewed by you before any sequence goes live.</p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>How long until I see results?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>Most founder-led SMBs see response rates improve within the first week. Dormant lead reactivation typically shows movement within 30 days. We deliver your first weekly pipeline report on Day 7 — so you don't wait long to see what's happening in your pipeline.</p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>What if a lead is ready to buy?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>That's our failure, not yours. We escalate to you when a lead signals buying intent — and we've defined those triggers with you during onboarding. You decide the close. We manage the follow-up until you tell us to stop.</p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>How is this different from a CRM or automation tool?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>Consultants advise. Agencies manage your marketing. Automation tools require you to configure and manage them. We execute your pipeline — daily, persistently, without bandwidth limits, and we report every Friday on what happened. We are accountable for outcomes, not activities. For founder-led SMBs, this means one less thing to manage.</p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>How often do I need to be involved?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>A pipeline report delivered to your inbox every Friday. Pipeline health, leads contacted, leads reactivated, leads escalated. Your only job: review the hot leads and close the deals that are ready. We handle everything else.</p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>What does this cost?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>Three tiers — Starter at $300/month (50 leads), Growth at $750/month (200 leads), Scale at $1,500+/month (unlimited leads). All plans include a 14-day free trial — no discovery call required. Annual billing saves 25%. Overage fees apply for Starter ($6/lead) and Growth ($4/lead). Scale has no overage. <a href="/sign-trial.html" style="color: var(--teal); font-weight: 600;">Start your free trial →</a></p>
-        </div>
-      </div>
-      <div class="faq-item fade-in">
-        <button class="faq-question" aria-expanded="false">
-          <span>Are there long-term contracts?</span>
-          <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
-        </button>
-        <div class="faq-answer">
-          <p>We don't lock you into long contracts before you've seen what the service does. Try the 14-day free trial first — no discovery call, no credit card required. <a href="/sign-trial.html" style="color: var(--teal); font-weight: 600;">Start your free trial →</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- FINAL CTA -->
-<section id="cta-section" class="section-white">
-  <div class="container">
-    <h2>Find out where your pipeline is leaking.</h2>
-    <p>Get a Free Pipeline Leak Audit. We'll show you exactly where leads are going dark, what it's costing you, and what we'll do about it. No pitch. Just your pipeline, analyzed.</p>
-    <a href="/pipeline-leak-audit.html" class="btn-primary">Get a Free Pipeline Leak Audit</a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="section-dark">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <h3>qiya<span>d</span>on</h3>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#" class="brand">qiyadon</a>
         <p>Done-for-you pipeline follow-up for founder-led SMBs in IT services, MSPs, SaaS, and professional services.</p>
       </div>
-      <div class="footer-col">
+      <div>
         <h4>Navigate</h4>
-        <ul>
-          <li><a href="#what-we-do">What We Do</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#first-7-days">First 7 Days</a></li>
-          <li><a href="/pricing" target="_blank">Pricing</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
+        <a href="#what-we-do">What We Do</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <div class="footer-col">
+      <div>
         <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a></li>
-        </ul>
+        <a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a>
       </div>
-      <div class="footer-col">
+      <div>
         <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="/terms-of-service.html">Terms of Service</a></li>
-        </ul>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+    <div class="container footer-bottom">
+      <span>© 2026 Qiyadon. Pipeline execution that actually follows up.</span>
       <span>Ahmad Salim — Founding Board Member</span>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  // Initialize Lucide icons
-  lucide.createIcons();
-
-  // Nav scroll effect
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  });
-
-  // Mobile nav toggle
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navLinks = document.getElementById('navLinks');
-  mobileToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('active'));
-  });
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+  <script src="./script.js"></script>
 </body>
 </html>
