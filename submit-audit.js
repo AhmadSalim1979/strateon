@@ -206,7 +206,7 @@ function buildAuditEmail(data) {
     ``,
     `---
     This form was submitted via qiyadon.com/pipeline-leak-audit.html
-    Respond to: ahmad.salim@getstrateon.com`
+    Respond to: ahmad.salim@qiyadon.com`
   ].join('\n');
 
   return { html, text };
@@ -303,7 +303,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, HOST, () => {
   console.log(`[submit-audit] Pipeline Leak Audit server running on http://${HOST}:${PORT}`);
-  console.log(`[submit-audit] Email destination: ahmad.salim@getstrateon.com`);
+  console.log(`[submit-audit] Email destination: ahmad.salim@qiyadon.com`);
 });
 
 // Graceful shutdown
