@@ -645,7 +645,10 @@ h3 {
   border-radius: 999px;
 }
 
-.price-amount { min-height: 56px; }
+.price-amount { min-height: 56px; display: flex; flex-direction: column; gap: 2px; }
+.annual-note { font-size: 12px; color: var(--muted); font-style: normal; margin-top: 2px; display: none; }
+.price-amount.annual-show .annual-note { display: block; }
+.price-amount.annual-show .per-month { display: none; }
 
 .pricing-grid {
   display: grid;

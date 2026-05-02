@@ -29,10 +29,14 @@ function updateBilling(isAnnual) {
     cards.forEach(card => {
       const monthly = card.dataset.monthly;
       const annual = card.dataset.annual;
+      const annualTotal = card.dataset.annualTotal;
       if (monthly && annual) {
         const p = card.querySelector('.price-amount');
         const strong = p.querySelector('strong');
         strong.textContent = '$' + annual;
+        p.classList.add('annual-show');
+        const em = p.querySelector('.annual-note');
+        em.textContent = annualTotal ? '$' + Number(annualTotal).toLocaleString() + ' billed annually' : '';
       }
     });
   } else {
@@ -44,6 +48,8 @@ function updateBilling(isAnnual) {
         const p = card.querySelector('.price-amount');
         const strong = p.querySelector('strong');
         strong.textContent = '$' + monthly;
+        p.classList.remove('annual-show');
+        p.querySelector('.annual-note').textContent = '';
       }
     });
   }
