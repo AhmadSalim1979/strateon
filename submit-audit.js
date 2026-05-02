@@ -13,6 +13,66 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
+
+// ── HubSpot CRM ──────────────────────────────────────────────────────────────
+const HUBSPOT_API_KEY = 'pat-na2-c7ae6a96-7232-401f-a5ab-3a3bb9a60306';
+
+function createHubSpotContact(data) {
+  // Build notes from extra form fields
+  const notes = [];
+  if (data.lead_count) notes.push(`Lead count: ${data.lead_count}`);
+  if (data.leads_per_month) notes.push(`Leads/month: ${data.leads_per_month}`);
+  if (data.industry) notes.push(`Industry: ${data.industry}`);
+  if (data.crm) notes.push(`CRM: ${data.crm}`);
+  if (data.close_rate) notes.push(`Close rate: ${data.close_rate}`);
+  if (data.challenge) notes.push(`Challenge: ${data.challenge}`);
+  if (data.followup_process) notes.push(`Follow-up process: ${data.followup_process}`);
+  if (data.found_us) notes.push(`Found us via: ${data.found_us}`);
+
+  const properties = {
+    email: data.email || '',
+    company: data.company || '',
+    firstname: data.name || ''
+  };
+
+  // Only include message if notes is non-empty
+  if (notes.length > 0) {
+    properties.message = notes.join(' | ');
+  }
+
+  const payload = JSON.stringify({ properties });
+
+  const options = {
+    hostname: 'api.hubapi.com',
+    path: '/crm/v3/objects/contacts',
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${HUBSPOT_API_KEY}`,
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(payload)
+    }
+  };
+
+  const req = https.request(options, (res) => {
+    let body = '';
+    res.on('data', chunk => { body += chunk; });
+    res.on('end', () => {
+      if (res.statusCode >= 200 && res.statusCode < 300) {
+        console.log('[submit-audit] HubSpot contact created:', data.email);
+      } else {
+        console.error('[submit-audit] HubSpot API error:', res.statusCode, body);
+      }
+    });
+  });
+
+  req.on('error', (err) => {
+    console.error('[submit-audit] HubSpot request failed:', err.message);
+  });
+
+  req.write(payload);
+  req.end();
+}
 
 // Load secrets (same as email-worker.js)
 const credsPath = '/home/node/.openclaw/secrets/qiyadon-email.json';
@@ -286,6 +346,10 @@ const server = http.createServer(async (req, res) => {
         res.end(JSON.stringify({ error: 'Failed to send email' }));
         return;
       }
+
+      // Fire HubSpot contact creation (non-blocking; email is more important)
+      createHubSpotContact(data);
+
       res.writeHead(200, {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
