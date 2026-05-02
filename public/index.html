@@ -188,7 +188,7 @@
     ============================================ */
     #hero {
       padding-top: 158px;
-      padding-bottom: 100px;
+      padding-bottom: 80px;
       background: var(--bg-primary);
       position: relative;
       overflow: hidden;
@@ -413,8 +413,8 @@
       margin-bottom: 48px;
     }
     .stat-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 12px;
       padding: 28px 24px;
     }
@@ -425,7 +425,7 @@
     }
     .stat-label {
       font-size: 15px;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.72);
       line-height: 1.6;
     }
     .problem-conclusion {
@@ -694,7 +694,8 @@
       padding: 24px 16px;
       background: var(--white);
       border-radius: 12px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(120,20,24,0.12);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .day-num {
       width: 48px;
@@ -808,7 +809,7 @@
       line-height: 1.7;
     }
     .report-card {
-      border: 1px solid var(--border);
+      border: 1px solid rgba(120,20,24,0.14);
       border-radius: 12px;
       overflow: hidden;
       max-width: 720px;
@@ -999,7 +1000,7 @@
     }
     .trust-card {
       background: var(--white);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(120,20,24,0.12);
       border-radius: 12px;
       padding: 28px 24px;
     }
@@ -1474,8 +1475,9 @@
     }
     .day-card span { color: var(--red-featured); }
 
-    #pricing {
-      background: var(--bg-surface);
+    #pricing,
+    #pricing .section-white {
+      background: #ffffff;
     }
     .pricing-grid { gap: var(--space-4); }
     .pricing-card {
@@ -1493,56 +1495,158 @@
       background: linear-gradient(90deg, #b81414, #c91818);
     }
 
-    #weekly-report { background: var(--bg-primary); }
-    .report-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
+    /* ============================================
+       SECTION THEME CLASSES
+    ============================================ */
+    .section-dark {
+      background: #120b0d;
+      color: #ffffff;
     }
-    .report-header {
-      background: linear-gradient(135deg, #171314 0%, #3B0D13 100%);
-      border-bottom: 1px solid var(--border);
+    .section-dark p,
+    .section-dark li,
+    .section-dark span {
+      color: rgba(255,255,255,0.72);
+    }
+    .section-dark h1,
+    .section-dark h2,
+    .section-dark h3,
+    .section-dark h4 {
+      color: #ffffff;
+    }
+
+    .section-light {
+      background: #fbf7f4;
+      color: #120b0d;
+    }
+    .section-light h1,
+    .section-light h2,
+    .section-light h3,
+    .section-light h4 {
+      color: #120b0d;
+    }
+    .section-light p,
+    .section-light li,
+    .section-light span {
+      color: #3f3638;
+    }
+
+    .section-white {
+      background: #ffffff;
+      color: #120b0d;
+    }
+    .section-white h1,
+    .section-white h2,
+    .section-white h3,
+    .section-white h4 {
+      color: #120b0d;
+    }
+    .section-white p,
+    .section-white li,
+    .section-white span {
+      color: #3f3638;
+    }
+
+    /* CARD VARIANTS — inside dark sections */
+    .card-dark {
+      background: rgba(255,255,255,0.055);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .card-dark h1,
+    .card-dark h2,
+    .card-dark h3,
+    .card-dark h4 {
+      color: #ffffff;
+    }
+    .card-dark p,
+    .card-dark li,
+    .card-dark span {
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* CARD VARIANTS — inside light/white sections */
+    .card-light {
+      background: #ffffff;
+      color: #120b0d;
+      border: 1px solid rgba(120,20,24,0.16);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .card-light h1,
+    .card-light h2,
+    .card-light h3,
+    .card-light h4 {
+      color: #120b0d;
+    }
+    .card-light p,
+    .card-light li,
+    .card-light span {
+      color: #3f3638;
+    }
+
+    /* ============================================
+       SECTION-SPECIFIC OVERRIDES
+    ============================================ */
+    .section-light #weekly-report { background: #fbf7f4; }
+    .section-light .report-card {
+      background: #ffffff;
+      border: 1px solid rgba(120,20,24,0.14);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .section-light .report-header {
+      background: linear-gradient(135deg, #c91818 0%, #b81414 100%);
+      border-bottom: 1px solid rgba(120,20,24,0.2);
     }
     .metric-box .num { color: var(--red-accent); }
     .metric-box .num.gold { color: var(--red-featured); }
 
-    #defensibility { background: var(--bg-primary); }
+    #defensibility { background: #120b0d; }
+    .section-dark #defensibility { background: #120b0d; }
     .defens-message {
       background: rgba(184,20,20,0.10);
       border: 1px solid rgba(184,20,20,0.25);
       border-radius: var(--radius-lg);
     }
-    .defens-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
+    .section-dark .defens-card {
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: var(--radius-lg);
       padding: var(--space-4);
     }
+    .section-dark .defens-card h4 { color: rgba(255,255,255,0.6); }
+    .section-dark .defens-card h3 { color: #ffffff; }
+    .section-dark .defens-card p { color: rgba(255,255,255,0.72); }
     .defens-message p span { color: var(--red-featured); }
 
-    #trust { background: var(--bg-surface); }
-    .trust-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
+    #trust { background: #ffffff; }
+    .section-white #trust { background: #ffffff; }
+    .section-white .trust-card {
+      background: #ffffff;
+      border: 1px solid rgba(120,20,24,0.12);
       border-radius: var(--radius-lg);
       padding: var(--space-4);
     }
-    .trust-card h4 { color: var(--text-primary); }
-    .icon-wrap { background: rgba(184,20,20,0.10) !important; color: var(--red-accent) !important; }
+    .section-white .trust-card h4 { color: var(--navy); }
+    .section-white .icon-wrap { background: rgba(0,194,203,0.10) !important; color: var(--teal) !important; }
 
-    #about { background: var(--bg-primary); }
-    .vision-box {
-      background: rgba(184,20,20,0.08);
-      border: 1px solid rgba(184,20,20,0.20);
+    #about { background: #fbf7f4; }
+    .section-light #about { background: #fbf7f4; }
+    .section-light .vision-box {
+      background: rgba(184,20,20,0.06);
+      border: 1px solid rgba(184,20,24,0.16);
       border-radius: var(--radius-lg);
     }
-    .demo-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
+    .section-light .vision-box p { color: #3f3638; }
+    .section-light .demo-card {
+      background: #ffffff;
+      border: 1px solid rgba(120,20,24,0.12);
       border-radius: var(--radius-lg);
       padding: var(--space-4);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
+    .section-light .demo-card h4 { color: rgba(0,194,203,0.8); }
+    .section-light .demo-card h3 { color: var(--navy); }
+    .section-light .demo-card p { color: #3f3638; }
 
     #faq { background: var(--bg-surface); }
     .faq-item {
@@ -1555,11 +1659,16 @@
     .faq-question { color: var(--text-primary); }
     .faq-question:hover { color: var(--red-featured); }
 
-    #cta-section { background: var(--bg-primary); }
+    #cta-section { background: #ffffff; }
+    .section-white #cta-section { background: #ffffff; }
+    #cta-section h2 { color: var(--navy); }
+    #cta-section p { color: #3f3638; }
 
-    footer {
-      background: var(--bg-primary);
-      border-top: 1px solid var(--border);
+    .section-white footer { background: #120b0d; }
+    .section-white footer { background: #120b0d; }
+    footer.section-dark {
+      background: #120b0d;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
     .footer-brand h3 { color: var(--text-primary); }
     .footer-brand p { color: var(--text-secondary); }
@@ -1606,7 +1715,7 @@
 </nav>
 
 <!-- HERO — dark, integrated, no billboard -->
-<section id="hero">
+<section id="hero" class="section-dark">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
@@ -1655,7 +1764,7 @@
 </section>
 
 <!-- PAIN SECTION -->
-<section id="problem">
+<section id="problem" class="section-dark">
   <div class="container">
     <h2 class="fade-in">Why Your Pipeline Is Dying of Silence</h2>
     <p class="problem-lead fade-in">The leads aren't cold because you don't care. They're cold because human bandwidth runs out. For founder-led SMBs, this is the silent revenue killer: qualified prospects who raised their hand and never heard back.</p>
@@ -1681,7 +1790,7 @@
 </section>
 
 <!-- WHAT WE DO -->
-<section id="what-we-do">
+<section id="what-we-do" class="section-light">
   <div class="container">
     <h2 class="fade-in">We Do Not Give You Another Tool</h2>
     <p class="what-we-do-sub fade-in">We operate the follow-up layer of your pipeline. You keep your CRM. We work inside it.</p>
@@ -1716,7 +1825,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how-it-works">
+<section id="how-it-works" class="section-light">
   <div class="container">
     <h2 class="fade-in">Three Steps. No Learning Curve. No App to Build.</h2>
     <p class="how-sub fade-in">We slot into your existing operation. You don't rebuild anything.</p>
@@ -1745,7 +1854,7 @@
 </section>
 
 <!-- IS STRATEON RIGHT FOR YOU -->
-<section id="is-this-for-you">
+<section id="is-this-for-you" class="section-white">
   <div class="container">
     <h2 class="fade-in">Is Qiyadon Right for You?</h2>
     <p class="fit-intro fade-in">Qiyadon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.</p>
@@ -1781,7 +1890,7 @@
 </section>
 
 <!-- FIRST 7 DAYS -->
-<section id="first-7-days">
+<section id="first-7-days" class="section-light">
   <div class="container">
     <h2 class="fade-in">Your First 7 Days with Qiyadon</h2>
     <p class="days-sub fade-in">No black box. No guessing. Here's exactly what happens after you sign up.</p>
@@ -1908,7 +2017,7 @@
 </section>
 
 <!-- WEEKLY REPORT SAMPLE -->
-<section id="weekly-report">
+<section id="weekly-report" class="section-light">
   <div class="container">
     <h2 class="fade-in">See What You Get Every Friday</h2>
     <p class="report-sub fade-in">A real weekly pipeline report — not a vanity dashboard. Here's what the first few weeks look like:</p>
@@ -2023,7 +2132,7 @@
 </section>
 
 <!-- DEFENSIBILITY -->
-<section id="defensibility">
+<section id="defensibility" class="section-dark">
   <div class="container">
     <h2 class="fade-in">Why Qiyadon Is Different</h2>
     <p class="defens-sub fade-in">Cheap automation sends messages. Qiyadon runs the follow-up operating rhythm.</p>
@@ -2066,7 +2175,7 @@
 </section>
 
 <!-- TRUST & COMPLIANCE -->
-<section id="trust">
+<section id="trust" class="section-white">
   <div class="container">
     <h2 class="fade-in">Your Pipeline. Your Rules. Your Data.</h2>
     <p class="trust-intro fade-in">We operate inside your CRM, follow your outreach guidelines, and treat your pipeline data as your asset — not ours.</p>
@@ -2112,7 +2221,7 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="section-light">
   <div class="container">
     <h2 class="fade-in">Built for Accountability, Not Just Automation</h2>
     <p class="about-sub fade-in">Your follow-up is handled by Qiyadon's AI execution system, supervised by a human Board for quality, accountability, and governance.</p>
@@ -2140,7 +2249,7 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="section-white">
   <div class="container">
     <h2 class="fade-in">Questions You Should Ask Before Signing Up</h2>
     <div class="faq-list">
@@ -2221,7 +2330,7 @@
 </section>
 
 <!-- FINAL CTA -->
-<section id="cta-section">
+<section id="cta-section" class="section-white">
   <div class="container">
     <h2>Find out where your pipeline is leaking.</h2>
     <p>Get a Free Pipeline Leak Audit. We'll show you exactly where leads are going dark, what it's costing you, and what we'll do about it. No pitch. Just your pipeline, analyzed.</p>
@@ -2230,7 +2339,7 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="section-dark">
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
