@@ -7,10 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #e0e0e0; background: #000000; padding: 0 24px 120px; }
+    body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: #e0e0e0; background: #0F0D0E; padding: 0 24px 120px; }
     .container { max-width: 760px; margin: 0 auto; }
     .banner { width: 100%; display: block; margin-bottom: 40px; }
-    .back { display: inline-flex; align-items: center; gap: 8px; color: #00C2CB; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: opacity 0.2s; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: var(--red-accent); font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: opacity 0.2s; }
     .back:hover { opacity: 0.75; }
     h1 { font-size: 36px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 8px; }
     .meta { font-size: 13px; color: #888888; margin-bottom: 48px; }
@@ -111,7 +111,13 @@
       <p>This Agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. By checking the agreement box below and submitting this form, each party confirms intent to be bound by the terms of this Agreement. Electronic signatures created through this method shall have the same legal force and effect as handwritten signatures.</p>
     </div>
 
-    <!-- SIGN SECTION -->
+        <!-- REASSURANCE PANEL -->
+    <div style="background:rgba(184,20,20,0.08);border:1px solid rgba(184,20,20,0.25);border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+      <p style="color:#ffffff;font-size:15px;font-weight:600;margin-bottom:6px;">You are signing only for the 14-day free trial.</p>
+      <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:0;">No payment required. No auto-renewal. You can stop anytime.</p>
+    </div>
+
+<!-- SIGN SECTION -->
     <div class="sign-section" id="sign-section">
       <h2>✍️ Sign the Trial Agreement</h2>
       <p>Fill in your details and check the box to sign. This constitutes a legally binding electronic signature.</p>

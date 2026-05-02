@@ -7,24 +7,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #1E293B; background: #F5F7FA; padding: 80px 24px; }
+    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.75); background: #171314; padding: 100px 24px 80px; }
     .container { max-width: 760px; margin: 0 auto; }
-    .back { display: inline-flex; align-items: center; gap: 8px; color: #00C2CB; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: opacity 0.2s; }
+    .top-bar { background: #171314; border-bottom: 3px solid #b81414; padding: 24px 0 20px; margin-bottom: 48px; }
+    .top-bar-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 26px; font-weight: 850; color: #ffffff; letter-spacing: -0.05em; text-decoration: none; }
+    .brand span { color: #b81414; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 48px; transition: opacity 0.2s; }
     .back:hover { opacity: 0.75; }
-    h1 { font-size: 40px; font-weight: 800; color: #0B1F3A; letter-spacing: -0.03em; margin-bottom: 8px; }
-    .meta { font-size: 13px; color: #6B7C93; margin-bottom: 48px; }
-    .doc { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 48px 40px; box-shadow: 0 1px 3px rgba(11,31,58,0.06); }
-    h2 { font-size: 18px; font-weight: 700; color: #0B1F3A; margin-top: 32px; margin-bottom: 12px; }
+    h1 { font-size: 40px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .meta { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 48px; }
+    .doc { background: #1E1A1D; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 48px 40px; }
+    h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; }
     h2:first-child { margin-top: 0; }
-    p { color: #64748B; margin-bottom: 16px; }
+    p { color: rgba(255,255,255,0.65); margin-bottom: 16px; }
     ul { padding-left: 20px; margin-bottom: 16px; }
-    li { color: #64748B; margin-bottom: 8px; }
-    strong { color: #1E293B; }
+    li { color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+    strong { color: #ffffff; }
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="brand">qiya<span>d</span>on</a>
+      <a href="/" class="back">← Back to Qiyadon</a>
+    </div>
+  </div>
   <div class="container">
-    <a href="/" class="back">← Back to Qiyadon</a>
     <h1>Privacy Policy</h1>
     <p class="meta">Effective: April 29, 2026 &nbsp;•&nbsp; Qiyadon</p>
     <div class="doc">
