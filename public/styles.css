@@ -590,6 +590,63 @@ h3 {
   font-weight: 900;
 }
 
+.billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 32px 0 0;
+}
+
+.billing-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.billing-label.active {
+  color: var(--ink);
+}
+
+.toggle-track {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  background: var(--charcoal-2);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: var(--red);
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+.toggle-track.annual .toggle-thumb {
+  transform: translateX(24px);
+}
+
+.savings-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--red);
+  background: var(--red-soft);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.price-amount { min-height: 56px; }
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

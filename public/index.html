@@ -227,23 +227,33 @@
         <p class="eyebrow red">Simple, predictable pricing</p>
         <h2>Plans Built Around Follow-Up Volume</h2>
         <p class="section-lede">All plans include CRM integration, follow-up cadence configured to your business hours, and weekly reporting.</p>
+
+        <div class="billing-toggle" id="billingToggle">
+          <span class="billing-label active" data-billing="monthly">Monthly</span>
+          <button class="toggle-track" id="toggleTrack" aria-label="Switch billing period">
+            <span class="toggle-thumb" id="toggleThumb"></span>
+          </button>
+          <span class="billing-label" data-billing="annual">Annual</span>
+          <span class="savings-badge">Save up to 10%</span>
+        </div>
+
         <div class="pricing-grid">
-          <article class="price-card">
+          <article class="price-card" data-starter data-monthly="300" data-annual="270">
             <h3>Starter</h3>
-            <p><strong>$300</strong><span>/month</span></p>
+            <p class="price-amount"><strong>$300</strong><span>/month</span></p>
             <ul><li>50 leads/month</li><li>WhatsApp follow-up</li><li>Weekly pipeline report</li><li>CRM integration</li></ul>
             <a class="button button-primary" href="/sign-trial">Start Free Trial</a>
           </article>
-          <article class="price-card featured">
+          <article class="price-card featured" data-growth data-monthly="750" data-annual="675">
             <div class="tag">Most Popular</div>
             <h3>Growth</h3>
-            <p><strong>$750</strong><span>/month</span></p>
+            <p class="price-amount"><strong>$750</strong><span>/month</span></p>
             <ul><li>200 leads/month</li><li>WhatsApp + Email</li><li>Daily pipeline brief</li><li>Priority onboarding</li></ul>
             <a class="button button-primary" href="/sign-trial">Start Free Trial</a>
           </article>
-          <article class="price-card">
+          <article class="price-card" data-scale data-monthly="1500" data-annual="1350">
             <h3>Scale</h3>
-            <p><strong>$1,500+</strong><span>/month</span></p>
+            <p class="price-amount"><strong>$1,500+</strong><span>/month</span></p>
             <ul><li>Unlimited leads</li><li>All channels</li><li>Real-time dashboard</li><li>Dedicated cadence manager</li></ul>
             <a class="button button-primary" href="/sign-trial">Start Free Trial</a>
           </article>
