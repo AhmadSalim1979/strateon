@@ -112,3 +112,12 @@ b2c902389d45eb51ea0262031e260699dd43a758 2026-05-01 02:56:51 +0200 Auto-backup: 
   - strateon/csuite/CMO/generate_post1_image.py
   - strateon/csuite/CMO/linkedin-post-1.png
 - **Pushed to:** origin/master (f3f971d → 343be05)
+
+### 2026-05-02 20:08 UTC — Auto-backup
+- **Status:** FAILED (push rejected)
+- **Commit:** 854762d — 9 files changed, 262 insertions(+), 18 deletions(-)
+- **New files:** new-org-page/qiyadon-organization-page/ (README, HTML, CSS, assets)
+- **Reason:** GH013 — Repository rule violation — secret detected
+  - Blocked secret: `Hubspot API Key` in `OPERATIONAL-ASSETS.md:33` and `:45`
+  - Secret present in current commit AND prior commit b38842b
+- **Action required:** Remove the HubSpot API key from OPERATIONAL-ASSETS.md, or allow it via GitHub secret scanning link: https://github.com/AhmadSalim1979/strateon/security/secret-scanning/unblock-secret/3DBLhgKRWJ1gSZINl0Ggy2AvzTl
