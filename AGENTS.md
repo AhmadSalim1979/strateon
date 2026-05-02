@@ -71,6 +71,27 @@ A session that ends without writing memory is a **FAILED** session.
 
 If you spawned subagents today, the parent session MUST still write memory. The subagents' SESSION-STATE files do NOT replace the daily memory file — they supplement it.
 
+## 🔄 Daily Memory Carry-Forward Protocol
+
+**When writing today's memory file, pull prior day state from the END-OF-DAY section — not the beginning or middle.**
+
+Common failure pattern (THIS IS WHAT HAPPENED ON MAY 2):
+- A "Decisions Needed" list is written early in the session (while awaiting responses)
+- The session continues; Ahmad confirms all decisions
+- End-of-day state correctly reflects everything resolved
+- Next day, the daily memory file is written by copying the EARLY "Decisions Needed" list — not the final end-of-day state
+
+**Prevention rules:**
+
+1. **Always read the prior day's memory from BOTTOM UP** — start at the last line, work backward. The end-of-day section is the source of truth, not the top.
+2. **"Decisions Needed" lists are time-stamped snapshots** — if a decision appears in both an early section AND the end-of-day section with different statuses, the end-of-day wins.
+3. **Flagresolved decisions**: If the prior day memory has a section titled "Contract Decisions Confirmed" or "PRICING — FULLY CONFIRMED" or "All decisions made" — trust it. Do not override it with an earlier draft.
+4. **Verify before carrying forward**: Any "Pending" list must be checked against the prior day's final section. If all items appear resolved in the end-of-day summary, the pending list is STALE — do not carry it forward.
+5. **Use SESSION-STATE files as cross-reference**: If a SESSION-STATE file from the prior day exists for a role, read it. A role that completed successfully will have a final session state file showing its outcomes. Missing session state files (e.g., failed session) are informational, not replacements for the daily memory's end-of-day summary.
+6. **Write a "End-of-Day Memory" section at the bottom of every session** — this is the canonical reference for next session's carry-forward. It must include: decisions made, decisions still open (genuinely), and what was accomplished.
+
+**The golden rule: The last written section of the prior day's memory is the source of truth for carry-forward. Everything above it is superseded.**
+
 ## Red Lines
 
 - Don't exfiltrate private data. Ever.
