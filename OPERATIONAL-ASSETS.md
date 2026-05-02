@@ -8,22 +8,34 @@
 
 ## EMAIL SYSTEM
 
-**Provider:** MailCow (self-hosted on this machine)
+**Provider:** Neo (iomete.com / neo.space)
 **Contact inbox:** contact@qiyadon.com
+**Personal inbox:** ahmad.salim@qiyadon.com
 
-IMAP connection (for reading incoming mail):
-- Server: mail.qiyadon.com (or localhost)
-- Port: 993 (SSL)
+**IMAP (contact@qiyadon.com — for reading incoming lead emails):**
+- Server: pop0001.neo.space
+- Port: 993
+- Encryption: SSL/TLS
 - Username: contact@qiyadon.com
-- Password: [SEE SECRETS — /secrets/qiyadon-email-credentials.json]
+- Password: @iy@d0n.c0m
 
-SMTP connection (for sending mail):
-- Server: mail.qiyadon.com (or localhost)
-- Port: 587 (TLS)
-- Username: contact@qiyadon.com
-- Password: [SEE SECRETS — /secrets/qiyadon-email-credentials.json]
+**IMAP (ahmad.salim@qiyadon.com — your personal inbox):**
+- Server: imap0001.neo.space
+- Port: 993
+- Encryption: SSL/TLS
+- Username: ahmad.salim@qiyadon.com
+- Password: @iy@d0n.c0m
 
-**Testing:** IMAP and SMTP were tested and confirmed working on May 1, 2026.
+**SMTP (both accounts — for sending emails):**
+- Server: smtp0001.neo.space
+- Port: 465
+- Encryption: SSL/TLS
+- Username: contact@qiyadon.com or ahmad.salim@qiyadon.com
+- Password: @iy@d0n.c0m
+
+**Note:** Pop server is pop0001.neo.space, IMAP server is imap0001.neo.space — these are DIFFERENT servers.
+
+**Form Email destination:** contact@qiyadon.com (confirmed working)
 
 ---
 
