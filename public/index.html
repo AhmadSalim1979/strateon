@@ -1419,11 +1419,11 @@
     }
     .btn-secondary:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
 
-    /* Dark sections */
+    /* Dark sections — IDs keep structural styles only, not backgrounds */
     #what-we-do {
-      background: var(--bg-surface);
+      /* background set by .section-light class */
     }
-    #what-we-do h2 { color: var(--text-primary); }
+    #what-we-do h2 { /* color set by .section-light class */ }
     .what-list { background: var(--bg-card); border: 1px solid var(--border-card); }
     .what-list li i { color: var(--red-accent); }
     .what-not-list { background: var(--bg-card); border: 1px solid var(--border-card); }
@@ -1434,7 +1434,7 @@
     }
     .accountability-strip p i { color: var(--red-accent); }
 
-    #how-it-works { background: var(--bg-primary); }
+    #how-it-works { /* background set by .section-light class */ }
     .steps-connector { background: linear-gradient(90deg, #b81414, #c91818); }
     .step {
       background: var(--bg-card);
@@ -1448,7 +1448,7 @@
       box-shadow: 0 0 0 6px rgba(184,20,20,0.08);
     }
 
-    #is-this-for-you { background: var(--bg-surface); }
+    #is-this-for-you { /* background set by .section-white class */ }
     .fit-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -1462,7 +1462,7 @@
     .fit-no h3 { color: var(--text-secondary); }
     .fit-no ul li i { color: var(--text-muted); }
 
-    #first-7-days { background: var(--bg-primary); }
+    #first-7-days { /* background set by .section-light class */ }
     .day-card {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -1475,9 +1475,8 @@
     }
     .day-card span { color: var(--red-featured); }
 
-    #pricing,
-    #pricing .section-white {
-      background: #ffffff;
+    #pricing {
+      /* background and text set by .section-white class on the section */
     }
     .pricing-grid { gap: var(--space-4); }
     .pricing-card {
@@ -1600,8 +1599,8 @@
     .metric-box .num { color: var(--red-accent); }
     .metric-box .num.gold { color: var(--red-featured); }
 
-    #defensibility { background: #120b0d; }
-    .section-dark #defensibility { background: #120b0d; }
+    #defensibility { /* background set by .section-dark class */ }
+    .section-dark #defensibility { /* background: #120b0d; set by .section-dark */ }
     .defens-message {
       background: rgba(184,20,20,0.10);
       border: 1px solid rgba(184,20,20,0.25);
@@ -1618,19 +1617,19 @@
     .section-dark .defens-card p { color: rgba(255,255,255,0.72); }
     .defens-message p span { color: var(--red-featured); }
 
-    #trust { background: #ffffff; }
-    .section-white #trust { background: #ffffff; }
-    .section-white .trust-card {
+    #trust { /* background set by .section-white class */ }
+    .section-white #trust { /* background: #ffffff; set by .section-white */ }
+    .trust-card {
       background: #ffffff;
       border: 1px solid rgba(120,20,24,0.12);
       border-radius: var(--radius-lg);
       padding: var(--space-4);
     }
-    .section-white .trust-card h4 { color: var(--navy); }
-    .section-white .icon-wrap { background: rgba(0,194,203,0.10) !important; color: var(--teal) !important; }
+    .trust-card h4 { color: var(--navy); }
+    .icon-wrap { background: rgba(0,194,203,0.10); color: var(--teal); }
 
-    #about { background: #fbf7f4; }
-    .section-light #about { background: #fbf7f4; }
+    #about { /* background set by .section-light class */ }
+    .section-light #about { /* background: #fbf7f4; set by .section-light */ }
     .section-light .vision-box {
       background: rgba(184,20,20,0.06);
       border: 1px solid rgba(184,20,24,0.16);
@@ -1648,7 +1647,7 @@
     .section-light .demo-card h3 { color: var(--navy); }
     .section-light .demo-card p { color: #3f3638; }
 
-    #faq { background: var(--bg-surface); }
+    #faq { /* background set by .section-white class */ }
     .faq-item {
       background: var(--bg-card);
       border: 1px solid var(--border-card);
@@ -1659,13 +1658,12 @@
     .faq-question { color: var(--text-primary); }
     .faq-question:hover { color: var(--red-featured); }
 
-    #cta-section { background: #ffffff; }
-    .section-white #cta-section { background: #ffffff; }
-    #cta-section h2 { color: var(--navy); }
-    #cta-section p { color: #3f3638; }
+    #cta-section { /* background set by .section-white class */ }
+    .section-white #cta-section { /* background: #ffffff; set by .section-white */ }
+    #cta-section h2 { /* color set by .section-white */ }
+    #cta-section p { /* color set by .section-white */ }
 
-    .section-white footer { background: #120b0d; }
-    .section-white footer { background: #120b0d; }
+    footer { background: #120b0d; }
     footer.section-dark {
       background: #120b0d;
       border-top: 1px solid rgba(255,255,255,0.1);
