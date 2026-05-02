@@ -42,7 +42,7 @@
 ## HUBSPOT CRM
 
 **Account:** ahmad.salim@qiyadon.com
-**API Key:** pat-na2-c7ae6a96-7232-401f-a5ab-3a3bb9a60306
+**API Key:** HUBSPOT_KEY_PLACEHOLDER_REMOVED_GH_PROTECTION_ERROR
 **API Base:** https://api.hubapi.com/crm/v3/objects/contacts
 
 **Integration:** submit-audit.js creates a HubSpot contact on every form submission.
