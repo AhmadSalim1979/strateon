@@ -80,7 +80,7 @@ We do not hand you software and wish you luck. We take responsibility for your l
 
 **Everything in Growth, plus:**
 - **Unlimited active leads** (no per-lead overage charges)
-- **Real-time pipeline visibility** — Read-only dashboard showing live pipeline status (lead counts, stage distribution, activity log)
+- **Live pipeline status page** — Read-only view showing leads followed up, responses received, escalations, and Friday report status. Available to all clients from Day 1.
 - **Multi-channel sequencing** — WhatsApp + Email + SMS, fully configured and managed
 - **Dedicated escalation path** — Direct line to COO/CEO for urgent pipeline issues; response within 1 hour, 24/7 for operations. Business-hours-only applies to cost/contractual escalation (Board only).
 - **Weekly strategy call** — 60-minute structured review with Moosa + COO every week
@@ -108,7 +108,7 @@ We do not hand you software and wish you luck. We take responsibility for your l
 | **Daily brief** | ❌ | Mon–Fri | Mon–Fri |
 | **Weekly report** | ✅ | ✅ | ✅ |
 | **Strategy call** | ❌ | Monthly (30 min) | Weekly (60 min) |
-| **Pipeline dashboard** | ❌ | ❌ | ✅ |
+| **Pipeline dashboard** | ✅ | ✅ | ✅ |
 | **Dedicated escalation** | ❌ | ❌ | ✅ |
 | **Onboarding SLA** | 5 days | 3 days | 3 days |
 | **Support** | 1 business day | 4 hours | 1 hour |
@@ -229,7 +229,6 @@ This section is critical. Clear scope boundaries prevent scope creep and ensure 
 
 ### Not Included in Starter or Growth
 
-- Pipeline dashboard (real-time visibility)
 - SMS channel
 - Weekly strategy call
 - Dedicated escalation path (24/7)
