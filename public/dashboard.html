@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipeline Dashboard — Qiyadon</title>
+  <meta name="description" content="Live pipeline status for your Qiyadon pipeline. Leads followed up, responses received, escalations, and Friday report status.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --soft-black: #171314;
+      --charcoal: #1D1B1B;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+      --brand-red: #b81414;
+      --crimson: #E03131;
+      --teal: #5A0F18;
+      --text-light: #e0e0e0;
+      --text-muted: #aaaaaa;
+      --text-faint: #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-light);
+      background: var(--soft-black);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 { font-size: 48px; font-weight: 800; color: #ffffff; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 8px; }
+    h2 { font-size: 28px; font-weight: 700; color: #ffffff; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 12px; }
+    h3 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+    p { color: var(--text-muted); font-size: 15px; }
+
+    a { color: var(--crimson); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.92); backdrop-filter: blur(18px);
+      z-index: 1000; border-bottom: 1px solid var(--dark-border);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      height: 78px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 26px; font-weight: 800; color: var(--text-light); text-decoration: none;
+      letter-spacing: -0.04em;
+    }
+    .nav-logo span { color: var(--brand-red); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--brand-red); }
+    .nav-links a.active { color: var(--brand-red); font-weight: 600; }
+    .nav-cta {
+      background: linear-gradient(135deg, #B11226 0%, #E03131 100%);
+      color: #fff; font-size: 14px; font-weight: 600;
+      padding: 10px 24px; border-radius: 999px; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    /* LAYOUT */
+    .page { padding: 140px 0 80px; }
+
+    .page-header { margin-bottom: 40px; }
+    .page-header .badge {
+      display: inline-block;
+      background: rgba(177,18,38,0.12);
+      color: var(--crimson);
+      border: 1px solid rgba(177,18,38,0.25);
+      font-size: 13px; font-weight: 600;
+      padding: 6px 16px; border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .page-header p { font-size: 17px; max-width: 600px; }
+
+    /* GRID */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .stat-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .stat-card:hover { border-color: rgba(177,18,38,0.3); box-shadow: 0 4px 16px rgba(177,18,38,0.08); }
+    .stat-card .label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin-bottom: 10px; }
+    .stat-card .value { font-size: 40px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; }
+    .stat-card .sub { font-size: 13px; color: var(--text-muted); }
+    .stat-card .sub.up { color: #4ade80; }
+    .stat-card .sub.down { color: var(--crimson); }
+
+    /* ACTIVITY LOG */
+    .activity-section { margin-bottom: 40px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .section-header h2 { margin-bottom: 0; }
+    .filter-tabs { display: flex; gap: 8px; }
+    .filter-tabs button {
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      color: var(--text-muted); font-size: 13px; font-weight: 600;
+      padding: 6px 16px; border-radius: 999px; cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .filter-tabs button.active { background: var(--brand-red); border-color: var(--brand-red); color: #fff; }
+
+    .log-table { width: 100%; border-collapse: collapse; }
+    .log-table th, .log-table td { padding: 14px 16px; text-align: left; font-size: 14px; border-bottom: 1px solid var(--dark-border); }
+    .log-table th {
+      font-weight: 700; color: var(--text-faint); font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      background: var(--dark-card);
+    }
+    .log-table td { color: var(--text-muted); }
+    .log-table tr:last-child td { border-bottom: none; }
+    .log-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    .badge-pill {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .badge-pill--hot    { background: rgba(224,49,49,0.15); color: var(--crimson); }
+    .badge-pill--warm   { background: rgba(251,146,60,0.15); color: #fb923c; }
+    .badge-pill--cold   { background: rgba(59,130,246,0.15); color: #60a5fa; }
+    .badge-pill--done   { background: rgba(74,222,128,0.15); color: #4ade80; }
+    .badge-pill--pending { background: rgba(251,191,36,0.15); color: #fbbf24; }
+
+    /* FRIDAY REPORT STATUS */
+    .report-section { margin-bottom: 40px; }
+    .report-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .report-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      background: rgba(177,18,38,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 28px;
+    }
+    .report-info { flex: 1; }
+    .report-info h3 { margin-bottom: 4px; font-size: 17px; }
+    .report-info p { font-size: 14px; }
+    .report-status { text-align: right; }
+    .report-status .status-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-faint); margin-bottom: 6px; }
+    .status-ready { display: inline-block; background: rgba(74,222,128,0.15); color: #4ade80; font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 999px; }
+    .status-pending { display: inline-block; background: rgba(251,191,36,0.15); color: #fbbf24; font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 999px; }
+
+    /* ESCALATIONS */
+    .escalations-section {}
+    .escalation-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(177,18,18,0.3);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .escalation-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .escalation-info { flex: 1; }
+    .escalation-info h4 { color: #fff; font-size: 15px; margin-bottom: 4px; }
+    .escalation-info p { font-size: 13px; }
+    .escalation-action { flex-shrink: 0; }
+    .escalation-action button {
+      background: rgba(177,18,18,0.2); border: 1px solid rgba(177,18,18,0.4);
+      color: var(--crimson); font-size: 13px; font-weight: 600;
+      padding: 8px 18px; border-radius: 999px; cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .escalation-action button:hover { background: var(--brand-red); color: #fff; }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center; padding: 48px 24px;
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: 14px;
+    }
+    .empty-state .emoji { font-size: 40px; margin-bottom: 12px; }
+    .empty-state h3 { color: #fff; margin-bottom: 8px; }
+    .empty-state p { font-size: 14px; max-width: 320px; margin: 0 auto; }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+      padding: 48px 0 32px;
+      border-top: 1px solid var(--dark-border);
+      margin-top: 60px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .footer-bottom p { color: var(--text-faint); font-size: 13px; }
+
+    /* REFRESH */
+    .refresh-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding: 12px 16px;
+      background: var(--dark-card); border: 1px solid var(--dark-border);
+      border-radius: 10px;
+    }
+    .refresh-bar p { font-size: 13px; color: var(--text-faint); }
+    .refresh-bar p span { color: var(--text-muted); font-weight: 600; }
+    .refresh-btn {
+      background: transparent; border: 1px solid var(--dark-border);
+      color: var(--text-muted); font-size: 13px; font-weight: 600;
+      padding: 6px 16px; border-radius: 999px; cursor: pointer; font-family: inherit;
+      transition: all 0.2s;
+    }
+    .refresh-btn:hover { border-color: var(--brand-red); color: var(--brand-red); }
+
+    @media (max-width: 900px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .report-card { flex-direction: column; }
+      .report-status { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>qiyadon</span></a>
+    <ul class="nav-links">
+      <li><a href="/#what-we-do">What We Do</a></li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/dashboard.html" class="active">Dashboard</a></li>
+    </ul>
+    <a href="/sign-trial.html" class="nav-cta">Start Free Trial</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="page">
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="page-header">
+      <span class="badge">Live Pipeline Dashboard</span>
+      <h1>Your Pipeline, At a Glance</h1>
+      <p>This dashboard is available on all plans — Starter, Growth, and Scale. Updated every business day. Data resets weekly on Friday.</p>
+    </div>
+
+    <!-- REFRESH BAR -->
+    <div class="refresh-bar">
+      <p>Last updated: <span id="lastUpdated">Monday, 5 May 2026 · 09:00 AM Berlin</span></p>
+      <button class="refresh-btn" onclick="refreshDashboard()">↻ Refresh</button>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">Leads Followed Up This Week</div>
+        <div class="value" id="stat-leads-touch">--</div>
+        <div class="sub up" id="stat-leads-sub">↑ +8 vs last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Responses Received</div>
+        <div class="value" id="stat-responses">--</div>
+        <div class="sub up" id="stat-responses-sub">↑ +3 vs last week</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Escalated Leads</div>
+        <div class="value" id="stat-escalated">--</div>
+        <div class="sub down" id="stat-escalated-sub">No change</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Active Leads in Pipeline</div>
+        <div class="value" id="stat-active">--</div>
+        <div class="sub" id="stat-active-sub">Across all segments</div>
+      </div>
+    </div>
+
+    <!-- FRIDAY REPORT STATUS -->
+    <div class="report-section">
+      <div class="section-header">
+        <h2>Friday Pipeline Report</h2>
+      </div>
+      <div class="report-card">
+        <div class="report-icon">📊</div>
+        <div class="report-info">
+          <h3>Weekly Report — <span id="reportWeek">4 May – 8 May 2026</span></h3>
+          <p>Your Friday accountability report will include: new leads, contacts made, responses received, reactivations, escalations, and pipeline health score.</p>
+        </div>
+        <div class="report-status">
+          <div class="status-label">Status</div>
+          <span class="status-ready" id="reportStatus">Scheduled · Friday 5 PM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVITY LOG -->
+    <div class="activity-section">
+      <div class="section-header">
+        <h2>Recent Activity</h2>
+        <div class="filter-tabs">
+          <button class="active" onclick="filterLog('all')">All</button>
+          <button onclick="filterLog('contacted')">Contacted</button>
+          <button onclick="filterLog('replied')">Replied</button>
+          <button onclick="filterLog('escalated')">Escalated</button>
+        </div>
+      </div>
+      <div style="background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 14px; overflow: hidden;">
+        <table class="log-table" id="activityLog">
+          <thead>
+            <tr>
+              <th>Lead</th>
+              <th>Company</th>
+              <th>Score</th>
+              <th>Last Action</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: var(--text-light); font-weight: 600;">Sarah Chen</td>
+              <td>TechFlow GmbH</td>
+              <td><span class="badge-pill badge-pill--hot">Hot</span></td>
+              <td>Email sent · 9:14 AM</td>
+              <td><span class="badge-pill badge-pill--pending">Awaiting reply</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-light); font-weight: 600;">Marcus Weber</td>
+              <td>CloudOps AG</td>
+              <td><span class="badge-pill badge-pill--warm">Warm</span></td>
+              <td>WhatsApp sent · 8:45 AM</td>
+              <td><span class="badge-pill badge-pill--done">Responded</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-light); font-weight: 600;">Priya Nair</td>
+              <td>DataSync Ltd</td>
+              <td><span class="badge-pill badge-pill--hot">Hot</span></td>
+              <td>Email sent · 9:02 AM</td>
+              <td><span class="badge-pill badge-pill--pending">Awaiting reply</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-light); font-weight: 600;">James Thornton</td>
+              <td>FinBridge Co</td>
+              <td><span class="badge-pill badge-pill--cold">Cold</span></td>
+              <td>Follow-up 2 · 10:30 AM</td>
+              <td><span class="badge-pill badge-pill--pending">Awaiting reply</span></td>
+            </tr>
+            <tr>
+              <td style="color: var(--text-light); font-weight: 600;">Lena Krause</td>
+              <td>ScaleUp GmbH</td>
+              <td><span class="badge-pill badge-pill--warm">Warm</span></td>
+              <td>Recovery sequence · 11:00 AM</td>
+              <td><span class="badge-pill badge-pill--done">Escalation resolved</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ESCALATIONS -->
+    <div class="escalations-section">
+      <div class="section-header">
+        <h2>Needs Your Attention</h2>
+      </div>
+      <div id="escalationsContainer">
+        <div class="escalation-card">
+          <div class="escalation-icon">⚠️</div>
+          <div class="escalation-info">
+            <h4>James Thornton — FinBridge Co</h4>
+            <p>No response after 5 attempts · Last contact 3 May 2026 · Decision needed: close, retry, or pass</p>
+          </div>
+          <div class="escalation-action">
+            <button>Decide Now</button>
+          </div>
+        </div>
+        <div class="escalation-card">
+          <div class="escalation-icon">⚠️</div>
+          <div class="escalation-info">
+            <h4>Ravi Patel — NexLayer</h4>
+            <p>Dormant 7+ days · Recovery sequence complete · Awaiting your call scheduling decision</p>
+          </div>
+          <div class="escalation-action">
+            <button>Decide Now</button>
+          </div>
+        </div>
+      </div>
+      <div id="escalationsEmpty" class="empty-state" style="display:none;">
+        <div class="emoji">✅</div>
+        <h3>No Escalations</h3>
+        <p>All leads are on track. No decisions needed right now.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p>© 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+      <p>Ahmad Salim — Founding Board Member</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Live stats — in production these come from the pipeline API
+  // Stubbed here with realistic sample data
+  const stats = {
+    leadsTouched: 34,
+    responses: 12,
+    escalated: 2,
+    active: 87
+  };
+
+  function updateStat(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  }
+
+  updateStat('stat-leads-touch', stats.leadsTouched);
+  updateStat('stat-responses', stats.responses);
+  updateStat('stat-escalated', stats.escalated);
+  updateStat('stat-active', stats.active);
+
+  function refreshDashboard() {
+    const now = new Date();
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
+    document.getElementById('lastUpdated').textContent = now.toLocaleString('en-GB', options);
+  }
+
+  function filterLog(type) {
+    document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    // In production: filter table rows by type
+  }
+
+  // Auto-refresh every 5 minutes
+  setInterval(refreshDashboard, 5 * 60 * 1000);
+</script>
+</body>
+</html>
