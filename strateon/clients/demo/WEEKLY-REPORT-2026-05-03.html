@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Report — CloudSync Pro | Week Apr 27–May 3, 2026</title>
+<style>
+  :root {
+    --bg: #F5F6FA;
+    --card: #FFFFFF;
+    --text: #1A1D29;
+    --muted: #6B7280;
+    --border: #E2E8F0;
+    --accent: #4F46E5;
+    --accent-light: #EEF2FF;
+    --green: #059669;
+    --green-light: #D1FAE5;
+    --red: #DC2626;
+    --red-light: #FEE2E2;
+    --orange: #D97706;
+    --orange-light: #FEF3C7;
+    --purple: #7C3AED;
+    --purple-light: #EDE9FE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .meta {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .summary {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+  }
+  .summary strong { color: var(--accent); }
+  h2 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 8px 10px;
+    background: var(--bg);
+    border-bottom: 2px solid var(--border);
+  }
+  td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .change-pos { color: var(--green); font-weight: 600; }
+  .change-neg { color: var(--red); font-weight: 600; }
+  .change-neu { color: var(--muted); }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+  .tag-hot { background: var(--red-light); color: var(--red); }
+  .tag-warm { background: var(--orange-light); color: var(--orange); }
+  .tag-qualified { background: var(--green-light); color: var(--green); }
+  .tag-contacted { background: var(--accent-light); color: var(--accent); }
+  .tag-dormant { background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+  .tag-proposal { background: var(--purple-light); color: var(--purple); }
+  .tag-action { background: var(--red-light); color: var(--red); }
+  .section-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .hot-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hot-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--red);
+  }
+  .hot-item-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .hot-item-name { font-weight: 700; font-size: 14px; }
+  .hot-item-company { font-size: 12px; color: var(--muted); }
+  .hot-item-why { font-size: 13px; color: var(--text); margin-bottom: 8px; }
+  .hot-item-action { font-size: 12px; background: var(--red-light); color: var(--red); padding: 6px 10px; border-radius: 6px; font-weight: 600; }
+  .dormant-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .dormant-item:last-child { border-bottom: none; }
+  .dormant-days { font-weight: 700; color: var(--orange); min-width: 28px; text-align: right; }
+  .escalation-card {
+    background: #FEF9EE;
+    border: 1px solid #F59E0B;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .escalation-card:last-child { margin-bottom: 0; }
+  .escalation-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .escalation-icon { font-size: 16px; }
+  .escalation-title { font-weight: 700; font-size: 14px; }
+  .escalation-desc { font-size: 13px; color: var(--text); margin-bottom: 8px; }
+  .escalation-decision { font-size: 12px; font-weight: 600; background: #FEF3C7; color: #92400E; padding: 6px 10px; border-radius: 6px; display: inline-block; }
+  .health-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  .health-row:last-child { border-bottom: none; }
+  .health-check { color: var(--green); font-weight: 700; }
+  .health-score {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--green);
+    text-align: center;
+    padding: 16px 0 4px;
+  }
+  .health-label { font-size: 12px; color: var(--muted); text-align: center; padding-bottom: 12px; }
+  .action-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-num {
+    background: var(--accent);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .action-text { flex: 1; }
+  .action-lead { font-weight: 700; color: var(--accent); }
+  .action-owner { color: var(--muted); font-size: 12px; }
+  .trend-row { display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .trend-row:last-child { border-bottom: none; }
+  .trend-week { color: var(--muted); min-width: 130px; }
+  .trend-val { font-weight: 600; min-width: 60px; text-align: right; }
+  .trend-rate { min-width: 80px; text-align: right; }
+  .footer { text-align: center; font-size: 11px; color: var(--muted); padding: 16px 0 8px; }
+  @media (max-width: 480px) {
+    body { padding: 10px; }
+    .card { padding: 18px; }
+    table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER CARD -->
+<div class="card">
+  <div class="header">
+    <div>
+      <div class="brand">Strateon — Pipeline Execution</div>
+      <div class="title">CloudSync Pro</div>
+      <div class="meta">Week of April 27 – May 3, 2026 &nbsp;·&nbsp; Prepared by Moosa, COO</div>
+    </div>
+    <span class="badge">Week 5</span>
+  </div>
+  <div class="summary">
+    Solid week. Pipeline velocity picked up — we hit a <strong>32% response rate</strong> (above our 30% target) and two hot leads advanced to Proposal stage. <strong>Vertex Systems</strong> has CFO sign-off pending and could close this month. Two meetings booked for next week. Three leads went dormant this week; recommendations included below. Pipeline health: <strong>88%</strong>.
+  </div>
+</div>
+
+<!-- PIPELINE AT A GLANCE -->
+<div class="card">
+  <h2>📊 &nbsp;Pipeline at a Glance</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th class="num">This Week</th>
+        <th class="num">Last Week</th>
+        <th class="num">Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total Active Leads</td>
+        <td class="num"><strong>85</strong></td>
+        <td class="num">81</td>
+        <td class="num change-pos">+4</td>
+      </tr>
+      <tr>
+        <td>New Leads Added</td>
+        <td class="num">7</td>
+        <td class="num">11</td>
+        <td class="num change-neg">−4</td>
+      </tr>
+      <tr>
+        <td>Leads Contacted</td>
+        <td class="num"><strong>34</strong></td>
+        <td class="num">29</td>
+        <td class="num change-pos">+5</td>
+      </tr>
+      <tr>
+        <td>Follow-ups Sent</td>
+        <td class="num"><strong>41</strong></td>
+        <td class="num">38</td>
+        <td class="num change-pos">+3</td>
+      </tr>
+      <tr>
+        <td>Replies Received</td>
+        <td class="num"><strong>11</strong></td>
+        <td class="num">9</td>
+        <td class="num change-pos">+2</td>
+      </tr>
+      <tr>
+        <td>Leads Escalated</td>
+        <td class="num">2</td>
+        <td class="num">1</td>
+        <td class="num">+1</td>
+      </tr>
+      <tr>
+        <td>Dormant Leads Revived</td>
+        <td class="num"><strong>3</strong></td>
+        <td class="num">2</td>
+        <td class="num change-pos">+1</td>
+      </tr>
+      <tr>
+        <td>Meetings Booked</td>
+        <td class="num">2</td>
+        <td class="num">3</td>
+        <td class="num change-neg">−1</td>
+      </tr>
+      <tr>
+        <td>Closings / WON</td>
+        <td class="num">0</td>
+        <td class="num">1</td>
+        <td class="num change-neg">−1</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CHANNEL PERFORMANCE -->
+<div class="card">
+  <h2>📡 &nbsp;Channel Performance</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Channel</th>
+        <th class="num">Touches Sent</th>
+        <th class="num">Replies</th>
+        <th class="num">Response Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Email</td>
+        <td class="num">27</td>
+        <td class="num">7</td>
+        <td class="num">26%</td>
+      </tr>
+      <tr>
+        <td>WhatsApp</td>
+        <td class="num">12</td>
+        <td class="num">4</td>
+        <td class="num"><strong>33%</strong></td>
+      </tr>
+      <tr>
+        <td>LinkedIn</td>
+        <td class="num">2</td>
+        <td class="num">0</td>
+        <td class="num">0%</td>
+      </tr>
+      <tr>
+        <td><strong>TOTAL</strong></td>
+        <td class="num"><strong>41</strong></td>
+        <td class="num"><strong>11</strong></td>
+        <td class="num"><strong>27%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="section-note">WhatsApp outperforms email by 7 points for this client base. LinkedIn is early-stage — monitoring.</p>
+</div>
+
+<!-- HOT LEADS -->
+<div class="card">
+  <h2>🔥 &nbsp;Hot Leads — Action Required From You</h2>
+  <div class="hot-grid">
+
+    <div class="hot-item">
+      <div class="hot-item-header">
+        <span class="hot-item-name">Rena Okafor</span>
+        <span class="tag tag-hot">HOT</span>
+        <span class="hot-item-company">Vertex Systems</span>
+      </div>
+      <div class="hot-item-why">CFO sign-off pending — verbal commitment to close by May 15. Approved internally, just needs the final sign-off.</div>
+      <div class="hot-item-action">✋ YOUR MOVE: Send a light WhatsApp check-in this week — not a pitch, just confirm timeline. Don't push.</div>
+    </div>
+
+    <div class="hot-item">
+      <div class="hot-item-header">
+        <span class="hot-item-name">Carlos Mendes</span>
+        <span class="tag tag-hot">HOT</span>
+        <span class="hot-item-company">Portos Digital</span>
+      </div>
+      <div class="hot-item-why">Replied to first WhatsApp outreach with explicit interest: "exactly what we need right now." Very rare for a cold first touch.</div>
+      <div class="hot-item-action">⚡ YOUR MOVE: Send Carlos a personal WhatsApp message TODAY. Something like: "Great to connect, Carlos — when makes sense for a 20-min call?"</div>
+    </div>
+
+    <div class="hot-item">
+      <div class="hot-item-header">
+        <span class="hot-item-name">Marcus Webb</span>
+        <span class="tag tag-qualified">QUALIFIED</span>
+        <span class="hot-item-company">Meridian Analytics</span>
+      </div>
+      <div class="hot-item-why">Demo call booked for May 6 — already on your calendar. He came in via a WhatsApp value-share, very warm.</div>
+      <div class="hot-item-action">📅 PREPARE FOR DEMO: Bring a brief technical differentiation note. Confirm agenda 24h before the call.</div>
+    </div>
+
+    <div class="hot-item">
+      <div class="hot-item-header">
+        <span class="hot-item-name">Sofia Reyes</span>
+        <span class="tag tag-qualified">QUALIFIED</span>
+        <span class="hot-item-company">Lattice Cloud</span>
+      </div>
+      <div class="hot-item-why">Evaluating 2 vendors, decision expected in ~2 weeks. She responded positively to our WhatsApp conversation about cloud spend.</div>
+      <div class="hot-item-action">💬 YOUR MOVE: WhatsApp check-in mid-week next week. Offer to answer any questions from her evaluation. Don't push for a decision.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ESCALATIONS -->
+<div class="card">
+  <h2>⚠️ &nbsp;Escalations — Decision Needed</h2>
+
+  <div class="escalation-card">
+    <div class="escalation-header">
+      <span class="escalation-icon">🚨</span>
+      <span class="escalation-title">Ingrid Solberg — Nordik Cloud</span>
+    </div>
+    <div class="escalation-desc">
+      17 days without a response after 3 email touches (value prop → follow-up → case study). She's gone cold. We have her on file as a <strong>Cold lead, Score 3/10</strong> — but engagement has been respectful and she opened everything.
+    </div>
+    <div style="font-size:13px; margin-bottom:10px; color:var(--text);">
+      <strong>Your options:</strong><br>
+      <strong>RETRY:</strong> We restart with a WhatsApp personal message (Touch 4), different angle — ask about cloud spend optimization goals directly.<br>
+      <strong>STOP:</strong> We archive her and remove from active pipeline.
+    </div>
+    <div class="escalation-decision">⚠️ Please reply RETRY or STOP by May 7</div>
+  </div>
+
+  <div class="escalation-card">
+    <div class="escalation-header">
+      <span class="escalation-icon">📌</span>
+      <span class="escalation-title">Rena Okafor — Vertex Systems</span>
+    </div>
+    <div class="escalation-desc">
+      Not an escalation yet — but flagging for your awareness. CFO approval is pending, close window is May 15. If we don't hear anything by mid-week next week, we may need a light nudge from your side (a call or message from you directly, not from us, can help).
+    </div>
+    <div class="escalation-decision">👀 Monitoring — no action needed yet. Will update in next report.</div>
+  </div>
+
+</div>
+
+<!-- DORMANT LEADS -->
+<div class="card">
+  <h2>😴 &nbsp;Dormant Leads — Early Warning</h2>
+  <div class="dormant-item">
+    <span class="dormant-days">17d</span>
+    <div>
+      <strong>Ingrid Solberg</strong> &nbsp;<span class="tag tag-dormant">DORMANT</span><br>
+      <span style="color:var(--muted); font-size:12px;">Nordik Cloud &nbsp;·&nbsp; Last contact: Apr 16 &nbsp;·&nbsp; 3 touches completed</span>
+    </div>
+  </div>
+  <div class="dormant-item">
+    <span class="dormant-days" style="color:var(--muted)">11d</span>
+    <div>
+      <strong>Daniel Kwame</strong> &nbsp;<span class="tag tag-contacted">EARLY RISK</span><br>
+      <span style="color:var(--muted); font-size:12px;">Orbis Systems &nbsp;·&nbsp; Last contact: Apr 22 &nbsp;·&nbsp; 2 touches — Touch 3 going out Mon</span>
+    </div>
+  </div>
+  <div class="dormant-item">
+    <span class="dormant-days" style="color:var(--muted)">10d</span>
+    <div>
+      <strong>Layla Hassan</strong> &nbsp;<span class="tag tag-contacted">EARLY RISK</span><br>
+      <span style="color:var(--muted); font-size:12px;">Nexlayer FZCO &nbsp;·&nbsp; Last contact: Apr 23 &nbsp;·&nbsp; 2 touches — Touch 3 going out Mon</span>
+    </div>
+  </div>
+  <p class="section-note">Daniel and Layla are not yet dormant — they hit 10–11 days. Recovery sequence queued. Ingrid has completed the full 12-touch protocol and is being escalated (see above).</p>
+</div>
+
+<!-- PIPELINE HEALTH -->
+<div class="card">
+  <h2>🩺 &nbsp;Pipeline Health</h2>
+  <div class="health-score">88%</div>
+  <div class="health-label">Pipeline Health Score — Good (70–89%)</div>
+  <div class="health-row">
+    <span class="health-check">✓</span>
+    <span>All 85 active leads have a next action defined</span>
+  </div>
+  <div class="health-row">
+    <span class="health-check">✓</span>
+    <span>All 7 new leads contacted within 24 hours of intake</span>
+  </div>
+  <div class="health-row">
+    <span class="health-check">✓</span>
+    <span>No lead has gone 14+ days without a follow-up <em>(unless escalated to you)</em></span>
+  </div>
+  <div class="health-row">
+    <span class="health-check">✓</span>
+    <span>All follow-ups for next week are pre-scheduled</span>
+  </div>
+</div>
+
+<!-- RECOMMENDED ACTIONS -->
+<div class="card">
+  <h2>✅ &nbsp;Recommended Actions for Next Week</h2>
+  <div class="action-item">
+    <span class="action-num">1</span>
+    <div class="action-text">
+      <span class="action-lead">Vertex Systems</span> — Send Rena Okafor a light WhatsApp check-in confirming close timeline. Target: close by May 15. <span class="action-owner">Owner: You</span>
+    </div>
+  </div>
+  <div class="action-item">
+    <span class="action-num">2</span>
+    <div class="action-text">
+      <span class="action-lead">Portos Digital</span> — Send Carlos Mendes a personal WhatsApp message TODAY — book a discovery call. He is warm. <span class="action-owner">Owner: You</span>
+    </div>
+  </div>
+  <div class="action-item">
+    <span class="action-num">3</span>
+    <div class="action-text">
+      <span class="action-lead">Meridian Analytics</span> — Confirm agenda for May 6 demo with Marcus Webb. Prepare technical differentiation note. <span class="action-owner">Owner: You</span>
+    </div>
+  </div>
+  <div class="action-item">
+    <span class="action-num">4</span>
+    <div class="action-text">
+      <span class="action-lead">Nordik Cloud</span> — Reply with RETRY or STOP for Ingrid Solberg. Decision needed by May 7. <span class="action-owner">Owner: You</span>
+    </div>
+  </div>
+  <div class="action-item">
+    <span class="action-num">5</span>
+    <div class="action-text">
+      <span class="action-lead">Lattice Cloud</span> — WhatsApp check-in mid-week for Sofia Reyes — offer to answer any questions from her evaluation. <span class="action-owner">Owner: You</span>
+    </div>
+  </div>
+  <div class="action-item">
+    <span class="action-num">6</span>
+    <div class="action-text">
+      <span class="action-lead">New Leads Review</span> — 7 new leads added this week — confirm you want to review the hot/warm list before outreach begins (starts Mon/Tue). <span class="action-owner">Owner: COO + You</span>
+    </div>
+  </div>
+</div>
+
+<!-- PIPELINE TREND -->
+<div class="card">
+  <h2>📈 &nbsp;Pipeline Trend — Last 4 Weeks</h2>
+  <div class="trend-row">
+    <span class="trend-week">Apr 6–12</span>
+    <span class="trend-val">62</span>
+    <span class="trend-rate" style="color:var(--muted)">19% resp.</span>
+    <span style="color:var(--muted)">1 mtg · 0 won</span>
+  </div>
+  <div class="trend-row">
+    <span class="trend-week">Apr 13–19</span>
+    <span class="trend-val">74</span>
+    <span class="trend-rate" style="color:var(--muted)">24% resp.</span>
+    <span style="color:var(--muted)">2 mtg · 0 won</span>
+  </div>
+  <div class="trend-row">
+    <span class="trend-week">Apr 20–26</span>
+    <span class="trend-val">81</span>
+    <span class="trend-rate" style="color:var(--muted)">27% resp.</span>
+    <span style="color:var(--muted)">3 mtg · 1 won</span>
+  </div>
+  <div class="trend-row">
+    <span class="trend-week" style="font-weight:700; color:var(--accent)">Apr 27–May 3</span>
+    <span class="trend-val" style="font-weight:800; color:var(--green)">85</span>
+    <span class="trend-rate" style="color:var(--green); font-weight:700">32% resp. ⬆</span>
+    <span style="color:var(--muted)">2 mtg · 0 won</span>
+  </div>
+  <p class="section-note">Response rate climbing week-over-week. First close expected within 2–3 weeks — Vertex Systems most likely.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  Delivered by Strateon COO &nbsp;·&nbsp; Every Friday<br>
+  <strong>Next report: Friday, May 9, 2026</strong><br>
+  Questions? Message us on WhatsApp.
+</div>
+
+</body>
+</html>
