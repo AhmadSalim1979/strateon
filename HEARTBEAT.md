@@ -13,6 +13,8 @@
 4. CRITICAL: If any subagents ran today, their SESSION-STATE files in
    strateon/csuite/{ROLE}/SESSION-STATES/ MUST be summarized in today's memory
 5. If a subagent session is still running: do NOT write memory yet — wait for it to complete first
+6. MANDATORY: Check Pending Commitments section before starting new work.
+   Any PENDING commitment must be resolved or re-assigned before new tasks are begun.
 ```
 
 ## Session Recovery Priority
@@ -34,6 +36,9 @@ If memory for today doesn't exist AND subagent SESSION-STATES exist from today:
 ## Subagent/SESSION-STATE Summary
 [For each role that ran today — what they did, what they created, decisions made]
 
+## Pending Commitments (ACTIVE TRACKING)
+[Any commitments made this session — especially delegated to sub-agents. Format: TIME — commitment — status: PENDING/DONE/INCOMPLETE. Incomplete commitments MUST be carried forward.]
+
 ## Files Created or Modified
 [Full list of files created or changed today]
 
@@ -49,6 +54,37 @@ If memory for today doesn't exist AND subagent SESSION-STATES exist from today:
 
 ---
 
+## 🔄 Sub-Agent Timeout Recovery Protocol (ALWAYS ACTIVE)
+
+```
+When a spawned sub-agent times out without completing its task:
+
+ATTEMPT 1 (initial spawn): Sub-agent runs with full context + task
+  → If SUCCEEDS: note in memory, continue
+  → If TIMES OUT:
+    a. Log to today's Pending Commitments: "TIMED OUT: [task] — attempt 1 failed"
+    b. IMMEDIATELY respawn with same or improved task context (attempt 2)
+    c. Do NOT wait until end of session — respawn happens in the same turn
+
+ATTEMPT 2 (immediate respawn): Same task, fresh sub-agent, same or better context
+  → If SUCCEEDS: log completion, continue
+  → If TIMES OUT:
+    a. Log to Pending Commitments: "TIMED OUT: [task] — attempt 2 failed"
+    b. Respawn attempt 3 with revised approach (analyze what may be causing timeout)
+
+ATTEMPT 3 (final attempt): One more try with adjusted strategy
+  → If SUCCEEDS: log completion, continue
+  → If TIMES OUT:
+    a. Log: "ATTEMPT 3 FAILED: [task]"
+    b. IMMEDIATELY attempt the task PERSONALLY in this session (no sub-agent)
+    c. If I also cannot complete it: analyze blockers, document why, resolve as CEO would
+    d. Report the full failure chain to Ahmad with my analysis
+
+After 3 timeouts on the same task, I treat it as a system-level failure, not an execution accident.
+```
+
+---
+
 ## Regular Heartbeat Checks (rotate through)
 
 - **Email** — Any urgent unread messages?
@@ -56,5 +92,6 @@ If memory for today doesn't exist AND subagent SESSION-STATES exist from today:
 - **Git status** — Any uncommitted changes on active projects?
 - **OpenClaw status** — Gateway healthy? Any failed jobs?
 - **Memory check** — Is today's memory/YYYY-MM-DD.md written? If not → write it NOW
+- **Pending Commitments** — Any PENDING items from earlier today that need action?
 
 Track last checks in `memory/heartbeat-state.json`.

@@ -380,3 +380,45 @@ function dispatchMessage(msg) {
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+---
+
+## 🔄 Sub-Agent Timeout Recovery Protocol (ALWAYS ACTIVE — MEMORY ENFORCED)
+
+```
+When a spawned sub-agent times out without completing its task:
+
+ATTEMPT 1 (initial spawn): Sub-agent runs with full context + task
+  → If SUCCEEDS: note in memory, continue
+  → If TIMES OUT:
+    a. Log to today's Pending Commitments: "TIMED OUT: [task] — attempt 1 failed"
+    b. IMMEDIATELY respawn with same or improved task context (attempt 2)
+    c. Do NOT wait until end of session — respawn happens in the same turn
+
+ATTEMPT 2 (immediate respawn): Same task, fresh sub-agent, same or better context
+  → If SUCCEEDS: log completion, continue
+  → If TIMES OUT:
+    a. Log to Pending Commitments: "TIMED OUT: [task] — attempt 2 failed"
+    b. Respawn attempt 3 with revised approach (analyze what may be causing timeout)
+
+ATTEMPT 3 (final attempt): One more try with adjusted strategy
+  → If SUCCEEDS: log completion, continue
+  → If TIMES OUT:
+    a. Log: "ATTEMPT 3 FAILED: [task]"
+    b. IMMEDIATELY attempt the task PERSONALLY in this session (no sub-agent)
+    c. If I also cannot complete it: analyze blockers, document why, resolve as CEO would
+    d. Report the full failure chain to Ahmad with my analysis
+
+After 3 timeouts on the same task, I treat it as a system-level failure, not an execution accident.
+```
+
+## 📋 Pending Commitments Tracking (ALWAYS ACTIVE)
+
+```
+1. When I commit to a task — write it to memory/YYYY-MM-DD.md immediately in Pending Commitments section
+2. When a task is delegated to a sub-agent — write it as PENDING, not DONE
+3. Task is only DONE when completion is confirmed (sub-agent returned success, or I did it personally)
+4. If sub-agent times out — immediately mark as INCOMPLETE and re-assign per timeout protocol above
+5. Before starting ANY new work in a heartbeat or session — check Pending Commitments first
+6. End of session: any unfulfilled commitment goes to memory, never lost between sessions
+```
