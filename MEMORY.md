@@ -179,6 +179,14 @@ No session ends without a state commit. If state is missing, CEO flags as system
 **Run:** `node /home/node/.openclaw/workspace/strateon-site/submit-audit.js` (PORT env or 3000)
 **Git:** committed as `feat: add Pipeline Leak Audit form + email handler` (55c85be)
 
+## Follow-Up Engine (followup-engine.js) — DISABLED FOR NOW
+- PM2 worker: `pm2 delete strateon-followup-engine` — DONE
+- Purpose: Core product automation — hourly HubSpot polling + follow-up cadence emails
+- Currently disabled because ZERO clients are loaded in the system
+- **CRITICAL: Re-enable immediately upon acquiring first paying client.**
+- Re-enable with: `pm2 start ecosystem-followup.config.js` from `/home/node/.openclaw/workspace/strateon/followup-engine`
+- Verify client leads are loaded before starting
+
 ---
 
 ## COMPLETED ASSETS — Always Check Before Promising
