@@ -102,10 +102,19 @@ Our Differentiation:
 
 ## SECTION 5: PRICING
 
-Proposed Pricing:
-- Starter: $150–$200/month — Up to 50 active leads, weekly report, WhatsApp follow-up
-- Growth: $499–$599/month — Up to 200 active leads, daily tracking, priority response
-- Scale: $900–$1,200/month — Unlimited leads, dedicated escalation, monthly strategy call
+**Approved Pricing (Board-confirmed, effective 2026-05-01):**
+- Starter: **$300/month** — Up to 50 active leads, weekly report, WhatsApp follow-up
+- Growth: **$750/month** — Up to 200 active leads, daily tracking, priority response
+- Scale: **$1,500+/month** — Unlimited leads, dedicated escalation, monthly strategy call
+
+Overage policy:
+- Starter overage: $6/lead beyond 50
+- Growth overage: $4/lead beyond 200
+- Scale: unlimited with no overage
+
+Annual pricing (25% discount):
+- Starter: $2,700/year ($225/month effective)
+- Growth: $6,750/year ($562.50/month effective)
 
 Pricing Viability:
 - Human SDR: $4,000–$14,200/month (fully loaded)
@@ -193,11 +202,11 @@ Operational Risks:
 
 Unit Economics:
 - CAC (bootstrap): $300–600 (Network + Upwork + LinkedIn)
-- CLV (Starter, 18-month avg): $3,600 ($200 × 18 months)
-- CLV (Growth, 18-month avg): $9,000 ($500 × 18 months)
-- CLV:CAC ratio: 7:1–14:1 (Healthy for SMB SaaS)
+- CLV (Starter $300, 18-month avg): $5,400 ($300 × 18 months)
+- CLV (Growth $750, 18-month avg): $13,500 ($750 × 18 months)
+- CLV:CAC ratio: 9:1–22:1 (Healthy for SMB SaaS)
 - Payback period: Under 2 months (Conservative)
-- Break-even clients: 5 ($1,500/month covers costs)
+- Break-even clients: 5 ($1,500/month covers costs at Starter pricing)
 
 Year 1 Projections:
 - Month 1–2: 1–2 clients, $500–$1,000 revenue

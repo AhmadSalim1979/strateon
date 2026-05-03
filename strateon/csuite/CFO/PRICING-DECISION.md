@@ -2,7 +2,7 @@
 
 **Owner:** CFO  
 **Date raised:** 2026-04-29  
-**Status:** ⏳ **PENDING BOARD APPROVAL**  
+**Status:** ✅ **APPROVED — Locked 2026-05-01**  
 
 ---
 

@@ -36,7 +36,7 @@ Update manually after each:
 
 ## 👥 Client & MRR Tracker
 
-> Current pricing (pending board confirmation): Starter $300 | Growth $750 | Scale $1,500+
+> Active pricing (board-confirmed, effective 2026-05-01): Starter $300 | Growth $750 | Scale $1,500+
 
 | Client ID | Client Name | Plan | MRR ($) | Start Date | Status | Notes |
 |---|---|---|---|---|---|---|
@@ -103,4 +103,4 @@ Update manually after each:
 ## 📎 Notes & Flags
 
 - **2026-04-29:** File created. No clients yet. Tracking system live.
-- **2026-04-29:** Pricing pending board confirmation ($300/$750/$1,500+). Update MRR tracker once confirmed.
+- **2026-05-03:** Pricing confirmed by board (Ahmad Salim, 2026-05-01). INVESTOR-BUSINESS-CASE.md Section 5 updated to reflect locked pricing. MRR projections now use confirmed figures.
