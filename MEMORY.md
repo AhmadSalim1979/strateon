@@ -170,6 +170,11 @@ No session ends without a state commit. If state is missing, CEO flags as system
 
 [See strateon/projects/active.md for current task list]
 
+## LinkedIn Content — Daily Post (CMO Standing Task)
+**Location:** `strateon/csuite/CMO/LINKEDIN-POSTS/` (permanent archive)
+**Process:** CMO provides Ahmad with one post + visual concept daily. Before writing, reads full archive to avoid repetition. After delivery, saves as POST-NNN.md with heading + one-line description. Archive is permanent — posts never deleted.
+**Status:** Active. 5 posts archived (POST-001 through POST-005).
+
 ## Pipeline Leak Audit Form & Email Setup
 
 **Files:**
@@ -223,4 +228,75 @@ No session ends without a state commit. If state is missing, CEO flags as system
 - LinkedIn posts drafted (3 ready, awaiting Ahmad approval)
 - ICP confirmed: VP Sales / Head of Sales at B2B SaaS Series A–C
 - Partnership channels identified: MSP Soul, RevGenius, SaaStr, r/msp, r/SaaS
+
+---
+
+## WEEK 1 AUDIT UPDATE (2026-05-03)
+
+### C-Suite Spawn System — OPERATIONAL ✅
+- First fully automated morning spawn run: 2026-05-03 05:00 Berlin
+- All 7 roles (CEO, CTO, CMO, CFO, COO, CPO, CLA) spawned simultaneously
+- All wrote SESSION-STATE files — first successful automated run
+- System is now reliable for daily operations
+
+### CTO System Status (2026-05-03)
+| System | Status |
+|---|---|
+| Website (qiyadon.com) | ✅ Live |
+| Form handler (port 3001) | ✅ Running |
+| HubSpot CRM | ✅ Connected |
+| Email (port 587 STARTTLS) | ✅ Working |
+| WhatsApp | 🔴 DEAD — session invalidated, needs re-auth |
+| GitHub master | 🟡 Blocked; using clean-public-site branch |
+
+**WhatsApp re-auth required:** Session invalidated server-side ~April 29. Outbound works. Inbound does not. Ahmad must scan QR via OpenClaw control panel (physical phone required). This will not self-heal.
+
+**Form bug:** `close_rate` field validation mismatch — HTTP 400 on pipeline-leak-audit submissions. CTO to fix.
+
+### Delaware C-Corp — #1 EXTERNAL BLOCKER
+- CFO and CLA both confirmed: legal entity NOT registered
+- Blocks: Stripe business account, client contracts, CSA/DPA execution
+- **Ahmad must register this week.** Guide: `strateon/csuite/CFO/DELAWARE-REGISTRATION-GUIDE.md`
+- Operate as sole proprietor (Ahmad Salim) until entity registered
+
+### Trial Minimum — LOWER TO 5 LEADS
+- Business Disruptor recommendation adopted: 20-lead minimum filters out curious serious prospects
+- COO to update Trial Policy: lower from 20 to 5 leads minimum
+- CMO to update website accordingly
+
+### Business Disruptor — Weekly Cadence Established
+- Runs: Every Saturday 07:00 Berlin
+- Persona: Savage competitor analyst — exploits Qiyadon's own weaknesses to identify what to build
+- Output: `strateon/business-disruptor/WEEKLY-REPORT-{date}.md`
+- Classification: Internal / Qiyadon Eyes Only
+- First report delivered: 2026-05-02, second: 2026-05-03
+
+### Weekly Performance Scorecard (Week 1: Apr 28 – May 3)
+| Metric | Target | Actual |
+|---|---|---|
+| Website live | Yes | ✅ Yes |
+| Pricing locked | Yes | ✅ Yes |
+| Contracts drafted | Yes | ✅ Yes |
+| LinkedIn posts (3) | Published | ✅ Yes |
+| Trial clients signed | 1 | ❌ 0 |
+| Paying clients | 1 | ❌ 0 |
+| Stripe payment links | Live | ❌ Not created |
+| Delaware entity | Registered | ❌ Not registered |
+| WhatsApp | Functional | ❌ Inbound dead |
+| Follow-Up Engine | Built + tested | 🟡 Built, not tested |
+| Business Disruptor | Weekly | ✅ Delivered |
+
+**Score: 5/10** — Infrastructure solid. Commercial execution zero.
+
+### MEMORY FAILURE LOG — Ongoing
+1. May 1 decisions carry-forward error (corrected May 2)
+2. Form forgotten (pipeline-leak-audit already built) — corrected, COMPLETED ASSETS section added
+3. Email credentials forgotten — added to OPERATIONAL ASSETS
+4. HubSpot API key not filed — added to OPERATIONAL ASSETS
+5. CMO Reddit strategy not reviewed by CLA before posting — needs fix
+
+### OPERATIONAL ASSETS
+- Location: `/home/node/.openclaw/workspace/OPERATIONAL-ASSETS.md`
+- Contains: email credentials, HubSpot API key, all system configs, completed assets, key decisions
+- **Rule: READ THIS FILE before saying "I don't know" or "I don't have access"
 
