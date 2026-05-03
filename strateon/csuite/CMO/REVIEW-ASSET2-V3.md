@@ -1,8 +1,8 @@
 # CMO Brand Review — Asset 2 (Icon/Favicon), Version 3
 
 **Review Date:** 2026-04-26  
-**Reviewer:** Chief Marketing Officer, Strateon  
-**Asset:** Icon / Favicon — Strateon "S" lettermark inside hexagon  
+**Reviewer:** Chief Marketing Officer, Qiyadon  
+**Asset:** Icon / Favicon — Qiyadon "S" lettermark inside hexagon  
 **Version Reviewed:** V3 (newly generated)
 
 ---
@@ -28,7 +28,7 @@
 | S letterform | Teal | #00C2CB | ✅ Canonical |
 | Background | White | #FFFFFF | ✅ Correct |
 
-The palette matches Strateon's canonical colors exactly. Navy and teal on white is the established brand signature. No unauthorized colors detected.
+The palette matches Qiyadon's canonical colors exactly. Navy and teal on white is the established brand signature. No unauthorized colors detected.
 
 ---
 
@@ -36,7 +36,7 @@ The palette matches Strateon's canonical colors exactly. Navy and teal on white 
 
 **✅ YES — design is clean and compliant.**
 
-Geometric, angular S-letterform is the correct stylistic direction for Strateon. Specifically:
+Geometric, angular S-letterform is the correct stylistic direction for Qiyadon. Specifically:
 
 - **No curves** → correct; brand demands straight-line geometry
 - **No gradients** → correct; flat design is brand standard
@@ -100,5 +100,5 @@ Render the asset at all three sizes on a white background. View at 100% zoom (no
 
 **End of CMO Review — Asset 2 V3**
 
-*Prepared by: CMO, Strateon*  
+*Prepared by: CMO, Qiyadon*  
 *Recommendation: APPROVED for scale testing*

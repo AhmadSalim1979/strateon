@@ -139,7 +139,7 @@ If any of the above is missing, DO NOT begin onboarding. Notify CEO immediately.
    - Assigned action
    - Client notes field
 
-2. **Map pipeline stages** to Strateon status framework:
+2. **Map pipeline stages** to Qiyadon status framework:
    - Map client's existing pipeline stages to our standard stages
    - If client has no CRM: use file-based pipeline tracking in `pipeline.md`
    

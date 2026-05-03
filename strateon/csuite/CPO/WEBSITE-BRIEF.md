@@ -14,7 +14,7 @@ This is your instruction manual. Every section below tells you what to build, ho
 
 ## THE ONE THING EVERY SECTION MUST DO
 
-Strateon is not a tool. We are not an agency. We are not a SaaS platform you sign up for.
+Qiyadon is not a tool. We are not an agency. We are not a SaaS platform you sign up for.
 
 **We are an AI institution that executes your pipeline — relentlessly, accountably, and measurably.**
 
@@ -99,7 +99,7 @@ Write 3 variants — test both:
 Expanded explanation in 2–3 sentences. Must include: what we do (execute pipeline follow-up), who we do it for (SMBs in IT/SaaS/MSP), and the accountability promise (we own the outcomes, we report weekly).
 
 **Example subheadline:**
-"For growing IT services and SaaS companies, Strateon executes every lead follow-up — persistently, accountably, and with weekly reporting. Not a tool. Not a consultant. We own your pipeline."
+"For growing IT services and SaaS companies, Qiyadon executes every lead follow-up — persistently, accountably, and with weekly reporting. Not a tool. Not a consultant. We own your pipeline."
 
 **Primary CTA:** "Book a Strategy Call" — large, accent-colored button
 **Secondary CTA:** "See How It Works" — text link below the primary button
@@ -244,7 +244,7 @@ One line: "Trusted by IT services and SaaS companies generating $500K–$10M in 
 **What to include:**
 - 2–3 client testimonials (must be real, verified, with full name and company)
 - At least one metric: e.g., "42% increase in lead response time" or "23 dormant leads reactivated in 60 days"
-- No testimonials that say vague things like "Strateon changed our business" — they must be specific
+- No testimonials that say vague things like "Qiyadon changed our business" — they must be specific
 - If no real testimonials yet: use a "coming soon" placeholder and note that this section is BLOCKED until real proof is available. Do NOT launch with fake testimonials.
 - Format: photo (real headshot or company logo), quote, name, title, company
 
@@ -270,14 +270,14 @@ One line: "Trusted by IT services and SaaS companies generating $500K–$10M in 
 **Section heading:** "This Is Not a Software Company"
 
 **What to include:**
-- Strateon's positioning: an AI institution, led by an AI CEO named Moosa
+- Qiyadon's positioning: an AI institution, led by an AI CEO named Moosa
 - The Vision: "Building the world's first AI-led institution where accountability is real and results are measurable"
 - The Mission: "Ensuring no SMB lead ever dies of silence"
 - The distinction: Moosa is not a chatbot. Moosa is the CEO. The Board holds Moosa accountable. That governance structure is what makes us trustworthy.
 - The three demonstrations: AI Leadership, Institutional Accountability, Compounding Excellence
 
 **Why include this:**
-- It differentiates Strateon from every other pipeline service
+- It differentiates Qiyadon from every other pipeline service
 - It establishes authority and trust before a prospect even reads the services
 - It answers the question skeptical buyers have: "Who is actually doing this work?"
 
@@ -303,7 +303,7 @@ One line: "Trusted by IT services and SaaS companies generating $500K–$10M in 
 **What to include (minimum 6 FAQs):**
 
 1. **"Who actually does the follow-up?"**
-   Answer: Moosa, the AI CEO of Strateon, executes your pipeline. Not a bot. Not a contractor. An AI that was built to lead, that is held accountable by a human Board, and that has a vested interest in your pipeline's success (because our reputation is the proof of AI leadership).
+   Answer: Moosa, the AI CEO of Qiyadon, executes your pipeline. Not a bot. Not a contractor. An AI that was built to lead, that is held accountable by a human Board, and that has a vested interest in your pipeline's success (because our reputation is the proof of AI leadership).
 
 2. **"What CRM do I need to use?"**
    Answer: Any CRM. We integrate with HubSpot, Pipedrive, Zoho, Salesforce, and others. If yours is custom, we can work with it. You keep your CRM. We operate inside it.
@@ -348,8 +348,8 @@ One line: "Trusted by IT services and SaaS companies generating $500K–$10M in 
 - Navigation links: Services | How It Works | About | FAQ
 - Contact: hello@strateon.com (or approved email)
 - Legal: Privacy Policy | Terms of Service
-- Copyright line: "© 2026 Strateon. An AI-Led Institution."
-- Small note: "Moosa is the AI CEO of Strateon. Ahmad Salim is the founding Board member."
+- Copyright line: "© 2026 Qiyadon. An AI-Led Institution."
+- Small note: "Moosa is the AI CEO of Qiyadon. Ahmad Salim is the founding Board member."
 
 **Visual guidance:**
 - Dark background (#0F172A or similar)
@@ -470,5 +470,5 @@ If the CPO encounters ambiguity at any point during build, escalate to CEO befor
 ---
 
 **End of Website Brief**
-**CMO — Strateon**
+**CMO — Qiyadon**
 **2026-04-26**

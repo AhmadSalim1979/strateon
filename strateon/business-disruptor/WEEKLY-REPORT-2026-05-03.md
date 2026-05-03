@@ -1,29 +1,29 @@
 # BUSINESS DISRUPTOR — WEEKLY INTELLIGENCE REPORT
-**Strateon vs. Qiyadon Competitive Analysis**
+**Qiyadon vs. Qiyadon Competitive Analysis**
 **Date:** 2026-05-03
-**Prepared for:** Moosa (CEO, Strateon)
+**Prepared for:** Moosa (CEO, Qiyadon)
 **Classification:** Internal — Eyes only
 
 ---
 
 ## SECTION A: EXECUTIVE THREAT SUMMARY — UPDATED
 
-**Top 5 ways Qiyadon could still hurt Strateon this week:**
+**Top 5 ways Qiyadon could still hurt Qiyadon this week:**
 
 ### 1. Qiyadon gets a trial client before we do — and documents it publicly
-Qiyadon's website went live in the days before this report. They have a live trial offer running. If they convert a warm contact into a trial — even before Strateon gets one — and publish any artifact (screenshot of a WhatsApp report, a testimonial, a case study note), they have social proof. Strateon does not. **The first company to publish a real pipeline execution case study in this category owns the category.** Right now, that's anyone's game.
+Qiyadon's website went live in the days before this report. They have a live trial offer running. If they convert a warm contact into a trial — even before Qiyadon gets one — and publish any artifact (screenshot of a WhatsApp report, a testimonial, a case study note), they have social proof. Qiyadon does not. **The first company to publish a real pipeline execution case study in this category owns the category.** Right now, that's anyone's game.
 
 ### 2. Qiyadon gets mentioned in a warm network conversation before Ahmad moves
-Ahmad's personal network — Soulful.ms Slack, Pakistani tech founders, MSP community — is the warmest pipeline Strateon has. If a competitor reaches those channels first with a pipeline execution offer, they don't need to out-execute Strateon — they just out-reach Ahmad's network. **Ahmad must post on LinkedIn this week — not next week. Today.**
+Ahmad's personal network — Soulful.ms Slack, Pakistani tech founders, MSP community — is the warmest pipeline Qiyadon has. If a competitor reaches those channels first with a pipeline execution offer, they don't need to out-execute Qiyadon — they just out-reach Ahmad's network. **Ahmad must post on LinkedIn this week — not next week. Today.**
 
 ### 3. Qiyadon wins on search for "pipeline execution service" before we establish presence
-Qiyadon's website is new but indexed. If they publish 3–5 blog posts in the next 14 days targeting "pipeline execution service," "SMB pipeline management," "lead follow-up service," they own organic. Strateon has no content engine running. **We need to claim our own keywords before Qiyadon does.**
+Qiyadon's website is new but indexed. If they publish 3–5 blog posts in the next 14 days targeting "pipeline execution service," "SMB pipeline management," "lead follow-up service," they own organic. Qiyadon has no content engine running. **We need to claim our own keywords before Qiyadon does.**
 
 ### 4. Qiyadon offers a frictionless trial — 5 leads, 7 days, no minimum
-Qiyadon's current trial requires 20 leads minimum. If they lower it to 5 (as Strateon should), they capture the curious SMB founder who won't commit 20 leads to an unproven service. **Both companies should be competing on low-friction entry — whoever gets there first wins the trial.**
+Qiyadon's current trial requires 20 leads minimum. If they lower it to 5 (as Qiyadon should), they capture the curious SMB founder who won't commit 20 leads to an unproven service. **Both companies should be competing on low-friction entry — whoever gets there first wins the trial.**
 
-### 5. Qiyadon gets a named human face before Strateon does
-Qiyadon has Ahmad Salim — but no LinkedIn, no photo, no team page. Strateon has the same problem. **The first company to put a real human face on the pipeline execution service wins trust faster.** Neither has done it yet. This is a dead heat.
+### 5. Qiyadon gets a named human face before Qiyadon does
+Qiyadon has Ahmad Salim — but no LinkedIn, no photo, no team page. Qiyadon has the same problem. **The first company to put a real human face on the pipeline execution service wins trust faster.** Neither has done it yet. This is a dead heat.
 
 ---
 
@@ -61,25 +61,25 @@ Qiyadon has Ahmad Salim — but no LinkedIn, no photo, no team page. Strateon ha
 
 ## SECTION C: COMPETITIVE POSITION MAP
 
-| Dimension | Qiyadon | Strateon | Winner |
+| Dimension | Qiyadon | Qiyadon | Winner |
 |---|---|---|---|
 | Product spec completeness | Full spec, ready | Full spec, ready | Tie |
 | Pricing parity | $300/$750/$1,500+ | $300/$750/$1,500+ | Tie |
-| Live execution in production | No clients, AI agents only | Moosa: 3,150+ touchpoints | **Strateon** |
-| Real weekly report delivered | No — template only | Yes — real Moosa output | **Strateon** |
-| Demo artifact available | No | Yes — Proof Engine | **Strateon** |
-| Payment system live | No | Stripe links ready (this week) | **Strateon** |
+| Live execution in production | No clients, AI agents only | Moosa: 3,150+ touchpoints | **Qiyadon** |
+| Real weekly report delivered | No — template only | Yes — real Moosa output | **Qiyadon** |
+| Demo artifact available | No | Yes — Proof Engine | **Qiyadon** |
+| Payment system live | No | Stripe links ready (this week) | **Qiyadon** |
 | Human face on website | No | No | Tie |
-| Trial friction | 20 leads minimum | 5 leads minimum (recommended) | **Strateon** |
-| Onboarding speed | 7 days | Same-day (4hr first lead SLA) | **Strateon** |
-| Pipeline portal | Scale only | Growth tier | **Strateon** |
-| Account Lead (human) | No — AI Board only | Yes — named human | **Strateon** |
+| Trial friction | 20 leads minimum | 5 leads minimum (recommended) | **Qiyadon** |
+| Onboarding speed | 7 days | Same-day (4hr first lead SLA) | **Qiyadon** |
+| Pipeline portal | Scale only | Growth tier | **Qiyadon** |
+| Account Lead (human) | No — AI Board only | Yes — named human | **Qiyadon** |
 | LinkedIn personal brand | None | None | Tie |
 | Outbound motion | None | None | Tie |
 | First paying client | None | Target: this week | TBD |
 | Social proof | None | None | Tie |
 
-**Summary:** Strateon and Qiyadon are tied on positioning and pricing. Strateon leads on execution credibility (Moosa is live), demo artifacts, payment system, trial friction, onboarding speed, and pipeline portal availability. Qiyadon leads on nothing material. The race is to close the first client — whoever does it first establishes the social proof that defines the category.
+**Summary:** Qiyadon and Qiyadon are tied on positioning and pricing. Qiyadon leads on execution credibility (Moosa is live), demo artifacts, payment system, trial friction, onboarding speed, and pipeline portal availability. Qiyadon leads on nothing material. The race is to close the first client — whoever does it first establishes the social proof that defines the category.
 
 ---
 
@@ -190,14 +190,14 @@ Qiyadon's website exists. No LinkedIn posts. No cold outreach. No partnerships a
 
 **The race is to close the first client.** Everything else — features, pricing, positioning — is secondary until there's a real human being who paid for the service and has a real weekly report in their inbox.
 
-**Qiyadon's position:** New website, good positioning, no clients, no payment system, no human face, no outbound engine. Same product spec as Strateon. No execution proof.
+**Qiyadon's position:** New website, good positioning, no clients, no payment system, no human face, no outbound engine. Same product spec as Qiyadon. No execution proof.
 
-**Strateon's position:** Moosa is live with 3,150+ touchpoints. Proof Engine available. Payment system coming this week. Contract ready to send. Same pricing, same ICP.
+**Qiyadon's position:** Moosa is live with 3,150+ touchpoints. Proof Engine available. Payment system coming this week. Contract ready to send. Same pricing, same ICP.
 
-**The verdict:** Strateon has the execution lead. Qiyadon has the website polish. The first company to close a paying client establishes the category. We need to move on warm contacts TODAY. Not next week. TODAY.
+**The verdict:** Qiyadon has the execution lead. Qiyadon has the website polish. The first company to close a paying client establishes the category. We need to move on warm contacts TODAY. Not next week. TODAY.
 
 ---
 
 *Business Disruptor — 2026-05-03*
 *Weekly Intelligence Report*
-*Classification: Internal / Strateon Eyes Only*
+*Classification: Internal / Qiyadon Eyes Only*

@@ -181,7 +181,7 @@ Ranked by severity × urgency.
 
 **Defensive action required:**
 1. Ahmad must start LinkedIn outreach TODAY — personal, not company page. Direct messages to 5 potential prospects per day. CMO confirmed this is the fastest channel.
-2. Publish the first LinkedIn post under Ahmad's personal profile — not company page, not Strateon, Ahmad's name. It can be short: "I started Qiyadon to solve something I've seen kill SMB pipelines over and over..." Personal brand is the only brand Qiyadon has right now.
+2. Publish the first LinkedIn post under Ahmad's personal profile — not company page, not Qiyadon, Ahmad's name. It can be short: "I started Qiyadon to solve something I've seen kill SMB pipelines over and over..." Personal brand is the only brand Qiyadon has right now.
 3. Submit qiyadon.com to Google Search Console — start indexing. Add basic SEO: meta descriptions, sitemap.
 4. Join the conversations: Soulful.ms Slack, r/MSP, r/SaaS — participate genuinely, not spam. Qiyadon name mentioned naturally.
 5. The 5 LinkedIn posts CMO wrote — publish them from Ahmad's profile starting this week.

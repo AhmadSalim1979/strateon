@@ -16,7 +16,7 @@
 *Strategic rationale:* Pipeline Execution is Product 1. What is Product 2? CPO must identify the next service based on market feedback and CEO direction.
 
 ### GOAL 3: Product Never Goes Down During Client Hours
-*Strategic rationale:* Clients are paying. They expect reliability. Product availability is a direct reflection of Strateon's credibility.
+*Strategic rationale:* Clients are paying. They expect reliability. Product availability is a direct reflection of Qiyadon's credibility.
 
 ---
 

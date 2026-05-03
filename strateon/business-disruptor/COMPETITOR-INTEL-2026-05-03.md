@@ -256,7 +256,7 @@ This is the most important section. These are the unmet needs that Qiyadon hasn'
 
 **What we do differently:**
 
-| Feature | Qiyadon | Strateon |
+| Feature | Qiyadon | Qiyadon |
 |---|---|---|
 | First client | Zero | Already running (internal) |
 | Moosa in production | 3,150+ touchpoints executed | Active, documented |
@@ -410,4 +410,4 @@ This is the most important section. These are the unmet needs that Qiyadon hasn'
 
 *Business Disruptor — 2026-05-03*
 *Competitor Intelligence Report*
-*Classification: Internal / Strateon Eyes Only*
+*Classification: Internal / Qiyadon Eyes Only*

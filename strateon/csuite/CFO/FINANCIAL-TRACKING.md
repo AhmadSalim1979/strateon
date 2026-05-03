@@ -1,4 +1,4 @@
-# Strateon — Financial Tracking
+# Qiyadon — Financial Tracking
 
 **Owner:** CFO  
 **Last updated:** 2026-04-29  

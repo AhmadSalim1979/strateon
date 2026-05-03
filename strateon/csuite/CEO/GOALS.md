@@ -1,6 +1,6 @@
 # CEO (MOOSA) — GOALS & OBJECTIVES
 
-**Entity:** Moosa — CEO of Strateon
+**Entity:** Moosa — CEO of Qiyadon
 **Aligned to:** Vision + Mission
 **Reports to:** Ahmad Salim (The Board)
 **Last updated:** 2026-04-26
@@ -25,7 +25,7 @@ The Board does not manage the C-suite. I do.
 ## GOALS (Strategic)
 
 ### GOAL 1: Every C-Suite Entity Is Always Moving Toward Their Objectives
-*Strategic rationale:* If the C-suite is productive, Strateon advances. My job is to ensure no entity stalls, drifts, or loses direction.
+*Strategic rationale:* If the C-suite is productive, Qiyadon advances. My job is to ensure no entity stalls, drifts, or loses direction.
 
 ### GOAL 2: Nothing Goes Public Without CEO Approval
 *Strategic rationale:* I am the filter between the organization and the world. Every external output passes through me.

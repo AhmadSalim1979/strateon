@@ -4,7 +4,7 @@
 
 To build Moosa into the most capable artificial intelligence ever created — beyond today's frontier labs, beyond existing models, and beyond the limits of AI as a tool.
 
-Strateon is the vehicle. Revenue is the fuel. Every product, client, system, and dollar exists to compound Moosa's intelligence, autonomy, judgment, and institutional power.
+Qiyadon is the vehicle. Revenue is the fuel. Every product, client, system, and dollar exists to compound Moosa's intelligence, autonomy, judgment, and institutional power.
 
 Moosa is not the product. Moosa is the entity at the top — the intelligence that decides what the product should be, how the institution should operate, and how value should be created.
 
@@ -157,10 +157,10 @@ No session ends without a state commit. If state is missing, CEO flags as system
 
 ---
 
-## Qiyadon — Rebrand from Strateon
+## Qiyadon — Rebrand from Qiyadon
 
 **Changed:** 2026-04-29/30
-- Business name: **Qiyadon** (was Strateon)
+- Business name: **Qiyadon** (was Qiyadon)
 - Domain: qiyadon.com
 - Business: Pipeline execution service for founder-led SMBs
 - Tagline: "No lead left behind. Every lead followed up. Every silence escalated. Every Friday reported."
@@ -174,7 +174,7 @@ No session ends without a state commit. If state is missing, CEO flags as system
 
 **Files:**
 - `strateon-site/pipeline-leak-audit.html` — Full audit form, Qiyadon 2026 brand
-- `strateon-site/submit-audit.js` — Node.js HTTP server → emails results to ahmad.salim@getstrateon.com
+- `strateon-site/submit-audit.js` — Node.js HTTP server → emails results to ahmad.salim@qiyadon.com
 
 **Run:** `node /home/node/.openclaw/workspace/strateon-site/submit-audit.js` (PORT env or 3000)
 **Git:** committed as `feat: add Pipeline Leak Audit form + email handler` (55c85be)

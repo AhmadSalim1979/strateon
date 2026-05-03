@@ -6,7 +6,7 @@
 
 ## 🎯 OBJECTIVE
 
-Design a **minimalist hexagonal favicon** for Strateon, optimized for pixel-perfect legibility at **16×16, 32×32, and 64×64 pixels**. The icon must communicate brand identity through extreme simplification — no fine details, no gradients, no thin lines. Think bold, chunky, iconic.
+Design a **minimalist hexagonal favicon** for Qiyadon, optimized for pixel-perfect legibility at **16×16, 32×32, and 64×64 pixels**. The icon must communicate brand identity through extreme simplification — no fine details, no gradients, no thin lines. Think bold, chunky, iconic.
 
 ---
 
@@ -41,7 +41,7 @@ A navy hexagon split into two halves by a **diagonal or zigzag teal line** that 
 > **Copy and paste this exactly:**
 
 ```
-Design a minimalist app icon for a company called Strateon.
+Design a minimalist app icon for a company called Qiyadon.
 
 RULES (follow these strictly):
 - The icon must fit inside a hexagonal shape
@@ -112,6 +112,6 @@ When this prompt generates satisfactory outputs, request:
 
 ---
 
-*Prepared by: Chief Marketing Officer, Strateon*
+*Prepared by: Chief Marketing Officer, Qiyadon*
 *Date: 2026-04-26*
 *Version: 2 — Small-Scale Optimized*

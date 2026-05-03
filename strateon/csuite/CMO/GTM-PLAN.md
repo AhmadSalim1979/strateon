@@ -1,4 +1,4 @@
-# Strateon — Free-Channel GTM Plan (Validation Sprint)
+# Qiyadon — Free-Channel GTM Plan (Validation Sprint)
 **Document type:** Week-by-week execution plan  
 **Prepared by:** CMO  
 **For:** Ahmad Salim (Board), Moosa (CEO)  
@@ -59,18 +59,18 @@ The goal of the first 30 days is not to close — it is to get **10 qualified co
 Before week-by-week tactics, we need to establish the messaging foundation, because every channel requires a tailored version of the same core message.
 
 ### Core Positioning Statement
-> Strateon helps small B2B businesses turn their existing pipeline into predictable revenue — without hiring an agency, spending $50K on a CRM overhaul, or spending every evening on outbound.
+> Qiyadon helps small B2B businesses turn their existing pipeline into predictable revenue — without hiring an agency, spending $50K on a CRM overhaul, or spending every evening on outbound.
 
 ### Three Message Angles (use based on thread/context)
 
 **Angle 1 — The founder pain angle (use on LinkedIn posts and Reddit):**
-> "If your MSP or SaaS business is growing but your revenue is inconsistent month to month — it's not a lead problem. It's a conversion problem. Most firms at your stage have enough pipeline; they lack the mechanism to move people through it reliably. We built Strateon for exactly this stage."
+> "If your MSP or SaaS business is growing but your revenue is inconsistent month to month — it's not a lead problem. It's a conversion problem. Most firms at your stage have enough pipeline; they lack the mechanism to move people through it reliably. We built Qiyadon for exactly this stage."
 
 **Angle 2 — The cost angle (use when budget sensitivity is high):**
-> "You don't need another $1,500/month tool or a $30KCRM implementation. At $300/month, Strateon gives you the pipeline infrastructure that firms at $1M–$5M ARR actually need — without the enterprise overhead."
+> "You don't need another $1,500/month tool or a $30KCRM implementation. At $300/month, Qiyadon gives you the pipeline infrastructure that firms at $1M–$5M ARR actually need — without the enterprise overhead."
 
 **Angle 3 — The peer angle (use in communities and DM):**
-> "We talk to founders every week who have the same problem: they hired someone to 'do SEO' or 'run ads' and got a bill with nothing to show for it. Strateon is the tool they wish they had six months earlier."
+> "We talk to founders every week who have the same problem: they hired someone to 'do SEO' or 'run ads' and got a bill with nothing to show for it. Qiyadon is the tool they wish they had six months earlier."
 
 ### Offer for All Channels
 > **"Book a 30-minute pipeline audit — no pitch, just us looking at your current situation and telling you honestly whether we're a fit."**
@@ -110,7 +110,7 @@ This is the conversion mechanism. The message gets attention; this offer convert
 |---|---|---|
 | Mon | Post LinkedIn Post #2 (pricing reality angle) | Posted |
 | Tue | Answer 2–3 Reddit threads — targeted at MSP owners describing pipeline problems | Comments posted |
-| Wed | Join 2 Slack communities (actively introduce yourself in the intro thread — "Founder at Strateon, building for SMBs who need pipeline without the overhead") | Active in 2 new communities |
+| Wed | Join 2 Slack communities (actively introduce yourself in the intro thread — "Founder at Qiyadon, building for SMBs who need pipeline without the overhead") | Active in 2 new communities |
 | Thu | Post LinkedIn Post #3 (peer angle) | Posted |
 | Fri | DM 5 LinkedIn connections who match ICP (Engage with their content first, then brief DM) | 5 DMs sent, 1–2 responses expected |
 | Sat/Sun | Write 5 LinkedIn post skeletons and 3 Reddit answer templates for Week 3 | Content bank expanded |
@@ -131,7 +131,7 @@ This is the conversion mechanism. The message gets attention; this offer convert
 | Tue | Post LinkedIn Post #4 (case study frame: "The MSP that went from 3 leads/month to 12 without changing their website") | Posted |
 | Wed | Answer 3 Reddit threads with substantive, detailed answers — no direct product pitch but genuine help | Answers posted |
 | Thu | Reach out to 8 ICP-matched LinkedIn profiles (comment first, then DM) | 8 DMs sent |
-| Fri | Share useful resource (not a Strateon promo) in 2 Slack communities — builds credibility | Resource shared |
+| Fri | Share useful resource (not a Qiyadon promo) in 2 Slack communities — builds credibility | Resource shared |
 | Sat/Sun | Write Week 4 content bank + draft outreach template variations (3 versions) | Templates ready |
 | **Week 3 total** | — | **4 LinkedIn posts, 5+ Reddit answers, 8 outreach DMs, Slack presence active** |
 
@@ -183,19 +183,19 @@ This is the conversion mechanism. The message gets attention; this offer convert
 
 ### Template 2 — Reddit Answer → Follow-up DM
 **Use when:** Someone in r/msp or r/smallbusiness describes a specific pipeline problem  
-**Reddit answer:** Provide genuinely useful, specific advice (4–6 sentences minimum). Include a framing that subtly positions Strateon's angle without being promotional.  
+**Reddit answer:** Provide genuinely useful, specific advice (4–6 sentences minimum). Include a framing that subtly positions Qiyadon's angle without being promotional.  
 **Follow-up DM (48h later):**
 > "Hey [Name] — I answered your question about [topic] in r/msp a couple days ago and meant to say: if the challenge you're facing is the operational side of turning inquiries into revenue, happy to share what we've seen work for firms at your stage. Book a slot if useful: [calendly link]. Otherwise best of luck — [specific advice from your answer]."
 
 ### Template 3 — Cold LinkedIn DM (first touch)
 **Use when:** Targeting a founder who matches ICP, engaged with relevant content  
 **DM copy:**
-> "Hey [Name], I noticed your background in [industry] and that you've been [specific observation about their content/role]. Curious — are you at a point where pipeline consistency is a live conversation for you? We're building Strateon for firms in the $1M–$5M ARR range that have traction but want more predictability in their revenue month to month. Worth comparing notes if that's useful."
+> "Hey [Name], I noticed your background in [industry] and that you've been [specific observation about their content/role]. Curious — are you at a point where pipeline consistency is a live conversation for you? We're building Qiyadon for firms in the $1M–$5M ARR range that have traction but want more predictability in their revenue month to month. Worth comparing notes if that's useful."
 
 ### Template 4 — Slack Community Introduction Post
 **Use when:** New community join  
 **Post:**
-> "Hey everyone — I'm [Name], founder at Strateon. We build pipeline infrastructure for small B2B businesses (MSPs, SaaS, professional services) in the $200K–$5M range. We're still early, so I'm mostly here to learn and share what we find. If revenue consistency is a topic for you, I'd love to compare notes. Happy to share openly what we know."
+> "Hey everyone — I'm [Name], founder at Qiyadon. We build pipeline infrastructure for small B2B businesses (MSPs, SaaS, professional services) in the $200K–$5M range. We're still early, so I'm mostly here to learn and share what we find. If revenue consistency is a topic for you, I'd love to compare notes. Happy to share openly what we know."
 
 ### Template 5 — Warm referral/inquiry response (inbound)
 **Use when:** Someone DMs after seeing a post or Reddit answer  

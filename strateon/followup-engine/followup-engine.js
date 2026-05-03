@@ -1,5 +1,5 @@
 /**
- * Strateon — Follow-Up Engine
+ * Qiyadon — Follow-Up Engine
  * Version: 1.0
  * Role: CPO — Chief Product Development Officer
  * 
@@ -25,7 +25,7 @@ const CONFIG = {
   smtpPort: 587,
   smtpHost: 'smtp0001.neo.space',
   fromEmail: 'contact@qiyadon.com',
-  fromName: 'Strateon Pipeline',
+  fromName: 'Qiyadon Pipeline',
 
   // Default cadence: [days since lead added, email subject prefix, body template key]
   // Adjust per-client in CLIENT_CADENCES below
@@ -68,7 +68,7 @@ const EMAIL_BODIES = {
 <p>Pipeline doesn't fill itself. And the leads you have are worth real revenue — if they're followed up on consistently.</p>
 <p>I'll keep this brief: what would it mean for your month if every single lead in your pipeline got a response within 24 hours?</p>
 <p>Talk soon,</p>
-<p><strong>Strateon Pipeline</strong></p>`,
+<p><strong>Qiyadon Pipeline</strong></p>`,
   }),
 
   followup1: (lead) => ({
@@ -77,7 +77,7 @@ const EMAIL_BODIES = {
 <p>Following up on my note from a few days ago — wanted to make sure it didn't get buried.</p>
 <p>No pressure, but the leads in your pipeline right now are losing value every day they sit. A follow-up email can be the difference between a conversation and silence.</p>
 <p>Can we schedule 15 minutes this week? I have some specific ideas about your pipeline I'd love to share.</p>
-<p>— Strateon Pipeline</p>`,
+<p>— Qiyadon Pipeline</p>`,
   }),
 
   valueadd: (lead) => ({
@@ -87,7 +87,7 @@ const EMAIL_BODIES = {
 <p>For B2B SaaS at your stage, the median time to first follow-up is 47 hours. That's half a work week of dead time.</p>
 <p>I've been running this analysis for VP Sales across a dozen companies. The pattern is always the same: the leads are good, the follow-through is inconsistent.</p>
 <p>I'd love to show you what I see in your specific pipeline. Worth 15 minutes?</p>
-<p>— Strateon Pipeline</p>`,
+<p>— Qiyadon Pipeline</p>`,
   }),
 
   checkin: (lead) => ({
@@ -96,7 +96,7 @@ const EMAIL_BODIES = {
 <p>I don't want to overdo this — but I'm genuinely curious how things are going with your pipeline.</p>
 <p>If you found what you needed, great. If not, I have some thoughts on what's working for other VP Sales in similar companies.</p>
 <p>Either way — let me know if you'd like to chat, or if you'd prefer I stop following up.</p>
-<p>— Strateon Pipeline</p>`,
+<p>— Qiyadon Pipeline</p>`,
   }),
 
   pivot: (lead) => ({
@@ -107,7 +107,7 @@ const EMAIL_BODIES = {
 <p>Because if I can help you get there, it changes everything about how you run the quarter.</p>
 <p>I've seen this with other VP Sales: once the follow-up rhythm is automatic, the pipeline stops being a source of anxiety and starts being a source of confidence.</p>
 <p>Is that worth a conversation?</p>
-<p>— Strateon Pipeline</p>`,
+<p>— Qiyadon Pipeline</p>`,
   }),
 
   final: (lead) => ({
@@ -117,7 +117,7 @@ const EMAIL_BODIES = {
 <p>If what I'm offering doesn't feel relevant right now, I completely understand. The door stays open if that changes.</p>
 <p>If you did want to explore what a consistent follow-up rhythm could do for your pipeline — I'm here.</p>
 <p>Best of luck with everything,</p>
-<p>— Strateon Pipeline</p>`,
+<p>— Qiyadon Pipeline</p>`,
   }),
 };
 

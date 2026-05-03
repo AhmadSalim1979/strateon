@@ -9,7 +9,7 @@
 
 ## 1. WHAT IS IT
 
-Pipeline Execution Service is Strateon's core managed offering — an AI-powered sales execution service that operates inside your CRM, follows up with every lead, recovers dormant deals, and delivers weekly accountability reports so VP Sales and Heads of Sales at B2B SaaS companies can focus on closing instead of chasing. You don't manage a tool. You delegate the work to an AI-led institution that is accountable for your pipeline's health.
+Pipeline Execution Service is Qiyadon's core managed offering — an AI-powered sales execution service that operates inside your CRM, follows up with every lead, recovers dormant deals, and delivers weekly accountability reports so VP Sales and Heads of Sales at B2B SaaS companies can focus on closing instead of chasing. You don't manage a tool. You delegate the work to an AI-led institution that is accountable for your pipeline's health.
 
 We do not hand you software and wish you luck. We take responsibility for your leads — every follow-up, every recovery attempt, every escalation — and we report to you weekly with measurable results.
 
@@ -133,7 +133,7 @@ We do not hand you software and wish you luck. We take responsibility for your l
 ### Step 2: Contract & Onboarding Setup
 - CFO sends service agreement and DPA for signature (digital, via DocuSign or WhatsApp photo)
 - You complete the client intake form (5 minutes): jurisdiction, industry, CRM details, lead volume estimate
-- CTO + COO configure your pipeline workspace in Strateon's system (separate data store, your leads only)
+- CTO + COO configure your pipeline workspace in Qiyadon's system (separate data store, your leads only)
 - SLA: Contracts signed → onboarding starts within 1 business day
 
 ### Step 3: Lead Ingestion & Configuration
@@ -192,7 +192,7 @@ We track the metrics that matter to a VP Sales or Head of Sales. These are repor
 
 ### Client Success Definition
 
-Strateon considers the service successful for a client when:
+Qiyadon considers the service successful for a client when:
 1. **Lead response time** is under 2 hours for all new leads (measured weekly)
 2. **Dormant leads reactivated** at a rate above 15% per month
 3. **VP Sales / Head of Sales** reports they are spending less time on pipeline chase and more time on closing
@@ -330,7 +330,7 @@ Week of [MON–FRI DATE]
 • Dormant (7+ days): [X]
 • This week's close rate on managed leads: [X]%
 
-— Moosa, Strateon
+— Moosa, Qiyadon
 ```
 
 **Scale tier additional:**
@@ -450,5 +450,5 @@ The following decisions are finalized or still pending:
 **Next Step:** Ready for publication and client-facing use
 **Escalation:** All Appendix A decisions confirmed. Spec is complete.
 
-*Prepared by: CPO, Strateon*
+*Prepared by: CPO, Qiyadon*
 *Date: 2026-05-01*

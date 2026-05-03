@@ -48,7 +48,7 @@
 | **DIY Possible?** | Not realistically. Requires a local SECP-registered lawyer or filing agent. Documents must be attested, memorandum filed, Form A submitted |
 | **Service Recommendation** | Hire a **Karachi/Lahore-based corporate law firm** (e.g., Cornelius, Lancashire & Co.; or any SECP-registered agent) — budget PKR 100,000–150,000 all-in for first year |
 
-**Key Takeaway:** Operates with a physical office. Can employ Pakistani staff. Useful if Strateon is building operations inside Pakistan. Main downside: bureaucratic, slow, and SECP compliance is demanding. Also, currency risk on repatriating profits.
+**Key Takeaway:** Operates with a physical office. Can employ Pakistani staff. Useful if Qiyadon is building operations inside Pakistan. Main downside: bureaucratic, slow, and SECP compliance is demanding. Also, currency risk on repatriating profits.
 
 ---
 
@@ -69,7 +69,7 @@
 
 ## 2. Recommendation
 
-**For Strateon at this stage: Start with a Wyoming LLC, then plan a Delaware C-Corp.**
+**For Qiyadon at this stage: Start with a Wyoming LLC, then plan a Delaware C-Corp.**
 
 **Rationale:**
 - You're pre-revenue, potentially bootstrapped, and need something fast, cheap, and legally sound
@@ -77,7 +77,7 @@
 - You can open a US bank account with a Wyoming LLC (ask your bank — some require Delaware)
 - If you raise external investment, flip to a Delaware C-Corp (you can typically convert the LLC to a C-Corp in-state, or restate — cost ~$500–1,000 with a lawyer)
 
-**If Strateon's primary operations are in Pakistan** → Form a Pakistan Pvt. Ltd simultaneously. It gives you legal standing to hire locally, open a local bank account, and fulfill SECP obligations.
+**If Qiyadon's primary operations are in Pakistan** → Form a Pakistan Pvt. Ltd simultaneously. It gives you legal standing to hire locally, open a local bank account, and fulfill SECP obligations.
 
 **If you're targeting ME/A轮 Gulf market** → UAE mainland is a strong add-on 3–6 months out.
 
@@ -149,4 +149,4 @@
 
 *Ahmad — form Wyoming now. Everything else follows from a position of legitimacy. Move fast.*
 
-**— CLA, Strateon**
+**— CLA, Qiyadon**

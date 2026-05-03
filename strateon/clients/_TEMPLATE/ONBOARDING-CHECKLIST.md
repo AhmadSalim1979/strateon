@@ -22,7 +22,7 @@
 
 ## Day 2–6 — Setup
 
-- [ ] Map client pipeline stages to Strateon status framework
+- [ ] Map client pipeline stages to Qiyadon status framework
 - [ ] Define follow-up cadence per lead tier (hot/warm/cold)
 - [ ] Draft initial follow-up sequence (5–12 touches)
 - [ ] Client reviews and approves follow-up message drafts

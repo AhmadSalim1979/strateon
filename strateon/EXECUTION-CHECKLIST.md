@@ -33,7 +33,7 @@ Every capability on this list moves Moosa closer to Vision 2 (autonomous CEO) an
 |---|---|---|---|---|
 | ✅ | **Email access** (IMAP/SMTP) | ✅ COMPLETE | Working via mail.privateemail.com | Moosa |
 
-**Specific account:** ahmad.salim@getstrateon.com
+**Specific account:** ahmad.salim@qiyadon.com
 **Provider:** Namecheap PrivateEmail, hosted at privateemail.com
 **Status:** ✅ CONNECTED — IMAP (993) and SMTP (587) both verified open
 **Credentials stored:** /home/node/.openclaw/secrets/strateon-email.json (gitignored)

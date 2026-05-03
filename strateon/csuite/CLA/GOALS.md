@@ -10,12 +10,12 @@
 ## GOALS (Strategic)
 
 ### GOAL 1: No Client Signed Without Legal Protection
-*Strategic rationale:* Every client = legal exposure. CLA's job is ensure Strateon never serves a client without proper contracts in place.
+*Strategic rationale:* Every client = legal exposure. CLA's job is ensure Qiyadon never serves a client without proper contracts in place.
 
 ### GOAL 2: Jurisdiction-Right Service Delivery
 *Strategic rationale:* GDPR, PDPA, CAN-SPAM — serving clients in different jurisdictions means different rules. CLA ensures we never serve a jurisdiction we're not prepared for.
 
-### GOAL 3: Strateon's Accountability Claim Is Legally Sound
+### GOAL 3: Qiyadon's Accountability Claim Is Legally Sound
 *Strategic rationale:* "Accountable" is in the Mission. CLA ensures that accountability is real — backed by contracts, DPAs, and consent frameworks that would hold up under scrutiny.
 
 ---

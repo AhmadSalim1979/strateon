@@ -7,7 +7,7 @@
 ---
 
 ## PURPOSE
-This block is intended for the Strateon website's footer, trust section, or dedicated compliance page. It must be reviewed and approved by a human — preferably the CEO and/or external legal counsel — before publication. Do not publish without approval.
+This block is intended for the Qiyadon website's footer, trust section, or dedicated compliance page. It must be reviewed and approved by a human — preferably the CEO and/or external legal counsel — before publication. Do not publish without approval.
 
 ---
 
@@ -17,7 +17,7 @@ This block is intended for the Strateon website's footer, trust section, or dedi
 
 ### 🔒 Your Data. Your Control.
 
-When you work with Strateon, your data is yours. Period.
+When you work with Qiyadon, your data is yours. Period.
 
 We operate strict data isolation by default — your client data is stored in its own environment, never mixed with other clients' data, and never used to train shared AI models. Access is role-restricted and logged.
 
@@ -27,9 +27,9 @@ We operate strict data isolation by default — your client data is stored in it
 
 Every significant decision in our delivery process involves a human checkpoint.
 
-Strateon is an AI-assisted execution partner. Our AI systems generate analysis, drafts, and recommendations — but every output is reviewed by a qualified human before it reaches you. We don't fully automate decisions that require judgment, accountability, or legal responsibility.
+Qiyadon is an AI-assisted execution partner. Our AI systems generate analysis, drafts, and recommendations — but every output is reviewed by a qualified human before it reaches you. We don't fully automate decisions that require judgment, accountability, or legal responsibility.
 
-This means: when Strateon delivers something to you, a human has seen it.
+This means: when Qiyadon delivers something to you, a human has seen it.
 
 ---
 
@@ -49,7 +49,7 @@ We don't do mass, unmonitored outreach. Each client's outreach is tracked, logge
 
 ### 🔐 Data Processing You Can Trust
 
-If Strateon processes personal data on your behalf — for lead generation, analysis, or outreach — we do so under a signed Data Processing Agreement (DPA) that governs:
+If Qiyadon processes personal data on your behalf — for lead generation, analysis, or outreach — we do so under a signed Data Processing Agreement (DPA) that governs:
 - What data we hold and for how long
 - Who can access it (strictly limited)
 - What happens to it when our engagement ends (deleted or returned, your choice)
@@ -80,7 +80,7 @@ If you're unsure whether we can serve you in your jurisdiction, reach out before
 
 ### 🏢 Legal Entity
 
-Strateon operates through [LEGAL ENTITY NAME — to be confirmed upon formation].
+Qiyadon operates through [LEGAL ENTITY NAME — to be confirmed upon formation].
 [REGISTERED ADDRESS — to be confirmed]
 [COMPANY REGISTRATION NUMBER — to be confirmed upon formation]
 
@@ -136,7 +136,7 @@ If you have any questions about how we handle data, compliance, or outreach — 
 
 ---
 
-*Drafted by: CLA, Strateon*
+*Drafted by: CLA, Qiyadon*
 *Version: 1.0 — 2026-04-29*
 *Status: NOT APPROVED — Human review required before publication*
 

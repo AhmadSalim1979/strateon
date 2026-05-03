@@ -8,13 +8,13 @@
 
 ## PURPOSE
 
-This protocol defines exactly what happens from the moment a client signs with Strateon to the moment they are a fully operational, reporting client receiving daily pipeline execution. Every step is owned by the COO. Nothing is left undefined.
+This protocol defines exactly what happens from the moment a client signs with Qiyadon to the moment they are a fully operational, reporting client receiving daily pipeline execution. Every step is owned by the COO. Nothing is left undefined.
 
 ---
 
 ## PART 0 — PRE-SIGN CHECKLIST (9 Items)
 
-**This checklist must be completed and signed off by COO before any client is cleared for onboarding.** No client enters the pipeline without every item confirmed. This protects Strateon, the client, and the mission.
+**This checklist must be completed and signed off by COO before any client is cleared for onboarding.** No client enters the pipeline without every item confirmed. This protects Qiyadon, the client, and the mission.
 
 | # | Item | Who Confirms | Method |
 |---|---|---|---|
@@ -39,7 +39,7 @@ This protocol defines exactly what happens from the moment a client signs with S
 ### Step 1.1 — Welcome Message (Same Day)
 - [ ] COO sends welcome message to client via WhatsApp
 - [ ] Message includes: Who is COO, what happens next, what COO needs from client in the next 24h
-- [ ] Template: *"Hi [NAME], this is [COO] from Strateon. Welcome — we're excited to have you onboard. Over the next [X] days we'll get your pipeline fully set up and running. First thing I need from you: [lead list / CRM access / answers to our 3 onboarding questions]. What's the best way to receive that?"*
+- [ ] Template: *"Hi [NAME], this is [COO] from Qiyadon. Welcome — we're excited to have you onboard. Over the next [X] days we'll get your pipeline fully set up and running. First thing I need from you: [lead list / CRM access / answers to our 3 onboarding questions]. What's the best way to receive that?"*
 
 ### Step 1.2 — Client Directory Created
 - [ ] COO creates: `strateon/clients/{client-slug}/`
@@ -174,7 +174,7 @@ This protocol defines exactly what happens from the moment a client signs with S
 
 ### Guarantee Assessment
 - [ ] COO reviews the signed guarantee terms from the commercial proposal
-- [ ] COO calculates: Did Strateon meet the agreed conditions?
+- [ ] COO calculates: Did Qiyadon meet the agreed conditions?
   - If YES: COO confirms to client — guarantee does not trigger
   - If NO (within first 30 days): COO escalates to CEO within 4 hours for guarantee review and potential remediation
 

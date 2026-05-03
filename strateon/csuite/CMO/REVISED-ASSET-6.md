@@ -7,7 +7,7 @@
 
 ## WHAT WAS WRONG
 
-The original Service One-Pager used **green (#25D366 or similar)** for the **output/deliverable icons** in the "What You Get" section. This violates the Strateon canonical palette. Green is not an approved brand color and must be replaced.
+The original Service One-Pager used **green (#25D366 or similar)** for the **output/deliverable icons** in the "What You Get" section. This violates the Qiyadon canonical palette. Green is not an approved brand color and must be replaced.
 
 **Specifically green in the original:**
 - Output/deliverable icons (checkmark-style or arrow-up icons representing results)
@@ -79,6 +79,6 @@ The original Service One-Pager used **green (#25D366 or similar)** for the **out
 
 ---
 
-**CMO Sign-Off:** Strateon Brand Integrity Review — Asset 6  
+**CMO Sign-Off:** Qiyadon Brand Integrity Review — Asset 6  
 **Status:** READY FOR REGENERATION  
 **Next Step:** Paste prompt above into ChatGPT or DALL-E with reference to original asset

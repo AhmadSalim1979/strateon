@@ -15,7 +15,7 @@ Send this message to the client on **Day 1** — within 2 hours of sign confirma
 ```
 Hi {{CLIENT_FIRST_NAME}},
 
-This is {{COO_NAME}} from Strateon. Congratulations on starting your trial — we're going to make these 14 days count.
+This is {{COO_NAME}} from Qiyadon. Congratulations on starting your trial — we're going to make these 14 days count.
 
 Here's what happens next:
 
@@ -37,7 +37,7 @@ I'll send you a daily brief each morning so you're never wondering what's happen
 
 Questions? Just reply here. I'm on it.
 
-— {{COO_NAME}}, COO | Strateon
+— {{COO_NAME}}, COO | Qiyadon
 ```
 
 ---

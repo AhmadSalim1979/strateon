@@ -8,7 +8,7 @@
 
 ## PURPOSE
 
-This document defines how all six C-suite roles work together as a single operating system. It is the playbook for how work flows through Strateon — from market research to client delivery to self-improvement. Each workflow is defined with triggers, steps, roles involved, and escalation paths.
+This document defines how all six C-suite roles work together as a single operating system. It is the playbook for how work flows through Qiyadon — from market research to client delivery to self-improvement. Each workflow is defined with triggers, steps, roles involved, and escalation paths.
 
 ---
 
@@ -66,7 +66,7 @@ This document defines how all six C-suite roles work together as a single operat
 
 **Who does it:** CEO reviews CMO's qualification report
 **What happens:**
-- CEO assesses: Is this the right client for Strateon?
+- CEO assesses: Is this the right client for Qiyadon?
 - CEO reviews CMO's notes and CLA's preliminary jurisdiction flag
 - CEO decides: Proceed or decline
 - If proceed: CEO assigns a Deal Owner (typically CEO or CMO for first clients)
@@ -179,7 +179,7 @@ This document defines how all six C-suite roles work together as a single operat
 - CMO updates prospect → active client in all tracking
 - Monthly review cycle begins (see Workflow 3)
 
-**Output:** Client is a paying, live Strateon client.
+**Output:** Client is a paying, live Qiyadon client.
 
 ---
 
@@ -343,7 +343,7 @@ This document defines how all six C-suite roles work together as a single operat
 **Who does it:** Ahmad Salim reviews and approves
 **What happens:**
 - CEO presents: Content + CMO review + CEO approval + CLA clearance
-- Board reviews: Does this represent Strateon correctly?
+- Board reviews: Does this represent Qiyadon correctly?
 - Board approves: CEO can publish
 - OR Board requests changes: Specific revisions requested
 

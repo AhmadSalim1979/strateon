@@ -2,8 +2,8 @@
 ## Governance Policy | Version 1.0 | Effective 2026-04-26
 
 **Owner:** CMO (Moosa)  
-**Applies To:** All brand assets, design files, and creative produced on behalf of Strateon  
-**Board Mandate:** The CMO is the sole custodian of the Strateon brand asset library.
+**Applies To:** All brand assets, design files, and creative produced on behalf of Qiyadon  
+**Board Mandate:** The CMO is the sole custodian of the Qiyadon brand asset library.
 
 ---
 

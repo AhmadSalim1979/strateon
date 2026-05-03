@@ -30,7 +30,7 @@
 
 ### Objective 1.2 — Email Infrastructure Operational
 **Goal:** 1
-**Task:** ahmad.salim@getstrateon.com can receive and Moosa can process incoming inquiries
+**Task:** ahmad.salim@qiyadon.com can receive and Moosa can process incoming inquiries
 **Timeline:** Within 7 days
 **Status:** NOT STARTED
 

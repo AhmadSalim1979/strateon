@@ -1,4 +1,4 @@
-# Strateon — Invoice Process
+# Qiyadon — Invoice Process
 
 **Owner:** CFO  
 **Status:** Active  
@@ -8,7 +8,7 @@
 
 ## Overview
 
-This document describes how to generate, send, track, and collect Strateon invoices using the `INVOICE-TEMPLATE.md` provided by the CTO. Follow this process for every billing cycle.
+This document describes how to generate, send, track, and collect Qiyadon invoices using the `INVOICE-TEMPLATE.md` provided by the CTO. Follow this process for every billing cycle.
 
 ---
 
@@ -78,12 +78,12 @@ Open `INVOICE-TEMPLATE.md` (CTO folder) and replace all `{{PLACEHOLDERS}}`:
 
 **Send via:** Email to the client's billing contact (from `{{CLIENT_EMAIL}}`)
 
-**Email subject line:** `Invoice #STRT-XXXX — Strateon — [Month] [Year]`
+**Email subject line:** `Invoice #STRT-XXXX — Qiyadon — [Month] [Year]`
 
 **Email body (template):**
 > Dear [CLIENT_CONTACT_NAME],
 >
-> Please find attached invoice #STRT-XXXX for Strateon's pipeline execution services covering [SERVICE_PERIOD_START] – [SERVICE_PERIOD_END].
+> Please find attached invoice #STRT-XXXX for Qiyadon's pipeline execution services covering [SERVICE_PERIOD_START] – [SERVICE_PERIOD_END].
 >
 > Amount due: $XXX
 > Payment due by: [DUE_DATE]
@@ -97,7 +97,7 @@ Open `INVOICE-TEMPLATE.md` (CTO folder) and replace all `{{PLACEHOLDERS}}`:
 >
 > Best,
 > Ahmad Salim
-> Strateon | ahmad.salim@getstrateon.com
+> Qiyadon | ahmad.salim@qiyadon.com
 
 ---
 

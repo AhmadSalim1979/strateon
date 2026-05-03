@@ -1,5 +1,5 @@
-# Strateon — LinkedIn GTM Posts
-**Prepared by:** CMO (Strateon)
+# Qiyadon — LinkedIn GTM Posts
+**Prepared by:** CMO (Qiyadon)
 **Date:** 2026-04-29
 **Status:** DRAFT — Awaiting Board approval and Ahmad LinkedIn access
 
@@ -21,7 +21,7 @@ The founder is busy closing. The SDR is overloaded. And the lead that raised the
 
 That's not a motivation problem. That's a capacity problem.
 
-At Strateon, we run the follow-up layer of your pipeline — daily, accountable, and reported every Friday.
+At Qiyadon, we run the follow-up layer of your pipeline — daily, accountable, and reported every Friday.
 
 No lead left behind.
 No silence.
@@ -48,7 +48,7 @@ You're doing both — plus ops, plus client management, plus everything else tha
 
 So the follow-up that was supposed to go Tuesday morning quietly becomes Friday afternoon. And by then, the lead has moved on.
 
-We built Strateon for exactly this situation.
+We built Qiyadon for exactly this situation.
 
 We're not a tool. We're not a consultant. We're Pipeline Execution-as-a-Service — we take over the follow-up function of your pipeline, operate it daily, and report to you every Friday.
 
@@ -56,7 +56,7 @@ You close the deals. We make sure there are more deals to close.
 
 What's currently falling through the cracks in your pipeline?
 
-#FounderFirst #SalesExecution #Pipeline #SMBGrowth #Strateon
+#FounderFirst #SalesExecution #Pipeline #SMBGrowth #Qiyadon
 
 ---
 
@@ -72,7 +72,7 @@ By the time someone gets back to them, they've already talked to a competitor �
 
 That's not a bad lead. That's a follow-up failure.
 
-At Strateon, we operate inside your CRM — we don't replace it. Every lead gets contacted within your response window. Every dormant lead gets a structured reactivation sequence. Every silence gets escalated to you with a recommendation.
+At Qiyadon, we operate inside your CRM — we don't replace it. Every lead gets contacted within your response window. Every dormant lead gets a structured reactivation sequence. Every silence gets escalated to you with a recommendation.
 
 And every Friday, you get a full pipeline report: leads contacted, revived, escalated, and your hot list for the week.
 
@@ -91,7 +91,7 @@ Anyone can send an automated email. That doesn't mean anyone's following up.
 
 **Body:**
 Cheap automation sends messages.
-Strateon runs the follow-up operating rhythm.
+Qiyadon runs the follow-up operating rhythm.
 
 Here's the difference:
 
@@ -121,7 +121,7 @@ It's your follow-up system.
 Every Friday. No exceptions. Full accountability.
 
 **Body:**
-This is what Strateon looks like in practice:
+This is what Qiyadon looks like in practice:
 
 Every Friday, you get a pipeline report.
 
@@ -140,7 +140,7 @@ Your first pipeline leak audit is free. No pitch. Just your numbers.
 
 Book it → [link]
 
-#PipelineManagement #SalesStrategy #Accountability #Strateon #FounderFirst
+#PipelineManagement #SalesStrategy #Accountability #Qiyadon #FounderFirst
 
 ---
 
@@ -150,7 +150,7 @@ Book it → [link]
   2. Ahmad's LinkedIn profile access confirmed
 - Posts are formatted for LinkedIn's algorithm (hook in first line, value in body, CTA at end)
 - Hashtags are included but kept under 5 per post to avoid looking spammy
-- Tone: founder-to-founder, direct, no fluff — consistent with Strateon brand voice
+- Tone: founder-to-founder, direct, no fluff — consistent with Qiyadon brand voice
 - Each post targets a different angle (pain, capacity, CRM, automation, accountability) for variety in the GTM sequence
 - Posting cadence recommendation: 1 post every 2–3 days, mix of the 5 angles
 - Monitor engagement in first 48 hours — adjust hooks based on what performs

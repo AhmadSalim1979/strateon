@@ -1,5 +1,5 @@
-# Strateon — Client Proposal Email Draft
-**Prepared by:** CMO (Strateon)
+# Qiyadon — Client Proposal Email Draft
+**Prepared by:** CMO (Qiyadon)
 **Date:** 2026-04-28
 **Purpose:** Outbound proposal to founder-led SMB prospects
 
@@ -14,7 +14,7 @@
 > Stop losing leads you've already earned.
 
 **Option C:**
-> No lead left behind — Pipeline Execution-as-a-Service from Strateon.
+> No lead left behind — Pipeline Execution-as-a-Service from Qiyadon.
 
 ---
 
@@ -22,7 +22,7 @@
 
 Most SMBs lose between 20–40% of their inbound leads to simple silence. Not because the team doesn't care — because follow-up isn't a system. It's a hope. A Post-it note. A "I'll get to that next week" that becomes next quarter.
 
-**Strateon** operates the follow-up layer of your pipeline — so you don't have to.
+**Qiyadon** operates the follow-up layer of your pipeline — so you don't have to.
 
 We're not a tool. We're not a cheap AI autoresponder. We're Pipeline Execution-as-a-Service, built for founder-led businesses that are serious about closing what they earn.
 
@@ -61,4 +61,4 @@ If that sounds like it might fit your business, I'd love to show you how it work
 ---
 
 Ahmad Salim
-Founding Board Member — Strateon
+Founding Board Member — Qiyadon

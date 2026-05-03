@@ -1,5 +1,5 @@
-# Strateon Website — CMO Review
-**Reviewer:** CMO, Strateon
+# Qiyadon Website — CMO Review
+**Reviewer:** CMO, Qiyadon
 **Date:** April 27, 2026
 **URL Reviewed:** https://strateon.netlify.app
 
@@ -7,7 +7,7 @@
 
 ## 1. Headline & Subheadline — Compelling for SMB Founders?
 
-**The subheadline is the star of the page.** "Your Pipeline.Executed Relentlessly." is memorable, specific, and hits the exact pain point. The line "Not a tool. Not a consultant. We own your pipeline." is outstanding — it immediately differentiates Strateon from every agency and software vendor in this space.
+**The subheadline is the star of the page.** "Your Pipeline.Executed Relentlessly." is memorable, specific, and hits the exact pain point. The line "Not a tool. Not a consultant. We own your pipeline." is outstanding — it immediately differentiates Qiyadon from every agency and software vendor in this space.
 
 **The main headline is weaker.** "AI-Operated Pipeline Execution" is accurate but reads like a feature label, not a value proposition. It tells me *what* they do, not *why I should care*. A founder in IT services or SaaS is thinking about revenue, not AI operations. The subheadline does the heavy lifting; the headline doesn't carry its weight.
 
@@ -48,8 +48,8 @@ This is brutally honest and I respect the intent — but it is the single bigges
 **c) No named Board members.**
 The page references "a human Board" but provides no names, no photos, no bios. Who are these humans? Why should I trust them? Right now this reads as fictional rather than transparent.
 
-**d) The 70-80% / 27% / 21x stats are not cited to Strateon.**
-These statistics are widely shared across the industry. A savvy SMB founder will recognize them and discount them. Use them as context, but immediately pivot to Strateon's own numbers. "Here's what our clients see" is infinitely more convincing than industry averages.
+**d) The 70-80% / 27% / 21x stats are not cited to Qiyadon.**
+These statistics are widely shared across the industry. A savvy SMB founder will recognize them and discount them. Use them as context, but immediately pivot to Qiyadon's own numbers. "Here's what our clients see" is infinitely more convincing than industry averages.
 
 **e) "Book a strategy call" is the only conversion path.**
 No free trial hook, no self-assessment, no pipeline audit offer. For an unproven service from an AI company with no visible Board, asking for a strategy call is a big ask. Lower the bar. "Send us your CRM export and we'll show you what's dying in your pipeline" is a more compelling, lower-risk entry point.
@@ -60,7 +60,7 @@ No free trial hook, no self-assessment, no pipeline audit offer. For an unproven
 
 **The concept is correct. The execution needs a complete rewrite.**
 
-The intent is right: differentiating Strateon from the sea of SaaS tools and agencies is smart. The positioning statement "We do the work. You hold us accountable. That's the whole model." is excellent.
+The intent is right: differentiating Qiyadon from the sea of SaaS tools and agencies is smart. The positioning statement "We do the work. You hold us accountable. That's the whole model." is excellent.
 
 But the AI CEO framing creates three immediate objections that are never resolved:
 
@@ -72,11 +72,11 @@ But the AI CEO framing creates three immediate objections that are never resolve
 
 Replace the abstract "AI institution" framing with a concrete value statement:
 
-> "Strateon is a new kind of sales partner. We don't give you software and wish you luck. We don't send you a consultant who hands off and disappears. We own your pipeline execution — every follow-up, every escalation, every weekly report. If your pipeline goes dark, that's our failure, not yours."
+> "Qiyadon is a new kind of sales partner. We don't give you software and wish you luck. We don't send you a consultant who hands off and disappears. We own your pipeline execution — every follow-up, every escalation, every weekly report. If your pipeline goes dark, that's our failure, not yours."
 
 Then use the AI CEO as a credibility amplifier, not the lead angle. The question every prospect is asking is: "Can I trust them to actually do this?" Answer that question directly first. Then explain that the reason they can deliver this accountability is because their model is built around it.
 
-The current section is about Strateon's identity. Prospects care about their own results.
+The current section is about Qiyadon's identity. Prospects care about their own results.
 
 ---
 
@@ -90,7 +90,7 @@ A visitor who has read the entire page — and the value proposition is genuinel
 
 One specific, real example would change everything:
 
-> "[Client type, anonymized] had 340 dormant leads in their CRM. After 60 days with Strateon, 47 had re-engaged and 12 had converted to opportunities. That's an extra [X] in pipeline they weren't touching before."
+> "[Client type, anonymized] had 340 dormant leads in their CRM. After 60 days with Qiyadon, 47 had re-engaged and 12 had converted to opportunities. That's an extra [X] in pipeline they weren't touching before."
 
 That is not a testimonial. That is evidence. Even if the exact numbers need to be anonymized and sanitized, a real metric beats "coming soon" every time.
 
@@ -108,4 +108,4 @@ Get one client to opt in to a named or anonymized case study before anything els
 | 🟡 High | Replace main headline with a problem-first or benefit-first line | Improves scroll-through |
 | 🟡 High | Add a low-commitment entry offer (pipeline audit, trial week) alongside the strategy call | Reduces friction to first contact |
 | 🟢 Medium | Add ROI framing to pricing when it launches | Supports value-based positioning |
-| 🟢 Medium | Replace third-party industry stats with Strateon's own data | Builds genuine credibility |
+| 🟢 Medium | Replace third-party industry stats with Qiyadon's own data | Builds genuine credibility |

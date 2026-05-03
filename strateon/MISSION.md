@@ -1,4 +1,4 @@
-# Strateon — Mission Statement
+# Qiyadon — Mission Statement
 
 > **"Ensuring no SMB lead ever dies of silence — through relentless, accountable pipeline execution that runs 24 hours a day, 7 days a week, and never forgets."**
 

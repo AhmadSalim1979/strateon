@@ -8,7 +8,7 @@
 
 ## 🎨 PRIMARY PALETTE
 
-### Strateon Navy
+### Qiyadon Navy
 ```
 #0A1628
 ```
@@ -17,7 +17,7 @@
 
 ---
 
-### Strateon Electric Blue
+### Qiyadon Electric Blue
 ```
 #2563EB
 ```
@@ -27,7 +27,7 @@
 
 ---
 
-### Strateon White
+### Qiyadon White
 ```
 #FFFFFF
 ```
@@ -36,7 +36,7 @@
 
 ---
 
-### Strateon Off-White
+### Qiyadon Off-White
 ```
 #F8FAFC
 ```
@@ -47,7 +47,7 @@
 
 ## 🌫️ SECONDARY PALETTE
 
-### Strateon Gold (Accent)
+### Qiyadon Gold (Accent)
 ```
 #F59E0B
 ```
@@ -57,7 +57,7 @@
 
 ---
 
-### Strateon Slate
+### Qiyadon Slate
 ```
 #64748B
 ```
@@ -66,7 +66,7 @@
 
 ---
 
-### Strateon Border Gray
+### Qiyadon Border Gray
 ```
 #E2E8F0
 ```
@@ -75,7 +75,7 @@
 
 ---
 
-### Strateon Dark Slate
+### Qiyadon Dark Slate
 ```
 #1E293B
 ```
@@ -120,7 +120,7 @@
 
 ## 🚫 NEVER USE THESE COLORS
 
-These colors are NOT part of the Strateon palette. Do not introduce them into any brand application:
+These colors are NOT part of the Qiyadon palette. Do not introduce them into any brand application:
 
 | Prohibited Color | Hex | Reason |
 |------------------|-----|--------|

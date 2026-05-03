@@ -162,7 +162,7 @@ Current product readiness: ~10–15% complete.
 
 Build Timeline to V1:
 - Legal foundation (Weeks 1–2): Finalize CSA, DPA, client intake form
-- Website live (Week 3): Deploy getstrateon.com
+- Website live (Week 3): Deploy qiyadon.com
 - Pipeline core (Weeks 3–6): Follow-up engine, lead scoring, WhatsApp integration
 - First client signed (Week 6–8): Onboard first paying client
 - Stabilization (Weeks 8–12): Real-world delivery iteration

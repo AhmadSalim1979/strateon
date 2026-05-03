@@ -9,7 +9,7 @@
 
 ## GOALS (Strategic)
 
-### GOAL 1: Strateon Is Known by the Right People
+### GOAL 1: Qiyadon Is Known by the Right People
 *Strategic rationale:* The Pipeline Execution Service serves SMB owners in IT services, SaaS, and MSPs. CMO's job is positioning, not volume. Find the 100 right people, not 10,000 wrong ones.
 
 ### GOAL 2: Every Customer-Facing Message Reflects the Mission

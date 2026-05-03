@@ -69,7 +69,7 @@
 - /trial — redirect page
 
 **Form Handler:** submit-audit.js (PM2 process: qiyadon-audit-form, port 3001)
-**Form Email destination:** contact@qiyadon.com (not ahmad.salim@getstrateon.com — fixed)
+**Form Email destination:** contact@qiyadon.com (not ahmad.salim@qiyadon.com — fixed)
 
 ---
 
@@ -125,5 +125,5 @@
 ## MEMORY FAILURE LOG
 
 - 2026-05-02: IMAP/SMTP credentials forgotten — needed to be re-shared. Root cause: not written to file immediately. Fix: now in OPERATIONAL ASSETS.
-- 2026-05-02: Form destination email (ahmad.salim@getstrateon.com) not updated to qiyadon.com on first attempt. Fixed immediately.
+- 2026-05-02: Form destination email (ahmad.salim@qiyadon.com) not updated to qiyadon.com on first attempt. Fixed immediately.
 - 2026-05-02: May 1 decisions carry-forward failure — end-of-day section read correctly but early draft list pulled instead. Fix: AGENTS.md updated — read from bottom up.

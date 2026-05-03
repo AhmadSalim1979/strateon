@@ -1,4 +1,4 @@
-# Strateon — Website Rebuild Copy
+# Qiyadon — Website Rebuild Copy
 **Prepared by:** CMO
 **Date:** 2026-04-28
 **Status:** Ready for CTO implementation
@@ -47,7 +47,7 @@ A lead that goes unanswered for 72 hours is 5x harder to re-engage than a lead t
 
 ### Closing Line
 You're not the problem. Your system is.
-No founder can be relentless across every lead, every day, while also doing their real job: closing deals. That's why we built Strateon — to handle the follow-up that used to fall through the cracks.
+No founder can be relentless across every lead, every day, while also doing their real job: closing deals. That's why we built Qiyadon — to handle the follow-up that used to fall through the cracks.
 
 ---
 
@@ -57,7 +57,7 @@ No founder can be relentless across every lead, every day, while also doing thei
 We Do Not Give You Another Tool. We Operate the Follow-Up Layer of Your Pipeline.
 
 ### Intro Copy
-Strateon is Pipeline Execution-as-a-Service. We don't hand you software and wish you luck. We take over the follow-up function of your pipeline — daily, persistently, and with full accountability — and report every Friday on exactly what happened.
+Qiyadon is Pipeline Execution-as-a-Service. We don't hand you software and wish you luck. We take over the follow-up function of your pipeline — daily, persistently, and with full accountability — and report every Friday on exactly what happened.
 
 ### Subhead
 We slot into your CRM, learn your pipeline, and run your follow-up sequences. You close the deals. We make sure there are more deals to close.
@@ -84,28 +84,28 @@ We slot into your CRM, learn your pipeline, and run your follow-up sequences. Yo
 ## 4. DEFENSIBILITY MESSAGE
 
 ### Section Header
-Cheap Automation Sends Messages. Strateon Runs the Follow-Up Operating Rhythm.
+Cheap Automation Sends Messages. Qiyadon Runs the Follow-Up Operating Rhythm.
 
 ### Intro Copy
-Anyone can send an automated email. What separates a tool from a system is whether it actually runs the rhythm — the daily cadence, the escalation logic, the Friday report, the accountability when something slips. That's what Strateon does.
+Anyone can send an automated email. What separates a tool from a system is whether it actually runs the rhythm — the daily cadence, the escalation logic, the Friday report, the accountability when something slips. That's what Qiyadon does.
 
 ### Supporting Point 1 — Operating Rhythm, Not a One-Time Setup
-Most automation tools are configured once and forgotten. Strateon runs the follow-up operating rhythm — daily check-ins on every lead, escalation triggers when silence happens, and a weekly report that tells you exactly where your pipeline stands. This is not a campaign. It's a function you can depend on.
+Most automation tools are configured once and forgotten. Qiyadon runs the follow-up operating rhythm — daily check-ins on every lead, escalation triggers when silence happens, and a weekly report that tells you exactly where your pipeline stands. This is not a campaign. It's a function you can depend on.
 
 ### Supporting Point 2 — Escalation Logic Built Around Your Rules
-When a lead goes cold, cheap automation sends another email. Strateon escalates to you — with a specific recommendation on what to do next. We don't just touch the lead. We surface the problem so you can close it.
+When a lead goes cold, cheap automation sends another email. Qiyadon escalates to you — with a specific recommendation on what to do next. We don't just touch the lead. We surface the problem so you can close it.
 
 ### Supporting Point 3 — You're Never Left Guessing
 Every lead in your pipeline has an owner. If a follow-up is missed, we know. If a lead goes dark, you get a flag. Accountability is a system, not a promise. Every Friday you get a full pipeline report — leads contacted, revived, escalated, and your hot list for the week ahead.
 
 ### Supporting Point 4 — No Bandwidth Limits
-Your team runs out of hours. Strateon doesn't. We can follow up with 5 leads or 500 — with the same attention to detail, the same cadence, and the same accountability. Scale doesn't break the system. That's by design.
+Your team runs out of hours. Qiyadon doesn't. We can follow up with 5 leads or 500 — with the same attention to detail, the same cadence, and the same accountability. Scale doesn't break the system. That's by design.
 
 ---
 
 ## 5. FAQ SECTION
 
-### Q: How does Strateon actually work?
+### Q: How does Qiyadon actually work?
 **A:** We integrate with your CRM, learn your pipeline, and take over your follow-up sequences — configured to your market, your lead type, and your preferred business hours. Every inbound lead is contacted within your defined response window. Dormant leads enter reactivation sequences. Leads that go cold trigger an escalation to you. Every Friday you get a full pipeline report. You focus on closing. We handle the rest.
 
 ---
@@ -232,10 +232,10 @@ All plans include CRM integration, daily follow-up, and weekly reporting. Volume
 ## 8. WHO THIS IS FOR / NOT FOR
 
 ### Section Header
-Is Strateon Right for You?
+Is Qiyadon Right for You?
 
 ### Intro
-Strateon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.
+Qiyadon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.
 
 ### This Is For
 - Founder-led SMBs in IT services, MSPs, SaaS, and professional services
@@ -255,7 +255,7 @@ Strateon is built for founder-led SMBs who have a live pipeline and need someone
 ## 9. FIRST 7 DAYS WITH STRATEON
 
 ### Section Header
-Your First 7 Days with Strateon
+Your First 7 Days with Qiyadon
 
 ### Section Subhead
 No black box. No guessing. Here's exactly what happens after you sign up.
@@ -270,7 +270,7 @@ We learn your leads. Every contact, every gap, every reason they went dark. We m
 We draft your first follow-up sequences. Every email, every cadence, every escalation trigger. You review and approve. Nothing goes out without your sign-off. Your brand, your rules, your voice — we just execute it.
 
 ### Day 4–5 — First Leads Contacted
-Your live leads get their first Strateon touchpoint. Inbound leads are contacted within your response window. Dormant leads start their reactivation sequence. You get a real-time log of everything that goes out.
+Your live leads get their first Qiyadon touchpoint. Inbound leads are contacted within your response window. Dormant leads start their reactivation sequence. You get a real-time log of everything that goes out.
 
 ### Day 7 — First Weekly Pipeline Report Delivered
 Friday. Your first report hits your inbox. Leads contacted, revived, escalated. Hot leads that need your attention. Missed items and what we're doing about them. Next week's recommended actions. This is what accountability looks like — every Friday, no matter what.
@@ -293,7 +293,7 @@ Book a Free Pipeline Leak Audit. Tell us about your pipeline — we'll show you 
 ## 11. META / SEO
 
 ### Page Title
-Strateon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs
+Qiyadon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs
 
 ### Meta Description
 Persistent, accountable pipeline follow-up for founder-led SMBs — configured to your market and preferred business hours. Weekly pipeline reports. CRM integration included. No lead left behind.

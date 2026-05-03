@@ -91,7 +91,7 @@ const transporter = nodemailer.createTransport({
 
 transporter.sendMail({
   from: { name: 'Qiyadon', address: 'contact@qiyadon.com' },
-  to: 'ahmad.salim@getstrateon.com',
+  to: 'ahmad.salim@qiyadon.com',
   subject: 'Pipeline Report — CloudSync Pro | Week Apr 27–May 3, 2026 [DEMO]',
   html: emailHtml
 }, (err, info) => {

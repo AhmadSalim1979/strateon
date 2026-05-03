@@ -1,5 +1,5 @@
 /**
- * Strateon Email Worker
+ * Qiyadon Email Worker
  * Reads inbox, processes client inquiries, can send emails
  * Run via: node email-worker.js [action]
  * Actions: read-inbox, send-test
@@ -170,8 +170,8 @@ if (action === 'read-inbox') {
   imap.connect();
 
 } else if (action === 'send-test') {
-  const testEmail = process.argv[3] || 'ahmad.salim@getstrateon.com';
-  sendEmail(testEmail, 'Strateon Email System Test', 'This is a test email from Moosa.', function(err, result) {
+  const testEmail = process.argv[3] || 'ahmad.salim@qiyadon.com';
+  sendEmail(testEmail, 'Qiyadon Email System Test', 'This is a test email from Moosa.', function(err, result) {
     if (err) {
       console.log('Error:', err.message);
       process.exit(1);
@@ -183,7 +183,7 @@ if (action === 'read-inbox') {
 } else if (action === 'send-proposal') {
   // Usage: node email-worker.js send-proposal <to> <subject> <body>
   const to = process.argv[3];
-  const subject = process.argv[4] || 'Strateon Proposal';
+  const subject = process.argv[4] || 'Qiyadon Proposal';
   const body = process.argv[5] || '';
   if (!to) {
     console.log('Usage: node email-worker.js send-proposal <to> <subject> <body>');

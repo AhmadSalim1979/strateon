@@ -53,29 +53,29 @@
 
 | Field | Response |
 |-------|----------|
-| **Will Strateon process personal data on the client's behalf?** | ☐ Yes  ☐ No |
+| **Will Qiyadon process personal data on the client's behalf?** | ☐ Yes  ☐ No |
 | **Categories of personal data to be processed** | ☐ Names  ☐ Email addresses  ☐ Job titles  ☐ Company names  ☐ Phone numbers  ☐ Behavioral data  ☐ Other: |
 | **Will any Special Category Data be processed?** | ☐ Yes  ☐ No — If Yes, specify type and obtain separate consent addendum |
 | **Source of personal data** | ☐ Client-provided list  ☐ Publicly available sources  ☐ Third-party data vendor  ☐ Other: |
 | **Has the client obtained all necessary consents to contact these individuals?** | ☐ Yes — written consent on file  ☐ Legitimate interest assessment completed  ☐ Consent to be obtained before outreach |
 | **Legal basis for processing (GDPR/UK GDPR clients)** | ☐ Consent  ☐ Contract  ☐ Legitimate interest  ☐ Legal obligation  ☐ Other: |
 | **Retention period for personal data** | |
-| **Data Controller or Data Processor relationship** | ☐ Client is Data Controller; Strateon is Processor  ☐ Client is Processor; Strateon is sub-processor  ☐ Joint Controllers (requires separate agreement) |
+| **Data Controller or Data Processor relationship** | ☐ Client is Data Controller; Qiyadon is Processor  ☐ Client is Processor; Qiyadon is sub-processor  ☐ Joint Controllers (requires separate agreement) |
 
 ---
 
 ## SECTION 5: CONSENT CHAIN
 
-> ⚠️ **This section is mandatory for all clients.** Strateon will not send outreach messages without documented consent evidence.
+> ⚠️ **This section is mandatory for all clients.** Qiyadon will not send outreach messages without documented consent evidence.
 
 | Field | Response |
 |-------|----------|
 | **How did the client obtain consent from their leads/customers?** | ☐ Explicit opt-in (checkbox)  ☐ Double opt-in  ☐ Legitimate interest assessment  ☐ Contractual necessity  ☐ Other: |
 | **Is there a record of consent for each lead?** | ☐ Yes, centralized record  ☐ Yes, per-lead record  ☐ To be confirmed  ☐ Not yet established |
-| **Consent records to be shared with Strateon?** | ☐ Yes — upon request  ☐ Yes — for all leads  ☐ No  ☐ TBC |
+| **Consent records to be shared with Qiyadon?** | ☐ Yes — upon request  ☐ Yes — for all leads  ☐ No  ☐ TBC |
 | **Consent text / policy URL** | |
 | **Unsubscribe/opt-out mechanism in place?** | ☐ Yes — email  ☐ Yes — LinkedIn  ☐ Yes — all channels  ☐ Not yet established |
-| **Opt-out requests: who handles them?** | ☐ Client  ☐ Strateon  ☐ Third party (specify): |
+| **Opt-out requests: who handles them?** | ☐ Client  ☐ Qiyadon  ☐ Third party (specify): |
 
 ---
 
@@ -101,7 +101,7 @@
 | **Title** | |
 | **Email** | |
 | **Date** | |
-| **Witness/Strateon representative** | |
+| **Witness/Qiyadon representative** | |
 
 ---
 
@@ -135,9 +135,9 @@
 ---
 
 **Form completed by:** ________________________
-**Strateon CLA review completed by:** ________________________
+**Qiyadon CLA review completed by:** ________________________
 **Date:** ________________________
 
 ---
 
-*© Strateon. Draft v1.0 — 2026-04-29. Internal use only.*
+*© Qiyadon. Draft v1.0 — 2026-04-29. Internal use only.*

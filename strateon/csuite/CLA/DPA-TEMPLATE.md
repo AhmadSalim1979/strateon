@@ -2,9 +2,9 @@
 **Classification:** Legal Template — Requires Review by Qualified Counsel Before Use
 **Version:** 1.0 Draft
 **Date:** 2026-04-29
-**Applies to:** EU/UK clients and any client where Strateon processes personal data on the Client's behalf
+**Applies to:** EU/UK clients and any client where Qiyadon processes personal data on the Client's behalf
 
-> ⚠️ **Legal Disclaimer:** This DPA template must be reviewed by a qualified attorney before use. GDPR, UK GDPR, and PECR requirements vary by context. Strateon assumes no liability for use of this template without legal review.
+> ⚠️ **Legal Disclaimer:** This DPA template must be reviewed by a qualified attorney before use. GDPR, UK GDPR, and PECR requirements vary by context. Qiyadon assumes no liability for use of this template without legal review.
 
 ---
 
@@ -12,7 +12,7 @@
 
 This Data Processing Agreement ("DPA") is entered into as of [DATE] ("Effective Date") by and between:
 
-**Strateon** ("Data Processor")
+**Qiyadon** ("Data Processor")
 AND
 **[CLIENT LEGAL NAME]** ("Data Controller")
 
@@ -68,7 +68,7 @@ The Data Controller is responsible for determining:
 The Data Processor shall process Personal Data only on documented instructions from the Data Controller, including with regard to transfers of Personal Data to a third country or international organization, unless required to do so by Applicable Data Protection Law.
 
 ### 2.2 Prohibition on Sensitive Data Without Consent
-The Data Controller shall not submit Special Category Data to Strateon for processing without prior written disclosure and explicit agreement. Processing of Special Category Data under this DPA requires a separate addendum.
+The Data Controller shall not submit Special Category Data to Qiyadon for processing without prior written disclosure and explicit agreement. Processing of Special Category Data under this DPA requires a separate addendum.
 
 ---
 
@@ -96,7 +96,7 @@ The Data Processor shall implement appropriate technical and organizational meas
 - Ability to restore availability and access to Personal Data in a timely manner
 - Regular testing and evaluation of security measures
 
-**Minimum measures implemented by Strateon:**
+**Minimum measures implemented by Qiyadon:**
 - Role-based access controls
 - Encrypted data storage and transmission (TLS/AES)
 - Access logging and monitoring
@@ -104,7 +104,7 @@ The Data Processor shall implement appropriate technical and organizational meas
 - Regular security reviews
 
 ### 3.7 Sub-processors
-The Data Controller authorizes the Data Processor to engage sub-processors for specific processing activities. Strateon maintains a list of approved sub-processors. The Data Processor shall:
+The Data Controller authorizes the Data Processor to engage sub-processors for specific processing activities. Qiyadon maintains a list of approved sub-processors. The Data Processor shall:
 - Enter into a written agreement with each sub-processor imposing data protection obligations no less protective than this DPA
 - Remain fully liable to the Data Controller for the performance of any sub-processor's obligations
 
@@ -129,7 +129,7 @@ The Data Processor shall notify the Data Controller without undue delay (and in 
 Personnel authorized to process Personal Data shall be subject to binding confidentiality obligations.
 
 ### 4.2 Training
-Strateon shall ensure personnel handling Personal Data receive appropriate data protection training.
+Qiyadon shall ensure personnel handling Personal Data receive appropriate data protection training.
 
 ---
 
@@ -237,7 +237,7 @@ This DPA shall be governed by the same law governing the CSA.
 
 ## ANNEX II — TECHNICAL AND ORGANIZATIONAL SECURITY MEASURES
 
-Strateon implements the following minimum technical and organizational measures:
+Qiyadon implements the following minimum technical and organizational measures:
 
 **Access Control:**
 - Role-based access control (RBAC)
@@ -287,4 +287,4 @@ Date:
 
 ---
 
-*© Strateon. Draft v1.0 — 2026-04-29. For review by qualified legal counsel only.*
+*© Qiyadon. Draft v1.0 — 2026-04-29. For review by qualified legal counsel only.*

@@ -1,7 +1,7 @@
 # CMO REVISED PROMPT — Asset 7C: Launch Post Card
 
 **Date:** 2026-04-26
-**Role:** Chief Marketing Officer, Strateon
+**Role:** Chief Marketing Officer, Qiyadon
 **Status:** Board-Approved Revision
 
 ---
@@ -25,7 +25,7 @@ The current Launch Post Card is described in the original CMO brand asset brief 
 - CTA text
 
 **Visual Style:**
-- Strateon brand colors (professional, modern, trust-inducing palette)
+- Qiyadon brand colors (professional, modern, trust-inducing palette)
 - Clean typography hierarchy
 - Minimal illustration or graphic element
 - Card-based format with clear visual zones
@@ -41,7 +41,7 @@ The "NOW LIVE" text sits on the base layer — it is not conditionally timed or 
 
 ---
 
-**"Design a clean, minimal launch announcement card for Strateon.**
+**"Design a clean, minimal launch announcement card for Qiyadon.**
 
 **REMOVE:**
 - "NOW LIVE" text or any similar urgency badge/banner on the base layer
@@ -51,7 +51,7 @@ The "NOW LIVE" text sits on the base layer — it is not conditionally timed or 
 - Bold, centered headline area (placeholder: '[Headline]')
 - Clean supporting copy section (placeholder: '[Supporting Copy]')
 - Strong CTA button area (placeholder: '[CTA Button]')
-- Strateon brand color palette and typography
+- Qiyadon brand color palette and typography
 - Modern, professional card format
 - Generous whitespace — let the design breathe
 - Subtle geometric accent or brand mark (optional, not required)
@@ -64,7 +64,7 @@ The "NOW LIVE" text sits on the base layer — it is not conditionally timed or 
 
 **Technical Specs:**
 - Format: Card/square (optimized for social media)
-- Colors: Strateon brand palette
+- Colors: Qiyadon brand palette
 - Typography: Clean sans-serif hierarchy
 - Resolution: High-quality for digital use"
 
@@ -88,5 +88,5 @@ The "NOW LIVE" element was a mistake in the base layer design. It makes every ca
 
 **CMO Sign-Off:** Approved for regeneration.
 
-*Moosa — Acting CMO, Strateon*
+*Moosa — Acting CMO, Qiyadon*
 *2026-04-26*

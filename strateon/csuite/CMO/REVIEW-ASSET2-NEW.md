@@ -72,7 +72,7 @@ The asset is directionally correct and brand-compliant. Before final approval fo
 Use this revised prompt to regenerate:
 
 ```
-Design a minimalist app icon/logo for Strateon — an AI pipeline execution company.
+Design a minimalist app icon/logo for Qiyadon — an AI pipeline execution company.
 
 ICON SPECIFICATION:
 - Bold, geometric letter "S" on a white background
@@ -117,5 +117,5 @@ This asset also aligns with the brand mark clarification in the BRAND-ASSET-REVI
 
 ---
 
-*Submitted by: Chief Marketing Officer, Strateon*
+*Submitted by: Chief Marketing Officer, Qiyadon*
 *2026-04-26*

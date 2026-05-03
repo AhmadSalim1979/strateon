@@ -2,7 +2,7 @@
 **From:** CMO
 **To:** The Board
 **Date:** 2026-04-26
-**Purpose:** Exact prompt instructions for AI image generation tools (DALL-E, Flux, Midjourney, Leonardo, NanoBanana, or equivalent) to generate the Strateon logo.
+**Purpose:** Exact prompt instructions for AI image generation tools (DALL-E, Flux, Midjourney, Leonardo, NanoBanana, or equivalent) to generate the Qiyadon logo.
 
 ---
 
@@ -21,7 +21,7 @@ Before generating, understand what the logo must communicate:
 
 ### The Problem with Generic Tech Logos
 
-90% of B2B SaaS logos use the same blue gradient. It says nothing except "we are a software company." Strateon must stand apart — immediately — through its visual identity.
+90% of B2B SaaS logos use the same blue gradient. It says nothing except "we are a software company." Qiyadon must stand apart — immediately — through its visual identity.
 
 ### Chosen Palette
 
@@ -99,7 +99,7 @@ Do NOT use: humanoid robots, brains, lightbulbs, neural network diagrams, "AI" t
 - All-lowercase — too startup, not enough authority
 - Letter-spacing that is too loose — loses the institutional weight
 
-**Capitalization:** Title Case: "Strateon" — not "STRATEON" (all caps is shouting), not "strateon" (lowercase is too casual)
+**Capitalization:** Title Case: "Qiyadon" — not "STRATEON" (all caps is shouting), not "strateon" (lowercase is too casual)
 
 ---
 
@@ -125,7 +125,7 @@ Do NOT use: humanoid robots, brains, lightbulbs, neural network diagrams, "AI" t
  [Tagline]
 ```
 
-### Icon Design — The Strateon Mark
+### Icon Design — The Qiyadon Mark
 
 **Concept:** A geometric abstraction of both a pipeline (flow, convergence) and AI (nodes, connections).
 
@@ -167,7 +167,7 @@ Do NOT use: humanoid robots, brains, lightbulbs, neural network diagrams, "AI" t
 - 3 nodes visible (not 6 — at small sizes, fewer is clearer)
 - One converging line
 - In single-color: use Deep Slate Navy (#0F172A) ONLY
-- The icon must be recognizable as "Strateon" even without the wordmark
+- The icon must be recognizable as "Qiyadon" even without the wordmark
 
 **Do NOT include:**
 - Text at any size below 64x64px
@@ -197,7 +197,7 @@ Copy and paste this prompt into DALL-E, Flux, Midjourney, Leonardo, or equivalen
 ### PROMPT (Primary Logo):
 
 ```
-Design a professional B2B brand logo for "Strateon" — an AI-led pipeline execution company.
+Design a professional B2B brand logo for "Qiyadon" — an AI-led pipeline execution company.
 
 LOGO COMPOSITION:
 Left side: Geometric icon mark. Right side: Wordmark "STRATEON" in bold geometric sans-serif.
@@ -214,7 +214,7 @@ COLOR PALETTE:
 
 TYPOGRAPHY:
 - "STRATEON" in bold geometric sans-serif (like Inter Bold or DM Sans Bold)
-- All caps NOT allowed — Title case: "Strateon"
+- All caps NOT allowed — Title case: "Qiyadon"
 - Letter-spacing: tight (-0.02em)
 - The wordmark should feel institutional and authoritative, not playful
 
@@ -234,7 +234,7 @@ ASPECT RATIO: Wide format for horizontal layout (icon left, wordmark right)
 ### PROMPT (Icon-Only Version):
 
 ```
-Design a standalone geometric icon logo for a company called Strateon. This icon must work at very small sizes (32x32px) as a favicon or app icon.
+Design a standalone geometric icon logo for a company called Qiyadon. This icon must work at very small sizes (32x32px) as a favicon or app icon.
 
 ICON SPECIFICATION:
 A flat minimal geometric icon: an angular hexagon shape containing 3 small circles (nodes) connected by thin lines in a converging pattern. One line extends beyond the hexagon to the right, suggesting flow and direction. 
@@ -256,10 +256,10 @@ ASPECT RATIO: Square format (1:1)
 ### PROMPT (Monochrome Wordmark + Icon — Reverse):
 
 ```
-Design a professional monochrome brand logo for Strateon, in reverse (white on dark).
+Design a professional monochrome brand logo for Qiyadon, in reverse (white on dark).
 
 ICON: Geometric hexagon with connected nodes (3-4 circles linked by lines, converging and extending right). 
-WORDMARK: "Strateon" in bold geometric sans-serif, Title case, tight letter-spacing.
+WORDMARK: "Qiyadon" in bold geometric sans-serif, Title case, tight letter-spacing.
 
 COLOR TREATMENT: Entire logo (icon + wordmark) in pure white (#FFFFFF) on a transparent background. No navy, no teal, no accent colors. This is a single-color reverse logo for use on dark backgrounds.
 
@@ -293,7 +293,7 @@ If the first generation doesn't match the brief, here is what to request in subs
 
 ## FINAL PRODUCTION NOTE
 
-AI image generation is excellent for exploring directions quickly and finding an initial concept that resonates. However, the final Strateon logo — for use across all brand materials — should be refined by a professional graphic designer or produced as vector art in Figma, Illustrator, or Affinity.
+AI image generation is excellent for exploring directions quickly and finding an initial concept that resonates. However, the final Qiyadon logo — for use across all brand materials — should be refined by a professional graphic designer or produced as vector art in Figma, Illustrator, or Affinity.
 
 The prompts above will yield a strong starting concept. The designer then cleans up the geometry, perfects the letterforms, and produces the production-ready SVG and PNG files in all required formats and sizes.
 
@@ -309,5 +309,5 @@ The prompts above will yield a strong starting concept. The designer then cleans
 ---
 
 **End of Logo Generation Prompt**
-**CMO — Strateon**
+**CMO — Qiyadon**
 **2026-04-26**

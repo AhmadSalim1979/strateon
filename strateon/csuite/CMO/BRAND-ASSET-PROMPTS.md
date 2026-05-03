@@ -1,4 +1,4 @@
-# Strateon — Visual Brand Asset Prompts
+# Qiyadon — Visual Brand Asset Prompts
 **Prepared by:** CMO (AI Subagent)
 **Date:** 2026-04-26
 **Version:** 1.0 — Board Review Draft
@@ -78,7 +78,7 @@ Output as a square PNG at 1024x1024 resolution for app store submission.
 ### NanoBanana (Flux) Prompt
 
 ```
-Minimalist app icon for a tech company called Strateon. Geometric hexagon 
+Minimalist app icon for a tech company called Qiyadon. Geometric hexagon 
 outline (6 sides), no fill, stroke color #0B1F3A deep navy, stroke weight 
 4px. Inside the hexagon, three horizontal parallel lines in #00C2CB 
 electric teal cutting through — symbolizing AI pipeline data flow. Pure 
@@ -142,7 +142,7 @@ ultra-wide perspective. 16:9 horizontal format. Premium B2B tech aesthetic.
 
 ```
 LinkedIn profile banner for Moosa Salim, representing a B2B AI automation 
-company called Strateon. Left 60% of the banner: a dark #0B1F3A (deep navy) 
+company called Qiyadon. Left 60% of the banner: a dark #0B1F3A (deep navy) 
 background featuring a subtle abstract network of fine #00C2CB (electric 
 teal) lines connecting small luminous nodes — symbolizing orchestrated AI 
 pipelines. Right 40%: transitions to a #F4F7FA (cloud white) gradient. 
@@ -176,7 +176,7 @@ design. 4:1 horizontal banner format (1500x500px).
 
 **Purpose:** Moosa Salim's LinkedIn profile picture area — abstract brand mark
 **Dimensions:** 800×800 px (high-res), 400×400 px (display), circular crop applied by platform
-**Approach:** Abstract brand mark — NOT a literal headshot. Communicates Strateon's identity at a glance.
+**Approach:** Abstract brand mark — NOT a literal headshot. Communicates Qiyadon's identity at a glance.
 
 ### ChatGPT (DALL-E) Prompt
 
@@ -264,7 +264,7 @@ Portrait 3:4 format. Premium B2B tech aesthetic.
 
 ```
 Minimalist horizontal brand strip for email signature. 
-Left: Strateon "S" hexagon icon (from brand mark) in #00C2CB on white. 
+Left: Qiyadon "S" hexagon icon (from brand mark) in #00C2CB on white. 
 Center: Company name "STRATEON" in #0B1F3A, bold sans-serif. 
 Right: Tagline "AI Pipeline Execution" in #6B7C93. 
 White background. Flat, no effects. Clean dividers between sections. 
@@ -277,7 +277,7 @@ White background. Flat, no effects. Clean dividers between sections.
 **Tone:** Authoritative, memorable, sets the premium tone immediately
 
 ```
-Pitch deck cover slide for Strateon, a B2B AI automation company. 
+Pitch deck cover slide for Qiyadon, a B2B AI automation company. 
 Full-bleed dark navy (#0B1F3A) background. Center: large "STRATEON" 
 wordmark in bold geometric sans-serif, white (#FFFFFF). Below, tagline 
 "AI Pipeline Execution" in electric teal (#00C2CB). Below tagline: 
@@ -295,7 +295,7 @@ at presentation scale. Minimalist, premium, confident. 16:9 format.
 **Tone:** Bold, shareable, brand-forward
 
 ```
-Bold launch announcement graphic for Strateon AI company. 
+Bold launch announcement graphic for Qiyadon AI company. 
 Dark navy (#0B1F3A) background, full bleed. Center: large "STRATEON" 
 in white (#FFFFFF) bold geometric sans-serif, slightly letter-spaced. 
 Below: "NOW LIVE" in electric teal (#00C2CB), all caps, tight tracking. 
@@ -304,7 +304,7 @@ Accent: three small horizontal gold (#F5A623) lines beneath "NOW LIVE"
 Bottom-right corner: tiny hexagon icon mark in #00C2CB. 
 No photos of people, no stock images, no emoji, no gradients, no shadows. 
 Flat, ultra-clean, bold contrast. Square 1080x1080 format. 
-Shareable, brand-forward, instantly legible as Strateon.
+Shareable, brand-forward, instantly legible as Qiyadon.
 ```
 
 ### 7D. PRODUCT APP SCREENSHOT MOCKUP (Hero Shot)
@@ -354,4 +354,4 @@ Premium, aspirational, "this is the tool you want" aesthetic.
 
 ---
 
-*Prepared by: AI CMO Subagent for Strateon Board | 2026-04-26*
+*Prepared by: AI CMO Subagent for Qiyadon Board | 2026-04-26*

@@ -8,8 +8,8 @@
 
 > **⚠️ IMPORTANT — Fields marked [VERIFY] MUST be confirmed with Ahmad before use.**
 > 
-> This template uses Qiyadon details. The original Strateon template has been adapted:
-> - Company name changed from Strateon to **Qiyadon**
+> This template uses Qiyadon details. The original Qiyadon template has been adapted:
+> - Company name changed from Qiyadon to **Qiyadon**
 > - Email/website updated to qiyadon.com
 > - Contact updated to Ahmad Salim
 > - All placeholder values filled with realistic defaults, clearly marked [VERIFY]

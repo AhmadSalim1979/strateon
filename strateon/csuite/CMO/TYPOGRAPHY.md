@@ -8,7 +8,7 @@
 
 ## 📋 OVERVIEW
 
-Strateon's typography is built entirely on **Inter** — a variable font from Google Fonts. No other typeface is approved for brand use without explicit CMO sign-off.
+Qiyadon's typography is built entirely on **Inter** — a variable font from Google Fonts. No other typeface is approved for brand use without explicit CMO sign-off.
 
 **Why Inter?**  
 Clean, highly legible, professional, and available in a variable font format that allows precise weight control. It is the standard for modern SaaS and fintech brands.

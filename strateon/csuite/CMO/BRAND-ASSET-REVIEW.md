@@ -180,7 +180,7 @@
 
 **What doesn't:**
 - At icon/favicon scale, the teal node network detail may be illegible — favicons render at 16×16, 32×32. The visual complexity of the node network may not survive down-scaling
-- For a favicon, the Strateon "S" mark should be the dominant element at tiny sizes — verify the node network doesn't become visual noise
+- For a favicon, the Qiyadon "S" mark should be the dominant element at tiny sizes — verify the node network doesn't become visual noise
 
 **CMO FILTER:**
 - ✅ Accurate to brand colors (navy `#0B1F3A`, teal `#00C2CB`, slate `#6B7C93`)
@@ -302,5 +302,5 @@ There is an outstanding question about the correct brand mark: **hexagonal "S" w
 
 ---
 
-*Submitted by: CMO, Strateon*
+*Submitted by: CMO, Qiyadon*
 *For board awareness — no additional external distribution without CMO sign-off*

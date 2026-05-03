@@ -1,4 +1,4 @@
-# Strateon — Pricing Lock Decision
+# Qiyadon — Pricing Lock Decision
 
 **Owner:** CFO  
 **Date raised:** 2026-04-29  
@@ -30,7 +30,7 @@
 **Starter ($300):**  
 - 50 leads, weekly report, WhatsApp follow-up
 - vs. Human SDR: $4,000–$14,000/month → **13–47x cheaper**
-- vs. AI SDR tools: $300–$800/month → competitive, but Strateon is a managed service (we do the work)
+- vs. AI SDR tools: $300–$800/month → competitive, but Qiyadon is a managed service (we do the work)
 
 **Growth ($750):**  
 - 200 leads, daily tracking, priority response
@@ -41,7 +41,7 @@
 **Scale ($1,500+):**  
 - Unlimited leads, dedicated escalation, monthly strategy call
 - Custom quotes allow flexibility for enterprise-adjacent clients
-- Positions Strateon above pure SMB commodity
+- Positions Qiyadon above pure SMB commodity
 
 **Overall positioning:**
 - 6–47x cheaper than a human SDR

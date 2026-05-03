@@ -1,4 +1,4 @@
-# WEBSITE REVISED COPY — Strateon
+# WEBSITE REVISED COPY — Qiyadon
 ## CMO Revision | Full Rewrite Guide
 ### Based on: https://strateon.netlify.app | Date: 2026-04-27
 
@@ -13,10 +13,10 @@
 ### ============================================================
 
 **CURRENT HEADLINE:**
-Strateon — Done-for-you AI-Powered Pipeline Follow-Up for Founder-Led SMBs
+Qiyadon — Done-for-you AI-Powered Pipeline Follow-Up for Founder-Led SMBs
 
 **REVISED HEADLINE:**
-Strateon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs
+Qiyadon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs
 
 **CURRENT SUBHEADLINE:**
 We handle the follow-up so you can close the deals. Persistent, accountable lead follow-up — daily, including weekends. Weekly pipeline reports. No bandwidth limits.
@@ -89,7 +89,7 @@ No human can be relentless across every lead, every day, forever. That's why we 
 
 **REVISED CLOSING LINE IN PAIN SECTION:**
 You're not the problem. Your system is.
-No founder can be relentless across every lead, every day, while also doing their real job: closing deals. That's why we built Strateon — to handle the follow-up that used to fall through the cracks.
+No founder can be relentless across every lead, every day, while also doing their real job: closing deals. That's why we built Qiyadon — to handle the follow-up that used to fall through the cracks.
 
 ---
 
@@ -300,10 +300,10 @@ All plans include CRM integration, daily follow-up, and weekly reporting. Annual
 ---
 
 **SECTION HEADER:**
-Is Strateon Right for You?
+Is Qiyadon Right for You?
 
 **SECTION INTRO:**
-Strateon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.
+Qiyadon is built for founder-led SMBs who have a live pipeline and need someone to relentlessly follow up on it. If that sounds like you, keep reading.
 
 ---
 
@@ -404,12 +404,12 @@ Every Friday. Every lead. No exceptions. If something slipped through, it shows 
 ### ============================================================
 ### NEW SECTION: FIRST 7 DAYS WITH STRATEON
 ### ============================================================
-**PLACE THIS SECTION: After "Is Strateon Right for You?" and before the Pricing section**
+**PLACE THIS SECTION: After "Is Qiyadon Right for You?" and before the Pricing section**
 
 ---
 
 **SECTION HEADER:**
-Your First 7 Days with Strateon
+Your First 7 Days with Qiyadon
 
 **SECTION SUBHEAD:**
 No black box. No guessing. Here's exactly what happens after you sign up.
@@ -432,7 +432,7 @@ We draft your first follow-up sequences. Every email, every cadence, every escal
 ---
 
 **DAY 4–5 — FIRST LEADS CONTACTED**
-Your live leads get their first Strateon touchpoint. Inbound leads are contacted within your response window. Dormant leads start their reactivation sequence. You get a real-time log of everything that goes out.
+Your live leads get their first Qiyadon touchpoint. Inbound leads are contacted within your response window. Dormant leads start their reactivation sequence. You get a real-time log of everything that goes out.
 
 ---
 
@@ -455,10 +455,10 @@ Built for Accountability, Not Just Automation
 Built for Accountability, Not Just Automation
 
 **CURRENT SUBHEAD:**
-Strateon is run by an AI CEO with a human Board — a structure designed to make sure someone is always accountable for your pipeline results.
+Qiyadon is run by an AI CEO with a human Board — a structure designed to make sure someone is always accountable for your pipeline results.
 
 **REVISED SUBHEAD:**
-Your follow-up is handled by Strateon's AI execution system, supervised by a human Board for quality, accountability, and governance.
+Your follow-up is handled by Qiyadon's AI execution system, supervised by a human Board for quality, accountability, and governance.
 
 ---
 
@@ -516,12 +516,12 @@ We operate inside your CRM, follow your outreach guidelines, and treat your pipe
 
 ---
 
-**Q: How does Strateon actually work?**
+**Q: How does Qiyadon actually work?**
 **CURRENT:**
-The AI CEO of Strateon executes your pipeline. Not a bot. Not a contractor. An AI that was built to lead, held accountable by a human Board, with a vested interest in your pipeline's success — because our reputation is the proof of AI leadership.
+The AI CEO of Qiyadon executes your pipeline. Not a bot. Not a contractor. An AI that was built to lead, held accountable by a human Board, with a vested interest in your pipeline's success — because our reputation is the proof of AI leadership.
 
 **REVISED:**
-Your follow-up is handled by Strateon's AI execution system, supervised by a human Board for quality, accountability, and governance. We slot into your CRM, learn your pipeline, and execute your follow-up sequences — daily, configured to your market and preferred business hours. You focus on closing. We handle the rest.
+Your follow-up is handled by Qiyadon's AI execution system, supervised by a human Board for quality, accountability, and governance. We slot into your CRM, learn your pipeline, and execute your follow-up sequences — daily, configured to your market and preferred business hours. You focus on closing. We handle the rest.
 
 ---
 
@@ -635,8 +635,8 @@ Change to "Book a Free Pipeline Leak Audit"
 ### ============================================================
 
 **Page Title:**
-**Current:** Strateon — Done-for-you AI-Powered Pipeline Follow-Up for Founder-Led SMBs
-**Revised:** Strateon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs
+**Current:** Qiyadon — Done-for-you AI-Powered Pipeline Follow-Up for Founder-Led SMBs
+**Revised:** Qiyadon — Done-for-You Pipeline Follow-Up for Founder-Led SMBs
 
 **Meta Description:**
 **Current:** Persistent, accountable lead follow-up — daily, including weekends. Weekly pipeline reports. Built for IT services, MSPs, SaaS, and professional services.
@@ -651,11 +651,11 @@ Change to "Book a Free Pipeline Leak Audit"
 1. ✅ PRIMARY CTA — All instances changed to "Book a Free Pipeline Leak Audit"
 2. ✅ "AI CEO" framing moved to About section; hero leads with customer outcomes
 3. ✅ NEW SECTION: "See What You Get Every Friday" (sample weekly report) — after Pricing
-4. ✅ NEW SECTION: "Your First 7 Days with Strateon" onboarding timeline — before Pricing
+4. ✅ NEW SECTION: "Your First 7 Days with Qiyadon" onboarding timeline — before Pricing
 5. ✅ NEW SECTION: Trust & Compliance — before final CTA
 6. ✅ Statistical claims softened — 70-80% stat removed, 21x removed
 7. ✅ Pricing fixed: Starter $300 / Growth $600 / Scale $900+ (Custom)
-8. ✅ NEW SECTION: "Is Strateon Right for You?" (Who This Is For / Not For) — before Pricing
+8. ✅ NEW SECTION: "Is Qiyadon Right for You?" (Who This Is For / Not For) — before Pricing
 9. ✅ "Founder-led" language added throughout hero, pain, steps, FAQ, CTA
 10. ✅ "Daily, including weekends" → "Follow-up cadence configured to your market, lead type, and preferred business hours"
 11. ✅ Pricing subhead added: "All plans include CRM integration, daily follow-up, and weekly reporting. Volume pricing available."

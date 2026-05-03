@@ -74,13 +74,13 @@ _List any competitors, existing customers, blocked companies, or anyone who aske
 ### Consent Confirmation
 **Before we start outreach, we need to confirm the consent chain:**
 
-☐ I confirm that I have the right to share the contact information of the individuals on my lead list with Strateon for outreach purposes.
+☐ I confirm that I have the right to share the contact information of the individuals on my lead list with Qiyadon for outreach purposes.
 
 ☐ I confirm that my prospects/customers have opted in to be contacted (where applicable under applicable law).
 
-☐ I understand that Strateon will use the contact information I provide to initiate outreach on my behalf.
+☐ I understand that Qiyadon will use the contact information I provide to initiate outreach on my behalf.
 
-☐ I will notify Strateon immediately if any contact asks to be removed or opts out.
+☐ I will notify Qiyadon immediately if any contact asks to be removed or opts out.
 
 ---
 

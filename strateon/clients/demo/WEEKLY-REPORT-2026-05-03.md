@@ -1,6 +1,6 @@
 # 📊 PIPELINE REPORT — CloudSync Pro
 **Week of April 27 → May 3, 2026**
-**Prepared by:** Strateon — COO
+**Prepared by:** Qiyadon — COO
 **Report Date:** Sunday, May 3, 2026
 **Period:** Mon Apr 27 – Fri May 2, 2026
 
@@ -151,5 +151,5 @@ Solid week. Pipeline velocity picked up meaningfully — we hit a 32% response r
 
 ---
 
-*Delivered by Strateon COO — every Friday. If anything needs immediate attention, message us on WhatsApp.*
+*Delivered by Qiyadon COO — every Friday. If anything needs immediate attention, message us on WhatsApp.*
 *Next report: Friday, May 9, 2026*

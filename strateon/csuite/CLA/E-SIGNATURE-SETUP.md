@@ -1,4 +1,4 @@
-# E-Signature Setup for Strateon / Qiyadon
+# E-Signature Setup for Qiyadon / Qiyadon
 
 **Status:** IMPLEMENTED
 **Date:** 2026-05-01
@@ -92,13 +92,13 @@ CLA drafts agreement
        ↓
 Uploads to Dropbox Sign portal
        ↓
-Sets signing order (Strateon first, then client)
+Sets signing order (Qiyadon first, then client)
        ↓
 Client receives email with secure link (no account needed)
        ↓
 Client clicks link → reviews agreement → signs in browser
        ↓
-Strateon receives signed copy automatically
+Qiyadon receives signed copy automatically
        ↓
 Signed PDF stored / sent to client
 ```
@@ -141,7 +141,7 @@ Signed PDF stored / sent to client
 
 **Step 3: For Recurring Use**
 1. Save each agreement as a template in Dropbox Sign
-2. Name them: "Strateon Trial Agreement", "Strateon CSA"
+2. Name them: "Qiyadon Trial Agreement", "Qiyadon CSA"
 3. Use merge fields for client name/date
 4. Next client: open template → fill name → send → done
 
