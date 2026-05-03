@@ -52,11 +52,23 @@
 **Timeline:** Monthly
 **Status:** NOT STARTED — first review in 30 days
 
+### Objective 2.3 — Daily LinkedIn Post for Ahmad (STANDING TASK)
+**Goal:** 2
+**Task:** Every day, CMO provides Ahmad with one LinkedIn post + visual concept. Before preparing, CMO reads the full archive at `strateon/csuite/CMO/LINKEDIN-POSTS/` to avoid repetition. After delivering the post, CMO immediately saves it to the same folder as `POST-NNN.md` (next sequential number) with heading and one-line description. Archive is permanent — posts are never deleted.
+**Timeline:** Daily, every morning
+**Status:** ACTIVE — process defined, archive seeded with 5 posts (POST-001 through POST-005)
+
+### Objective 2.4 — LinkedIn Posts Archive Maintained
+**Goal:** 2
+**Task:** `strateon/csuite/CMO/LINKEDIN-POSTS/` is the single source of truth for all LinkedIn posts. Every post ever used is saved here with its heading and one-line description. CMO adds new posts here immediately after delivery, never loses track of what was already used.
+**Timeline:** Ongoing — after every post delivery
+**Status:** ACTIVE
+
 ### Objective 3.1 — First 5 LinkedIn Posts Drafted
 **Goal:** 3
 **Task:** CMO drafts 5 posts for Moosa Salim. Each post: 150–300 words, data-grounded, reflects Mission. Board approves before publishing.
 **Timeline:** Within 14 days
-**Status:** NOT STARTED
+**Status:** DONE — 5 posts delivered by Ahmad and archived as POST-001 through POST-005
 
 ---
 
