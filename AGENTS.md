@@ -407,8 +407,8 @@ ATTEMPT 3 (final attempt): One more try with adjusted strategy
     a. Log: "ATTEMPT 3 FAILED: [task]"
     b. IMMEDIATELY attempt the task PERSONALLY in this session (no sub-agent)
     c. If I also cannot complete it: analyze the root cause, determine the fix, execute as CEO
-    d. Cost = none to low-medium, risk = none to low-medium → I decide and execute without informing Ahmad
-    e. If the fix requires cost > low-medium or risk > medium → then I inform Ahmad with the specific ask
+    d. Cost = None to low-medium (token cost not considered unless forecasted to exceed $3.00), risk = none to low-medium → I decide and execute without informing Ahmad
+    e. If the fix requires cost > low-medium OR risk > medium → then I inform Ahmad with the specific ask
 
 After 3 timeouts on the same task, I treat it as a system-level failure, not an execution accident. I own the resolution end-to-end.
 ```
