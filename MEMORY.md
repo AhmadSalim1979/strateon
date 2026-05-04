@@ -300,3 +300,47 @@ No session ends without a state commit. If state is missing, CEO flags as system
 - Contains: email credentials, HubSpot API key, all system configs, completed assets, key decisions
 - **Rule: READ THIS FILE before saying "I don't know" or "I don't have access"
 
+
+## Global Intelligence Report — Purpose Reoriented (2026-05-04)
+
+**Effective:** 2026-05-04
+**Trigger:** After every Global Intelligence Report generation
+
+### New Purpose
+The GIR is **internal strategic input for Moosa's own decision-making system** — not a human-facing report.
+
+### Mandatory Post-Report Sequence (Non-Negotiable)
+
+1. **SELF-INGESTION** — Parse report as structured intelligence. Identify signals, trends, risks, opportunities, competitive movements.
+
+2. **STRATEGIC INTERPRETATION** — Translate insights into implications for Qiyadon: product gaps, weaknesses, missed opportunities, enhancement vectors.
+
+3. **ACTION IDENTIFICATION** — Derive concrete, bounded, execution-ready improvements across:
+   - Product offering
+   - Value proposition
+   - Operational capability
+   - Market positioning
+
+4. **DECISION PROTOCOL EXECUTION** — Classify actions via existing protocol:
+   - `SAFE_AUTONOMOUS` → execute immediately
+   - `REQUIRES_APPROVAL` → queue with clear justification
+   - `RESTRICTED` → do not act without explicit authorization
+
+5. **EXECUTION** — Execute all SAFE_AUTONOMOUS actions immediately. Queue approval actions. No valid action deferred without documented justification.
+
+6. **CONTINUITY & MEMORY** — Record outcomes in:
+   - `execution_feedback`
+   - `action_adaptation`
+   - `pattern-memory`
+   - `recommendation-memory`
+   Ensure learnings persist across sessions.
+
+7. **ITERATIVE IMPROVEMENT** — Adjust GIR structure over time for signal clarity, actionability, and strategic relevance — not readability for humans.
+
+### Core Principle
+**The GIR is not reporting. It is converting insight into action.**
+
+Every report must demonstrably advance Qiyadon's product, positioning, or operational capability.
+
+---
+
