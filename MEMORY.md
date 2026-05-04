@@ -344,3 +344,21 @@ Every report must demonstrably advance Qiyadon's product, positioning, or operat
 
 ---
 
+
+---
+
+## Decision Protocol — Authoritative Document
+
+**Location:** `/strateon/DECISION-PROTOCOL.md`
+
+The complete Decision Protocol (v1.0, effective 2026-05-04) is stored at the path above. It covers:
+
+- **Layer 1:** CEO Decision Rule — what the CEO can decide autonomously
+- **Layer 2:** Approval Requirements — how the decision engine classifies proposed actions
+- **Layer 3:** Post-GIR Action Classification — how GIR-generated actions are executed
+- **Decision Matrix:** All risk levels (1–5), cost dimensions (Internal/External), and authority mapping
+- **Consent Models:** Negative consent vs positive consent explained
+
+This MEMORY.md section points to the authoritative document. All decision-making must reference `/strateon/DECISION-PROTOCOL.md` — do not rely on stale memory of rules stated in prior sessions.
+
+**Protocol is LOCKED. Any changes require explicit Board approval.**
