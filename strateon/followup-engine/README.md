@@ -98,15 +98,41 @@ cat /home/node/.openclaw/workspace/strateon/followup-engine/logs/2026-05-03.log
 
 ---
 
+## Response Webhook
+
+Built 2026-05-04. Endpoint: `response-webhook.js`
+
+When a lead replies to a follow-up email, this webhook marks them as alive:
+- **Route:** POST `/followup-response`
+- **Body:** `{ email: string, subject?: string, snippet?: string }`
+- **Behavior:** Looks up contact in HubSpot by email, sets `strtn_response_received: yes`
+- **Logs:** All events to `logs/{date}-webhook.log`
+- **Health:** GET `/health`
+
+```bash
+# Run standalone
+node response-webhook.js
+
+# Or add to PM2 (runs on port 3002)
+pm2 start response-webhook.js --watch
+```
+
+**Integration:** Email provider → POST to `https://{server}/followup-response` → HubSpot updated → engine skips future cadence steps for that contact.
+
+---
+
 ## TODO Before Production
 
-- [ ] Create HubSpot custom properties (strtn_*)
+- [x] Follow-Up Engine built (followup-engine.js)
+- [x] Response Webhook built (response-webhook.js)
+- [ ] Create HubSpot custom properties (strtn_*) — Ahmad must create in HubSpot dashboard
+- [ ] Deploy response-webhook.js to live server (needs CTO)
+- [ ] Configure email provider to POST to /followup-response on reply
 - [ ] Test email delivery with real SMTP
-- [ ] Build response webhook endpoint (POST /followup-response) to mark strtn_response_received=yes
+- [ ] Test with a single contact — set strtn_followup_cadence_day: 0, run engine, verify email sent
 - [ ] Add client-level cadence overrides (per-client cadence in a CLIENT_CADENCES map)
 - [ ] Escalation notification: email client owner when strtn_escalated=yes
 - [ ] Add to PM2 startup list: `pm2 save`
-- [ ] Add to strateon-site ecosystem config as separate process
 
 ---
 
