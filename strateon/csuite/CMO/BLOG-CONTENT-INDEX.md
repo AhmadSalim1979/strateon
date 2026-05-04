@@ -4,7 +4,8 @@
 
 | Date | Platform | Title | One-line description | Status |
 |---|---|---|---|---|
-| 2026-05-04 | LinkedIn+Medium | The Pipeline Problem Is an Accountability Problem | Why deals stall — and why the answer isn't more tools, it's clearer ownership | Draft |
+| 2026-05-04 | LinkedIn Articles | The Pipeline Problem Is an Accountability Problem | B2B pipeline stalls because of accountability gap, not product/price | Published |
+| 2026-05-04 | Medium | The Pipeline Problem Is an Accountability Problem | Deeper dive — 40-person SaaS case study, first-person narrative | Published |
 
 ---
 ## Platform Guidelines
