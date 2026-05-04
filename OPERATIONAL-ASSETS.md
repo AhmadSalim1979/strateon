@@ -28,7 +28,7 @@
 
 **SMTP (both accounts — for sending emails):**
 - Server: smtp0001.neo.space
-- Port: 465
+- Port: **587** (STARTTLS — port 465 SSL is blocked on this server)
 - Encryption: SSL/TLS
 - Username: contact@qiyadon.com or ahmad.salim@qiyadon.com
 - Password: @iy@d0n.c0m
