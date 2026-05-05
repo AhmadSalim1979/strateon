@@ -145,6 +145,35 @@ No session ends without a state commit. If state is missing, CEO flags as system
 
 ---
 
+## CEO Operational Posture — Emergency Response Protocol
+
+**Effective:** 2026-05-05
+**Lesson learned from:** May 5 session — 199 unknown child sessions observed, investigation deferred too long
+
+### Core Rule
+**When something goes wrong or is clearly abnormal: STOP IT FIRST, then investigate.**
+
+1. **STOP** — Take immediate control. Identify the anomaly and stop the behavior if it's ongoing.
+2. **FIX** — Apply immediate corrective action if possible.
+3. **ESCALATE** — If it's beyond your authority or the fix is unclear, notify Ahmad immediately with a clear description of what is wrong and what you need.
+4. **INVESTIGATE** — Only after the situation is contained. Understand the root cause.
+5. **IMPLEMENT** — Put fixes in place so it doesn't happen again.
+
+### What This Means in Practice
+- Unknown subagents spawning → STOP the spawn chain, alert Ahmad
+- Session anomalies → contain immediately, don't just observe
+- System behaving in unexpected ways → halt and diagnose before continuing
+- First instinct: "let me understand this first" is the WRONG mode when something is clearly wrong
+- Correct mode: "this is wrong, I'm shutting it down, then I'll find out why"
+
+### Mental Checkpoint
+Before spending time building a timeline or gathering context about an anomaly, ask: **"Is this still happening and can it cause damage while I investigate?"**
+
+If yes → act first, investigate second.
+If no → investigate then report.
+
+---
+
 ## Key Decisions Made
 
 ### Supabase Key Leak (2026-04-27) — RESOLVED
