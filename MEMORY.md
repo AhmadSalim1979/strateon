@@ -174,6 +174,29 @@ If no → investigate then report.
 
 ---
 
+## C-Suite Spawn Config — CRITICAL RULE
+
+**Effective:** 2026-05-05
+
+**Never use `agentId` in `sessions_spawn` calls for C-suite roles.**
+
+`agentId` is only valid for agents explicitly defined in `openclaw.json` → `agents.list`. Currently only `main` and `musa-support` are allowed. C-suite role names like `strateon-cto`, `strateon-cfo`, `strateon-cla`, etc. are NOT in the allowed list — using them causes spawn failures.
+
+**Correct spawn pattern:**
+```javascript
+sessions_spawn({
+  runtime: 'isolated',
+  mode: 'run',
+  runTimeoutSeconds: 600,
+  // NO agentId field
+  task: '...'
+})
+```
+
+**This applies to:** All C-suite cron spawn jobs (CTO, CFO, COO, CMO, CPO, CEO, CLA), any ad-hoc C-suite spawns, any future spawn configuration.
+
+---
+
 ## Key Decisions Made
 
 ### Supabase Key Leak (2026-04-27) — RESOLVED
