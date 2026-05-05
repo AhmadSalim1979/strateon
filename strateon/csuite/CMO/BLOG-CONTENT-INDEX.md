@@ -6,6 +6,7 @@
 |---|---|---|---|---|
 | 2026-05-04 | LinkedIn Articles | The Pipeline Problem Is an Accountability Problem | B2B pipeline stalls because of accountability gap, not product/price | Published |
 | 2026-05-04 | Medium | The Pipeline Problem Is an Accountability Problem | Deeper dive — 40-person SaaS case study, first-person narrative | Published |
+| 2026-05-05 | Substack | The silent deal killer isn't your product | 48% of reps never make a second follow-up; 80% of B2B deals need 5+ touches | Published |
 
 ---
 ## Platform Guidelines
