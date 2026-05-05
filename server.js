@@ -178,7 +178,7 @@ transporter.sendMail({
         from: `Qiyadon Agreements <${creds.user}>`,
         to: data.email,
         subject: `✓ Agreement Signed — ${typeLabel}`,
-        text: `Dear ${data.name},\n\nThis email confirms that you have successfully signed the ${typeLabel} on behalf of ${data.company}.\n\nSignatory: ${data.name}\nCompany: ${data.company}\nSigned at: ${new Date(data.agreedAt).toUTCString()}\nAgreement version: ${data.agreementVersion}\n\nThis electronic signature is legally binding under the ESIGN Act (15 U.S.C. § 7001), UETA, and Delaware law.\n\nRecord ID: ${id}\n\n— Qiyadon / Strateon`,
+        text: `Dear ${data.name},\n\nThis email confirms that you have successfully signed the ${typeLabel} on behalf of ${data.company}.\n\nSignatory: ${data.name}\nCompany: ${data.company}\nSigned at: ${new Date(data.agreedAt).toUTCString()}\nAgreement version: ${data.agreementVersion}\n\nThis electronic signature is legally binding under the ESIGN Act (15 U.S.C. § 7001), UETA, and Delaware law.\n\nRecord ID: ${id}\n\n— Qiyadon / Qiyadon`,
         html: buildSignatureEmailHtml({...data, ip, agreementHash}),
         attachments: [{filename:'qiyadon-signature.jpg', content: Buffer.from(SIG_IMG_B64, 'base64'), cid: SIG_CID}]
       }, (err, info) => {
