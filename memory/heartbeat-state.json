@@ -4,10 +4,11 @@
     "calendar": null,
     "weather": null,
     "memory_write": "2026-05-05T05:06 UTC - memory/2026-05-05.md fully updated with morning C-suite runs + SoD report delivery",
-    "whatsapp": "2026-05-05T10:06 UTC - 499 RECONNECT LOOP (auth invalid, re-auth required)",
-    "openclaw_status": "2026-05-05T10:06 UTC - all 4 PM2 procs online (moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook)",
-    "git_status": "2026-05-05T02:36 UTC - backup committed a4d839b",
+    "whatsapp": "2026-05-05T10:36 UTC - CONNECTED (re-auth completed, inbound restored at 12:36 Berlin)",
+    "openclaw_status": "2026-05-05T10:06 UTC - all 4 PM2 procs online",
+    "git_status": "2026-05-05T10:06 UTC - 8e6203b heartbeat commit",
     "csuite_spawn": "2026-05-05T05:00 Berlin - 5/6 roles spawned (CMO/CTO/COO/CFO/CEO ✅, CLA ❌ spawn config)",
-    "sod_report": "2026-05-05T07:00 Berlin - FAILED (WhatsApp 499 loop, re-auth required)"
+    "sod_report": "2026-05-05T07:00 Berlin - FAILED (WhatsApp 499 loop), midday summary sent at 12:36 ✅",
+    "midday_alert": "2026-05-05T12:36 Berlin - WhatsApp restored, midday status delivered"
   }
 }
