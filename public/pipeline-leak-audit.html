@@ -886,19 +886,21 @@
     submitBtn.classList.add('loading');
 
     try {
-      const res = await fetch('/submit-audit', {
+      const res = await fetch('https://formspree.io/f/mpqbrano', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
       });
 
-      if (res.ok || res.status === 200) {
+      if (res.ok) {
+        const result = await res.json();
         confirmEmail.textContent = data.email;
         form.style.display = 'none';
         successState.style.display = 'block';
         lucide.createIcons();
-        // Scroll to top of card
         document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (res.status === 422) {
+        throw new Error('Invalid data. Please check your inputs.');
       } else {
         throw new Error('Server error: ' + res.status);
       }
