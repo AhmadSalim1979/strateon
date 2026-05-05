@@ -26,7 +26,19 @@
 **Goal:** 2
 **Task:** COO documents Day 1 → Day 7 → Day 30 onboarding workflow. Every step specified. Ready to execute for first client.
 **Timeline:** Before first client signs
-**Status:** IN PROGRESS — protocol designed, needs formal document
+**Status:** ✅ COMPLETE — ONBOARDING-PROTOCOL.md v1.0 finalized 2026-05-01; TRIAL-EXECUTION-CHECKLIST.md v1.0 complete; PIPELINE-EXECUTION-FLOW.md v1.0 complete
+
+### Objective 1.2 — Pipeline Tracking Per Client
+**Goal:** 1
+**Task:** For each client: `strateon/clients/{name}/pipeline.md` — all leads logged, scored, status tracked, next action set. Updated after every action.
+**Timeline:** Day 1 of first client onboarding
+**Status:** NOT STARTED — waiting for first client. Template built at `clients/_TEMPLATE/pipeline.md`
+
+### Objective 1.3 — Follow-Up Engine Configured
+**Goal:** 1
+**Task:** For each client: follow-up sequences configured (5–12 touches as appropriate), cadence set, stalled deal recovery triggers set
+**Timeline:** Day 1 of first client onboarding
+**Status:** NOT STARTED — waiting for first client. Pipeline Execution Flow defines 12-touch sequence. Ready to configure per client on Day 1.
 
 ### Objective 1.2 — Pipeline Tracking Per Client
 **Goal:** 1
@@ -56,7 +68,7 @@
 **Goal:** 1
 **Task:** COO runs one escalation simulation: what happens if a lead goes 14 days dark? What if a client threatens to leave? Protocol tested and confirmed.
 **Timeline:** Before first client onboarding
-**Status:** NOT STARTED
+**Status:** ✅ COMPLETE — Tested 2026-05-04 via tabletop exercise. 5 scenarios verified (Lead Dark, Client Threatens Leave, Delivery Failure, Guarantee Trigger, Legal/Jurisdictional). Protocol confirmed complete.
 
 ---
 
