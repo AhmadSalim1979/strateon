@@ -98,6 +98,17 @@
 
 ---
 
+## CLOUDFLARE API
+
+**Token:** `cfut_mtXoT2bBmFQX1iWyn6iNykQvGUbQGQXt9U1AcA3F23458adc`
+**Expires:** 2027-05-31
+**Reminder:** Set for 2027-04-30 — see `CTO Renewal Reminder` cron
+**Status:** Token verified active but has ZERO permissions — needs to be recreated with Cloudflare Pages + Account Edit permissions before use
+**Secret file:** `/home/node/.openclaw/secrets/cloudflare-api-token.json`
+**Reminder cron:** `CTO Renewal Reminder` — fires 2027-04-30
+
+---
+
 ## C-SUITE ACTIVE SESSION STATES
 
 - CTO: latest session at /strateon/csuite/CTO/SESSION-STATES/2026-04-29-001.md
