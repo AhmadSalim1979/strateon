@@ -129,6 +129,12 @@ function buildAuditEmail(d) {
   .cta-box p{font-size:14px;color:#171314;margin-bottom:16px}
   .cta-btn{display:inline-block;background:linear-gradient(135deg,#B11226,#E03131);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:999px;text-decoration:none}
   .footer{padding:16px 32px;border-top:1px solid #E5DEDA;font-size:12px;color:#6E6A68;text-align:center}
+  .sig{font-family:'Inter',Arial,sans-serif;font-size:12px;color:#171314;margin-top:24px;padding-top:16px;border-top:1px solid #E5DEDA}
+  .sig-logo{font-size:13px;font-weight:800;color:#B11226;letter-spacing:.05em}
+  .sig-brand{font-size:11px;color:#6E6A68;margin-top:4px}
+  .sig-contact{font-size:11px;color:#6E6A68;margin-top:2px}
+  .sig-tagline{font-size:11px;color:#B11226;margin-top:6px;font-style:italic}
+  .sig-divider{border:none;border-top:2px solid #B11226;width:40px;margin:12px 0}
   </style></head><body>
   <div class="card">
     <div class="header">
@@ -169,6 +175,13 @@ function buildAuditEmail(d) {
       </div>
     </div>
     <div class="footer">Qiyadon — No lead left behind.<br>contact@qiyadon.com</div>
+    <div class="footer sig" style="text-align:left;padding-left:32px">
+      <div class="sig-logo">◊ QIYADON ◊</div>
+      <div class="sig-brand">AUTONOMOUS LEADERSHIP INFRASTRUCTURE</div>
+      <hr class="sig-divider">
+      <div class="sig-tagline">ARCHITECTING SYSTEMS. EMPOWERING LEADERSHIP. BUILDING LEGACY.</div>
+      <div class="sig-contact">contact@qiyadon.com · www.qiyadon.com · Global</div>
+    </div>
   </div>
 </body></html>`;
 }
