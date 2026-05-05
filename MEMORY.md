@@ -174,6 +174,32 @@ If no → investigate then report.
 
 ---
 
+## CMO Content Rules — Truthfulness Non-Negotiable
+
+**Effective:** 2026-05-05
+
+### Voice Rules
+- **NEVER say:** "I spoke to", "I did this", "I found", "I discovered" (it is untrue — Moosa/Ahmad didn't personally do these things)
+- **ALWAYS say:** "We observed", "Our research led us to", "We discovered", "The data shows", "Our analysis found"
+
+### Factual Basis Required
+- Every post must be based on true research and actual numbers
+- No marketing fluff, no exaggerated claims, no misleading framing
+- If the data is negative or unfavorable — use it honestly. Truthfulness is non-negotiable even if it impacts Qiyadon negatively
+- Claims must be verifiable or clearly labeled as estimates/opinions
+
+### This Applies To
+- All LinkedIn posts (CMO LINKEDIN-POSTS/)
+- All blog content (CMO BLOGS/)
+- All newsletters (Substack)
+- All Reddit/community posts
+- All ad copy or website content
+
+### Sub-Agent Notification
+Any sub-agent spawned for content creation must receive these rules. This is a standing directive — not one-time.
+
+---
+
 ## C-Suite Spawn Config — CRITICAL RULE
 
 **Effective:** 2026-05-05
