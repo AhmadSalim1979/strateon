@@ -2,6 +2,9 @@
 
 **One-liner:** 92% of B2B reps give up after four follow-ups. That's where your pipeline dies.
 
+**Posted:** 2026-05-05 (Tuesday) — with visual (two-funnel side-by-side comparison)
+**Status:** Published ✅
+
 ---
 
 Most B2B deals don't die because the product fails.
