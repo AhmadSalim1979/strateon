@@ -4,9 +4,7 @@ export default {
     
     if (url.pathname === '/submit-audit' && request.method === 'POST') {
       try {
-        const forwardUrl = 'http://5.9.81.5:3001/submit-audit';
         const body = await request.text();
-        
         const headers = {};
         for (const [key, value] of request.headers.entries()) {
           const lk = key.toLowerCase();
@@ -16,12 +14,11 @@ export default {
         }
         headers['Content-Type'] = 'application/json';
         
-        const response = await fetch(forwardUrl, {
+        const response = await fetch('http://5.9.81.5:3001/submit-audit', {
           method: 'POST',
           headers,
           body
         });
-        
         const data = await response.text();
         return new Response(data, {
           status: response.status,
@@ -35,9 +32,6 @@ export default {
       }
     }
     
-    return new Response('submit-audit function active - path: ' + url.pathname + ' method: ' + request.method, {
-      status: 200,
-      headers: { 'Content-Type': 'text/plain' }
-    });
+    return new Response('submit-audit proxy', { status: 200 });
   }
 };
