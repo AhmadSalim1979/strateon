@@ -1,0 +1,3 @@
+name = "qiyadon-audit-proxy"
+compatibility_date = "2026-05-05"
+pages_build_output_dir = "/home/node/.openclaw/workspace/strateon-site/public"

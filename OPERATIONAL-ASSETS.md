@@ -100,7 +100,7 @@
 
 ## CLOUDFLARE API
 
-**Token:** `cfut_mtXoT2bBmFQX1iWyn6iNykQvGUbQGQXt9U1AcA3F23458adc`
+**Token:** `[REDACTED — see secret file]`
 **Expires:** 2027-05-31
 **Reminder:** Set for 2027-04-30 — see `CTO Renewal Reminder` cron
 **Status:** Token verified active but has ZERO permissions — needs to be recreated with Cloudflare Pages + Account Edit permissions before use
