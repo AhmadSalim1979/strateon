@@ -9,6 +9,13 @@
     "git_status": "2026-05-05T10:06 UTC - 8e6203b heartbeat commit",
     "csuite_spawn": "2026-05-05T05:00 Berlin - 5/6 roles spawned (CMO/CTO/COO/CFO/CEO ✅, CLA ❌ spawn config)",
     "sod_report": "2026-05-05T07:00 Berlin - FAILED (WhatsApp 499 loop), midday summary sent at 12:36 ✅",
-    "midday_alert": "2026-05-05T12:36 Berlin - WhatsApp restored, midday status delivered"
+    "midday_alert": "2026-05-05T12:36 Berlin - WhatsApp restored, midday status delivered",
+    "form_fix": "2026-05-05T16:02 UTC - Form switched to Formspree (mpqbrano). Deployed to clean-v2. Awaiting Ahmad test confirmation."
+  },
+  "form": {
+    "status": "DEPLOYED via Formspree",
+    "endpoint": "https://formspree.io/f/mpqbrano",
+    "deployment_url": "https://clean-v2.strateon.pages.dev",
+    "test_pending": true
   }
 }
