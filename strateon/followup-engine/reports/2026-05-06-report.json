@@ -1,0 +1,17 @@
+{
+  "generated": "2026-05-06T03:19:58.681Z",
+  "period": "Apr 27 – May 5",
+  "from": "2026-04-26",
+  "to": "2026-05-05",
+  "stats": {
+    "totalRuns": 0,
+    "leadsProcessed": 0,
+    "emailsSent": 0,
+    "responsesReceived": 1,
+    "leadsEscalated": 0,
+    "errors": 0,
+    "firstClientReady": false,
+    "startDate": null,
+    "endDate": null
+  }
+}
