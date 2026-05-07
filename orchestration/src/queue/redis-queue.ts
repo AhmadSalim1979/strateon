@@ -115,9 +115,8 @@ export async function dequeueJob(): Promise<string | null> {
   
   if (!result || result.length === 0) return null;
   
-  // Result is [member, score] array
-  const [, score] = result[0] as [string, number];
-  const jobId = result[0][0] as string;
+  // ioredis returns [member, score] flat array
+  const jobId = result[0] as string;
   
   return jobId;
 }
