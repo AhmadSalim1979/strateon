@@ -235,7 +235,7 @@ Status: SKIPPED — No changes to commit
 - **Actions taken:**
   1. Backed up original `.git` to `/tmp/stratum-git-backup-<ts>`
   2. Cloned bare mirror, used `git filter-repo --replace-text` to strip both Supabase service keys from ALL commits
-  3. Verified `memory/2026-05-06.md` contains zero `sb_secret_` strings
+  3. Verified `memory/2026-05-06.md` contains zero Supabase secret strings
   4. Applied clean history to workspace `.git`, reset work tree to `8ddbcc3`
 - **GitHub push:** ❌ BLOCKED — no GitHub credentials on this machine (remote still set to `file://` path)
 - **To complete:** Visit https://github.com/AhmadSalim1979/strateon/security/secret-scanning/unblock-secret/3DNPnJWOJFTnDbtViYaiIlmZpdp to unblock, then push from a machine with GitHub credentials
