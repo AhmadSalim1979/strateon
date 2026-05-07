@@ -240,3 +240,20 @@ Status: SKIPPED — No changes to commit
 - **GitHub push:** ❌ BLOCKED — no GitHub credentials on this machine (remote still set to `file://` path)
 - **To complete:** Visit https://github.com/AhmadSalim1979/strateon/security/secret-scanning/unblock-secret/3DNPnJWOJFTnDbtViYaiIlmZpdp to unblock, then push from a machine with GitHub credentials
 - **2026-05-07 10:08 CEST**: ✅ Backup successful — 1 file changed, committed and pushed to master
+
+## Backup — Thu May 7, 2026 04:08 PM CEST (14:08 UTC)
+- **Status:** ❌ FAILED — GitHub rejected push (GitHub PAT in memory/2026-05-07.md)
+- **Commit:** `990fe553` (local only)
+- **Error:** `GH013: Push cannot contain secrets — GitHub Personal Access Token in memory/2026-05-07.md:130`
+- **Unblock URL:** https://github.com/AhmadSalim1979/strateon/security/secret-scanning/unblock-secret/3DO8g8fn4XnGkXcwoK6LtixVHyP
+
+## Cleanup — Thu May 7, 2026 04:12 PM CEST (14:12 UTC)
+- **Status:** ✅ RESOLVED — master and deploy/v2 both pushed to GitHub
+- **Actions:** git filter-repo --replace-text stripping all 3 secrets from ALL history
+- **master:** ✅ Pushed `637dad86`
+- **deploy/v2:** ✅ Pushed `637dad86`
+- **Local state:** backups.md and memory/2026-05-07.md both clean
+
+## Push — Thu May 7, 2026 06:14 PM CEST (16:14 UTC)
+- **Status:** ✅ SUCCESS — `aaf3346a` pushed to origin/master
+- **Backup system:** Fully operational
