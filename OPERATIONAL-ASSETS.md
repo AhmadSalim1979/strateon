@@ -103,7 +103,7 @@
 **Token:** `[REDACTED — see secret file]`
 **Expires:** 2027-05-31
 **Reminder:** Set for 2027-04-30 — see `CTO Renewal Reminder` cron
-**Status:** Token verified active but has ZERO permissions — needs to be recreated with Cloudflare Pages + Account Edit permissions before use
+**Status:** Updated with new token 2026-05-07 (rolled due to prior exposure)
 **Secret file:** `/home/node/.openclaw/secrets/cloudflare-api-token.json`
 **Reminder cron:** `CTO Renewal Reminder` — fires 2027-04-30
 
