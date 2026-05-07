@@ -71,7 +71,9 @@ async function findContactByEmail(email) {
 
 async function markResponseReceived(contactId) {
   // Update strtn_response_received property
-  const result = await hubspotRequest('POST', `/crm/v3/objects/contacts/${contactId}`, {
+  // NOTE: HubSpot CRM API v3 uses PATCH (not POST) to update contact properties
+  // POST to /contacts/{id} creates associated objects (notes, emails, etc.)
+  const result = await hubspotRequest('PATCH', `/crm/v3/objects/contacts/${contactId}`, {
     properties: {
       strtn_response_received: 'yes',
     },
