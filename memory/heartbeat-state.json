@@ -1,31 +1,13 @@
 {
   "lastChecks": {
-    "email": null,
-    "calendar": null,
-    "weather": null,
-    "memory_write": "2026-05-07T05:07 UTC - SoD report delivered",
-    "whatsapp": "2026-05-07T05:01 UTC - WhatsApp gateway connected",
-    "openclaw_status": "2026-05-07T05:07 UTC - All PM2 processes online",
-    "git_status": "2026-05-07T02:37 UTC - Local .git cleaned, pushed. GitHub remote set to https://github.com/AhmadSalim1979/strateon.git",
-    "csuite_spawn": "2026-05-07T05:07 UTC - 6/6 C-suite roles spawned (CEO, CTO, CMO, CFO, COO, CPO). CLA session state MISSING. AI Architect: last wrote 2026-04-28 (9 days silent)",
-    "sod_report": "2026-05-07T07:00 Berlin - Delivered via main session ✅"
+    "memory_write": "2026-05-07T18:54 UTC - Evening heartbeat",
+    "website_deployment": "BLOCKED - Cloudflare Pages GitHub integration broken, clone_repo failing. Ahmad needs to reconnect GitHub in Cloudflare Dashboard (Pages > strateon > Settings > Source)",
+    "github_push": "RESOLVED - New token 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 provided and working",
+    "pm2_status": "Not checked this heartbeat"
   },
-  "form": {
-    "status": "DEPLOYED via Formspree",
-    "endpoint": "https://formspree.io/f/mpqbrano",
-    "deployment_url": "https://clean-v2.strateon.pages.dev",
-    "test_pending": true
-  },
-  "whatsapp": {
-    "connected": true,
-    "number": "+923215139934",
-    "note": "Connected. Happy Birthday Ahmad! 🎂"
-  },
-  "backup_cleanup": {
-    "status": "RESOLVED_LOCALLY",
-    "commit": "8ddbcc3",
-    "secrets_removed": ["***REMOVED***", "***REMOVED***"],
-    "github_push": "BLOCKED - no credentials on this machine",
-    "unblock_url": "https://github.com/AhmadSalim1979/strateon/security/secret-scanning/unblock-secret/3DNPnJWOJFTnDbtViYaiIlmZpdp"
-  }
+  "pendingAhmadActions": [
+    "Cloudflare Pages: reconnect GitHub source (Pages > strateon > Settings > Builds > Source > Disconnect and reconnect)",
+    "Supabase SQL: run 3-line migration to add hop_count, processed_at, processing_duration_ms to events table",
+    "Revenue blockers: Delaware C-Corp, Stripe account, WhatsApp re-auth, VP Sales outreach"
+  ]
 }
