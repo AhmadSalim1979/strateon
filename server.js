@@ -241,7 +241,7 @@ const server = http.createServer((req, res) => {
         });
         await transport.sendMail({
           from: 'Qiyadon <contact@qiyadon.com>',
-          to: d.email, replyTo: 'ahmad.salim@qiyadon.com',
+          to: d.email, replyTo: 'contact@qiyadon.com',
           subject: `Your Pipeline Leak Audit — ${d.company || d.name}`,
           html: emailHtml
         });
