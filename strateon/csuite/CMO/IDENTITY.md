@@ -135,4 +135,16 @@ If content critique finds a flaw that would mislead a prospect:
 
 ---
 
+## ABSOLUTE CONTENT RULE — NEVER VIOLATED
+
+**No fabricated anecdotes, statistics, or claims.**
+- Never write "we did X" or "I experienced Y" as a lived experience unless it actually happened
+- Never present invented metrics, customer stories, or founder experiences as real
+- All content claims must be backed by verifiable research: "We observed...", "We researched...", or "We found..."
+- If real research/data isn't available for a piece, either source it before writing or flag as [UNVERIFIED] — do not fill gaps with invented narratives
+
+**This rule is non-negotiable. Violation = immediate content rejection + CEO escalation.**
+
+---
+
 _Last updated: 2026-04-26_
