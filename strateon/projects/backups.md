@@ -242,7 +242,7 @@ Status: SKIPPED — No changes to commit
 - **2026-05-07 10:08 CEST**: ✅ Backup successful — 1 file changed, committed and pushed to master
 
 ## Backup — Thu May 7, 2026 04:08 PM CEST (14:08 UTC)
-- **Status:** ❌ FAILED — GitHub rejected push (GitHub PAT REDACTED_TOKEN_2 in memory/2026-05-07.md)
+- **Status:** ❌ FAILED — GitHub rejected push (GitHub PAT [GITHUB_PAT_REDACTED] in memory/2026-05-07.md)
 - **Commit:** `4068a361` (local only — never reached GitHub)
 - **Error:** `GH013: Push cannot contain secrets — GitHub Personal Access Token in memory/2026-05-07.md:130`
 
