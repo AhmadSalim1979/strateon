@@ -224,3 +224,18 @@ Status: SKIPPED — No changes to commit
   - memory/heartbeat-state.json
   - strateon/projects/backups.md
 - **Pushed to:** origin/master (22b3d60 → f3ba60c)
+
+## Backup — Thu May 7, 2026 04:08 AM CEST (02:08 UTC)
+- **Status:** ❌ FAILED — GitHub rejected push (Supabase secret detected in commit history)
+- **Commit:** 5774c5c (local only — never reached GitHub)
+- **Error:** `GH013: Repository rule violations found — Push cannot contain secrets — sb_secret__T1GYuCAvox2 in memory/2026-05-06.md:52`
+
+## Cleanup — Thu May 7, 2026 04:37 AM CEST (02:37 UTC)
+- **Status:** ✅ RESOLVED locally
+- **Actions taken:**
+  1. Backed up original `.git` to `/tmp/stratum-git-backup-<ts>`
+  2. Cloned bare mirror, used `git filter-repo --replace-text` to strip both Supabase service keys from ALL commits
+  3. Verified `memory/2026-05-06.md` contains zero `sb_secret_` strings
+  4. Applied clean history to workspace `.git`, reset work tree to `8ddbcc3`
+- **GitHub push:** ❌ BLOCKED — no GitHub credentials on this machine (remote still set to `file://` path)
+- **To complete:** Visit https://github.com/AhmadSalim1979/strateon/security/secret-scanning/unblock-secret/3DNPnJWOJFTnDbtViYaiIlmZpdp to unblock, then push from a machine with GitHub credentials
