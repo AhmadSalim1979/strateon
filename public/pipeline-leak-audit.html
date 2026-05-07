@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Pipeline Leak Audit — Qiyadon</title>
+  <meta name="description" content="Get a free pipeline leak audit from Qiyadon. We'll identify exactly where your leads are going dark and what it's costing you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #171314;
+      --teal: #B11226;
+      --gold: #E03131;
+      --cloud-white: #F6F3F1;
+      --slate: #6E6A68;
+      --dark-bg: #171314;
+      --text-primary: #171314;
+      --text-secondary: #5F5A58;
+      --border: #E5DEDA;
+      --white: #FFFFFF;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --shadow-sm: 0 1px 3px rgba(22,17,18,0.08), 0 1px 2px rgba(22,17,18,0.04);
+      --shadow-md: 0 4px 14px rgba(22,17,18,0.10), 0 2px 6px rgba(22,17,18,0.06);
+      --shadow-lg: 0 16px 38px rgba(22,17,18,0.16), 0 8px 16px rgba(22,17,18,0.08);
+      --shadow-hover: 0 16px 42px rgba(177,18,38,0.16), 0 8px 18px rgba(22,17,18,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background: #000000;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ============================================
+       NAV — matches strateon-site/index.html
+    ============================================ */
+    nav { display: none; 
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(251,250,248,0.92);
+      backdrop-filter: blur(18px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(90,15,24,0.12);
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 850;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.04em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-logo:hover { opacity: 0.8; }
+    .nav-logo span { color: var(--red-accent); font-weight: 850; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: linear-gradient(135deg, #B11226 0%, #E03131 100%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 10px 24px rgba(177,18,38,0.18);
+    }
+    .nav-cta:hover { background: linear-gradient(135deg, #91101F 0%, #CB1F2B 100%); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(177,18,38,0.26); }
+    .mobile-nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    @media (max-width: 768px) {
+      .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+      .nav-links { display: none; }
+      .nav-inner { gap: 0; }
+    }
+
+    /* ============================================
+       PAGE LAYOUT
+    ============================================ */
+    .page-hero {
+      background: radial-gradient(circle at 78% 28%, rgba(177,18,38,0.12), transparent 34%),
+                  linear-gradient(180deg, #FBFAF8 0%, #F6F3F1 100%);
+      padding: 160px 24px 80px;
+      text-align: center;
+    }
+    .page-hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(177,18,38,0.08);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(177,18,38,0.16);
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 850;
+      color: var(--navy);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin-bottom: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .page-hero p {
+      font-size: 18px;
+      color: var(--slate);
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       FORM SECTION
+    ============================================ */
+    .form-section {
+      padding: 0 24px 100px;
+    }
+    .form-container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(90,15,24,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #5A0F18, #E03131);
+    }
+
+    .form-intro {
+      margin-bottom: 40px;
+    }
+    .form-intro h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .form-intro p {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       FORM FIELDS
+    ============================================ */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group { margin-bottom: 0; }
+    .form-group.full-width { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    label .req { color: var(--teal); margin-left: 2px; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text-primary);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: #B0ABA8; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(177,18,38,0.10);
+    }
+    input.error, select.error, textarea.error {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220,38,38,0.10);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.6;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+    .select-wrapper::after {
+      content: '';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--slate);
+      pointer-events: none;
+    }
+    .select-wrapper select { padding-right: 36px; }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    .field-note {
+      font-size: 12px;
+      color: var(--slate);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    /* ============================================
+       SUBMIT BUTTON
+    ============================================ */
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #B11226 0%, #E03131 100%);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.01em;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 10px 24px rgba(177,18,38,0.20);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: linear-gradient(135deg, #91101F 0%, #CB1F2B 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(177,18,38,0.28);
+    }
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-submit .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-text { display: none; }
+    .btn-submit.loading .loading-text { display: inline; }
+    .btn-submit .loading-text { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-msg {
+      color: #dc2626;
+      font-size: 12px;
+      margin-top: 6px;
+      display: none;
+      font-weight: 500;
+    }
+    .error-msg.visible { display: block; }
+
+    .form-error-banner {
+      background: rgba(220,38,38,0.08);
+      border: 1px solid rgba(220,38,38,0.2);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #dc2626;
+      font-weight: 500;
+    }
+    .form-error-banner.visible { display: flex; }
+
+    .privacy-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--slate);
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    /* ============================================
+       SUCCESS STATE
+    ============================================ */
+    .success-state {
+      text-align: center;
+      padding: 48px 32px;
+      display: none;
+    }
+    .success-state .success-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(177,18,38,0.08);
+      border: 2px solid rgba(177,18,38,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .success-state h2 {
+      font-size: 26px;
+      font-weight: 850;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .success-state p {
+      color: var(--slate);
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 400px;
+      margin: 0 auto 24px;
+    }
+    .success-state .what-next {
+      background: rgba(177,18,38,0.06);
+      border: 1px solid rgba(177,18,38,0.14);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .success-state .what-next p {
+      font-size: 13px;
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .success-state .what-next ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .success-state .what-next ul li {
+      font-size: 13px;
+      color: var(--slate);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .success-state .what-next ul li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       LEAK PREVIEW CARD
+    ============================================ */
+    .leak-preview {
+      background: var(--dark-bg);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      margin-bottom: 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .leak-preview::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #B11226, #E03131);
+    }
+    .leak-preview-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FF6B6B;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .leak-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .leak-metric {
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      text-align: center;
+    }
+    .leak-metric-num {
+      font-size: 26px;
+      font-weight: 850;
+      color: #E03131;
+      letter-spacing: -0.03em;
+    }
+    .leak-metric-lbl {
+      font-size: 10px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 3px;
+    }
+    .leak-flow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .leak-node {
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .leak-node-inbound { background: rgba(224,49,49,0.16); color: #FF6B6B; }
+    .leak-node-active { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+    .leak-node-silent { background: rgba(90,15,24,0.25); color: #FFB4A8; }
+    .leak-node-close { background: rgba(177,18,38,0.20); color: #FFB4A8; }
+    .leak-arrow { color: rgba(255,255,255,0.2); font-size: 12px; }
+    .leak-caption {
+      margin-top: 12px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 640px) {
+      .form-card { padding: 36px 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: auto; }
+      .page-hero { padding: 140px 20px 60px; }
+      .form-section { padding: 0 20px 60px; }
+      .leak-metrics { grid-template-columns: 1fr 1fr; }
+      .page-hero h1 { font-size: 30px; }
+      .form-intro h2 { font-size: 19px; }
+      .btn-submit { padding: 15px 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 78px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        z-index: 999;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>qiyadon</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#what-we-do">What We Do</a></li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <i data-lucide="menu" style="width:24px;height:24px;color:var(--navy);"></i>
+    </button>
+    <a href="/pipeline-leak-audit.html" class="nav-cta">Get a Free Pipeline Leak Audit</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-label">
+      <i data-lucide="search" style="width:13px;height:13px;"></i>
+      Pipeline Leak Audit
+    </div>
+    <h1>Find Out Where Your Pipeline Is Leaking</h1>
+    <p>Answer 8 questions. We'll identify exactly where leads are going dark, what it's costing you, and what we'll do about it. No commitment, no sales call.</p>
+  </div>
+</section>
+
+<!-- FORM SECTION -->
+<section class="form-section">
+  <div class="form-container">
+
+    <!-- Preview card: shows what a leak looks like -->
+    <div class="leak-preview">
+      <div class="leak-preview-label">Where Most Pipelines Leak</div>
+      <div class="leak-metrics">
+        <div class="leak-metric">
+          <div class="leak-metric-num">48h</div>
+          <div class="leak-metric-lbl">Avg. first response delay</div>
+        </div>
+        <div class="leak-metric">
+          <div class="leak-metric-num">78%</div>
+          <div class="leak-metric-lbl">Leads lost after 1st silence</div>
+        </div>
+        <div class="leak-metric">
+          <div class="leak-metric-num">21 days</div>
+          <div class="leak-metric-lbl">Avg. dormancy before death</div>
+        </div>
+      </div>
+      <div class="leak-flow">
+        <span class="leak-node leak-node-inbound">INBOUND</span>
+        <span class="leak-arrow">→</span>
+        <span class="leak-node leak-node-active">First Contact</span>
+        <span class="leak-arrow">→</span>
+        <span class="leak-node leak-node-silent">SILENCE</span>
+        <span class="leak-arrow">→</span>
+        <span class="leak-node leak-node-silent">GHOSTED</span>
+        <span class="leak-arrow">→</span>
+        <span class="leak-node leak-node-close">LOST</span>
+      </div>
+      <p class="leak-caption">The gap between "they seemed interested" and "they went dark" is where revenue dies. We'll plug it.</p>
+    </div>
+
+    <div class="form-card">
+
+      <!-- SUCCESS STATE -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E03131" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h2>Request Received!</h2>
+        <p>We've got your Pipeline Leak Audit request. Our team will review your answers and send a full audit to your inbox within 1 business day.</p>
+        <div class="what-next">
+          <p>What happens next:</p>
+          <ul>
+            <li>We review your pipeline profile</li>
+            <li>We identify your top 3 leaks</li>
+            <li>We send a written audit to <span id="confirmEmail" style="color:#B11226;font-weight:600;"></span></li>
+            <li>If it's a fit, we'll schedule a 20-min call. If not, we'll tell you why.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- THE FORM -->
+      <form id="auditForm" novalidate>
+
+        <div class="form-intro">
+          <h2>Tell us about your pipeline</h2>
+          <p>No commitment required. The more honest you are, the more useful the audit will be.</p>
+        </div>
+
+        <!-- Leak Preview — context before questions -->
+        <div class="divider"></div>
+
+        <!-- SECTION A: Who you are -->
+        <div class="form-grid" style="margin-bottom: 20px;">
+          <div class="form-group">
+            <label for="name">Full Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Ahmad Salim" required autocomplete="name">
+            <div class="error-msg" id="nameError">Please enter your name</div>
+          </div>
+          <div class="form-group">
+            <label for="company">Company Name <span class="req">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Acme Technologies" required autocomplete="organization">
+            <div class="error-msg" id="companyError">Please enter your company name</div>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-bottom: 20px;">
+          <div class="form-group">
+            <label for="email">Work Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+            <div class="error-msg" id="emailError">Please enter a valid work email</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION B: Your pipeline -->
+        <div class="form-group full-width" style="margin-bottom: 20px;">
+          <label for="industry">What type of business are you in? <span class="req">*</span></label>
+          <select id="industry" name="industry" required>
+            <option value="" disabled selected>Select your industry…</option>
+            <option>IT Services / MSP</option>
+            <option>SaaS / Software</option>
+            <option>Professional Services / Consulting</option>
+            <option>Agency / Creative</option>
+            <option>Real Estate</option>
+            <option>Financial Services</option>
+            <option>Healthcare / MedTech</option>
+            <option>Manufacturing / Distribution</option>
+            <option>E-commerce / Retail</option>
+            <option>Other</option>
+          </select>
+          <div class="error-msg" id="industryError">Please select your industry</div>
+        </div>
+
+        <div class="form-grid" style="margin-bottom: 20px;">
+          <div class="form-group">
+            <label for="leads_per_month">New inbound leads per month <span class="req">*</span></label>
+            <div class="select-wrapper">
+              <select id="leads_per_month" name="leads_per_month" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Fewer than 10</option>
+                <option>10–25</option>
+                <option>25–50</option>
+                <option>50–100</option>
+                <option>100–200</option>
+                <option>200+</option>
+              </select>
+            </div>
+            <div class="error-msg" id="leadsError">Please select your lead volume</div>
+          </div>
+          <div class="form-group">
+            <label for="close_rate">Estimated close rate <span class="req">*</span></label>
+            <div class="select-wrapper">
+              <select id="close_rate" name="close_rate" required>
+                <option value="" disabled selected>Select…</option>
+                <option>Less than 5%</option>
+                <option>5–10%</option>
+                <option>10–20%</option>
+                <option>20–30%</option>
+                <option>30%+</option>
+                <option>Not sure / haven't tracked</option>
+              </select>
+            </div>
+            <div class="error-msg" id="closeRateError">Please estimate your close rate</div>
+          </div>
+        </div>
+
+        <div class="form-group full-width" style="margin-bottom: 20px;">
+          <label for="crm">Which CRM or pipeline tool are you using? <span class="req">*</span></label>
+          <div class="select-wrapper">
+            <select id="crm" name="crm" required>
+              <option value="" disabled selected>Select your CRM…</option>
+              <option>HubSpot</option>
+              <option>Pipedrive</option>
+              <option>Zoho CRM</option>
+              <option>Salesforce</option>
+              <option>Close CRM</option>
+              <option>Freshsales / Freshworks</option>
+              <option>No CRM — using spreadsheets</option>
+              <option>Other / Not sure</option>
+            </select>
+          </div>
+          <div class="error-msg" id="crmError">Please select your CRM</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION C: Your biggest pipeline frustration -->
+        <div class="form-group full-width" style="margin-bottom: 20px;">
+          <label for="challenge">What's your biggest frustration with your current pipeline? <span class="req">*</span></label>
+          <textarea id="challenge" name="challenge" placeholder="e.g. 'Leads go dark after the first email.' 'We respond too slowly.' 'No bandwidth to follow up consistently.' 'Not sure what's working and what's not.'" required></textarea>
+          <div class="error-msg" id="challengeError">Please describe your biggest pipeline challenge</div>
+        </div>
+
+        <div class="form-group full-width" style="margin-bottom: 20px;">
+          <label for="followup_process">How are you currently handling follow-ups? <span class="req">*</span></label>
+          <div class="select-wrapper">
+            <select id="followup_process" name="followup_process" required>
+              <option value="" disabled selected>Select…</option>
+              <option>We have a consistent process and follow it</option>
+              <option>We try to follow up but it's inconsistent</option>
+              <option>We have CRM sequences set up but don't always run them</option>
+              <option>Someone on the team is responsible for follow-up</option>
+              <option>We don't have a formal follow-up process</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field-note">Be honest — this is what the audit is for.</div>
+          <div class="error-msg" id="followupProcessError">Please describe your current follow-up process</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- SECTION D: How did they find Qiyadon -->
+        <div class="form-group full-width" style="margin-bottom: 32px;">
+          <label for="found_us">How did you find Qiyadon?</label>
+          <div class="select-wrapper">
+            <select id="found_us" name="found_us">
+              <option value="" disabled selected>Select…</option>
+              <option>Google / Search</option>
+              <option>LinkedIn</option>
+              <option>Referral / Word of mouth</option>
+              <option>Podcast / Blog / Newsletter</option>
+              <option>Twitter / X</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Error banner -->
+        <div class="form-error-banner" id="formErrorBanner">
+          <i data-lucide="alert-circle" style="width:18px;height:18px;flex-shrink:0;"></i>
+          <span id="formErrorText">Something went wrong. Please try again.</span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span class="spinner"></span>
+          <span class="btn-text">Get My Free Pipeline Leak Audit →</span>
+          <span class="loading-text">Submitting…</span>
+        </button>
+
+        <p class="privacy-note">Your information is kept private. We review your answers and respond within 1 business day. We never share your data with third parties.</p>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (minimal) -->
+<footer style="background:var(--navy);padding:32px 24px;text-align:center;">
+  <p style="font-size:13px;color:rgba(255,255,255,0.4);">© 2026 Qiyadon · <a href="/privacy-policy.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Privacy Policy</a> · <a href="/terms-of-service.html" style="color:rgba(255,255,255,0.4);text-decoration:none;">Terms</a></p>
+</footer>
+
+<script>
+  // Init icons
+  lucide.createIcons();
+
+  // Nav scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile nav
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
+  });
+
+  // ─────────────────────────────────────────────
+  // FORM SUBMISSION
+  // ─────────────────────────────────────────────
+  const form = document.getElementById('auditForm');
+  const successState = document.getElementById('successState');
+  const submitBtn = document.getElementById('submitBtn');
+  const formErrorBanner = document.getElementById('formErrorBanner');
+  const formErrorText = document.getElementById('formErrorText');
+  const confirmEmail = document.getElementById('confirmEmail');
+
+  function showError(fieldId, msgId) {
+    const field = document.getElementById(fieldId);
+    const msg = document.getElementById(msgId);
+    if (field) field.classList.add('error');
+    if (msg) msg.classList.add('visible');
+  }
+
+  function clearErrors() {
+    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('visible'));
+    formErrorBanner.classList.remove('visible');
+  }
+
+  function validateForm(data) {
+    let valid = true;
+
+    if (!data.name || !data.name.trim()) { showError('name', 'nameError'); valid = false; }
+    if (!data.company || !data.company.trim()) { showError('company', 'companyError'); valid = false; }
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) { showError('email', 'emailError'); valid = false; }
+    if (!data.industry) { showError('industry', 'industryError'); valid = false; }
+    if (!data.leads_per_month) { showError('leads_per_month', 'leadsError'); valid = false; }
+    if (!data.close_rate) { showError('close_rate', 'closeRateError'); valid = false; }
+    if (!data.crm) { showError('crm', 'crmError'); valid = false; }
+    if (!data.challenge || !data.challenge.trim()) { showError('challenge', 'challengeError'); valid = false; }
+    if (!data.followup_process) { showError('followup_process', 'followupProcessError'); valid = false; }
+
+    return valid;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const data = {
+      name: form.name.value.trim(),
+      company: form.company.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      industry: form.industry.value,
+      leads_per_month: form.leads_per_month.value,
+      close_rate: form.close_rate.value,
+      crm: form.crm.value,
+      challenge: form.challenge.value.trim(),
+      followup_process: form.followup_process.value,
+      found_us: form.found_us.value,
+      submitted_at: new Date().toISOString()
+    };
+
+    if (!validateForm(data)) {
+      formErrorText.textContent = 'Please fill in all required fields.';
+      formErrorBanner.classList.add('visible');
+      lucide.createIcons();
+      return;
+    }
+
+    // Disable button
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+
+    try {
+      const res = await fetch('/submit-audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok || res.status === 200) {
+        confirmEmail.textContent = data.email;
+        form.style.display = 'none';
+        successState.style.display = 'block';
+        lucide.createIcons();
+        // Scroll to top of card
+        document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        throw new Error('Server error: ' + res.status);
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+      formErrorText.textContent = 'Something went wrong. Please try again or email us at contact@qiyadon.com';
+      formErrorBanner.classList.add('visible');
+      lucide.createIcons();
+    }
+  });
+</script>
+</body>
+</html>

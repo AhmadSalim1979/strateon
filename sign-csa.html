@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Service Agreement — Qiyadon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: #1E293B; background: #F5F7FA; padding: 80px 24px 120px; }
+    .container { max-width: 760px; margin: 0 auto; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #00C2CB; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: opacity 0.2s; }
+    .back:hover { opacity: 0.75; }
+    h1 { font-size: 36px; font-weight: 800; color: #0B1F3A; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .meta { font-size: 13px; color: #6B7C93; margin-bottom: 48px; }
+    .doc { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 14px; padding: 40px; box-shadow: 0 1px 3px rgba(11,31,58,0.06); margin-bottom: 32px; }
+    h2 { font-size: 16px; font-weight: 700; color: #0B1F3A; margin-top: 28px; margin-bottom: 10px; border-bottom: 1px solid #E2E8F0; padding-bottom: 8px; }
+    h2:first-child { margin-top: 0; }
+    p { color: #475569; margin-bottom: 14px; }
+    ul, ol { padding-left: 20px; margin-bottom: 14px; }
+    li { color: #475569; margin-bottom: 8px; }
+    strong { color: #1E293B; }
+    .notice { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 16px 20px; font-size: 14px; color: #166534; margin-bottom: 32px; }
+    .notice strong { color: #166534; }
+
+    /* Sign section */
+    .sign-section { background: #FFFFFF; border: 2px solid #00C2CB; border-radius: 14px; padding: 40px; box-shadow: 0 4px 20px rgba(0,194,203,0.12); }
+    .sign-section h2 { font-size: 20px; border: none; padding: 0; margin-top: 0; margin-bottom: 16px; }
+    .sign-section p { font-size: 14px; }
+    .field-group { margin-bottom: 24px; }
+    label.field-label { display: block; font-size: 12px; font-weight: 700; color: #6B7C93; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    input[type="text"], input[type="email"], input[type="date"] { width: 100%; max-width: 400px; padding: 10px 14px; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #1E293B; background: #fff; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus { border-color: #00C2CB; box-shadow: 0 0 0 3px rgba(0,194,203,0.15); }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 12px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 16px 20px; margin: 24px 0; cursor: pointer; }
+    .checkbox-group input[type="checkbox"] { margin-top: 4px; accent-color: #00C2CB; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+    .checkbox-label { font-size: 14px; color: #475569; line-height: 1.6; cursor: pointer; }
+    .checkbox-label strong { color: #0B1F3A; }
+    .submit-btn { background: #00C2CB; color: #0B1F3A; border: none; padding: 14px 36px; border-radius: 999px; font-size: 15px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
+    .submit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    #submit-error { color: #DC2626; font-size: 13px; margin-top: 12px; display: none; }
+    #submit-success { display: none; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 10px; padding: 20px 24px; text-align: center; }
+    #submit-success h3 { color: #166534; font-size: 18px; margin-bottom: 8px; }
+    #submit-success p { color: #166534; font-size: 14px; }
+    .esign-note { font-size: 11px; color: #94A3B8; margin-top: 16px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back">← Back to Qiyadon</a>
+    <h1>Client Service Agreement</h1>
+    <p class="meta">Version 1.1 FINAL &nbsp;•&nbsp; Effective: 2026-05-01 &nbsp;•&nbsp; Governing Law: State of Delaware, USA</p>
+
+    <div class="doc">
+      <div class="notice">
+        <strong>Electronic Signature Notice:</strong> This agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. Each signatory's electronic signature shall be sufficient to bind that party.
+      </div>
+
+      <p>This Client Service Agreement ("Agreement") is entered into as of the Effective Date by and between <strong>Strateon</strong> ("Service Provider") and the <strong>Client</strong> as named below.</p>
+
+      <h2>1. Scope of Services</h2>
+      <p>Strateon agrees to provide AI-assisted market intelligence, lead generation and outreach, and data analysis and strategy consulting services as defined in Schedule A (Statement of Work), attached hereto and incorporated by reference.</p>
+      <p>Services not expressly listed in Schedule A are excluded unless otherwise agreed in writing by both Parties.</p>
+
+      <h2>2. Client Responsibilities</h2>
+      <ul>
+        <li>Provide Strateon with timely, accurate, and complete information necessary to perform the Services</li>
+        <li>Secure all required consents, licenses, and permissions needed for Strateon to contact or process data on the Client's behalf</li>
+        <li>Respond to requests for information within 5 business days unless otherwise agreed</li>
+        <li>Designate a single point of contact for all Service-related communications</li>
+      </ul>
+
+      <h2>3. Deliverables</h2>
+      <p>Specific deliverables, formats, and acceptance criteria are set forth in Schedule A. Client shall have 5 business days from delivery to review and provide written acceptance or rejection. If no objection is received, the deliverable is deemed accepted.</p>
+      <p>Strateon uses AI-assisted tools in execution. All final outputs are reviewed by qualified personnel before delivery. The Client acknowledges this approach.</p>
+
+      <h2>4. Payment Terms</h2>
+      <p>Fees and payment schedules are set forth in Schedule A. Late payments incur a late fee of 1.5% per month on the outstanding balance. Strateon reserves the right to suspend Services if payment is 30 days overdue upon 5 business days' written notice.</p>
+
+      <h2>5. Confidentiality</h2>
+      <p>All non-public information disclosed by either Party is treated as Confidential Information and held in strict confidence, not disclosed to third parties, and used solely for the purposes of this Agreement. Obligations survive termination for 3 years.</p>
+
+      <h2>6. Data Protection</h2>
+      <p>All personal data processed by Strateon under this Agreement shall be stored and processed within the <strong>European Union (EU) only</strong>. Data shall not be transferred outside the EU without prior written Client consent.</p>
+
+      <h2>7. Intellectual Property</h2>
+      <p>Each Party retains rights in its pre-existing intellectual property. Deliverables created specifically for the Client ("Work Product") are owned by the Client upon full payment, subject to Strateon's retained rights in its pre-existing IP and AI tools.</p>
+
+      <h2>8. Liability and Indemnification</h2>
+      <p><strong>Limitation:</strong> Neither Party shall be liable for indirect, incidental, special, consequential, or punitive damages. Total cumulative liability shall not exceed fees paid by Client in the 6 months preceding the claim.</p>
+      <p>Strateon's indemnification is limited to direct negligence only.</p>
+
+      <h2>9. Warranties</h2>
+      <p>Strateon warrants best-efforts performance in accordance with Schedule A. Strateon does not guarantee specific outcomes. The Client's sole remedy for service level failures is the remediation process described in the applicable SLA schedule. <strong>No SLA credits are provided to Clients.</strong></p>
+
+      <h2>10. Termination</h2>
+      <p>Either Party may terminate for convenience on 30 days' written notice (retainer) or 60 days' written notice (project), subject to payment for work completed. Either Party may terminate immediately for material breach not cured within 15 days of written notice.</p>
+
+      <h2>11. Governing Law and Dispute Resolution</h2>
+      <p>Governed by the laws of the <strong>State of Delaware, USA</strong>. Disputes shall be attempted in good faith through negotiation within 30 days.</p>
+
+      <h2>12. General Provisions</h2>
+      <p>This Agreement constitutes the entire agreement and supersedes all prior agreements. No amendment is effective unless in writing and signed by both Parties. This Agreement may be executed in counterparts.</p>
+
+      <h2>13. Electronic Execution</h2>
+      <p>This Agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. By checking the agreement box below and submitting this form, each party confirms intent to be bound by the terms of this Agreement. Electronic signatures created through this method shall have the same legal force and effect as handwritten signatures under applicable law.</p>
+    </div>
+
+    <!-- SIGN SECTION -->
+    <div class="sign-section" id="sign-section">
+      <h2>✍️ Sign the Client Service Agreement</h2>
+      <p>Fill in your details and check the box to sign. This constitutes a legally binding electronic signature under the ESIGN Act, UETA, and Delaware law.</p>
+
+      <form id="sign-form">
+        <div class="field-group">
+          <label class="field-label" for="name">Full Legal Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full legal name" required autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="title">Title / Role</label>
+          <input type="text" id="title" name="title" placeholder="e.g. CEO, Founder, Director" required autocomplete="organization-title">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="company">Client Legal Entity Name</label>
+          <input type="text" id="company" name="company" placeholder="Registered company name" required autocomplete="organization">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="effectiveDate">Effective Date</label>
+          <input type="date" id="effectiveDate" name="effectiveDate" required>
+        </div>
+
+        <label class="checkbox-group" for="agree">
+          <input type="checkbox" id="agree" name="agree">
+          <span class="checkbox-label">By checking this box, I acknowledge that I have read, understood, and agree to be bound by the terms of this <strong>Client Service Agreement</strong>. I understand that this electronic signature constitutes a legally binding signature under applicable law, including the ESIGN Act (15 U.S.C. § 7001) and the Uniform Electronic Transactions Act (UETA), and that no signature block or wet ink signature is required for this Agreement to be fully enforceable.</span>
+        </label>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Sign Agreement</button>
+        <p id="submit-error"></p>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="submit-success">
+      <h3>✓ Agreement Signed</h3>
+      <p>A signed copy of your agreement has been sent to <strong id="confirm-email"></strong>. We'll be in touch shortly to begin execution.</p>
+    </div>
+
+    <p class="esign-note">Your signature is logged with a timestamp, IP address, and agreement text hash for legal validity.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('sign-form');
+    const agreeBox = document.getElementById('agree');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitError = document.getElementById('submit-error');
+    const signSection = document.getElementById('sign-section');
+    const successDiv = document.getElementById('submit-success');
+    const confirmEmail = document.getElementById('confirm-email');
+
+    // Set default effective date to today
+    document.getElementById('effectiveDate').valueAsDate = new Date();
+
+    submitBtn.addEventListener('click', () => {
+      submitError.style.display = 'none';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitError.style.display = 'none';
+
+      if (!agreeBox.checked) {
+        submitError.textContent = 'Please check the box to confirm you agree to the terms.';
+        submitError.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const formData = {
+        type: 'csa',
+        name: document.getElementById('name').value.trim(),
+        title: document.getElementById('title').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        effectiveDate: document.getElementById('effectiveDate').value,
+        agreed: true,
+        agreedAt: new Date().toISOString(),
+        agreementVersion: '1.1-FINAL-2026-05-01'
+      };
+
+      try {
+        const res = await fetch('/submit-signature', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          confirmEmail.textContent = formData.email;
+          signSection.style.display = 'none';
+          successDiv.style.display = 'block';
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
+      } catch (err) {
+        submitError.textContent = 'Something went wrong: ' + err.message + '. Please try again or email contact@qiyadon.com.';
+        submitError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign Agreement';
+      }
+    });
+  </script>
+</body>
+</html>
