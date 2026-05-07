@@ -228,7 +228,7 @@ Status: SKIPPED — No changes to commit
 ## Backup — Thu May 7, 2026 04:08 AM CEST (02:08 UTC)
 - **Status:** ❌ FAILED — GitHub rejected push (Supabase secret detected in commit history)
 - **Commit:** 5774c5c (local only — never reached GitHub)
-- **Error:** `GH013: Repository rule violations found — Push cannot contain secrets — sb_secret__T1GYuCAvox2 in memory/2026-05-06.md:52`
+- **Error:** `GH013: Repository rule violations found — Push cannot contain secrets — [KEY REDACTED] in memory/2026-05-06.md:52`
 
 ## Cleanup — Thu May 7, 2026 04:37 AM CEST (02:37 UTC)
 - **Status:** ✅ RESOLVED locally
