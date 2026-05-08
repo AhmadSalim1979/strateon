@@ -510,11 +510,41 @@ h3 {
   margin: 52px 0 36px;
 }
 
-.steps article {
+.problem-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin: 52px 0 36px;
+}
+
+.problem-cards article {
   padding: 36px 28px;
   border-radius: var(--radius-lg);
   background: rgba(255,255,255,0.72);
   border: 1px solid rgba(120,20,24,0.12);
+}
+
+.problem-cards h3 {
+  color: var(--ink);
+}
+
+.problem-cards p {
+  color: rgba(0,0,0,0.72);
+}
+
+.problem-cards span {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  background: radial-gradient(circle at 30% 20%, #6b151b, #18090c);
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: 0 18px 38px rgba(95, 14, 21, 0.22);
 }
 
 .steps span,
