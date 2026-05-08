@@ -68,14 +68,14 @@ This is what COO actually does for a trial client, hour by hour:
 
 | Timing | Action |
 |---|---|
-| T-24h | Confirm lead list received (minimum 20 leads to make trial meaningful) |
+| T-24h | Confirm lead list received (minimum 5 leads to make trial meaningful) |
 | T-12h | Create client directory: `strateon/clients/{client-slug}/` with pipeline.md, leads/, reports/ |
 | T-2h | Pre-score all leads (1–10) based on available data |
 | T-0h | Pre-configure follow-up sequences (Touches 1–6 ready to go) |
 
 **Minimum viable trial data from client:**
 - Company name + industry
-- 20+ named leads (name, company, contact info)
+- 5+ named leads (name, company, contact info)
 - ICP confirmation (who they're targeting)
 - Block list (who NOT to contact)
 
@@ -85,7 +85,7 @@ This is what COO actually does for a trial client, hour by hour:
 |---|---|---|
 | Hour 1–2 | Send welcome WhatsApp to client + COO confirmation | Client knows who to reach |
 | Hour 2–3 | Ingest all leads into pipeline tracker | All leads filed, scored, status=NEW |
-| Hour 3–4 | Begin Touch 1 emails to top 20 leads by score | First outreach live |
+| Hour 3–4 | Begin Touch 1 emails to top 5 leads by score | First outreach live |
 | Hour 4 | Send client Day 1 brief: "[X] leads ingested, [Y] outreach sent. Report on [Day 7]." | Client informed, no surprises |
 | Ongoing | Queue remaining leads for Touch 1 (Day 2–3) | |
 
@@ -248,7 +248,7 @@ The trial program should run in cohorts of 3. When a trial converts to paid (or 
 | Duration | 14 days |
 | Lead limit | Up to 50 leads (Starter tier scope) |
 | Channels | Email + WhatsApp (no LinkedIn in trial — saves time for higher-touch channels) |
-| Minimum lead count to accept trial | 20 leads |
+| Minimum lead count to accept trial | 5 leads |
 | Touches in trial period | 6 per lead (Touches 1–6 of 12) |
 | Reports delivered | 2 weekly reports (Day 7 + Day 14) |
 | Trial conversion point | Day 14 — client converts to paid Starter ($300/mo) or exits |
@@ -259,7 +259,7 @@ The trial program should run in cohorts of 3. When a trial converts to paid (or 
 | Must Have | Nice to Have |
 |---|---|
 | Clear ICP (industry, company size, geography) | Existing outbound effort (even if failed) |
-| Minimum 20 named leads with basic contact info | Willing to approve content quickly |
+| Minimum 5 named leads with basic contact info | Willing to approve content quickly |
 | Decision-maker has bandwidth to review reports | Committed to Month 1 if results are good |
 | Willing to engage when a lead replies | Referral potential (good trial = new trial referrals) |
 
@@ -301,7 +301,7 @@ The trial program should run in cohorts of 3. When a trial converts to paid (or 
 
 ### Before trial starts (COO completes)
 
-- [ ] Lead list received (minimum 20 leads)
+- [ ] Lead list received (minimum 5 leads)
 - [ ] ICP confirmed with client
 - [ ] Block list confirmed (who not to contact)
 - [ ] Client directory created at `strateon/clients/{client-slug}/`
