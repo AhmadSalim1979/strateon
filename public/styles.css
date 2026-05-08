@@ -63,7 +63,16 @@ img, svg { display: block; max-width: 100%; }
   gap: 30px;
 }
 
+.brand-logo {
+  height: 44px;
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 .brand {
+  display: flex;
+  align-items: center;
   font-size: 23px;
   font-weight: 900;
   letter-spacing: -0.055em;
