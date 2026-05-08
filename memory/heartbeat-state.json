@@ -3,12 +3,13 @@
     "email": null,
     "calendar": null,
     "weather": null,
-    "memory_write": "2026-05-08T09:00 UTC - morning spawn complete, all C-suite done",
-    "whatsapp": "2026-05-08T09:00 UTC - 3175 restarts, reconnect loop, needs physical re-auth",
-    "openclaw_status": "2026-05-08T09:00 UTC - gateway online, all PM2 online",
-    "git_status": "2026-05-08T02:08 UTC - FIXED, push working via ghp_y4bc5g...",
+    "memory_write": "2026-05-08T12:30 UTC - afternoon session: GitHub PAT rotated (ghp_ZYzorz...), WhatsApp confirmed LIVE, CF Pages GitHub App reinstalled, pricing section removed from homepage, deployment succeeded",
+    "whatsapp": "2026-05-08T08:30 UTC - ✅ RESOLVED - session LIVE, linked, auth confirmed. Removed from pending actions permanently.",
+    "openclaw_status": "2026-05-08T18:30 UTC - gateway online",
+    "git_status": "2026-05-08T08:45 UTC - ✅ FIXED - new PAT ghp_ZYzorz... deployed, pre-push hook installed, history rewritten with git-filter-repo",
     "csuite_spawn": "2026-05-08T09:00 UTC - all 7 roles complete (morning spawn)",
-    "heartbeat_now": "2026-05-08T13:51 UTC"
+    "cloudflare_pages": "2026-05-08T18:00 UTC - ✅ FIXED - GitHub App reinstalled, broken submodule removed, deployment succeeded at e0e9ceb7.strateon.pages.dev",
+    "heartbeat_now": "2026-05-08T18:31 UTC"
   },
   "pendingAhmadActions": [
     "Run SQL in Supabase: ALTER TABLE events ADD COLUMN hop_count INTEGER DEFAULT 0; ALTER TABLE events ADD COLUMN processed_at TIMESTAMPTZ; ALTER TABLE events ADD COLUMN processed_by TEXT;",
@@ -16,7 +17,6 @@
     "Register Delaware C-Corp",
     "Set up Stripe + payment links",
     "Share 5 VP Sales contacts (names + companies) to CMO",
-    "WhatsApp re-auth (QR scan via OpenClaw panel - physical phone required)",
     "CMO revise POST-009 and POST-010 (add [ESTIMATE] labels per CLA review)"
   ],
   "csuite_today": {
@@ -25,7 +25,7 @@
     "CMO": "✅ done - 3 posts drafted, outreach ready, POST-011 approved, Reddit r/msp approved, POST-009/010 need revision",
     "COO": "✅ done - trial 5 leads, onboarding confirmed ready",
     "CPO": "✅ done - HubSpot list ready, engine disabled",
-    "CLA": "✅ done - POST-009/010 revise, POST-011 approved, Reddit r/msp approved, Scale 3-mo disclosure gap",
+    "CLA": "✅ done - POST-009/010 revise, POST-011 approved, Reddit r/msp approved, Scale disclosure gap flagged",
     "AI_Architect": "✅ done - Phase 3 code complete, blocked on SQL columns + WEBHOOK_INTERNAL_SECRET"
   }
 }
