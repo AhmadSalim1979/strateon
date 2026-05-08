@@ -79,8 +79,8 @@ STRIPE TEST MODE LINKS
 Starter:  https://buy.stripe.com/test_XXXXXX   ($300/month)
 Growth:   https://buy.stripe.com/test_XXXXXX   ($750/month)
 
-Stripe Secret Key (test):   REDACTED_STRIPE_TEST_KEY
-Stripe Secret Key (live):   REDACTED_STRIPE_LIVE_KEY
+Stripe Secret Key (test):   REPLACE_WITH_YOUR_STRIPE_TEST_KEY
+Stripe Secret Key (live):   REPLACE_WITH_YOUR_STRIPE_LIVE_KEY
 ```
 
 ---
