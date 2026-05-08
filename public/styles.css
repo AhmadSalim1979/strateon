@@ -104,7 +104,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .section-dark {
-  color: var(--white);
+  color: var(--ink);
   background:
     radial-gradient(circle at 85% 10%, rgba(219,31,42,0.16), transparent 34%),
     linear-gradient(135deg, #080606 0%, #171014 100%);
@@ -426,7 +426,7 @@ h3 {
 .dark-card p,
 .statement-card,
 .section-dark .section-lede {
-  color: rgba(255,255,255,0.72);
+  color: rgba(0,0,0,0.72);
 }
 
 .card-icon {
