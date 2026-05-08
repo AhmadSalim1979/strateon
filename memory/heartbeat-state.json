@@ -1,13 +1,31 @@
 {
   "lastChecks": {
-    "memory_write": "2026-05-07T18:54 UTC - Evening heartbeat",
-    "website_deployment": "BLOCKED - Cloudflare Pages GitHub integration broken, clone_repo failing. Ahmad needs to reconnect GitHub in Cloudflare Dashboard (Pages > strateon > Settings > Source)",
-    "github_push": "RESOLVED - New token [GITHUB_PAT_REDACTED] provided and working",
-    "pm2_status": "Not checked this heartbeat"
+    "email": null,
+    "calendar": null,
+    "weather": null,
+    "memory_write": "2026-05-08T09:00 UTC - morning spawn complete, all C-suite done",
+    "whatsapp": "2026-05-08T09:00 UTC - 3175 restarts, reconnect loop, needs physical re-auth",
+    "openclaw_status": "2026-05-08T09:00 UTC - gateway online, all PM2 online",
+    "git_status": "2026-05-08T02:08 UTC - FIXED, push working via ghp_y4bc5g...",
+    "csuite_spawn": "2026-05-08T09:00 UTC - all 7 roles complete (morning spawn)",
+    "heartbeat_now": "2026-05-08T13:51 UTC"
   },
   "pendingAhmadActions": [
-    "Cloudflare Pages: reconnect GitHub source (Pages > strateon > Settings > Builds > Source > Disconnect and reconnect)",
-    "Supabase SQL: run 3-line migration to add hop_count, processed_at, processing_duration_ms to events table",
-    "Revenue blockers: Delaware C-Corp, Stripe account, WhatsApp re-auth, VP Sales outreach"
-  ]
+    "Run SQL in Supabase: ALTER TABLE events ADD COLUMN hop_count INTEGER DEFAULT 0; ALTER TABLE events ADD COLUMN processed_at TIMESTAMPTZ; ALTER TABLE events ADD COLUMN processed_by TEXT;",
+    "Create 17 HubSpot custom properties (list in CPO/SESSION-STATES/2026-05-08-002.md)",
+    "Register Delaware C-Corp",
+    "Set up Stripe + payment links",
+    "Share 5 VP Sales contacts (names + companies) to CMO",
+    "WhatsApp re-auth (QR scan via OpenClaw panel - physical phone required)",
+    "CMO revise POST-009 and POST-010 (add [ESTIMATE] labels per CLA review)"
+  ],
+  "csuite_today": {
+    "CTO": "✅ done - SQL migration needed from Ahmad",
+    "CFO": "✅ done - all deliverables complete",
+    "CMO": "✅ done - 3 posts drafted, outreach ready, POST-011 approved, Reddit r/msp approved, POST-009/010 need revision",
+    "COO": "✅ done - trial 5 leads, onboarding confirmed ready",
+    "CPO": "✅ done - HubSpot list ready, engine disabled",
+    "CLA": "✅ done - POST-009/010 revise, POST-011 approved, Reddit r/msp approved, Scale 3-mo disclosure gap",
+    "AI_Architect": "✅ done - Phase 3 code complete, blocked on SQL columns + WEBHOOK_INTERNAL_SECRET"
+  }
 }
