@@ -44,13 +44,15 @@
 **Goal:** 2
 **Task:** CLA identifies: which jurisdictions can we serve immediately (Pakistan, UAE, US), which need external review (Germany, EU), which we decline for now.
 **Timeline:** Within 21 days
-**Status:** IN PROGRESS — initial assessment exists in IDENTITY.md
+**Status:** ✅ COMPLETE — Formal document created: `JURISDICTION-COMFORT-LIST.md` (v1.0, 2026-05-05)
+**Deliverable:** `strateon/csuite/CLA/JURISDICTION-COMFORT-LIST.md`
 
 ### Objective 2.2 — Consent Chain Framework Defined
 **Goal:** 2
 **Task:** For each client: how does the client confirm they have consent to contact their leads? CLA defines minimum acceptable evidence.
 **Timeline:** Within 21 days
-**Status:** NOT STARTED
+**Status:** ✅ COMPLETE — Formal document created: `CONSENT-CHAIN-FRAMEWORK.md` (v1.0, 2026-05-05)
+**Deliverable:** `strateon/csuite/CLA/CONSENT-CHAIN-FRAMEWORK.md`
 
 ### Objective 3.1 — Marketing Claims Audit
 **Goal:** 3

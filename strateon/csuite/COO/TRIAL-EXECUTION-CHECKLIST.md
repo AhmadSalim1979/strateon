@@ -18,9 +18,9 @@ Before accepting any trial, verify every item. A trial starts only when all are 
 
 ### Lead Volume
 - [ ] Client submitted a lead list
-- [ ] Count leads — minimum **20 active leads** required
+- [ ] Count leads — minimum **5 active leads** required
 - [ ] Flag if any leads are duplicates, clearly dead (bounce, out-of-business), or placeholder/test entries
-- [ ] If <20 clean leads: ask client to supplement before trial start — do not begin trial with a deficient list
+- [ ] If <5 clean leads: ask client to supplement before trial start — do not begin trial with a deficient list
 
 ### Company Verification
 - [ ] Company name, website, and primary contact confirmed
@@ -51,10 +51,10 @@ Any item RED    → Trial is PAUSED → Escalate to CEO immediately
 Day 1 means the first day the trial campaign goes live. Complete every step before end of business Day 1.
 
 ### 1.1 Confirm Lead List Received
-- [ ] Re-verify lead count: minimum 20 active, qualified leads in the submitted list
+- [ ] Re-verify lead count: minimum 5 active, qualified leads in the submitted list
 - [ ] Confirm leads are in a usable format (CSV, spreadsheet, or CRM-export)
 - [ ] Load leads into the CRM under the client's campaign/pipeline
-- [ ] Flag any leads that appear invalid — notify client same day, request replacements if count drops below 20
+- [ ] Flag any leads that appear invalid — notify client same day, request replacements if count drops below 5
 
 ### 1.2 Create Client Directory
 - [ ] Create folder: `/clients/[ClientName]/`
@@ -91,7 +91,7 @@ Day 1 means the first day the trial campaign goes live. Complete every step befo
   - Touch 6: Final close or referral ask (day 17–21, configurable)
 - [ ] Personalization fields populated per lead (name, company, role)
 - [ ] Confirm sending cadence with client (see 1.6) before sequence goes live
-- [ ] Sequence status set to **ACTIVE** for all 20+ leads
+- [ ] Sequence status set to **ACTIVE** for all 5+ leads
 
 ### 1.5 Send Welcome Message to Client
 Send this template within 2 hours of trial go-live:
@@ -169,7 +169,7 @@ Complete by end of Day 7 (or closest business day). Do not skip. Do not delay.
 - [ ] **Reactivation Rate**: (Leads re-engaged after going cold / Total leads that went cold) × 100
   - Minimum target: **≥10%**
 - [ ] **Active Lead Volume**: Current count of leads still in sequence or with open threads
-  - Minimum target: **≥20 throughout trial**
+  - Minimum target: **≥5 throughout trial**
 - [ ] **Escalation Count**: Number of leads escalated to client for decision
   - Minimum target: **≥2 escalation decisions by Day 14**
 - [ ] **Day 7 Acknowledgement**: Has client opened/responded to any COO communications?
@@ -198,7 +198,7 @@ Report must include:
 > **📊 Your Numbers at Day 7**
 > - Lead Response Rate: [X]% (Target: ≥15%)
 > - Reactivation Rate: [X]% (Target: ≥10%)
-> - Active Leads: [X] of [Y] (Target: ≥20)
+> - Active Leads: [X] of [Y] (Target: ≥5)
 > - Escalations to you: [X] (Target: ≥2 by Day 14)
 >
 > **🚦 COO Assessment: [ON TRACK / AT RISK / OFF TRACK]**
@@ -219,7 +219,7 @@ Score each criterion:
 |---|---|---|---|
 | Lead response rate | ≥15% | [X]% | ✅ Pass / ❌ Fail |
 | Reactivation rate | ≥10% | [X]% | ✅ Pass / ❌ Fail |
-| Active lead volume | ≥20 throughout | [X] currently | ✅ Pass / ❌ Fail |
+| Active lead volume | ≥5 throughout | [X] currently | ✅ Pass / ❌ Fail |
 | Day 7 check-in acknowledged | Yes | [Yes/No] | ✅ Pass / ❌ Fail |
 | Escalation decisions made | ≥2 by Day 14 | [X] so far | 🔄 In Progress / ❌ Fail |
 
@@ -254,7 +254,7 @@ Include:
 |---|---|---|---|
 | Lead response rate | ≥15% | [X]% | ✅ / ❌ |
 | Reactivation rate | ≥10% | [X]% | ✅ / ❌ |
-| Active lead volume | ≥20 throughout | [X] | ✅ / ❌ |
+| Active lead volume | ≥5 throughout | [X] | ✅ / ❌ |
 | Day 7 check-in acknowledged | Yes | Yes/No | ✅ / ❌ |
 | Escalation decisions made | ≥2 by Day 14 | [X] | ✅ / ❌ |
 | **TOTAL PASSING** | **3 of 5 required** | | **[X]/5** |
@@ -286,7 +286,7 @@ Prepare the following before sending:
 > **Your Final Numbers**
 > - Lead Response Rate: [X]% ✅ (Target: ≥15%)
 > - Reactivation Rate: [X]% ✅ (Target: ≥10%)
-> - Active Leads at Close: [X] ✅ (Target: ≥20)
+> - Active Leads at Close: [X] ✅ (Target: ≥5)
 > - Day 7 Check-In: ✅ Acknowledged
 > - Escalation Decisions Made: [X] ✅ (Target: ≥2)
 >
@@ -313,7 +313,7 @@ Prepare the following before sending:
 > **Your Final Numbers**
 > - Lead Response Rate: [X]% (Target: ≥15%)
 > - Reactivation Rate: [X]% (Target: ≥10%)
-> - Active Leads at Close: [X] (Target: ≥20)
+> - Active Leads at Close: [X] (Target: ≥5)
 > - Escalation Decisions Made: [X] (Target: ≥2)
 >
 > **Result: [X]/5 criteria met**
@@ -349,7 +349,7 @@ These are the ONLY criteria used to score a trial. No other subjective assessmen
 |---|---|---|---|
 | 1 | **Lead Response Rate** | ≥15% | (Replies received / Total active leads) × 100. Count each lead once. |
 | 2 | **Reactivation Rate** | ≥10% | (Re-engagements / Leads that went cold) × 100. Must show renewed interest. |
-| 3 | **Active Lead Volume** | ≥20 throughout | Measured at Day 1, Day 7, and Day 14. If it drops below 20 at any point, this criterion fails. |
+| 3 | **Active Lead Volume** | ≥5 throughout | Measured at Day 1, Day 7, and Day 14. If it drops below 5 at any point, this criterion fails. |
 | 4 | **Day 7 Check-In Acknowledged** | Yes | Client must open and acknowledge the Day 7 report. Silence = fail. |
 | 5 | **Escalation Decisions Made** | ≥2 | Client must make at least 2 real business decisions (approve quote, pivot strategy, decline lead, etc.) during the 14 days. |
 

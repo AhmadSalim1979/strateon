@@ -34,9 +34,9 @@ Convert qualified trial users into paying Starter or Growth clients at Day 14 us
 - Users who will never generate revenue
 
 ### 2.1 Mandatory Requirements (ALL must be met)
-1. **Direct application submitted** — Prospect completes the application form at qiyadon.com/pipeline-leak-audit, selects "Trial" as inquiry type, and submits a minimum of 20 leads. No discovery call required.
+1. **Direct application submitted** — Prospect completes the application form at qiyadon.com/pipeline-leak-audit, selects "Trial" as inquiry type, and submits a minimum of 5 leads. No discovery call required.
 2. **ICP fit confirmed** — Role is VP Sales, Head of Sales, Director of Sales Ops, or Founder/CEO doing sales. Company is B2B SaaS, $2M–$20M ARR, 20–200 employees.
-3. **Minimum 20 leads submitted** — Trial user must submit at least 20 real leads within 3 business days of trial start. This is a commitment signal.
+3. **Minimum 5 leads submitted** — Trial user must submit at least 5 real leads within 3 business days of trial start. This is a commitment signal.
 4. **CRM access confirmed** — Either Qiyadon has received CRM export, or WhatsApp/email lead forwarding is actively configured. A trial with no leads to follow is meaningless.
 5. **Jurisdiction confirmed** — Client has confirmed their territory so Qiyadon can ensure outreach compliance before Day 1.
 
@@ -50,7 +50,7 @@ Trial access is NOT available to:
 
 ### 2.3 Screening Process
 - Application submitted via qiyadon.com/pipeline-leak-audit with "Trial" inquiry type selected
-- Minimum 20 leads must be included with the application
+- Minimum 5 leads must be included with the application
 - If disqualified, Qiyadon tells them why and offers a direct paid path or alternative (e.g., audit-only service)
 - Trial access is not guaranteed even if the prospect requests it — "apply" framing is intentional
 
@@ -62,7 +62,7 @@ The prospect follows these steps to apply for a free trial:
 
 1. **Fill out the form** at [qiyadon.com/pipeline-leak-audit](https://qiyadon.com/pipeline-leak-audit)
 2. **Select "Trial"** as the inquiry type
-3. **Submit a minimum of 20 leads** with the application — these serve as the commitment signal
+3. **Submit a minimum of 5 leads** with the application — these serve as the commitment signal
 4. **COO reviews** the application and, if qualified, **activates the trial within 24 hours**
 
 Trial begins on the day the COO activates it. First outreach goes out within 2 hours of lead ingestion on Day 1.
@@ -214,7 +214,7 @@ Qiyadon does not offer conversion to every trial user. Conversion offers go only
 |---|---|---|---|
 | 1 | Lead response rate | ≥ 80% of leads replied to at least once | Shows the pipeline is real and leads engage |
 | 2 | Dormant reactivation rate | ≥ 15% of dormant leads reactivated | Proves Moosa creates recovery value |
-| 3 | Lead volume submitted | ≥ 20 real leads submitted during trial | Indicates the client has enough pipeline to manage |
+| 3 | Lead volume submitted | ≥ 5 real leads submitted during trial | Indicates the client has enough pipeline to manage |
 | 4 | Engagement with Day 7 check-in | Client replied to or acknowledged the Day 7 check-in | Shows they're paying attention and will read Friday reports |
 | 5 | Escalation decisions made | Client made at least 1 decision on an escalated lead | Shows they trust Moosa enough to act on its recommendations |
 
@@ -259,7 +259,7 @@ Reviewed quarterly by CPO + CEO.
 
 | Day | Action |
 |---|---|
-| Day 0 | Application submitted with minimum 20 leads. Contract signed (even for trial, a service agreement is required). DPA signed. |
+| Day 0 | Application submitted with minimum 5 leads. Contract signed (even for trial, a service agreement is required). DPA signed. |
 | Day 1 | COO reviews application. If qualified, trial is activated within 24 hours of application. Client's leads are ingested, scored, and queued within 2 hours of activation. |
 | Day 2 | Moosa confirms lead count. If over cap, excess leads are queued for post-trial. |
 | Day 2–3 | Outreach begins on all submitted leads within 2 hours of ingestion. |
@@ -285,7 +285,7 @@ Reviewed quarterly by CPO + CEO.
 To prevent trial abuse (signing up repeatedly without intent):
 - **One trial per company, per lifetime** — Not one trial per person, one per company entity
 - CRM email domain is recorded at signup and cross-checked against prior trial database
-- Lead volume minimum (20 leads) is enforced — no leads submitted within 3 business days = trial is suspended and client is notified
+- Lead volume minimum (5 leads) is enforced — no leads submitted within 3 business days = trial is suspended and client is notified
 - Direct application required — no self-serve trial signup without application
 
 ---
@@ -295,14 +295,14 @@ To prevent trial abuse (signing up repeatedly without intent):
 ```
 FREE 14-DAY TRIAL — AT A GLANCE
 
-ELIGIBILITY: Direct application | Min 20 leads | CRM access | B2B SaaS ICP
+ELIGIBILITY: Direct application | Min 5 leads | CRM access | B2B SaaS ICP
 
 DURATION: 14 calendar days from first outreach
 
 HOW TO APPLY:
 1. Go to qiyadon.com/pipeline-leak-audit
 2. Select "Trial" as inquiry type
-3. Submit minimum 20 leads
+3. Submit minimum 5 leads
 4. COO activates within 24 hours
 
 INCLUDED:

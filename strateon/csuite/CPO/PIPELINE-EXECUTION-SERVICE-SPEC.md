@@ -425,7 +425,7 @@ The following decisions are finalized or still pending:
 
 ~~6. **Contract length**~~ — ✅ **APPROVED — Annual pricing confirmed. Starter: $2,700/yr. Growth: $6,750/yr. Scale: 20% discount (custom). Month-to-month still available. Confirmed by Ahmad Salim 2026-05-01.**
 
-~~7. **Free trial**~~ — ✅ **FINALIZED: 14-day free trial, capped at ≤25 leads, minimum ≥20 leads submitted to qualify, no discovery call required.**
+~~7. **Free trial**~~ — ✅ **FINALIZED: 14-day free trial, capped at ≤25 leads, minimum ≥5 leads submitted to qualify, no discovery call required.**
 
 ~~8. **Success metric thresholds**~~ — ✅ **FINALIZED: 90% lead response rate / 15% dormant lead reactivation rate confirmed.**
 

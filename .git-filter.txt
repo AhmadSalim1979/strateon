@@ -1,0 +1,3 @@
+sk_test_==>STRIPE_TEST_KEY
+sk_live_==>STRIPE_LIVE_KEY
+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==>GITHUB_PAT_REDACTED
