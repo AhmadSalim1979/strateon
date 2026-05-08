@@ -389,7 +389,7 @@ sessions_spawn({
 
 **What was done:**
 - Ran `git filter-repo --replace-text` to rewrite all commits and remove secret patterns
-- Updated remote URL from stale `ghp_wIByN...` to active `ghp_y4bc5g...`
+- Updated remote URL to new PAT `ghp_ZYzorz...` (rotated after prior token invalidated)
 - Pre-push hook installed at `.git/hooks/pre-push` to scan for patterns before push
 - PAYMENT-LINKS.md now uses `REPLACE_WITH_YOUR_STRIPE_TEST_KEY` placeholders
 
