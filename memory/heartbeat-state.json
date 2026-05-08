@@ -8,9 +8,9 @@
     "openclaw_status": "2026-05-08T18:30 UTC - gateway online",
     "git_status": "2026-05-08T08:45 UTC - ✅ FIXED - new PAT ghp_ZYzorz... deployed, pre-push hook installed, history rewritten with git-filter-repo",
     "csuite_spawn": "2026-05-08T09:00 UTC - all 7 roles complete (morning spawn)",
-    "cloudflare_pages": "2026-05-08T19:08 UTC - ✅ FIXED - GitHub App reinstalled, broken submodule removed, all deployments succeeding. Website updated: pricing removed, first-7-days left-aligned, how-it-works left-aligned, free-audit CTA left-aligned.",
-    "heartbeat_now": "2026-05-08T19:08 UTC",
-    "website_alignment": "2026-05-08T19:08 UTC - how-it-works + free-audit sections left-aligned, deployment confirmed"
+    "cloudflare_pages": "2026-05-08T19:08 UTC - ✅ FIXED - GitHub App reinstalled, broken submodule removed, all deployments succeeding",
+    "website_alignment": "2026-05-08T21:16 UTC - FREE AUDIT section background changed to section-soft (matching Built for Accountability). Deployment confirmed success.",
+    "heartbeat_now": "2026-05-08T19:16 UTC"
   },
   "pendingAhmadActions": [
     "Run SQL in Supabase: ALTER TABLE events ADD COLUMN hop_count INTEGER DEFAULT 0; ALTER TABLE events ADD COLUMN processed_at TIMESTAMPTZ; ALTER TABLE events ADD COLUMN processed_by TEXT;",
