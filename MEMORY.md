@@ -588,3 +588,25 @@ A validation check flags any future direct Moosa code edit as a governance viola
 **Commit:** `19dee2c7` — feat: execution-guard.js — runtime coding governance, all 11 classification tests pass
 **This session:** additional guarded-exec.js + test files committed
 
+
+---
+
+## SIDE CAR-CODING ENFORCEMENT — CLOSED (2026-05-09, 18:10 Berlin)
+
+### Implementation Summary
+
+1. **Sidecar-only coding enforcement is implemented at workspace-wrapper level.**
+   `guardedExec()` in `guarded-exec.js` is the mandatory execution path. All Moosa exec calls must route through it. CODING commands route to `qwen2.5-coder:7b` via Ollama. 33/33 classification tests passing.
+
+2. **`guardedExec()` is the mandatory execution path.**
+   Not advisory. Every shell command from Moosa goes through `guardedExec({ command })` or `guardedExec({ task })`. Bypassing it = governance violation.
+
+3. **OpenClaw tool-level interception remains outside current workspace scope.**
+   No `tools.deny` or sandboxing config is accessible via workspace files. The guard is a JavaScript wrapper, not a tool-level block. Residual risk: raw `exec` tool can still be called directly in-session. Addressed by policy + accountability logging, not technical enforcement.
+
+4. **Item is CLOSED unless future OpenClaw-level tool policy becomes available.**
+   No further work on this item unless Ahmad requests it or OpenClaw exposes tool-level deny/allow configuration.
+
+### Emergency Override
+Ahmad may declare: `EMERGENCY DIRECT CODING OVERRIDE APPROVED` — allows direct exec for critical fixes only, post-incident review required.
+
