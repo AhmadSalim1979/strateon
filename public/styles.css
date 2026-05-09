@@ -805,8 +805,11 @@ details p {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
-  gap: 52px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 24px;
 }
 
 .site-footer h4 {
@@ -827,7 +830,14 @@ details p {
 }
 
 .footer-brand h3 span {
-  color: var(--red);
+  color: #b81414;
+}
+
+.footer-brand p {
+  color: #888888;
+  font-size: 14px;
+  max-width: 260px;
+  line-height: 1.6;
 }
 
 .site-footer p {
