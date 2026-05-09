@@ -47,7 +47,7 @@ module.exports = {
 
         // Supabase
         SUPABASE_URL: 'https://btrbczqjwzuybgcxckvm.supabase.co',
-        SUPABASE_SERVICE_KEY: 'sb_secret__T1GYuCAvox2_EQXrRwGLg_yXXI-GvS',
+        SUPABASE_SERVICE_KEY: process.env.SUPABASE_SERVICE_KEY || '', // loaded from shell env at pm2 start — not hardcoded
       },
 
       // ── LOGGING ─────────────────────────────────────────────────────────────

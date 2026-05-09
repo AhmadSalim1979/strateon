@@ -2,3 +2,19 @@
 # Secrets
 secrets/
 /root/.cloudflare-qiyadon-token
+
+# Test utilities and validation scripts — contain live test keys, not for commit
+strateon/followup-engine/validate-dryrun.js
+strateon/followup-engine/guard-test-no-sidecar.mjs
+strateon/followup-engine/guarded-exec-test.mjs
+strateon/followup-engine/test-guard-flow.mjs
+strateon/followup-engine/test-guard-classify.mjs
+strateon/followup-engine/test-guard-flow.mjs
+root/.openclaw/workspace/moosa-worker/guard-test-no-sidecar.mjs
+root/.openclaw/workspace/moosa-worker/guarded-exec-test.mjs
+root/.openclaw/workspace/moosa-worker/test-guard-flow.mjs
+root/.openclaw/workspace/moosa-worker/test-guard-classify.mjs
+root/.openclaw/workspace/moosa-worker/guarded-exec-test.mjs
+
+# Test-only ecosystem configs
+ecosystem.hub-oauth-test.config.js

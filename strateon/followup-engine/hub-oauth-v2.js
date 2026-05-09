@@ -15,18 +15,45 @@ const https = require('https');
 const http = require('http');
 const url = require('url');
 
-// ─── CONFIG ───────────────────────────────────────────────────────────────────
+// ─── CONFIG (non-secret) ──────────────────────────────────────────────────────
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co';
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY; // must be set via env
+const PORT = process.env.PORT || 3002;
+
+// ─── HUBSPOT OAUTH SECRETS ────────────────────────────────────────────────────
+function loadOAuthSecrets() {
+  // Priority: env var → secrets file → fail
+  if (process.env.HUBSPOT_CLIENT_ID && process.env.HUBSPOT_CLIENT_SECRET) {
+    return {
+      clientId: process.env.HUBSPOT_CLIENT_ID,
+      clientSecret: process.env.HUBSPOT_CLIENT_SECRET,
+    };
+  }
+  const fs = require('fs');
+  const secretsPath = '/home/node/.openclaw/secrets/hubspot-oauth.json';
+  if (fs.existsSync(secretsPath)) {
+    try {
+      const raw = fs.readFileSync(secretsPath, 'utf8');
+      const secrets = JSON.parse(raw);
+      if (secrets.clientId && secrets.clientSecret) {
+        return { clientId: secrets.clientId, clientSecret: secrets.clientSecret };
+      }
+    } catch (e) {
+      console.error(`[HubOAuth] Failed to load ${secretsPath}: ${e.message}`);
+    }
+  }
+  console.error('[HubOAuth] FATAL: HUBSPOT_CLIENT_ID and HUBSPOT_CLIENT_SECRET must be set via env or secrets/hubspot-oauth.json');
+  process.exit(1);
+}
+
+const HUBSPOT_CREDS = loadOAuthSecrets();
 const HUBSPOT_CONFIG = {
-  clientId: process.env.HUBSPOT_CLIENT_ID || '',
-  clientSecret: process.env.HUBSPOT_CLIENT_SECRET || '',
+  clientId: HUBSPOT_CREDS.clientId,
+  clientSecret: HUBSPOT_CREDS.clientSecret,
   redirectUri: process.env.HUBSPOT_REDIRECT_URI || 'https://qiyadon.com/hubspot/callback',
   authUrl: 'https://app.hubspot.com/oauth/authorize',
   tokenUrl: 'https://api.hubapi.com/oauth/v1/token',
 };
-
-const SUPABASE_URL = process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co';
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY; // no fallback — must be set
-const PORT = process.env.PORT || 3002;
 
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────────
 if (!SUPABASE_SERVICE_KEY) {

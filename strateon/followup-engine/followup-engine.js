@@ -455,7 +455,7 @@ async function runEngine() {
   let clientStatus = 'unknown';
   try {
     const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
-    const supabase = createClient('https://btrbczqjwzuybgcxckvm.supabase.co', 'sb_secret__T1GYuCAvox2_EQXrRwGLg_yXXI-GvS');
+    const supabase = createClient('https://btrbczqjwzuybgcxckvm.supabase.co', process.env.SUPABASE_SERVICE_KEY);
     const { data: activeClients } = await supabase
       .from('clients')
       .select('id, name, status')
