@@ -14,6 +14,19 @@
 const https = require('https');
 const http = require('http');
 const url = require('url');
+const path = require('path');
+
+// ─── DOTENV LOADER (MUST BE FIRST) ────────────────────────────────────────────
+// Load env vars from /home/node/.openclaw/.env before any other code reads them.
+// dotenv reads the file, parses key=value, sets process.env.
+// Safe: this file is not committed to git.
+try {
+  require('/home/node/.openclaw/workspace/orchestration/node_modules/dotenv').config({
+    path: '/home/node/.openclaw/.env',
+  });
+} catch (e) {
+  console.error('[HubOAuth] dotenv not available:', e.message);
+}
 
 // ─── CONFIG (non-secret) ──────────────────────────────────────────────────────
 const SUPABASE_URL = process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co';
