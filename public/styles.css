@@ -80,9 +80,9 @@ img, svg { display: block; max-width: 100%; }
 .brand {
   display: flex;
   align-items: center;
-  font-size: 23px;
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   color: var(--red);
   background: transparent;
   border: none;
