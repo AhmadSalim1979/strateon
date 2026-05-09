@@ -1,15 +1,8 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-09T03:51 UTC",
-    "email": null,
-    "calendar": null,
-    "weather": null,
-    "memory_write": "2026-05-09T02:21 UTC - memory/2026-05-09.md exists, full content",
-    "whatsapp": "2026-05-09T03:21 UTC - connected as +923215139934, gateway restarts 7669",
-    "openclaw_status": "gateway 7339 restarts, online",
-    "git_status": "2026-05-09T03:51 UTC - auto-backup committed, 13 files, 879+/-",
-    "csuite_spawn": "2026-05-09T04:00 UTC - CFO/CMO/CTO/CLA morning spawns dispatched",
-    "sod_report": "2026-05-09T02:21 UTC - not yet delivered (heartbeat cycle)"
+    "heartbeat_now": "2026-05-09T05:21 UTC",
+    "memory": "2026-05-09T05:21 UTC - memory/2026-05-09.md updated with live WhatsApp status",
+    "whatsapp": "2026-05-09T05:21 UTC - CONFIRMED LIVE: linked · +923215139934 · auth 3m ago"
   },
   "form": {
     "status": "DEPLOYED via Formspree",
@@ -19,26 +12,24 @@
   "whatsapp": {
     "connected": true,
     "number": "+923215139934",
-    "note": "Gateway restarts accelerating: 307k (May 8 21:21) → 7669 (May 9 03:21). Needs re-auth physically."
+    "status": "LIVE - not dead. Do NOT report as needing re-auth."
   },
   "github": {
     "status": "FIXED",
-    "token": "ghp_y4bc5g...",
-    "pending_commits": 0,
-    "note": "Pre-push hook active"
+    "pending_commits": 0
   },
   "pending_summary": {
-    " Ahmad_actions_needed": [
-      "SQL: 3 Supabase columns (hop_count, processed_at, processed_by)",
-      "HubSpot: 17 custom properties",
+    "ahmad_actions_needed": [
+      "SQL: 3 Supabase columns (hop_count, processed_at, processed_by) — CTO to confirm if still needed",
+      "HubSpot: 17 custom properties — CTO to confirm if still needed",
       "Delaware C-Corp",
       "Stripe setup",
-      "5 VP Sales contacts",
-      "WhatsApp re-auth"
+      "5 VP Sales contacts"
     ],
     "cmo_revisions": [
-      "POST-009: add [ESTIMATE] labels",
-      "POST-010: add [ESTIMATE] labels or reframe '3x faster'"
+      "POST-009: add [ESTIMATE] labels — DONE by CLA",
+      "POST-010: add [ESTIMATE] labels or reframe '3x faster' — DONE by CLA (multiplier removed)",
+      "POST-011: APPROVED by CLA — ready to publish"
     ]
   }
 }
