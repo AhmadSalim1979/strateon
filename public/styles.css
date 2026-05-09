@@ -814,6 +814,22 @@ details p {
   color: white;
 }
 
+.footer-brand {
+  margin-bottom: 18px;
+}
+
+.footer-brand h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.footer-brand h3 span {
+  color: var(--red);
+}
+
 .site-footer p {
   max-width: 340px;
   line-height: 1.6;
