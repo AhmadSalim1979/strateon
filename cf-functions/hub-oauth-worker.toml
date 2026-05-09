@@ -1,0 +1,8 @@
+name = "qiyadon-hubspot-oauth"
+main = "hub-oauth-worker.js"
+compatibility_date = "2026-05-05"
+
+# Routes this worker to specific paths on qiyadon.com
+routes = [
+  { pattern = "qiyadon.com/hubspot/*", zone_name = "qiyadon.com" }
+]
