@@ -68,6 +68,13 @@ img, svg { display: block; max-width: 100%; }
   width: auto;
   margin-right: 10px;
   vertical-align: middle;
+  /* Seamless navbar integration */
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  /* Let glow bleed naturally into dark navbar */
+  filter: drop-shadow(0 0 8px rgba(219, 31, 42, 0.35));
 }
 
 .brand {
@@ -77,6 +84,10 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 900;
   letter-spacing: -0.055em;
   color: var(--red);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .nav-links {
