@@ -83,7 +83,7 @@ img, svg { display: block; max-width: 100%; }
   font-size: 26px;
   font-weight: 900;
   letter-spacing: -0.04em;
-  color: var(--red);
+  color: #e0e0e0;
   background: transparent;
   border: none;
   border-radius: 0;
