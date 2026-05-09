@@ -1,37 +1,25 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-09T12:09 UTC",
-    "memory": "2026-05-09T05:21 UTC - memory/2026-05-09.md updated with live WhatsApp status",
-    "whatsapp": "2026-05-09T05:21 UTC - CONFIRMED LIVE: linked \u00b7 +923215139934 \u00b7 auth 3m ago",
-    "git_status": "2026-05-09T05:51 UTC - backup done, 5 files pushed to deploy/v2",
-    "openclaw_status": "2026-05-09T12:09 UTC - gateway running, WhatsApp in reconnect loop (~10,500 restarts), all PM2 online"
-  },
-  "form": {
-    "status": "DEPLOYED via Formspree",
-    "endpoint": "https://formspree.io/f/mpqbrano",
-    "deployment_url": "https://clean-v2.strateon.pages.dev"
-  },
-  "whatsapp": {
-    "connected": true,
-    "number": "+923215139934",
-    "status": "LIVE but oscillating - 499 disconnect/reconnect every ~60s. Physical QR re-auth needed."
-  },
-  "github": {
-    "status": "FIXED",
-    "pending_commits": 0
+    "heartbeat_now": "2026-05-09T17:25 UTC",
+    "openclaw_status": "gateway running",
+    "whatsapp": "reconnect loop - QR re-auth needed"
   },
   "pending_summary": {
     "ahmad_actions_needed": [
-      "SQL: 3 Supabase columns (hop_count, processed_at, processed_by) \u2014 CTO to confirm if still needed",
-      "HubSpot: 17 custom properties \u2014 CTO to confirm if still needed",
+      "HubSpot: 6 custom properties (strtn_*)",
+      "HubSpot: register redirect URI https://qiyadon.com/hubspot/callback",
       "Delaware C-Corp",
-      "Stripe setup",
-      "5 VP Sales contacts"
-    ],
-    "cmo_revisions": [
-      "POST-009: add [ESTIMATE] labels \u2014 DONE by CLA",
-      "POST-010: add [ESTIMATE] labels or reframe '3x faster' \u2014 DONE by CLA (multiplier removed)",
-      "POST-011: APPROVED by CLA \u2014 ready to publish"
+      "Stripe setup"
     ]
+  },
+  "oauth": {
+    "status": "PM2_restart_fails_env_var_gap",
+    "direct_node_start": "WORKS - confirmed stable 100s",
+    "pm2_start_with_ecosystem": "FAILS - SUPABASE_SERVICE_KEY not inherited",
+    "workaround": "direct node start with env vars, or fix PM2 startup"
+  },
+  "git": {
+    "status": "clean",
+    "pending_commits": 0
   }
 }
