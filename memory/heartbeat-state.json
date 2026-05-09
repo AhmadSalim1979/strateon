@@ -1,10 +1,10 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-09T05:51 UTC",
+    "heartbeat_now": "2026-05-09T12:09 UTC",
     "memory": "2026-05-09T05:21 UTC - memory/2026-05-09.md updated with live WhatsApp status",
-    "whatsapp": "2026-05-09T05:21 UTC - CONFIRMED LIVE: linked · +923215139934 · auth 3m ago",
+    "whatsapp": "2026-05-09T05:21 UTC - CONFIRMED LIVE: linked \u00b7 +923215139934 \u00b7 auth 3m ago",
     "git_status": "2026-05-09T05:51 UTC - backup done, 5 files pushed to deploy/v2",
-    "openclaw_status": "2026-05-09T05:51 UTC - gateway running, WhatsApp disconnected 06:58, reconnected 06:58"
+    "openclaw_status": "2026-05-09T12:09 UTC - gateway running, WhatsApp in reconnect loop (~10,500 restarts), all PM2 online"
   },
   "form": {
     "status": "DEPLOYED via Formspree",
@@ -14,7 +14,7 @@
   "whatsapp": {
     "connected": true,
     "number": "+923215139934",
-    "status": "LIVE - not dead. Do NOT report as needing re-auth."
+    "status": "LIVE but oscillating - 499 disconnect/reconnect every ~60s. Physical QR re-auth needed."
   },
   "github": {
     "status": "FIXED",
@@ -22,16 +22,16 @@
   },
   "pending_summary": {
     "ahmad_actions_needed": [
-      "SQL: 3 Supabase columns (hop_count, processed_at, processed_by) — CTO to confirm if still needed",
-      "HubSpot: 17 custom properties — CTO to confirm if still needed",
+      "SQL: 3 Supabase columns (hop_count, processed_at, processed_by) \u2014 CTO to confirm if still needed",
+      "HubSpot: 17 custom properties \u2014 CTO to confirm if still needed",
       "Delaware C-Corp",
       "Stripe setup",
       "5 VP Sales contacts"
     ],
     "cmo_revisions": [
-      "POST-009: add [ESTIMATE] labels — DONE by CLA",
-      "POST-010: add [ESTIMATE] labels or reframe '3x faster' — DONE by CLA (multiplier removed)",
-      "POST-011: APPROVED by CLA — ready to publish"
+      "POST-009: add [ESTIMATE] labels \u2014 DONE by CLA",
+      "POST-010: add [ESTIMATE] labels or reframe '3x faster' \u2014 DONE by CLA (multiplier removed)",
+      "POST-011: APPROVED by CLA \u2014 ready to publish"
     ]
   }
 }

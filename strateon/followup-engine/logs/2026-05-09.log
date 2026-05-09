@@ -1,0 +1,60 @@
+[2026-05-09T12:37:43.651Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:37:43.652Z] [INFO] Follow-Up Engine starting
+[2026-05-09T12:37:43.653Z] [INFO] Time: 2026-05-09T12:37:43.653Z
+[2026-05-09T12:37:43.653Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-09T12:37:43.653Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:37:43.949Z] [INFO] No clients found in Supabase — running in demo/empty mode (no leads to process)
+[2026-05-09T12:37:43.950Z] [ERROR] Error fetching leads: Invalid character in header content ["Authorization"]
+[2026-05-09T12:37:43.950Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-09T12:37:43.950Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:37:43.950Z] [INFO] Follow-Up Engine complete
+[2026-05-09T12:37:43.950Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-09T12:37:43.950Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:15.078Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:15.080Z] [INFO] Follow-Up Engine starting
+[2026-05-09T12:38:15.080Z] [INFO] Time: 2026-05-09T12:38:15.080Z
+[2026-05-09T12:38:15.081Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-09T12:38:15.081Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:15.361Z] [INFO] No clients found in Supabase — running in demo/empty mode (no leads to process)
+[2026-05-09T12:38:15.362Z] [ERROR] Error fetching leads: Invalid character in header content ["Authorization"]
+[2026-05-09T12:38:15.362Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-09T12:38:15.362Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:15.362Z] [INFO] Follow-Up Engine complete
+[2026-05-09T12:38:15.362Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-09T12:38:15.362Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:34.829Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:34.830Z] [INFO] Follow-Up Engine starting
+[2026-05-09T12:38:34.831Z] [INFO] Time: 2026-05-09T12:38:34.831Z
+[2026-05-09T12:38:34.831Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-09T12:38:34.831Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:35.119Z] [INFO] No clients found in Supabase — running in demo/empty mode (no leads to process)
+[2026-05-09T12:38:35.120Z] [ERROR] Error fetching leads: Invalid character in header content ["Authorization"]
+[2026-05-09T12:38:35.120Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-09T12:38:35.120Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:38:35.120Z] [INFO] Follow-Up Engine complete
+[2026-05-09T12:38:35.120Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-09T12:38:35.120Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:19.336Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:19.338Z] [INFO] Follow-Up Engine starting
+[2026-05-09T12:39:19.338Z] [INFO] Time: 2026-05-09T12:39:19.338Z
+[2026-05-09T12:39:19.338Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-09T12:39:19.338Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:19.629Z] [INFO] No clients found in Supabase — running in demo/empty mode (no leads to process)
+[2026-05-09T12:39:19.631Z] [ERROR] Error fetching leads: Invalid character in header content ["Authorization"]
+[2026-05-09T12:39:19.631Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-09T12:39:19.631Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:19.631Z] [INFO] Follow-Up Engine complete
+[2026-05-09T12:39:19.631Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-09T12:39:19.631Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:36.318Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:36.320Z] [INFO] Follow-Up Engine starting
+[2026-05-09T12:39:36.320Z] [INFO] Time: 2026-05-09T12:39:36.320Z
+[2026-05-09T12:39:36.320Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-09T12:39:36.320Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:36.619Z] [INFO] No clients found in Supabase — running in demo/empty mode (no leads to process)
+[2026-05-09T12:39:36.620Z] [ERROR] Error fetching leads: Invalid character in header content ["Authorization"]
+[2026-05-09T12:39:36.620Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-09T12:39:36.620Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T12:39:36.620Z] [INFO] Follow-Up Engine complete
+[2026-05-09T12:39:36.621Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-09T12:39:36.621Z] [INFO] ══════════════════════════════════════════
