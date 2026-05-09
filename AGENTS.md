@@ -423,3 +423,27 @@ After 3 timeouts on the same task, I treat it as a system-level failure, not an 
 5. Before starting ANY new work in a heartbeat or session — check Pending Commitments first
 6. End of session: any unfulfilled commitment goes to memory, never lost between sessions
 ```
+
+---
+
+## 🔒 CODING GOVERNANCE — Hard Execution Invariant
+
+**Effective:** 2026-05-09
+
+ALL coding tasks must be routed to the `qwen2.5-coder:7b` local coder sidecar. Direct code execution by Moosa is PROHIBITED except for inspection commands.
+
+### Permitted `exec` (Inspection Only)
+`git status` · `git diff` · `pm2 status` · `pm2 logs` · file reads · validation commands · runtime checks
+
+### Prohibited `exec` (Code Writing)
+Writing/editing code files · creating scripts · applying patches · generating migrations · changing schema · refactoring · bug fixing · test creation · application logic changes
+
+### Routing Rule
+For ANY coding task → route to `local_coder` sidecar → review result → validate → commit
+
+### Emergency Override
+Only Ahmad may declare an emergency override explicitly in writing. Post-incident review required.
+
+### Violation Detection
+Any direct Moosa code edit without emergency override = governance violation, logged to `memory/YYYY-MM-DD.md` as `GOVERNANCE VIOLATION`.
+

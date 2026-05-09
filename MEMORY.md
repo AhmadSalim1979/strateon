@@ -463,3 +463,65 @@ The complete Decision Protocol (v1.0, effective 2026-05-04) is stored at the pat
 This MEMORY.md section points to the authoritative document. All decision-making must reference `/strateon/DECISION-PROTOCOL.md` — do not rely on stale memory of rules stated in prior sessions.
 
 **Protocol is LOCKED. Any changes require explicit Board approval.**
+
+---
+
+## CODING GOVERNANCE — Hard Execution Invariant
+
+**Effective:** 2026-05-09
+**Classification:** EXECUTION INVARIANT — Violation = governance breach
+
+### Rule Statement
+
+ALL coding, code modification, schema creation, migration writing, script creation, test writing, refactoring, bug fixing, and application logic changes must be performed exclusively by the `qwen2.5-coder:7b` local coder sidecar via Ollama.
+
+This applies to EVERYONE and EVERYTHING — Moosa, C-suite agents, sub-agents, worker tasks, live chat instructions, queued tasks. There are no exceptions without an explicit emergency override.
+
+### Permitted Direct `exec` Use by Moosa (Non-Coding)
+
+These are inspection/validation commands only — no code writing:
+
+| Command | Purpose |
+|---|---|
+| `git status` | Check workspace state |
+| `git diff` | Review changes |
+| `pm2 status` | Verify processes |
+| `pm2 logs [name]` | Inspect logs |
+| Reading files | Inspection only |
+| Validation commands | Confirm sidecar output |
+| Runtime status checks | Environment inspection |
+
+### Forbidden Direct `exec` Use by Moosa
+
+Any of the following via direct `exec` is a governance violation:
+
+- Writing or editing code files
+- Creating scripts
+- Applying patches
+- Generating migrations
+- Changing schema files
+- Refactoring code
+- Fixing bugs
+- Creating tests
+- Changing application logic
+
+### Sidecar Routing
+
+For ANY coding task, Moosa must:
+
+1. Route work to `qwen2.5-coder:7b` via the `local_coder` sidecar
+2. Review the result
+3. Validate the output
+4. Commit if correct
+
+### Emergency Override
+
+An explicit emergency override may be declared in writing (WhatsApp/chat) by Ahmad only. Emergency overrides must be:
+- Explicitly declared ("EMERGENCY OVERRIDE: [reason]")
+- Time-limited
+- Followed by a post-incident review
+
+### Governance Violation Detection
+
+A validation check flags any future direct Moosa code edit as a governance violation unless an explicit emergency override is declared. Detection is logged to `memory/YYYY-MM-DD.md` as `GOVERNANCE VIOLATION: [action]`.
+

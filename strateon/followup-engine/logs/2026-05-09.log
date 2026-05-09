@@ -58,3 +58,10 @@
 [2026-05-09T12:39:36.620Z] [INFO] Follow-Up Engine complete
 [2026-05-09T12:39:36.621Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
 [2026-05-09T12:39:36.621Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T15:30:12.409Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T15:30:12.411Z] [INFO] Follow-Up Engine starting
+[2026-05-09T15:30:12.411Z] [INFO] Time: 2026-05-09T15:30:12.411Z
+[2026-05-09T15:30:12.411Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-09T15:30:12.411Z] [INFO] ══════════════════════════════════════════
+[2026-05-09T15:30:12.707Z] [INFO] PER-CLIENT KILL SWITCH: client "Test Client — DO NOT DELETE" status="onboarding" — not 'active'. Skipping all leads.
+[2026-05-09T15:30:12.708Z] [INFO] To enable: set client status to 'active' in Supabase clients table.
