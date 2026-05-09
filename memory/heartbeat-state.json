@@ -1,22 +1,25 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-09T17:25 UTC",
-    "openclaw_status": "gateway running",
-    "whatsapp": "reconnect loop - QR re-auth needed"
+    "heartbeat_now": "2026-05-09T22:06 UTC",
+    "openclaw_status": "gateway running - 138 restarts",
+    "whatsapp": "connected as +923215139934 - reconnect loop ongoing",
+    "git_status": "committed 5 gap-note files - push success",
+    "memory_write": "2026-05-09T22:06 UTC - memory/2026-05-10.md written"
   },
   "pending_summary": {
     "ahmad_actions_needed": [
-      "HubSpot: 6 custom properties (strtn_*)",
-      "HubSpot: register redirect URI https://qiyadon.com/hubspot/callback",
+      "HubSpot: 17 custom properties (strtn_*)",
       "Delaware C-Corp",
-      "Stripe setup"
-    ]
+      "Stripe setup",
+      "5 VP Sales contacts",
+      "WhatsApp re-auth",
+      "Phase 5 cutover sign-off",
+      "Sign Trial Agreement"
+    ],
+    "scale_disclosure_gap": "CTO/CMO need to add 3-month minimum disclosure to trial agreement"
   },
   "oauth": {
-    "status": "PM2_restart_fails_env_var_gap",
-    "direct_node_start": "WORKS - confirmed stable 100s",
-    "pm2_start_with_ecosystem": "FAILS - SUPABASE_SERVICE_KEY not inherited",
-    "workaround": "direct node start with env vars, or fix PM2 startup"
+    "status": "hub-oauth running - 107 restarts in 2h"
   },
   "git": {
     "status": "clean",
