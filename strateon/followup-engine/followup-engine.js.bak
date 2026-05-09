@@ -20,42 +20,6 @@ const https = require('https');
 const nodemailer = require('/home/node/.openclaw/imap-worker/node_modules/nodemailer');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
-// ═══════════════════════════════════════════════════════════════
-// SAFETY FLAGS — Must be explicitly enabled before any emails sent
-// ═══════════════════════════════════════════════════════════════
-//
-// ALL of the following must be TRUE for emails to be sent:
-//   1. process.env.GLOBAL_ENABLED === 'true'  (global kill switch)
-//   2. process.env.SEND_EMAILS === 'true'     (email send enable)
-//   3. process.env.DRY_RUN !== 'true'          (dry-run mode OFF)
-//
-// Defaults: ALL SAFE. Missing env vars = sending blocked.
-// Malformed env vars = treated as blocking (not enabling).
-//
-// Duplicate prevention: ALWAYS active regardless of flags.
-// Per-client kill switch: ALWAYS active regardless of flags.
-
-const SAFETY = {
-  get GLOBAL_ENABLED() {
-    return process.env.GLOBAL_ENABLED === 'true';
-  },
-  get SEND_EMAILS() {
-    return process.env.SEND_EMAILS === 'true';
-  },
-  get DRY_RUN() {
-    // DRY_RUN defaults to true (safe) — must be explicitly set to 'false' to disable
-    return process.env.DRY_RUN !== 'false';
-  },
-  get canSendEmails() {
-    // All three conditions must be true:
-    // 1. Global kill switch is ON
-    // 2. Email send flag is ON
-    // 3. Dry-run mode is OFF
-    return this.GLOBAL_ENABLED && this.SEND_EMAILS && !this.DRY_RUN;
-  }
-};
-
-// ─── CONFIG ───────────────────────────────────────────────────────────────────
 const CONFIG = {
   hubspotApiKey: 'HUBSPOT_KEY_PLACEHOLDER', // Overwritten at init from secrets
   smtpPort: 587,
@@ -76,7 +40,7 @@ const CONFIG = {
 
   // Stalled lead threshold: if no reply after this many days → escalate
   stalledDays: 14,
-
+  
   // HubSpot contact properties to read
   hubspotProperties: [
     'email', 'firstname', 'lastname', 'company', 'phone',
@@ -350,26 +314,6 @@ function getTransporter() {
 }
 
 async function sendFollowupEmail(contact, cadenceStep) {
-  // ── SAFETY GATE ──────────────────────────────────────────────────────────
-  if (!SAFETY.canSendEmails) {
-    if (SAFETY.DRY_RUN) {
-      log(`[DRY_RUN] Would send email to ${contact.properties.email}: ${cadenceStep.subject}`);
-      // Still log to Supabase in dry-run mode (dual-write test)
-      await logActivity({
-        lead_id: contact.id,
-        client_id: 'demo',
-        activity_type: 'email_sent',
-        description: `[DRY_RUN] Would send: ${cadenceStep.subject}`,
-        subject: cadenceStep.subject,
-        triggered_by: 'engine',
-        outcome: null
-      });
-      return { success: true, dry_run: true };
-    }
-    log(`[BLOCKED] Email sending disabled — GLOBAL_ENABLED=${SAFETY.GLOBAL_ENABLED}, SEND_EMAILS=${SAFETY.SEND_EMAILS}, DRY_RUN=${SAFETY.DRY_RUN}`);
-    return { success: false, reason: 'safety_blocked' };
-  }
-
   const transporter = getTransporter();
   if (!transporter) return false;
 
@@ -401,39 +345,11 @@ async function sendFollowupEmail(contact, cadenceStep) {
   }
 }
 
-// ─── SUPABASE ACTIVITY LOG HELPER ─────────────────────────────────────────────
-function getSupabaseClient() {
-  const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
-  return createClient(
-    process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co',
-    process.env.SUPABASE_SERVICE_KEY || '' // Must be set via env — no hardcoded secrets
-  );
-}
-
-async function logActivity({ lead_id, client_id, activity_type, description, subject, triggered_by, outcome }) {
-  try {
-    const s = getSupabaseClient();
-    const { error } = await s.from('pipeline_activity').insert({
-      lead_id: String(lead_id),
-      client_id: String(client_id),
-      activity_type,
-      description,
-      subject,
-      triggered_by: triggered_by || 'engine',
-      outcome
-    });
-    if (error) log(`Supabase logActivity error: ${error.message}`, 'WARN');
-  } catch (e) {
-    log(`Supabase logActivity exception: ${e.message}`, 'WARN');
-  }
-}
-
 // ─── MAIN ENGINE ─────────────────────────────────────────────────────────────
 async function runEngine() {
   log('══════════════════════════════════════════');
   log('Follow-Up Engine starting');
   log(`Time: ${new Date().toISOString()}`);
-  log(`DRY_RUN=${SAFETY.DRY_RUN} | GLOBAL_ENABLED=${SAFETY.GLOBAL_ENABLED} | SEND_EMAILS=${SAFETY.SEND_EMAILS}`);
   log('══════════════════════════════════════════');
 
   // Load secrets
@@ -447,39 +363,6 @@ async function runEngine() {
   } catch (e) {
     log(`Failed to load secrets: ${e.message}`, 'ERROR');
     process.exit(1);
-  }
-
-  // ── CHECK ALL CLIENTS BEFORE PROCESSING (per-client kill switch) ─────────
-  // If any clients exist in Supabase and NONE are 'active' → skip all processing
-  // If Supabase is unreachable → proceed with caution (graceful degradation)
-  let clientStatus = 'unknown';
-  try {
-    const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
-    const supabase = createClient('https://btrbczqjwzuybgcxckvm.supabase.co', 'sb_secret__T1GYuCAvox2_EQXrRwGLg_yXXI-GvS');
-    const { data: activeClients } = await supabase
-      .from('clients')
-      .select('id, name, status')
-      .in('status', ['active', 'onboarding'])
-      .limit(10);
-    
-    const hasActive = activeClients && activeClients.some(c => c.status === 'active');
-    if (!hasActive && activeClients && activeClients.length > 0) {
-      const firstClient = activeClients[0];
-      log(`PER-CLIENT KILL SWITCH: client "${firstClient.name}" status="${firstClient.status}" — not 'active'. Skipping all leads.`);
-      log(`To enable: set client status to 'active' in Supabase clients table.`);
-      clientStatus = 'not_active';
-      return { sent: 0, skipped: 0, escalated: 0, errors: 0, clientStatus };
-    }
-    if (activeClients && activeClients.length > 0) {
-      log(`Found ${activeClients.length} active/onboarding client(s): ${activeClients.map(c => c.name).join(', ')}`);
-      clientStatus = 'active';
-    } else {
-      log(`No clients found in Supabase — running in demo/empty mode (no leads to process)`);
-      clientStatus = 'no_clients';
-    }
-  } catch (e) {
-    log(`Supabase client check failed: ${e.message} — proceeding with caution (graceful degradation)`, 'WARN');
-    clientStatus = 'unknown';
   }
 
   const leads = await getClientLeads();
@@ -516,27 +399,6 @@ async function runEngine() {
 
       if (!nextStep) {
         log(`DONE: ${email} — all cadence steps exhausted`);
-        skipped++;
-        continue;
-      }
-
-      // Final safety: check global + email send flags (redundant with sendFollowupEmail safety gate, but explicit here)
-      if (!SAFETY.canSendEmails) {
-        if (SAFETY.DRY_RUN) {
-          const nextStep = getNextCadenceStep(lead);
-          log(`[DRY_RUN] Would send ${email}: step ${nextStep?.day} — ${nextStep?.subject}`);
-          await logActivity({
-            lead_id: lead.id,
-            client_id: 'demo',
-            activity_type: 'email_sent',
-            description: `[DRY_RUN] Would send: step ${nextStep?.day} — ${nextStep?.subject}`,
-            subject: nextStep?.subject || 'unknown',
-            triggered_by: 'engine'
-          });
-          skipped++;
-          continue;
-        }
-        log(`[BLOCKED] Sending blocked — SAFETY flags not met. DRY_RUN=${SAFETY.DRY_RUN}, GLOBAL_ENABLED=${SAFETY.GLOBAL_ENABLED}, SEND_EMAILS=${SAFETY.SEND_EMAILS}`);
         skipped++;
         continue;
       }
