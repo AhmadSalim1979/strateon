@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pipeline Dashboard — Qiyadon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #070606;
+      --charcoal: #120d0f;
+      --charcoal-2: #1b1215;
+      --red: #db1f2a;
+      --red-dark: #8d1118;
+      --red-soft: rgba(219, 31, 42, 0.14);
+      --white: #ffffff;
+      --cream: #fbf7f4;
+      --warm: #f4efeb;
+      --muted: #6f6366;
+      --text-faint: #888888;
+      --text-light: #e0e0e0;
+      --green: #22c55e;
+      --orange: #f59e0b;
+      --blue: #3b82f6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--charcoal);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    .nav {
+      background: rgba(7,6,6,0.95);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-faint);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--text-faint);
+    }
+    .status-dot.active { background: var(--green); }
+    .status-dot.warning { background: var(--orange); }
+    .status-dot.error { background: var(--red); }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .dashboard {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      gap: 24px;
+    }
+    .dash-title h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .dash-title p {
+      color: var(--text-faint);
+      font-size: 15px;
+    }
+    .hub-connect-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .hub-connect-btn:hover { opacity: 0.85; }
+    .hub-connect-btn.connected {
+      background: var(--charcoal-2);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-faint);
+      cursor: default;
+    }
+
+    /* ─── STATS ROW ──────────────────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .stat-card {
+      background: var(--charcoal-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-sub {
+      font-size: 13px;
+      color: var(--text-faint);
+      margin-top: 6px;
+    }
+    .stat-sub.green { color: var(--green); }
+    .stat-sub.orange { color: var(--orange); }
+    .stat-sub.red { color: var(--red); }
+
+    /* ─── PIPELINE BOARD ─────────────────────────────────────── */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .pipeline-column {
+      background: var(--charcoal-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .pipeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .pipeline-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .pipeline-count {
+      background: rgba(255,255,255,0.08);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .hot .pipeline-label { color: var(--red); }
+    .warm .pipeline-label { color: var(--orange); }
+    .cold .pipeline-label { color: var(--blue); }
+    .dormant .pipeline-label { color: var(--text-faint); }
+
+    .lead-card {
+      background: var(--charcoal);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+    .lead-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .lead-company {
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .lead-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .lead-last {
+      color: var(--text-faint);
+    }
+
+    /* ─── ACTIVITY FEED ──────────────────────────────────────── */
+    .activity-section {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+    }
+    .card {
+      background: var(--charcoal-2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-faint);
+      margin-bottom: 20px;
+    }
+    .activity-item {
+      display: flex;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .activity-icon.email { background: var(--red-soft); color: var(--red); }
+    .activity-icon.reply { background: rgba(34,197,94,0.15); color: var(--green); }
+    .activity-icon.escalate { background: rgba(245,158,11,0.15); color: var(--orange); }
+    .activity-icon.hot { background: rgba(219,31,42,0.2); color: var(--red); }
+    .activity-body { flex: 1; }
+    .activity-text {
+      font-size: 13px;
+      color: var(--white);
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+    .activity-time {
+      font-size: 11px;
+      color: var(--text-faint);
+    }
+
+    /* ─── RESPONSE RATE ──────────────────────────────────────── */
+    .response-bar {
+      margin-bottom: 16px;
+    }
+    .response-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .response-track {
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .response-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+    }
+
+    /* ─── EMPTY STATE ────────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--text-faint);
+    }
+    .empty-state h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .empty-state p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .pipeline-grid { grid-template-columns: repeat(2, 1fr); }
+      .activity-section { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .stats-row { grid-template-columns: 1fr; }
+      .pipeline-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-brand">qiyadon</a>
+  <div class="nav-status">
+    <div class="status-dot" id="hubStatus"></div>
+    <span id="hubLabel">Checking HubSpot...</span>
+  </div>
+</nav>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+  <!-- Header -->
+  <div class="dash-header">
+    <div class="dash-title">
+      <h1>Pipeline Dashboard</h1>
+      <p id="updateTime">Loading...</p>
+    </div>
+    <div>
+      <button class="hub-connect-btn" id="hubBtn" onclick="connectHubspot()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path></svg>
+        Connect HubSpot
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="stats-row" id="statsRow">
+    <div class="stat-card">
+      <div class="stat-label">Total Leads</div>
+      <div class="stat-value" id="statTotal">—</div>
+      <div class="stat-sub" id="statTotalSub">Connecting...</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Hot Leads</div>
+      <div class="stat-value" id="statHot">—</div>
+      <div class="stat-sub green" id="statHotSub">Active in cadence</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Response Rate</div>
+      <div class="stat-value" id="statResponse">—</div>
+      <div class="stat-sub" id="statResponseSub">Last 7 days</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Escalations</div>
+      <div class="stat-value" id="statEscalated">—</div>
+      <div class="stat-sub orange" id="statEscalatedSub">Need attention</div>
+    </div>
+  </div>
+
+  <!-- Pipeline Board -->
+  <div class="pipeline-grid" id="pipelineBoard">
+    <div class="pipeline-column hot">
+      <div class="pipeline-header">
+        <span class="pipeline-label">🔥 Hot</span>
+        <span class="pipeline-count" id="hotCount">0</span>
+      </div>
+      <div id="hotLeads"></div>
+    </div>
+    <div class="pipeline-column warm">
+      <div class="pipeline-header">
+        <span class="pipeline-label">🌡 Warm</span>
+        <span class="pipeline-count" id="warmCount">0</span>
+      </div>
+      <div id="warmLeads"></div>
+    </div>
+    <div class="pipeline-column cold">
+      <div class="pipeline-header">
+        <span class="pipeline-label">❄️ Cold</span>
+        <span class="pipeline-count" id="coldCount">0</span>
+      </div>
+      <div id="coldLeads"></div>
+    </div>
+    <div class="pipeline-column dormant">
+      <div class="pipeline-header">
+        <span class="pipeline-label">💤 Dormant</span>
+        <span class="pipeline-count" id="dormantCount">0</span>
+      </div>
+      <div id="dormantLeads"></div>
+    </div>
+  </div>
+
+  <!-- Activity + Response -->
+  <div class="activity-section">
+    <div class="card">
+      <div class="card-title">📡 Recent Activity</div>
+      <div id="activityFeed">
+        <div class="empty-state">
+          <p>Connect your HubSpot to see live pipeline activity</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 Response Metrics</div>
+      <div class="response-bar">
+        <div class="response-label">
+          <span>Email Open Rate</span>
+          <span id="openRate">—%</span>
+        </div>
+        <div class="response-track">
+          <div class="response-fill" id="openRateFill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="response-bar">
+        <div class="response-label">
+          <span>Reply Rate</span>
+          <span id="replyRate">—%</span>
+        </div>
+        <div class="response-track">
+          <div class="response-fill" id="replyRateFill" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="response-bar">
+        <div class="response-label">
+          <span>Meeting Booked</span>
+          <span id="meetRate">—%</span>
+        </div>
+        <div class="response-track">
+          <div class="response-fill" id="meetRateFill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL = 'https://btrbczqjwzuybgcxckvm.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_bgeGzyQtWaaYT84bzKK7JrA_Npg3plIW';
+
+// ─── HUBSPOT OAUTH ────────────────────────────────────────────────────────
+function connectHubspot() {
+  window.open('http://localhost:3003/hubspot/auth', '_blank', 'width=600,height=700');
+}
+
+// ─── SUPABASE REALTIME ───────────────────────────────────────────────────
+const channel = supabase.channel('pipeline-live')
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'pipeline_leads' }, handleLeadChange)
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'pipeline_activity' }, handleActivityChange)
+  .subscribe();
+
+// ─── DATA LOADER ─────────────────────────────────────────────────────────
+async function loadDashboard(clientId) {
+  // Fetch leads by status
+  const { data: leads } = await supabase
+    .from('pipeline_leads')
+    .select('*')
+    .eq('client_id', clientId || 'demo')
+    .order('last_touch', { ascending: false })
+    .limit(100);
+
+  if (!leads || leads.length === 0) {
+    loadDemoData();
+    return;
+  }
+
+  renderStats(leads);
+  renderPipeline(leads);
+  renderActivity(clientId);
+  document.getElementById('updateTime').textContent = 'Live as of ' + new Date().toLocaleTimeString();
+}
+
+function loadDemoData() {
+  // Show demo/empty state
+  document.getElementById('hubBtn').classList.add('connected');
+  document.getElementById('hubBtn').innerHTML = '🔗 HubSpot Connected';
+  document.getElementById('hubStatus').classList.add('active');
+  document.getElementById('hubLabel').textContent = 'Connected';
+
+  document.getElementById('statTotal').textContent = '0';
+  document.getElementById('statHot').textContent = '0';
+  document.getElementById('statResponse').textContent = '0%';
+  document.getElementById('statEscalated').textContent = '0';
+
+  const emptyHtml = `<div class="empty-state">
+    <h3>No leads yet</h3>
+    <p>Connect HubSpot to import your pipeline — or add your first lead below.</p>
+  </div>`;
+  ['hotLeads','warmLeads','coldLeads','dormantLeads'].forEach(id => {
+    document.getElementById(id).innerHTML = '<div class="empty-state" style="padding:20px"><p style="color:var(--text-faint);font-size:13px">No leads in this stage</p></div>';
+  });
+  document.getElementById('activityFeed').innerHTML = '<div class="empty-state"><p>Activity will appear here once leads are connected</p></div>';
+}
+
+// ─── RENDER FUNCTIONS ───────────────────────────────────────────────────
+function renderStats(leads) {
+  const total = leads.length;
+  const hot = leads.filter(l => l.status === 'hot').length;
+  const escalated = leads.filter(l => l.escalated).length;
+  const responded = leads.filter(l => l.response_received).length;
+  const responseRate = total > 0 ? Math.round((responded / total) * 100) : 0;
+
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statHot').textContent = hot;
+  document.getElementById('statResponse').textContent = responseRate + '%';
+  document.getElementById('statEscalated').textContent = escalated;
+
+  document.getElementById('openRate').textContent = responseRate + '%';
+  document.getElementById('openRateFill').style.width = responseRate + '%';
+  document.getElementById('replyRate').textContent = Math.round(responseRate * 0.6) + '%';
+  document.getElementById('replyRateFill').style.width = Math.round(responseRate * 0.6) + '%';
+  document.getElementById('meetRate').textContent = Math.round(responseRate * 0.15) + '%';
+  document.getElementById('meetRateFill').style.width = Math.round(responseRate * 0.15) + '%';
+}
+
+function renderPipeline(leads) {
+  const buckets = { hot: [], warm: [], cold: [], dormant: [] };
+  leads.forEach(l => {
+    const b = l.status || 'warm';
+    if (buckets[b]) buckets[b].push(l);
+    else buckets.warm.push(l);
+  });
+
+  ['hot','warm','cold','dormant'].forEach(status => {
+    document.getElementById(status + 'Count').textContent = buckets[status].length;
+    const container = document.getElementById(status + 'Leads');
+    if (buckets[status].length === 0) {
+      container.innerHTML = '<div style="padding:16px;text-align:center;color:var(--text-faint);font-size:12px">No leads</div>';
+    } else {
+      container.innerHTML = buckets[status].slice(0, 5).map(l => `
+        <div class="lead-card">
+          <div class="lead-name">${l.name || 'Unnamed Lead'}</div>
+          <div class="lead-company">${l.company || ''}</div>
+          <div class="lead-meta">
+            <span>Day ${l.cadence_day || 0}</span>
+            <span class="lead-last">${timeAgo(l.last_touch)}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+  });
+}
+
+async function renderActivity(clientId) {
+  const { data: activity } = await supabase
+    .from('pipeline_activity')
+    .select('*')
+    .eq('client_id', clientId || 'demo')
+    .order('created_at', { ascending: false })
+    .limit(10);
+
+  if (!activity || activity.length === 0) {
+    document.getElementById('activityFeed').innerHTML = '<div class="empty-state"><p>Activity will appear here as follow-ups are sent</p></div>';
+    return;
+  }
+
+  const iconMap = {
+    'email_sent': '✉️',
+    'email_opened': '👁',
+    'reply_received': '💬',
+    'escalated': '🔺',
+    'lead_hot': '🔥',
+  };
+
+  document.getElementById('activityFeed').innerHTML = activity.map(a => `
+    <div class="activity-item">
+      <div class="activity-icon ${a.activity_type === 'reply_received' ? 'reply' : a.activity_type === 'escalated' ? 'escalate' : 'email'}">${iconMap[a.activity_type] || '📧'}</div>
+      <div class="activity-body">
+        <div class="activity-text">${a.description || a.activity_type}</div>
+        <div class="activity-time">${timeAgo(a.created_at)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function timeAgo(dateStr) {
+  if (!dateStr) return 'Never';
+  const diff = Date.now() - new Date(dateStr).getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'Just now';
+  if (mins < 60) return mins + 'm ago';
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return hrs + 'h ago';
+  return Math.floor(hrs / 24) + 'd ago';
+}
+
+// ─── REAL-TIME HANDLERS ───────────────────────────────────────────────────
+function handleLeadChange(payload) {
+  loadDashboard('demo');
+}
+function handleActivityChange(payload) {
+  renderActivity('demo');
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────
+loadDashboard('demo');
+
+// Check HubSpot status
+fetch('http://localhost:3003/hubspot/status?hub_id=demo')
+  .then(r => r.json())
+  .then(d => {
+    if (d.connected) {
+      document.getElementById('hubBtn').classList.add('connected');
+      document.getElementById('hubBtn').innerHTML = '🔗 HubSpot Connected';
+      document.getElementById('hubStatus').classList.add('active');
+      document.getElementById('hubLabel').textContent = 'Connected';
+    }
+  })
+  .catch(() => {
+    document.getElementById('hubLabel').textContent = 'OAuth server offline';
+    document.getElementById('hubStatus').classList.add('error');
+  });
+</script>
+
+</body>
+</html>
