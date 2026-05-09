@@ -17,16 +17,22 @@ const url = require('url');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const HUBSPOT_CONFIG = {
-  clientId: '0406fdac-4344-43dd-8d4d-d89957d68e7d',
-  clientSecret: '5f58038a-7572-42eb-a31f-a7df50618148',
+  clientId: process.env.HUBSPOT_CLIENT_ID || '',
+  clientSecret: process.env.HUBSPOT_CLIENT_SECRET || '',
   redirectUri: process.env.HUBSPOT_REDIRECT_URI || 'https://qiyadon.com/hubspot/callback',
   authUrl: 'https://app.hubspot.com/oauth/authorize',
   tokenUrl: 'https://api.hubapi.com/oauth/v1/token',
 };
 
-const SUPABASE_URL = 'https://btrbczqjwzuybgcxckvm.supabase.co';
-const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || 'sb_secret__T1GYuCAvox2_EQXrRwGLg_yXXI-GvS';
+const SUPABASE_URL = process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co';
+const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY; // no fallback — must be set
 const PORT = process.env.PORT || 3002;
+
+// ─── SUPABASE CLIENT ──────────────────────────────────────────────────────────
+if (!SUPABASE_SERVICE_KEY) {
+  console.error('[HubOAuth] FATAL: SUPABASE_SERVICE_KEY env var not set');
+  process.exit(1);
+}
 
 // ─── SUPABASE CLIENT ──────────────────────────────────────────────────────────
 const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
