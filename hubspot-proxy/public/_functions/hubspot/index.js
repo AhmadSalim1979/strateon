@@ -1,12 +1,7 @@
-/**
- * Cloudflare Pages Function — HubSpot wildcard route handler
- * Handles: /hubspot/*
- */
 export async function onRequest({ request }) {
   const url = new URL(request.url);
-  const path = url.pathname;
-
-  const targetUrl = `http://5.9.81.5:3003${path}${url.search}`;
+  const path = url.pathname.replace(/^\/hubspot/, '') || '/auth';
+  const targetUrl = `http://5.9.81.5:3003/hubspot${path}${url.search}`;
 
   const headers = {};
   for (const [key, value] of request.headers.entries()) {
@@ -36,7 +31,6 @@ export async function onRequest({ request }) {
     responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     responseHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-    // Handle 302/301 redirects with HTML meta-refresh (CDN-compatible)
     if (response.status >= 300 && response.status < 400) {
       const location = response.headers.get('location');
       if (location) {
@@ -52,7 +46,6 @@ export async function onRequest({ request }) {
         });
       }
     }
-
     return new Response(body, { status: response.status, headers: responseHeaders });
   } catch (e) {
     return new Response('OAuth proxy error: ' + e.message, { status: 502 });
