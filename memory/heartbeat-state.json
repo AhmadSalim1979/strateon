@@ -1,28 +1,44 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-09T22:06 UTC",
-    "openclaw_status": "gateway running - 138 restarts",
-    "whatsapp": "connected as +923215139934 - reconnect loop ongoing",
-    "git_status": "committed 5 gap-note files - push success",
-    "memory_write": "2026-05-09T22:06 UTC - memory/2026-05-10.md written"
+    "heartbeat_now": "2026-05-09T23:06 UTC",
+    "memory_write": "2026-05-09T23:06 UTC - 2026-05-10.md written, checkpointed",
+    "email": null,
+    "calendar": null,
+    "weather": null,
+    "git_status": "2026-05-09T22:41 UTC - committed (b3e7b3cb), clean",
+    "pm2_status": "2026-05-09T23:06 UTC - 5/5 online: moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook, hub-oauth",
+    "whatsapp": "2026-05-09T23:06 UTC - connected as +923215139934, 138 restarts, reconnect loop ongoing"
+  },
+  "form": {
+    "status": "DEPLOYED",
+    "endpoint": "https://formspree.io/f/mpqbrano",
+    "deployment_url": "https://clean-v2.strateon.pages.dev"
+  },
+  "whatsapp": {
+    "connected": true,
+    "number": "+923215139934",
+    "restarts": 138,
+    "note": "Reconnect loop ongoing, needs physical re-auth"
+  },
+  "github": {
+    "status": "CLEAN",
+    "last_commit": "b3e7b3cb",
+    "branch": "deploy/v2",
+    "note": "Pre-push hook active, no pending changes"
   },
   "pending_summary": {
     "ahmad_actions_needed": [
-      "HubSpot: 17 custom properties (strtn_*)",
-      "Delaware C-Corp",
-      "Stripe setup",
-      "5 VP Sales contacts",
-      "WhatsApp re-auth",
+      "Delaware C-Corp registration (weeks overdue — CRITICAL)",
+      "Stripe account + payment links (blocked on Delaware)",
+      "5 warm VP Sales contacts (blocked on Stripe)",
+      "WhatsApp QR re-auth (physical phone needed)",
+      "HubSpot 17 custom properties (strtn_* — 6 confirmed created as of May 9)",
       "Phase 5 cutover sign-off",
       "Sign Trial Agreement"
     ],
-    "scale_disclosure_gap": "CTO/CMO need to add 3-month minimum disclosure to trial agreement"
+    "scale_disclosure": "3-month Scale minimum not in trial agreement — needs legal review"
   },
-  "oauth": {
-    "status": "hub-oauth running - 107 restarts in 2h"
-  },
-  "git": {
-    "status": "clean",
-    "pending_commits": 0
+  "csuite_gap_logging": {
+    "note": "Midnight cron logged gap entries for CFO/CLA/CMO/COO/CTO May 9 — placeholder notes, no real sessions occurred"
   }
 }
