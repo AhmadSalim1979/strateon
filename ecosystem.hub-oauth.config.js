@@ -1,6 +1,15 @@
 // ecosystem.hub-oauth.config.js
-// Safe deployment: non-secret env vars only. Secrets loaded from secrets files at runtime.
-// SECRETS must NOT be committed to this file.
+// PM2 ecosystem for hub-oauth-v2.js
+//
+// SAFE STARTUP (required order):
+//   1. Set SUPABASE_SERVICE_KEY in shell:
+//        export SUPABASE_SERVICE_KEY=$(grep SUPABASE_SERVICE_KEY /home/node/.openclaw/.env | cut -d= -f2)
+//   2. Start via:
+//        pm2 start ecosystem.hub-oauth.config.js
+//
+// This file contains ONLY non-secret config.
+// SUPABASE_SERVICE_KEY is loaded from /home/node/.openclaw/.env at PM2 start time.
+
 module.exports = {
   apps: [{
     name: 'hub-oauth',
@@ -13,12 +22,11 @@ module.exports = {
     env: {
       NODE_ENV: 'production',
       PORT: 3003,
-      // Non-secrets only — OK to commit
       SUPABASE_URL: 'https://btrbczqjwzuybgcxckvm.supabase.co',
       HUBSPOT_REDIRECT_URI: 'https://qiyadon.com/hubspot/callback',
-      // Secrets loaded at runtime from:
-      //   - /home/node/.openclaw/secrets/hubspot-oauth.json (HUBSPOT_CLIENT_ID, HUBSPOT_CLIENT_SECRET)
-      //   - /home/node/.openclaw/.env (SUPABASE_SERVICE_KEY — already committed, key value redacted)
+      // NOTE: SUPABASE_SERVICE_KEY must be set in shell env before `pm2 start`.
+      // Run this first:
+      //   export SUPABASE_SERVICE_KEY=$(grep SUPABASE_SERVICE_KEY /home/node/.openclaw/.env | cut -d= -f2)
     }
   }]
 };
