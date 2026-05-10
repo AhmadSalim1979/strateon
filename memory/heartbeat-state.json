@@ -1,13 +1,13 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-09T23:06 UTC",
-    "memory_write": "2026-05-09T23:06 UTC - 2026-05-10.md written, checkpointed",
+    "heartbeat_now": "2026-05-10T00:36 UTC",
+    "memory_write": "2026-05-10T00:15 UTC - 2026-05-10.md written with full GIR #036 summary",
     "email": null,
     "calendar": null,
     "weather": null,
-    "git_status": "2026-05-09T22:41 UTC - committed (b3e7b3cb), clean",
-    "pm2_status": "2026-05-09T23:06 UTC - 5/5 online: moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook, hub-oauth",
-    "whatsapp": "2026-05-09T23:06 UTC - connected as +923215139934, 138 restarts, reconnect loop ongoing"
+    "git_status": "2026-05-10T00:36 UTC - clean, no pending changes",
+    "pm2_status": "2026-05-10T00:36 UTC - 5/5 online: moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook, hub-oauth",
+    "whatsapp": "2026-05-10T00:36 UTC - connected as +923215139934, 138 restarts, reconnect loop ongoing, no new restarts since last check"
   },
   "form": {
     "status": "DEPLOYED",
@@ -22,7 +22,6 @@
   },
   "github": {
     "status": "CLEAN",
-    "last_commit": "b3e7b3cb",
     "branch": "deploy/v2",
     "note": "Pre-push hook active, no pending changes"
   },
@@ -30,15 +29,14 @@
     "ahmad_actions_needed": [
       "Delaware C-Corp registration (weeks overdue — CRITICAL)",
       "Stripe account + payment links (blocked on Delaware)",
-      "5 warm VP Sales contacts (blocked on Stripe)",
+      "5 warm VP Sales contacts",
       "WhatsApp QR re-auth (physical phone needed)",
-      "HubSpot 17 custom properties (strtn_* — 6 confirmed created as of May 9)",
+      "HubSpot OAuth redirect URI configuration",
       "Phase 5 cutover sign-off",
       "Sign Trial Agreement"
     ],
-    "scale_disclosure": "3-month Scale minimum not in trial agreement — needs legal review"
-  },
-  "csuite_gap_logging": {
-    "note": "Midnight cron logged gap entries for CFO/CLA/CMO/COO/CTO May 9 — placeholder notes, no real sessions occurred"
+    "ctro_actions_needed": [
+      "hub-oauth-v2.js hardcoded service key → env var"
+    ]
   }
 }
