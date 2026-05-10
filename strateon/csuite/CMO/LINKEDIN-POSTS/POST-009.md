@@ -3,7 +3,7 @@
 **One-liner:** Most Series B SaaS companies are not getting 100% of the value out of the AEs they already have — because execution is not a system, it's a hope.
 
 **Platform:** LinkedIn
-**Status:** Draft — requires CLA review before posting
+**Status:** Published — 2026-05-10 (with image) — confirmed by Ahmad
 **Created:** 2026-05-08
 
 ---

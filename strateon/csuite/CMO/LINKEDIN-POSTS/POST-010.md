@@ -3,7 +3,7 @@
 **One-liner:** Your pipeline isn't slow because your product is complicated. It's slow because no one owns the velocity.
 
 **Platform:** LinkedIn
-**Status:** Draft — requires CLA review before posting
+**Status:** Published — 2026-05-10 (with image) — confirmed by Ahmad
 **Created:** 2026-05-08
 
 ---

@@ -1,13 +1,12 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-10T03:36 UTC",
-    "memory_write": "2026-05-10T00:15 UTC - 2026-05-10.md written with full GIR #036 summary",
+    "heartbeat_now": "2026-05-10T05:36 UTC",
     "email": null,
     "calendar": null,
     "weather": null,
-    "git_status": "2026-05-10T03:36 UTC - clean, aad5a8ab just committed",
-    "pm2_status": "2026-05-10T03:36 UTC - 5/5 online",
-    "whatsapp": "2026-05-10T00:36 UTC - connected as +923215139934, 138 restarts, reconnect loop ongoing, no new restarts since last check"
+    "git_status": "2026-05-10T05:36 UTC - clean, commit ef2bc0f4",
+    "pm2_status": "2026-05-10T05:36 UTC - 5/5 online: moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook, hub-oauth",
+    "whatsapp": "2026-05-10T07:06 UTC - connected as +923215139934, reconnect loop ongoing"
   },
   "form": {
     "status": "DEPLOYED",
@@ -23,20 +22,20 @@
   "github": {
     "status": "CLEAN",
     "branch": "deploy/v2",
-    "note": "Pre-push hook active, no pending changes"
+    "commit": "ef2bc0f4"
   },
   "pending_summary": {
     "ahmad_actions_needed": [
-      "Delaware C-Corp registration (weeks overdue — CRITICAL)",
+      "Delaware C-Corp registration (CRITICAL \u2014 gates everything)",
       "Stripe account + payment links (blocked on Delaware)",
       "5 warm VP Sales contacts",
       "WhatsApp QR re-auth (physical phone needed)",
-      "HubSpot OAuth redirect URI configuration",
+      "HubSpot OAuth redirect URI \u2192 https://qiyadon-hubspot-proxy.pages.dev/oauth/callback",
       "Phase 5 cutover sign-off",
       "Sign Trial Agreement"
     ],
     "ctro_actions_needed": [
-      "hub-oauth-v2.js hardcoded service key → env var"
+      "hub-oauth-v2.js hardcoded service key \u2192 env var"
     ]
   }
 }

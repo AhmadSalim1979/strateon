@@ -3,7 +3,7 @@
 **One-liner:** Most dead deals don't hear "no." They just hear nothing — and that's a different problem.
 
 **Platform:** LinkedIn
-**Status:** New — 2026-05-05
+**Status:** Published — 2026-05-10 (with image) — confirmed by Ahmad
 **ICLE:** Pipeline silence / invisible deal death
 
 ---
