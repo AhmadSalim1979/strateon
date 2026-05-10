@@ -1,31 +1,10 @@
-/**
- * Cloudflare Worker — HubSpot OAuth Proxy
- * 
- * Proxies /hubspot/* requests from qiyadon.com to the local OAuth server on port 3003.
- * This is a Cloudflare Worker, NOT a Node.js HTTP server.
- * 
- * Routes:
- *   qiyadon.com/hubspot/auth       → HubSpot OAuth authorize URL (redirect)
- *   qiyadon.com/hubspot/callback   → OAuth token exchange callback
- *   qiyadon.com/hubspot/status     → Check connection status
- *   qiyadon.com/hubspot/disconnect → Revoke and disconnect
- */
-
-const OAUTH_SERVER = 'http://5.9.81.5:3003';
-
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const path = url.pathname;
-
-    // Only handle /hubspot/* routes
-    if (!path.startsWith('/hubspot')) {
-      return fetch(request); // Pass through to static site
-    }
-
-    const targetPath = path;
-    const targetUrl = `${OAUTH_SERVER}${path}${url.search}`;
-
+    // Use https://oauth.qiyadon.com as the upstream
+    const targetUrl = `https://oauth.qiyadon.com${path}${url.search}`;
+    
     const headers = new Headers();
     for (const [key, value] of request.headers.entries()) {
       const lk = key.toLowerCase();
@@ -33,8 +12,8 @@ export default {
         headers.set(key, value);
       }
     }
-    // Override Host to match OAuth server expectation
-    headers.set('Host', 'qiyadon.com');
+    headers.set('Host', 'oauth.qiyadon.com');
+    headers.set('X-Forwarded-Proto', 'https');
 
     try {
       const response = await fetch(targetUrl, {
@@ -52,10 +31,7 @@ export default {
         }
       }
       responseHeaders.set('Access-Control-Allow-Origin', 'https://qiyadon.com');
-      responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      responseHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-      // Handle redirect responses from OAuth server
       if (response.status >= 300 && response.status < 400) {
         const location = response.headers.get('location');
         if (location) {
@@ -66,7 +42,6 @@ export default {
 
       const body = await response.text();
       return new Response(body, { status: response.status, headers: responseHeaders });
-
     } catch (e) {
       return new Response('OAuth proxy error: ' + e.message, { status: 502 });
     }

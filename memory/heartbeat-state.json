@@ -1,12 +1,13 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-10T05:36 UTC",
+    "heartbeat_now": "2026-05-10T11:32 UTC",
     "email": null,
     "calendar": null,
     "weather": null,
-    "git_status": "2026-05-10T05:36 UTC - clean, commit ef2bc0f4",
-    "pm2_status": "2026-05-10T05:36 UTC - 5/5 online: moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook, hub-oauth",
-    "whatsapp": "2026-05-10T07:06 UTC - connected as +923215139934, reconnect loop ongoing"
+    "git_status": "2026-05-10T10:20 UTC - 3 files changed: ecosystem.hub-oauth.config.js, workers/hubspot-oauth/wrangler.toml, strateon/projects/backups.md",
+    "pm2_status": "2026-05-10T10:20 UTC - 5/5 online: hub-oauth(114m), moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook",
+    "whatsapp": "2026-05-10T10:20 UTC - connected, reconnect loop ongoing",
+    "hubspot_oauth": "2026-05-10T10:20 UTC - route qiyadon.com/hubspot/* attached to qiyadon-hubspot-oauth worker, but NOT intercepting (Pages serving HTML). Direct IP http://5.9.81.5:3003/hubspot/auth WORKS. Ahmad can use direct IP for OAuth test."
   },
   "form": {
     "status": "DEPLOYED",
@@ -26,11 +27,11 @@
   },
   "pending_summary": {
     "ahmad_actions_needed": [
-      "Delaware C-Corp registration (CRITICAL \u2014 gates everything)",
+      "Delaware C-Corp registration (CRITICAL — gates everything)",
       "Stripe account + payment links (blocked on Delaware)",
       "5 warm VP Sales contacts",
       "WhatsApp QR re-auth (physical phone needed)",
-      "HubSpot OAuth redirect URI \u2192 https://qiyadon-hubspot-proxy.pages.dev/oauth/callback",
+      "HubSpot OAuth — use direct http://5.9.81.5:3003/hubspot/auth for test (route not intercepting)",
       "Phase 5 cutover sign-off",
       "Sign Trial Agreement"
     ],

@@ -23,7 +23,7 @@ module.exports = {
       NODE_ENV: 'production',
       PORT: 3003,
       SUPABASE_URL: 'https://btrbczqjwzuybgcxckvm.supabase.co',
-      HUBSPOT_REDIRECT_URI: 'https://qiyadon-hubspot-proxy.pages.dev/hubspot/callback',
+      HUBSPOT_REDIRECT_URI: 'https://oauth.qiyadon.com/hubspot/callback',
       // NOTE: SUPABASE_SERVICE_KEY must be set in shell env before `pm2 start`.
       // Run this first:
       //   export SUPABASE_SERVICE_KEY=$(grep SUPABASE_SERVICE_KEY /home/node/.openclaw/.env | cut -d= -f2)
