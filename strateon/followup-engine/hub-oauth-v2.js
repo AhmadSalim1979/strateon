@@ -282,25 +282,45 @@ async function handleDisconnect(req, res) {
 }
 
 // ─── SERVER ───────────────────────────────────────────────────────────────────
-const server = http.createServer((req, res) => {
+const useTLS = process.env.TLS_ENABLED === 'true' ||
+  (process.env.TLS_CERT_FILE && process.env.TLS_KEY_FILE);
+
+let server;
+if (useTLS) {
+  const fs = require('fs');
+  const tlsCert = fs.readFileSync(process.env.TLS_CERT_FILE || '/home/node/.openclaw/workspace/keys/oauth-origin-cert.pem');
+  const tlsKey  = fs.readFileSync(process.env.TLS_KEY_FILE  || '/home/node/.openclaw/workspace/keys/oauth-origin-key.pem');
+  server = https.createServer({ cert: tlsCert, key: tlsKey }, (req, res) => {
+    handleRequest(req, res);
+  });
+  console.log('[HubOAuth] HTTPS enabled on port', PORT);
+} else {
+  server = http.createServer((req, res) => {
+    handleRequest(req, res);
+  });
+  console.log('[HubOAuth] HTTP enabled on port', PORT);
+}
+
+function handleRequest(req, res) {
   const parsedUrl = url.parse(req.url, true);
   const pathname = parsedUrl.pathname;
 
   console.log(`[HubOAuth] ${req.method} ${pathname}`);
 
-  if (pathname === '/hubspot/auth') return handleAuth(res);
+  if (pathname === '/hubspot/auth')     return handleAuth(res);
   if (pathname === '/hubspot/callback') return handleCallback(req, res);
-  if (pathname === '/hubspot/status') return handleStatus(req, res);
+  if (pathname === '/hubspot/status')   return handleStatus(req, res);
   if (pathname === '/hubspot/disconnect') return handleDisconnect(req, res);
   if (pathname === '/health') return handleHealth(res);
 
   res.writeHead(404);
   res.end('Not found');
-});
+}
 
 server.listen(PORT, () => {
-  console.log(`[HubOAuth] Server running on port ${PORT}`);
-  console.log(`[HubOAuth] Auth URL: http://localhost:${PORT}/hubspot/auth`);
+  const proto = useTLS ? 'https' : 'http';
+  console.log(`[HubOAuth] Server running on ${proto}://localhost:${PORT}`);
+  console.log(`[HubOAuth] Auth URL: ${proto}://localhost:${PORT}/hubspot/auth`);
 });
 
 module.exports = { server };
