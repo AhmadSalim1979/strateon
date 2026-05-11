@@ -205,6 +205,7 @@ async function handleCallback(req, res) {
 
     // Store in Supabase
     const { error: dbErr } = await supabase.from('hubspot_connections').upsert({
+      client_id: HUBSPOT_CONFIG.clientId,
       hub_id: hubId,
       access_token,
       refresh_token,
@@ -215,9 +216,9 @@ async function handleCallback(req, res) {
 
     if (dbErr) {
       console.error(`[HubOAuth] Supabase write error: ${dbErr.message}`);
-    } else {
-      console.log(`[HubOAuth] Connection stored in Supabase for Hub ${hubId}`);
+      return writeError(res, 'Persistence Failed', `Database: ${dbErr.message}`);
     }
+    console.log(`[HubOAuth] Connection stored in Supabase for Hub ${hubId}`);
 
     writeSuccess(res, 'HubSpot Connected!');
 
