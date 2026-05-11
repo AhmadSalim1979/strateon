@@ -93,12 +93,12 @@ const CONFIG = {
   // Default cadence: [days since lead added, email subject prefix, body template key]
   // Adjust per-client in CLIENT_CADENCES below
   defaultCadence: [
-    { day: 1,  subject: 'Pipeline continuity check',          bodyKey: 'intro'     },
-    { day: 3,  subject: 'Follow-up patterns',               bodyKey: 'followup1' },
-    { day: 7,  subject: 'Response gaps',                   bodyKey: 'valueadd'  },
-    { day: 14, subject: 'Cadence consistency',              bodyKey: 'checkin'  },
-    { day: 21, subject: 'Pipeline continuity',             bodyKey: 'pivot'     },
-    { day: 30, subject: 'Quick note',                       bodyKey: 'final'    },
+    { day: 1,  subject: 'Pipeline continuity',                 bodyKey: 'intro'     },
+    { day: 3,  subject: 'Follow-up gaps in growing pipelines',  bodyKey: 'followup1' },
+    { day: 7,  subject: 'How follow-up cadence breaks down',   bodyKey: 'valueadd'  },
+    { day: 14, subject: 'Follow-up cadence at scale',         bodyKey: 'checkin'  },
+    { day: 21, subject: 'Pipeline continuity at scale',        bodyKey: 'pivot'     },
+    { day: 30, subject: 'Quick note',                           bodyKey: 'final'    },
   ],
 
   // Stalled lead threshold: if no reply after this many days → escalate
@@ -141,72 +141,64 @@ function safeBody(key, lead) {
 }
 
 const EMAIL_BODIES_SAFE = {
-  // ── STEP 1: Quiet observation — pipeline continuity check ────────────────
+  // ── STEP 1: Pattern-aware introduction ────────────────────────────────────
   intro: (lead) => ({
-    subject: `Pipeline continuity check — ${lead.company || 'your pipeline'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I noticed ${lead.company || 'your pipeline'} has a follow-up cadence set up in HubSpot. I've been observing how it's been running.</p>
-<p>A few things I observed:</p>
-<ul>
-<li>The most recent follow-up in the sequence may not have gone out yet</li>
-<li>There are leads that appear to have gone quiet after initial contact</li>
-<li>The follow-up rhythm appears inconsistent — some steps may have been skipped or delayed</li>
-</ul>
-<p>If you'd like, I can send over a more detailed view of where follow-up appears inconsistent.</p>
-<p>Happy to share the findings — just let me know.</p>
-<p>— Qiyadon Pipeline</p>`,
-  }),
-
-  // ── STEP 2: Lightweight pattern observation ───────────────────────────────
-  followup1: (lead) => ({
-    subject: `Follow-up patterns — ${lead.company || 'your pipeline'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
-<p>Following up on my note from earlier — I wanted to share something I noticed.</p>
-<p>There appears to be a gap between when some leads were first contacted and when the first follow-up went out. That gap may be worth reviewing — leads that don't get a follow-up within a certain window can often go quiet.</p>
-<p>I can show you where follow-up appears inconsistent. If that's useful, just say the word and I'll send the details.</p>
-<p>— Qiyadon Pipeline</p>`,
-  }),
-
-  // ── STEP 3: Response gap observation ──────────────────────────────────────
-  valueadd: (lead) => ({
-    subject: `Response gaps — ${lead.company || 'your pipeline'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I've noticed a pattern worth bringing to your attention: there are leads in the pipeline where the response follow-up cadence may have some gaps — steps that appear to have been missed or delayed.</p>
-<p>I can send a more detailed view of which leads appear to have gone quiet and which follow-up steps may have been skipped. It may be useful for identifying where pipeline continuity can be improved.</p>
-<p>Let me know if you'd like to see it — happy to share.</p>
-<p>— Qiyadon Pipeline</p>`,
-  }),
-
-  // ── STEP 4: Cadence consistency observation ────────────────────────────────
-  checkin: (lead) => ({
-    subject: `Cadence consistency — ${lead.company || 'your pipeline'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I wanted to flag something I observed: some leads in the pipeline appear to have moved through early stages but may have slowed at later follow-up steps. That can happen when the cadence breaks down somewhere in the sequence.</p>
-<p>I can send the current cadence snapshot — which leads are progressing, which may have stalled, and where the gaps appear to be. Worth a look if you're trying to keep the pipeline moving.</p>
-<p>Just let me know.</p>
-<p>— Qiyadon Pipeline</p>`,
-  }),
-
-  // ── STEP 5: Open loop close — operational continuity ───────────────────────
-  pivot: (lead) => ({
     subject: `Pipeline continuity — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>Wrapping up this thread — I wanted to leave you with the key observation.</p>
-<p>Pipeline continuity tends to work best when follow-up cadence stays consistent across all leads, all the way through the sequence. When steps get missed or delayed, leads can slip through without anyone noticing.</p>
-<p>I can continue monitoring the cadence automatically if that's useful — I'd just need to know. Otherwise, I'll leave the sequence as it is and check in again next week.</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 
-  // ── STEP 6: Quiet close — minimal friction ────────────────────────────────
+  // ── STEP 2: Pattern awareness — follow-up gap ──────────────────────────────
+  followup1: (lead) => ({
+    subject: `Follow-up gaps in growing pipelines`,
+    html: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern worth keeping an eye on as pipelines scale: the gap between first contact and first follow-up. In growing pipelines, that gap tends to widen, and leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can share what that pattern typically looks like in a pipeline at your stage. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+  }),
+
+  // ── STEP 3: Operational pattern — cadence breaks ─────────────────────────
+  valueadd: (lead) => ({
+    subject: `How follow-up cadence tends to break down`,
+    html: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see as pipeline volume increases: follow-up cadence tends to break down somewhere around step 3 or 4. Steps 1 and 2 usually get handled, but by step 3 or 4, the rhythm starts to slip — leads go quiet not because they lost interest, but because the follow-up sequence didn't continue on schedule.</p>
+<p>I can show you what that pattern looks like and where it tends to show up first. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+  }),
+
+  // ── STEP 4: Consistency pattern — cadence slippage ─────────────────────────
+  checkin: (lead) => ({
+    subject: `Follow-up cadence at scale`,
+    html: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: as pipeline velocity increases, follow-up consistency often starts to slip. It's rarely intentional; it's usually a matter of bandwidth. Leads that were on track in early cadence steps can quietly fall off as the team gets busy.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+  }),
+
+  // ── STEP 5: Operational continuity — offer to continue ───────────────────
+  pivot: (lead) => ({
+    subject: `Pipeline continuity at ${lead.company || 'your stage'}`,
+    html: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity is one of those operational disciplines that tends to slip when things get busy, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue running the follow-up cadence in the background — just keeping the sequence on track and flagging when leads appear to go quiet. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+  }),
+
+  // ── STEP 6: Quiet close — open loop ───────────────────────────────────────
   final: (lead) => ({
     subject: `Quick note — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>This is my last follow-up on this thread. I've tried to keep the cadence light and only reach out when I had something worth observing.</p>
-<p>If you ever want to revisit pipeline continuity, the follow-up sequence can pick back up from where it left off. Just let me know.</p>
-<p>Otherwise — good luck with everything.</p>
+<p>This is my last follow-up on this thread. I've tried to keep it light and only share patterns that might be worth knowing about as you manage pipeline continuity at scale.</p>
+<p>If you ever want to revisit the cadence, or if the situation changes and follow-up consistency becomes a priority, I'm here. Otherwise — good luck with everything.</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 };
+
+
 
 
 // Safety layer wrapper — routes all email body generation through compliant templates
