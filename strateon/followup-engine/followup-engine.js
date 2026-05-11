@@ -17,7 +17,7 @@
  */
 
 const https = require('https');
-const nodemailer = require('/home/node/.openclaw/imap-worker/node_modules/nodemailer');
+const nodemailer = require('/home/node/.openclaw/workspace/node_modules/nodemailer');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════
@@ -52,7 +52,34 @@ const SAFETY = {
     // 2. Email send flag is ON
     // 3. Dry-run mode is OFF
     return this.GLOBAL_ENABLED && this.SEND_EMAILS && !this.DRY_RUN;
-  }
+  },
+  // ─── LIVE-TEST SAFETY GATE ────────────────────────────────────────────────
+  // Hard per-test allowlist — must be explicitly set to enable one-recipient send
+  get LIVE_TEST_ENABLED() {
+    return process.env.LIVE_TEST_ALLOWED_EMAIL === 'ahmad.salim@qiyadon.com';
+  },
+  get LIVE_TEST_MAX_SENDS() {
+    return parseInt(process.env.LIVE_TEST_MAX_SENDS || '0', 10);
+  },
+  // Live-test send counter — persists across calls within a single run
+  _liveSends: 0,
+  get liveSends() {
+    return this._liveSends;
+  },
+  recordLiveSend() {
+    this._liveSends++;
+  },
+  resetLiveSends() {
+    this._liveSends = 0;
+  },
+  isAllowedRecipient(email) {
+    if (!this.LIVE_TEST_ENABLED) return false;
+    return email === process.env.LIVE_TEST_ALLOWED_EMAIL;
+  },
+  canSendLive() {
+    if (!this.LIVE_TEST_ENABLED) return false;
+    return this._liveSends < this.LIVE_TEST_MAX_SENDS;
+  },
 };
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
@@ -336,12 +363,13 @@ function getTransporter() {
   }
 
   _transporter = nodemailer.createTransport({
-    host: CONFIG.smtpHost,
-    port: CONFIG.smtpPort,
-    secure: false, // STARTTLS
+    host: creds.smtp?.host || 'smtp0001.neo.space',
+    port: creds.smtp?.port || 587,
+    secure: creds.smtp?.secure || false,
+    requireTLS: creds.smtp?.requireTLS ?? true,
     auth: {
       user: creds.user || 'contact@qiyadon.com',
-      pass: creds.pass,
+      pass: creds.password || creds.pass,
     },
     connectionTimeout: 15000,
   });
@@ -373,6 +401,26 @@ async function sendFollowupEmail(contact, cadenceStep) {
   const transporter = getTransporter();
   if (!transporter) return false;
 
+  const toEmail = contact.properties.email;
+  const toName = [contact.properties.firstname, contact.properties.lastname].filter(Boolean).join(' ');
+
+  // ── LIVE-TEST SAFETY GATE ─────────────────────────────────────────────────
+  // Active ONLY when all three normal flags are set (live mode).
+  // Hard-rejects any recipient not on the explicit allowlist.
+  // Hard-caps total sends per run.
+  if (SAFETY.canSendEmails) {
+    if (!SAFETY.isAllowedRecipient(toEmail)) {
+      log(`[LIVE_TEST_BLOCK] Recipient ${toEmail} not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping`);
+      return { success: false, reason: 'live_test_blocked_not_allowed' };
+    }
+    if (!SAFETY.canSendLive()) {
+      log(`[LIVE_TEST_BLOCK] Max sends (${SAFETY.LIVE_TEST_MAX_SENDS}) reached — skipping ${toEmail}`);
+      return { success: false, reason: 'live_test_blocked_max_sends' };
+    }
+    SAFETY.recordLiveSend();
+    log(`[LIVE_TEST_ALLOWED] Send #${SAFETY.liveSends} of ${SAFETY.LIVE_TEST_MAX_SENDS} — clearing for: ${toEmail}`);
+  }
+
   const bodyFn = EMAIL_BODIES[cadenceStep.bodyKey];
   if (!bodyFn) {
     log(`Unknown body key: ${cadenceStep.bodyKey}`, 'ERROR');
@@ -380,8 +428,6 @@ async function sendFollowupEmail(contact, cadenceStep) {
   }
 
   const emailData = bodyFn(contact.properties);
-  const toEmail = contact.properties.email;
-  const toName = [contact.properties.firstname, contact.properties.lastname].filter(Boolean).join(' ');
 
   const mailOptions = {
     from: `"${CONFIG.fromName}" <${CONFIG.fromEmail}>`,
@@ -434,7 +480,8 @@ async function runEngine() {
   log('Follow-Up Engine starting');
   log(`Time: ${new Date().toISOString()}`);
   log(`DRY_RUN=${SAFETY.DRY_RUN} | GLOBAL_ENABLED=${SAFETY.GLOBAL_ENABLED} | SEND_EMAILS=${SAFETY.SEND_EMAILS}`);
-  log('══════════════════════════════════════════');
+  log(`LIVE_TEST_ALLOWED_EMAIL=${process.env.LIVE_TEST_ALLOWED_EMAIL || '(not set)'} | LIVE_TEST_MAX_SENDS=${process.env.LIVE_TEST_MAX_SENDS || 0}`);
+  SAFETY.resetLiveSends(); // Reset live-send counter for this run
 
   // Load secrets
   const fs = require('fs');
