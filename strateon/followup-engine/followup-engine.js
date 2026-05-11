@@ -224,8 +224,8 @@ async function getClientLeads(clientId) {
   try {
     const filterGroups = [{
       filters: [
-        { propertyName: 'hs_lead_status', operator: 'NOT_EQUAL_TO', value: 'CLOSED_LOST' },
-        { propertyName: 'hs_lead_status', operator: 'NOT_EQUAL_TO', value: 'CLOSED_WON' },
+        { propertyName: 'hs_lead_status', operator: 'NEQ', value: 'CLOSED_LOST' },
+        { propertyName: 'hs_lead_status', operator: 'NEQ', value: 'CLOSED_WON' },
       ]
     }];
 
@@ -440,8 +440,11 @@ async function runEngine() {
   const fs = require('fs');
   const secretsPath = '/home/node/.openclaw/secrets/qiyadon-email.json';
   try {
-    const creds = JSON.parse(fs.readFileSync(secretsPath, 'utf8'));
-    CONFIG.hubspotApiKey = fs.readFileSync('/home/node/.openclaw/secrets/hubspot.json', 'utf8').trim();
+    // Load HubSpot key from its dedicated file, not qiyadon-email.json
+    const hubspotRaw = fs.readFileSync('/home/node/.openclaw/secrets/hubspot.json', 'utf8');
+    const hubspotCreds = JSON.parse(hubspotRaw);
+    // Support both {accessToken: "..."} and plain "token" formats
+    CONFIG.hubspotApiKey = (typeof hubspotCreds.accessToken === 'string' ? hubspotCreds.accessToken : hubspotCreds).trim();
     // SMTP auth from email secret
     if (!getTransporter()) throw new Error('Transporter failed to init');
   } catch (e) {
