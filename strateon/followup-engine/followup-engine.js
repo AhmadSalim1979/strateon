@@ -18,6 +18,7 @@
 
 const https = require('https');
 const nodemailer = require('/home/node/.openclaw/workspace/node_modules/nodemailer');
+const { generateAccountBrief } = require('./account-intelligence.js');
 
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 // ═══════════════════════════════════════════════════════════════
@@ -140,74 +141,409 @@ function safeBody(key, lead) {
   return EMAIL_BODIES_SAFE[key](lead);
 }
 
+
 const EMAIL_BODIES_SAFE = {
-  // ── STEP 1: Pattern-aware introduction ────────────────────────────────────
-  intro: (lead) => ({
-    subject: `Pipeline continuity — ${lead.company || 'your pipeline'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
+  // ── CONTEXT-ADAPTIVE TEMPLATES ─────────────────────────────────────────────
+  // Each step has 8 context-aware variants + default.
+  // Selects based on accountBrief.messagingAngle.
+  // accountBrief may be empty {} in Phase 1 (template selection falls through to default).
+
+  intro: (lead, accountBrief = {}) => {
+    const angle = accountBrief.messagingAngle || 'general_continuity';
+    const templates = {
+      founder_bandwidth: {
+        subject: accountBrief.recommendedSubject || 'Pipeline continuity when you\'re doing it all',
+        body: `<p>Hi ${lead.firstname || ''},</p>
 <p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
 <p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
 <p>If that sounds useful, just say the word and I'll send it over.</p>
 <p>— Qiyadon Pipeline</p>`,
-  }),
+      },
+      revops_handoff: {
+        subject: 'Follow-up gaps at the SDR-to-AE handoff',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_stakeholder_continuity: {
+        subject: accountBrief.recommendedSubject || 'Pipeline continuity across complex sales motions',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      volume_continuity: {
+        subject: accountBrief.recommendedSubject || 'Follow-up consistency at inbound scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      scaling_continuity: {
+        subject: accountBrief.recommendedSubject || 'Pipeline continuity as sales orgs scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      cycle_continuity: {
+        subject: accountBrief.recommendedSubject || 'Follow-up continuity in long sales cycles',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_line_continuity: {
+        subject: accountBrief.recommendedSubject || 'Pipeline continuity across multiple product lines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      late_continuity: {
+        subject: accountBrief.recommendedSubject || 'Where follow-up cadence tends to break down',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      general_continuity: {
+        subject: accountBrief.recommendedSubject || 'Pipeline continuity',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>As B2B pipelines grow, follow-up consistency tends to become harder to maintain. It's one of the most common sources of pipeline leakage at this stage — leads quietly go cold because the follow-up sequence breaks down somewhere in the middle.</p>
+<p>If you have a few minutes, I can walk you through where follow-up gaps are most likely forming in a pipeline like yours — and what the pattern typically looks like. No commitment required.</p>
+<p>If that sounds useful, just say the word and I'll send it over.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+    };
+    const tpl = templates[angle] || templates.general_continuity;
+    return { subject: tpl.subject, html: tpl.body };
+  },
 
-  // ── STEP 2: Pattern awareness — follow-up gap ──────────────────────────────
-  followup1: (lead) => ({
-    subject: `Follow-up gaps in growing pipelines`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
+  followup1: (lead, accountBrief = {}) => {
+    const angle = accountBrief.messagingAngle || 'general_continuity';
+    const templates = {
+      founder_bandwidth: {
+        subject: 'Follow-up gaps in growing pipelines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
 <p>Following up on my earlier note — one pattern worth keeping an eye on as pipelines scale: the gap between first contact and first follow-up. In growing pipelines, that gap tends to widen, and leads that don't get a follow-up within the first few days often go quiet.</p>
 <p>I can share what that pattern typically looks like in a pipeline at your stage. Happy to send it over if useful.</p>
 <p>— Qiyadon Pipeline</p>`,
-  }),
+      },
+      revops_handoff: {
+        subject: 'Follow-up gaps at the SDR-to-AE handoff',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing that tends to show up in pipelines with active SDR teams: the gap between initial outreach and first follow-up. SDR-to-AE handoffs can create natural delays — and leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can show you where that gap tends to form and what it looks like in a pipeline at your stage. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_stakeholder_continuity: {
+        subject: 'Follow-up gaps in complex sales motions',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern worth keeping an eye on as pipelines scale: the gap between first contact and first follow-up. In growing pipelines, that gap tends to widen, and leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can share what that pattern typically looks like in a pipeline at your stage. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      volume_continuity: {
+        subject: 'Follow-up gaps at inbound scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern that tends to show up at high inbound volume: the gap between first contact and first follow-up. When lead volume is high, that gap can widen quickly — leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can show you where that gap tends to form in a pipeline like yours. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      scaling_continuity: {
+        subject: 'Follow-up gaps as teams scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern worth keeping an eye on as pipelines scale: the gap between first contact and first follow-up. As teams grow and handoffs become more complex, that gap tends to widen, and leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can share what that pattern typically looks like in a pipeline at your stage. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      cycle_continuity: {
+        subject: 'Follow-up gaps in long sales cycles',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern that tends to show up in long sales cycles: the gap between first contact and first follow-up. In long cycles, that gap can stretch longer than it should — leads that don't get a timely follow-up often disengage before the deal progresses further.</p>
+<p>I can show you where that gap tends to form and what it looks like in a pipeline at your stage. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_line_continuity: {
+        subject: 'Follow-up gaps across product lines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern worth keeping an eye on as pipelines scale: the gap between first contact and first follow-up. In multi-line pipelines, that gap can vary by product line — and leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can show you where that gap tends to form in a pipeline like yours. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      late_continuity: {
+        subject: 'Where follow-up cadence tends to break down',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern worth noting: the gap between first contact and first follow-up. By step 4 or 5 of a cadence, that gap tends to widen — leads that were engaged early can fall off the radar as earlier-stage opportunities demand attention.</p>
+<p>I can show you where that gap tends to form in a pipeline like yours. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      general_continuity: {
+        subject: 'Follow-up gaps in growing pipelines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up on my earlier note — one pattern worth keeping an eye on as pipelines scale: the gap between first contact and first follow-up. In growing pipelines, that gap tends to widen, and leads that don't get a follow-up within the first few days often go quiet.</p>
+<p>I can share what that pattern typically looks like in a pipeline at your stage. Happy to send it over if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+    };
+    const tpl = templates[angle] || templates.general_continuity;
+    return { subject: tpl.subject, html: tpl.body };
+  },
 
-  // ── STEP 3: Operational pattern — cadence breaks ─────────────────────────
-  valueadd: (lead) => ({
-    subject: `How follow-up cadence tends to break down`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
+  valueadd: (lead, accountBrief = {}) => {
+    const angle = accountBrief.messagingAngle || 'general_continuity';
+    const templates = {
+      founder_bandwidth: {
+        subject: 'How follow-up cadence tends to break down',
+        body: `<p>Hi ${lead.firstname || ''},</p>
 <p>One thing we often see as pipeline volume increases: follow-up cadence tends to break down somewhere around step 3 or 4. Steps 1 and 2 usually get handled, but by step 3 or 4, the rhythm starts to slip — leads go quiet not because they lost interest, but because the follow-up sequence didn't continue on schedule.</p>
 <p>I can show you what that pattern looks like and where it tends to show up first. Worth a few minutes to review.</p>
 <p>— Qiyadon Pipeline</p>`,
-  }),
+      },
+      revops_handoff: {
+        subject: 'Where SDR-to-AE handoffs tend to break down',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see in pipelines with active SDR teams: follow-up cadence tends to break down at the handoff point. SDRs handle early outreach well, but when a lead passes to an AE, follow-up often slows — not because the AE isn't interested, but because the queue is full and the handoff timing was off.</p>
+<p>I can show you where that gap tends to form in your pipeline. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_stakeholder_continuity: {
+        subject: 'How follow-up cadence breaks down in complex deals',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see as pipeline volume increases: follow-up cadence tends to break down somewhere around step 3 or 4. Steps 1 and 2 usually get handled, but by step 3 or 4, the rhythm starts to slip — leads go quiet not because they lost interest, but because the follow-up sequence didn't continue on schedule.</p>
+<p>I can show you what that pattern looks like and where it tends to show up first. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      volume_continuity: {
+        subject: 'Where follow-up breaks down at scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see at high inbound volume: follow-up cadence tends to break down around step 2 or 3. Leads that don't immediately respond often get deprioritized as the team focuses on the most engaged prospects — and cadence breaks down not because the team doesn't care, but because bandwidth is limited.</p>
+<p>I can show you where that gap tends to form in your pipeline. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      scaling_continuity: {
+        subject: 'Where follow-up breaks down during growth',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see at the growth stage: follow-up cadence tends to break down as the team scales. New rep onboarding, coverage shifts, and handoff changes all tend to create gaps — leads that were moving quietly stall when the sequence breaks.</p>
+<p>I can show you where those gaps tend to form. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      cycle_continuity: {
+        subject: 'Where follow-up breaks down between deal stages',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see in long sales cycles: follow-up cadence tends to break down between deal stages. The sequence that worked for initial outreach often doesn't follow the deal as it progresses — leads go quiet not because they lost interest, but because the cadence didn't adapt to where the deal actually is.</p>
+<p>I can show you where those gaps tend to form. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_line_continuity: {
+        subject: 'Where follow-up breaks down across product lines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see in multi-line pipelines: follow-up cadence tends to break down around step 3 or 4. Later-stage leads can quietly stall while earlier opportunities demand attention — and without a system to maintain rhythm across all lines, some leads go quiet without anyone noticing.</p>
+<p>I can show you where those gaps tend to form. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      late_continuity: {
+        subject: 'Where late-stage cadence tends to decay',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see by step 4 or 5 of a cadence: follow-up consistency tends to slip. Leads that were engaged in early steps can fall off the radar as earlier-stage opportunities and new leads demand attention — the cadence that worked at step 1 often breaks down before it reaches step 4.</p>
+<p>I can show you where that decay tends to happen first. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      general_continuity: {
+        subject: 'How follow-up cadence tends to break down',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>One thing we often see as pipeline volume increases: follow-up cadence tends to break down somewhere around step 3 or 4. Steps 1 and 2 usually get handled, but by step 3 or 4, the rhythm starts to slip — leads go quiet not because they lost interest, but because the follow-up sequence didn't continue on schedule.</p>
+<p>I can show you what that pattern looks like and where it tends to show up first. Worth a few minutes to review.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+    };
+    const tpl = templates[angle] || templates.general_continuity;
+    return { subject: tpl.subject, html: tpl.body };
+  },
 
-  // ── STEP 4: Consistency pattern — cadence slippage ─────────────────────────
-  checkin: (lead) => ({
-    subject: `Follow-up cadence at scale`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
+  checkin: (lead, accountBrief = {}) => {
+    const angle = accountBrief.messagingAngle || 'general_continuity';
+    const templates = {
+      founder_bandwidth: {
+        subject: 'Follow-up cadence at scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
 <p>Following up — one more pattern worth noting: as pipeline velocity increases, follow-up consistency often starts to slip. It's rarely intentional; it's usually a matter of bandwidth. Leads that were on track in early cadence steps can quietly fall off as the team gets busy.</p>
 <p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
 <p>— Qiyadon Pipeline</p>`,
-  }),
+      },
+      revops_handoff: {
+        subject: 'SDR-to-AE handoff at scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: as pipeline velocity increases, follow-up consistency at the SDR-to-AE handoff often starts to slip. It's rarely intentional; it's usually a matter of AE bandwidth and handoff timing. Leads that were engaged at the SDR stage can quietly stall when the handoff doesn't land cleanly.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_stakeholder_continuity: {
+        subject: 'Follow-up cadence at enterprise scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: as pipeline velocity increases and deal complexity grows, follow-up consistency often starts to slip between stages. It's rarely intentional; it's usually a matter of bandwidth across multiple stakeholders. Leads that were engaged early can quietly stall as the deal moves through evaluation.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      volume_continuity: {
+        subject: 'Follow-up consistency at inbound scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: at high inbound volume, follow-up consistency often starts to slip as the team focuses on the most engaged leads. It's rarely intentional; it's usually a matter of bandwidth. Leads that weren't immediately responsive can quietly get deprioritized.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      scaling_continuity: {
+        subject: 'Follow-up as teams scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: as teams scale and handoffs increase, follow-up consistency often starts to slip. It's rarely intentional; it's usually a matter of coverage gaps and new rep onboarding. Leads that were moving quietly stall when the sequence breaks during transitions.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      cycle_continuity: {
+        subject: 'Follow-up in long sales cycles',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: in long sales cycles, follow-up consistency often starts to slip between deal stages. It's rarely intentional; it's usually a matter of attention drift as the deal sits between stages. Leads that were engaged early can quietly stall as the evaluation period extends.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_line_continuity: {
+        subject: 'Follow-up across product lines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: in multi-line pipelines, follow-up consistency across all lines often starts to slip as volume increases. It's rarely intentional; it's usually a matter of bandwidth and priority. Later-stage leads can quietly stall while earlier opportunities demand attention.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      late_continuity: {
+        subject: 'Late-stage follow-up decay',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: by step 4 or 5 of a cadence, follow-up consistency tends to slip. Leads that were engaged in early steps can fall off the radar as earlier-stage opportunities and new leads demand attention. It's rarely intentional; it's usually a matter of focus.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      general_continuity: {
+        subject: 'Follow-up cadence at scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Following up — one more pattern worth noting: as pipeline velocity increases, follow-up consistency often starts to slip. It's rarely intentional; it's usually a matter of bandwidth. Leads that were on track in early cadence steps can quietly fall off as the team gets busy.</p>
+<p>If you're seeing that pattern, it's worth a quick look to see where the cadence may be weakening. I can send over a snapshot if useful.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+    };
+    const tpl = templates[angle] || templates.general_continuity;
+    return { subject: tpl.subject, html: tpl.body };
+  },
 
-  // ── STEP 5: Operational continuity — offer to continue ───────────────────
-  pivot: (lead) => ({
-    subject: `Pipeline continuity at ${lead.company || 'your stage'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
+  pivot: (lead, accountBrief = {}) => {
+    const angle = accountBrief.messagingAngle || 'general_continuity';
+    const templates = {
+      founder_bandwidth: {
+        subject: 'Pipeline continuity — next steps',
+        body: `<p>Hi ${lead.firstname || ''},</p>
 <p>Wrapping up this thread — pipeline continuity is one of those operational disciplines that tends to slip when things get busy, and it's also one of the hardest to maintain consistently without a system to support it.</p>
-<p>If you'd find it useful, I can continue running the follow-up cadence in the background — just keeping the sequence on track and flagging when leads appear to go quiet. No additional work on your end.</p>
+<p>If you'd find it useful, I can continue running the follow-up cadence in the background — just keeping the sequence on track and flagging when leads need attention. No additional work on your end.</p>
 <p>Let me know if that makes sense for your situation.</p>
 <p>— Qiyadon Pipeline</p>`,
-  }),
+      },
+      revops_handoff: {
+        subject: 'SDR-to-AE handoff continuity',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity at the SDR-to-AE handoff is one of those operational disciplines that tends to slip when things get busy, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue monitoring the handoff rhythm and flagging when leads appear to go quiet between stages. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_stakeholder_continuity: {
+        subject: 'Pipeline continuity across deal stages',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity across complex deal stages is one of those operational disciplines that tends to slip when deals move slowly, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue monitoring the follow-up rhythm across all deal stages and flagging when leads appear to go quiet between stages. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      volume_continuity: {
+        subject: 'Pipeline continuity at scale',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity at high volume is one of those operational disciplines that tends to slip when lead flow exceeds bandwidth, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue running the follow-up cadence in the background — keeping the sequence on track and flagging when leads appear to go quiet. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      scaling_continuity: {
+        subject: 'Pipeline continuity during growth',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity as teams scale is one of those operational disciplines that tends to slip during transitions and handoffs, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue monitoring the cadence and flagging when leads appear to go quiet during team transitions. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      cycle_continuity: {
+        subject: 'Pipeline continuity across deal stages',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity in long sales cycles is one of those operational disciplines that tends to slip between deal stages, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue monitoring the follow-up rhythm across all deal stages and flagging when leads appear to go quiet between stages. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      multi_line_continuity: {
+        subject: 'Pipeline continuity across product lines',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity across multiple product lines is one of those operational disciplines that tends to slip when bandwidth is split across segments, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue monitoring the cadence across all product lines and flagging when leads appear to go quiet. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      late_continuity: {
+        subject: 'Late-stage pipeline continuity',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity through late cadence steps is one of those operational disciplines that tends to slip when early-stage leads demand attention, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue monitoring the late-stage cadence and flagging when leads appear to fall off the radar. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+      general_continuity: {
+        subject: 'Pipeline continuity — next steps',
+        body: `<p>Hi ${lead.firstname || ''},</p>
+<p>Wrapping up this thread — pipeline continuity is one of those operational disciplines that tends to slip when things get busy, and it's also one of the hardest to maintain consistently without a system to support it.</p>
+<p>If you'd find it useful, I can continue running the follow-up cadence in the background — just keeping the sequence on track and flagging when leads need attention. No additional work on your end.</p>
+<p>Let me know if that makes sense for your situation.</p>
+<p>— Qiyadon Pipeline</p>`,
+      },
+    };
+    const tpl = templates[angle] || templates.general_continuity;
+    return { subject: tpl.subject, html: tpl.body };
+  },
 
-  // ── STEP 6: Quiet close — open loop ───────────────────────────────────────
-  final: (lead) => ({
-    subject: `Quick note — ${lead.company || 'your pipeline'}`,
-    html: `<p>Hi ${lead.firstname || ''},</p>
+  final: (lead, accountBrief = {}) => {
+    const angle = accountBrief.messagingAngle || 'general_continuity';
+    // Final step is the same for all contexts — open loop, no pressure
+    return {
+      subject: `Quick note — ${lead.company || 'your pipeline'}`,
+      html: `<p>Hi ${lead.firstname || ''},</p>
 <p>This is my last follow-up on this thread. I've tried to keep it light and only share patterns that might be worth knowing about as you manage pipeline continuity at scale.</p>
 <p>If you ever want to revisit the cadence, or if the situation changes and follow-up consistency becomes a priority, I'm here. Otherwise — good luck with everything.</p>
 <p>— Qiyadon Pipeline</p>`,
-  }),
-};
+    };
+  },
+};;
 
 
 
 
 // Safety layer wrapper — routes all email body generation through compliant templates
-function getEmailBody(bodyKey, lead) {
+function getEmailBody(bodyKey, lead, accountBrief = {}) {
   if (EMAIL_BODIES_SAFE[bodyKey]) {
-    return EMAIL_BODIES_SAFE[bodyKey](lead);
+    return EMAIL_BODIES_SAFE[bodyKey](lead, accountBrief);
   }
   // Fallback to safe intro for unknown keys
-  return EMAIL_BODIES_SAFE.intro(lead);
+  return EMAIL_BODIES_SAFE.intro(lead, accountBrief);
 }
 
 // Legacy EMAIL_BODIES — DEPRECATED, use getEmailBody() or EMAIL_BODIES_SAFE directly
@@ -451,7 +787,8 @@ async function sendFollowupEmail(contact, cadenceStep) {
     log(`[LIVE_TEST_ALLOWED] Send #${SAFETY.liveSends} of ${SAFETY.LIVE_TEST_MAX_SENDS} — clearing for: ${toEmail}`);
   }
 
-  const emailData = getEmailBody(cadenceStep.bodyKey, contact.properties);
+  const accountBrief = generateAccountBrief(contact.properties, {});
+      const emailData = getEmailBody(cadenceStep.bodyKey, contact.properties, accountBrief);
 
   const mailOptions = {
     from: `"${CONFIG.fromName}" <${CONFIG.fromEmail}>`,
