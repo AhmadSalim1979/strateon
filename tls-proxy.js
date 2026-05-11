@@ -1,8 +1,3 @@
-/**
- * TLS Proxy for hub-oauth
- * Terminates Cloudflare Origin CA TLS on port 3003
- * Forwards plain HTTP to the OAuth server on port 3004
- */
 const https = require('https');
 const http = require('http');
 const fs = require('fs');

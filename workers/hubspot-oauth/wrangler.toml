@@ -2,11 +2,4 @@ name = "qiyadon-hubspot-oauth"
 main = "index.js"
 compatibility_date = "2026-05-05"
 account_id = "85c189d9df60e1ab0d24237221015b5c"
-workers_dev = false
-
-route = "oauth.qiyadon.com/hubspot/*"
-zone_name = "qiyadon.com"
-
-# Routes configured via Cloudflare Dashboard → Workers → qiyadon-hubspot-oauth → Triggers → Custom Domain
-# Or: Cloudflare Dashboard → qiyadon.com → Rules → Load Balancer (if using)
-# Route pattern: qiyadon.com/hubspot/*
+workers_dev = true

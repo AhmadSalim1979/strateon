@@ -1,42 +1,13 @@
 {
   "lastChecks": {
-    "heartbeat_now": "2026-05-10T11:32 UTC",
     "email": null,
     "calendar": null,
     "weather": null,
-    "git_status": "2026-05-10T10:20 UTC - 3 files changed: ecosystem.hub-oauth.config.js, workers/hubspot-oauth/wrangler.toml, strateon/projects/backups.md",
-    "pm2_status": "2026-05-10T10:20 UTC - 5/5 online: hub-oauth(114m), moosa-worker, openclaw-gateway, qiyadon-audit-form, response-webhook",
-    "whatsapp": "2026-05-10T10:20 UTC - connected, reconnect loop ongoing",
-    "hubspot_oauth": "2026-05-10T10:20 UTC - route qiyadon.com/hubspot/* attached to qiyadon-hubspot-oauth worker, but NOT intercepting (Pages serving HTML). Direct IP http://5.9.81.5:3003/hubspot/auth WORKS. Ahmad can use direct IP for OAuth test."
+    "memory": 1749488400,
+    "openclawStatus": 1749488400
   },
-  "form": {
-    "status": "DEPLOYED",
-    "endpoint": "https://formspree.io/f/mpqbrano",
-    "deployment_url": "https://clean-v2.strateon.pages.dev"
-  },
-  "whatsapp": {
-    "connected": true,
-    "number": "+923215139934",
-    "restarts": 138,
-    "note": "Reconnect loop ongoing, needs physical re-auth"
-  },
-  "github": {
-    "status": "CLEAN",
-    "branch": "deploy/v2",
-    "commit": "ef2bc0f4"
-  },
-  "pending_summary": {
-    "ahmad_actions_needed": [
-      "Delaware C-Corp registration (CRITICAL — gates everything)",
-      "Stripe account + payment links (blocked on Delaware)",
-      "5 warm VP Sales contacts",
-      "WhatsApp QR re-auth (physical phone needed)",
-      "HubSpot OAuth — use direct http://5.9.81.5:3003/hubspot/auth for test (route not intercepting)",
-      "Phase 5 cutover sign-off",
-      "Sign Trial Agreement"
-    ],
-    "ctro_actions_needed": [
-      "hub-oauth-v2.js hardcoded service key \u2192 env var"
-    ]
-  }
+  "tlsProxyCrashes": 4,
+  "tlsProxyLastCrash": "2026-05-10T16:57:16+02:00",
+  "oauthSetupComplete": true,
+  "pendingHubSpotUpdate": null
 }
