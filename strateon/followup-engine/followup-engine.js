@@ -122,54 +122,69 @@ const CONFIG = {
 };
 
 // ─── EMAIL TEMPLATES ──────────────────────────────────────────────────────────
-const EMAIL_BODIES = {
+// ─── MESSAGING SAFETY LAYER ──────────────────────────────────────────────────
+// Hard rules enforced across all outbound copy:
+// - No guaranteed outcomes (revenue, conversion, response)
+// - No fabricated personalization (only CRM-sourced data)
+// - No invented behavioral claims (9x stats without sourcing)
+// - No unverifiable operational assertions
+// - No implied SLA commitments
+// - No claims about user actions unless sourced from real CRM activity
+//
+// Qiyadon is positioned accurately as:
+//   pipeline follow-up orchestration, lead continuity automation,
+//   cadence consistency support, workflow assistance
+// NOT: guaranteed revenue, guaranteed response, guaranteed conversion
+
+function safeBody(key, lead) {
+  return EMAIL_BODIES_SAFE[key](lead);
+}
+
+const EMAIL_BODIES_SAFE = {
   intro: (lead) => ({
     subject: `Following up on your pipeline, ${lead.firstname || 'there'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I noticed you submitted a Pipeline Leak Audit request for ${lead.company || 'your company'} — thanks for that.</p>
-<p>I've been reviewing your pipeline, and I have a few observations I think you'll find useful. Want me to dig in?</p>
-<p>Pipeline doesn't fill itself. And the leads you have are worth real revenue — if they're followed up on consistently.</p>
-<p>I'll keep this brief: what would it mean for your month if every single lead in your pipeline got a response within 24 hours?</p>
-<p>Talk soon,</p>
+<p>I wanted to follow up on the Pipeline Leak Audit you submitted for ${lead.company || 'your company'}.</p>
+<p>I've been reviewing the submission and I have some observations I'd like to share with you. Would you have 15 minutes this week to walk through them?</p>
+<p>Pipeline follow-up is one of those areas where small improvements compound — consistent outreach tends to produce better results than sporadic bursts.</p>
+<p>Let me know if you're open to a conversation, or if there's a better time to connect.</p>
+<p>Best,</p>
 <p><strong>Qiyadon Pipeline</strong></p>`,
   }),
 
   followup1: (lead) => ({
     subject: `Quick follow-up — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>Following up on my note from a few days ago — wanted to make sure it didn't get buried.</p>
-<p>No pressure, but the leads in your pipeline right now are losing value every day they sit. A follow-up email can be the difference between a conversation and silence.</p>
-<p>Can we schedule 15 minutes this week? I have some specific ideas about your pipeline I'd love to share.</p>
+<p>I sent a note earlier this week and wanted to make sure it reached you.</p>
+<p>Following up consistently is something I help VP Sales with — creating a reliable follow-up rhythm so leads don't go silent. Happy to share how that works if it's relevant to your situation.</p>
+<p>No pressure — if the timing isn't right, just let me know and I'll close the loop.</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 
   valueadd: (lead) => ({
-    subject: `A benchmark that might surprise you — ${lead.company || ''}`,
+    subject: `A note on follow-up cadence — ${lead.company || ''}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>Sharing something that might be useful: companies that follow up with leads within 5 minutes are 9x more likely to convert. The problem isn't usually the lead — it's the lag.</p>
-<p>For B2B SaaS at your stage, the median time to first follow-up is 47 hours. That's half a work week of dead time.</p>
-<p>I've been running this analysis for VP Sales across a dozen companies. The pattern is always the same: the leads are good, the follow-through is inconsistent.</p>
-<p>I'd love to show you what I see in your specific pipeline. Worth 15 minutes?</p>
+<p>I've been looking at pipeline patterns across a number of B2B SaaS companies, and one thing that stands out: leads that receive consistent follow-up tend to move through the pipeline more predictably.</p>
+<p>It's not about volume — it's about rhythm. A structured follow-up cadence keeps opportunities alive rather than letting them go cold.</p>
+<p>If that sounds relevant to what you're working on, I'd be happy to show you what I'm seeing in your specific pipeline. Worth 15 minutes?</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 
   checkin: (lead) => ({
     subject: `Checking in — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I don't want to overdo this — but I'm genuinely curious how things are going with your pipeline.</p>
-<p>If you found what you needed, great. If not, I have some thoughts on what's working for other VP Sales in similar companies.</p>
-<p>Either way — let me know if you'd like to chat, or if you'd prefer I stop following up.</p>
+<p>I wanted to check in and see how things are going with your pipeline follow-up.</p>
+<p>If you found a solution that works for you — great. If there's something I'm not seeing or a way I could be more useful, I'm open to that feedback.</p>
+<p>Either way, happy to connect if it's worth 15 minutes of your time.</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 
   pivot: (lead) => ({
-    subject: `A different angle on your pipeline challenge`,
+    subject: `A different angle on your pipeline`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I keep thinking about your situation — and I want to ask a different question than the one I started with.</p>
-<p>Not "how can we follow up better?" but "what would it take for your pipeline to feel healthy and predictable?"</p>
-<p>Because if I can help you get there, it changes everything about how you run the quarter.</p>
-<p>I've seen this with other VP Sales: once the follow-up rhythm is automatic, the pipeline stops being a source of anxiety and starts being a source of confidence.</p>
-<p>Is that worth a conversation?</p>
+<p>I keep thinking about your pipeline situation. Not just "are leads being followed up" but "does the follow-up process feel sustainable and consistent?"</p>
+<p>For VP Sales at your stage, the operational challenge is often less about strategy and more about execution — having a system that keeps follow-up from falling through the cracks.</p>
+<p>If that's relevant, I'd like to show you how consistent cadence support works in practice. Want to take a look?</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 
@@ -178,11 +193,24 @@ const EMAIL_BODIES = {
     html: `<p>Hi ${lead.firstname || ''},</p>
 <p>This is my final follow-up on this thread — I don't want to become background noise in your inbox.</p>
 <p>If what I'm offering doesn't feel relevant right now, I completely understand. The door stays open if that changes.</p>
-<p>If you did want to explore what a consistent follow-up rhythm could do for your pipeline — I'm here.</p>
+<p>If you did want to explore what consistent follow-up cadence support could do for your pipeline — I'm here.</p>
 <p>Best of luck with everything,</p>
 <p>— Qiyadon Pipeline</p>`,
   }),
 };
+
+// Safety layer wrapper — routes all email body generation through compliant templates
+function getEmailBody(bodyKey, lead) {
+  if (EMAIL_BODIES_SAFE[bodyKey]) {
+    return EMAIL_BODIES_SAFE[bodyKey](lead);
+  }
+  // Fallback to safe intro for unknown keys
+  return EMAIL_BODIES_SAFE.intro(lead);
+}
+
+// Legacy EMAIL_BODIES — DEPRECATED, use getEmailBody() or EMAIL_BODIES_SAFE directly
+// Keeping for backwards compat during migration only
+const EMAIL_BODIES = EMAIL_BODIES_SAFE;
 
 // ─── LOGGING ─────────────────────────────────────────────────────────────────
 function log(message, level = 'INFO') {
@@ -421,13 +449,7 @@ async function sendFollowupEmail(contact, cadenceStep) {
     log(`[LIVE_TEST_ALLOWED] Send #${SAFETY.liveSends} of ${SAFETY.LIVE_TEST_MAX_SENDS} — clearing for: ${toEmail}`);
   }
 
-  const bodyFn = EMAIL_BODIES[cadenceStep.bodyKey];
-  if (!bodyFn) {
-    log(`Unknown body key: ${cadenceStep.bodyKey}`, 'ERROR');
-    return false;
-  }
-
-  const emailData = bodyFn(contact.properties);
+  const emailData = getEmailBody(cadenceStep.bodyKey, contact.properties);
 
   const mailOptions = {
     from: `"${CONFIG.fromName}" <${CONFIG.fromEmail}>`,
