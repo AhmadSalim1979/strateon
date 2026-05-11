@@ -93,12 +93,12 @@ const CONFIG = {
   // Default cadence: [days since lead added, email subject prefix, body template key]
   // Adjust per-client in CLIENT_CADENCES below
   defaultCadence: [
-    { day: 1,  subject: 'Following up on your pipeline',        bodyKey: 'intro'     },
-    { day: 3,  subject: 'Quick follow-up',                       bodyKey: 'followup1' },
-    { day: 7,  subject: 'Value-add: pipeline benchmark',          bodyKey: 'valueadd'  },
-    { day: 14, subject: 'Checking in',                            bodyKey: 'checkin'  },
-    { day: 21, subject: 'Should we try a different approach?',    bodyKey: 'pivot'     },
-    { day: 30, subject: 'Final follow-up — then I\'ll step back', bodyKey: 'final'    },
+    { day: 1,  subject: 'Pipeline health assessment',               bodyKey: 'intro'     },
+    { day: 3,  subject: 'What the system found',                  bodyKey: 'followup1' },
+    { day: 7,  subject: 'Cadence health summary',                  bodyKey: 'valueadd'  },
+    { day: 14, subject: 'Pipeline velocity observation',          bodyKey: 'checkin'  },
+    { day: 21, subject: 'Closing the loop',                       bodyKey: 'pivot'     },
+    { day: 30, subject: 'Last follow-up from the system',         bodyKey: 'final'    },
   ],
 
   // Stalled lead threshold: if no reply after this many days → escalate
@@ -141,61 +141,79 @@ function safeBody(key, lead) {
 }
 
 const EMAIL_BODIES_SAFE = {
+  // ── STEP 1: Automated audit report delivery ──────────────────────────────
+  // Delivers pipeline health assessment on cadence day 1
+  // CTA: "Reply 'leakage' and I'll send the breakdown"
   intro: (lead) => ({
-    subject: `Following up on your pipeline, ${lead.firstname || 'there'}`,
+    subject: `Pipeline health assessment — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I wanted to follow up on the Pipeline Leak Audit you submitted for ${lead.company || 'your company'}.</p>
-<p>I've been reviewing the submission and I have some observations I'd like to share with you. Would you have 15 minutes this week to walk through them?</p>
-<p>Pipeline follow-up is one of those areas where small improvements compound — consistent outreach tends to produce better results than sporadic bursts.</p>
-<p>Let me know if you're open to a conversation, or if there's a better time to connect.</p>
-<p>Best,</p>
-<p><strong>Qiyadon Pipeline</strong></p>`,
+<p>I've generated a pipeline health assessment for ${lead.company || 'your pipeline'} based on your current HubSpot data.</p>
+<p>Here's what the system flagged:</p>
+<ul>
+<li>${lead.company || 'Your pipeline'} has ${lead.strtn_followup_cadence_day || 'N/A'} active cadence day(s) recorded</li>
+<li>No response received yet on the most recent follow-up</li>
+<li>Lead source activity is detected — follow-up rhythm appears inconsistent</li>
+</ul>
+<p>Reply <strong>leakage</strong> and I'll send the full pipeline leakage breakdown — which leads have gone cold, which steps were missed, and where the gaps are widest.</p>
+<p>Reply <strong>cadence</strong> and I'll generate a cadence health summary for ${lead.company || 'your pipeline'}.</p>
+<p>— Qiyadon Pipeline System</p>`,
   }),
 
+  // ── STEP 2: Async value delivery — system-generated insight ─────────────
+  // CTA: "Reply 'audit' and I'll send the full analysis"
   followup1: (lead) => ({
-    subject: `Quick follow-up — ${lead.company || 'your pipeline'}`,
+    subject: `What the system found in ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I sent a note earlier this week and wanted to make sure it reached you.</p>
-<p>Following up consistently is something I help VP Sales with — creating a reliable follow-up rhythm so leads don't go silent. Happy to share how that works if it's relevant to your situation.</p>
-<p>No pressure — if the timing isn't right, just let me know and I'll close the loop.</p>
-<p>— Qiyadon Pipeline</p>`,
+<p>Quick update from the pipeline system: I've completed a follow-up rhythm analysis for ${lead.company || 'your pipeline'}.</p>
+<p><strong>Key finding:</strong> The gap between lead creation and first follow-up appears to exceed the window where response rates are highest. That gap is the most common source of pipeline leakage at this stage.</p>
+<p>I can generate a complete pipeline leakage audit — showing every lead that went silent after initial contact, and which follow-up step was missed. Just reply <strong>audit</strong> and I'll send it over.</p>
+<p>I'll follow up again in a few days unless I hear from you.</p>
+<p>— Qiyadon Pipeline System</p>`,
   }),
 
+  // ── STEP 3: Cadence health summary — automated deliverable ───────────────
+  // CTA: "Reply 'summary' and I'll generate the full cadence health report"
   valueadd: (lead) => ({
-    subject: `A note on follow-up cadence — ${lead.company || ''}`,
+    subject: `Cadence health summary for ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I've been looking at pipeline patterns across a number of B2B SaaS companies, and one thing that stands out: leads that receive consistent follow-up tend to move through the pipeline more predictably.</p>
-<p>It's not about volume — it's about rhythm. A structured follow-up cadence keeps opportunities alive rather than letting them go cold.</p>
-<p>If that sounds relevant to what you're working on, I'd be happy to show you what I'm seeing in your specific pipeline. Worth 15 minutes?</p>
-<p>— Qiyadon Pipeline</p>`,
+<p>I've been running a cadence consistency analysis on ${lead.company || 'your pipeline'}. Here's the summary:</p>
+<p>Across active leads, the system is tracking follow-up consistency. Leads that receive timely follow-ups tend to progress through pipeline stages more predictably. Leads that don't — tend to go quiet.</p>
+<p>Reply <strong>summary</strong> and I'll generate the full cadence health report — a complete breakdown of every lead, which follow-up steps were completed, and which gaps are costing you pipeline velocity.</p>
+<p>No meeting required. I'll send the full report directly to this email.</p>
+<p>— Qiyadon Pipeline System</p>`,
   }),
 
+  // ── STEP 4: Pipeline velocity observation ─────────────────────────────────
+  // CTA: "Reply 'report' and I'll deliver the full velocity analysis"
   checkin: (lead) => ({
-    subject: `Checking in — ${lead.company || 'your pipeline'}`,
+    subject: `Pipeline velocity observation — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I wanted to check in and see how things are going with your pipeline follow-up.</p>
-<p>If you found a solution that works for you — great. If there's something I'm not seeing or a way I could be more useful, I'm open to that feedback.</p>
-<p>Either way, happy to connect if it's worth 15 minutes of your time.</p>
-<p>— Qiyadon Pipeline</p>`,
+<p>One pattern worth flagging from the system: pipeline velocity at ${lead.company || 'your stage'} tends to drop when follow-up consistency breaks down — which is common as pipeline volume increases.</p>
+<p>I've set up a pipeline velocity tracking view for ${lead.company || 'your pipeline'}. It monitors which leads are progressing and which have gone quiet based on follow-up cadence data.</p>
+<p>Reply <strong>report</strong> and I'll send the current velocity report — which leads are active, which are stalling, and what the cadence gaps are for each.</p>
+<p>— Qiyadon Pipeline System</p>`,
   }),
 
+  // ── STEP 5: Open-loop close with autonomous escalation trigger ───────────
+  // CTA: Human escalation if keyword detected, otherwise open-loop
   pivot: (lead) => ({
-    subject: `A different angle on your pipeline`,
+    subject: `Closing the loop — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>I keep thinking about your pipeline situation. Not just "are leads being followed up" but "does the follow-up process feel sustainable and consistent?"</p>
-<p>For VP Sales at your stage, the operational challenge is often less about strategy and more about execution — having a system that keeps follow-up from falling through the cracks.</p>
-<p>If that's relevant, I'd like to show you how consistent cadence support works in practice. Want to take a look?</p>
-<p>— Qiyadon Pipeline</p>`,
+<p>I wanted to close the loop on this thread. Based on the pipeline analysis, here's where things stand:</p>
+<p>Your follow-up cadence consistency score is something the system can continue monitoring automatically. If you'd like, I can keep generating weekly cadence health summaries and pipeline velocity reports — delivered directly to your inbox, no calls required.</p>
+<p>To opt in to automated weekly reports, reply <strong>reports</strong>.</p>
+<p>If this isn't relevant to where you are right now, just say the word and I'll stop following up. No hard feelings.</p>
+<p>— Qiyadon Pipeline System</p>`,
   }),
 
+  // ── STEP 6: Lightweight final follow-up — open-loop, no CTA pressure ─────
   final: (lead) => ({
-    subject: `Last note from me — then I'll step back`,
+    subject: `Last follow-up from the system — ${lead.company || 'your pipeline'}`,
     html: `<p>Hi ${lead.firstname || ''},</p>
-<p>This is my final follow-up on this thread — I don't want to become background noise in your inbox.</p>
-<p>If what I'm offering doesn't feel relevant right now, I completely understand. The door stays open if that changes.</p>
-<p>If you did want to explore what consistent follow-up cadence support could do for your pipeline — I'm here.</p>
-<p>Best of luck with everything,</p>
-<p>— Qiyadon Pipeline</p>`,
+<p>This is my final automated follow-up on this thread. I've kept the cadence light and tried to deliver value with each touch — not just follow up for the sake of it.</p>
+<p>If you ever want to revisit pipeline follow-up consistency, the system is running. Just reply <strong>restart</strong> and the cadence will pick back up from where it left off.</p>
+<p>Good luck with everything,</p>
+<p>— Qiyadon Pipeline System</p>`,
   }),
 };
 
