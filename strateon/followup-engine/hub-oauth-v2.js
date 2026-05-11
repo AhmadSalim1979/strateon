@@ -170,32 +170,38 @@ async function handleCallback(req, res) {
       throw new Error(tokenResponse.error_description || tokenResponse.error);
     }
 
-    const { access_token, refresh_token, expires_in } = tokenResponse;
+    const { access_token, refresh_token, expires_in, hub_id: hubIdFromToken } = tokenResponse;
     const expiresAt = Date.now() + (expires_in * 1000);
     console.log(`[HubOAuth] Token obtained. Expires in ${expires_in}s`);
 
-    // Get Hub ID from user info
-    const userInfo = await new Promise((resolve, reject) => {
-      const req = https.request({
-        hostname: 'api.hubapi.com',
-        port: 443,
-        path: '/oauth/v1/userinfo',
-        method: 'GET',
-        headers: { 'Authorization': `Bearer ${access_token}` }
-      }, (res) => {
-        let data = '';
-        res.on('data', chunk => data += chunk);
-        res.on('end', () => {
-          try { resolve(JSON.parse(data)); }
-          catch (e) { reject(new Error(data)); }
+    // Get Hub ID — try token response first (Aug 2025+), then introspect endpoint
+    let hubId;
+    if (hubIdFromToken) {
+      hubId = String(hubIdFromToken);
+      console.log(`[HubOAuth] Hub ID from token response: ${hubId}`);
+    } else {
+      console.log(`[HubOAuth] Hub ID not in token response — fetching via introspect...`);
+      const introspectResponse = await new Promise((resolve, reject) => {
+        const req = https.request({
+          hostname: 'api.hubapi.com',
+          port: 443,
+          path: `/oauth/v1/access-tokens/${access_token}`,
+          method: 'GET',
+        }, (res) => {
+          let data = '';
+          res.on('data', chunk => data += chunk);
+          res.on('end', () => {
+            console.log(`[HubOAuth] Introspect HTTP status: ${res.statusCode}, body: ${data.substring(0, 200)}`);
+            try { resolve(JSON.parse(data)); }
+            catch (e) { reject(new Error(data)); }
+          });
         });
+        req.on('error', reject);
+        req.end();
       });
-      req.on('error', reject);
-      req.end();
-    });
-
-    const hubId = String(userInfo.hub_id);
-    console.log(`[HubOAuth] Connected to Hub ID: ${hubId}`);
+      hubId = String(introspectResponse.hub_id);
+      console.log(`[HubOAuth] Hub ID from introspect: ${hubId}`);
+    }
 
     // Store in Supabase
     const { error: dbErr } = await supabase.from('hubspot_connections').upsert({
