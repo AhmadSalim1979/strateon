@@ -32,7 +32,14 @@
 - **Files:** ecosystem.hub-oauth.config.js, memory/heartbeat-state.json, strateon/csuite/CMO/LINKEDIN-POSTS/POST-009.md, POST-010.md, POST-011.md, POST-012.md
 - **Output:** No secrets detected, pushed to origin/deploy/v2
 
-## Backup: 2026-05-10 16:08 CEST
+## Backup: 2026-05-11 06:38 UTC
+- **Status:** ✅ Success
+- **Branch:** deploy/v2
+- **Changes:** 7 files — 265 insertions(+), 74 deletions(-)
+- **Files:** cf-functions/hubspot-pages/, ecosystem.tls-oauth.config.js, memory/heartbeat-state.json, tls-proxy.js, workers/hubspot-oauth/index.js, workers/hubspot-oauth/wrangler.toml, strateon/csuite/CEO/BOARD-WEEKLY-REPORT-2026-05-11.md
+- **Output:** No secrets detected, pushed to origin/master
+
+## 2026-05-10 16:08 CEST
 - **Status:** ✅ Success
 - **Branch:** deploy/v2
 - **Changes:** 13 files — 284 insertions(+), 37 deletions(-)
