@@ -1,0 +1,54 @@
+[2026-05-11T18:21:28.734Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:21:28.735Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:21:28.735Z] [INFO] Time: 2026-05-11T18:21:28.735Z
+[2026-05-11T18:21:28.736Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T18:21:28.736Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:21:29.071Z] [INFO] PER-CLIENT KILL SWITCH: client "Test Client — DO NOT DELETE" status="onboarding" — not 'active'. Skipping all leads.
+[2026-05-11T18:21:29.071Z] [INFO] To enable: set client status to 'active' in Supabase clients table.
+[2026-05-11T18:21:49.386Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:21:49.388Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:21:49.388Z] [INFO] Time: 2026-05-11T18:21:49.388Z
+[2026-05-11T18:21:49.388Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T18:21:49.388Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:21:49.734Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:21:49.737Z] [ERROR] Error fetching leads: Invalid character in header content ["Authorization"]
+[2026-05-11T18:21:49.737Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-11T18:21:49.737Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:21:49.738Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:21:49.738Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-11T18:21:49.738Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:22:21.816Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:22:21.818Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:22:21.818Z] [INFO] Time: 2026-05-11T18:22:21.818Z
+[2026-05-11T18:22:21.818Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T18:22:21.818Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:22:21.818Z] [ERROR] Failed to load secrets: (creds.accessToken || creds).trim is not a function
+[2026-05-11T18:23:17.374Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:17.376Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:23:17.376Z] [INFO] Time: 2026-05-11T18:23:17.376Z
+[2026-05-11T18:23:17.376Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T18:23:17.376Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:17.715Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:23:18.075Z] [ERROR] Error fetching leads: HubSpot API error 400: {"status":"error","message":"Invalid input JSON on line 1, column 74: Enum type must be one of: [IN, NOT_HAS_PROPERTY, LT, EQ, GT, NOT_IN, GTE, CONTAINS_TOKEN, HAS_PROPERTY, LTE, NOT_CONTAINS_TOKEN, BETWEEN, NEQ]","correlationId":"019e1847-79da-7604-9946-10f7ea2fdd68","category":"VALIDATION_ERROR"}
+[2026-05-11T18:23:18.076Z] [INFO] Fetched 0 leads from HubSpot
+[2026-05-11T18:23:18.076Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:18.076Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:23:18.076Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 0
+[2026-05-11T18:23:18.076Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:46.687Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:46.689Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:23:46.689Z] [INFO] Time: 2026-05-11T18:23:46.689Z
+[2026-05-11T18:23:46.689Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T18:23:46.689Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:47.074Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:23:47.485Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:23:47.485Z] [INFO] STALLED: emailmaria@hubspot.com — escalating for human review
+[2026-05-11T18:23:47.957Z] [INFO] STALLED: bh@hubspot.com — escalating for human review
+[2026-05-11T18:23:48.408Z] [INFO] STALLED: test-contact-2026-05-02@example.com — escalating for human review
+[2026-05-11T18:23:48.806Z] [INFO] STALLED: hubspot-test@qiyadon.com — escalating for human review
+[2026-05-11T18:23:49.243Z] [INFO] STALLED: ahmad.salim@qiyadon.com — escalating for human review
+[2026-05-11T18:23:49.675Z] [INFO] STALLED: hubspot-live-test2@qiyadon.com — escalating for human review
+[2026-05-11T18:23:50.165Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:23:50.166Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:23:50.166Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 6 | Errors: 0
+[2026-05-11T18:23:50.166Z] [INFO] ══════════════════════════════════════════
