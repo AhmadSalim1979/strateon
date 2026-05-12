@@ -10,7 +10,7 @@ export async function onRequest({ request }) {
   const headers = {};
   for (const [key, value] of request.headers.entries()) {
     const lk = key.toLowerCase();
-    if (!lk.startsWith('cf-') && !lk.startsWith('x-forwarded') && lk !== 'host' && lk !== 'connection' && lk !== 'content-length') {
+    if (!lk.startsWith('cf-') && !lk.startsWith('x-forwarded') && lk !== 'host' && lk !== 'content-length' && lk !== 'connection') {
       headers[key] = value;
     }
   }
@@ -25,7 +25,7 @@ export async function onRequest({ request }) {
     const data = await response.text();
     return new Response(data, {
       status: response.status,
-      headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'https://qiyadon.com' }
+      headers: { 'Content-Type': 'application/json' }
     });
   } catch (err) {
     return new Response(JSON.stringify({ success: false, error: err.message }), {

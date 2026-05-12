@@ -1,0 +1,14 @@
+{
+  "id": "evaluation-start-tester-1778608448308",
+  "type": "evaluation-start",
+  "name": "DirectTest",
+  "title": null,
+  "email": "tester@qiyadon.com",
+  "company": "TestCo",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-12T17:05:00Z",
+  "agreementVersion": "2.0-2026-05-12",
+  "ip": "5.9.81.5",
+  "agreementHash": "e39e0f021fab8fad9789fc860b33f6a9e9318b0c45a93ac66e8d7bd81ee5a575",
+  "storedAt": "2026-05-12T17:54:08.308Z"
+}

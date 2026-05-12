@@ -1,0 +1,14 @@
+{
+  "id": "evaluation-start-test-1778603867901",
+  "type": "evaluation-start",
+  "name": "Test",
+  "title": null,
+  "email": "test@test.com",
+  "company": "TestCo",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-12T00:00:00Z",
+  "agreementVersion": "2.0-2026-05-12",
+  "ip": "127.0.0.1",
+  "agreementHash": "e39e0f021fab8fad9789fc860b33f6a9e9318b0c45a93ac66e8d7bd81ee5a575",
+  "storedAt": "2026-05-12T16:37:47.901Z"
+}
