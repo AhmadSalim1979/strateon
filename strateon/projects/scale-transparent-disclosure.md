@@ -1,111 +1,167 @@
-# Scale 3-Month Transition — Transparent Disclosure Package
+# Scale Transparent Disclosure Package — REVISED
 **Generated:** 2026-05-12
+**Revision:** Strategic correction — 72-hour = onboarding, NOT trial period
 **Status:** AUTHORIZED — Trust-first, no dark patterns
 
 ---
 
-## Strategic Framing
+## Strategic Correction Summary
 
-**What this IS:**
-- An operational continuity window
-- A structured 3-month implementation period
-- Part of the Qiyadon system lifecycle
-- Built on qualification criteria so both sides succeed or don't proceed
+**What was wrong:**
+The 72-hour window was being framed as the evaluation/trial period — collapsing a 14-day operational evaluation into a rapid conversion window.
 
-**What this is NOT:**
-- A hidden billing conversion
-- A trial-to-paid auto-renewal trap
-- A pricing ambush at Day 14
-
-**Guiding principles:**
-- Maximize trust | Minimize disputes | Minimize payment processor risk
-- No dark-pattern mechanics | Affirmative acknowledgment required
-- Transparent before signup, not after
+**What it should be:**
+- **72 hours** = Activation + Onboarding (setup, CRM connection, cadence initialization)
+- **14 days** = Real operational evaluation (live cadence running, artifacts generated, trust established)
+- **Day 14** = Explicit Scale opt-in, no hidden conversion
 
 ---
 
-## DELIVERABLE 1 — Revised Transparent Trial Flow
-
-### Pre-Signup Disclosure (New Section on sign-trial.html)
-
-**Page:** `/public/sign-trial.html`
-
-**New section inserted BEFORE the sign section, after the reassurance panel:**
+## REVISED COMMERCIAL STRUCTURE
 
 ```
-═══════════════════════════════════════════════════
-TRANSITION NOTICE — What Happens After Your Trial
-═══════════════════════════════════════════════════
+PHASE 1 — ACTIVATION WINDOW (Hours 0–72)
+├── Connect HubSpot CRM
+├── Activate outbound cadence
+├── Initialize workflows
+├── Validate integrations
+├── Complete onboarding
+└── Establish baseline operational continuity
 
-If you qualify for a paid offer at Day 14, you will have 
-the option to continue on the Scale plan.
+PHASE 2 — OPERATIONAL EVALUATION (Days 1–14)
+├── System runs live cadence
+├── Generate operational artifacts
+├── Demonstrate async continuity value
+├── Surface contextual operational insights
+├── Commercial Learning Engine observes resonance patterns
+└── Trust established through repeated low-friction interactions
 
-Scale Plan Overview:
-• Monthly investment: $1,500/month
-• Minimum commitment: 3 months ($4,500 total)
-• Included leads: 500/month
-• Overage: $6 per additional lead
-• Overage threshold: Unlimited (no cap)
+PHASE 3 — EXPLICIT SCALE TRANSITION (Day 14)
+├── Shared assessment of 5 qualification criteria
+├── Paid offer delivered (72-hour acceptance window)
+├── Client affirmatively signs Scale Service Agreement
+└── No billing without signed agreement
+```
 
-This is not an auto-renewal. You decide.
+---
 
-If you qualify and want to continue:
-  → We send a paid offer valid for 72 hours
-  → You affirmatively accept and sign a new agreement
-  → No charges occur unless you sign
+## DELIVERABLE 1 — Revised Trial Flow Architecture
 
-If you do not qualify or choose not to continue:
-  → No obligation, no charge
-  → We send one final follow-up at Day 14
-  → No contact for 60 days after
+### Three-Phase Lifecycle (Full Page Narrative)
 
-Your trial does NOT automatically convert to a paid plan.
+**Insert on sign-trial.html — new section above the sign section:**
+
+```
+═══════════════════════════════════════════════════════════════
+HOW QIYADON WORKS — YOUR 3-PHASE JOURNEY
+═══════════════════════════════════════════════════════════════
+
+PHASE 1 — ACTIVATION (HOURS 0–72)
+───────────────────────────────────
+What happens: We connect your CRM, activate outbound cadence, 
+initialize workflows, and validate integrations. This is setup — 
+not evaluation.
+
+What this is NOT: A trial. You are not being evaluated in 72 hours.
+You are getting operational.
+
+Duration: 72 hours
+Purpose: Get your system running live
+
+───────────────────────────────────
+
+PHASE 2 — OPERATIONAL EVALUATION (DAYS 1–14)
+───────────────────────────────────
+What happens: Your system runs live. We execute outreach across 
+WhatsApp, Email, and LinkedIn. You receive operational artifacts: 
+weekly reports, pipeline activity summaries, resonance insights.
+
+What this IS: The real evaluation period. Qiyadon is operational 
+infrastructure — it needs runtime to demonstrate value. 72 hours 
+is not enough. 14 days is.
+
+Duration: 14 days from activation completion
+Purpose: Demonstrate value through live operational execution
+
+───────────────────────────────────
+
+PHASE 3 — EXPLICIT SCALE DECISION (DAY 14)
+───────────────────────────────────
+What happens: We assess together whether Qiyadon is working for you.
+If ≥3/5 qualification criteria are met, you receive a paid Scale offer 
+valid for 72 hours. You decide yes or no.
+
+What this is NOT: An auto-renewal. A hidden conversion. A billing ambush.
+You sign a new Scale Service Agreement only if you affirmatively accept.
+
+Duration: 72-hour offer window from delivery
+Purpose: Transparent transition to paid partnership
+
+───────────────────────────────────
+
+THE SYSTEM NEEDS RUN TIME.
+72 hours is setup. 14 days is evaluation. Scale is a decision you make 
+with real data, not a conversion trap you fall into by accident.
 ```
 
 ---
 
 ## DELIVERABLE 2 — Enterprise-Safe Disclosure Language
 
-### Language for Trial Agreement (Section 6 Revision)
+### Trial Agreement — Section 6 Revised
 
-**Current text (sign-trial.html line ~"Trial End & Offer Validity"):**
-
-> "The trial automatically ends on Day 14 — no action needed, no auto-renewal. If you qualify (≥3/5 criteria), you will receive a paid offer valid for 72 hours."
+**Current Section 6:** "Trial end & offer validity — 72-hour trial window"
 
 **Replace with:**
 
 ```
-SECTION 6 — Trial End & Transition to Scale
+SECTION 6 — Activation, Evaluation, and Transition to Scale
 
-6.1 Qualification Assessment
-On Day 14, we will assess whether at least 3 of the 5 criteria 
-in Section 5 are met. We will share our assessment with you 
-directly and transparently.
+6.1 Activation Phase (Hours 0–72)
+Your Qiyadon instance begins with a 72-hour activation period. 
+During this phase we connect your CRM, activate outbound cadence, 
+initialize workflows, and validate integrations. This is onboarding — 
+you are not being evaluated during this window. The 72-hour period 
+is for setup, not assessment.
 
-6.2 Paid Offer
-If you qualify, you will receive a written offer to continue 
-on the Scale plan at $1,500/month for a minimum 3-month 
-commitment ($4,500 total). This offer will be delivered to 
-your email and will remain open for 72 hours from delivery.
+6.2 Operational Evaluation Period (Days 1–14)
+Following activation, you enter a 14-day operational evaluation period.
+During this period:
+- Outbound campaigns run live on your behalf
+- You receive weekly operational reports
+- We track and measure pipeline activity across all channels
+- The Commercial Learning Engine observes resonance patterns
 
-6.3 Your Decision
+This is the real evaluation period. Qiyadon is operational infrastructure —
+it requires live runtime to demonstrate value. The 14-day window gives the 
+system enough time to generate artifacts, surface insights, and establish 
+the continuity that differentiates Qiyadon from lightweight tools.
+
+6.3 Qualification Assessment (Day 14)
+On Day 14, we conduct a shared assessment of the qualification criteria 
+defined in Section 5. We share our assessment directly and transparently 
+with you. At least 3 of 5 criteria must be met for a paid offer to issue.
+
+6.4 Paid Offer
+If you qualify, you will receive a written offer to continue on the Scale 
+plan at $1,500/month for a minimum 3-month commitment ($4,500 total). 
+This offer will be delivered to your email and will remain open for 72 hours.
+
+6.5 Your Decision
 You are under no obligation to accept the paid offer.
-Accepting requires your affirmative signature on a new 
-Scale Service Agreement. No charges will be initiated 
-without a new signed agreement.
+Accepting requires your affirmative signature on a new Scale Service Agreement.
+No charges will be initiated without a new signed agreement.
 
-6.4 If You Do Not Qualify or Decline
-If you do not meet the qualification threshold, we will 
-notify you and close the trial at Day 14 with no further 
-obligation on either side.
-If you decline the paid offer or do not respond within 
-72 hours, we will send one final follow-up. If there is 
-no response to that follow-up, we will not contact you 
+6.6 If You Do Not Qualify or Decline
+If you do not meet the qualification threshold, we will notify you and 
+close the evaluation at Day 14 with no further obligation on either side.
+If you decline the paid offer or do not respond within 72 hours, we will 
+send one final follow-up. If there is no response, we will not contact you 
 again for 60 days.
 
-6.5 No Auto-Renewal
-The trial does NOT automatically convert to a paid plan.
-No payment method is charged during or after the trial 
+6.7 No Auto-Renewal
+The evaluation period does NOT automatically convert to a paid plan.
+No payment method is charged during activation, evaluation, or afterward 
 unless a new paid agreement is signed.
 ```
 
@@ -113,170 +169,191 @@ unless a new paid agreement is signed.
 
 ## DELIVERABLE 3 — Trust-First Signup UX Copy
 
-### Phase-by-Phase Copy
-
-**Phase 1 — Introduction Block (above the fold on sign-trial)**
+### Phase 1 — Hero/Intro Copy (Above the Fold)
 
 ```
-Start Your 14-Day Trial
+Start Your Qiyadon Evaluation
 
-No credit card. No auto-renewal. No hidden transition.
+No credit card. No auto-renewal. No hidden conversion.
 
-Qiyadon is a pipeline execution service for B2B SaaS founders.
-We run outbound campaigns on your behalf — WhatsApp, Email, 
-and LinkedIn — until you have meetings booked in your calendar.
+Qiyadon is pipeline execution infrastructure — not a SaaS widget 
+you sign up for and check once a week.
 
-How the trial works:
-• We start outreach on Day 1 (maximum 25 leads)
-• You review results and give feedback
-• On Day 14, we assess together whether Qiyadon is 
-  working for you
-• If yes → we send a paid offer you can accept or decline
-• If no → you owe nothing, we part as friends
+Here is how the evaluation works:
 
-What happens if the trial works:
-If you qualify at Day 14 and want to continue, the Scale plan 
-is available at $1,500/month for a 3-month minimum commitment.
-This is NOT auto-enrollment — you sign a new paid agreement 
-before any billing begins.
+[HOURS 0–72] → ACTIVATION
+We connect your CRM, activate outbound cadence, initialize 
+workflows, and validate integrations. This is setup. 
+You are not being evaluated yet.
+
+[DAYS 1–14] → OPERATIONAL EVALUATION
+Your system runs live. We execute campaigns across WhatsApp, 
+Email, and LinkedIn. You receive weekly operational artifacts 
+and pipeline reports. This is the real evaluation period — 
+it needs the full 14 days to demonstrate value.
+
+[DAY 14] → EXPLICIT DECISION
+We assess together. If Qiyadon is working for you (≥3/5 criteria), 
+you receive a Scale offer. You decide yes or no. If yes, you sign 
+a new paid agreement. If no, you owe nothing.
+
+The system needs runtime to show you what it does.
+72 hours is not enough. 14 days is.
 ```
 
-**Phase 2 — Qualification Transparency Panel**
+### Phase 2 — Qualification Transparency Panel
 
 ```
-Qualification Criteria (assessed together on Day 14)
+Qualification Criteria — Assessed Together on Day 14
 
 To receive a paid offer, at least 3 of these 5 must be met:
 [ ] Lead quality meets agreed threshold
-[ ] Engagement rate above baseline  
+[ ] Engagement rate above baseline
 [ ] You provided timely feedback and data access
 [ ] At least one call/meeting scheduled
 [ ] Your list/data was sufficient for meaningful outreach
 
-If fewer than 3 are met — we will tell you directly and 
-you owe nothing. The trial ends with clarity, not ambiguity.
+If fewer than 3 are met — we tell you directly. You owe nothing. 
+The evaluation ends with clarity, not ambiguity.
 ```
 
-**Phase 3 — Scale Transition Disclosure (new, before sign section)**
+### Phase 3 — Scale Transition Disclosure
 
 ```
 Transition to Paid — What You Need to Know
 
-If both sides agree on Day 14 that Qiyadon is working, 
-the Scale plan is available:
+If the evaluation shows Qiyadon is working, the Scale plan is available:
 
 SCALE PLAN
 $1,500/month × 3-month minimum = $4,500 total
 500 leads included per month
 $6 per lead over 500
+$500/month overage cap
 
 What this means for you:
 ✓ No auto-renewal — you sign a new paid agreement
-✓ No surprise billing — pricing confirmed before you sign  
-✓ No auto-charge — your card is not charged during trial
+✓ No surprise billing — pricing confirmed before you sign
+✓ No auto-charge — your card is not charged during evaluation
 ✓ Clear exit — cancel anytime with 30-day notice after minimum
 
 Payment timing: Monthly invoicing, net 15
 Cancellation: 30-day written notice after minimum term
-Overages: Billed at month-end, capped at $500/month
 
-This is a 3-month implementation partnership, not a 
-subscription trap. If at any point you want to leave 
-after the minimum, 30-day notice is all it takes.
+This is a 3-month implementation partnership. Not a subscription trap.
+If at any point you want to leave after the minimum, 30-day notice.
 ```
 
-**Phase 4 — Affirmative Acknowledgment Checkbox**
+### Phase 4 — Dual Acknowledgment Checkboxes
 
-**Current checkbox:**
-> "By checking this box, I acknowledge that I have read, understood, and agree to be bound by the terms of this 14-Day Free Trial Agreement."
-
-**Replace with two checkboxes:**
+**Replace current single checkbox with two:**
 
 ```
-☐ I have read and understood the 14-Day Free Trial Agreement, 
-  including Section 6 which describes the transition to a 
-  Scale paid plan at $1,500/month with a 3-month minimum 
-  commitment ($4,500 total). I understand this is not an 
-  auto-renewal and requires a new signed agreement before 
-  any billing begins.
+☐ I understand that I am starting with a 72-hour activation period 
+  (setup and onboarding), followed by a 14-day operational evaluation. 
+  The real evaluation period is 14 days, not 72 hours.
 
-☐ I acknowledge that if I qualify (≥3/5 criteria) at Day 14, 
-  I will receive a paid offer valid for 72 hours. I can accept 
-  or decline without any charge or obligation.
+☐ I understand that if I qualify (≥3/5 criteria) at Day 14, I will 
+  receive a Scale paid offer valid for 72 hours. I can accept or 
+  decline without any charge or obligation. If I accept, a new 
+  Scale Service Agreement is signed before any billing begins.
 ```
 
 ---
 
-## DELIVERABLE 4 — Reminder Email Sequence
+## DELIVERABLE 4 — Reminder Email Sequence (Revised Timing)
 
-### Email 1 — Day 10: Early Notice (10 days before assessment)
+### Email 1 — Hour 48: Onboarding Completion Notice
 
 ```
-Subject: Your trial is going well — heads up on what's next
+Subject: Activation complete — your system is live
 
 Hi [First Name],
 
-Quick update: we're about 4 days away from the Day 14 assessment.
+Your Qiyadon instance is fully activated.
 
-So far here's what we're seeing:
-[Replace with actual metrics — open rates, reply rates, leads delivered]
+Here's what we connected:
+[CRM integration] [Outbound cadence] [Workflows] [Email/WhatsApp channels]
 
-Before we do the assessment, I want to make sure you have 
-all the information you need. At Day 14, we assess together 
-whether Qiyadon is working. If ≥3/5 criteria are met, we'll 
-send a paid offer for the Scale plan.
+What happens next:
+The operational evaluation period begins now. For the next 13 days, 
+your campaigns run live and we generate weekly reports.
 
-Scale plan overview:
-$1,500/month × 3 months = $4,500 total
-500 leads included per month
-$6/lead overage after that
+This is not a sprint — it's an operational evaluation. The system 
+needs the full 14 days to demonstrate what it can do.
 
-This is NOT an auto-enrollment — you review, decide, 
-and sign a new paid agreement only if you want to proceed.
+You will receive your first operational report at the [Day 7] mark.
 
-No action needed from you right now. I'll be in touch 
-on Day 14 with the full assessment.
+Questions during the evaluation? Reply anytime. We're monitoring.
 
-Questions? Just reply to this email.
+— Qiyadon Team
 ```
 
-### Email 2 — Day 13: Reminder (24 hours before assessment)
+### Email 2 — Day 7: Midpoint Operational Review
+
+```
+Subject: Day 7 — here's how your pipeline is performing
+
+Hi [First Name],
+
+We're at the midpoint of your operational evaluation.
+
+Here's what the system has generated so far:
+[Leads delivered] [Open rate] [Reply rate] [Meetings scheduled]
+
+The system is running live cadence across all activated channels.
+You'll receive a full operational report at Day 14.
+
+If you have feedback on anything — targeting, messaging, cadence 
+frequency — reply to this email and we adjust. This is a live 
+evaluation, not a passive observation period.
+
+9 days left in the evaluation. Here's what happens at Day 14:
+→ We assess the 5 qualification criteria together
+→ If ≥3 are met → Scale offer delivered (72-hour window)
+→ If <3 → you owe nothing, evaluation closes cleanly
+
+Questions? Reply anytime.
+```
+
+### Email 3 — Day 13: Evaluation Reminder (24 hours before assessment)
 
 ```
 Subject: Tomorrow is Day 14 — what to expect
 
 Hi [First Name],
 
-Tomorrow we do the Day 14 assessment.
+Tomorrow we complete the operational evaluation.
 
-Here's what happens:
+Here's the sequence:
+
 1. We share our assessment of the 5 qualification criteria
-2. If ≥3 are met → you receive a Scale offer valid for 72 hours
+2. If ≥3 are met → Scale offer delivered (72-hour acceptance window)
 3. You decide yes or no — no pressure, no obligations
-4. If no → we part cleanly, no contact for 60 days
+4. If no → we close cleanly, no follow-up for 60 days
 
-Scale plan offer will be:
+Scale plan offer (if you qualify):
 $1,500/month | 3-month minimum | $4,500 total
-500 leads included | $6 overage after that
+500 leads/month | $6 overage after that | $500/month cap
 
 No card will be charged unless you sign a new paid agreement.
 
-One thing to note: if you're going to pass on the paid offer, 
-let us know within the 72-hour window so we can close the loop 
-cleanly. If we don't hear back, we'll send one follow-up and 
-then not reach out for 60 days.
+One thing: if you're going to pass on the offer, let us know within 
+the 72-hour window so we can close cleanly. If we don't hear back, 
+we'll send one follow-up and then not reach out for 60 days.
 
 Questions before tomorrow? Reply anytime.
 ```
 
-### Email 3 — Day 14: Assessment + Offer (morning)
+### Email 4 — Day 14: Assessment + Offer (or Closing)
+
+**[If ≥3 criteria — offer email:]**
 
 ```
 Subject: Day 14 Assessment — here's where we stand
 
 Hi [First Name],
 
-Here's our Day 14 assessment:
+Here's our Day 14 operational assessment:
 
 QUALIFICATION CRITERIA
 [Criteria 1]: [Met / Not Met] — [detail]
@@ -287,43 +364,68 @@ QUALIFICATION CRITERIA
 
 Result: [X/5 criteria met]
 
-[If ≥3 — offer email:]
 Based on this, we'd like to offer you the Scale plan.
 
 SCALE PLAN — OFFER VALID FOR 72 HOURS
 Plan: Scale | $1,500/month
 Minimum: 3 months | Total commitment: $4,500
 Included: 500 leads/month
-Overage: $6/lead after 500
+Overage: $6/lead after 500 | $500/month cap
 Cancellation: 30-day written notice after minimum
 
-[Offer link: https://qiyadon.com/sign-scale]
+→ [Accept offer: https://qiyadon.com/sign-scale]
 
-If you want to proceed: click the link, review, sign.
-No action needed if you're passing — just reply and we'll 
-close the trial cleanly.
+If you want to proceed: click the link, review the Scale Service 
+Agreement, and sign. No charge occurs until the signed agreement 
+is received.
 
-We're grateful for the chance to work with you, regardless 
-of the outcome.
+If you're passing: just reply and we'll close the evaluation cleanly.
 
-[If <3 — closing email:]
-Based on this assessment, the criteria for a paid offer 
-weren't met this cycle. We want to be straightforward with 
-you rather than push a fit that isn't there.
+We're grateful for the chance to demonstrate what Qiyadon can do. 
+Regardless of the outcome, thank you for the full 14-day evaluation.
 
-The trial ends here. No charge, no obligation, no follow-up 
-pressure. We'll send one final note and then not reach out 
-for 60 days.
+— Qiyadon Team
+```
 
-If circumstances change or you want to revisit, you're welcome 
-to reach out directly.
+**[If <3 criteria — closing email:]**
+
+```
+Subject: Day 14 Assessment — our evaluation
+
+Hi [First Name],
+
+We've completed our Day 14 assessment.
+
+QUALIFICATION CRITERIA
+[Criteria 1]: [Met / Not Met] — [detail]
+[Criteria 2]: [Met / Not Met] — [detail]
+[Criteria 3]: [Met / Not Met] — [detail]
+[Criteria 4]: [Met / Not Met] — [detail]
+[Criteria 5]: [Met / Not Met] — [detail]
+
+Result: [X/5 criteria met]
+
+Based on this, the criteria for a paid offer weren't met this cycle.
+We want to be straightforward with you — we won't push a fit that isn't there.
+
+The evaluation ends here. No charge, no obligation, no follow-up pressure.
+We'll send one final note and then not reach out for 60 days.
+
+If your circumstances change or you want to revisit, you're welcome to 
+reach out directly.
+
+Thank you for the 14-day evaluation. It gave us the time we needed 
+to demonstrate what Qiyadon does — even if the results didn't cross 
+the qualification threshold this time.
+
+— Qiyadon Team
 ```
 
 ---
 
 ## DELIVERABLE 5 — Cancellation Clarity Flow
 
-### Cancellation Path (Post-Scale-Signing)
+### Cancellation Path (Post-Scale Signing)
 
 ```
 CANCELLATION FLOW — Scale Plan Clients
@@ -331,7 +433,7 @@ CANCELLATION FLOW — Scale Plan Clients
 Minimum Term: 3 months ($4,500 total paid)
 After Minimum: 30-day written notice required
 
-Step-by-step cancellation:
+Cancellation steps:
 1. Client sends written cancellation request (email sufficient)
 2. Qiyadon confirms receipt within 24 hours
 3. Qiyadon calculates final month pro-rata if applicable
@@ -340,17 +442,17 @@ Step-by-step cancellation:
 6. No early termination fee
 7. No penalty charges beyond final month's dues
 
-Cancellation email template (for clients):
+Cancellation email template:
 ---
 Subject: Cancellation Request — [Account Name]
 
 Hi [Qiyadon Contact],
 
-I'm requesting to cancel my Scale plan effective 
-[end of minimum term / end of notice period, whichever applies].
+Requesting to cancel my Scale plan effective 
+[end of minimum term / end of notice period].
 
-Please confirm the final billing date and any outstanding 
-balance. I'll process payment within net 15 terms.
+Please confirm the final billing date and outstanding balance.
+I will process payment within net 15 terms.
 
 [Client Name]
 [Company]
@@ -363,15 +465,16 @@ Subject: Re: Cancellation Request — Confirmed
 
 Hi [Client Name],
 
-Your cancellation has been received and confirmed.
+Cancellation confirmed.
 
 Final billing date: [Date]
 Outstanding balance: $[Amount] — due net 15
 Service end date: [Date]
 
-Thank you for the partnership. If you want to revisit 
-Qiyadon in the future, you're welcome to reach out. 
-We'll be here.
+Thank you for the partnership. If you want to revisit Qiyadon 
+in the future, you're welcome to reach out.
+
+— Qiyadon Team
 ---
 ```
 
@@ -379,84 +482,82 @@ We'll be here.
 
 ## DELIVERABLE 6 — Payment Processor Risk Review
 
-### Risk Vectors Identified
+### Risk Vectors
 
 | Risk | Severity | Mitigation |
 |---|---|---|
-| Client claims they didn't authorize charge | Medium | New signed agreement required before first charge |
-| Client disputes "trial to paid" conversion | Medium-High | Two-checkbox acknowledgment + clear Section 6 language |
+| Client claims trial auto-converted | High | Architecture eliminated — no auto-conversion exists |
+| Client claims "72-hour trial" was the full period | Medium | 72-hour is clearly labeled activation/onboarding, not evaluation |
+| Client disputes Scale charge after 14-day evaluation | Low | Signed Scale Service Agreement + dual-acknowledgment checkbox |
 | Client claims cancellation wasn't processed | Low | Written confirmation with timestamp + final invoice |
-| Client disputes overage charges | Low-Medium | Clear cap disclosed ($500/month), invoiced monthly |
-| Client claims no notice of auto-renewal | High | No auto-renewal exists — this risk is eliminated by design |
-| Friendly fraud (chargeback after service rendered) | Low-Medium | Documented service delivery + signed agreement |
+| Client disputes overage charges | Low-Medium | Clear $500/month cap disclosed, invoiced monthly with line items |
+| Friendly fraud (chargeback after service) | Low-Medium | Documented service delivery + signed agreement + weekly reports |
 
-### Key Safeguards Implemented
+### Stripe Architecture Requirements
 
-1. **New signed agreement before ANY billing** — eliminates unauthorized charge risk
-2. **Two-checkbox acknowledgment** — trial conversion explicitly acknowledged
-3. **Section 6 with offer validity window** — 72-hour acceptance window, not auto-renewal
-4. **Written cancellation path** — email sufficient, confirmed within 24h
-5. **No payment method stored during trial** — eliminates card being charged without agreement
-6. **Final invoice + service confirmation** — dispute resistance
-7. **Cancellation confirmation email** — paper trail for both sides
-
-### Stripe / Payment Processor Considerations
-
-- Qiyadon currently has no Stripe account (blocker: no Delaware entity)
-- Once Stripe is active: use **Stripe Billing** with clear plan metadata
-- Plan should explicitly show: Scale — $1,500/month — 3-month minimum
-- Customer portal: allow clients to view upcoming charges, download invoices
-- Do NOT store payment method during trial
-- First charge only after: signed Scale Service Agreement + Supabase client record confirmed active
+- No payment method stored during activation or evaluation periods
+- First charge only after: signed Scale Service Agreement + active Supabase client record
+- Use Stripe Subscription with `pause_collection` until manually activated post-signing
+- Plan metadata: "Scale — $1,500/month — 3-month minimum"
+- Customer portal: clients view upcoming charges, download invoices
+- Monthly invoicing: base fee + included leads + overage count + overage charges
 
 ---
 
 ## DELIVERABLE 7 — Refund/Dispute Minimization Recommendations
 
-### Proactive Measures (Before Disputes Arise)
+### Proactive Measures
 
-1. **Transparent qualification assessment** — client sees exactly why they did or didn't qualify
-2. **Written offer with 72-hour window** — no ambiguity about timeline
-3. **No auto-renewal architecture** — Stripe subscription set with `pause_collection` until manually activated post-signing
-4. **Monthly invoicing with line-item detail** — each invoice shows: base fee, included leads, overage count, overage charges
-5. **Escalation path before dispute** — any billing question gets direct human response within 24 hours
+1. **Clear phase labeling** — activation (72h), evaluation (14d), decision (Day 14) — no ambiguity
+2. **Written assessment at Day 14** — client sees exactly what was measured and why
+3. **72-hour offer window** — not auto-renewal, explicit acceptance required
+4. **New signed agreement before first charge** — eliminates unauthorized charge risk
+5. **Dual-acknowledgment checkbox** — trial conversion and Scale terms explicitly acknowledged
+6. **Monthly invoicing with line-item detail** — each invoice shows: base, included leads, overage
+7. **Escalation path before disputes** — any billing question gets direct human response within 24h
 
 ### Dispute Response Playbook
 
 | Scenario | Response |
 |---|---|
-| Client says they didn't know they'd be charged | Reference signed Scale Service Agreement + two-checkbox acknowledgment on trial signup |
-| Client says they cancelled but were still charged | Pull cancellation email + confirmation timestamp, calculate pro-rata refund if applicable |
-| Client disputes overage | Pull pipeline_leads data from Supabase showing lead count for billing period |
-| Client claims service wasn't delivered | Pull pipeline_activity logs + weekly reports delivered |
+| "I didn't know I was being charged" | Reference signed Scale Service Agreement + dual-acknowledgment on trial signup |
+| "The trial was supposed to be 72 hours" | Show sign-trial.html Section 6 — 72-hour is activation, 14-day is evaluation |
+| "I cancelled but was still charged" | Pull cancellation email + timestamp, calculate pro-rata if applicable |
+| "My overage charges are wrong" | Pull pipeline_leads data from Supabase showing lead count for billing period |
+| "Service wasn't delivered" | Pull pipeline_activity logs + weekly reports delivered |
 
 ### Refund Policy
 
-- **Overage disputes:** If lead count is disputed, credit the contested overage amount, investigate, and adjust future billing
-- **Base fee disputes:** Not eligible for refund after service period delivered
-- **Early termination:** No refund of minimum term commitment — this is disclosed at signup
-- **Service failure:** If Qiyadon fails to deliver the minimum service level (below agreed thresholds consistently), prorated refund at CFO discretion
+- **Overage disputes:** Credit contested amount, investigate, adjust future billing
+- **Base fee disputes:** Not eligible after service period delivered
+- **Early termination:** No refund of minimum term — disclosed at signup
+- **Service failure:** If Qiyadon fails to deliver minimum service level, prorated refund at CFO discretion
 
 ---
 
 ## Implementation Checklist
 
-- [ ] Update sign-trial.html — insert pre-signup transition notice
-- [ ] Update sign-trial.html — replace Section 6 with full disclosure language
-- [ ] Update sign-trial.html — add second checkbox for Scale acknowledgment
-- [ ] Update sign-trial.html — reassurance panel with explicit Scale note
-- [ ] Create sign-scale.html — new Scale plan signup page (for offer acceptance)
-- [ ] Update server.js — add /sign-scale endpoint
-- [ ] Create Scale Service Agreement template
-- [ ] Confirm HubSpot callback works (already validated ✅)
-- [ ] Update MEMORY.md — mark items 1 & 2 RESOLVED
+- [ ] Update sign-trial.html — new Phase 1 hero narrative explaining 3-phase lifecycle
+- [ ] Update sign-trial.html — Section 6 replaced with activation/evaluation/transition language
+- [ ] Update sign-trial.html — dual checkbox for activation acknowledgment + Scale transition
+- [ ] Create sign-scale.html — Scale plan signup page (for Day 14 offer acceptance)
+- [ ] Create Scale Service Agreement template (CSA variant for paid Scale)
+- [ ] Update reminder email sequence — 4 emails aligned to revised timing
+- [ ] CTO: Update server.js to handle /sign-scale endpoint when created
+- [ ] CFO: Stripe plan setup — pause_collection until manual activation post-signing
+- [ ] Update MEMORY.md — mark DNS and OAuth items RESOLVED
 
 ---
 
-## Notes
+## Key Principles (No Dark Patterns)
 
-- Scale plan overage cap: $500/month — stated in disclosure
-- Cancellation after minimum: 30-day written notice
-- No auto-renewal — architecturally eliminated
-- Dark-pattern mechanics: NONE in this design
-- Trust-first: every interaction explicit and documented
+| Instead of... | We use... |
+|---|---|
+| "72-hour trial" | "72-hour activation window" |
+| "Rapid trial conversion" | "14-day operational evaluation" |
+| "Conversion optimization" | "Operational infrastructure onboarding" |
+| "Trial-to-paid auto-renewal" | "Explicit Day 14 opt-in to Scale" |
+| "SaaS widget evaluation" | "Continuity intelligence evaluation" |
+| "Aggressive conversion pressure" | "Trust-first operational demonstration" |
+
+Qiyadon is operational infrastructure. It needs runtime. It earns trust through execution, not urgency.
