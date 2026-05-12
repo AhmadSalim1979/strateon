@@ -118,7 +118,8 @@ ${data.found_us?`<div class="field"><div class="field-label">How Found Qiyadon</
 
 function buildSignatureEmailHtml(data) {
   const escape = (s) => !s ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const typeLabel = data.type === 'trial' ? '14-Day Free Trial Agreement' : 'Client Service Agreement';
+  const typeLabelMap = { trial: '14-Day Free Trial Agreement', csa: 'Client Service Agreement', 'evaluation-start': 'Operational Evaluation Agreement', 'scale-opt-in': 'Scale Plan Partnership Agreement' };
+  const typeLabel = typeLabelMap[data.type] || 'Qiyadon Agreement';
   return `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
 body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px}
 .container{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
@@ -213,14 +214,15 @@ const server = http.createServer((req, res) => {
           res.end(JSON.stringify({error:'Missing: '+f})); return;
         }
       }
-      if (data.type !== 'trial' && data.type !== 'csa') {
+      if (!['trial','csa','evaluation-start','scale-opt-in'].includes(data.type)) {
         res.writeHead(400, {'Content-Type':'application/json'});
         res.end(JSON.stringify({error:'Invalid agreement type'})); return;
       }
 
       const agreementHash = hashAgreement(data.agreementVersion + '|' + data.type);
       const id = storeSignature(data, ip, agreementHash);
-      const typeLabel = data.type === 'trial' ? '14-Day Free Trial Agreement' : 'Client Service Agreement';
+      const typeLabelMap = { trial: '14-Day Free Trial Agreement', csa: 'Client Service Agreement', 'evaluation-start': 'Operational Evaluation Agreement', 'scale-opt-in': 'Scale Plan Partnership Agreement' };
+      const typeLabel = typeLabelMap[data.type] || 'Qiyadon Agreement';
 
       console.log('[' + new Date().toISOString() + '] Signature recorded:', data.name, data.email, data.type);
 
