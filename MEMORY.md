@@ -279,7 +279,8 @@ sessions_spawn({
 ### Website (All Live)
 - `qiyadon.com` — Cloudflare Pages ✅
 - `qiyadon.com/pricing` ✅
-- `qiyadon.com/sign-trial` ✅
+- `qiyadon.com/sign-trial` — REWRITTEN (2026-05-12): Trust-first 3-phase lifecycle (72h activation + 14-day evaluation + explicit Scale opt-in) ✅
+- `qiyadon.com/sign-scale` — NEW (2026-05-12): Explicit Scale opt-in page, dual checkbox, evaluation summary, governance terms ✅
 - `qiyadon.com/privacy-policy` ✅
 - `qiyadon.com/terms-of-service` ✅
 - `qiyadon.com/pipeline-leak-audit` — Full form with email handler ✅ (April 28)
