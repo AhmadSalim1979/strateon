@@ -52,3 +52,280 @@
 [2026-05-11T18:23:50.166Z] [INFO] Follow-Up Engine complete
 [2026-05-11T18:23:50.166Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 6 | Errors: 0
 [2026-05-11T18:23:50.166Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:39:48.358Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:39:48.359Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:39:48.360Z] [INFO] Time: 2026-05-11T18:39:48.360Z
+[2026-05-11T18:39:48.360Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T18:39:48.360Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=ahmad.salim@qiyadon.com | LIVE_TEST_MAX_SENDS=1
+[2026-05-11T18:39:48.729Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:39:49.139Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:39:49.141Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Following up on your pipeline
+[2026-05-11T18:39:49.418Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Following up on your pipeline
+[2026-05-11T18:39:49.646Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Following up on your pipeline
+[2026-05-11T18:39:49.840Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T18:39:50.032Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T18:39:50.229Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T18:39:50.419Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:39:50.419Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:39:50.420Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T18:39:50.420Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:10.942Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:10.944Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:40:10.944Z] [INFO] Time: 2026-05-11T18:40:10.944Z
+[2026-05-11T18:40:10.944Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:40:10.944Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T18:40:10.946Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:10.948Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:40:10.948Z] [INFO] Time: 2026-05-11T18:40:10.948Z
+[2026-05-11T18:40:10.948Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:40:10.948Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=ahmad.salim@qiyadon.com | LIVE_TEST_MAX_SENDS=1
+[2026-05-11T18:40:11.258Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:40:11.260Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:40:11.630Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:40:11.630Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480568802015: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480568802015: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480598722286: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480598722286: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480534562539: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480534562539: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480626406075: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480626406075: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480608694985: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480608694985: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480611586808: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.631Z] [ERROR] Error processing lead 480611586808: Cannot access 'toEmail' before initialization
+[2026-05-11T18:40:11.632Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:11.632Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:11.632Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:40:11.632Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:40:11.632Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 6
+[2026-05-11T18:40:11.632Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 6
+[2026-05-11T18:40:11.632Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:11.632Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:41.995Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:41.997Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:40:41.997Z] [INFO] Time: 2026-05-11T18:40:41.997Z
+[2026-05-11T18:40:41.997Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:40:41.997Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T18:40:41.996Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:41.998Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:40:41.998Z] [INFO] Time: 2026-05-11T18:40:41.998Z
+[2026-05-11T18:40:41.998Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:40:41.999Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=ahmad.salim@qiyadon.com | LIVE_TEST_MAX_SENDS=1
+[2026-05-11T18:40:42.338Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:40:42.356Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:40:42.723Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:40:42.723Z] [INFO] [LIVE_TEST_BLOCK] Recipient emailmaria@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.723Z] [INFO] [LIVE_TEST_BLOCK] Recipient bh@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.723Z] [INFO] [LIVE_TEST_BLOCK] Recipient test-contact-2026-05-02@example.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.724Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-test@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.724Z] [INFO] [LIVE_TEST_ALLOWED] Send #1 of 1 — clearing for: ahmad.salim@qiyadon.com
+[2026-05-11T18:40:42.735Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:40:42.736Z] [INFO] [LIVE_TEST_BLOCK] Recipient emailmaria@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.736Z] [INFO] [LIVE_TEST_BLOCK] Recipient bh@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.736Z] [INFO] [LIVE_TEST_BLOCK] Recipient test-contact-2026-05-02@example.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.736Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-test@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.736Z] [INFO] [LIVE_TEST_BLOCK] Recipient ahmad.salim@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.736Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-live-test2@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:42.736Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:42.736Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:40:42.737Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 6
+[2026-05-11T18:40:42.737Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:44.662Z] [ERROR] Failed to send email to ahmad.salim@qiyadon.com: Missing credentials for "PLAIN"
+[2026-05-11T18:40:44.662Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-live-test2@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:40:44.663Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:40:44.663Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:40:44.663Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 6
+[2026-05-11T18:40:44.663Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:41:19.426Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:41:19.428Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:41:19.428Z] [INFO] Time: 2026-05-11T18:41:19.428Z
+[2026-05-11T18:41:19.428Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:41:19.429Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=ahmad.salim@qiyadon.com | LIVE_TEST_MAX_SENDS=1
+[2026-05-11T18:41:19.766Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:41:20.162Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:41:20.163Z] [INFO] [LIVE_TEST_BLOCK] Recipient emailmaria@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:41:20.163Z] [INFO] [LIVE_TEST_BLOCK] Recipient bh@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:41:20.163Z] [INFO] [LIVE_TEST_BLOCK] Recipient test-contact-2026-05-02@example.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:41:20.163Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-test@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:41:20.163Z] [INFO] [LIVE_TEST_ALLOWED] Send #1 of 1 — clearing for: ahmad.salim@qiyadon.com
+[2026-05-11T18:41:21.173Z] [ERROR] Failed to send email to ahmad.salim@qiyadon.com: Missing credentials for "PLAIN"
+[2026-05-11T18:41:21.173Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-live-test2@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:41:21.173Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:41:21.173Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:41:21.174Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 6
+[2026-05-11T18:41:21.174Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:42:37.544Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:42:37.545Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:42:37.545Z] [INFO] Time: 2026-05-11T18:42:37.545Z
+[2026-05-11T18:42:37.546Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:42:37.546Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=ahmad.salim@qiyadon.com | LIVE_TEST_MAX_SENDS=1
+[2026-05-11T18:42:37.889Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:42:38.260Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:42:38.261Z] [INFO] [LIVE_TEST_BLOCK] Recipient emailmaria@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:42:38.261Z] [INFO] [LIVE_TEST_BLOCK] Recipient bh@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:42:38.261Z] [INFO] [LIVE_TEST_BLOCK] Recipient test-contact-2026-05-02@example.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:42:38.261Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-test@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:42:38.261Z] [INFO] [LIVE_TEST_ALLOWED] Send #1 of 1 — clearing for: ahmad.salim@qiyadon.com
+[2026-05-11T18:42:39.044Z] [ERROR] Failed to send email to ahmad.salim@qiyadon.com: Missing credentials for "PLAIN"
+[2026-05-11T18:42:39.045Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-live-test2@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:42:39.045Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:42:39.045Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:42:39.046Z] [INFO] Sent: 0 | Skipped: 0 | Escalated: 0 | Errors: 6
+[2026-05-11T18:42:39.046Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:43:12.586Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:43:12.588Z] [INFO] Follow-Up Engine starting
+[2026-05-11T18:43:12.588Z] [INFO] Time: 2026-05-11T18:43:12.588Z
+[2026-05-11T18:43:12.588Z] [INFO] DRY_RUN=false | GLOBAL_ENABLED=true | SEND_EMAILS=true
+[2026-05-11T18:43:12.588Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=ahmad.salim@qiyadon.com | LIVE_TEST_MAX_SENDS=1
+[2026-05-11T18:43:13.405Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T18:43:13.801Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T18:43:13.803Z] [INFO] [LIVE_TEST_BLOCK] Recipient emailmaria@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:43:13.803Z] [INFO] [LIVE_TEST_BLOCK] Recipient bh@hubspot.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:43:13.804Z] [INFO] [LIVE_TEST_BLOCK] Recipient test-contact-2026-05-02@example.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:43:13.805Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-test@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:43:13.805Z] [INFO] [LIVE_TEST_ALLOWED] Send #1 of 1 — clearing for: ahmad.salim@qiyadon.com
+[2026-05-11T18:43:15.484Z] [INFO] Email sent to ahmad.salim@qiyadon.com: Following up on your pipeline, Ahmad [<76d670c8-8429-b01f-9ab0-e16751b384bf@qiyadon.com>]
+[2026-05-11T18:43:16.502Z] [ERROR] Error updating contact 480608694985 property strtn_last_followup_date: HubSpot API error 400: {"status":"error","message":"Property values were not valid: [{\"isValid\":false,\"message\":\"1778524995968 is at 18:43:15.968 UTC, not midnight!\",\"error\":\"INVALID_DATE\",\"name\":\"strtn_last_followup_date\"}]","correlationId":"019e1859-c260-7f5f-907e-ec9668bbb4e9","errors":[{"message":"1778524995968 is at 18:43:15.968 UTC, not midnight!","code":"INVALID_DATE","context":{"propertyName":["strtn_last_followup_date"]}}],"category":"VALIDATION_ERROR"}
+[2026-05-11T18:43:16.965Z] [INFO] [LIVE_TEST_BLOCK] Recipient hubspot-live-test2@qiyadon.com not in LIVE_TEST_ALLOWED_EMAIL allowlist — skipping
+[2026-05-11T18:43:16.965Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T18:43:16.966Z] [INFO] Follow-Up Engine complete
+[2026-05-11T18:43:16.966Z] [INFO] Sent: 1 | Skipped: 0 | Escalated: 0 | Errors: 5
+[2026-05-11T18:43:16.966Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:05:52.232Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:05:52.234Z] [INFO] Follow-Up Engine starting
+[2026-05-11T19:05:52.234Z] [INFO] Time: 2026-05-11T19:05:52.234Z
+[2026-05-11T19:05:52.234Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T19:05:52.234Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T19:05:52.680Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T19:05:53.147Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T19:05:53.148Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Following up on your pipeline
+[2026-05-11T19:05:53.444Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Following up on your pipeline
+[2026-05-11T19:05:53.893Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Following up on your pipeline
+[2026-05-11T19:05:54.178Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T19:05:54.445Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Quick follow-up
+[2026-05-11T19:05:54.672Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T19:05:54.892Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:05:54.892Z] [INFO] Follow-Up Engine complete
+[2026-05-11T19:05:54.892Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T19:05:54.893Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:16:29.056Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:16:29.057Z] [INFO] Follow-Up Engine starting
+[2026-05-11T19:16:29.057Z] [INFO] Time: 2026-05-11T19:16:29.057Z
+[2026-05-11T19:16:29.058Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T19:16:29.058Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T19:16:29.400Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T19:16:29.792Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T19:16:29.793Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Following up on your pipeline
+[2026-05-11T19:16:30.042Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Following up on your pipeline
+[2026-05-11T19:16:30.651Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Following up on your pipeline
+[2026-05-11T19:16:30.850Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T19:16:31.049Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Quick follow-up
+[2026-05-11T19:16:31.244Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Following up on your pipeline
+[2026-05-11T19:16:31.435Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:16:31.436Z] [INFO] Follow-Up Engine complete
+[2026-05-11T19:16:31.436Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T19:16:31.436Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:17:15.894Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:17:15.895Z] [INFO] Follow-Up Engine starting
+[2026-05-11T19:17:15.895Z] [INFO] Time: 2026-05-11T19:17:15.895Z
+[2026-05-11T19:17:15.896Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T19:17:15.896Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T19:17:16.228Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T19:17:16.603Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T19:17:16.603Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline health assessment
+[2026-05-11T19:17:17.173Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline health assessment
+[2026-05-11T19:17:17.440Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline health assessment
+[2026-05-11T19:17:17.646Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline health assessment
+[2026-05-11T19:17:17.856Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — What the system found
+[2026-05-11T19:17:18.048Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline health assessment
+[2026-05-11T19:17:18.254Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:17:18.255Z] [INFO] Follow-Up Engine complete
+[2026-05-11T19:17:18.255Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T19:17:18.255Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:24:50.812Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:24:50.814Z] [INFO] Follow-Up Engine starting
+[2026-05-11T19:24:50.814Z] [INFO] Time: 2026-05-11T19:24:50.814Z
+[2026-05-11T19:24:50.814Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T19:24:50.814Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T19:24:51.176Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T19:24:51.577Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T19:24:51.577Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity check
+[2026-05-11T19:24:51.812Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity check
+[2026-05-11T19:24:52.050Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity check
+[2026-05-11T19:24:52.250Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity check
+[2026-05-11T19:24:52.447Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up patterns
+[2026-05-11T19:24:52.641Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity check
+[2026-05-11T19:24:52.833Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:24:52.834Z] [INFO] Follow-Up Engine complete
+[2026-05-11T19:24:52.834Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T19:24:52.834Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:29:44.803Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:29:44.805Z] [INFO] Follow-Up Engine starting
+[2026-05-11T19:29:44.805Z] [INFO] Time: 2026-05-11T19:29:44.805Z
+[2026-05-11T19:29:44.805Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T19:29:44.805Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T19:29:45.160Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T19:29:45.559Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T19:29:45.559Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T19:29:45.811Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T19:29:46.064Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-11T19:29:46.273Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T19:29:46.473Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-11T19:29:46.682Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T19:29:46.877Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T19:29:46.877Z] [INFO] Follow-Up Engine complete
+[2026-05-11T19:29:46.877Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T19:29:46.878Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:43:17.523Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:43:17.524Z] [INFO] Follow-Up Engine starting
+[2026-05-11T20:43:17.525Z] [INFO] Time: 2026-05-11T20:43:17.525Z
+[2026-05-11T20:43:17.525Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T20:43:17.525Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T20:43:17.952Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T20:43:18.438Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T20:43:18.438Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T20:43:18.754Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T20:43:19.294Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-11T20:43:19.667Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T20:43:20.061Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-11T20:43:20.450Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T20:43:20.732Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:43:20.733Z] [INFO] Follow-Up Engine complete
+[2026-05-11T20:43:20.733Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T20:43:20.733Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:49:19.886Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:49:19.887Z] [INFO] Follow-Up Engine starting
+[2026-05-11T20:49:19.887Z] [INFO] Time: 2026-05-11T20:49:19.887Z
+[2026-05-11T20:49:19.887Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T20:49:19.887Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T20:49:20.253Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T20:49:20.656Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T20:49:20.656Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T20:49:20.880Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T20:49:21.129Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-11T20:49:21.347Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T20:49:21.537Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-11T20:49:21.726Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T20:49:21.921Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:49:21.922Z] [INFO] Follow-Up Engine complete
+[2026-05-11T20:49:21.922Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T20:49:21.924Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:57:02.631Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:57:02.632Z] [INFO] Follow-Up Engine starting
+[2026-05-11T20:57:02.633Z] [INFO] Time: 2026-05-11T20:57:02.633Z
+[2026-05-11T20:57:02.633Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-11T20:57:02.633Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-11T20:57:03.070Z] [INFO] Found 1 active/onboarding client(s): Test Client — DO NOT DELETE
+[2026-05-11T20:57:03.484Z] [INFO] Fetched 6 leads from HubSpot
+[2026-05-11T20:57:03.485Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T20:57:03.907Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-11T20:57:04.384Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-11T20:57:04.823Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T20:57:05.199Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-11T20:57:05.491Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-11T20:57:05.696Z] [INFO] ══════════════════════════════════════════
+[2026-05-11T20:57:05.696Z] [INFO] Follow-Up Engine complete
+[2026-05-11T20:57:05.696Z] [INFO] Sent: 0 | Skipped: 6 | Escalated: 0 | Errors: 0
+[2026-05-11T20:57:05.696Z] [INFO] ══════════════════════════════════════════
