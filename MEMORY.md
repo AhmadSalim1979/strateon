@@ -670,12 +670,12 @@ Ahmad may declare: `EMERGENCY DIRECT CODING OVERRIDE APPROVED` — allows direct
 
 ---
 
-### HubSpot OAuth — Running (May 10)
+### HubSpot OAuth — RESOLVED (May 12)
 
 - hub-oauth-v2.js: PM2 on port 3003, 0 restarts
 - oauth.qiyadon.com: Cloudflare Worker deployed with route `oauth.qiyadon.com/hubspot/*`
-- Blocking: Ahmad must create DNS A record `oauth.qiyadon.com` → `5.9.81.5` (proxied)
-- After DNS: update HUBSPOT_REDIRECT_URI in HubSpot Developer Portal
+- DNS RESOLVED: oauth.qiyadon.com live, SSL valid, OAuth 302 confirmed `oauth.qiyadon.com` → `5.9.81.5` (proxied)
+- HubSpot Developer Portal callback URI: verified match https://oauth.qiyadon.com/hubspot/callback
 - Hardcoded Supabase service key in hub-oauth-v2.js → env var fix still needed (CTO task)
 
 ---
@@ -723,7 +723,7 @@ Ahmad may declare: `EMERGENCY DIRECT CODING OVERRIDE APPROVED` — allows direct
 | Delaware C-Corp | 6 weeks | Cannot sign clients, no Stripe, no legal entity |
 | Stripe account + links | 2 weeks | Cannot collect payments |
 | WhatsApp re-auth | 1 week | Inbound dead (needs QR scan) |
-| oauth.qiyadon.com DNS | 1 week | HubSpot OAuth blocked |
+| oauth.qiyadon.com DNS | RESOLVED ✅ | OAuth operational (May 12) |
 | VP Sales outreach | 6 weeks | Zero pipeline without outbound |
 | hub-oauth hardcoded key | 1 week | CTO fix needed (security issue) |
 | Phase 3 SQL columns | 1 week | Ahmad must run in Supabase |
