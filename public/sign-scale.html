@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scale Plan — Qiyadon Operational Partnership</title>
+  <title>Continue Operational Partnership — Scale Plan</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -11,7 +11,7 @@
     .container { max-width: 760px; margin: 0 auto; padding-top: 80px; }
     .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 48px; transition: opacity 0.2s; }
     .back:hover { opacity: 0.75; }
-    .badge { display: inline-block; background: rgba(184,20,20,0.15); border: 1px solid rgba(184,20,20,0.3); border-radius: 6px; padding: 4px 12px; font-size: 12px; font-weight: 600; color: #ffcccc; margin-bottom: 20px; }
+    .badge { display: inline-block; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25); border-radius: 6px; padding: 4px 12px; font-size: 12px; font-weight: 600; color: #86efac; margin-bottom: 20px; }
     h1 { font-size: 36px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 10px; }
     .subtitle { font-size: 16px; color: #888888; margin-bottom: 48px; max-width: 600px; }
     .evaluation-summary { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 32px 36px; margin-bottom: 20px; }
@@ -26,6 +26,11 @@
     .overall-result-icon { font-size: 24px; flex-shrink: 0; }
     .overall-result-text strong { color: #22c55e; font-size: 15px; }
     .overall-result-text span { color: #aaaaaa; font-size: 14px; }
+    .diagnostic-section { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 14px; padding: 28px 32px; margin-bottom: 20px; }
+    .diagnostic-section h2 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .diagnostic-text { font-size: 14px; color: #cccccc; line-height: 1.7; }
+    .diagnostic-text p { margin-bottom: 12px; }
+    .diagnostic-text p:last-child { margin-bottom: 0; }
     .observed-value { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 32px 36px; margin-bottom: 20px; }
     .observed-value h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
     .value-item { display: flex; gap: 14px; margin-bottom: 18px; }
@@ -75,24 +80,27 @@
     #submit-success { display: none; text-align: center; padding: 48px 40px; }
     #submit-success h3 { font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
     #submit-success p { font-size: 15px; color: #aaaaaa; }
+    .next-steps { margin-top: 24px; background: #1a1a1a; border: 1px solid #333333; border-radius: 10px; padding: 24px 28px; text-align: left; }
+    .next-steps h4 { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .next-step-item { display: flex; gap: 14px; margin-bottom: 14px; font-size: 14px; color: #cccccc; align-items: flex-start; }
+    .next-step-item:last-child { margin-bottom: 0; }
+    .next-step-day { background: #222222; border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 600; color: #b81414; flex-shrink: 0; }
     .footer-links { border-top: 1px solid #222222; margin-top: 60px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-links a { color: #00C2CB; font-size: 13px; font-weight: 500; text-decoration: none; }
     .footer-links a:hover { text-decoration: underline; }
     .footer-links span { color: #666666; font-size: 12px; }
-    .offer-expiry { background: rgba(184,20,20,0.1); border: 1px solid rgba(184,20,20,0.25); border-radius: 8px; padding: 14px 20px; font-size: 13px; color: #ffcccc; text-align: center; margin-bottom: 24px; }
-    .offer-expiry strong { color: #ff9999; }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="/" class="back">← Back to qiyadon.com</a>
 
-    <div class="badge">OFFER VALID FOR 72 HOURS</div>
-    <h1>Operational Partnership — Scale Plan</h1>
-    <p class="subtitle">Based on your 14-day evaluation, you qualify for the Scale plan. This page is your explicit opt-in — no auto-renewal, no hidden billing.</p>
+    <div class="badge">OPERATIONAL CONTINUATION AVAILABLE</div>
+    <h1>Continue Your Operational Partnership</h1>
+    <p class="subtitle">Based on your 14-day evaluation, operational continuation is available. This is not a sales decision — it's an assessment of whether the system has demonstrated value for your pipeline.</p>
 
     <div class="evaluation-summary">
-      <h2>Your 14-Day Evaluation Summary</h2>
+      <h2>Your 14-Day Operational Assessment</h2>
       <div class="summary-row">
         <span class="summary-label">Lead quality score</span>
         <span class="summary-value met">Met</span>
@@ -117,8 +125,18 @@
         <span class="overall-result-icon">✅</span>
         <div class="overall-result-text">
           <strong>4 of 5 criteria met</strong><br>
-          <span>You qualify for the Scale plan. This is an opt-in — not an auto-enrollment.</span>
+          <span>Operational continuation is available. No pressure, no artificial urgency.</span>
         </div>
+      </div>
+    </div>
+
+    <!-- DIAGNOSTIC SECTION — explains why meetings didn't book and what changes in Scale -->
+    <div class="diagnostic-section">
+      <h2>What We Observed — Meetings Analysis</h2>
+      <div class="diagnostic-text">
+        <p>Reply rate is positive — your market is engaging. However, no meetings have booked yet during the evaluation period.</p>
+        <p>This typically indicates: (1) the message is resonating but the call-to-action needs adjustment for calendar commitment, (2) prospects are interested but need more nurturing before agreeing to a call, (3) the targeting generates replies but the specific decision-maker fit needs refinement.</p>
+        <p>In Scale, this changes because: LinkedIn activation provides richer contextual signals for identifying active buyers, expanded cadence gives prospects more touchpoints before they commit, and our Commercial Learning Engine applies resonance patterns from your evaluation data to refine message targeting in real time.</p>
       </div>
     </div>
 
@@ -143,7 +161,7 @@
     </div>
 
     <div class="continuity-outcomes">
-      <h2>What Scale Enables</h2>
+      <h2>What Continuation Enables</h2>
       <div class="continuity-item">
         <span class="continuity-icon">→</span>
         <span>LinkedIn outreach activation — full channel coverage across WhatsApp, Email, and LinkedIn</span>
@@ -162,7 +180,7 @@
       </div>
       <div class="continuity-item">
         <span class="continuity-icon">→</span>
-        <span>Operational continuity — no setup required again, system already knows your context</span>
+        <span>Operational continuity — no setup required, system already knows your context</span>
       </div>
     </div>
 
@@ -173,7 +191,7 @@
           <div class="pricing-amount">$1,500</div>
           <div class="pricing-period">per month</div>
           <div class="pricing-detail">$4,500 total for 3-month minimum</div>
-          <div class="pricing-cap">No auto-renewal — new agreement required</div>
+          <div class="pricing-cap">No auto-renewal — new agreement required each cycle</div>
         </div>
         <div class="pricing-card">
           <div class="pricing-amount">500</div>
@@ -201,13 +219,11 @@
       </div>
     </div>
 
-    <div class="offer-expiry">
-      This offer expires in <strong>72 hours</strong> from delivery. After the window closes, we will send one final follow-up and then not contact you for 60 days.
-    </div>
+    <!-- NO URGENCY BADGE — continuation remains available indefinitely until client decides -->
 
     <div class="opt-in-section" id="opt-in-section">
-      <h2>Confirm Your Scale Partnership</h2>
-      <p>This is your explicit opt-in. By signing below, you are entering a 3-month operational partnership at $1,500/month. No billing occurs until the signed agreement is processed.</p>
+      <h2>Continue Operational Partnership</h2>
+      <p>This is an operational continuity decision — not a sales closing. If the system has demonstrated value for your pipeline, continuation makes sense. If you have questions about what the data shows, reply to this email and let's discuss before signing.</p>
 
       <form id="opt-in-form">
         <div class="field-group">
@@ -225,22 +241,42 @@
 
         <label class="checkbox-group" for="ackTerms">
           <input type="checkbox" id="ackTerms" name="ackTerms">
-          <span class="checkbox-label">I have read and understand the Scale plan pricing, minimum 3-month commitment ($4,500 total), governance terms, and cancellation policy. I affirmatively opt into the Scale operational partnership.</span>
+          <span class="checkbox-label">I have reviewed the operational assessment and understand the Scale plan terms: $1,500/month, 3-month minimum ($4,500 total), 500 leads included, $6 overage, $500 cap, 30-day cancellation after minimum. I wish to continue operational partnership.</span>
         </label>
 
         <label class="checkbox-group" for="ackBilling">
           <input type="checkbox" id="ackBilling" name="ackBilling">
-          <span class="checkbox-label">I understand that billing begins after this signed agreement is processed. Monthly invoicing at $1,500/month, net 15 terms. No auto-renewal — a new agreement is required for each cycle.</span>
+          <span class="checkbox-label">I understand billing begins after the signed agreement is processed. Monthly invoicing at $1,500/month, net 15 terms. No auto-renewal — a new agreement is required for each cycle.</span>
         </label>
 
-        <button type="submit" class="submit-btn" id="submit-btn">Confirm Scale Partnership</button>
+        <button type="submit" class="submit-btn" id="submit-btn">Continue Operational Partnership</button>
         <p id="submit-error"></p>
       </form>
     </div>
 
     <div id="submit-success">
-      <h3>✓ Scale Partnership Confirmed</h3>
-      <p>A confirmation has been sent to <strong id="confirm-email"></strong>. Our team will be in touch within 24 hours to finalize onboarding.</p>
+      <h3>✓ Operational Partnership Confirmed</h3>
+      <p>A confirmation has been sent to <strong id="confirm-email"></strong>.</p>
+
+      <div class="next-steps">
+        <h4>What Happens Next</h4>
+        <div class="next-step-item">
+          <span class="next-step-day">Day 1</span>
+          <span>Your account manager reviews your evaluation data and prepares onboarding plan</span>
+        </div>
+        <div class="next-step-item">
+          <span class="next-step-day">Day 2</span>
+          <span>30-minute onboarding call — we confirm priorities, LinkedIn activation timeline, and answer questions</span>
+        </div>
+        <div class="next-step-item">
+          <span class="next-step-day">Day 3+</span>
+          <span>Lead capacity increases to 500/month, LinkedIn activation begins, Scale cadence fully operational</span>
+        </div>
+        <div class="next-step-item">
+          <span class="next-step-day">Week 1</span>
+          <span>First Scale weekly report — includes evaluation baseline comparison and optimization recommendations</span>
+        </div>
+      </div>
     </div>
 
     <div class="footer-links">
@@ -275,7 +311,7 @@
       submitError.style.display = 'none';
 
       if (!ackTerms.checked || !ackBilling.checked) {
-        submitError.textContent = 'Please check both boxes to confirm your partnership.';
+        submitError.textContent = 'Please check both boxes to continue.';
         submitError.style.display = 'block';
         return;
       }
@@ -313,7 +349,7 @@
         submitError.textContent = 'Something went wrong: ' + err.message + '. Please try again or email contact@qiyadon.com.';
         submitError.style.display = 'block';
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Confirm Scale Partnership';
+        submitBtn.textContent = 'Continue Operational Partnership';
       }
     });
   </script>
