@@ -5,5 +5,5 @@ compatibility_date = "2026-05-05"
 # Routes this worker to specific paths on qiyadon.com
 routes = [
   { pattern = "qiyadon.com/hubspot/*", zone_name = "qiyadon.com" },
-  { pattern = "oauth.qiyadon.com/*", zone_name = "oauth.qiyadon.com" }
+  { pattern = "qiyadon.com/submit-signature", zone_name = "qiyadon.com" }
 ]
