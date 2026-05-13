@@ -1,0 +1,250 @@
+[2026-05-13T00:00:00.130Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:00.131Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:00.131Z] [INFO] Time: 2026-05-13T00:00:00.131Z
+[2026-05-13T00:00:00.131Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:00.132Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:00.164Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:00.990Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:00.990Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:00.990Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.991Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:00.991Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.991Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:00.991Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.991Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:00.991Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.991Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:00.991Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.991Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:00.992Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.992Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:00.992Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:00.992Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:00.992Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:00.992Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:00.992Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:01.239Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:01.240Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:01.240Z] [INFO] Time: 2026-05-13T00:00:01.240Z
+[2026-05-13T00:00:01.240Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:01.241Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:01.262Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:01.679Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:01.679Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:01.679Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.680Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:01.680Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.680Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:01.680Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.680Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:01.680Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.680Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:01.680Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.680Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:01.681Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.681Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:01.681Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:01.681Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:01.681Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:01.681Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:01.681Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:01.976Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:01.976Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:01.977Z] [INFO] Time: 2026-05-13T00:00:01.977Z
+[2026-05-13T00:00:01.977Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:01.977Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:01.998Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:02.546Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:02.546Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:02.547Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.547Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:02.547Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.547Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:02.547Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.547Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:02.547Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.548Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:02.548Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.548Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:02.548Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.548Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:02.548Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:02.548Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:02.548Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:02.548Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:02.548Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:02.924Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:02.925Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:02.925Z] [INFO] Time: 2026-05-13T00:00:02.925Z
+[2026-05-13T00:00:02.925Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:02.925Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:02.946Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:03.319Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:03.319Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:03.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.320Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:03.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.320Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:03.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.320Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:03.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.320Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:03.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.321Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:03.321Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.321Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:03.321Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:03.321Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:03.321Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:03.321Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:03.321Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:03.811Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:03.812Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:03.812Z] [INFO] Time: 2026-05-13T00:00:03.812Z
+[2026-05-13T00:00:03.812Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:03.812Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:03.833Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:04.928Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:04.928Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:04.929Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.929Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:04.929Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.929Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:04.929Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.929Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:04.929Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.929Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:04.930Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.930Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:04.930Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.930Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:04.930Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:04.930Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:04.930Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:04.930Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:04.930Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:05.549Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:05.550Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:05.550Z] [INFO] Time: 2026-05-13T00:00:05.550Z
+[2026-05-13T00:00:05.550Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:05.550Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:05.571Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:06.188Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:06.188Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:06.189Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.189Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:06.189Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.189Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:06.189Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.189Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:06.189Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.189Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:06.189Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.189Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:06.190Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.190Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:06.190Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:06.190Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:06.190Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:06.190Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:06.190Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:07.056Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:07.057Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:07.057Z] [INFO] Time: 2026-05-13T00:00:07.057Z
+[2026-05-13T00:00:07.057Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:07.057Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:07.078Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:07.489Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:07.489Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:07.490Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.490Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:07.490Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.490Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:07.490Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.490Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:07.490Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.490Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:07.490Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.491Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:07.491Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.491Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:07.491Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:07.491Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:07.491Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:07.491Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:07.491Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:08.732Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:08.733Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:08.733Z] [INFO] Time: 2026-05-13T00:00:08.733Z
+[2026-05-13T00:00:08.733Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:08.733Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:08.754Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:09.319Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:09.319Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:09.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.320Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:09.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.320Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:09.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.320Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:09.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.320Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:09.320Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.320Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:09.321Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.321Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:09.321Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:09.321Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:09.321Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:09.321Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:09.321Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:11.138Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:11.138Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:11.139Z] [INFO] Time: 2026-05-13T00:00:11.139Z
+[2026-05-13T00:00:11.139Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:11.139Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:11.160Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:11.724Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:11.726Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:11.727Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.728Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:11.729Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.729Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:11.730Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.730Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:11.731Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.731Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:11.732Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.732Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:11.733Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.733Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:11.733Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:11.734Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:11.734Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:11.734Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:11.734Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:14.410Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:14.411Z] [INFO] Follow-Up Engine starting
+[2026-05-13T00:00:14.411Z] [INFO] Time: 2026-05-13T00:00:14.411Z
+[2026-05-13T00:00:14.411Z] [INFO] DRY_RUN=true | GLOBAL_ENABLED=false | SEND_EMAILS=false
+[2026-05-13T00:00:14.411Z] [INFO] LIVE_TEST_ALLOWED_EMAIL=(not set) | LIVE_TEST_MAX_SENDS=0
+[2026-05-13T00:00:14.432Z] [WARN] Supabase client check failed: supabaseKey is required. — proceeding with caution (graceful degradation)
+[2026-05-13T00:00:14.973Z] [INFO] Fetched 7 leads from HubSpot
+[2026-05-13T00:00:14.973Z] [INFO] [DRY_RUN] Would send emailmaria@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:14.974Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.974Z] [INFO] [DRY_RUN] Would send bh@hubspot.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:14.974Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.974Z] [INFO] [DRY_RUN] Would send test-contact-2026-05-02@example.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:14.974Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.974Z] [INFO] [DRY_RUN] Would send hubspot-test@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:14.974Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.974Z] [INFO] [DRY_RUN] Would send ahmad.salim@qiyadon.com: step 3 — Follow-up gaps in growing pipelines
+[2026-05-13T00:00:14.974Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.975Z] [INFO] [DRY_RUN] Would send hubspot-live-test2@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:14.975Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.975Z] [INFO] [DRY_RUN] Would send tester@qiyadon.com: step 1 — Pipeline continuity
+[2026-05-13T00:00:14.975Z] [WARN] Supabase logActivity exception: supabaseKey is required.
+[2026-05-13T00:00:14.975Z] [INFO] ══════════════════════════════════════════
+[2026-05-13T00:00:14.975Z] [INFO] Follow-Up Engine complete
+[2026-05-13T00:00:14.975Z] [INFO] Sent: 0 | Skipped: 7 | Escalated: 0 | Errors: 0
+[2026-05-13T00:00:14.975Z] [INFO] ══════════════════════════════════════════
