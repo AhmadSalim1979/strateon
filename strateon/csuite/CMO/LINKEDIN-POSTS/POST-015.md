@@ -1,5 +1,7 @@
 # Post 015 — The Handoff Gap
 
+**Status:** Published ✅
+**Published:** 2026-05-13
 **One-liner:** Your marketing qualified 50 leads last week. Your sales team touched 8. Nobody's talking about the other 42.
 **Visual concept:** A relay baton mid-pass — but the runner on the other end is a silhouette, turned away, not reaching for it. The baton is in the air between them. Below: "This is where your pipeline dies."
 

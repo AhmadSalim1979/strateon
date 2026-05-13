@@ -1,0 +1,14 @@
+{
+  "id": "trial-tester-1778656328827",
+  "type": "trial",
+  "name": "Test User",
+  "title": null,
+  "email": "tester@qiyadon.com",
+  "company": "TestCo",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-13T12:00:00Z",
+  "agreementVersion": "1.0",
+  "ip": "5.9.81.5",
+  "agreementHash": "f2501196e38aa9a70978a4adccd5b8e889474908ee81fa9e3d8c739c67aab22f",
+  "storedAt": "2026-05-13T07:12:08.827Z"
+}

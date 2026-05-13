@@ -2,16 +2,14 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "pm2": 1749772680,
-    "heartbeat": 1749772680
+    "pm2": 1749785040,
+    "heartbeat": 1749785040
   },
   "urgentItems": [
     {
-      "item": "Cloudflare Worker deploy needed — /submit-signature route missing",
-      "created": "2026-05-12T15:07:00Z",
-      "owner": "Ahmad",
-      "status": "PENDING_DEPLOY",
-      "note": "hub-oauth-worker.js updated with /submit-signature handler — cannot deploy without CLOUDFLARE_API_TOKEN. Ahmad must deploy via dashboard or wrangler."
+      "item": "WhatsApp gateway CRITICAL — flapping resumed May 13 10:13 Berlin (~20hrs continuous). Status 499 on every disconnect. Server-side fix required. Ban risk HIGH.",
+      "created": "2026-05-13T08:23:00Z",
+      "owner": "Ahmad"
     }
   ]
 }
