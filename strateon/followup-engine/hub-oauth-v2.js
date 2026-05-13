@@ -256,6 +256,142 @@ function handleHealth(res) {
   res.end(JSON.stringify({ status: 'ok', service: 'hub-oauth-v2', timestamp: new Date().toISOString() }));
 }
 
+// POST /hubspot/submit-signature — proxy to port 3001 backend
+async function handleSubmitSignature(req, res) {
+  let body = '';
+  req.on('data', chunk => body += chunk);
+  req.on('end', async () => {
+    let data;
+    try {
+      data = JSON.parse(body || '{}');
+    } catch (err) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'Invalid JSON' }));
+    }
+
+    // Add agreedAt if not present (backend requires it)
+    if (data.agreed && !data.agreedAt) {
+      data.agreedAt = new Date().toISOString();
+    }
+
+    const targetUrl = `http://5.9.81.5:3001/submit-signature`;
+    const postData = JSON.stringify(data);
+
+    console.log(`[HubOAuth] /hubspot/submit-signature → proxying to ${targetUrl}`);
+
+    try {
+      const postReq = https.request({
+        hostname: '5.9.81.5',
+        port: 3001,
+        path: '/submit-signature',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(postData),
+        },
+        timeout: 10000,
+      }, (proxyRes) => {
+        let responseBody = '';
+        proxyRes.on('data', chunk => responseBody += chunk);
+        proxyRes.on('end', () => {
+          console.log(`[HubOAuth] /hubspot/submit-signature ← backend ${proxyRes.statusCode}`);
+          res.writeHead(proxyRes.statusCode, { 'Content-Type': 'application/json' });
+          res.end(responseBody);
+        });
+      });
+
+      postReq.on('error', (err) => {
+        console.error(`[HubOAuth] /hubspot/submit-signature proxy error: ${err.message}`);
+        res.writeHead(502, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      });
+
+      postReq.on('timeout', () => {
+        postReq.destroy();
+        console.error(`[HubOAuth] /hubspot/submit-signature timeout`);
+        res.writeHead(504, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: 'Backend timeout' }));
+      });
+
+      postReq.write(postData);
+      postReq.end();
+    } catch (err) {
+      console.error(`[HubOAuth] /hubspot/submit-signature error: ${err.message}`);
+      res.writeHead(502, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: false, error: err.message }));
+    }
+  });
+}
+
+// POST /hubspot/submit-signature — proxy to local port 3001 backend
+async function handleHubspotSubmitSignature(req, res) {
+  let body = '';
+  req.on('data', chunk => body += chunk);
+  req.on('end', async () => {
+    let data;
+    try {
+      data = JSON.parse(body || '{}');
+    } catch (err) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      return res.end(JSON.stringify({ error: 'Invalid JSON' }));
+    }
+
+    if (data.agreed && !data.agreedAt) {
+      data.agreedAt = new Date().toISOString();
+    }
+
+    const targetUrl = 'http://127.0.0.1:3001/submit-signature';
+    const postData = JSON.stringify(data);
+
+    console.log(`[HubOAuth] POST /hubspot/submit-signature → ${targetUrl}`);
+
+    try {
+      const postReq = http.request(
+        {
+          hostname: '127.0.0.1',
+          port: 3001,
+          path: '/submit-signature',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(postData),
+          },
+          timeout: 10000,
+        },
+        (proxyRes) => {
+          let responseBody = '';
+          proxyRes.on('data', chunk => responseBody += chunk);
+          proxyRes.on('end', () => {
+            console.log(`[HubOAuth] POST /hubspot/submit-signature ← ${proxyRes.statusCode}`);
+            res.writeHead(proxyRes.statusCode, { 'Content-Type': 'application/json' });
+            res.end(responseBody);
+          });
+        }
+      );
+
+      postReq.on('error', (err) => {
+        console.error(`[HubOAuth] POST /hubspot/submit-signature proxy error: ${err.message}`);
+        res.writeHead(502, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: err.message }));
+      });
+
+      postReq.on('timeout', () => {
+        postReq.destroy();
+        console.error(`[HubOAuth] POST /hubspot/submit-signature timeout`);
+        res.writeHead(504, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ success: false, error: 'Backend timeout' }));
+      });
+
+      postReq.write(postData);
+      postReq.end();
+    } catch (err) {
+      console.error(`[HubOAuth] POST /hubspot/submit-signature error: ${err.message}`);
+      res.writeHead(502, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ success: false, error: err.message }));
+    }
+  });
+}
+
 // POST /hubspot/disconnect — revoke and remove
 async function handleDisconnect(req, res) {
   let body = '';
@@ -314,10 +450,11 @@ function handleRequest(req, res) {
 
   console.log(`[HubOAuth] ${req.method} ${pathname}`);
 
-  if (pathname === '/hubspot/auth')     return handleAuth(res);
+  if (pathname === '/hubspot/auth') return handleAuth(res);
   if (pathname === '/hubspot/callback') return handleCallback(req, res);
-  if (pathname === '/hubspot/status')   return handleStatus(req, res);
+  if (pathname === '/hubspot/status') return handleStatus(req, res);
   if (pathname === '/hubspot/disconnect') return handleDisconnect(req, res);
+  if (pathname === '/hubspot/submit-signature' && req.method === 'POST') return handleHubspotSubmitSignature(req, res);
   if (pathname === '/health') return handleHealth(res);
 
   res.writeHead(404);
