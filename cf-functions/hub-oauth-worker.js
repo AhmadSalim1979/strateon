@@ -11,7 +11,7 @@
  *   qiyadon.com/hubspot/disconnect → Revoke and disconnect
  */
 
-const OAUTH_SERVER = 'http://5.9.81.5:3003';
+const OAUTH_SERVER = 'https://5.9.81.5:3003';
 
 export default {
   async fetch(request, env, ctx) {
