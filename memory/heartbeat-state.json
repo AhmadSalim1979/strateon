@@ -2,8 +2,15 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "pm2": 1749800580,
-    "heartbeat": 1749810180
+    "pm2": 1749810180,
+    "heartbeat": 1749830820
   },
-  "urgentItems": []
+  "urgentItems": [
+    {
+      "item": "WhatsApp gateway flapping again — 499 cycle resumed after brief stabilization",
+      "severity": "critical",
+      "timestamp": 1749830820,
+      "notes": "Same pattern as before. 499 every ~60s. Gap between 08:38 and 12:01 suggests brief stabilization then relapse. Total reconnects now accumulating. Ban risk EXTREME. Requires openclaw gateway restart from server."
+    }
+  ]
 }
