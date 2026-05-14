@@ -125,10 +125,9 @@ function buildSignatureEmailHtml(data) {
     'scale-opt-in': 'Scale Partnership',
   };
   const evalType = evalTypes[data.type] || 'Qiyadon Agreement';
-  const evalDays = (data.type === 'evaluation-start') ? '14-Day Activation Window' : 'Active';
 
-  // Operational status — reflects true state: we are in PREPARATION, not live execution
-  const currentStatus = 'Activation queued — awaiting onboarding inputs';
+  // Phase 1 redesign: secure onboarding flow, NO credentials by email
+  const currentStatus = 'Activation queued — intake preparation in progress';
 
   return `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
 body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px;color:#171314}
@@ -141,7 +140,6 @@ body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px
 .body{padding:32px}
 .section{margin-bottom:28px}
 .section-label{font-size:10px;font-weight:700;color:#b81414;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
-.open-line{font-size:16px;color:#171314;line-height:1.6;font-weight:400}
 .current-status{display:inline-block;background:#171314;color:#fff;font-size:11px;font-weight:700;padding:8px 16px;border-radius:6px;letter-spacing:0.05em;margin-bottom:4px}
 .status-note{font-size:12px;color:#888;margin-top:6px;line-height:1.5}
 .intro-box{background:#F6F3F1;border-left:3px solid #b81414;padding:16px 20px;border-radius:0 8px 8px 0}
@@ -155,12 +153,8 @@ th{background:#171314;color:#fff;padding:10px 14px;text-align:left;font-weight:7
 th:last-child, td:last-child{text-align:right}
 td{padding:10px 14px;border-bottom:1px solid #E5DEDA;color:#171314;vertical-align:top}
 tr:last-child td{border-bottom:none}
+.no-action{color:#22c55e;font-weight:600}
 .action{color:#b81414;font-weight:600}
-.prep{color:#7a9e7a;font-weight:600}
-.needs-box{background:#fff9f9;border:1px solid #f0c8c8;border-radius:8px;padding:16px 20px}
-.needs-box p{font-size:14px;color:#171314;margin:0 0 10px;line-height:1.5}
-.needs-box ul{list-style:none;padding:0;margin:0}
-.needs-box ul li{font-size:13px;color:#444;padding:4px 0}
 .trust-line{font-size:12px;color:#888;line-height:1.6;margin-top:4px}
 .cta-wrap{margin-top:24px;text-align:center}
 .cta{background:#b81414;color:#fff;text-decoration:none;padding:14px 32px;border-radius:999px;font-size:14px;font-weight:700;display:inline-block;letter-spacing:0.03em}
@@ -169,14 +163,58 @@ tr:last-child td{border-bottom:none}
 .closing small{font-size:11px;color:#999;letter-spacing:0.05em;text-transform:uppercase}
 .footer{background:#171314;padding:20px 32px;font-size:12px;color:#666;text-align:center;letter-spacing:0.05em}.footer strong{color:#b81414}
 </style></head><body><div class="container"><div class="header"><div class="header-top"><span class="status-badge">ACTIVATION INITIATED</span></div><div class="header-brand">QIYADON</div><div class="header-sub">${escape(evalType)} · ${escape(data.name)} · ${escape(data.company)}</div></div><div class="body">
-<div class="section"><div class="current-status">CURRENT STATUS: ${escape(currentStatus)}</div><div class="status-note">Your evaluation workspace is initialized. We are in the activation preparation phase. Outbound cadence begins only after your onboarding inputs are received and approved.</div></div>
-<div class="section"><div class="section-label">Your evaluation timeline</div><div class="table-wrap"><table><thead><tr><th>When</th><th>What happens</th><th>Who&apos;s involved</th><th>Your action needed</th></tr></thead><tbody><tr><td>Within 1 hour</td><td>Evaluation workspace initialized, intake profile created</td><td>Qiyadon ops</td><td class="action">Nothing — preparation starts automatically</td></tr><tr><td>Within 24 hours</td><td>Onboarding briefing delivered — CRM request, kickoff call, lead list</td><td>Qiyadon ops</td><td class="action">Review and provide onboarding inputs</td></tr><tr><td>Day 2–3</td><td>Cadence planning in progress — draft rules prepared for your review</td><td>Qiyadon prepares</td><td class="action">Approve cadence rules before activation</td></tr><tr><td>Day 14</td><td>Evaluation summary delivered — execution readiness assessed</td><td>Qiyadon delivers</td><td class="action">Review results — decide on Scale</td></tr></tbody></table></div></div>
-<div class="section"><div class="section-label">What starts today — preparation in progress</div><ul class="check-list"><li>Evaluation workspace initialized</li><li>CRM connection onboarding preparation — initiated${data.crm && data.crm.toLowerCase().includes('hubspot') ? '' : ' (pending your CRM details)'}</li><li>Cadence planning — draft rules being prepared for your review</li><li>${evalDays}</li></ul></div>
-<div class="section"><div class="section-label">What we need from you</div><div class="needs-box"><p>Execution cadence begins only after these are received. We&apos;ll follow up if we don&apos;t have them by the briefing email:</p><ul><li>✓ HubSpot CRM credentials (or which CRM you&apos;re using)</li><li>✓ Calendar link to schedule your kickoff call</li><li>✓ List of 25 active leads to begin with</li></ul></div></div>
-<div class="section"><div class="intro-box"><p class="open-line">This is your start signal. Your evaluation workspace is live. We are preparing your pipeline cadence — it begins when your inputs are received and approved.</p></div></div>
+<div class="section"><div class="current-status">CURRENT STATUS: ${escape(currentStatus)}</div><div class="status-note">A secure onboarding intake will follow within the next hour. No credentials by email.</div></div>
+<div class="section"><div class="section-label">Your evaluation timeline</div><div class="table-wrap"><table><thead><tr><th>When</th><th>What happens</th><th>Who's involved</th><th>Your action needed</th></tr></thead><tbody><tr><td>T+15 minutes</td><td>Secure onboarding intake link delivered</td><td>Qiyadon sends</td><td class="no-action">No action required</td></tr><tr><td>T+1 hour</td><td>Intake confirmation email arrives</td><td>Qiyadon</td><td class="no-action">No action required</td></tr><tr><td>T+24 hours</td><td>Activation briefing delivered</td><td>Qiyadon ops</td><td class="action">Review briefing</td></tr><tr><td>Day 14</td><td>Evaluation results delivered</td><td>Qiyadon delivers</td><td class="action">Review — decide on Scale</td></tr></tbody></table></div></div>
+<div class="section"><div class="section-label">What starts today</div><ul class="check-list"><li>Evaluation workspace initialized</li><li>Pipeline workspace created</li><li>Intake form being prepared for your secure submission</li><li>Evaluation window opened</li></ul></div>
+<div class="section"><div class="section-label">What happens next</div><ul class="check-list"><li>In 15 minutes — you receive a secure onboarding intake link (not an email)</li><li>Within 1 hour — your onboarding briefing follows</li><li>Day 2–3 — cadence draft ready for your review</li></ul></div>
+<div class="section"><div class="intro-box"><p style="font-size:15px;color:#171314;line-height:1.6;margin:0">No action is required from you right now. We continue preparing your environment automatically. Your secure intake link arrives in 15 minutes.</p></div></div>
 <div class="section"><p class="trust-line">Your data is governed by our Client Services Agreement and DPA. All pipeline data is encrypted and never shared.</p></div>
-<div class="cta-wrap"><a href="https://qiyadon.com" class="cta">Access your evaluation dashboard →</a></div>
-<div class="closing"><p>The silence ends here.</p><small>— Qiyadon Operations</small></div></div><div class="footer"><strong>QIYADON</strong> · AUTONOMOUS LEADERSHIP INFRASTRUCTURE · Global</div></div></body></html>`;
+<div class="cta-wrap"><a href="https://qiyadon.com" class="cta">Your onboarding intake arrives in 15 minutes →</a></div>
+<div class="closing"><p>Day 1 begins now.</p><small>— Qiyadon Operations</small></div></div><div class="footer"><strong>QIYADON</strong> · AUTONOMOUS LEADERSHIP INFRASTRUCTURE · Global</div></div></body></html>`;
+}
+
+function buildIntakeConfirmationEmailHtml(data) {
+  const escape = (s) => !s ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px;color:#171314}
+.container{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.header{background:#171314;padding:24px 32px}
+.header-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.status-badge{display:inline-block;background:#22c55e;color:#fff;font-size:10px;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:0.08em;text-transform:uppercase}
+.header-brand{font-size:22px;font-weight:900;color:#fff;letter-spacing:0.05em}
+.header-sub{color:rgba(255,255,255,0.5);font-size:12px;margin-top:4px}
+.body{padding:32px}
+.section{margin-bottom:28px}
+.section-label{font-size:10px;font-weight:700;color:#b81414;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
+.current-status{display:inline-block;background:#171314;color:#fff;font-size:11px;font-weight:700;padding:8px 16px;border-radius:6px;letter-spacing:0.05em;margin-bottom:4px}
+.status-note{font-size:12px;color:#888;margin-top:6px;line-height:1.5}
+.check-list{list-style:none;padding:0;margin:0}
+.check-list li{padding:8px 0 8px 28px;position:relative;font-size:14px;color:#171314;border-bottom:1px solid #E5DEDA}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:'→';position:absolute;left:0;color:#b81414;font-weight:700}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#171314;color:#fff;padding:10px 14px;text-align:left;font-weight:700;font-size:11px;letter-spacing:0.05em;text-transform:uppercase}
+th:last-child, td:last-child{text-align:right}
+td{padding:10px 14px;border-bottom:1px solid #E5DEDA;color:#171314;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.no-action{color:#22c55e;font-weight:600}
+.action{color:#b81414;font-weight:600}
+.trust-line{font-size:12px;color:#888;line-height:1.6;margin-top:4px}
+.cta-wrap{margin-top:24px;text-align:center}
+.cta{background:#b81414;color:#fff;text-decoration:none;padding:14px 32px;border-radius:999px;font-size:14px;font-weight:700;display:inline-block;letter-spacing:0.03em}
+.closing{margin-top:32px;padding-top:24px;border-top:1px solid #E5DEDA;text-align:center}
+.closing p{font-size:18px;font-weight:800;color:#171314;margin:0 0 4px}
+.closing small{font-size:11px;color:#999;letter-spacing:0.05em;text-transform:uppercase}
+.footer{background:#171314;padding:20px 32px;font-size:12px;color:#666;text-align:center;letter-spacing:0.05em}.footer strong{color:#b81414}
+</style></head><body><div class="container"><div class="header"><div class="header-top"><span class="status-badge">INTAKE RECEIVED</span></div><div class="header-brand">QIYADON</div><div class="header-sub">Operational Intake · ${escape(data.name)} · ${escape(data.company)}</div></div><div class="body">
+<div class="section"><div class="current-status">CURRENT STATUS: Intake stored — environment preparation underway</div><div class="status-note">Your onboarding intake has been received. Environment preparation is now underway.</div></div>
+<div class="section"><div class="section-label">What's happening now</div><ul class="check-list"><li>CRM connection check — queued for validation</li><li>Cadence planning — draft rules being assembled</li><li>Pipeline workspace — being configured based on your intake</li></ul></div>
+<div class="section"><div class="section-label">What happens next</div><ul class="check-list"><li>In 24 hours — your activation briefing is delivered</li><li>Day 2–3 — cadence draft ready for your review and approval</li></ul></div>
+<div class="section"><p style="font-size:15px;color:#171314;line-height:1.6">No action required — we continue preparing your environment automatically.</p></div>
+<div class="section"><p class="trust-line">Your data is governed by our Client Services Agreement and DPA. All pipeline data is encrypted and never shared.</p></div>
+<div class="cta-wrap"><a href="https://qiyadon.com" class="cta">View your dashboard →</a></div>
+<div class="closing"><p>Environment preparation begins.</p><small>— Qiyadon Operations</small></div></div><div class="footer"><strong>QIYADON</strong> · AUTONOMOUS LEADERSHIP INFRASTRUCTURE · Global</div></div></body></html>`;
 }
 
 function hashAgreement(text) {
@@ -326,6 +364,56 @@ transporter.sendMail({
     });
   });
 });
+
+// ── /submit-intake ────────────────────────────────────────────────────────
+if (req.method !== 'POST' || req.url !== '/submit-intake') {
+  // fall through
+} else {
+  let body = '';
+  req.on('data', c => body += c);
+  req.on('end', () => {
+    let data;
+    try { data = JSON.parse(body); } catch (e) {
+      res.writeHead(400, {'Content-Type':'application/json'});
+      res.end(JSON.stringify({error:'Invalid JSON'})); return;
+    }
+
+    const required = ['crm_platform','crm_access','icp','industry','monthly_leads','followup_process','challenge','priority'];
+    for (const f of required) {
+      if (!data[f]?.toString().trim()) {
+        res.writeHead(400, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({error:'Missing: '+f})); return;
+      }
+    }
+
+    const intakeKey = (data.email || 'unknown').split('@')[0] + '-intake';
+    const intakePath = path.join(SIGNED_AGREEMENTS_DIR, intakeKey + '.json');
+    if (!fs.existsSync(SIGNED_AGREEMENTS_DIR)) {
+      fs.mkdirSync(SIGNED_AGREEMENTS_DIR, { recursive: true });
+    }
+    fs.writeFileSync(intakePath, JSON.stringify({...data, receivedAt: new Date().toISOString()}, null, 2), 'utf8');
+    console.log('[' + new Date().toISOString() + '] Intake stored:', intakeKey);
+
+    transporter.sendMail({
+      from: `Qiyadon Operations <${creds.user}>`,
+      to: data.email,
+      subject: `Intake received — environment preparation begins`,
+      text: `Dear ${data.name},\n\nYour onboarding intake has been received. Environment preparation is now underway.\n\nWhat's happening now:\n- CRM connection check — queued for validation\n- Cadence planning — draft rules being assembled\n- Pipeline workspace — being configured based on your intake\n\nTimeline:\n- T+24h: Your activation briefing is delivered\n- Day 2–3: Cadence draft ready for your review and approval\n\nNo action required — we continue preparing your environment automatically.\n\n— Qiyadon Operations`,
+      html: buildIntakeConfirmationEmailHtml(data),
+    }, (err, info) => {
+      if (err) {
+        console.log('[' + new Date().toISOString() + '] Intake stored but confirmation email failed:', err.message);
+        res.writeHead(200, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({success: true}));
+      } else {
+        console.log('[' + new Date().toISOString() + '] Intake OK', info.messageId);
+        res.writeHead(200, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({success: true}));
+      }
+    });
+  });
+  return;
+}
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 server.listen(PORT, '0.0.0.0', () => {

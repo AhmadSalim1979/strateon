@@ -909,6 +909,74 @@ async function initiateClientActivation(client) {
   return { success: true };
 }
 
+// ─── EXECUTION GATE — PREREQUISITE CHECKS ─────────────────────────────────────
+// Blocks all cadence firing until ALL prerequisites are satisfied.
+// Returns { canExecute: boolean, blockers: string[] }
+// To be called at the top of runEngine() before any lead processing begins.
+
+async function checkExecutionPrerequisites(clientId) {
+  const blockers = [];
+  const s = getSupabaseClient();
+
+  try {
+    const { data: client, error } = await s
+      .from('clients')
+      .select('id, name, onboarding_intake_completed, crm_validated, outbound_rules_approved, compliance_review_complete, client_approval_state, activation_initiated')
+      .eq('id', clientId)
+      .single();
+
+    if (error || !client) {
+      log(`PREREQ CHECK: Could not load client ${clientId} — blocking all sequences. Error: ${error?.message}`, 'ERROR');
+      return { canExecute: false, blockers: ['client_record_unavailable'] };
+    }
+
+    if (!client.onboarding_intake_completed) {
+      blockers.push('onboarding_intake_incomplete');
+      log(`PREREQ BLOCKER: client "${client.name}" — onboarding intake not completed`, 'WARN');
+    }
+
+    if (!client.crm_validated) {
+      blockers.push('crm_not_validated');
+      log(`PREREQ BLOCKER: client "${client.name}" — CRM not validated`, 'WARN');
+    }
+
+    if (!client.outbound_rules_approved) {
+      blockers.push('outbound_rules_not_approved');
+      log(`PREREQ BLOCKER: client "${client.name}" — outbound cadence rules not approved`, 'WARN');
+    }
+
+    if (!client.compliance_review_complete) {
+      blockers.push('compliance_review_incomplete');
+      log(`PREREQ BLOCKER: client "${client.name}" — compliance review not complete`, 'WARN');
+    }
+
+    if (client.client_approval_state !== 'approved') {
+      blockers.push(`client_approval_state=${client.client_approval_state || 'null'}`);
+      log(`PREREQ BLOCKER: client "${client.name}" — client_approval_state is "${client.client_approval_state}", not 'approved'`, 'WARN');
+    }
+
+    if (blockers.length > 0) {
+      log(`PREREQ FAIL: client "${client.name}" — ${blockers.length} blocker(s): ${blockers.join(', ')} — blocking sequence firing`, 'WARN');
+      await logActivity({
+        lead_id: null,
+        client_id: clientId,
+        activity_type: 'EXECUTION_GATE_BLOCKED',
+        description: `Execution prerequisites not satisfied: ${blockers.join(', ')}`,
+        triggered_by: 'engine',
+        outcome: 'blocked',
+      });
+      return { canExecute: false, blockers };
+    }
+
+    log(`PREREQ CHECK: client "${client.name}" — all prerequisites satisfied, execution enabled`);
+    return { canExecute: true, blockers: [] };
+
+  } catch (err) {
+    log(`PREREQ CHECK: Unexpected error for client ${clientId}: ${err.message} — blocking sequences`, 'ERROR');
+    return { canExecute: false, blockers: ['check_failed'] };
+  }
+}
+
 // ─── SUPABASE ACTIVITY LOG HELPER ─────────────────────────────────────────────
 function getSupabaseClient() {
   const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
@@ -985,12 +1053,27 @@ async function runEngine() {
     if (activeClients && activeClients.length > 0) {
       log(`Found ${activeClients.length} active/onboarding client(s): ${activeClients.map(c => c.name).join(', ')}`);
       clientStatus = 'active';
+
       // ── ACTIVATION TRIGGER: Check each active client for pending activation ──
       for (const client of activeClients) {
         if (client.status === 'active') {
           await initiateClientActivation(client);
         }
       }
+
+      // ── EXECUTION GATE: Check ALL active clients before processing any leads ──
+      // If any client fails prerequisite checks, skip ALL lead processing this run
+      for (const client of activeClients) {
+        if (client.status === 'active') {
+          const gate = await checkExecutionPrerequisites(client.id);
+          if (!gate.canExecute) {
+            log(`EXECUTION GATE: Client "${client.name}" has blockers — skipping all lead processing this run. Blockers: ${gate.blockers.join(', ')}`);
+            log(`To enable: satisfy all prerequisites for client "${client.name}" in Supabase clients table.`);
+            return { sent: 0, skipped: 0, escalated: 0, errors: 0, clientStatus: 'gate_blocked', blockers: gate.blockers };
+          }
+        }
+      }
+      log(`EXECUTION GATE: All active clients passed prerequisite checks — proceeding with lead processing`);
     } else {
       log(`No clients found in Supabase — running in demo/empty mode (no leads to process)`);
       clientStatus = 'no_clients';
@@ -1104,4 +1187,4 @@ if (require.main === module) {
     .catch(e => { console.error('Fatal:', e); process.exit(1); });
 }
 
-module.exports = { runEngine, CONFIG, EMAIL_BODIES };
+module.exports = { runEngine, checkExecutionPrerequisites, CONFIG, EMAIL_BODIES };
