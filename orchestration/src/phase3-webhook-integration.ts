@@ -1,5 +1,5 @@
 /**
- * Phase 3 — Webhook Integration: Receiver → Event Bus → Router
+ * Phase 4 — Shadow Mode + Replay Safety + Processed-By Population
  * 
  * This module wires the webhook receiver to the event router so that
  * incoming internal events are published to Redis pub/sub and then routed
@@ -8,26 +8,33 @@
  * Flow:
  *   HTTP POST /internal/event
  *     → webhook receiver validates payload
+ *     → claimEventProcessing (replay safety — Phase 4 NEW)
  *     → creates OrchestrationEvent
  *     → publishEvent (Redis pub/sub) ← Phase 2
- *     → event bus delivers to router  ← Phase 3 NEW
+ *     → event bus delivers to router  ← Phase 3
  *     → router matches pattern, calls handler
  *     → handler processes the event
  * 
- * Dual-write (Phase 3):
+ * Dual-write (Phase 3 + Phase 4):
  *   publishEvent now does BOTH:
  *     1. Redis publish (real-time, low latency)
  *     2. Supabase events table insert (durability, audit log)
+ *       → Phase 4: now writes hop_count, processed_at, processed_by, execution_mode
  * 
- * The hop_count / processed_at / processed_by columns for Phase 3 SQL are
- * PENDING from Ahmad. Code is written to accommodate them once the schema
- * is available.
+ * Replay Safety (Phase 4):
+ *   claimEventProcessing is called BEFORE publishing to reject duplicate event_ids.
+ *   Only the first caller wins — duplicates get 409 Conflict response.
+ * 
+ * Shadow Mode (Phase 4):
+ *   Events can be marked as 'live' or 'shadow' based on X-Shadow-Mode header
+ *   or event source. Shadow events are tracked separately for drift detection.
  * 
  * Dependencies:
  *   - src/events/event-bus.ts (Phase 2)
  *   - src/events/router.ts (Phase 2)
  *   - src/persistence/supabase-client.ts (Phase 2)
  *   - src/config.ts (Phase 2)
+ *   - src/phase4-shadow-replay.ts (Phase 4)
  */
 
 import { publishEvent, subscribe, closeEventBus } from './events/event-bus';
@@ -36,57 +43,67 @@ import { getClient } from './persistence/supabase-client';
 import { OrchestrationEvent } from './events/event-schemas';
 import { QUEUE_CONFIG } from './config';
 
+// Phase 4 imports — shadow mode, replay safety, processed_by population
+import { processWebhookEvent, recordEventProcessed, ExecutionMode, detectExecutionMode } from './phase4-shadow-replay';
+import { claimEventProcessing } from './events/replay-safety';
+
 // ─── Dual-Write Strategy ──────────────────────────────────────────────────────
+
 /**
- * dualWriteEvent(event) — Writes event to BOTH Redis and Supabase
+ * dualWriteEvent(event, options) — Writes event to BOTH Redis and Supabase
  * 
  * Redis is the fast path (real-time pub/sub delivery to subscribers).
  * Supabase is the durable path (immutable audit log for governance, replay, recovery).
+ * 
+ * Phase 4 enhancement: Also writes processed_by and execution_mode.
  * 
  * If Supabase write fails, we log the error but DO NOT fail the event publish.
  * Rationale: Redis pub/sub is already delivering the event to live subscribers.
  * Supabase is for durability/audit — losing a write doesn't break operational flow,
  * but failing the entire publish would.
- * 
- * TODO: In production, add a retry queue for failed Supabase writes (Phase 4).
  */
-async function dualWriteEvent(event: OrchestrationEvent): Promise<void> {
+async function dualWriteEvent(
+  event: OrchestrationEvent,
+  options?: { processed_by?: string; execution_mode?: ExecutionMode }
+): Promise<void> {
   // Step 1: Redis pub/sub publish (the existing Phase 2 behavior)
   // This is synchronous-ish — ioredis publish returns once Redis acknowledges
   await publishEvent(event);
   
   // Step 2: Supabase durable write
   // Non-blocking: failures are logged but don't break the event flow
-  persistEventToSupabase(event).catch((err) => {
-    console.error(`[dual-write] Supabase write failed for event ${event.event_id}: ${err.message}`);
-    // TODO: Phase 4 — enqueue to retry queue for later replay
+  // Phase 4: Now passes processed_by and execution_mode
+  persistEventToSupabase(event, options).catch((err) => {
+    console.error(`[phase4][dual-write] Supabase write failed for event ${event.event_id}: ${err.message}`);
   });
 }
 
 /**
- * persistEventToSupabase — Writes an orchestration event to the Supabase events table.
+ * Phase 4 — persistEventToSupabase
  * 
- * The events table schema (PENDING from Ahmad):
+ * Writes an orchestration event to the Supabase events table.
+ * Now includes hop_count, processed_at, processed_by, and execution_mode.
+ * 
+ * The events table schema (Phase 4 confirmed columns):
  *   event_id          UUID PRIMARY KEY
  *   event_type        TEXT NOT NULL
  *   source            TEXT NOT NULL
  *   payload           JSONB NOT NULL
  *   correlation_id    TEXT (nullable)
  *   caused_by_job_id  TEXT (nullable)
- *   hop_count         INTEGER DEFAULT 0  ← PENDING from Ahmad
- *   processed_at      TIMESTAMPTZ         ← PENDING from Ahmad
- *   processed_by      TEXT                ← PENDING from Ahmad
+ *   hop_count         INTEGER DEFAULT 0
+ *   processed_at      TIMESTAMPTZ
+ *   processed_by      TEXT
+ *   execution_mode    TEXT DEFAULT 'live'  ← Phase 4: live | shadow
  *   created_at        TIMESTAMPTZ NOT NULL DEFAULT NOW()
- * 
- * The hop_count, processed_at, processed_by columns are PENDING from Ahmad.
- * Code currently does NOT write to these columns — they will be added once schema is confirmed.
  */
-async function persistEventToSupabase(event: OrchestrationEvent): Promise<void> {
+async function persistEventToSupabase(
+  event: OrchestrationEvent,
+  options?: { processed_by?: string; execution_mode?: ExecutionMode }
+): Promise<void> {
   const client = getClient();
   
-  // Phase 3 columns — hop_count, processed_at, processed_by PENDING from Ahmad
-  // Using only the confirmed columns for now.
-  // When Ahmad provides the SQL, this insert should be updated to include those columns.
+  // Phase 4: Write all confirmed columns including processed_by and execution_mode
   const { error } = await client.from('events').insert({
     event_id: event.event_id,
     event_type: event.event_type,
@@ -95,21 +112,23 @@ async function persistEventToSupabase(event: OrchestrationEvent): Promise<void> 
     correlation_id: event.correlation_id ?? null,
     caused_by_job_id: event.caused_by_job_id ?? null,
     created_at: event.created_at,
-    // hop_count: event.hop_count,           // ← ADD WHEN SCHEMA READY
-    // processed_at: new Date().toISOString(), // ← ADD WHEN SCHEMA READY
-    // processed_by: 'webhook-receiver',       // ← ADD WHEN SCHEMA READY
+    // Phase 4 active — all Phase 3 PENDING columns now written:
+    hop_count: event.hop_count,
+    processed_at: new Date().toISOString(),
+    processed_by: options?.processed_by ?? event.source,
+    execution_mode: options?.execution_mode ?? 'live',
   });
   
   if (error) {
     // Distinguish between "table doesn't exist" (schema not ready) and actual write errors
     if (error.message.includes('does not exist') || error.code === '42P01') {
-      console.warn(`[dual-write] events table schema not ready (${error.message}). Skipping Supabase write.`);
+      console.warn(`[phase4][dual-write] events table schema not ready (${error.message}). Skipping Supabase write.`);
       return; // Don't treat as hard failure — schema may still be pending
     }
     throw error; // Real write error — retry
   }
   
-  console.log(`[dual-write] persisted event ${event.event_id} to Supabase`);
+  console.log(`[phase4][dual-write] persisted event ${event.event_id} to Supabase [${options?.execution_mode ?? 'live'}] processed_by=${options?.processed_by ?? event.source}`);
 }
 
 // ─── Modify publishEvent to use dual-write ────────────────────────────────────
@@ -131,12 +150,12 @@ export { publishEvent as publishEventWithDualWrite } from './events/event-bus';
  * 
  * Each handler processes events from the event bus.
  * 
- * Current handlers (Phase 3 — minimal implementation):
+ * Current handlers (Phase 3 + Phase 4):
  *   - job.queued: logs and tracks job enqueue
  *   - job.dead_lettered: logs and alerts
  *   - system.alert: logs and emits alerts
  * 
- * More handlers will be added in subsequent phases.
+ * Phase 4: All handlers now record processed_by after successful handling.
  */
 export async function initializeWebhookHandlers(): Promise<() => void> {
   console.log('[phase3] Initializing webhook event handlers...');
@@ -147,10 +166,14 @@ export async function initializeWebhookHandlers(): Promise<() => void> {
   const jobLifecycleUnsub = await BuiltInRoutes.jobLifecycle({
     onJobQueued: async (event: OrchestrationEvent) => {
       console.log(`[handler][job.queued] job_id=${(event.payload as any).job_id} type=${(event.payload as any).job_type}`);
+      // Phase 4: Record processed_by
+      await recordEventProcessed(event.event_id, 'job-lifecycle-handler');
     },
     onJobDeadLettered: async (event: OrchestrationEvent) => {
       const payload = event.payload as any;
       console.warn(`[handler][job.dead_lettered] job_id=${payload.job_id} error=${payload.error}`);
+      // Phase 4: Record processed_by
+      await recordEventProcessed(event.event_id, 'job-lifecycle-handler');
     },
   });
   routes.push({ pattern: 'job.queued', description: 'job queued handler', unsub: jobLifecycleUnsub });
@@ -159,6 +182,8 @@ export async function initializeWebhookHandlers(): Promise<() => void> {
   const systemUnsub = await registerRoute('system.alert', async (event: OrchestrationEvent) => {
     const payload = event.payload as any;
     console.warn(`[handler][system.alert] severity=${payload.severity} component=${payload.component} message=${payload.message}`);
+    // Phase 4: Record processed_by
+    await recordEventProcessed(event.event_id, 'system-alert-handler');
   }, 'system alert handler');
   routes.push({ pattern: 'system.alert', description: 'system alert handler', unsub: systemUnsub });
   
@@ -169,6 +194,8 @@ export async function initializeWebhookHandlers(): Promise<() => void> {
     if (!event.event_type.startsWith('job.')) {
       console.log(`[handler][catchall] ${event.event_type} event_id=${event.event_id}`);
     }
+    // Phase 4: Record processed_by for all handled events
+    await recordEventProcessed(event.event_id, 'catch-all-handler');
   }, 'catch-all logger');
   routes.push({ pattern: '*', description: 'catch-all logger', unsub: catchallUnsub });
   
@@ -193,14 +220,16 @@ export async function shutdownPhase3(): Promise<void> {
 
 // ─── Integration Verification ─────────────────────────────────────────────────
 /**
- * verifyIntegration() — Smoke test for Phase 3 wiring.
+ * verifyIntegration() — Smoke test for Phase 4 wiring.
  * 
  * Tests:
  *   1. Supabase client is reachable
- *   2. Events table exists (schema check)
- *   3. publishEvent works (Redis pub/sub)
- *   4. Event bus subscription works
- *   5. Routes are registered
+ *   2. Events table exists (schema check — Phase 3 columns)
+ *   3. execution_mode column exists (Phase 4)
+ *   4. publishEvent works (Redis pub/sub)
+ *   5. Event bus subscription works
+ *   6. Routes are registered
+ *   7. Replay safety claimEventProcessing works
  */
 export async function verifyIntegration(): Promise<{
   ok: boolean;
@@ -227,13 +256,12 @@ export async function verifyIntegration(): Promise<{
     checks.push({ name: 'Redis connection', pass: false, detail: err.message });
   }
   
-  // Check 3: Events table schema (check if hop_count column exists)
+  // Check 3: Phase 3 SQL columns (hop_count, processed_at, processed_by)
   try {
     const client = getClient();
-    // This will fail gracefully if the table doesn't have the new columns yet
     const { error } = await client.from('events').select('event_id, event_type, hop_count, processed_at, processed_by').limit(1);
     if (error && (error.message.includes('does not exist') || error.code === '42P01')) {
-      checks.push({ name: 'Phase 3 SQL columns', pass: false, detail: 'hop_count/processed_at/processed_by not in schema yet — pending from Ahmad' });
+      checks.push({ name: 'Phase 3 SQL columns', pass: false, detail: 'hop_count/processed_at/processed_by not in schema yet' });
     } else if (error) {
       checks.push({ name: 'Phase 3 SQL columns', pass: false, detail: error.message });
     } else {
@@ -243,9 +271,39 @@ export async function verifyIntegration(): Promise<{
     checks.push({ name: 'Phase 3 SQL columns', pass: false, detail: err.message });
   }
   
-  // Check 4: Routes registered
+  // Check 4: Phase 4 execution_mode column
+  try {
+    const client = getClient();
+    const { error } = await client.from('events').select('execution_mode').limit(1);
+    if (error && (error.message.includes('does not exist') || error.code === '42P01')) {
+      checks.push({ name: 'Phase 4 execution_mode column', pass: false, detail: 'execution_mode not in schema yet — add via migration' });
+    } else if (error) {
+      checks.push({ name: 'Phase 4 execution_mode column', pass: false, detail: error.message });
+    } else {
+      checks.push({ name: 'Phase 4 execution_mode column', pass: true, detail: 'schema ready' });
+    }
+  } catch (err: any) {
+    checks.push({ name: 'Phase 4 execution_mode column', pass: false, detail: err.message });
+  }
+  
+  // Check 5: Routes registered
   const routes = getRegisteredRoutes();
   checks.push({ name: 'Event routes registered', pass: routes.length > 0, detail: `${routes.length} routes active` });
+  
+  // Check 6: Replay safety (claimEventProcessing)
+  try {
+    const testEventId = `verify-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const claimed = await claimEventProcessing(testEventId);
+    if (claimed) {
+      const { clearProcessedMarker } = await import('./events/replay-safety');
+      await clearProcessedMarker(testEventId);
+      checks.push({ name: 'Replay safety (claimEventProcessing)', pass: true, detail: 'atomic claim works' });
+    } else {
+      checks.push({ name: 'Replay safety (claimEventProcessing)', pass: false, detail: 'claim returned false unexpectedly' });
+    }
+  } catch (err: any) {
+    checks.push({ name: 'Replay safety (claimEventProcessing)', pass: false, detail: err.message });
+  }
   
   const allPass = checks.every(c => c.pass);
   return { ok: allPass, checks };
@@ -256,3 +314,7 @@ export async function verifyIntegration(): Promise<{
 export { publishEvent, subscribe, closeEventBus } from './events/event-bus';
 export { registerRoute, unregisterAllRoutes, BuiltInRoutes, getRegisteredRoutes } from './events/router';
 export { OrchestrationEvent } from './events/event-schemas';
+
+// Phase 4 re-exports for consumers
+export { ExecutionMode } from './phase4-shadow-replay';
+export { recordEventProcessed, processWebhookEvent, detectExecutionMode } from './phase4-shadow-replay';
