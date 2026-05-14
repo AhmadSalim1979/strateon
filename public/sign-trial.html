@@ -165,6 +165,31 @@
       </div>
     </div>
 
+    <!-- PLAN SELECTOR -->
+    <div class="plan-selector" style="background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:28px 32px;margin-bottom:20px;">
+      <h2 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:16px;">Choose Your Plan</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <label style="background:#222;border:2px solid #333;border-radius:10px;padding:20px;cursor:pointer;transition:border-color 0.2s;">
+          <input type="radio" name="plan" value="starter" checked style="margin-bottom:8px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;">Starter</div>
+          <div style="font-size:24px;font-weight:800;color:#fff;">$300<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">50 leads/mo · WhatsApp · Weekly reports</div>
+        </label>
+        <label style="background:#222;border:2px solid #333;border-radius:10px;padding:20px;cursor:pointer;transition:border-color 0.2s;">
+          <input type="radio" name="plan" value="growth" style="margin-bottom:8px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;">Growth</div>
+          <div style="font-size:24px;font-weight:800;color:#fff;">$750<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">200 leads/mo · WhatsApp + Email · Daily briefs</div>
+        </label>
+        <label style="background:#222;border:2px solid #b81414;border-radius:10px;padding:20px;cursor:pointer;">
+          <input type="radio" name="plan" value="scale" style="margin-bottom:8px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;">Scale</div>
+          <div style="font-size:24px;font-weight:800;color:#b81414;">$1,500<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">Unlimited · All channels · Dedicated manager</div>
+        </label>
+      </div>
+    </div>
+
     <!-- AGREEMENT + SIGNATURE -->
     <div class="agreement-section" id="sign-section">
       <h2>Begin Activation</h2>
@@ -190,10 +215,10 @@
           <span class="checkbox-label">I understand that I am beginning with a <strong>72-hour activation period</strong> (setup and onboarding), followed by a <strong>14-day operational evaluation period</strong>. The real evaluation is 14 days, not 72 hours.</span>
         </label>
 
-        <!-- CHECKBOX 2: Scale transition acknowledgment -->
-        <label class="checkbox-group" for="ackScale">
-          <input type="checkbox" id="ackScale" name="ackScale">
-          <span class="checkbox-label">If I qualify (≥3 of 5 criteria) at Day 14, I will receive a Scale paid offer valid for 72 hours. I can accept or decline without any charge or obligation. If I accept, a new Scale Service Agreement is signed before any billing begins.</span>
+        <!-- CHECKBOX 2: Plan-specific transition acknowledgment -->
+        <label class="checkbox-group" for="ackPlan">
+          <input type="checkbox" id="ackPlan" name="ackPlan">
+          <span class="checkbox-label" id="ackPlanText">If I qualify (≥3 of 5 criteria) at Day 14, I will receive a <strong id="planNameAck">Scale</strong> paid offer valid for 72 hours. I can accept or decline without any charge or obligation. If I accept, a new paid service agreement is signed before any billing begins.</span>
         </label>
 
         <button type="submit" class="submit-btn" id="submit-btn">Begin Activation</button>
@@ -224,7 +249,8 @@
   <script>
     const form = document.getElementById('sign-form');
     const ackActivation = document.getElementById('ackActivation');
-    const ackScale = document.getElementById('ackScale');
+    const ackPlan = document.getElementById('ackPlan');
+    const planNameAck = document.getElementById('planNameAck');
     const submitBtn = document.getElementById('submit-btn');
     const submitError = document.getElementById('submit-error');
     const signSection = document.getElementById('sign-section');
@@ -232,17 +258,28 @@
     const confirmEmail = document.getElementById('confirm-email');
 
     function updateSubmitState() {
-      submitBtn.disabled = !(ackActivation.checked && ackScale.checked);
+      submitBtn.disabled = !(ackActivation.checked && ackPlan.checked);
     }
     ackActivation.addEventListener('change', updateSubmitState);
-    ackScale.addEventListener('change', updateSubmitState);
+    ackPlan.addEventListener('change', updateSubmitState);
     submitBtn.disabled = true;
+
+    // Plan switcher — update acknowledgment text based on selected plan
+    function updatePlanAckText() {
+      const selectedPlan = document.querySelector('input[name="plan"]:checked')?.value || 'starter';
+      const planLabels = { starter: 'Starter', growth: 'Growth', scale: 'Scale' };
+      planNameAck.textContent = planLabels[selectedPlan] || 'Scale';
+    }
+
+    document.querySelectorAll('input[name="plan"]').forEach(radio => {
+      radio.addEventListener('change', updatePlanAckText);
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitError.style.display = 'none';
 
-      if (!ackActivation.checked || !ackScale.checked) {
+      if (!ackActivation.checked || !ackPlan.checked) {
         submitError.textContent = 'Please check both boxes to acknowledge the evaluation structure.';
         submitError.style.display = 'block';
         return;
@@ -251,11 +288,13 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Submitting…';
 
+      const selectedPlan = document.querySelector('input[name="plan"]:checked')?.value || 'starter';
       const formData = {
         type: 'evaluation-start',
         name: document.getElementById('name').value.trim(),
         email: document.getElementById('email').value.trim(),
         company: document.getElementById('company').value.trim(),
+        selectedPlan: selectedPlan,
         agreed: true,
         agreedAt: new Date().toISOString(),
         agreementVersion: '2.0-2026-05-12',
