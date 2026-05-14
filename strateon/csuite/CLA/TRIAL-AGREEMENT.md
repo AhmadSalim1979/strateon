@@ -47,9 +47,19 @@ We will assess these together on Day 14.
 - After the 72-hour window closes, we will send **one final follow-up**.
 - If there is no response to the follow-up, we will not contact you again for **60 days**.
 
+### Scale Plan — Post-Trial Terms
+
+If you qualify and choose to continue with a Scale paid plan, the following terms apply:
+
+- **No minimum commitment — cancel anytime** with 30 days written notice
+- Month-to-month billing after trial
+- All other Scale plan terms as defined in the Client Services Agreement (CSA)
+
 ## 7. Termination
 
 Either party may end the trial early by notifying the other in writing. Early termination does not affect any obligations around confidentiality.
+
+Cancellation after the trial requires **30 days written notice** to take effect.
 
 ## 8. Governing Law
 
