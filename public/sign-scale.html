@@ -89,6 +89,14 @@
     .footer-links a { color: #00C2CB; font-size: 13px; font-weight: 500; text-decoration: none; }
     .footer-links a:hover { text-decoration: underline; }
     .footer-links span { color: #666666; font-size: 12px; }
+    .upsell-section { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 14px; padding: 28px 32px; margin-bottom: 20px; }
+    .upsell-section h2 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .upsell-plan { display: flex; gap: 16px; margin-bottom: 16px; }
+    .upsell-plan:last-child { margin-bottom: 0; }
+    .upsell-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .upsell-text { font-size: 14px; color: #cccccc; }
+    .upsell-text strong { color: #ffffff; }
+    .upsell-text span { color: #888888; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -215,6 +223,26 @@
         <div class="governance-item"><span class="governance-icon">○</span><span>No auto-renewal — you sign a new agreement each cycle</span></div>
         <div class="governance-item"><span class="governance-icon">○</span><span>Monthly invoicing, net 15 payment terms</span></div>
         <div class="governance-item"><span class="governance-icon">○</span><span>No early termination fee</span></div>
+      </div>
+    </div>
+
+    <div class="upsell-section">
+      <h2>Need to Change Your Plan?</h2>
+      <div class="upsell-plan">
+        <span class="upsell-icon">🚀</span>
+        <div class="upsell-text">
+          <strong>Starter — $300/month</strong><br>
+          <span>50 leads/mo · WhatsApp follow-up · Weekly pipeline report · CRM integration · $6/lead overage</span><br>
+          <a href="/sign-starter.html" style="color:#00C2CB;font-size:13px;font-weight:500;margin-top:6px;display:inline-block;">View Starter Plan →</a>
+        </div>
+      </div>
+      <div class="upsell-plan">
+        <span class="upsell-icon">⚡</span>
+        <div class="upsell-text">
+          <strong>Growth — $750/month</strong><br>
+          <span>200 leads/mo · WhatsApp + Email (5-touch) · Daily pipeline brief · Monthly strategy call · $4/lead overage</span><br>
+          <a href="/sign-growth.html" style="color:#00C2CB;font-size:13px;font-weight:500;margin-top:6px;display:inline-block;">View Growth Plan →</a>
+        </div>
       </div>
     </div>
 
