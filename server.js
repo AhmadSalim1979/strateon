@@ -118,42 +118,60 @@ ${data.found_us?`<div class="field"><div class="field-label">How Found Qiyadon</
 
 function buildSignatureEmailHtml(data) {
   const escape = (s) => !s ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  const typeLabelMap = { trial: '14-Day Free Trial Agreement', csa: 'Client Service Agreement', 'evaluation-start': 'Operational Evaluation Agreement', 'scale-opt-in': 'Scale Plan Partnership Agreement' };
-  const typeLabel = typeLabelMap[data.type] || 'Qiyadon Agreement';
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px}
+  const evalTypes = {
+    'trial': '14-Day Free Trial',
+    'csa': 'Client Service Agreement',
+    'evaluation-start': 'Operational Evaluation',
+    'scale-opt-in': 'Scale Partnership',
+  };
+  const evalType = evalTypes[data.type] || 'Qiyadon Agreement';
+  const evalDays = (data.type === 'evaluation-start') ? '14-Day Activation Window' : 'Active';
+
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
+body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px;color:#171314}
 .container{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
 .header{background:#171314;padding:24px 32px}
-.header h1{color:#fff;font-size:20px;font-weight:800;margin:0}
-.header p{color:rgba(255,255,255,0.6);font-size:13px;margin:6px 0 0}
-.status-badge{display:inline-block;background:rgba(177,18,38,0.2);color:#ff6b6b;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px}
-.body{padding:28px 32px}
-.field{margin-bottom:20px}
-.field-label{font-size:11px;font-weight:700;color:#6E6A68;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
-.field-value{font-size:15px;color:#171314;font-weight:500}
-.field-value.mono{font-family:monospace;font-size:13px;color:#5F5A58}
-hr{margin:24px 0;border:none;border-top:1px solid #E5DEDA}
-.cta{background:#b81414;color:#fff;text-decoration:none;padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;display:inline-block;margin-top:8px}
-.footer{background:#171314;padding:20px 32px;font-size:12px;color:#e0e0e0;text-align:center}.footer img{max-width:580px;width:100%;height:auto;display:block;margin:0 auto 12px}.footer-brand{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.05em}.footer-brand strong{color:#b81414}
-</style></head><body><div class="container"><div class="header">
-<div class="status-badge">AGREEMENT SIGNED</div>
-<h1>${escape(typeLabel)}</h1>
-<p>${escape(data.name)} · ${escape(data.company)}</p>
-</div><div class="body">
-<div class="field"><div class="field-label">Signer Name</div><div class="field-value">${escape(data.name)}</div></div>
-<div class="field"><div class="field-label">Email</div><div class="field-value">${escape(data.email)}</div></div>
-<div class="field"><div class="field-label">Company</div><div class="field-value">${escape(data.company)}</div></div>
-${data.title ? `<div class="field"><div class="field-label">Title</div><div class="field-value">${escape(data.title)}</div></div>` : ''}
-${data.effectiveDate ? `<div class="field"><div class="field-label">Effective Date</div><div class="field-value">${escape(data.effectiveDate)}</div></div>` : ''}
-<hr>
-<div class="field"><div class="field-label">Agreement Type</div><div class="field-value">${escape(typeLabel)}</div></div>
-<div class="field"><div class="field-label">Agreement Version</div><div class="field-value">${escape(data.agreementVersion)}</div></div>
-<div class="field"><div class="field-label">Signed At</div><div class="field-value">${new Date(data.agreedAt).toUTCString()}</div></div>
-<div class="field"><div class="field-label">Signer IP</div><div class="field-value mono">${escape(data.ip)}</div></div>
-<div class="field"><div class="field-label">Agreement Hash (SHA-256)</div><div class="field-value mono">${escape(data.agreementHash)}</div></div>
-<hr>
-<a href="mailto:${escape(data.email)}?subject=Re:%20${escape(typeLabel)}" class="cta">Reply to ${escape(data.name)} →</a>
-</div><div class="footer"><img src="cid:signature@qiyadon" alt="Qiyadon" /><div class="footer-brand"><strong>QIYADON</strong> · AUTONOMOUS LEADERSHIP INFRASTRUCTURE · Global</div></div></div></body></html>`;
+.header-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.status-badge{display:inline-block;background:#b81414;color:#fff;font-size:10px;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:0.08em;text-transform:uppercase}
+.header-brand{font-size:22px;font-weight:900;color:#fff;letter-spacing:0.05em}
+.header-sub{color:rgba(255,255,255,0.5);font-size:12px;margin-top:4px}
+.body{padding:32px}
+.section{margin-bottom:28px}
+.section-label{font-size:10px;font-weight:700;color:#b81414;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
+.open-line{font-size:16px;color:#171314;line-height:1.6;font-weight:400}
+.open-line strong{color:#171314}
+.intro-box{background:#F6F3F1;border-left:3px solid #b81414;padding:16px 20px;border-radius:0 8px 8px 0}
+.check-list{list-style:none;padding:0;margin:0}
+.check-list li{padding:8px 0 8px 28px;position:relative;font-size:14px;color:#171314;border-bottom:1px solid #E5DEDA}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:'→';position:absolute;left:0;color:#b81414;font-weight:700}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#171314;color:#fff;padding:10px 14px;text-align:left;font-weight:700;font-size:11px;letter-spacing:0.05em;text-transform:uppercase}
+th:last-child, td:last-child{text-align:right}
+td{padding:10px 14px;border-bottom:1px solid #E5DEDA;color:#171314;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.action{color:#b81414;font-weight:600}
+.needs-box{background:#fff9f9;border:1px solid #f0c8c8;border-radius:8px;padding:16px 20px}
+.needs-box p{font-size:14px;color:#171314;margin:0 0 10px;line-height:1.5}
+.needs-box ul{list-style:none;padding:0;margin:0}
+.needs-box ul li{font-size:13px;color:#444;padding:4px 0}
+.trust-line{font-size:12px;color:#888;line-height:1.6;margin-top:4px}
+.cta-wrap{margin-top:24px;text-align:center}
+.cta{background:#b81414;color:#fff;text-decoration:none;padding:14px 32px;border-radius:999px;font-size:14px;font-weight:700;display:inline-block;letter-spacing:0.03em}
+.closing{margin-top:32px;padding-top:24px;border-top:1px solid #E5DEDA;text-align:center}
+.closing p{font-size:18px;font-weight:800;color:#171314;margin:0 0 4px}
+.closing small{font-size:11px;color:#999;letter-spacing:0.05em;text-transform:uppercase}
+.footer{background:#171314;padding:20px 32px;font-size:12px;color:#666;text-align:center;letter-spacing:0.05em}
+.footer strong{color:#b81414}
+</style></head><body><div class="container"><div class="header"><div class="header-top"><span class="status-badge">ACTIVATION INITIATED</span></div><div class="header-brand">QIYADON</div><div class="header-sub">${escape(evalType)} · ${escape(data.name)} · ${escape(data.company)}</div></div><div class="body">
+<div class="section"><div class="open-line">This is not a confirmation. This is a start signal. Your pipeline is now being assessed.</div></div>
+<div class="section"><div class="section-label">What starts today</div><ul class="check-list"><li>Internal pipeline assessment initialized</li><li>HubSpot CRM connection verification — initiated${data.crm && data.crm.toLowerCase().includes('hubspot') ? '' : ' (if connected)'}</li><li>First cadence rules being drafted for your review</li><li>Activation window opened (${evalDays})</li></ul></div>
+<div class="section"><div class="section-label">Your evaluation timeline</div><div class="table-wrap"><table><thead><tr><th>When</th><th>What happens</th><th>Who&apos;s involved</th><th>Your action needed</th></tr></thead><tbody><tr><td>Within 1 hour</td><td>System intake begins, lead profile created</td><td>Qiyadon ops</td><td class="action">Nothing — we start automatically</td></tr><tr><td>Within 24 hours</td><td>Activation briefing sent to your email</td><td>Qiyadon ops</td><td class="action">Review and approve cadence rules</td></tr><tr><td>Day 2–3</td><td>First live follow-up sequences begin</td><td>Qiyadon executes</td><td class="action">Monitor your inbox for first reports</td></tr><tr><td>Day 14</td><td>Evaluation summary delivered</td><td>Qiyadon delivers</td><td class="action">Review results — decide on Scale</td></tr></tbody></table></div></div>
+<div class="section"><div class="section-label">What we need from you</div><div class="needs-box"><p>To move from activation to execution, we&apos;ll need the following. If we don&apos;t have them yet, we&apos;ll request them in the next briefing email:</p><ul><li>✓ HubSpot CRM credentials (or confirm which CRM you&apos;re using)</li><li>✓ Calendar link to schedule your kickoff call</li><li>✓ List of 25 active leads to begin with</li></ul></div></div>
+<div class="section"><p class="trust-line">Your data is governed by our Client Services Agreement and DPA. All pipeline data is encrypted and never shared.</p></div>
+<div class="cta-wrap"><a href="https://qiyadon.com" class="cta">Access your pipeline dashboard →</a></div>
+<div class="closing"><p>The silence ends here.</p><small>— Qiyadon Operations</small></div></div><div class="footer"><strong>QIYADON</strong> · AUTONOMOUS LEADERSHIP INFRASTRUCTURE · Global</div></div></body></html>`;
 }
 
 function hashAgreement(text) {
@@ -232,7 +250,7 @@ const SIG_CID = 'signature@qiyadon';
 transporter.sendMail({
         from: `Qiyadon Agreements <${creds.user}>`,
         to: data.email,
-        subject: `✓ Agreement Signed — ${typeLabel}`,
+        subject: `Your evaluation is live — Day 1 begins now`,
         text: `Dear ${data.name},\n\nThis email confirms that you have successfully signed the ${typeLabel} on behalf of ${data.company}.\n\nSignatory: ${data.name}\nCompany: ${data.company}\nSigned at: ${new Date(data.agreedAt).toUTCString()}\nAgreement version: ${data.agreementVersion}\n\nThis electronic signature is legally binding under the ESIGN Act (15 U.S.C. § 7001), UETA, and Delaware law.\n\nRecord ID: ${id}\n\n— Qiyadon / Strateon`,
         html: buildSignatureEmailHtml({...data, ip, agreementHash}),
         attachments: [{filename:'qiyadon-signature.jpg', content: Buffer.from(SIG_IMG_B64, 'base64'), cid: SIG_CID}]

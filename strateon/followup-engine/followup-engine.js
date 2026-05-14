@@ -808,6 +808,107 @@ async function sendFollowupEmail(contact, cadenceStep) {
   }
 }
 
+// ─── CLIENT ACTIVATION TRIGGER ───────────────────────────────────────────────
+// On client status='active', this function:
+//   1. Creates pipeline_lead records from the trial signup data
+//   2. Triggers the T+1h kickoff email sequence
+//   3. Logs each activation step to pipeline_activity table
+// Called once per newly activated client (idempotent via activation_initiated flag)
+
+async function initiateClientActivation(client) {
+  const s = getSupabaseClient();
+  const now = new Date().toISOString();
+
+  // ── Step 1: Mark activation initiated (idempotency lock) ──────────────────
+  if (client.activation_initiated) {
+    log(`Client "${client.name}" already activated — skipping`);
+    return { alreadyActivated: true };
+  }
+
+  log(`ACTIVATION: Initiating client "${client.name}" (${client.email}) — pipeline_lead records + kickoff sequence`);
+
+  // ── Step 2: Create pipeline_lead records ─────────────────────────────────
+  try {
+    const leadRows = await s.from('pipeline_leads').select('id').eq('client_id', client.id).limit(1);
+    if (leadRows.data && leadRows.data.length > 0) {
+      // pipeline_leads already exist — just update activation flag
+      await s.from('clients').update({ activation_initiated: true }).eq('id', client.id);
+      log(`Pipeline leads already exist for client "${client.name}"`);
+    } else {
+      // Seed pipeline_leads from sign-trial data
+      const signupData = {
+        name: client.name || '',
+        email: client.email || '',
+        company: client.company || '',
+        signup_type: client.signup_type || client.type || 'evaluation-start',
+      };
+
+      if (signupData.email) {
+        const { error: insertErr } = await s.from('pipeline_leads').insert({
+          client_id: client.id,
+          name: signupData.name,
+          email: signupData.email,
+          company: signupData.company,
+          signup_type: signupData.signup_type,
+          status: 'pending',
+        });
+
+        if (insertErr) {
+          log(`Failed to create pipeline_lead for client "${client.name}": ${insertErr.message}`, 'ERROR');
+        } else {
+          log(`Pipeline lead created for "${signupData.email}"`);
+        }
+      } else {
+        log(`No email found for client "${client.name}" — skipping pipeline_lead creation`, 'WARN');
+      }
+    }
+  } catch (e) {
+    log(`pipeline_lead creation error for client "${client.name}": ${e.message}`, 'ERROR');
+  }
+
+  // ── Step 3: Log ACTIVATION_INITIATED to pipeline_activity ──────────────
+  await logActivity({
+    lead_id: null,
+    client_id: client.id,
+    activity_type: 'ACTIVATION_INITIATED',
+    description: `Client activation triggered for "${client.name}". Pipeline lead initialized from trial signup.`,
+    subject: 'Your evaluation is live — Day 1 begins now',
+    triggered_by: 'engine',
+    outcome: 'activation_started',
+  });
+
+  // ── Step 4: Mark activation_initiated=true on clients row ──────────────
+  try {
+    await s.from('clients').update({ activation_initiated: true }).eq('id', client.id);
+  } catch (e) {
+    log(`Failed to set activation_initiated on client "${client.name}": ${e.message}`, 'ERROR');
+  }
+
+  // ── Step 5: Log KICKOFF_EMAIL_QUEUED (T+1h is handled by scheduler; we queue intent here) ─
+  await logActivity({
+    lead_id: null,
+    client_id: client.id,
+    activity_type: 'KICKOFF_EMAIL_QUEUED',
+    description: 'T+1h kickoff email queued for delivery',
+    subject: 'Day 1 kickoff — your pipeline is already being assessed',
+    triggered_by: 'engine',
+    outcome: 'queued',
+  });
+
+  // ── Step 6: Immediate kickoff/intake email (T+1h from now) ──────────────
+  // We store a kickoff_scheduled_at timestamp — a T+1h scheduler picks this up
+  try {
+    const kickoffEta = new Date(Date.now() + 60 * 60 * 1000).toISOString(); // T+1h
+    await s.from('clients').update({ kickoff_scheduled_at: kickoffEta }).eq('id', client.id);
+    log(`Kickoff email scheduled for client "${client.name}" at ${kickoffEta}`);
+  } catch (e) {
+    log(`Failed to schedule kickoff email for "${client.name}": ${e.message}`, 'ERROR');
+  }
+
+  log(`ACTIVATION complete for client "${client.name}"`);
+  return { success: true };
+}
+
 // ─── SUPABASE ACTIVITY LOG HELPER ─────────────────────────────────────────────
 function getSupabaseClient() {
   const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
@@ -884,6 +985,12 @@ async function runEngine() {
     if (activeClients && activeClients.length > 0) {
       log(`Found ${activeClients.length} active/onboarding client(s): ${activeClients.map(c => c.name).join(', ')}`);
       clientStatus = 'active';
+      // ── ACTIVATION TRIGGER: Check each active client for pending activation ──
+      for (const client of activeClients) {
+        if (client.status === 'active') {
+          await initiateClientActivation(client);
+        }
+      }
     } else {
       log(`No clients found in Supabase — running in demo/empty mode (no leads to process)`);
       clientStatus = 'no_clients';
