@@ -1,0 +1,14 @@
+{
+  "id": "trial-cors-1778705910121",
+  "type": "trial",
+  "name": "CORSTest",
+  "title": null,
+  "email": "cors@qiyadon.com",
+  "company": "CORS Test",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-13T23:00:00Z",
+  "agreementVersion": "1.0-2026-05-01",
+  "ip": "2a01:4f8:161:940a::2",
+  "agreementHash": "4f6ca8358067b7fb419268b856b14ac617f6709ca508424640eada9c8312b1f2",
+  "storedAt": "2026-05-13T20:58:30.121Z"
+}

@@ -1,10 +1,6 @@
 # Backup Log
 
-## 2026-05-13 (Wednesday)
-
-| Time (CEST) | Result | Details |
-|---|---|---|
-| 02:38 | ✅ SUCCESS | Auto-backup: Wed May 13 02:38:00 CEST 2026<br>14 files changed: 3663 insertions(+), 33 deletions(-)<br>Scanning for secrets before push... No secrets detected - push allowed<br>Branch: master → origin/master |
+| 20:38 | ✅ SUCCESS | Auto-backup: Wed May 13 2026 20:38:02 Europe/Berlin<br>6 files changed: 3386 insertions(+), 2 deletions(-)<br>Files: `memory/2026-05-13.md`, `strateon/followup-engine/hub-oauth-v2.js`, `strateon/followup-engine/logs/2026-05-13.log`, `strateon/followup-engine/logs/stdout-5.log`, `strateon/projects/backups.md`, `submit-signature-worker.js`<br>Secret scan: passed<br>Branch: deploy/v2 → origin/deploy/v2 |
 
 ## 2026-05-08 (Friday)
 

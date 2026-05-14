@@ -1,0 +1,14 @@
+{
+  "id": "trial-browser-1778705957370",
+  "type": "trial",
+  "name": "BrowserSim",
+  "title": null,
+  "email": "browser@qiyadon.com",
+  "company": "Browser",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-13T23:00:00Z",
+  "agreementVersion": "2.0-2026-05-12",
+  "ip": "2a01:4f8:161:940a::2",
+  "agreementHash": "92428a1aa7411b7a8e90431001de392d297515e683bfac6abaa171576c210022",
+  "storedAt": "2026-05-13T20:59:17.370Z"
+}

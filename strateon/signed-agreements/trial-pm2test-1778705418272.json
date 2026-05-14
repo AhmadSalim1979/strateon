@@ -1,0 +1,14 @@
+{
+  "id": "trial-pm2test-1778705418272",
+  "type": "trial",
+  "name": "PM2 Restart Test",
+  "title": null,
+  "email": "pm2test@qiyadon.com",
+  "company": "PM2 Test",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-13T22:00:00Z",
+  "agreementVersion": "1.0-2026-05-01",
+  "ip": "2a01:4f8:161:940a::2",
+  "agreementHash": "4f6ca8358067b7fb419268b856b14ac617f6709ca508424640eada9c8312b1f2",
+  "storedAt": "2026-05-13T20:50:18.272Z"
+}
