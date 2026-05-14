@@ -54,7 +54,7 @@
 | Field | Value |
 |---|---|
 | **Subject** | `Your activation briefing — 3 things we need to start` |
-| **Body** | "24 hours in. Your pipeline assessment is underway. To move from activation to live execution, we need the following. If we already have them, we're already using them. If not, reply to this email with: (1) HubSpot CRM credentials — or confirm which CRM you're on. (2) A calendar link to schedule your kickoff call. (3) A list of your 25 most active leads to start with. Without these, your cadence will be drafted from your sign-trial data alone — we'll request them in 48h if we don't hear from you." |
+| **Body** | "24 hours in. Your pipeline assessment is underway. To move from activation to cadence execution, we need the following. If we already have them, we're using them already. If not, reply to this email with: (1) HubSpot CRM credentials — or confirm which CRM you're on. (2) A calendar link to schedule your kickoff call. (3) A list of your 25 most active leads to start with. Without these, your cadence will be drafted from your sign-trial data alone — we'll request them in 48h if we don't hear from you." |
 | CTA | "Upload your lead list →" (placeholder link: qiyadon.com/upload or crm-connect) |
 | What CLIENT receives | Briefing email with specific asks |
 | What CLIENT needs to do | Reply with CRM credentials / calendar link / lead list, or wait for T+48h reminder |
@@ -89,9 +89,9 @@
 > **CTA:** "Approve now →"
 
 **Branch B — Cadence approved:**
-> **Subject:** `Sequences are live — your pipeline is being worked`  
-> **Body:** "Your cadence is approved. Qiyadon is now actively working your pipeline. First follow-up sequences are running against your active leads. Monitor your inbox — your first pipeline report arrives on Day 7. We'll escalate anything that needs your attention."  
-> **CTA:** "View live pipeline →" (qiyadon.com)
+> **Subject:** `Your cadence is approved — execution activation begins`  
+> **Body:** "Your cadence has been approved. Your pipeline execution workspace is now being prepared for activation. Outbound cadence will begin once your CRM connection is validated and your lead list is ingested. You'll receive a confirmation when execution goes live. Monitor your inbox — your first pipeline report arrives on Day 7. Anything that needs your attention before then, we'll flag directly."  
+> **CTA:** "View your evaluation dashboard →"
 
 | Field | Value |
 |---|---|

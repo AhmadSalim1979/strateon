@@ -127,6 +127,9 @@ function buildSignatureEmailHtml(data) {
   const evalType = evalTypes[data.type] || 'Qiyadon Agreement';
   const evalDays = (data.type === 'evaluation-start') ? '14-Day Activation Window' : 'Active';
 
+  // Operational status — reflects true state: we are in PREPARATION, not live execution
+  const currentStatus = 'Activation queued — awaiting onboarding inputs';
+
   return `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>
 body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px;color:#171314}
 .container{max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
@@ -139,7 +142,8 @@ body{font-family:Inter,Arial,sans-serif;background:#F6F3F1;margin:0;padding:20px
 .section{margin-bottom:28px}
 .section-label{font-size:10px;font-weight:700;color:#b81414;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px}
 .open-line{font-size:16px;color:#171314;line-height:1.6;font-weight:400}
-.open-line strong{color:#171314}
+.current-status{display:inline-block;background:#171314;color:#fff;font-size:11px;font-weight:700;padding:8px 16px;border-radius:6px;letter-spacing:0.05em;margin-bottom:4px}
+.status-note{font-size:12px;color:#888;margin-top:6px;line-height:1.5}
 .intro-box{background:#F6F3F1;border-left:3px solid #b81414;padding:16px 20px;border-radius:0 8px 8px 0}
 .check-list{list-style:none;padding:0;margin:0}
 .check-list li{padding:8px 0 8px 28px;position:relative;font-size:14px;color:#171314;border-bottom:1px solid #E5DEDA}
@@ -152,6 +156,7 @@ th:last-child, td:last-child{text-align:right}
 td{padding:10px 14px;border-bottom:1px solid #E5DEDA;color:#171314;vertical-align:top}
 tr:last-child td{border-bottom:none}
 .action{color:#b81414;font-weight:600}
+.prep{color:#7a9e7a;font-weight:600}
 .needs-box{background:#fff9f9;border:1px solid #f0c8c8;border-radius:8px;padding:16px 20px}
 .needs-box p{font-size:14px;color:#171314;margin:0 0 10px;line-height:1.5}
 .needs-box ul{list-style:none;padding:0;margin:0}
@@ -162,15 +167,15 @@ tr:last-child td{border-bottom:none}
 .closing{margin-top:32px;padding-top:24px;border-top:1px solid #E5DEDA;text-align:center}
 .closing p{font-size:18px;font-weight:800;color:#171314;margin:0 0 4px}
 .closing small{font-size:11px;color:#999;letter-spacing:0.05em;text-transform:uppercase}
-.footer{background:#171314;padding:20px 32px;font-size:12px;color:#666;text-align:center;letter-spacing:0.05em}
-.footer strong{color:#b81414}
+.footer{background:#171314;padding:20px 32px;font-size:12px;color:#666;text-align:center;letter-spacing:0.05em}.footer strong{color:#b81414}
 </style></head><body><div class="container"><div class="header"><div class="header-top"><span class="status-badge">ACTIVATION INITIATED</span></div><div class="header-brand">QIYADON</div><div class="header-sub">${escape(evalType)} · ${escape(data.name)} · ${escape(data.company)}</div></div><div class="body">
-<div class="section"><div class="open-line">This is not a confirmation. This is a start signal. Your pipeline is now being assessed.</div></div>
-<div class="section"><div class="section-label">What starts today</div><ul class="check-list"><li>Internal pipeline assessment initialized</li><li>HubSpot CRM connection verification — initiated${data.crm && data.crm.toLowerCase().includes('hubspot') ? '' : ' (if connected)'}</li><li>First cadence rules being drafted for your review</li><li>Activation window opened (${evalDays})</li></ul></div>
-<div class="section"><div class="section-label">Your evaluation timeline</div><div class="table-wrap"><table><thead><tr><th>When</th><th>What happens</th><th>Who&apos;s involved</th><th>Your action needed</th></tr></thead><tbody><tr><td>Within 1 hour</td><td>System intake begins, lead profile created</td><td>Qiyadon ops</td><td class="action">Nothing — we start automatically</td></tr><tr><td>Within 24 hours</td><td>Activation briefing sent to your email</td><td>Qiyadon ops</td><td class="action">Review and approve cadence rules</td></tr><tr><td>Day 2–3</td><td>First live follow-up sequences begin</td><td>Qiyadon executes</td><td class="action">Monitor your inbox for first reports</td></tr><tr><td>Day 14</td><td>Evaluation summary delivered</td><td>Qiyadon delivers</td><td class="action">Review results — decide on Scale</td></tr></tbody></table></div></div>
-<div class="section"><div class="section-label">What we need from you</div><div class="needs-box"><p>To move from activation to execution, we&apos;ll need the following. If we don&apos;t have them yet, we&apos;ll request them in the next briefing email:</p><ul><li>✓ HubSpot CRM credentials (or confirm which CRM you&apos;re using)</li><li>✓ Calendar link to schedule your kickoff call</li><li>✓ List of 25 active leads to begin with</li></ul></div></div>
+<div class="section"><div class="current-status">CURRENT STATUS: ${escape(currentStatus)}</div><div class="status-note">Your evaluation workspace is initialized. We are in the activation preparation phase. Outbound cadence begins only after your onboarding inputs are received and approved.</div></div>
+<div class="section"><div class="section-label">Your evaluation timeline</div><div class="table-wrap"><table><thead><tr><th>When</th><th>What happens</th><th>Who&apos;s involved</th><th>Your action needed</th></tr></thead><tbody><tr><td>Within 1 hour</td><td>Evaluation workspace initialized, intake profile created</td><td>Qiyadon ops</td><td class="action">Nothing — preparation starts automatically</td></tr><tr><td>Within 24 hours</td><td>Onboarding briefing delivered — CRM request, kickoff call, lead list</td><td>Qiyadon ops</td><td class="action">Review and provide onboarding inputs</td></tr><tr><td>Day 2–3</td><td>Cadence planning in progress — draft rules prepared for your review</td><td>Qiyadon prepares</td><td class="action">Approve cadence rules before activation</td></tr><tr><td>Day 14</td><td>Evaluation summary delivered — execution readiness assessed</td><td>Qiyadon delivers</td><td class="action">Review results — decide on Scale</td></tr></tbody></table></div></div>
+<div class="section"><div class="section-label">What starts today — preparation in progress</div><ul class="check-list"><li>Evaluation workspace initialized</li><li>CRM connection onboarding preparation — initiated${data.crm && data.crm.toLowerCase().includes('hubspot') ? '' : ' (pending your CRM details)'}</li><li>Cadence planning — draft rules being prepared for your review</li><li>${evalDays}</li></ul></div>
+<div class="section"><div class="section-label">What we need from you</div><div class="needs-box"><p>Execution cadence begins only after these are received. We&apos;ll follow up if we don&apos;t have them by the briefing email:</p><ul><li>✓ HubSpot CRM credentials (or which CRM you&apos;re using)</li><li>✓ Calendar link to schedule your kickoff call</li><li>✓ List of 25 active leads to begin with</li></ul></div></div>
+<div class="section"><div class="intro-box"><p class="open-line">This is your start signal. Your evaluation workspace is live. We are preparing your pipeline cadence — it begins when your inputs are received and approved.</p></div></div>
 <div class="section"><p class="trust-line">Your data is governed by our Client Services Agreement and DPA. All pipeline data is encrypted and never shared.</p></div>
-<div class="cta-wrap"><a href="https://qiyadon.com" class="cta">Access your pipeline dashboard →</a></div>
+<div class="cta-wrap"><a href="https://qiyadon.com" class="cta">Access your evaluation dashboard →</a></div>
 <div class="closing"><p>The silence ends here.</p><small>— Qiyadon Operations</small></div></div><div class="footer"><strong>QIYADON</strong> · AUTONOMOUS LEADERSHIP INFRASTRUCTURE · Global</div></div></body></html>`;
 }
 
