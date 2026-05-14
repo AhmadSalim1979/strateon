@@ -116,3 +116,15 @@
 - **Branch:** deploy/v2
 - **Changes committed:** 1 file (CMO SESSION-STATES)
 - **Push:** Success
+
+## 2026-05-14 — 21:14 CEST
+
+| Field | Value |
+|---|---|
+| **Branch** | `deploy/v2` (pushed to origin) |
+| **Commit** | `44b6ed32` |
+| **Files** | 6 files changed, 680 insertions(+) |
+| **New files** | COO SESSION-STATES, followup-engine logs (stdout/stderr-4), signed-agreement JSON |
+| **Modified** | followup-engine logs (stdout-5) |
+| **Secrets scan** | No secrets detected — push allowed |
+
