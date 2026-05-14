@@ -3,7 +3,7 @@
 **One-liner:** 74% of enterprise AI deployments get rolled back. The tech worked. The governance didn't.
 
 **ICLE:** AI rollout failures in enterprise — the 74% rollback problem
-**Status:** Draft — 2026-05-14
+**Status:** Published ✅ — 2026-05-14
 
 ---
 
