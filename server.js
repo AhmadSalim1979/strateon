@@ -287,6 +287,7 @@ transporter.sendMail({
       subject: `Pipeline Leak Audit — ${data.name} / ${data.company}`,
       text: `Pipeline Leak Audit Request\n===========================\nName: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone||'N/A'}\nIndustry: ${data.industry}\nLeads/month: ${data.leads_per_month}\nClose rate: ${data.close_rate}\nCRM: ${data.crm}\nChallenge: ${data.challenge}\nFollow-up: ${data.followup_process}\nFound us: ${data.found_us||'N/A'}`,
       html: buildEmailHtml(data),
+      replyTo: creds.user,
       attachments: [{filename:'qiyadon-signature.jpg', content: Buffer.from(SIG_IMG_B64, 'base64'), cid: SIG_CID}]
     }, (err, info) => {
       const ms = Date.now() - t;

@@ -2,14 +2,8 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "pm2": 1749785040,
-    "heartbeat": 1749793980
+    "pm2": 1749800580,
+    "heartbeat": 1749810180
   },
-  "urgentItems": [
-    {
-      "item": "WhatsApp gateway CRITICAL — flapping since May 13 ~08:51 Berlin (~35+ hrs continuous). Status 499 on every disconnect. Ban risk EXTREME. Server-side fix required: openclaw gateway restart",
-      "created": "2026-05-13T08:23:00Z",
-      "owner": "Ahmad"
-    }
-  ]
+  "urgentItems": []
 }
