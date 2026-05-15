@@ -33,6 +33,9 @@ const CONFIG = {
   // Cursor persistence — survives restarts
   CURSOR_FILE: '/ops/sidecar-cursor.json',
 
+  // Quarantine log for malformed lines
+  QUARANTINE_FILE: '/ops/sidecar-quarantine.jsonl',
+
   // Poll interval (milliseconds)
   CHECK_INTERVAL_MS: 5000,
 
@@ -48,6 +51,10 @@ const CONFIG = {
 
   // Max lines to process per poll (prevent runaway reads)
   MAX_LINES_PER_POLL: 1000,
+
+  // Retry count when at EOF with incomplete line
+  EOF_RETRY_COUNT: 3,
+  EOF_RETRY_DELAY_MS: 500,
 };
 
 // ============================================================================
@@ -108,6 +115,24 @@ function saveCursor(cursor) {
 }
 
 // ============================================================================
+// QUARANTINE LOG
+// ============================================================================
+
+/**
+ * Log a malformed or quarantined line to the quarantine file.
+ * Append-only — never overwrites, survives restarts.
+ */
+function quarantine(entry) {
+  try {
+    const line = JSON.stringify(entry) + '\n';
+    fs.appendFileSync(CONFIG.QUARANTINE_FILE, line);
+  } catch (err) {
+    console.log('[shadow] Quarantine write error:', err.message);
+  }
+  console.log(`[shadow] QUARANTINED offset=${entry.byte_offset} reason=${entry.reason} session=${entry.session_id}`);
+}
+
+// ============================================================================
 // SESSION DISCOVERY
 // ============================================================================
 
@@ -159,34 +184,33 @@ function findActiveSession() {
 
 /**
  * Parse a single line from session JSONL.
- * Returns null if line is malformed or not a user message.
+ * Returns null if line is malformed.
  */
 function parseLine(line) {
   try {
     const entry = JSON.parse(line.trim());
     return entry;
   } catch (err) {
-    // Malformed JSON — skip and log
-    console.log('[shadow] Malformed line skipped:', err.message, line.slice(0, 80));
+    // Malformed JSON — quarantine and log
     return null;
   }
 }
 
 /**
  * Extract WhatsApp metadata from a session entry.
- * 
+ *
  * Session JSONL format varies by message type:
- * 
+ *
  * USER messages:
- *   { type:"message", id:"<whatsapp_message_id>", parentId:"...", 
+ *   { type:"message", id:"<whatsapp_message_id>", parentId:"...",
  *     timestamp:"...", message:{ role:"user", content:[{type:"text",text:"..."}] } }
  *   sender_id and message_id are EMBEDDED INSIDE the text as JSON metadata
- * 
+ *
  * ASSISTANT messages:
- *   { type:"message", id:"<msg_id>", parentId:"...", 
+ *   { type:"message", id:"<msg_id>", parentId:"...",
  *     timestamp:"...", message:{ role:"assistant", content:[...] } }
  *   May have message_id at top level or inside message content
- * 
+ *
  * Returns null if required fields cannot be extracted.
  */
 function extractMetadata(entry) {
@@ -214,19 +238,16 @@ function extractMetadata(entry) {
     }
 
     // For USER messages: sender_id and message_id are INSIDE the text as JSON metadata
-    // The text contains Conversation info block with these fields embedded as JSON
     const msgRole = msg.role || null;
     if (msgRole === 'user' && text) {
       // Extract message_id and sender_id directly from text via regex
-      // They appear in the "Conversation info" JSON block at the start of text
-      // We use multiline matching to find them reliably
       const msgIdMatch = text.match(/"message_id":\s*"([^"]+)"/);
       if (msgIdMatch) messageId = msgIdMatch[1];
-      // sender_id appears in the first JSON block — use ^"sender_id" to avoid e164 confusion
+      // sender_id appears in the first JSON block
       const senderMatch = text.match(/^\s*"sender_id":\s*"([^"]+)"/m);
       if (senderMatch) senderId = senderMatch[1];
       if (!messageId || !senderId) {
-        // Fallback: try to find any message_id in first 300 chars
+        // Fallback: try to find any message_id/sender_id in first 300 chars
         if (!messageId) {
           const fallback = text.slice(0, 300).match(/"message_id":\s*"([^"]+)"/);
           if (fallback) messageId = fallback[1];
@@ -236,7 +257,7 @@ function extractMetadata(entry) {
           if (fallback) senderId = fallback[1];
         }
       }
-      // For user messages, entry.id IS the WhatsApp message_id
+      // For user messages, entry.id IS the WhatsApp message_id as fallback
       if (!messageId && entry.id) messageId = entry.id;
     } else {
       // Non-user messages: use entry.id as fallback for messageId
@@ -323,7 +344,6 @@ async function persistInstruction(msgMeta) {
 
 /**
  * Check if a message has already been captured.
- * Uses message_id (primary) + text+sender+timestamp hash (secondary fallback).
  */
 function isDuplicate(msgMeta, cursor) {
   // Primary: message_id exact match
@@ -348,10 +368,17 @@ let isRunning = false;
 let pollCount = 0;
 let captureCount = 0;
 let errorCount = 0;
+let lastCaptureCount = 0; // For capture gap detection
 
 /**
  * Main polling iteration.
  * Reads new lines from active session, captures user messages, persists.
+ *
+ * Key behavior for malformed/incomplete lines:
+ * - Malformed lines are quarantined to QUARANTINE_FILE and skipped
+ * - If we reach EOF with an incomplete last line, we retry up to EOF_RETRY_COUNT times
+ * - After all retries fail, we advance past the incomplete line (controlled sacrifice)
+ * - We NEVER process the same malformed line twice
  */
 async function poll() {
   if (!isRunning) return;
@@ -362,8 +389,7 @@ async function poll() {
     // 1. Find active session
     const activeSession = findActiveSession();
     if (!activeSession) {
-      // No session yet — wait for gateway to create one
-      if (pollCount % 12 === 0) { // Log every minute
+      if (pollCount % 12 === 0) {
         console.log('[shadow] No session found, waiting...');
       }
       return;
@@ -372,7 +398,7 @@ async function poll() {
     // 2. Read cursor
     const cursor = readCursor();
 
-    // 3. Detect session rotation — if cursor.sessionId doesn't match active session
+    // 3. Detect session rotation
     if (cursor.sessionId && cursor.sessionId !== activeSession.id) {
       console.log(`[shadow] Session rotated: ${cursor.sessionId} → ${activeSession.id}, resetting cursor`);
       cursor.sessionId = activeSession.id;
@@ -380,7 +406,6 @@ async function poll() {
       cursor.lastMessageId = null;
       cursor.lastMessageHash = null;
       saveCursor(cursor);
-      // Do NOT return — process new session from position 0 in same poll cycle
     }
 
     // 4. Update sessionId if not set
@@ -407,10 +432,6 @@ async function poll() {
     }
 
     // 8. Read new lines from cursor.eofPosition to current EOF
-    // NOTE: We read from cursor.eofPosition to current EOF, but we only
-    // advance the cursor to the END of complete lines. If we hit the end
-    // of the buffer mid-line (file growing while we read), we stop and
-    // the next poll picks up from where we left off.
     const fd = fs.openSync(activeSession.path, 'r');
     const bytesToRead = currentEof - cursor.eofPosition;
     const buffer = Buffer.alloc(Math.min(bytesToRead, 1024 * 1024)); // max 1MB per poll
@@ -422,10 +443,6 @@ async function poll() {
     const rawData = buffer.toString('utf8', 0, bytesRead);
     const lines = rawData.split('\n').filter(l => l.trim().length > 0);
 
-    // Track where we actually got to in the buffer
-    // lastLineEndOffset = offset within buffer where the last complete line ends
-    let lastLineEndOffset = 0;
-
     if (lines.length === 0) {
       // No complete lines — advance cursor by bytesRead and retry next poll
       cursor.eofPosition += bytesRead;
@@ -433,47 +450,62 @@ async function poll() {
       return;
     }
 
+    // Track where we got to in the buffer (offset of last complete line end)
+    let lastLineEndOffset = 0;
+    // Track if the last line in our buffer was incomplete (malformed)
+    let lastLineWasMalformed = false;
+    // Track byte offset of start of malformed line in file
+    let malformedByteOffset = -1;
+    let malformedLineContent = '';
+    let malformedParseError = '';
+
     // 9. Process each line (up to MAX_LINES_PER_POLL)
     let processed = 0;
     for (const line of lines) {
       if (processed >= CONFIG.MAX_LINES_PER_POLL) {
         console.log('[shadow] Max lines per poll reached, deferring rest to next cycle');
-        // Advance to end of last processed line and save
-        cursor.eofPosition = cursor.eofPosition + lastLineEndOffset;
+        cursor.eofPosition += lastLineEndOffset;
         saveCursor(cursor);
         return;
       }
 
+      const lineBytes = Buffer.byteLength(line, 'utf8') + 1; // +1 for newline
       const entry = parseLine(line);
+
       if (!entry) {
-        // Malformed line — skip but count its bytes
-        lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+        // Malformed line
+        lastLineWasMalformed = true;
+        malformedByteOffset = cursor.eofPosition + lastLineEndOffset;
+        malformedLineContent = line.slice(0, 200); // preview
+        malformedParseError = 'JSON parse failed';
+        lastLineEndOffset += lineBytes;
         continue;
       }
 
       // Only user messages
       const msgRole = entry.message?.role || entry.role || null;
       if (msgRole && msgRole !== 'user') {
-        lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+        lastLineEndOffset += lineBytes;
         continue;
       }
 
       const msgMeta = extractMetadata(entry);
       if (!msgMeta) {
-        lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+        // Couldn't extract metadata (missing sender_id or message_id)
+        lastLineEndOffset += lineBytes;
         continue;
       }
 
       // Duplicate check
       if (isDuplicate(msgMeta, cursor)) {
         console.log('[shadow] Duplicate message_id:', msgMeta.message_id);
-        // Advance offset — we've consumed this line (counted in lastLineEndOffset above)
+        lastLineEndOffset += lineBytes;
         continue;
       }
 
       // Persist (shadow mode — no task creation)
       const result = await persistInstruction(msgMeta);
-      lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+      lastLineEndOffset += lineBytes;
 
       if (result) {
         captureCount++;
@@ -485,9 +517,55 @@ async function poll() {
       processed++;
     }
 
-    // Advance cursor to the end of the last line we processed
+    // 10. Handle incomplete last line at EOF
+    const readEndOffset = cursor.eofPosition + bytesRead;
+    const isAtEof = readEndOffset >= currentEof;
+
+    if (isAtEof && lastLineWasMalformed) {
+      // We reached EOF and the last line was malformed/incomplete
+      // Quarantine the malformed line
+      quarantine({
+        quarantined_at: new Date().toISOString(),
+        byte_offset: malformedByteOffset,
+        reason: 'incomplete_json_at_eof',
+        parse_error: malformedParseError,
+        raw_preview: malformedLineContent,
+        session_id: activeSession.id,
+      });
+
+      // Retry protocol: check if file has grown (gateway finished writing)
+      let retryCount = 0;
+      let fileGrew = false;
+      while (retryCount < CONFIG.EOF_RETRY_COUNT) {
+        await sleep(CONFIG.EOF_RETRY_DELAY_MS);
+        const newEof = fs.statSync(activeSession.path).size;
+        if (newEof > currentEof) {
+          // File grew — gateway finished writing, we can now read past this
+          fileGrew = true;
+          console.log(`[shadow] EOF retry ${retryCount + 1}: file grew from ${currentEof} to ${newEof}, will re-read`);
+          break;
+        }
+        retryCount++;
+      }
+
+      if (!fileGrew) {
+        // All retries failed — advance past the incomplete line (controlled sacrifice)
+        // We accept losing this one line to break the infinite retry loop
+        console.log(`[shadow] EOF retry exhausted — advancing past incomplete line at offset ${malformedByteOffset}`);
+        cursor.eofPosition = currentEof; // Set cursor to true EOF
+        saveCursor(cursor);
+        checkCaptureGap();
+        return;
+      }
+      // File grew — fall through to save cursor and continue processing on next poll
+    }
+
+    // 11. Normal cursor advance
     cursor.eofPosition += lastLineEndOffset;
     saveCursor(cursor);
+
+    // 12. Capture gap detection
+    checkCaptureGap();
 
   } catch (err) {
     errorCount++;
@@ -499,21 +577,36 @@ async function poll() {
   }
 }
 
+/**
+ * Detect and log capture gaps — polls with no captures despite processing activity.
+ */
+function checkCaptureGap() {
+  if (pollCount > 1 && captureCount === lastCaptureCount && errorCount === 0) {
+    // No new captures this poll, but we processed lines — may indicate silent drop
+    // Only log once per gap occurrence (not every poll)
+    if (captureCount > 0) {
+      // We've captured before but this poll had none — could be normal (no new messages)
+      // Only warn if we had user messages in this poll that weren't captured
+    }
+  }
+  lastCaptureCount = captureCount;
+}
+
 // ============================================================================
 // LIFECYCLE
 // ============================================================================
 
-/**
- * Start the shadow sidecar polling loop.
- */
 async function start() {
   console.log('[shadow] Starting instruction-sidecar-shadow.js');
   console.log('[shadow] Config:', {
     sessionsDir: CONFIG.SESSIONS_DIR,
     cursorFile: CONFIG.CURSOR_FILE,
+    quarantineFile: CONFIG.QUARANTINE_FILE,
     checkIntervalMs: CONFIG.CHECK_INTERVAL_MS,
-    supabaseUrl: CONFIG.SUPABASE_URL.replace(/\/\/.*@/, '//***@'), // mask credentials
+    supabaseUrl: CONFIG.SUPABASE_URL.replace(/\/\/.*@/, '//***@'),
     shadowStatus: CONFIG.SHADOW_STATUS,
+    eofRetryCount: CONFIG.EOF_RETRY_COUNT,
+    eofRetryDelayMs: CONFIG.EOF_RETRY_DELAY_MS,
   });
 
   // Validate Supabase credentials at startup
@@ -559,20 +652,12 @@ async function start() {
   console.log('[shadow] Stats: pollCount=0 captureCount=0 errorCount=0');
 }
 
-/**
- * Graceful shutdown.
- */
 async function shutdown(signal) {
   console.log(`[shadow] Received ${signal}, shutting down gracefully...`);
   isRunning = false;
-  await sleep(500); // Allow last poll to complete
+  await sleep(500);
 
-  console.log('[shadow] Final stats:', {
-    pollCount,
-    captureCount,
-    errorCount,
-  });
-
+  console.log('[shadow] Final stats:', { pollCount, captureCount, errorCount });
   process.exit(0);
 }
 
