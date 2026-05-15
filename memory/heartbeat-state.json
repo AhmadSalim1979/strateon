@@ -2,8 +2,11 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "pm2": 1749851400,
-    "heartbeat": 1749851400
+    "pm2": 1749852000,
+    "heartbeat": 1749860280
   },
-  "urgentItems": []
+  "urgentItems": [
+    "CTO: /submit-intake DISABLED — blocks first client onboarding, route to qwen2.5-coder sidecar",
+    "CTO: followup-engine STOPPED — needs diagnosis"
+  ]
 }
