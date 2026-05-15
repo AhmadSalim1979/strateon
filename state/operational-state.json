@@ -1,1 +1,15 @@
-{"version":1,"last_updated":"2026-05-15T08:00:00Z","worker_status":"online","active_tasks":[],"recent_alerts":[],"restart_count_last_hour":0}
+{
+  "version": 1,
+  "last_updated": "2026-05-15T16:55:33.172Z",
+  "worker_status": "online",
+  "active_tasks": [],
+  "recent_alerts": [
+    {
+      "level": 0,
+      "message": "Worker recovered — online",
+      "task_id": null,
+      "at": "2026-05-15T16:35:59.248Z"
+    }
+  ],
+  "restart_count_last_hour": 0
+}
