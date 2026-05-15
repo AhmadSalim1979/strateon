@@ -338,3 +338,119 @@ The sidecar can write to the `instructions` table (proven in Phase 1). The quest
 ---
 
 *Moosa — CEO — Sidecar Architecture Investigation Complete*
+---
+
+## SEPARATION OF CONCERNS — TWO DISTINCT SIDECARS
+
+This section explicitly documents the two sidecars and their independence.
+
+### Sidecar 1: Coding/Execution Sidecar (ACTIVE)
+
+**Location:** `/root/.openclaw/workspace/moosa-worker/src/handlers/local-coder.js`
+
+**Purpose:** Delegated coding/tool execution, MiniMax utilization reduction, execution isolation, bounded operational delegation.
+
+**Architecture:**
+- `local-coder.js` — calls Ollama at `http://127.0.0.1:11434/api/generate` with model `qwen2.5-coder:7b`
+- `local-coder-gateway.js` — routes all coding-class tasks through the sidecar via `maybeUseLocalCoder()`
+- `local-coder-policy.js` — keyword-based classification of coding tasks
+- `execution-guard.js` — runtime routing interface
+- `loop.js` calls `maybeUseLocalCoder()` at line 147
+
+**Status (from system-manifest.json):**
+- `local-coder.js` — CODED
+- `local-coder-gateway.js` — CODED
+- `local-coder-policy.js` — CODED
+
+**Runtime:** Ollama running as standalone process (pid 1124) serving `qwen2.5-coder:7b` locally.
+
+**PM2:** No separate PM2 process. Sidecar runs as code within `moosa-worker` process, called via `maybeUseLocalCoder()`.
+
+**Current state:** ACTIVE — coding tasks route through `qwen2.5-coder:7b` via Ollama.
+
+---
+
+### Sidecar 2: Instruction-Capture Sidecar (PROPOSED)
+
+**Location:** `/ops/instruction-sidecar.js` (proposed, not implemented)
+
+**Purpose:** Deterministic WhatsApp/session instruction durability, message persistence, acknowledgement continuity, silent-drop prevention.
+
+**Architecture:**
+- Polls `/root/.openclaw/agents/main/sessions/*.jsonl` every 5 seconds
+- Reads new lines from EOF, tracks cursor in `/ops/sidecar-cursor.json`
+- Calls `bridgeInstruction()` to write to Supabase `instructions` table
+- Emits acknowledgement via `sendWhatsApp()` or `pending_acks` fallback
+
+**Status:** PROPOSED — not implemented, awaiting approval.
+
+**PM2:** Would run as separate PM2 process `instruction-sidecar`.
+
+**Relationship to Sidecar 1:** COMPLETELY INDEPENDENT. Instruction sidecar does NOT route coding tasks. Coding sidecar does NOT capture messages. No shared code paths, no resource contention, no interaction.
+
+---
+
+### Resource Comparison (Current vs. After Implementation)
+
+| Resource | Current (Sidecar 1 only) | After Sidecar 2 Added |
+|----------|---------------------------|------------------------|
+| PM2 processes | 7 total (6 online, 1 stopped) | 8 total (7 online, 1 stopped) |
+| CPU impact | Ollama uses ~0% idle, spikes on code generation | Poll interval 5s = negligible CPU |
+| RAM impact | moosa-worker 93MB (includes sidecar code) | +estimated 30-50MB for instruction-sidecar process |
+| Ollama | Used for coding tasks only | Not used by instruction sidecar |
+| Session JSONL | Read by OpenClaw gateway only | Instruction sidecar adds read-only polling |
+| Supabase | Worker's tasks table + existing ops | Instruction sidecar adds instructions table writes |
+
+---
+
+### PM2 Topology After Implementation
+
+```
+online:
+  openclaw-gateway  (pid 889449, 804MB)
+  moosa-worker      (pid 889450, 93MB)  ← contains coding sidecar (local-coder)
+  moosa-watchdog    (pid 889453, 74MB)
+  hub-oauth-v2      (pid 889459, 75MB)
+  cloudflared-tunnel (pid 889465, 36MB)
+  qiyadon-audit-form (pid 891188, 78MB)
+  instruction-sidecar (NEW — ~30-50MB)  ← separate process
+
+stopped:
+  strateon-followup-engine (0MB)
+```
+
+**No change to existing PM2 processes. Instruction sidecar is additive.**
+
+---
+
+### Confirmation: No Interaction Between Sidecars
+
+1. **Coding sidecar** (`local-coder.js`) — handles coding tasks, calls Ollama, returns code output. It does not read session JSONL, does not write to `instructions` table, does not emit WhatsApp messages.
+
+2. **Instruction sidecar** (proposed) — polls session JSONL, calls `bridgeInstruction()`, emits acks. It does NOT call Ollama, does NOT generate code, does NOT route through `local-coder-gateway`.
+
+3. **No routing conflict:** Instruction sidecar does not intercept or modify any coding-task routing. Coding sidecar does not consume or produce instruction-capture events.
+
+4. **No cost regression:** Instruction sidecar does not use Ollama or any external LLM API. Coding sidecar continues to use `qwen2.5-coder:7b` via Ollama with no change.
+
+5. **No resource contention:** Instruction sidecar CPU/RAM overhead is negligible (5s polling interval, read-only JSONL access). Does not compete with moosa-worker for CPU or memory.
+
+---
+
+### Rollback (Sidecar 2 Only)
+
+```bash
+pm2 stop instruction-sidecar
+pm2 delete instruction-sidecar
+rm /ops/instruction-sidecar.js
+rm /ops/sidecar-cursor.json
+# Coding sidecar unaffected
+# moosa-worker continues normally
+# Ollama continues normally
+# instructions table rows remain (no data loss)
+```
+
+---
+
+*This section added 2026-05-15 — Explicit separation of concerns documentation*
+*Moosa — CEO*
