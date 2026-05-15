@@ -1,0 +1,14 @@
+{
+  "id": "trial-tester-1778822613803",
+  "type": "trial",
+  "name": "Neo Final Validation",
+  "title": null,
+  "email": "tester@qiyadon.com",
+  "company": "Qiyadon",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-15T08:00:00Z",
+  "agreementVersion": "CSA-v1",
+  "ip": "2a01:4f8:161:940a::2",
+  "agreementHash": "fb568b6e053b7ce5c086fcdb8419fd45d41ab5efca63620aaf5817b0b3f349ee",
+  "storedAt": "2026-05-15T05:23:33.803Z"
+}

@@ -7,13 +7,6 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-// Supabase client (reuse from orchestration node_modules)
-const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js/dist/umd/supabase.js');
-const supabase = createClient(
-  process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co',
-  process.env.SUPABASE_SERVICE_KEY || ''
-);
-
 // Inline minimal nodemailer to avoid module issues
 const nodemailer = require('/home/node/.openclaw/imap-worker/node_modules/nodemailer');
 
@@ -370,74 +363,81 @@ transporter.sendMail({
       }
     });
   });
-});
-
-// ── /submit-intake ───────────────────────────────────────────────────
-if (req.method === 'POST' && req.url === '/submit-intake') {
-  let body = '';
-  req.on('data', chunk => { body += chunk; });
-  req.on('end', () => {
-    let data;
-    try {
-      data = JSON.parse(body);
-    } catch (e) {
-      res.writeHead(400, {'Content-Type':'application/json'});
-      res.end(JSON.stringify({error: 'Invalid JSON'}));
-      return;
-    }
-    const required = ['company_name','contact_name','contact_email','contact_phone','monthly_lead_volume','current_challenges','referral_source'];
-    for (const f of required) {
-      if (!data[f]) {
+  // ── /submit-intake ───────────────────────────────────────────────────
+  if (req.method === 'POST' && req.url === '/submit-intake') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      let data;
+      try {
+        data = JSON.parse(body);
+      } catch (e) {
         res.writeHead(400, {'Content-Type':'application/json'});
-        res.end(JSON.stringify({error: 'Missing field: ' + f}));
+        res.end(JSON.stringify({error: 'Invalid JSON'}));
         return;
       }
-    }
-    const client_id = 'client-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
-
-    // Insert into Supabase clients table
-    supabase.from('clients').insert([{
-      id: client_id,
-      company_name:       data.company_name,
-      contact_name:      data.contact_name,
-      contact_email:     data.contact_email,
-      contact_phone:     data.contact_phone,
-      monthly_lead_volume: data.monthly_lead_volume,
-      current_challenges: data.current_challenges,
-      referral_source:   data.referral_source,
-      submitted_at:      new Date().toISOString(),
-    }]).then(({ data: dbData, error: dbErr }) => {
-
-    if (dbErr) {
-      console.log('[' + new Date().toISOString() + '] submit-intake DB error:', dbErr.message);
-      res.writeHead(500, {'Content-Type':'application/json'});
-      res.end(JSON.stringify({error: dbErr.message}));
-      return;
-    }
-
-    // Send welcome email
-    const t0 = Date.now();
-    transporter.sendMail({
-      from: '"Qiyadon" <noreply@qiyadon.com>',
-      to: data.contact_email,
-      subject: 'Welcome to Qiyadon — your intake link is on its way',
-      html: '<p>Hi ' + data.contact_name + ',</p><p>Thank you! Your intake form has been received. In the next 15 minutes, you\'ll receive a secure onboarding link to complete your setup.</p><p>— The Qiyadon Team</p>',
-    }, (err, info) => {
-      const ms = Date.now() - t0;
-      if (err) {
-        console.log('[' + new Date().toISOString() + '] submit-intake email error:', err.message, ms+'ms');
-        res.writeHead(200, {'Content-Type':'application/json'});
-        res.end(JSON.stringify({success: true, client_id, emailed: false}));
-      } else {
-        console.log('[' + new Date().toISOString() + '] submit-intake email OK', info.messageId, ms+'ms');
-        res.writeHead(200, {'Content-Type':'application/json'});
-        res.end(JSON.stringify({success: true, client_id, emailed: true}));
+      const required = ['company_name','contact_name','contact_email','contact_phone','monthly_lead_volume','current_challenges','referral_source'];
+      for (const f of required) {
+        if (!data[f]) {
+          res.writeHead(400, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({error: 'Missing field: ' + f}));
+          return;
+        }
       }
+      const client_id = 'client-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
+
+      // Insert into Supabase clients table
+      supabase.from('clients').insert([{
+        id: client_id,
+        company_name:       data.company_name,
+        contact_name:      data.contact_name,
+        contact_email:     data.contact_email,
+        contact_phone:     data.contact_phone,
+        monthly_lead_volume: data.monthly_lead_volume,
+        current_challenges: data.current_challenges,
+        referral_source:   data.referral_source,
+        submitted_at:      new Date().toISOString(),
+      }]).then(({ data: dbData, error: dbErr }) => {
+
+      if (dbErr) {
+        console.log('[' + new Date().toISOString() + '] submit-intake DB error:', dbErr.message);
+        res.writeHead(500, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({error: dbErr.message}));
+        return;
+      }
+
+      // Send welcome email
+      const t0 = Date.now();
+      transporter.sendMail({
+        from: '"Qiyadon" <noreply@qiyadon.com>',
+        to: data.contact_email,
+        subject: 'Welcome to Qiyadon — your intake link is on its way',
+        html: '<p>Hi ' + data.contact_name + ',</p><p>Thank you! Your intake form has been received. In the next 15 minutes, you\'ll receive a secure onboarding link to complete your setup.</p><p>— The Qiyadon Team</p>',
+      }, (err, info) => {
+        const ms = Date.now() - t0;
+        if (err) {
+          console.log('[' + new Date().toISOString() + '] submit-intake email error:', err.message, ms+'ms');
+          res.writeHead(200, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({success: true, client_id, emailed: false}));
+        } else {
+          console.log('[' + new Date().toISOString() + '] submit-intake email OK', info.messageId, ms+'ms');
+          res.writeHead(200, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({success: true, client_id, emailed: true}));
+        }
+      });
+      });
     });
-    });
+    return;
+  }
+
   });
-  return;
-}
+
+
+// ── /submit-intake temporarily disabled ───────────────────────────────
+// Disabled because previous implementation was outside the request handler
+// and crashed server startup with: ReferenceError: req is not defined.
+// Rebuild this route inside the main server request handler only.
+
 
 const PORT = parseInt(process.env.PORT || '3001', 10);
 server.listen(PORT, '0.0.0.0', () => {
