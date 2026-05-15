@@ -189,3 +189,33 @@ NO MODIFICATIONS
 ```
 
 **STATUS:** FEASIBLE — awaiting approval to implement sidecar for testing
+
+### 2026-05-15 — 09:XX UTC — Moosa (main session)
+
+**Entry Type:** Sidecar Separation of Concerns Clarification
+
+**WHAT:**
+- Documented existing coding/execution sidecar architecture (Sidecar 1: qwen2.5-coder:7b via Ollama at 127.0.0.1:11434)
+- Confirmed coding sidecar is ACTIVE — local-coder.js, local-coder-gateway.js, local-coder-policy.js all present and wired into moosa-worker loop.js at line 147
+- Confirmed instruction sidecar (Sidecar 2) does NOT interact with coding sidecar
+- Confirmed no routing/cost regression — instruction sidecar doesn't use Ollama or any LLM API
+- Confirmed resource impact: +1 PM2 process, ~30-50MB RAM, negligible CPU (5s poll interval)
+- Added explicit "Separation of Concerns" section to SIDECAR-ARCHITECTURE.md
+
+**WHY:**
+Ahmad required clarification that the proposed instruction-capture sidecar must not replace, remove, or interfere with the existing coding/execution sidecar. Two distinct sidecars with independent purposes and no interaction points.
+
+**ROLLBACK:**
+No rollback needed — documentation only. Existing sidecar unchanged.
+
+**VALIDATION:**
+```
+Ollama models: ['qwen2.5-coder:7b'] — confirmed active
+PM2 processes: 7 total, 6 online, 1 stopped (strateon-followup-engine)
+moosa-worker: 93MB, contains coding sidecar code
+openclaw-gateway: 804MB, owns session JSONL writing
+instruction-sidecar: NOT YET DEPLOYED — proposed only
+Coding sidecar: ACTIVE — routes via maybeUseLocalCoder() in loop.js line 147
+No resource contention identified
+No cost regression to MiniMax
+```
