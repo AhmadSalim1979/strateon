@@ -14,8 +14,9 @@ const creds = JSON.parse(fs.readFileSync('/home/node/.openclaw/secrets/qiyadon-e
 const hubspotcreds = JSON.parse(fs.readFileSync('/home/node/.openclaw/secrets/hubspot.json', 'utf8'));
 
 const hubspot = require('@hubspot/api-client');
+const { createClient } = require('/home/node/.openclaw/workspace/orchestration/node_modules/@supabase/supabase-js');
 const hubspotClient = new hubspot.Client({ accessToken: hubspotcreds.accessToken });
-
+const supabase = createClient(process.env.SUPABASE_URL || 'https://btrbczqjwzuybgcxckvm.supabase.co', process.env.SUPABASE_SERVICE_KEY || '');
 async function createHubSpotContact(data) {
   if (!hubspotcreds.accessToken) {
     console.log('[' + new Date().toISOString() + '] HubSpot: no access token configured, skipping CRM');
@@ -313,6 +314,70 @@ transporter.sendMail({
     });
     return;
   }
+  // ── /submit-intake ───────────────────────────────────────────────────
+  if (req.method === 'POST' && req.url === '/submit-intake') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      let data;
+      try {
+        data = JSON.parse(body);
+      } catch (e) {
+        res.writeHead(400, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({error: 'Invalid JSON'}));
+        return;
+      }
+      const required = ['company_name','contact_name','contact_email','contact_phone','monthly_lead_volume','current_challenges','referral_source'];
+      for (const f of required) {
+        if (!data[f]) {
+          res.writeHead(400, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({error: 'Missing field: ' + f}));
+          return;
+        }
+      }
+        const client_id = crypto.randomUUID();
+
+      // Insert into Supabase clients table
+      supabase.from('clients').insert([{
+        id: client_id,
+        name: data.company_name,
+        email: data.contact_email,
+        tier: 'growth',
+        status: 'onboarding',
+        onboarding_started_at: new Date().toISOString(),
+      }]).then(({ data: dbData, error: dbErr }) => {
+
+      if (dbErr) {
+        console.log('[' + new Date().toISOString() + '] submit-intake DB error:', dbErr.message);
+        res.writeHead(500, {'Content-Type':'application/json'});
+        res.end(JSON.stringify({error: dbErr.message}));
+        return;
+      }
+
+      // Send welcome email
+      const t0 = Date.now();
+      transporter.sendMail({
+        from: '"Qiyadon" <noreply@qiyadon.com>',
+        to: data.contact_email,
+        subject: 'Welcome to Qiyadon — your intake link is on its way',
+        html: '<p>Hi ' + data.contact_name + ',</p><p>Thank you! Your intake form has been received. In the next 15 minutes, you\'ll receive a secure onboarding link to complete your setup.</p><p>— The Qiyadon Team</p>',
+      }, (err, info) => {
+        const ms = Date.now() - t0;
+        if (err) {
+          console.log('[' + new Date().toISOString() + '] submit-intake email error:', err.message, ms+'ms');
+          res.writeHead(200, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({success: true, client_id, emailed: false}));
+        } else {
+          console.log('[' + new Date().toISOString() + '] submit-intake email OK', info.messageId, ms+'ms');
+          res.writeHead(200, {'Content-Type':'application/json'});
+          res.end(JSON.stringify({success: true, client_id, emailed: true}));
+        }
+      });
+      });
+    });
+    return;
+  }
+
 
   // ── /submit-audit ───────────────────────────────────────────────────────
   if (req.method !== 'POST' || req.url !== '/submit-audit') {
@@ -363,75 +428,7 @@ transporter.sendMail({
       }
     });
   });
-  // ── /submit-intake ───────────────────────────────────────────────────
-  if (req.method === 'POST' && req.url === '/submit-intake') {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      let data;
-      try {
-        data = JSON.parse(body);
-      } catch (e) {
-        res.writeHead(400, {'Content-Type':'application/json'});
-        res.end(JSON.stringify({error: 'Invalid JSON'}));
-        return;
-      }
-      const required = ['company_name','contact_name','contact_email','contact_phone','monthly_lead_volume','current_challenges','referral_source'];
-      for (const f of required) {
-        if (!data[f]) {
-          res.writeHead(400, {'Content-Type':'application/json'});
-          res.end(JSON.stringify({error: 'Missing field: ' + f}));
-          return;
-        }
-      }
-      const client_id = 'client-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9);
-
-      // Insert into Supabase clients table
-      supabase.from('clients').insert([{
-        id: client_id,
-        company_name:       data.company_name,
-        contact_name:      data.contact_name,
-        contact_email:     data.contact_email,
-        contact_phone:     data.contact_phone,
-        monthly_lead_volume: data.monthly_lead_volume,
-        current_challenges: data.current_challenges,
-        referral_source:   data.referral_source,
-        submitted_at:      new Date().toISOString(),
-      }]).then(({ data: dbData, error: dbErr }) => {
-
-      if (dbErr) {
-        console.log('[' + new Date().toISOString() + '] submit-intake DB error:', dbErr.message);
-        res.writeHead(500, {'Content-Type':'application/json'});
-        res.end(JSON.stringify({error: dbErr.message}));
-        return;
-      }
-
-      // Send welcome email
-      const t0 = Date.now();
-      transporter.sendMail({
-        from: '"Qiyadon" <noreply@qiyadon.com>',
-        to: data.contact_email,
-        subject: 'Welcome to Qiyadon — your intake link is on its way',
-        html: '<p>Hi ' + data.contact_name + ',</p><p>Thank you! Your intake form has been received. In the next 15 minutes, you\'ll receive a secure onboarding link to complete your setup.</p><p>— The Qiyadon Team</p>',
-      }, (err, info) => {
-        const ms = Date.now() - t0;
-        if (err) {
-          console.log('[' + new Date().toISOString() + '] submit-intake email error:', err.message, ms+'ms');
-          res.writeHead(200, {'Content-Type':'application/json'});
-          res.end(JSON.stringify({success: true, client_id, emailed: false}));
-        } else {
-          console.log('[' + new Date().toISOString() + '] submit-intake email OK', info.messageId, ms+'ms');
-          res.writeHead(200, {'Content-Type':'application/json'});
-          res.end(JSON.stringify({success: true, client_id, emailed: true}));
-        }
-      });
-      });
-    });
-    return;
-  }
-
-  });
-
+});
 
 // ── /submit-intake temporarily disabled ───────────────────────────────
 // Disabled because previous implementation was outside the request handler
