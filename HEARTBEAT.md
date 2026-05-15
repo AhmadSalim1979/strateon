@@ -86,6 +86,30 @@ After 3 timeouts on the same task, I treat it as a system-level failure, not an 
 
 ---
 
+## Phase 3 — Operational State + Silence Detection
+
+Every heartbeat check (rotate through these):
+
+1. **operational-state.json** — Read `/home/node/.openclaw/workspace/state/operational-state.json`
+   - Worker status: online/unhealthy/critical
+   - Active tasks count by state
+   - Recent alerts (last 5)
+   - If worker_status = unhealthy → alert Ahmad immediately
+
+2. **Stale task detector** — Run `node /home/node/.openclaw/workspace/ops/stale-task-detector.js` (every 3rd heartbeat, ~90 min)
+   - Detects: ACTIVE → WAITING (>5min) → STALLED (>10min) → CRITICAL (>15min)
+   - BLOCKED → escalate after 60min
+   - Writes to operational-state.json only (no Supabase writes)
+   - Emits WhatsApp alerts for Level 2+ escalations
+
+3. **Worker heartbeat** — Check `state/heartbeats/moosa-worker.json`
+   - If age > 60s → set worker_status = unhealthy
+   - If age > 120s → Level 3 CRITICAL alert
+
+4. **Pending Commitments** — Check `memory/YYYY-MM-DD.md` Pending Commitments section
+   - Any PENDING items from today that need action?
+   - Any INCOMPLETE items that need re-assignment?
+
 ## Regular Heartbeat Checks (rotate through)
 
 - **Email** — Any urgent unread messages?
