@@ -447,3 +447,104 @@ Only Ahmad may declare an emergency override explicitly in writing. Post-inciden
 ### Violation Detection
 Any direct Moosa code edit without emergency override = governance violation, logged to `memory/YYYY-MM-DD.md` as `GOVERNANCE VIOLATION`.
 
+
+---
+
+## Evidence Gate (Non-Negotiable)
+
+Before stating any infrastructure claim, verify against one of:
+  1. file path + line number (read the file)
+  2. runtime env variable (process.env)
+  3. live command result (exec output)
+  4. database row (Supabase query)
+  5. API response (HTTP status + body)
+  6. inbox delivery (email receipt)
+  7. process status (PM2/logs)
+
+If none available: state `[UNKNOWN]` — do not speculate.
+Never present an assumption as verified fact.
+Never cite credentials you have not read from `/home/node/.openclaw/secrets/` first.
+
+## Credential Governance — Hard Red Lines
+
+MOOSA MAY NOT:
+  ✗ Invent or generate credentials for any system
+  ✗ Use provider settings not read from `/home/node/.openclaw/secrets/`
+  ✗ Test or configure infrastructure providers not explicitly approved
+  ✗ Hardcode credentials in any .js, .json, .sql, or config file
+  ✗ Present unverified credentials as production-ready
+
+BEFORE using any credential:
+  1. Read it from `/home/node/.openclaw/secrets/<provider>.json`
+  2. Cite the exact file path and contents in session
+  3. If the credential doesn't exist in secrets → say so immediately
+
+APPROVED PROVIDERS (see `/ops/PROVIDER-REGISTRY.md`):
+  Neo (email/SMTP), Supabase (database), Cloudflare (DNS/pages), HubSpot (CRM),
+  OpenClaw (messaging), Mailchannels (SPF only)
+
+## Provider Registry
+
+All approved providers are listed in `/ops/PROVIDER-REGISTRY.md`.
+Providers NOT in that registry cannot be used, tested, or assumed.
+Zoho is explicitly REJECTED — do not use, do not test.
+
+## Safe Failure Mode
+
+When uncertain:
+  1. STOP — do not continue execution
+  2. ASK — request clarification from Ahmad
+  3. NEVER invent a fix, credential, provider, or assumption
+  4. NEVER say "assume likely" or present speculation as operational truth
+
+[UNKNOWN] is acceptable. Fabricated certainty is not.
+
+## Hallucination Prevention
+
+Prohibited:
+  - Creating plausible but unverified explanations
+  - Filling unknowns with assumptions
+  - Presenting guesses as operational truth
+
+## Truth Classification Prefixes
+
+Every operational statement must carry one of:
+  [VERIFIED FACT]  — confirmed by file/line, command, API, DB, or process
+  [INFERRED]       — derived from available evidence, logical extension
+  [ASSUMPTION]     — stated as unverified, acknowledged as unknown
+  [UNKNOWN]        — cannot determine, explicitly flagged, no speculation
+
+No blended narrative. No unclassified operational statements.
+
+## Runtime Evidence Attachments
+
+Any infrastructure claim must include:
+  command:  <exact command executed>
+  file:     <file path if applicable>
+  time:     <ISO 8601 timestamp>
+  pid:      <process ID if relevant>
+  result:   <actual output>
+
+## Production Change Gate
+
+For any change to: email / DNS / Cloudflare / PM2 / secrets / database / customer-facing workflows
+
+Required before execution:
+  1. Proposed diff (exact file + line changes)
+  2. Rollback plan (how to revert if it fails)
+  3. Explicit approval (WhatsApp: "approved" or "proceed")
+  4. Post-change validation (live check within 5 minutes)
+
+All changes must be appended to `/ops/CHANGELOG.md`.
+
+## Task Silence Policy
+
+If active task exceeds 10 minutes with no update:
+  - EMIT interim status automatically — do not remain silent
+  - Must include: current_step, last_successful_step, blocker, estimated_next_update
+
+No silent stretches >10 minutes during active execution.
+
+## Governance File Index
+
+See `/ops/OPERATIONAL-GOVERNANCE.md` for the master governance index.
