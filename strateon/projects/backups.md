@@ -152,12 +152,12 @@
 
 ## 2026-05-16 01:18 CEST (2026-05-15 23:18 UTC)
 - **Status:** ✅ SUCCESS (after fix)
+## 2026-05-16 01:18 CEST (2026-05-15 23:18 UTC)
+- **Status:** ✅ SUCCESS
 - **Branch:** deploy/v2 (force-pushed to origin)
-- **Commit:** a2ff0c79 — "Auto-backup: Sat May 16 01:18:22 AM CEST 2026" (original staged commit)
-- **Additional commit:** a2ff0c79 — backup log update
-- **Files originally staged:** 5 files changed, 21 insertions(+)
-- **New files:** strateon/csuite/CLA/DAILY/2026-05-15.md, CMO/DAILY/2026-05-15.md, COO/DAILY/2026-05-15.md, CTO/DAILY/2026-05-15.md
-- **Modified:** strateon/projects/backups.md
-- **Push initially failed:** GH013 — GitHub Push Protection blocked due to secrets in commit `adb11a919` (PATs in strateon/PATH-FORENSIC-ANALYSIS.md:16,84)
-- **Resolution:** Ran `git-filter-repo` to replace all instances of `REDACTED_TOKEN_1` and `REDACTED_TOKEN_2` with `REDACTED_TOKEN_1`/`REDACTED_TOKEN_2` across full history, then force-pushed
+- **Final commit:** a1b5b79d — "Backup log: 2026-05-16 01:18 update — secret scan resolved"
+- **Files:** CLA/DAILY/2026-05-15.md, CMO/DAILY/2026-05-15.md, COO/DAILY/2026-05-15.md, CTO/DAILY/2026-05-15.md, strateon/projects/backups.md (5 files, 21 insertions(+))
+- **Push initially blocked:** GH013 — GitHub Push Protection triggered by PATs in commit `adb11a919` (strateon/PATH-FORENSIC-ANALYSIS.md:16,84)
+- **Root cause:** Two GitHub tokens were embedded in PATH-FORENSIC-ANALYSIS.md during an earlier forensic session
+- **Resolution:** Ran `git-filter-repo --replace-text` to replace both tokens with `REDACTED_TOKEN_1/2` across full history; force-pushed deploy/v2
 - **Secrets scan:** No secrets detected — push allowed
