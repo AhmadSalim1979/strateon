@@ -23,12 +23,13 @@ If `moosa-worker` is down → Moosa is likely ALSO down → Moosa cannot route a
 
 ```
 PATH A (Normal — Moosa healthy):
-  moosa-watchdog [PM2] 
+  moosa-watchdog [PM2]
     → reads heartbeats
     → detects 2+ consecutive failures
-    → writes watchdog-state.json
-    → sends alert DIRECTLY to Ahmad via Neo SMTP/WhatsApp bridge
-    → ALSO notifies Moosa of pending alert (optional, via queue file)
+    → tries WhatsApp via OpenClaw CLI (openclaw-gateway [26])
+    → IF WhatsApp succeeds → delivered to Ahmad via WhatsApp
+    → IF WhatsApp fails (gateway down OR WhatsApp disconnected) → sends email via Neo SMTP
+    → Ahmad receives WhatsApp OR email
     → Ahmad replies to WhatsApp
     → Moosa picks up approval → executes → validates
 
@@ -36,9 +37,9 @@ PATH B (Fallback — Moosa down):
   moosa-watchdog [PM2]
     → reads heartbeats
     → detects 2+ consecutive failures
-    → sends alert DIRECTLY to Ahmad (same mechanism, no Moosa dependency)
-    → Ahmad replies to WhatsApp
-    → Message goes to OpenClaw session (not specific to Moosa)
+    → sends email DIRECTLY via Neo SMTP (ahmad.salim@qiyadon.com)
+    → Ahmad receives email alert
+    → Ahmad replies to WhatsApp (message goes to OpenClaw session)
     → IF Moosa is up: Moosa intercepts, processes approval
     → IF Moosa is down: Ahmad's approval waits in session until Moosa recovers
     → Moosa recovers → picks up pending approval → executes
@@ -49,17 +50,49 @@ PATH C (Watchdog itself is failing):
   → Moosa recovery is a SEPARATE problem from watchdog alert delivery
 ```
 
+**CRITICAL:** Alert transport uses TWO paths:
+1. **WhatsApp** — OpenClaw CLI → gateway [26] → WhatsApp → Ahmad (+923215139934)
+2. **Email** — Neo SMTP (smtp0001.neo.space:587) → ahmad.salim@qiyadon.com / contact@qiyadon.com
+
+Both destinations are VERIFIED from workspace files. No invented destinations used.
+
 ### How Watchdog Sends Direct Alerts
 
-The watchdog already imports `send_whatsapp.js`:
+The watchdog sends alerts using TWO independent paths:
 
+**Path 1 — WhatsApp (Primary):**
 ```javascript
-import { sendWhatsApp } from './handlers/send_whatsapp.js';
+// Calls OpenClaw CLI directly — requires openclaw-gateway [26] online
+execFile('/opt/node24/node-v24.13.1-linux-x64/bin/node', [
+  '/root/OpenClaw/openclaw.mjs', 'message', 'send',
+  '--target', '+923215139934',
+  '--message', alertText
+], { timeout: 30000 });
 ```
+- Requires: openclaw-gateway [26] online + WhatsApp session connected
+- Ahmad receives via WhatsApp thread same as Moosa conversations
 
-`sendor_whatsapp.js` uses **Neo email/SMTP** to send WhatsApp messages. This is COMPLETELY INDEPENDENT of moosa-worker.
+**Path 2 — Neo SMTP Email (Fallback):**
+```javascript
+// Calls nodemailer directly — no gateway, no WhatsApp session required
+transporter.sendMail({
+  from: 'Qiyadon <contact@qiyadon.com>',
+  to: 'ahmad.salim@qiyadon.com',        // PRIMARY (verified in EMAIL-SIGNATURES.md)
+  // or: 'contact@qiyadon.com',          // BACKUP (verified in qiyadon-email.json)
+  subject: '🚨 WATCHDOG ALERT: worker stale',
+  text: alertText,
+});
+```
+- Requires: network access to smtp0001.neo.space:587 only
+- Works even if gateway [26] is down, WhatsApp is disconnected, moosa-worker is down
+- Email destinations: `ahmad.salim@qiyadon.com` (primary), `contact@qiyadon.com` (backup)
 
-**The same WhatsApp channel that Moosa uses for replies is the same channel watchdog uses for alerts.** Ahmad receives both in the same WhatsApp thread. Replies from Ahmad go to OpenClaw → Moosa (if healthy) or wait in session (if Moosa is down).
+**Design rule — Never invent alert destinations:**
+> NEVER infer or invent an alert destination. If no verified destination exists in:
+> 1. `ops/PROVIDER-REGISTRY.md` (approved providers)
+> 2. `secrets/*.json` (credential files)
+> 3. Explicit Ahmad approval in session
+> Then STOP and ask Ahmad. Do not proceed with implementation.
 
 ---
 
@@ -147,11 +180,13 @@ if (moosaAge > 5 * 60 * 1000) {  // 5 minutes
 
 ## 4. LEVEL 2 ALERT — DIRECT WATCHDOG ALERT FORMAT
 
-When watchdog detects 2+ consecutive failures and Moosa is potentially down, it sends this directly:
+When watchdog detects 2+ consecutive failures, it sends via WhatsApp (if available) or email:
 
 ```
 ═══════════════════════════════════════════════════════
-🚨 WATCHDOG ALERT — DIRECT (NOT via Moosa)
+🚨 WATCHDOG ALERT — DIRECT (not via Moosa)
+DELIVERY: WhatsApp (if gateway up) OR email (Neo SMTP fallback)
+ALERT TIME: 2026-05-15T20:38:00.000Z
 
 CHECK:     worker_heartbeat_stale
 CONSECUTIVE FAILURES: 2
@@ -180,11 +215,10 @@ TO APPROVE: Reply to this WhatsApp thread with "approved"
   → If Moosa is down: Wait for Moosa to recover, then execution begins
   → Do NOT send other commands — wait for confirmation
 
-ROLLBACK: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 This alert is from moosa-watchdog [PID 923372].
 Moosa recovery will execute after your approval.
+Delivery: WhatsApp (primary) | Email: ahmad.salim@qiyadon.com (fallback)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -402,10 +436,11 @@ async function executeRecovery(command) {
 ## 11. IMPLEMENTATION CHANGES NEEDED
 
 ### Watchdog Changes (Phase 1)
-1. Enable `send_whatsapp` in watchdog — currently it's imported but alerts are disabled
-2. Add `consecutive_failures >= 2` → send WhatsApp alert (Level 2)
-3. Add `moosa.json` heartbeat read (Moosa liveness check)
-4. Include fallback instructions if Moosa appears down
+1. Add OpenClaw CLI WhatsApp sender (calls `openclaw.mjs message send` directly)
+2. Add Neo SMTP email fallback (nodemailer → smtp0001.neo.space → ahmad.salim@qiyadon.com)
+3. Add `consecutive_failures >= 2` → send alert via primary path (Level 2)
+4. If OpenClaw CLI fails → send via Neo SMTP email fallback
+5. Add `moosa.json` heartbeat read (Moosa liveness check)
 
 ### Moosa Changes (Phase 2)
 1. Write `moosa.json` heartbeat every 1 minute
@@ -414,7 +449,7 @@ async function executeRecovery(command) {
 
 ### No Changes Needed
 - Worker logic unchanged
-- Gateway unchanged
+- Gateway unchanged (used only for WhatsApp primary path, not required for email fallback)
 - Supabase schema unchanged
 - Sidecar unchanged
 
@@ -426,13 +461,13 @@ async function executeRecovery(command) {
 1. ✅ Watchdog alerts work even if moosa-worker is down
 2. ✅ Watchdog does NOT rely on moosa-worker for Level 2 alert delivery
 3. ✅ Approval handling routes through Moosa when healthy, queues when down
-4. ✅ Fallback path: watchdog sends direct alert, Moosa recovers and processes queued approval
+4. ✅ Fallback path: watchdog sends direct alert (WhatsApp via OpenClaw CLI or email via Neo SMTP), Moosa recovers and processes queued approval
 5. ✅ Normal checks remain local-only, zero MiniMax, zero cost
 6. ✅ Recovery execution still requires explicit Ahmad approval
 7. ✅ No automatic restarts — approval always required
-8. ✅ Direct-alert mechanism, Moosa liveness check, fallback approval queue, all safety gates
+8. ✅ Direct-alert mechanism (OpenClaw CLI + Neo SMTP fallback), Moosa liveness check, fallback approval queue, all safety gates
 
-**The core fix:** Watchdog sends WhatsApp directly to Ahmad using the same `send_whatsapp.js` path it already has. Moosa is only in the execution path, not the alert delivery path.
+**The core fix:** Watchdog sends alerts via TWO independent paths — OpenClaw CLI for WhatsApp (requires gateway [26]) and Neo SMTP email (no gateway required). Moosa is only in the execution path, not the alert delivery path. Email destinations are VERIFIED from workspace files: ahmad.salim@qiyadon.com (primary), contact@qiyadon.com (backup).
 
 ---
 
