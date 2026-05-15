@@ -11,7 +11,9 @@
 
 | File | Purpose | Owner | Validation | Last Modified |
 |------|---------|-------|------------|---------------|
-| `/ops/CHANGELOG.md` | Append-only log of all production modifications | Moosa | Entry added for every change; no edits to existing entries | 2026-05-15 |
+| `/ops/PROCESS-SAFETY.md` | Protected process registry, safe process operations, bounded kill scopes, runtime recovery | Moosa | Review after any new PM2 process added | 2026-05-15 |
+| `/ops/state-machine.js` | State definitions, transition logic, staleness rules, alert formatting | Moosa | Phase 3 implementation | 2026-05-15 |
+| `/ops/stale-task-detector.js` | Watchdog extension for stale task detection | Moosa | Phase 3 implementation | 2026-05-15 |
 | `/ops/INFRASTRUCTURE-REGISTRY.md` | Classification of all infrastructure components by environment | Moosa | Review quarterly; update after any infrastructure change | 2026-05-15 |
 | `/ops/PROVIDER-REGISTRY.md` | Approved and rejected infrastructure providers | Moosa | Review after any provider change or incident | 2026-05-15 |
 | `/ops/OPERATIONAL-GOVERNANCE.md` | This file — master governance index | Moosa | Update this file when creating new governance files | 2026-05-15 |

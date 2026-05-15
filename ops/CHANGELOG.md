@@ -345,3 +345,39 @@ pm2 restart moosa-watchdog  # restart watchdog to clear state
 ```
 
 **STATUS:** Phase 3 files created, syntax verified. Live simulation deferred (exec timing). CHANGELOG updated.
+
+### 2026-05-15 — 09:XX UTC — Moosa (main session)
+
+**Entry Type:** Documentation — Protected Process Safety
+
+**WHAT:**
+- Created `/ops/PROCESS-SAFETY.md` — new hardening requirement for safe process operations
+- Classifies `pkill -9 node` as HIGH-RISK destructive operation
+- Documents protected process registry (INFRASTRUCTURE, ORCHESTRATION, WORKER, SERVICE, RUNTIME classes)
+- Pre-flight checklist: process inventory → blast-radius classification → protected-process filtering → rollback → explicit approval
+- Bounded kill scopes hierarchy (pm2 restart preferred, pkill -9 pattern nuclear)
+- Safe restart tooling spec (/ops/safe-process.js — future implementation)
+- Runtime recovery automation spec (exec infrastructure failure detection and recovery)
+- Updated `/ops/OPERATIONAL-GOVERNANCE.md` to include PROCESS-SAFETY.md
+
+**Trigger:** `pkill -9 node` incident — killed exec handler, disrupted runtime. No process inventory, no blast-radius classification, no protected-process filtering.
+
+**WHY:**
+Runtime safety gap: no distinction between worker processes, gateway processes, orchestration processes, and exec infrastructure. No bounded kill discipline. No protected-process awareness. Future hardening must include safe process operations.
+
+**ROLLBACK:**
+```bash
+git checkout -- ops/PROCESS-SAFETY.md
+git checkout -- ops/OPERATIONAL-GOVERNANCE.md
+# No operational changes — documentation only
+```
+
+**VALIDATION:**
+Document created — PROCESS-SAFETY.md exists with:
+- Protected Process Registry table
+- Pre-flight checklist
+- Bounded kill scopes hierarchy
+- Safe restart tooling spec
+- Runtime recovery automation spec
+
+**STATUS:** DOCUMENTED — implementation deferred to future hardening phase
