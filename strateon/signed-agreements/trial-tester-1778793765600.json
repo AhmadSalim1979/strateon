@@ -1,0 +1,14 @@
+{
+  "id": "trial-tester-1778793765600",
+  "type": "trial",
+  "name": "Tester QA",
+  "title": null,
+  "email": "tester@qiyadon.com",
+  "company": "Qiyadon Internal Test",
+  "effectiveDate": null,
+  "agreedAt": "2026-05-14T21:22:00.000Z",
+  "agreementVersion": "trial-v1",
+  "ip": "2a01:4f8:161:940a::2",
+  "agreementHash": "39b219faf9117c1d81e1c9e43905420eea4a7f4199fbe4a8dc4117266800c2d4",
+  "storedAt": "2026-05-14T21:22:45.600Z"
+}
