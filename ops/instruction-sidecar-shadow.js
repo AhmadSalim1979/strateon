@@ -174,9 +174,20 @@ function parseLine(line) {
 
 /**
  * Extract WhatsApp metadata from a session entry.
- * Session JSONL format (per prior investigation):
- *   { sender_id, message_id, timestamp, text, channel, ... }
- * Returns null if required fields are missing.
+ * 
+ * Session JSONL format varies by message type:
+ * 
+ * USER messages:
+ *   { type:"message", id:"<whatsapp_message_id>", parentId:"...", 
+ *     timestamp:"...", message:{ role:"user", content:[{type:"text",text:"..."}] } }
+ *   sender_id and message_id are EMBEDDED INSIDE the text as JSON metadata
+ * 
+ * ASSISTANT messages:
+ *   { type:"message", id:"<msg_id>", parentId:"...", 
+ *     timestamp:"...", message:{ role:"assistant", content:[...] } }
+ *   May have message_id at top level or inside message content
+ * 
+ * Returns null if required fields cannot be extracted.
  */
 function extractMetadata(entry) {
   try {
@@ -184,11 +195,53 @@ function extractMetadata(entry) {
     const msg = entry.message || entry;
     const meta = entry.meta || {};
 
-    // Extract message_id — may be in meta or at top level
-    const messageId = entry.message_id || meta.message_id || msg.message_id || null;
-    const senderId = entry.sender_id || meta.sender_id || msg.sender_id || null;
-    const timestamp = entry.timestamp || meta.timestamp || msg.timestamp || null;
-    const text = entry.text || msg.text || msg.content || null;
+    // Primary IDs — check top-level first (most reliable)
+    let messageId = entry.message_id || meta.message_id || msg.message_id || null;
+    let senderId = entry.sender_id || meta.sender_id || msg.sender_id || null;
+    let timestamp = entry.timestamp || meta.timestamp || msg.timestamp || null;
+
+    // Extract text from content array or direct content field
+    let text = null;
+    const content = msg.content;
+    if (Array.isArray(content) && content.length > 0) {
+      // content[0] may be {type:"text", text:"..."} or {type:"toolCall",...} or {type:"thinking",...}
+      const textObj = content.find(c => c.type === 'text');
+      text = textObj ? textObj.text : (content[0].text || null);
+    } else if (typeof content === 'string') {
+      text = content;
+    } else if (content && typeof content === 'object') {
+      text = content.text || null;
+    }
+
+    // For USER messages: sender_id and message_id are INSIDE the text as JSON metadata
+    // The text contains Conversation info block with these fields embedded as JSON
+    const msgRole = msg.role || null;
+    if (msgRole === 'user' && text) {
+      // Extract message_id and sender_id directly from text via regex
+      // They appear in the "Conversation info" JSON block at the start of text
+      // We use multiline matching to find them reliably
+      const msgIdMatch = text.match(/"message_id":\s*"([^"]+)"/);
+      if (msgIdMatch) messageId = msgIdMatch[1];
+      // sender_id appears in the first JSON block — use ^"sender_id" to avoid e164 confusion
+      const senderMatch = text.match(/^\s*"sender_id":\s*"([^"]+)"/m);
+      if (senderMatch) senderId = senderMatch[1];
+      if (!messageId || !senderId) {
+        // Fallback: try to find any message_id in first 300 chars
+        if (!messageId) {
+          const fallback = text.slice(0, 300).match(/"message_id":\s*"([^"]+)"/);
+          if (fallback) messageId = fallback[1];
+        }
+        if (!senderId) {
+          const fallback = text.slice(0, 300).match(/"sender_id":\s*"([^"]+)"/);
+          if (fallback) senderId = fallback[1];
+        }
+      }
+      // For user messages, entry.id IS the WhatsApp message_id
+      if (!messageId && entry.id) messageId = entry.id;
+    } else {
+      // Non-user messages: use entry.id as fallback for messageId
+      if (!messageId && entry.id) messageId = entry.id;
+    }
 
     if (!messageId || !senderId) {
       return null; // Can't track without message_id and sender_id
@@ -327,7 +380,7 @@ async function poll() {
       cursor.lastMessageId = null;
       cursor.lastMessageHash = null;
       saveCursor(cursor);
-      return; // Next poll will pick up from new session
+      // Do NOT return — process new session from position 0 in same poll cycle
     }
 
     // 4. Update sessionId if not set
@@ -354,6 +407,10 @@ async function poll() {
     }
 
     // 8. Read new lines from cursor.eofPosition to current EOF
+    // NOTE: We read from cursor.eofPosition to current EOF, but we only
+    // advance the cursor to the END of complete lines. If we hit the end
+    // of the buffer mid-line (file growing while we read), we stop and
+    // the next poll picks up from where we left off.
     const fd = fs.openSync(activeSession.path, 'r');
     const bytesToRead = currentEof - cursor.eofPosition;
     const buffer = Buffer.alloc(Math.min(bytesToRead, 1024 * 1024)); // max 1MB per poll
@@ -365,53 +422,71 @@ async function poll() {
     const rawData = buffer.toString('utf8', 0, bytesRead);
     const lines = rawData.split('\n').filter(l => l.trim().length > 0);
 
-    if (lines.length === 0) return;
+    // Track where we actually got to in the buffer
+    // lastLineEndOffset = offset within buffer where the last complete line ends
+    let lastLineEndOffset = 0;
 
-    let newEofPosition = cursor.eofPosition;
+    if (lines.length === 0) {
+      // No complete lines — advance cursor by bytesRead and retry next poll
+      cursor.eofPosition += bytesRead;
+      saveCursor(cursor);
+      return;
+    }
 
     // 9. Process each line (up to MAX_LINES_PER_POLL)
     let processed = 0;
     for (const line of lines) {
       if (processed >= CONFIG.MAX_LINES_PER_POLL) {
         console.log('[shadow] Max lines per poll reached, deferring rest to next cycle');
-        break;
+        // Advance to end of last processed line and save
+        cursor.eofPosition = cursor.eofPosition + lastLineEndOffset;
+        saveCursor(cursor);
+        return;
       }
 
       const entry = parseLine(line);
-      if (!entry) continue;
+      if (!entry) {
+        // Malformed line — skip but count its bytes
+        lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+        continue;
+      }
 
       // Only user messages
       const msgRole = entry.message?.role || entry.role || null;
-      if (msgRole && msgRole !== 'user') continue;
+      if (msgRole && msgRole !== 'user') {
+        lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+        continue;
+      }
 
       const msgMeta = extractMetadata(entry);
-      if (!msgMeta) continue;
+      if (!msgMeta) {
+        lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+        continue;
+      }
 
       // Duplicate check
       if (isDuplicate(msgMeta, cursor)) {
         console.log('[shadow] Duplicate message_id:', msgMeta.message_id);
-        // Update EOF position even for duplicates (consume the line)
-        newEofPosition += Buffer.byteLength(line, 'utf8') + 1;
+        // Advance offset — we've consumed this line (counted in lastLineEndOffset above)
         continue;
       }
 
       // Persist (shadow mode — no task creation)
       const result = await persistInstruction(msgMeta);
+      lastLineEndOffset += Buffer.byteLength(line, 'utf8') + 1;
+
       if (result) {
         captureCount++;
         cursor.lastMessageId = msgMeta.message_id;
         if (!msgMeta.message_id) {
-          cursor.lastMessageHash = hashMessage(msgMeta.text, msgMeta.senderId, msgMeta.timestamp);
+          cursor.lastMessageHash = hashMessage(msgMeta.text, msgMeta.sender_id, msgMeta.timestamp);
         }
       }
-
-      // Update EOF position
-      newEofPosition += Buffer.byteLength(line, 'utf8') + 1;
       processed++;
     }
 
-    // 10. Save cursor with new EOF position
-    cursor.eofPosition = newEofPosition;
+    // Advance cursor to the end of the last line we processed
+    cursor.eofPosition += lastLineEndOffset;
     saveCursor(cursor);
 
   } catch (err) {
