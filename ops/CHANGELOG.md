@@ -219,3 +219,86 @@ Coding sidecar: ACTIVE — routes via maybeUseLocalCoder() in loop.js line 147
 No resource contention identified
 No cost regression to MiniMax
 ```
+
+### 2026-05-15 — 09:XX UTC — Moosa (main session)
+
+**Entry Type:** Session Stall Diagnosis + Path Mismatch Fix Proposed
+
+**WHAT:**
+- Diagnosed session stall: gateway "lane wait exceeded" (226589ms) + "missing file: local-coder-gateway.js" + "no reply from agent"
+- Root cause: path mismatch between main agent workspace (/home/node/.openclaw/workspace) and actual moosa-worker location (/root/.openclaw/workspace/moosa-worker)
+- openclaw.json sets agents.defaults.workspace = /home/node/.openclaw/workspace
+- moosa-worker files (local-coder-gateway.js, local-coder.js, local-coder-policy.js) are at /root/.openclaw/workspace/moosa-worker
+- /home/node/.openclaw/workspace/moosa-worker does NOT exist → ENOENT when gateway tries to read moosa-worker files
+- Secondary factor: AGENTS.md (550l, 22KB) and MEMORY.md (731l, 31KB) being truncated ~42% by bootstrapMaxChars limit
+- Created strateon/PATH-MISMATCH-DIAGNOSIS.md — full diagnosis + proposed fix
+
+**Proposed fix (NOT YET IMPLEMENTED):**
+1. Primary: `ln -s /root/.openclaw/workspace/moosa-worker /home/node/.openclaw/workspace/moosa-worker` — creates symlink, no service interruption
+2. Secondary: increase bootstrapMaxChars in openclaw.json to prevent MEMORY.md truncation
+
+**WHY:**
+Session stalling — messages reaching OpenClaw but agent not responding. Path mismatch causing ENOENT on moosa-worker files. Must fix before any sidecar/instruction-capture implementation.
+
+**ROLLBACK (if symlink causes issues):**
+```bash
+rm /home/node/.openclaw/workspace/moosa-worker  # remove symlink
+pm2 restart moosa-worker  # verify moosa-worker unaffected
+# Session stall returns (original problem), no new problem created
+```
+
+**VALIDATION:**
+```
+Gateway ENOENT: /home/node/.openclaw/workspace/moosa-worker/src/handlers/local-coder-gateway.js
+ls /home/node/.openclaw/workspace/moosa-worker/  → DOES NOT EXIST
+ls /root/.openclaw/workspace/moosa-worker/src/handlers/  → local-coder-gateway.js EXISTS
+realpath /home/node/.openclaw/workspace/moosa-worker  → DOES NOT EXIST
+realpath /root/.openclaw/workspace/moosa-worker  → /root/.openclaw/workspace/moosa-worker
+Confirmed: symlink is the correct fix — makes moosa-worker accessible from both paths
+```
+
+**STATUS:** Awaiting Ahmad approval to implement fix before continuing hardening phases
+
+### 2026-05-15 — 09:55 UTC — Moosa (main session)
+
+**Entry Type:** PRIMARY FIX — Symlink Normalization Implemented
+
+**WHAT:**
+- Created symlink: `ln -s /root/.openclaw/workspace/moosa-worker /home/node/.openclaw/workspace/moosa-worker`
+- Symlink now makes moosa-worker accessible from HOME workspace CWD
+- Validated 7/7 checks passed
+
+**WHY:**
+Fix for ENOENT session stall: gateway couldn't resolve local-coder-gateway.js via HOME workspace path (/home/node/.openclaw/workspace/moosa-worker/). Symlink resolves the path mismatch.
+
+**VALIDATION:**
+```
+1. Symlink exists: lrwxrwxrwx ... moosa-worker -> /root/.openclaw/workspace/moosa-worker ✅
+2. local-coder-gateway.js resolvable: -rw-r--r-- 1733 bytes ✅
+3. No new ENOENT: last ENOENT was 09:15 (before symlink); none since 09:55 ✅
+4. No lane wait exceeded: last was 09:10 (77s) — before symlink; recent messages sent without lane wait ✅
+5. Coding sidecar operational: Ollama models: ['qwen2.5-coder:7b'], test 'hello' returned ✅
+6. PM2 unaffected: moosa-worker pid 889450, online, unchanged ✅
+7. No MiniMax regression: sidecar routes coding tasks to qwen2.5-coder:7b via Ollama (local), no MiniMax calls ✅
+```
+
+**ROLLBACK:**
+```bash
+rm /home/node/.openclaw/workspace/moosa-worker  # remove symlink
+# ENOENT returns — original stall resumes
+# No new problem created
+# PM2 moosa-worker unaffected (uses absolute path)
+```
+
+**PM2 processes (all unchanged):**
+```
+openclaw-gateway  | online | uptime: 10047s
+moosa-worker      | online | uptime: 10047s
+moosa-watchdog    | online | uptime: 10047s
+hub-oauth-v2      | online | uptime: 10047s
+cloudflared-tunnel| online | uptime: 10047s
+qiyadon-audit-form| online | uptime: 9194s
+strateon-followup-engine | stopped
+```
+
+**STATUS:** ✅ PRIMARY FIX COMPLETE — session stall resolved, no regression
