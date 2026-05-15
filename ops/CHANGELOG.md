@@ -145,3 +145,47 @@ NO CUSTOMER-FACING CHANGES
 ```
 
 **STATUS:** Phase 1 complete — instruction bridge module built and validated. WhatsApp-to-bridge wiring NOT yet connected (Phase 1 scope). Bridge is ready for permanent wiring in Phase 2.
+
+### 2026-05-15 — 08:XX UTC — Moosa (main session)
+
+**Entry Type:** Sidecar Architecture Investigation
+
+**WHAT:**
+- Investigated deterministic instruction capture sidecar for Phase 2
+- Examined: `/root/.openclaw/openclaw.json`, `/root/.openclaw/logs/`, `/root/.openclaw/media/inbound/`, `/root/.openclaw/agents/main/sessions/*.jsonl`
+- Found: Session JSONL at `/root/.openclaw/agents/main/sessions/` contains all inbound WhatsApp messages with: sender_id, message_id, timestamp, message text, channel
+- Session file format: JSONL, one entry per event, user messages identified by `role: "user"`
+- Active session: `77dee770-dbfd-429f-90de-2dac19933a8d.jsonl` (2.3MB, 393 lines, actively growing with lock file)
+- Proposed session JSONL polling sidecar architecture at `/ops/instruction-sidecar.js`
+- Sidecar reads new lines from EOF position, tracks cursor, calls bridgeInstruction(), emits acknowledgements
+- Risk identified: WhatsApp acknowledgement emission from sidecar context unconfirmed — sendWhatsApp() may not work outside moosa-worker's authenticated context
+- Classification: **FEASIBLE** — message capture is deterministic and testable; acknowledgement emission needs validation
+
+**WHY:**
+Phase 2 AGENTS.md-only policy is insufficient (relies on behavioral compliance). Need deterministic code-level interceptor. Session JSONL is the only accessible message store.
+
+**ROLLBACK:**
+```bash
+pm2 stop instruction-sidecar
+pm2 delete instruction-sidecar
+rm /ops/instruction-sidecar.js
+rm /ops/sidecar-cursor.json
+# No data loss — instructions table rows remain
+# Worker unaffected
+```
+
+**VALIDATION:**
+- Session JSONL confirmed to contain: message_id (from text metadata), sender_id, timestamp, message text
+- JSONL format: `{"type":"message","id":"dee84dbc","timestamp":"...","message":{"role":"user","content":[{"type":"text","text":"..."}]}}`
+- Active session has `.lock` file — sidecar can detect active vs. archived sessions
+- Commit: `docs: Sidecar architecture investigation — FEASIBLE with risks`
+
+**DIFF:**
+```
+NEW: /strateon/SIDECAR-ARCHITECTURE.md (12592 bytes — full investigation + architecture)
+NO CODE DEPLOYED
+NO PM2 CHANGES
+NO MODIFICATIONS
+```
+
+**STATUS:** FEASIBLE — awaiting approval to implement sidecar for testing
