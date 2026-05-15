@@ -2,14 +2,13 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "pm2": 1749862440,
+    "pm2": 1778844703,
     "heartbeat": 1749865620
   },
-  "urgentItems": [
-    "CTO: /submit-intake DISABLED — subagent dispatched (ID: 03cd313b-6030-466c-8bb6-eb5cd6bbf83d) to fix, results pending"
-  ],
+  "urgentItems": [],
   "resolvedItems": [
-    "CTO: followup-engine STOPPED — diagnosed: SIGTERM clean exit (intentional stop, not crash loop). RESOLVED."
+    "CTO: followup-engine STOPPED — diagnosed: SIGTERM clean exit (intentional stop, not crash loop). RESOLVED.",
+    "submit-intake FIXED (manual fix — handler moved inside createServer, column names corrected, UUID generation fixed, PM2 running)"
   ],
   "resolvedToday": []
 }

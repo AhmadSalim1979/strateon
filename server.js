@@ -357,7 +357,7 @@ transporter.sendMail({
       // Send welcome email
       const t0 = Date.now();
       transporter.sendMail({
-        from: '"Qiyadon" <noreply@qiyadon.com>',
+        from: '"Qiyadon" <contact@qiyadon.com>',
         to: data.contact_email,
         subject: 'Welcome to Qiyadon — your intake link is on its way',
         html: '<p>Hi ' + data.contact_name + ',</p><p>Thank you! Your intake form has been received. In the next 15 minutes, you\'ll receive a secure onboarding link to complete your setup.</p><p>— The Qiyadon Team</p>',
