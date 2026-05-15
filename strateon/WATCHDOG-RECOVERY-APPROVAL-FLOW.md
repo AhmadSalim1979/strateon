@@ -1,504 +1,439 @@
-# WATCHDOG RECOVERY APPROVAL FLOW — DESIGN DOCUMENT
-## Watchdog Failure Detection and Safe Recovery Protocol
+# WATCHDOG RECOVERY APPROVAL FLOW — REVISED DESIGN
+## Watchdog-Independent Alert Architecture
 
 **Date:** 2026-05-15
-**Objective:** Design a safe, approval-gated recovery system for when watchdog detects real failures
+**Revision:** Watchdog must alert Ahmad DIRECTLY — must not route through moosa-worker/Moosa
 **Status:** Evidence and design only — no implementation
 
 ---
 
-## 1. EXACT ARCHITECTURE
+## CORE PRINCIPLE
 
-### Current State
+**Watchdog is the primary alert authority. It works independently of the worker and Moosa.**
 
-```
-moosa-watchdog [PM2 process]
-  → Reads: state/heartbeats/worker.json, state/heartbeats/self-check.json
-  → Writes: state/watchdog/watchdog-state.json
-  → Sends: WhatsApp alerts via send_whatsapp (currently disabled observation-only)
-  → Runs: every 3 minutes via cron_restart
-  → Does NOT: restart worker, modify tasks, write to Supabase tasks table
-```
+If `moosa-worker` is down → Moosa is likely ALSO down → Moosa cannot route alerts → Ahmad never gets warned.
 
-### Proposed Architecture: Watchdog Recovery Approval Flow
+**Fix:** Watchdog sends alerts directly to Ahmad. Moosa is only in the approval execution path, not the alert delivery path.
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    WATCHDOG RECOVERY APPROVAL FLOW                   │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                      │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────────────┐  │
-│  │  Watchdog    │───▶│  Check       │───▶│  Consecutive Fail    │  │
-│  │  (3min cron) │    │  Heartbeats  │    │  Counter             │  │
-│  └──────────────┘    └──────────────┘    └──────────┬───────────┘  │
-│                                                       │              │
-│                          Level 1 ◀────────────┬──────┘              │
-│                          (log only)           │                      │
-│                                         fail ≥ 2                      │
-│                          Level 2 ◀───────────┘                      │
-│                          (alert Ahmad)                               │
-│                                                                       │
-│                          Level 3 ◀──── Ahmad approval received        │
-│                          (execute approved action)                    │
-│                                                                       │
-│                          Level 4 ◀──── Validate recovery             │
-│                          (final report)                              │
-│                                                                       │
-│  ┌─────────────────────────────────────────────────────────────────┐ │
-│  │  SAFETY GATES — Never bypassed, never automatic                 │ │
-│  │  • No pkill -9 node (kills all node processes)                 │ │
-│  │  • No gateway/worker/database/tunnel restart without approval    │ │
-│  │  • Scope limited to exactly what Ahmad approved                 │ │
-│  └─────────────────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────┘
-```
+---
 
-### Component Roles
+## 1. INDEPENDENT ALERT ARCHITECTURE
 
-| Component | Role | Authority |
-|-----------|------|-----------|
-| `moosa-watchdog` | Detects failures, logs findings, sends Level 2 alerts to Moosa | Read-only observation |
-| `Moosa (main agent)` | Receives alert, analyzes, proposes recovery, executes after approval | Decision + execution |
-| Ahmad Salim | Approves or denies recovery actions | Final authority |
-| `moosa-worker` | Executes tasks, writes heartbeats | No recovery role |
-
-### Information Flow
+### Alert Delivery Paths
 
 ```
-watchdog.js (reads heartbeats)
-  → state/watchdog/watchdog-state.json (writes findings)
-  → Level 2 alert via WhatsApp to Moosa
-  → Moosa analyzes, sends structured alert to Ahmad
-  → Ahmad replies with approval command
-  → Moosa executes ONLY the approved action
-  → Moosa validates, sends recovery report to Ahmad
+PATH A (Normal — Moosa healthy):
+  moosa-watchdog [PM2] 
+    → reads heartbeats
+    → detects 2+ consecutive failures
+    → writes watchdog-state.json
+    → sends alert DIRECTLY to Ahmad via Neo SMTP/WhatsApp bridge
+    → ALSO notifies Moosa of pending alert (optional, via queue file)
+    → Ahmad replies to WhatsApp
+    → Moosa picks up approval → executes → validates
+
+PATH B (Fallback — Moosa down):
+  moosa-watchdog [PM2]
+    → reads heartbeats
+    → detects 2+ consecutive failures
+    → sends alert DIRECTLY to Ahmad (same mechanism, no Moosa dependency)
+    → Ahmad replies to WhatsApp
+    → Message goes to OpenClaw session (not specific to Moosa)
+    → IF Moosa is up: Moosa intercepts, processes approval
+    → IF Moosa is down: Ahmad's approval waits in session until Moosa recovers
+    → Moosa recovers → picks up pending approval → executes
+
+PATH C (Watchdog itself is failing):
+  External monitor (OpenClaw gateway health check) detects watchdog staleness
+  → Sends alert to Ahmad independently
+  → Moosa recovery is a SEPARATE problem from watchdog alert delivery
+```
+
+### How Watchdog Sends Direct Alerts
+
+The watchdog already imports `send_whatsapp.js`:
+
+```javascript
+import { sendWhatsApp } from './handlers/send_whatsapp.js';
+```
+
+`sendor_whatsapp.js` uses **Neo email/SMTP** to send WhatsApp messages. This is COMPLETELY INDEPENDENT of moosa-worker.
+
+**The same WhatsApp channel that Moosa uses for replies is the same channel watchdog uses for alerts.** Ahmad receives both in the same WhatsApp thread. Replies from Ahmad go to OpenClaw → Moosa (if healthy) or wait in session (if Moosa is down).
+
+---
+
+## 2. WHAT DEPENDS ON WHAT — INDEPENDENCE MAP
+
+```
+┌─────────────────────────────────────────────────────┐
+│                 moosa-worker [PM2]                   │
+│  (writes heartbeat files)                           │
+│  Depends on: Supabase, decision-model logic         │
+│  Does NOT depend on: watchdog, Moosa, gateway       │
+└──────────────────────┬──────────────────────────────┘
+                      │ writes heartbeat files
+                      ▼
+┌─────────────────────────────────────────────────────┐
+│            state/heartbeats/worker.json              │
+│  (file on disk)                                      │
+│  No dependencies — just a file                      │
+└──────────────────────┬──────────────────────────────┘
+                      │ read by watchdog
+                      ▼
+┌─────────────────────────────────────────────────────┐
+│              moosa-watchdog [PM2]                   │
+│  Reads heartbeats, writes watchdog-state.json       │
+│  Sends WhatsApp alerts DIRECTLY via Neo SMTP        │
+│  Does NOT depend on: moosa-worker, Moosa, gateway   │
+│  Depends on: Neo email/SMTP, WhatsApp bridge        │
+└─────────────────────────────────────────────────────┘
+                      │ WhatsApp direct to Ahmad
+                      ▼
+┌─────────────────────────────────────────────────────┐
+│               Ahmad Salim (WhatsApp)                │
+│  Receives watchdog alerts                           │
+│  Replies with approval/denial                       │
+└──────────────────────┬──────────────────────────────┘
+                      │ reply goes to OpenClaw session
+                      ▼
+┌─────────────────────────────────────────────────────┐
+│              openclaw-gateway [PM2]                  │
+│  Routes WhatsApp messages to session               │
+│  Depends on: OpenClaw core                          │
+└──────────────────────┬──────────────────────────────┘
+                      │ session delivery
+                      ▼
+┌─────────────────────────────────────────────────────┐
+│                  Moosa (main agent)                 │
+│  Picks up approval from session                    │
+│  ONLY needed for: approval execution + validation  │
+│  NOT needed for: watchdog alert delivery           │
+└─────────────────────────────────────────────────────┘
+```
+
+**Key property:** Every box depends only on things ABOVE it in the diagram. Watchdog does NOT depend on moosa-worker or Moosa.
+
+---
+
+## 3. MOOSA HEARTBEAT (Moosa Liveness Check)
+
+Moosa writes its own heartbeat so the watchdog can detect if Moosa itself is failing:
+
+```javascript
+// In Moosa's regular heartbeat (heartbeat-state.json or a new moosa.json):
+{
+  "process_name": "moosa",
+  "pid": 916468,  // gateway pid (proxy for Moosa availability)
+  "last_heartbeat_at": "2026-05-15T20:38:00.000Z",
+  "status": "healthy"  // or "unknown" if Moosa hasn't written in 5min
+}
+```
+
+### Watchdog Checks Moosa Liveness
+
+```javascript
+// In watchdog's check cycle:
+const moosaHb = readFileSync(MOOSA_HB, 'utf-8');
+const moosaAge = Date.now() - moosaHb.last_heartbeat_at;
+
+if (moosaAge > 5 * 60 * 1000) {  // 5 minutes
+  // Moosa is potentially down — include fallback instructions in alert
+  alert.includesFallbackInstructions = true;
+}
 ```
 
 ---
 
-## 2. ALERT FORMAT (Level 2 Alert to Ahmad)
+## 4. LEVEL 2 ALERT — DIRECT WATCHDOG ALERT FORMAT
 
-When watchdog detects 2+ consecutive failures, Moosa sends Ahmad a structured alert:
+When watchdog detects 2+ consecutive failures and Moosa is potentially down, it sends this directly:
 
 ```
 ═══════════════════════════════════════════════════════
-🚨 WATCHDOG ALERT — ACTION REQUIRED
-═══════════════════════════════════════════════════════
+🚨 WATCHDOG ALERT — DIRECT (NOT via Moosa)
 
-CHECK FAILED:   worker_heartbeat_stale
+CHECK:     worker_heartbeat_stale
+CONSECUTIVE FAILURES: 2
+SEVERITY:  LEVEL 3 — WORKER MAY BE STUCK
+
 EVIDENCE:
-  • File: state/heartbeats/worker.json
-  • Age: 25min (threshold: 10min)
+  • Worker heartbeat age: 25min (threshold: 10min)
   • Last cycle: 2026-05-15T20:23:27.644Z
-  • Last PID: 922274
-  • Status: UNHEALTHY
+  • Worker PID: 922274
+  • Worker status: UNHEALTHY
 
-SEVERITY:       LEVEL 3 — WORKER MAY BE STUCK
-LIKELY CAUSE:
-  • Worker crashed or stalled
-  • Heartbeat file not written (worker frozen mid-cycle)
+MOOSA STATUS: ⚠️ May be down (last Moosa heartbeat: 12min ago)
+              → Approval routing may be delayed until Moosa recovers
 
 BLAST RADIUS:
-  • Worker [28] pid:922274 — affected
-  • No customer data loss (worker is read-only decision engine)
-  • No gateway impact
-  • Pipeline execution paused
+  • moosa-worker [28] — AFFECTED
+  • openclaw-gateway [26] — NOT affected
+  • cloudflared-tunnel [5] — NOT affected
+  • Customer pipeline — PAUSED
 
 RECOMMENDED RECOVERY:
-  Safe restart of moosa-worker only:
-  1. pm2 stop moosa-worker
-  2. pm2 start ecosystem.config.cjs
-  (Gateway and tunnel unaffected)
-
-ROLLBACK:
   pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
 
+TO APPROVE: Reply to this WhatsApp thread with "approved"
+  → If Moosa is up: Moosa will execute and validate
+  → If Moosa is down: Wait for Moosa to recover, then execution begins
+  → Do NOT send other commands — wait for confirmation
+
+ROLLBACK: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-APPROVAL REQUIRED — Reply with one of:
-
-  "approved"                    → Execute recommended recovery
-  "approved: pkill -9 922274"  → Execute specific command only
-  "denied"                      → Take no action, log and continue
+This alert is from moosa-watchdog [PID 923372].
+Moosa recovery will execute after your approval.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Sent by: moosa-watchdog
-Alert time: 2026-05-15T20:38:00.000Z
-Watchdog PID: 923372
-```
-
-### Alert Variants by Failure Type
-
-| Failure Type | Alert Header | Recommended Recovery |
-|-------------|--------------|----------------------|
-| `worker_heartbeat_stale` | 🚨 WATCHDOG ALERT — ACTION REQUIRED | `pm2 stop moosa-worker && pm2 start ecosystem.config.cjs` |
-| `gateway_offline` | 🚨 GATEWAY ALERT — ACTION REQUIRED | `pm2 restart openclaw-gateway` |
-| `worker_crashloop` | 🚨 WORKER CRASHLOOP — STOP IMMEDIATELY | `pm2 stop moosa-worker` (stop further restarts) |
-| `selfcheck_stale` | ℹ️ SELF-CHECK STALE — OBSERVATION | No action, monitor only |
-
----
-
-## 3. APPROVAL FORMAT (Ahmad's Response)
-
-### Valid Approval Responses
-
-| Ahmad's Reply | Moosa's Interpretation |
-|-------------|------------------------|
-| `approved` | Execute recommended recovery from alert |
-| `approved: [exact command]` | Execute ONLY the specified command |
-| `denied` | Take no action, log denial, continue monitoring |
-| `[different command]` | Reject — scope creep, respond with clarification |
-
-### Example Approvals
-
-```
-Ahmad: "approved"
-  → Moosa executes: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
-
-Ahmad: "approved: pm2 restart moosa-worker"
-  → Moosa executes: pm2 restart moosa-worker (only this command)
-
-Ahmad: "denied"
-  → Moosa logs: "Recovery denied by Ahmad. Continuing monitoring."
-  → No action taken. Watchdog continues.
-
-Ahmad: "approved: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs && sleep 10 && pm2 list"
-  → Moosa executes the 4 commands in sequence, validates after each
-```
-
-### Scope Creep Rejection
-
-If Ahmad approves something that doesn't match the recommended action:
-
-```
-Ahmad: "approved: pkill -9 node"
-  → Moosa: "Cannot execute 'pkill -9 node' — this kills ALL node processes
-           including gateway, exec handler, and other protected processes.
-           Only pm2-safe commands are permitted.
-           Recommended action: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
-           Please reply with 'approved' or a specific pm2-safe command."
 ```
 
 ---
 
-## 4. RECOVERY ACTION LIST
+## 5. APPROVAL HANDLING — FALLBACK PATHS
 
-### Pre-Approved Safe Actions (Always Permitted)
-
-These can be executed WITHOUT approval (already verified safe):
-
-| Action | Command | When Safe |
-|--------|---------|-----------|
-| Log state dump | `pm2 jlist && pm2 logs moosa-worker --lines 20` | Always |
-| Read heartbeat | `cat state/heartbeats/worker.json` | Always |
-| Read watchdog-state | `cat state/watchdog/watchdog-state.json` | Always |
-| Check PM2 status | `pm2 list` | Always |
-
-### Actions Requiring Ahmad Approval
-
-| Action | Command | Blast Radius |
-|--------|---------|-------------|
-| **Safe worker restart** | `pm2 stop moosa-worker && pm2 start ecosystem.config.cjs` | Worker only, gateway unaffected |
-| **Worker status check** | `pm2 describe moosa-worker` | Read-only |
-| **Worker logs dump** | `pm2 logs moosa-worker --lines 50 --nostream` | Read-only |
-| **Gateway restart** | `pm2 restart openclaw-gateway` | Gateway only, worker unaffected |
-| **Tunnel restart** | `pm2 restart cloudflared-tunnel` | Tunnel only |
-| **Watchdog restart** | `pm2 restart moosa-watchdog` | Watchdog only, worker unaffected |
-
-### Actions NEVER Permitted Without Explicit Emergency Declaration
-
-These require a written emergency override from Ahmad:
-
-| Action | Reason |
-|--------|--------|
-| `pkill -9 node` | Kills ALL node processes (gateway, exec handler, worker, tunnel) |
-| `pm2 delete moosa-worker` | Removes PM2 entry — data loss on restart |
-| `kill -9 [pid]` on non-target process | Could kill gateway or other protected processes |
-| `pm2 kill` | Kills PM2 daemon itself |
-| Any SQL DELETE/UPDATE via direct DB | Data destruction risk |
-| `iptables` or firewall changes | Could lock out the system |
-
-### Emergency Override Format
-
-Only explicit written declaration from Ahmad activates these:
+### When Moosa Is Healthy (Normal Path)
 
 ```
-EMERGENCY OVERRIDE: [exact command] approved by Ahmad Salim on [date]
+Ahmad: "approved" → OpenClaw → Moosa session
+  → Moosa intercepts
+  → Validates command against whitelist
+  → Executes: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
+  → Validates: new worker PID, fresh heartbeat
+  → Sends recovery report to Ahmad
 ```
 
-Without this exact format, emergency commands are rejected.
+### When Moosa Is Down (Fallback Path)
+
+```
+Ahmad: "approved" → OpenClaw → Moosa session (message queued)
+  → Moosa is down, message waits in session
+  
+Watchdog detects Moosa is back (Moosa heartbeat fresh):
+  → Watchdog sends confirmation to Ahmad:
+    "Moosa is back online. Processing your pending approval..."
+
+Moosa starts, picks up queued approval:
+  → Validates command
+  → Executes
+  → Sends recovery report
+```
+
+### Ahmad Can Also Wait
+
+```
+Ahmad sees: "Moosa may be down" warning in alert
+Ahmad can wait for Moosa to recover, then reply "approved"
+  → When Moosa comes back up, it picks up the approval
+  → Recovery executes
+```
 
 ---
 
-## 5. SAFETY GATES
+## 6. RECOVERY EXECUTION PATH
 
-### Gate 1: Consecutive Failure Threshold
+### Execution Always Goes Through Moosa
 
+**Critical invariant:** Recovery actions (pm2 stop/start/restart) are ONLY executed by Moosa. The watchdog does NOT execute recovery — it only alerts.
+
+```
+Watchdog alert (direct to Ahmad)
+  → Ahmad approves
+  → Moosa executes (or queue if Moosa down)
+  → Moosa validates
+  → Moosa sends final report
+```
+
+This means:
+- Watchdog cannot accidentally execute wrong commands
+- Watchdog cannot make recovery worse
+- All execution is gated through Moosa's command whitelist and scope matching
+
+### If Moosa Never Comes Back
+
+This is a higher-severity situation:
+
+```
+Watchdog detects: Moosa heartbeat missing for > 15 minutes
+→ Watchdog sends URGENT alert:
+  "Moosa has been down for 15+ minutes. 
+   Moosa is required to execute recovery commands.
+   Manual intervention may be required.
+   
+   To manually recover worker:
+   ssh [host] && pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
+   
+   DO NOT approve automated recovery until Moosa is restored."
+```
+
+---
+
+## 7. NORMAL WATCHDOG CYCLES — UNCHANGED
+
+```
+Every 3 minutes (cron_restart):
+  1. Read worker.json → check age
+  2. Read self-check.json → check age
+  3. Update watchdog-state.json
+  4. If consecutive_failures >= 2 → send Level 2 alert
+  5. Else → log only
+
+ZERO MiniMax calls
+ZERO Supabase calls (local file reads only)
+ZERO cost per cycle
+```
+
+The watchdog cycle itself does NOT need Moosa. It runs independently every 3 minutes.
+
+---
+
+## 8. SAFETY GATES (Enhanced)
+
+### Gate 1: Alert Source Verification
 ```javascript
-// Only escalate after 2 consecutive failures
-if (consecutive_failures >= 2) {
-  sendLevel2Alert();
-} else {
-  logOnly(); // Level 1
-}
+// Every alert includes watchdog PID and timestamp
+// Ahmad can verify the alert came from the real watchdog
+alert = {
+  source: 'moosa-watchdog',
+  watchdog_pid: process.pid,
+  watchdog_uptime: os.uptime(),
+  alert_time: new Date().toISOString(),
+  watchdog_version: '0.1.0'
+};
 ```
 
-### Gate 2: Alert Contains Blast Radius Analysis
+### Gate 2: Two-Consecutive-Failures Before Alert
+```javascript
+if (consecutive_failures < 2) {
+  logOnly();  // Level 1 — no alert
+  return;
+}
+// Level 2 — send alert
+```
 
-Every Level 2 alert must state:
-- What is affected
-- What is NOT affected
-- Whether gateway/tunnel/worker is impacted
-
-### Gate 3: Command Whitelist
-
+### Gate 3: Command Whitelist (In Moosa's Approval Processor)
 ```javascript
 const APPROVED_COMMANDS = {
-  'pm2': ['stop', 'start', 'restart', 'list', 'describe', 'logs', 'save'],
-  'cat': ['state/heartbeats/worker.json', 'state/watchdog/watchdog-state.json'],
-  'pm2 list': [], // no args needed
+  'pm2 stop moosa-worker': true,
+  'pm2 start ecosystem.config.cjs': true,
+  'pm2 restart moosa-worker': true,
+  'pm2 restart openclaw-gateway': true,
+  'pm2 restart cloudflared-tunnel': true,
+  'pm2 restart moosa-watchdog': true,
 };
+```
 
-// Reject anything not in whitelist
-if (!isApprovedCommand(command)) {
-  throw new Error('COMMAND NOT IN WHITELIST: ' + command);
+### Gate 4: Protected Process Doctrine
+```javascript
+// pkill -9 node is ALWAYS rejected
+if (command.includes('pkill -9') || command.includes('kill -9')) {
+  return { approved: false, reason: 'PROTECTED_COMMAND' };
 }
 ```
 
-### Gate 4: Scope Matching
-
+### Gate 5: Scope Matching
 ```javascript
-// Only execute commands that match exactly what Ahmad approved
-const APPROVED_ACTION = alert.recommendedRecovery;
-
-if (requestedCommand !== APPROVED_ACTION && 
-    requestedCommand !== 'approved') {
-  throw new Error('SCOPE MISMATCH: requested command does not match approved action');
-}
-```
-
-### Gate 5: Protected Process Doctrine
-
-Before any restart command:
-
-```javascript
-PROTECTED_PROCESSES = [
-  'openclaw-gateway',  // INFRASTRUCTURE — highest protection
-  'cloudflared-tunnel', // INFRASTRUCTURE
-  'moosa-worker',       // ORCHESTRATION — medium protection
-];
-
-// Pre-flight check before pkill/kill
-if (command.includes('pkill') || command.includes('kill -9')) {
-  // Extract PID from command
-  const targetPid = extractPid(command);
-  const protectedPids = getProtectedPids();
-  
-  if (protectedPids.includes(targetPid)) {
-    throw new Error('REFUSING: target PID is a protected process');
+// Only execute if requested command matches approved action
+const approved = Ahmad's reply;
+if (approved === 'approved') {
+  execute(recommendedRecovery);
+} else if (approved.startsWith('approved:')) {
+  const cmd = approved.replace('approved: ', '').trim();
+  if (!whitelist.includes(cmd)) {
+    reject('Command not in whitelist');
+  } else {
+    execute(cmd);
   }
 }
 ```
 
-### Gate 6: Cost Gate — MiniMax Usage
-
+### Gate 6: Execution Validation Loop
 ```javascript
-// MiniMax/main-agent reasoning is ONLY activated after:
-// 1. Level 2 alert sent and approved by Ahmad
-// 2. Recovery action is non-trivial (not a simple restart)
-//
-// Normal watchdog cycles (every 3 min) use ZERO MiniMax calls.
-// Only the escalation analysis and recovery validation use MiniMax.
+async function executeRecovery(command) {
+  // Execute
+  await exec(command);
+  
+  // Validate within 30s
+  await sleep(10);
+  const heartbeatAge = await readHeartbeatAge();
+  
+  if (heartbeatAge < 60) {
+    return { success: true, message: 'Recovery successful' };
+  } else {
+    return { success: false, message: 'Heartbeat still stale — may need second attempt' };
+  }
+}
+```
+
+### Gate 7: No Auto-Restart
+```javascript
+// Watchdog will NEVER restart a process automatically
+// Recovery ALWAYS requires Ahmad approval
+// Watchdog only: logs, alerts, waits
 ```
 
 ---
 
-## 6. ROLLBACK PLAN
+## 9. ROLLBACK PLAN
 
-### For Each Recovery Action
-
-| Action | Rollback |
-|--------|----------|
-| `pm2 stop moosa-worker && pm2 start ecosystem.config.cjs` | `pm2 stop moosa-worker && pm2 start ecosystem.config.cjs` (re-run) |
+| Recovery Action | Rollback Command |
+|-----------------|-----------------|
+| `pm2 stop moosa-worker && pm2 start ecosystem.config.cjs` | Same command re-run |
 | `pm2 restart moosa-worker` | `pm2 stop moosa-worker && pm2 start ecosystem.config.cjs` |
-| `pm2 restart openclaw-gateway` | `pm2 restart openclaw-gateway` (re-run) |
-| No action (denied) | No rollback needed |
-
-### Rollback Verification
-
-After any rollback:
-1. Check PM2 status — all affected processes online
-2. Check heartbeat files — worker writing fresh entries
-3. Check watchdog-state.json — consecutive_failures reset to 0
-4. Send Ahmad recovery report
+| `pm2 restart openclaw-gateway` | `pm2 restart openclaw-gateway` |
+| Watchdog alert (no action) | No rollback needed |
 
 ---
 
-## 7. COST IMPACT
+## 10. COMPARISON: ORIGINAL vs REVISED
 
-### Normal Watchdog Operation (3-minute cycles)
-
-```
-Local-only operations (zero external cost):
-  • Read worker.json     → fs.readFileSync (~$0)
-  • Read self-check.json → fs.readFileSync (~$0)
-  • Update watchdog-state.json → fs.writeFileSync (~$0)
-  • Log to console       → stdout (~$0)
-
-MiniMax usage: 0 calls per cycle
-Supabase calls: 0 (watchdog reads local files only)
-WhatsApp alerts: 0 (disabled observation mode)
-```
-
-### After Level 2 Alert (Escalation)
-
-```
-1. Moosa receives alert → analyzes with MiniMax
-   → ~$0.001-0.01 per alert (MiniMax reasoning)
-
-2. Ahmad replies with approval → Moosa executes
-   → Zero cost (PM2 commands are local)
-
-3. Moosa validates → reads PM2 status, sends recovery report
-   → ~$0.001-0.01 (MiniMax text generation)
-```
-
-### Cost Summary
-
-| Scenario | MiniMax Calls | Cost Estimate |
-|----------|--------------|----------------|
-| Normal watchdog (24h) | 0 | $0 |
-| One Level 2 alert/day | 2-3 | ~$0.01-0.03/day |
-| One recovery + report/day | 4-6 | ~$0.02-0.06/day |
-| Monthly cost (worst case) | ~180 calls | < $1/month |
-
-**Watchdog is essentially zero-cost for normal operation.**
+| Aspect | Original Design | Revised Design |
+|--------|----------------|-----------------|
+| Alert delivery | Watchdog → Moosa → Ahmad | **Watchdog → Ahmad DIRECT** |
+| Moosa dependency for alerts | Required | **Not required** |
+| If worker is down, can alert | Maybe (if Moosa up) | **YES — watchdog is independent** |
+| If Moosa is down, can alert | No | **YES — watchdog is independent** |
+| Approval execution | Via Moosa | Via Moosa (or queued if down) |
+| Moosa heartbeat check | Not designed | **Yes — watchdog checks Moosa liveness** |
+| Fallback if Moosa never returns | Not designed | **Urgent manual-intervention alert** |
 
 ---
 
-## 8. IMPLEMENTATION PLAN
+## 11. IMPLEMENTATION CHANGES NEEDED
 
-### Phase 1: Watchdog Alert Channel (Week 1)
+### Watchdog Changes (Phase 1)
+1. Enable `send_whatsapp` in watchdog — currently it's imported but alerts are disabled
+2. Add `consecutive_failures >= 2` → send WhatsApp alert (Level 2)
+3. Add `moosa.json` heartbeat read (Moosa liveness check)
+4. Include fallback instructions if Moosa appears down
 
-**Changes:**
-- `watchdog.js`: Add Level 2 alert sender (uses Moosa's WhatsApp via OpenClaw)
-- `state/watchdog/watchdog-state.json`: Add `last_escalation_at` and `escalation_count` fields
+### Moosa Changes (Phase 2)
+1. Write `moosa.json` heartbeat every 1 minute
+2. Approval processor: receive from session, validate, execute, validate, report
+3. If Moosa was down and recovers: pick up queued approvals, process in order
 
-**Not changed:**
+### No Changes Needed
 - Worker logic unchanged
 - Gateway unchanged
-- No new processes
-
-**Validation:**
-```
-[watchdog] evaluated at 2026-05-15T20:38:00.000Z
-  worker: STALE (25min > 10min threshold)
-  consecutive_failures: 2
-  → Level 2 alert sent to Moosa
-  → WhatsApp alert received by Ahmad
-```
-
-### Phase 2: Moosa Alert Processor (Week 1-2)
-
-**Changes:**
-- New handler in Moosa: `watchdog-alert-processor.js`
-- Receives alert from watchdog, formats structured message, sends to Ahmad
-- Waits for Ahmad approval, validates command, executes
-
-**Validation:**
-- Ahmad receives formatted alert on WhatsApp
-- Ahmad replies with `approved`
-- Moosa executes only that command
-- Moosa validates and sends report
-
-### Phase 3: Recovery Validation Loop (Week 2)
-
-**Changes:**
-- Moosa validates recovery by checking heartbeat freshness
-- If heartbeat not fresh after 2 cycles → re-alert Ahmad
-- If heartbeat fresh → send success report
-
-**Validation:**
-- After recovery, Ahmad gets confirmation with evidence
-- Watchdog-state.json shows consecutive_failures reset to 0
-
-### Phase 4: Safety Hardening (Week 2-3)
-
-**Changes:**
-- Command whitelist enforcement
-- Protected process doctrine
-- Scope matching
-- Cost gate (MiniMax only on escalation)
-
-**Validation:**
-- Test with `pkill -9 node` → rejected with explanation
-- Test with `denied` → no action, watchdog continues
-- Test with wrong command → scope rejection
+- Supabase schema unchanged
+- Sidecar unchanged
 
 ---
 
-## 9. ROLES AND RESPONSIBILITIES
+## 12. SUMMARY
 
-| Role | Owner | Responsibility |
-|------|-------|----------------|
-| Watchdog | moosa-watchdog [PM2] | Detect failures, log, escalate |
-| Alert Processor | Moosa | Receive alert, format, send to Ahmad |
-| Approver | Ahmad Salim | Authorize or deny recovery actions |
-| Executor | Moosa | Execute ONLY approved actions |
-| Validator | Moosa | Verify recovery, send report |
-| Decision Maker | Moosa | Reject unsafe commands, propose safe alternatives |
+**The revised design ensures:**
+1. ✅ Watchdog alerts work even if moosa-worker is down
+2. ✅ Watchdog does NOT rely on moosa-worker for Level 2 alert delivery
+3. ✅ Approval handling routes through Moosa when healthy, queues when down
+4. ✅ Fallback path: watchdog sends direct alert, Moosa recovers and processes queued approval
+5. ✅ Normal checks remain local-only, zero MiniMax, zero cost
+6. ✅ Recovery execution still requires explicit Ahmad approval
+7. ✅ No automatic restarts — approval always required
+8. ✅ Direct-alert mechanism, Moosa liveness check, fallback approval queue, all safety gates
 
----
-
-## 10. EXAMPLE COMPLETE FLOW
-
-```
-T+0:00   Watchdog cycle starts (3-min cron)
-T+0:02   Read worker.json — age: 15min > 10min threshold
-T+0:02   consecutive_failures.worker_heartbeat_stale: 1
-T+0:02   Log: "worker STALE (1 consecutive failure)" — Level 1
-
-T+3:00   Watchdog cycle 2
-T+3:02   Read worker.json — age: 18min > 10min threshold
-T+3:02   consecutive_failures.worker_heartbeat_stale: 2
-T+3:02   Level 2 alert triggered — send to Moosa
-
-T+3:05   Moosa receives alert, formats structured message
-T+3:06   WhatsApp sent to Ahmad:
-         "🚨 WATCHDOG ALERT — ACTION REQUIRED
-          [evidence, severity, recommended recovery, etc.]"
-
-T+10:00  Ahmad replies: "approved"
-T+10:02  Moosa: pm2 stop moosa-worker && pm2 start ecosystem.config.cjs
-T+10:12  New worker PID 923456 online
-T+10:15  Moosa: Verify heartbeat written — fresh (3s old)
-T+10:15  Moosa: Update watchdog-state.json — consecutive_failures: 0
-T+10:16  Moosa: Send recovery report to Ahmad
-
-T+10:17  Ahmad: "Confirmed. Thank you."
-T+10:18  Cycle complete. Monitoring continues.
-```
+**The core fix:** Watchdog sends WhatsApp directly to Ahmad using the same `send_whatsapp.js` path it already has. Moosa is only in the execution path, not the alert delivery path.
 
 ---
 
-## 11. CURRENT BLOCKERS TO IMPLEMENTATION
-
-1. **Watchdog WhatsApp integration**: watchdog.js uses `send_whatsapp.js` directly. Need to route alert through Moosa instead.
-2. **Moosa alert handler**: Needs a new WhatsApp receive handler for watchdog alerts (or watchdog writes to a queue Moosa polls).
-3. **Command whitelist**: Needs to be defined and embedded in Moosa's approval processor.
-4. **Ahmad's WhatsApp number for alerts**: Already available (`+923215139934`).
-
----
-
-## 12. WHAT SHOULD NOT BE TOUCHED
-
-| Item | Reason |
-|------|--------|
-| Worker heartbeat logic | Works correctly, no changes needed |
-| Gateway PM2 entry | Infrastructure — never restart without explicit approval |
-| Cloudflared tunnel | Infrastructure — never restart without explicit approval |
-| Supabase schema | No changes needed |
-| Sidecar shadow | Validated and working, not involved in this flow |
-
----
-
-*Design complete. Awaiting Ahmad approval to proceed with implementation.*
+*Revised design complete. Ready for Ahmad review.*
