@@ -203,35 +203,35 @@ function buildAuditEmail(data) {
   return { html, text };
 }
 
-// ── MailChannels Direct Sending API ─────────────────────────────────────────
+// ── Email via Cloudflare Tunnel Proxy ───────────────────────────────────────
+// Proxies through api.qiyadon.com which routes via Cloudflare Tunnel → port 3001
 async function sendAuditEmail(data) {
   const { html, text } = buildAuditEmail(data);
 
-  const payload = {
-    personalizations: [{
-      to: [{ email: 'ahmad.salim@qiyadon.com', name: 'Ahmad Salim' }],
-      headers: { 'Reply-To': data.email }
-    }],
-    from: {
-      email: 'contact@qiyadon.com',
-      name: 'Qiyadon Pipeline Audit'
-    },
-    subject: `Pipeline Leak Audit Request — ${data.name} / ${data.company}`,
-    content: [
-      { type: 'text/plain', value: text },
-      { type: 'text/html', value: html }
-    ]
-  };
+  const payload = JSON.stringify({
+    name: data.name,
+    company: data.company,
+    email: data.email,
+    phone: data.phone || '',
+    industry: data.industry || '',
+    leads_per_month: data.leads_per_month || '',
+    close_rate: data.close_rate || '',
+    crm: data.crm || '',
+    challenge: data.challenge || '',
+    followup_process: data.followup_process || '',
+    found_us: data.found_us || '',
+    submitted_at: data.submitted_at
+  });
 
-  const res = await fetch('https://api.mailchannels.net/tx/v1/send', {
+  const res = await fetch('https://api.qiyadon.com/submit-audit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
+    body: payload
   });
 
   if (!res.ok) {
     const errText = await res.text();
-    throw new Error(`MailChannels error ${res.status}: ${errText}`);
+    throw new Error(`Audit backend error ${res.status}: ${errText}`);
   }
 
   return { success: true };
