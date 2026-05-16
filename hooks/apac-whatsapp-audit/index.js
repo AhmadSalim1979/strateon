@@ -17,17 +17,22 @@
  */
 
 const FEATURE_FLAG = 'APAC_ENABLED';
-const DEFAULT_ENABLED = true;
+const DEFAULT_ENABLED = false; // AUDIT_ONLY — explicit opt-in required
 
 /**
  * Determine if APAC observation is enabled.
+ * Returns true ONLY when APAC_ENABLED is explicitly set to 'true' or '1'.
+ * All other values (undefined, '', 'false', '0', etc.) return false.
  */
 function isApacEnabled() {
   const flag = process.env[FEATURE_FLAG];
-  if (flag === undefined || flag === '') {
-    return DEFAULT_ENABLED;
+  if (flag === 'true' || flag === '1') {
+    return true;
   }
-  return flag === 'true' || flag === '1';
+  if (flag !== undefined && flag !== '') {
+    console.warn(`[apac-whatsapp-audit] Invalid APAC_ENABLED value "${flag}" — expected "true" or "false". Bypassing.`);
+  }
+  return false;
 }
 
 /**
