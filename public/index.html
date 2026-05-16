@@ -763,6 +763,37 @@
       .op-metrics { grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* OPERATIONAL EVIDENCE */
+    #operational-evidence {
+      background: var(--light);
+      padding: 80px 24px;
+    }
+    #operational-evidence .section-sub { max-width: 560px; margin: 0 auto; }
+    .op-metrics--grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .op-evidence-timeline { display: flex; flex-direction: column; gap: 8px; }
+    .op-evidence-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 13px;
+    }
+    .op-evidence-day {
+      font-weight: 600;
+      color: var(--teal);
+      min-width: 44px;
+      font-size: 12px;
+    }
+    .op-evidence-event { color: var(--slate); line-height: 1.4; }
+    .op-evidence-row--success .op-evidence-event { color: var(--teal); font-weight: 600; }
+    .op-checklist { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .op-check { font-weight: 700; margin-right: 6px; }
+    .op-check--yes { color: var(--crimson); }
+    .op-card__footnote { font-size: 13px; color: var(--slate); margin-top: 12px; text-align: center; }
+
     /* IS STRATEON RIGHT FOR YOU */
     #is-this-for-you {
       background: var(--white);
@@ -1340,6 +1371,59 @@
       max-width: 520px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* PIPELINE REALITY CHECK */
+    #pipeline-reality-check {
+      background: var(--light);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    #pipeline-reality-check h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    #pipeline-reality-check .section-sub {
+      color: var(--slate);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .prc-list {
+      list-style: none;
+      padding: 0;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+    .prc-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .prc-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--crimson);
+      flex-shrink: 0;
+    }
+    .prc-conclusion {
+      font-size: 15px;
+      color: var(--slate);
+      font-style: italic;
+      max-width: 480px;
+      margin: 0 auto;
       line-height: 1.6;
     }
 
@@ -1952,6 +2036,108 @@
   </div>
 </section>
 
+<!-- OPERATIONAL EVIDENCE -->
+<section id="operational-evidence">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-eyebrow">Operational Evidence</span>
+      <h2>What Pipeline Recovery Actually Looks Like</h2>
+      <p class="section-sub">Qiyadon focuses on measurable operational continuity — not vanity automation metrics.</p>
+    </div>
+    <div class="op-cards">
+      <!-- CARD 1: Silent Lead Recovered -->
+      <div class="op-card op-card--report fade-in">
+        <div class="op-card__header">
+          <div class="op-card__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <span class="op-card__label">Silent Lead Recovered</span>
+          <span class="op-card__badge op-card__badge--active">Week 1 of 4</span>
+        </div>
+        <div class="op-evidence-timeline">
+          <div class="op-evidence-row">
+            <span class="op-evidence-day">Day 1</span>
+            <span class="op-evidence-event">Lead goes dark after demo scheduled</span>
+          </div>
+          <div class="op-evidence-row">
+            <span class="op-evidence-day">Day 3</span>
+            <span class="op-evidence-event">Automated follow-up #1 — no reply</span>
+          </div>
+          <div class="op-evidence-row">
+            <span class="op-evidence-day">Day 5</span>
+            <span class="op-evidence-event">Escalation triggered — founder notified</span>
+          </div>
+          <div class="op-evidence-row">
+            <span class="op-evidence-day">Day 7</span>
+            <span class="op-evidence-event">Follow-up #2 with case study attached</span>
+          </div>
+          <div class="op-evidence-row op-evidence-row--success">
+            <span class="op-evidence-day">Day 9</span>
+            <span class="op-evidence-event">Lead replies — meeting confirmed</span>
+          </div>
+        </div>
+      </div>
+      <!-- CARD 2: Weekly Founder Visibility -->
+      <div class="op-card op-card--report fade-in">
+        <div class="op-card__header">
+          <div class="op-card__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <span class="op-card__label">Weekly Founder Visibility</span>
+          <span class="op-card__badge op-card__badge--active">Friday Report</span>
+        </div>
+        <div class="op-metrics op-metrics--grid">
+          <div class="op-metric">
+            <span class="op-metric__value">24</span>
+            <span class="op-metric__label">Leads Touched</span>
+          </div>
+          <div class="op-metric">
+            <span class="op-metric__value">7</span>
+            <span class="op-metric__label">Dormant Revived</span>
+          </div>
+          <div class="op-metric">
+            <span class="op-metric__value">3</span>
+            <span class="op-metric__label">Escalations</span>
+          </div>
+          <div class="op-metric">
+            <span class="op-metric__value">4.2h</span>
+            <span class="op-metric__label">Avg Response</span>
+          </div>
+        </div>
+        <div class="op-divider"></div>
+        <p class="op-card__footnote">Every Friday — delivered to your inbox before you need to ask.</p>
+      </div>
+      <!-- CARD 3: Pipeline Accountability -->
+      <div class="op-card op-card--trust fade-in">
+        <div class="op-card__header">
+          <div class="op-card__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="op-card__label">Pipeline Accountability</span>
+        </div>
+        <ul class="op-checklist">
+          <li>
+            <span class="op-check op-check--yes">✓</span>
+            <span>Every lead followed up — no exceptions</span>
+          </li>
+          <li>
+            <span class="op-check op-check--yes">✓</span>
+            <span>Every silence escalated after defined window</span>
+          </li>
+          <li>
+            <span class="op-check op-check--yes">✓</span>
+            <span>Escalations visible to founder before decay</span>
+          </li>
+          <li>
+            <span class="op-check op-check--yes">✓</span>
+            <span>Weekly report — no manual follow-up required</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- IS STRATEON RIGHT FOR YOU -->
 <section id="is-this-for-you">
   <div class="container">
@@ -2422,6 +2608,44 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PIPELINE REALITY CHECK -->
+<section id="pipeline-reality-check">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-eyebrow">Pipeline Reality Check</span>
+      <h2>Most Pipeline Problems Are Operational, Not Marketing Problems.</h2>
+      <p class="section-sub">Leads usually do not disappear because acquisition failed. They disappear because follow-up ownership, escalation discipline, and pipeline visibility quietly break down over time.</p>
+    </div>
+    <ul class="prc-list fade-in">
+      <li>
+        <span class="prc-dot"></span>
+        <span>Leads sitting untouched for days</span>
+      </li>
+      <li>
+        <span class="prc-dot"></span>
+        <span>Follow-ups depending on human memory</span>
+      </li>
+      <li>
+        <span class="prc-dot"></span>
+        <span>CRM stages no longer trusted</span>
+      </li>
+      <li>
+        <span class="prc-dot"></span>
+        <span>Silent opportunities buried in pipelines</span>
+      </li>
+      <li>
+        <span class="prc-dot"></span>
+        <span>No consistent escalation process</span>
+      </li>
+      <li>
+        <span class="prc-dot"></span>
+        <span>Founders manually checking pipeline status</span>
+      </li>
+    </ul>
+    <p class="prc-conclusion fade-in">If even 2–3 of these feel familiar, your pipeline likely has measurable leakage.</p>
   </div>
 </section>
 
