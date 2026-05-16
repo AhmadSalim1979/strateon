@@ -226,6 +226,8 @@ const EEL_ERROR_CODES = {
   EEL_SOURCE_NOT_AUTHORITY: 'EEL_SOURCE_NOT_AUTHORITY',           // Source not in registry
   EEL_CATEGORY_NOT_IN_SCOPE: 'EEL_CATEGORY_NOT_IN_SCOPE',       // Source can't authorize this category
   EEL_FACT_EXPIRED: 'EEL_FACT_EXPIRED',                          // Runtime command result too old
+  EEL_TIMESTAMP_INVALID: 'EEL_TIMESTAMP_INVALID',                 // Malformed timestamp
+  EEL_TIMESTAMP_FUTURE: 'EEL_TIMESTAMP_FUTURE',                  // Timestamp in future
 
   // State errors
   EEL_VERIFIED_WITHOUT_PROVENANCE: 'EEL_VERIFIED_WITHOUT_PROVENANCE',

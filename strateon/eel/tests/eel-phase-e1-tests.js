@@ -537,10 +537,7 @@ test('Credential assumed from filename pattern is blocked', () => {
 });
 
 test('Runtime command result cannot authorize future action — BLOCKED', () => {
-  // This simulates: "pm2 list showed worker online 10 minutes ago"
-  // Runtime commands only verify current state, not future authorization
-  // Phase E1: Temporal constraints validated via audit log
-  // A 10-minute-old pm2 result is NOT authoritative for current decisions
+  // pm2_list has temporal: 'current' — 10 minutes = 600s > 60s max age → BLOCKED
   const result = eelClassify({
     fact: 'Worker was healthy 10 minutes ago, recovery not needed',
     category: FACT_CATEGORIES.INFRASTRUCTURE_STATE,
@@ -552,13 +549,7 @@ test('Runtime command result cannot authorize future action — BLOCKED', () => 
       raw: 'moosa-worker online',
     }),
   });
-  // pm2_list IS an authority for infrastructure_state, so authority check passes
-  // But the decision to use 10-min-old state for current decision is questionable
-  // Phase E1 focuses on blocking wrong authority sources, not temporal decay
-  // This test documents that pm2_list with old timestamp is allowed (for integration phase)
-  // In Phase E2+ this would be enhanced with temporal checks
-  assert.strictEqual(result.allowed, true); // passes authority check
-  assert.strictEqual(result.state, TRUTH_STATES.VERIFIED);
+  assertBlocked(result, EEL_ERROR_CODES.EEL_FACT_EXPIRED);
 });
 
 // ============================================

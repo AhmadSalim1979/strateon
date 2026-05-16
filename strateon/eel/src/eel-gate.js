@@ -44,6 +44,72 @@ const {
 const eelAuditLog = [];
 const MAX_AUDIT_LOG_SIZE = 10000;
 
+// Temporal constraints
+const RUNTIME_COMMAND_MAX_AGE_MS = 60_000; // 60 seconds for runtime commands (pm2_list, etc.)
+const APPROVAL_MAX_AGE_MS = 30 * 60 * 1000;  // 30 minutes for WhatsApp approvals
+
+/**
+ * Validate that a timestamp is a valid ISO 8601 string
+ * @param {string} timestamp
+ * @returns {{valid: boolean, error_code?: string, error_message?: string}}
+ */
+function validateTimestamp(timestamp) {
+  if (!timestamp || typeof timestamp !== 'string') {
+    return {
+      valid: false,
+      error_code: 'EEL_TIMESTAMP_INVALID',
+      error_message: 'Timestamp must be a non-empty string',
+    };
+  }
+
+  const parsed = Date.parse(timestamp);
+  if (isNaN(parsed)) {
+    return {
+      valid: false,
+      error_code: 'EEL_TIMESTAMP_INVALID',
+      error_message: `Invalid timestamp format: "${timestamp}". Must be ISO 8601.`,
+    };
+  }
+
+  // Timestamp must be in the past or very recent (within 1 minute)
+  const now = Date.now();
+  const diff = now - parsed;
+  if (diff < -60_000) {
+    return {
+      valid: false,
+      error_code: 'EEL_TIMESTAMP_FUTURE',
+      error_message: `Timestamp is in the future: ${timestamp}`,
+    };
+  }
+
+  return { valid: true };
+}
+
+/**
+ * Check if a runtime command fact has expired
+ * @param {string} source - The authority source name (e.g., 'pm2_list')
+ * @param {string} timestamp - ISO 8601 timestamp
+ * @returns {{expired: boolean, age_ms?: number, max_age_ms?: number}}
+ */
+function checkRuntimeExpiry(source, timestamp) {
+  // Check if source has temporal: 'current' constraint
+  const entry = AUTHORITY_REGISTRY[source];
+  if (!entry || entry.temporal !== 'current') {
+    return { expired: false }; // No constraint for this source
+  }
+
+  const age = Date.now() - new Date(timestamp).getTime();
+  if (age > RUNTIME_COMMAND_MAX_AGE_MS) {
+    return {
+      expired: true,
+      age_ms: age,
+      max_age_ms: RUNTIME_COMMAND_MAX_AGE_MS,
+    };
+  }
+
+  return { expired: false, age_ms: age, max_age_ms: RUNTIME_COMMAND_MAX_AGE_MS };
+}
+
 /**
  * Main classification function — the EEL gate
  * 
@@ -134,6 +200,40 @@ function classifyVerified(fact, category, provenance, context, startTime) {
   // Check temporal constraint for runtime commands
   if (authCheck.scope && authCheck.scope.includes('temporal')) {
     // Already handled by checkAuthority for runtime commands
+  }
+
+  // Validate timestamp
+  const tsValidation = validateTimestamp(provenance.timestamp);
+  if (!tsValidation.valid) {
+    const result = createClassificationResult({
+      decision: CLASSIFICATION_DECISION.BLOCK,
+      state: TRUTH_STATES.UNKNOWN,
+      allowed: false,
+      error_code: tsValidation.error_code,
+      error_message: tsValidation.error_message,
+      blocked_reason: `Invalid timestamp: "${provenance.timestamp}"`,
+      resolution: 'Provide a valid ISO 8601 timestamp',
+      provenance,
+    });
+    logAuditEntry(fact, category, TRUTH_STATES.VERIFIED, result.state, result, context);
+    return result;
+  }
+
+  // Check runtime command expiry
+  const expiryCheck = checkRuntimeExpiry(provenance.source, provenance.timestamp);
+  if (expiryCheck.expired) {
+    const result = createClassificationResult({
+      decision: CLASSIFICATION_DECISION.BLOCK,
+      state: TRUTH_STATES.UNKNOWN,
+      allowed: false,
+      error_code: EEL_ERROR_CODES.EEL_FACT_EXPIRED,
+      error_message: `Runtime command result expired (${Math.round(expiryCheck.age_ms / 1000)}s old, max ${RUNTIME_COMMAND_MAX_AGE_MS / 1000}s)`,
+      blocked_reason: `Source "${provenance.source}" is a runtime command with temporal constraint — result is ${Math.round(expiryCheck.age_ms / 1000)}s old`,
+      resolution: 'Re-run the runtime command to get current state, then re-verify',
+      provenance,
+    });
+    logAuditEntry(fact, category, TRUTH_STATES.VERIFIED, result.state, result, context);
+    return result;
   }
 
   // VERIFIED passed all checks
