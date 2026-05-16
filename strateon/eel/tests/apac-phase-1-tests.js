@@ -335,11 +335,11 @@ test('whitespace trimmed', () => {
 console.log('\nSection 7: Timestamp Extraction');
 
 test('number timestamp — ISO-8601 + unix_ms', () => {
-  const ctx = { Timestamp: 1715844000000 }; // 2026-05-16 10:00:00 UTC
+  const ctx = { Timestamp: 1715844000000 }; // 2024-05-16T07:20:00.000Z UTC
   const r = extractTimestamp(ctx);
   assert.strictEqual(r.found, true);
   assert.strictEqual(r.unix_ms, 1715844000000);
-  assert.strictEqual(r.value, '2026-05-16T10:00:00.000Z');
+  assert.strictEqual(r.value, '2024-05-16T07:20:00.000Z');
 });
 
 test('non-number timestamp — not found', () => {
@@ -691,6 +691,7 @@ test('createApprovalAuditEntry — invalid — includes error codes', () => {
 console.log('\nSection 16: Error Code Completeness');
 
 test('APAC v3 defined error codes all fire correctly', () => {
+  // [input, expectedCode] for string inputs; [ctx, body, expectedCode] for object inputs
   const cases = [
     ['yes operation_id=abc', 'EEL_APPROVAL_INSUFFICIENT_KEYWORD'],
     ['approved operation_id=abc', 'EEL_APPROVAL_NO_ACTION_HASH'],
@@ -699,17 +700,18 @@ test('APAC v3 defined error codes all fire correctly', () => {
     ['👍', 'EEL_APPROVAL_EMOJI_BLOCKED'],
   ];
   
-  for (const [input, expectedCode] of cases) {
-    let ctx, body;
-    if (typeof input === 'object') {
-      ctx = input;
-      body = arguments[1];
+  for (const caseItem of cases) {
+    let ctx, body, expectedCode;
+    if (typeof caseItem[0] === 'object') {
+      // [ctx, body, expectedCode]
+      [ctx, body, expectedCode] = caseItem;
     } else {
+      // [body, expectedCode]
+      [body, expectedCode] = caseItem;
       ctx = { MessageSid: 'wamid.test', SenderE164: '+923215139934', Timestamp: Date.now() };
-      body = input;
     }
     const r = classifyApprovalMessage(ctx, body);
-    assert(r.error_codes.includes(expectedCode), `Expected ${expectedCode} for input "${typeof body === 'string' ? body : JSON.stringify(ctx)}"`);
+    assert(r.error_codes.includes(expectedCode), `Expected ${expectedCode} for input "${body}"`);
   }
 });
 
