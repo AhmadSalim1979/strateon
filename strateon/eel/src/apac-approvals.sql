@@ -41,5 +41,8 @@ CREATE TABLE IF NOT EXISTS approval_audit_log (
   created_at           TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE INDEX IF NOT EXISTS idx_approval_audit_created
+ON approval_audit_log(created_at);
+
 CREATE INDEX IF NOT EXISTS idx_approval_audit_event ON approval_audit_log(event_type);
 CREATE INDEX IF NOT EXISTS idx_approval_audit_operation ON approval_audit_log(operation_id);
