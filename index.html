@@ -527,7 +527,6 @@
       background: var(--off-white);
       padding: 100px 40px;
     }
-    #operational-visibility .section-sub { max-width: 580px; margin: 0 auto; }
     .op-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -671,10 +670,94 @@
     }
     .op-meta-value--high { color: var(--crimson); }
 
+    #operational-trust {
+      background: #fff;
+      padding: 100px 40px;
+    }
+    #operational-trust .section-sub { max-width: 560px; margin: 0 auto; }
+
+    /* Primary trust panel */
+    .trust-panel {
+      max-width: 760px;
+      margin: 48px auto 0;
+      background: var(--off-white);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .trust-panel__header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .trust-panel__icon {
+      color: var(--crimson);
+      flex-shrink: 0;
+    }
+    .trust-panel__title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+    .trust-panel__body {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #3a3535;
+      margin-bottom: 24px;
+    }
+    .trust-assurances {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .trust-assurances li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .trust-assurances li svg {
+      color: var(--crimson);
+      flex-shrink: 0;
+    }
+
+    /* 3 trust assurance cards */
+    .trust-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 24px auto 0;
+    }
+    .trust-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .trust-card__icon { color: var(--crimson); }
+    .trust-card__title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .trust-card__body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--slate);
+    }
+
     @media (max-width: 768px) {
-      #operational-visibility { padding: 60px 20px; }
-      .op-cards { grid-template-columns: 1fr; }
-      .op-metrics { grid-template-columns: repeat(4, 1fr); }
+      #operational-trust { padding: 60px 20px; }
+      .trust-panel { padding: 28px 24px; }
+      .trust-cards { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .op-metrics { grid-template-columns: repeat(2, 1fr); }
@@ -1799,6 +1882,71 @@
             <span class="op-meta-value">Ahmad Salim (Founder)</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONAL TRUST -->
+<section id="operational-trust">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-eyebrow">Operational Trust</span>
+      <h2>Built for Accountability, Not Just Automation</h2>
+      <p class="section-sub">Qiyadon is designed to preserve founder visibility, escalation control, and operational discipline across every follow-up sequence.</p>
+    </div>
+
+    <!-- Primary Trust Panel -->
+    <div class="trust-panel fade-in">
+      <div class="trust-panel__header">
+        <div class="trust-panel__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span class="trust-panel__title">You Stay Operationally In Control</span>
+      </div>
+      <p class="trust-panel__body">Qiyadon does not replace founder visibility. It creates structured follow-up accountability with escalation rules, audit visibility, and weekly operational reporting.</p>
+      <ul class="trust-assurances">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Every escalation remains visible
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Follow-up rules stay reviewable
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Weekly reporting keeps owners informed
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Human override remains available
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3 Assurance Cards -->
+    <div class="trust-cards">
+      <div class="trust-card fade-in">
+        <div class="trust-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <span class="trust-card__title">Escalation Visibility</span>
+        <p class="trust-card__body">Important lead activity never disappears silently. Qiyadon flags buying signals, stalled replies, and dormant opportunities before they decay.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <span class="trust-card__title">CRM Continuity</span>
+        <p class="trust-card__body">Qiyadon works inside your existing operational workflow. No forced migration. No replacement of your CRM.</p>
+      </div>
+      <div class="trust-card fade-in">
+        <div class="trust-card__icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <span class="trust-card__title">Founder-Level Oversight</span>
+        <p class="trust-card__body">Weekly reporting and operational summaries ensure leadership visibility remains intact without requiring daily pipeline micromanagement.</p>
       </div>
     </div>
   </div>
