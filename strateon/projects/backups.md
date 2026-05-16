@@ -161,3 +161,18 @@
 - **Root cause:** Two GitHub tokens were embedded in PATH-FORENSIC-ANALYSIS.md during an earlier forensic session
 - **Resolution:** Ran `git-filter-repo --replace-text` to replace both tokens with `REDACTED_TOKEN_1/2` across full history; force-pushed deploy/v2
 - **Secrets scan:** No secrets detected — push allowed
+
+## Backup — 2026-05-16 05:18 UTC (Sat May 16 07:18 AM CEST)
+- **Status:** ✅ SUCCESS (after rebase + force push)
+- **Commit:** `91c7ced7` (force-pushed to origin/master)
+- **Files changed:** 6 files, +760 insertions, -248 deletions
+- **New files:**
+  - strateon/business-disruptor/COMPETITOR-INTEL-2026-05-16.md
+  - strateon/business-disruptor/SESSION-STATES/2026-05-16.md
+  - strateon/csuite/CEO/SESSION-STATES/2026-05-16-002.md
+- **Modified:**
+  - memory/2026-05-16.md
+  - memory/heartbeat-state.json (91% rewrite)
+  - strateon/csuite/CEO/DAILY/2026-05-16.md (97% rewrite)
+- **Note:** Remote had diverged history (249 commits ahead); pulled with `--rebase`, resolved conflicts in backups.md and PHASE3.md (kept our version), force-pushed deploy/v2 → master
+- **Pushed to:** origin/master (2cf807e8 → 91c7ced7)
