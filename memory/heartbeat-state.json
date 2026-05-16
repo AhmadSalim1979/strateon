@@ -1,1 +1,20 @@
-{"lastChecks":{"email":null,"calendar":null,"pm2":1778849736,"heartbeat":1778849375},"urgentItems":[],"resolvedItems":["CTO: followup-engine STOPPED — diagnosed: SIGTERM clean exit (intentional stop, not crash loop). RESOLVED.","submit-intake FIXED (manual fix — handler moved inside createServer, column names corrected, UUID generation fixed, PM2 running)","submit-intake FIXED — email also working (contact@qiyadon.com sender)"],"resolvedToday":["moosa-worker heartbeat file MISSING — created manually. moosa-worker PID 907019 running fine. False alert from stale-task-detector.","qiyadon-audit-form running online (PID 906121)","moosa-worker running online (PID 907019)","operational-state.json cleared of stale critical alerts — worker healthy (heartbeat file exists, PID 907019)"]}
+{
+  "lastChecks": {
+    "email": null,
+    "calendar": null,
+    "pm2": 1778849736,
+    "heartbeat": 1778849736
+  },
+  "urgentItems": [],
+  "resolvedItems": [
+    "CTO: followup-engine STOPPED \u2014 diagnosed: SIGTERM clean exit (intentional stop, not crash loop). RESOLVED.",
+    "submit-intake FIXED (manual fix \u2014 handler moved inside createServer, column names corrected, UUID generation fixed, PM2 running)",
+    "submit-intake FIXED \u2014 email also working (contact@qiyadon.com sender)"
+  ],
+  "resolvedToday": [
+    "moosa-worker heartbeat file MISSING \u2014 created manually. moosa-worker PID 907019 running fine. False alert from stale-task-detector.",
+    "qiyadon-audit-form running online (PID 906121)",
+    "moosa-worker running online (PID 907019)",
+    "operational-state.json cleared of stale critical alerts \u2014 worker healthy (heartbeat file exists, PID 907019)"
+  ]
+}
