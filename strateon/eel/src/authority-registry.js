@@ -126,11 +126,14 @@ const AUTHORITY_REGISTRY = {
     notes: 'Maintains approved provider list only — does NOT cover alert_destinations or credentials'
   },
 
-  'ops/ALERT-DESTINATION-REGISTRY.md': {
-    categories: ['alert_destination'],
-    fact_types: ['email_address', 'phone_number', 'webhook_url'],
-    notes: 'NEW — must be created; contains explicit alert target approvals per alert type'
-  },
+  // Alert destination registry — PENDING: file must be created with explicit Ahmad approval
+  // Before creation: empty categories = cannot authorize any alert destination
+  // After creation: add entries with explicit approved destinations per alert type
+  // 'ops/ALERT-DESTINATION-REGISTRY.md': {
+  //   categories: ['alert_destination'],
+  //   fact_types: ['email_address', 'phone_number', 'webhook_url'],
+  //   notes: 'Contains explicit alert target approvals per alert type — PENDING Ahmad creation'
+  // },
 
   // Secrets — credential authority ONLY
   'secrets/supabase.json': {
