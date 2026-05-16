@@ -523,6 +523,163 @@
       text-align: center;
     }
 
+    #operational-visibility {
+      background: var(--off-white);
+      padding: 100px 40px;
+    }
+    #operational-visibility .section-sub { max-width: 580px; margin: 0 auto; }
+    .op-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1100px;
+      margin: 48px auto 0;
+    }
+    .op-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .op-card--alert { border-color: rgba(177,18,38,0.18); }
+    .op-card__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .op-card__icon {
+      color: var(--crimson);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+    .op-card__icon--alert { color: var(--crimson); }
+    .op-card__icon--recovery { color: var(--navy); }
+    .op-card__label {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--navy);
+      flex: 1;
+    }
+    .op-card__badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .op-card__badge--active { background: rgba(177,18,38,0.08); color: var(--crimson); border: 1px solid rgba(177,18,38,0.14); }
+    .op-card__badge--alert { background: rgba(177,18,38,0.10); color: var(--crimson); border: 1px solid rgba(177,18,38,0.22); }
+    .op-card__badge--recovery { background: rgba(11,31,58,0.07); color: var(--navy); border: 1px solid rgba(11,31,58,0.14); }
+    .op-card__badge--inactive { background: rgba(11,31,58,0.05); color: var(--slate); border: 1px solid rgba(11,31,58,0.12); }
+    .op-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .op-metric {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .op-metric__value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .op-metric__label {
+      font-size: 11px;
+      color: var(--slate);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .op-divider {
+      height: 1px;
+      background: rgba(0,0,0,0.07);
+      margin: 18px 0;
+    }
+    .op-action-items__label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--slate);
+      margin-bottom: 12px;
+    }
+    .op-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .op-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #3a3535;
+      line-height: 1.45;
+    }
+    .op-list__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .op-list__dot--red { background: var(--crimson); }
+    .op-list__dot--amber { background: #e89b00; }
+    .op-alert-body { margin-bottom: 0; }
+    .op-alert-headline {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .op-alert-sub {
+      font-size: 13px;
+      color: var(--slate);
+      font-style: italic;
+    }
+    .op-alert-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .op-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .op-meta-label {
+      color: var(--slate);
+      font-weight: 500;
+    }
+    .op-meta-value {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 12.5px;
+      text-align: right;
+    }
+    .op-meta-value--high { color: var(--crimson); }
+
+    @media (max-width: 768px) {
+      #operational-visibility { padding: 60px 20px; }
+      .op-cards { grid-template-columns: 1fr; }
+      .op-metrics { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .op-metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* IS STRATEON RIGHT FOR YOU */
     #is-this-for-you {
       background: var(--white);
@@ -1520,6 +1677,129 @@
     </div>
     <div class="step-cta fade-in">
       <a href="/pipeline-leak-audit.html" class="btn-primary">Get a Free Pipeline Leak Audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONAL VISIBILITY -->
+<section id="operational-visibility">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-eyebrow">Operational Visibility</span>
+      <h2>What You Actually Receive Every Week</h2>
+      <p class="section-sub">Qiyadon does not just automate follow-ups. It gives founders operational visibility into what is moving, stalling, and leaking across the pipeline.</p>
+    </div>
+    <div class="op-cards">
+      <!-- CARD 1: Friday Pipeline Report -->
+      <div class="op-card op-card--report fade-in">
+        <div class="op-card__header">
+          <div class="op-card__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="op-card__label">Friday Pipeline Report</span>
+          <span class="op-card__badge op-card__badge--active">This Week</span>
+        </div>
+        <div class="op-metrics">
+          <div class="op-metric">
+            <span class="op-metric__value">24</span>
+            <span class="op-metric__label">Leads Contacted</span>
+          </div>
+          <div class="op-metric">
+            <span class="op-metric__value">7</span>
+            <span class="op-metric__label">Dormant Revived</span>
+          </div>
+          <div class="op-metric">
+            <span class="op-metric__value">3</span>
+            <span class="op-metric__label">Escalations</span>
+          </div>
+          <div class="op-metric">
+            <span class="op-metric__value">4.2h</span>
+            <span class="op-metric__label">Avg Response Time</span>
+          </div>
+        </div>
+        <div class="op-divider"></div>
+        <div class="op-action-items">
+          <p class="op-action-items__label">Owner Action Items This Week</p>
+          <ul class="op-list">
+            <li>
+              <span class="op-list__dot op-list__dot--red"></span>
+              <span>Review 3 hot replies from Acme Corp, TechFlow, Vantage — close by Friday</span>
+            </li>
+            <li>
+              <span class="op-list__dot op-list__dot--amber"></span>
+              <span>Approve follow-up sequence for dormant Q3 cohort (14 leads)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CARD 2: Escalation Alert -->
+      <div class="op-card op-card--alert fade-in">
+        <div class="op-card__header">
+          <div class="op-card__icon op-card__icon--alert">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <span class="op-card__label">Escalation Alert</span>
+          <span class="op-card__badge op-card__badge--alert">Requires Response</span>
+        </div>
+        <div class="op-alert-body">
+          <p class="op-alert-headline">Lead replied with buying intent after 11 days of silence.</p>
+          <p class="op-alert-sub">Owner response recommended today.</p>
+        </div>
+        <div class="op-divider"></div>
+        <div class="op-alert-meta">
+          <div class="op-meta-row">
+            <span class="op-meta-label">Lead</span>
+            <span class="op-meta-value">Sarah Chen — Vertex Solutions</span>
+          </div>
+          <div class="op-meta-row">
+            <span class="op-meta-label">Pipeline Stage</span>
+            <span class="op-meta-value">Demo Scheduled</span>
+          </div>
+          <div class="op-meta-row">
+            <span class="op-meta-label">Response Priority</span>
+            <span class="op-meta-value op-meta-value--high">High — 1-day window</span>
+          </div>
+          <div class="op-meta-row">
+            <span class="op-meta-label">Last Contact</span>
+            <span class="op-meta-value">11 days ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Dormant Lead Recovery -->
+      <div class="op-card op-card--recovery fade-in">
+        <div class="op-card__header">
+          <div class="op-card__icon op-card__icon--recovery">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          </div>
+          <span class="op-card__label">Dormant Lead Recovery</span>
+          <span class="op-card__badge op-card__badge--recovery">Week 3 of 4</span>
+        </div>
+        <div class="op-alert-body">
+          <p class="op-alert-headline">Follow-up sequence engaged for inactive pipeline leads.</p>
+          <p class="op-alert-sub">Reactivation status: In Progress</p>
+        </div>
+        <div class="op-divider"></div>
+        <div class="op-alert-meta">
+          <div class="op-meta-row">
+            <span class="op-meta-label">Last Contact</span>
+            <span class="op-meta-value">May 2, 2026</span>
+          </div>
+          <div class="op-meta-row">
+            <span class="op-meta-label">Follow-up Stage</span>
+            <span class="op-meta-value">Stage 3 — Value Re-engagement</span>
+          </div>
+          <div class="op-meta-row">
+            <span class="op-meta-label">Next Scheduled</span>
+            <span class="op-meta-value">May 19, 2026 — Touch #4</span>
+          </div>
+          <div class="op-meta-row">
+            <span class="op-meta-label">Assigned Owner</span>
+            <span class="op-meta-value">Ahmad Salim (Founder)</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
