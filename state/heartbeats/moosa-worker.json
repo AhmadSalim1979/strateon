@@ -1,7 +1,7 @@
 {
   "component": "moosa-worker",
-  "last_run_at": "2026-05-15T16:55:20.665Z",
-  "status": "HEALTHY",
-  "pid": 907019,
-  "note": "Updated by heartbeat check — worker online, PID 907019, 0 restarts"
+  "last_run_at": "2026-05-17T04:52:00.000Z",
+  "status": "ONLINE_BUT_HEARTBEAT_STALE",
+  "pid": 922274,
+  "note": "Heartbeat file was 36h stale — process running but heartbeat not updating. Worker ONLINE. Manual refresh done at 04:52 UTC."
 }
