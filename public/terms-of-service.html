@@ -8,78 +8,288 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.75); background: #171314; padding: 100px 24px 80px; }
-    .container { max-width: 760px; margin: 0 auto; }
-    .top-bar { background: #171314; border-bottom: 3px solid #b81414; padding: 24px 0 20px; margin-bottom: 48px; }
-    .top-bar-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { font-size: 26px; font-weight: 850; color: #ffffff; letter-spacing: -0.05em; text-decoration: none; }
-    .brand span { color: #b81414; }
-    .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 48px; transition: opacity 0.2s; }
-    .back:hover { opacity: 0.75; }
-    h1 { font-size: 40px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 8px; }
-    .meta { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 48px; }
-    .doc { background: #1E1A1D; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 48px 40px; }
-    h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; }
-    h2:first-child { margin-top: 0; }
-    p { color: rgba(255,255,255,0.65); margin-bottom: 16px; }
-    ul { padding-left: 20px; margin-bottom: 16px; }
-    li { color: rgba(255,255,255,0.65); margin-bottom: 8px; }
-    strong { color: #ffffff; }
+    :root {
+      --navy: #0B1F3A;
+      --teal: #00C2CB;
+      --gold: #F5A623;
+      --cloud-white: #F5F7FA;
+      --slate: #6B7C93;
+      --dark-bg: #0F172A;
+      --text-primary: #1E293B;
+      --text-secondary: #64748B;
+      --border: #E2E8F0;
+      --white: #FFFFFF;
+      --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px; --space-5: 40px; --space-6: 48px; --space-8: 64px;
+      --container: 1200px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px;
+      --shadow-sm: 0 1px 3px rgba(11,31,58,0.06), 0 1px 2px rgba(11,31,58,0.04);
+      --shadow-md: 0 4px 12px rgba(11,31,58,0.08), 0 2px 6px rgba(11,31,58,0.06);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background: var(--cloud-white);
+      -webkit-font-smoothing: antialiased;
+      padding-top: 72px;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--white);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-3);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .nav-logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.05em;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover { opacity: 0.85; }
+    .nav-logo span { color: var(--teal); }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links { display: flex; gap: var(--space-4); list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px var(--space-3);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: #e09620; transform: translateY(-1px); }
+    .mobile-nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .legal-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--space-8) var(--space-3) var(--space-10);
+    }
+    .legal-page-header { margin-bottom: var(--space-6); }
+    .legal-page-header h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-2);
+    }
+    .legal-page-meta {
+      font-size: 14px;
+      color: var(--slate);
+      font-weight: 500;
+    }
+    .legal-doc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+    .legal-doc h2 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: var(--space-5);
+      margin-bottom: var(--space-2);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-doc h2:first-child { margin-top: 0; }
+    .legal-doc p { color: var(--text-secondary); margin-bottom: var(--space-2); line-height: 1.75; }
+    .legal-doc ul { padding-left: var(--space-3); margin-bottom: var(--space-3); }
+    .legal-doc li { color: var(--text-secondary); margin-bottom: 8px; line-height: 1.7; }
+    .legal-doc strong { color: var(--navy); font-weight: 600; }
+    footer {
+      background: var(--navy);
+      padding: 64px 24px 32px;
+      color: var(--white);
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 32px;
+    }
+    .footer-brand h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: rgba(255,255,255,0.9); }
+    .footer-brand h3 span { color: var(--teal); }
+    .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 260px; }
+    .footer-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-bottom span { font-size: 12px; color: rgba(255,255,255,0.3); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: rgba(255,255,255,0.98);
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 20px;
+        box-shadow: var(--shadow-md);
+      }
+      .legal-page { padding: var(--space-5) var(--space-2) var(--space-8); }
+      .legal-page-header h1 { font-size: 28px; }
+      .legal-doc { padding: var(--space-4) var(--space-3); }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="top-bar-inner">
-      <a href="/" class="brand">qiya<span>d</span>on</a>
-      <a href="/" class="back">← Back to Qiyadon</a>
-    </div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon"> <span>qiyadon</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#what-we-do">What We Do</a></li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/#first-7-days">First 7 Days</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+    <a href="/pipeline-leak-audit.html" class="nav-cta">Get a Free Pipeline Leak Audit</a>
   </div>
-  <div class="container">
+</nav>
+
+<div class="legal-page">
+  <div class="legal-page-header">
     <h1>Terms of Service</h1>
-    <p class="meta">Effective: April 29, 2026 &nbsp;•&nbsp; Qiyadon</p>
-    <div class="doc">
-      <h2>1. Acceptance of Terms</h2>
-      <p>By engaging Qiyadon pipeline execution services, you agree to be bound by these Terms of Service. If you do not agree to these terms, do not engage our services.</p>
+    <p class="legal-page-meta">Effective: April 29, 2026 &nbsp;&bull;&nbsp; Qiyadon</p>
+  </div>
+  <div class="legal-doc">
+    <h2>1. Acceptance of Terms</h2>
+    <p>By engaging Qiyadon pipeline execution services, you agree to be bound by these Terms of Service. If you do not agree to these terms, do not engage our services.</p>
 
-      <h2>2. Nature of Service</h2>
-      <p>Qiyadon provides done-for-you pipeline follow-up execution, including inbound lead contact, dormant lead reactivation, CRM hygiene, escalation alerting, and weekly pipeline reporting. The scope of services is defined at the time of engagement and detailed in your signed Client Service Agreement.</p>
+    <h2>2. Nature of Service</h2>
+    <p>Qiyadon provides done-for-you pipeline follow-up execution, including inbound lead contact, dormant lead reactivation, CRM hygiene, escalation alerting, and weekly pipeline reporting. The scope of services is defined at the time of engagement and detailed in your signed Client Service Agreement.</p>
 
-      <h2>3. Client Responsibilities</h2>
-      <p>You are responsible for:</p>
-      <ul>
-        <li>Providing accurate lead and pipeline information</li>
-        <li>Ensuring you have the authority to grant Qiyadon access to your CRM and pipeline data</li>
-        <li>Providing timely approval of messaging sequences and follow-up rules before they are activated</li>
-        <li>Maintaining an available point of contact to receive and act on escalation alerts</li>
-      </ul>
+    <h2>3. Client Responsibilities</h2>
+    <p>You are responsible for:</p>
+    <ul>
+      <li>Providing accurate lead and pipeline information</li>
+      <li>Ensuring you have the authority to grant Qiyadon access to your CRM and pipeline data</li>
+      <li>Providing timely approval of messaging sequences and follow-up rules before they are activated</li>
+      <li>Maintaining an available point of contact to receive and act on escalation alerts</li>
+    </ul>
 
-      <h2>4. Qiyadon Responsibilities</h2>
-      <p>Qiyadon agrees to:</p>
-      <ul>
-        <li>Execute follow-up sequences as configured and approved by the client</li>
-        <li>Deliver weekly pipeline reports every Friday</li>
-        <li>Maintain client data confidentiality and isolation</li>
-        <li>Operate within the outreach guidelines provided by the client</li>
-      </ul>
+    <h2>4. Qiyadon Responsibilities</h2>
+    <p>Qiyadon agrees to:</p>
+    <ul>
+      <li>Execute follow-up sequences as configured and approved by the client</li>
+      <li>Deliver weekly pipeline reports every Friday</li>
+      <li>Maintain client data confidentiality and isolation</li>
+      <li>Operate within the outreach guidelines provided by the client</li>
+    </ul>
 
-      <h2>5. Confidentiality</h2>
-      <p>Qiyadon treats all client pipeline data as strictly confidential. Your leads, pipeline reports, and account information are never shared with other clients or third parties beyond what is necessary to deliver the contracted service.</p>
+    <h2>5. Confidentiality</h2>
+    <p>Qiyadon treats all client pipeline data as strictly confidential. Your leads, pipeline reports, and account information are never shared with other clients or third parties beyond what is necessary to deliver the contracted service.</p>
 
-      <h2>6. Limitation of Liability</h2>
-      <p>Qiyadon's liability is limited to the total fees paid by the client for the affected period of service. Qiyadon is not liable for indirect damages, lost revenue, lost opportunities, or reputational harm arising from pipeline outcomes.</p>
+    <h2>6. Limitation of Liability</h2>
+    <p>Qiyadon's liability is limited to the total fees paid by the client for the affected period of service. Qiyadon is not liable for indirect damages, lost revenue, lost opportunities, or reputational harm arising from pipeline outcomes.</p>
 
-      <h2>7. Termination</h2>
-      <p>Either party may terminate engagement with 14 days written notice. Upon termination, Qiyadon will cease active follow-up execution and revoke CRM access within 5 business days. Data retention follows the policy outlined in our Privacy Policy.</p>
+    <h2>7. Termination</h2>
+    <p>Either party may terminate engagement with 14 days written notice. Upon termination, Qiyadon will cease active follow-up execution and revoke CRM access within 5 business days. Data retention follows the policy outlined in our Privacy Policy.</p>
 
-      <h2>8. Governing Law</h2>
-      <p>These Terms of Service are governed by the laws of the jurisdiction in which the client's primary business is registered, unless otherwise specified in a separately executed Client Service Agreement.</p>
+    <h2>8. Governing Law</h2>
+    <p>These Terms of Service are governed by the laws of the jurisdiction in which the client's primary business is registered, unless otherwise specified in a separately executed Client Service Agreement.</p>
 
-      <h2>9. Service Modifications</h2>
-      <p>Qiyadon reserves the right to modify service specifications with 14 days written notice to the client. Material changes to pricing or scope require a new engagement agreement.</p>
+    <h2>9. Service Modifications</h2>
+    <p>Qiyadon reserves the right to modify service specifications with 14 days written notice to the client. Material changes to pricing or scope require a new engagement agreement.</p>
 
-      <h2>10. Contact</h2>
-      <p>For questions regarding these Terms, contact:<br><strong>contact@qiyadon.com</strong></p>
+    <h2>10. Contact</h2>
+    <p>For questions regarding these Terms, contact:<br><strong>contact@qiyadon.com</strong></p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>qiya<span>d</span>on</h3>
+        <p>Done-for-you pipeline follow-up for founder-led SMBs in IT services, MSPs, SaaS, and professional services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/#what-we-do">What We Do</a></li>
+          <li><a href="/#how-it-works">How It Works</a></li>
+          <li><a href="/#first-7-days">First 7 Days</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+      <span>Ahmad Salim &mdash; Founding Board Member</span>
     </div>
   </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+  }
+</script>
 </body>
 </html>
