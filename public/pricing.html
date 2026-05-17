@@ -76,6 +76,29 @@
     .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--brand-red); }
     .nav-links a.active { color: var(--brand-red); font-weight: 600; }
+    .mobile-nav-toggle {
+      display: none;
+      background: none; border: none; cursor: pointer; padding: 8px;
+      align-items: center; justify-content: center;
+    }
+    .mobile-nav-toggle svg { color: var(--text-muted); }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 78px; left: 0; right: 0;
+        background: rgba(0,0,0,0.96);
+        padding: 24px;
+        border-bottom: 1px solid var(--dark-border);
+        gap: 20px;
+        z-index: 999;
+      }
+      .nav-links.active a { font-size: 16px; color: var(--text-muted); }
+    }
     .nav-cta {
       background: linear-gradient(135deg, #B11226 0%, #E03131 100%);
       color: #fff; font-size: 14px; font-weight: 600;
@@ -302,13 +325,16 @@
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><span>qiyadon</span></a>
+    <a href="/" class="nav-logo"><img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon" class="brand-logo-img"> <span>qiyadon</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/#what-we-do">What We Do</a></li>
       <li><a href="/#how-it-works">How It Works</a></li>
       <li><a href="/pricing.html" class="active">Pricing</a></li>
       <li><a href="/#faq">FAQ</a></li>
     </ul>
+    <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
     <a href="/sign-trial.html" class="nav-cta">Start Free Trial</a>
   </div>
 </nav>
@@ -459,6 +485,14 @@
   </div>
 </section>
 
+<!-- AUDIT CTA — restrained secondary pathway -->
+<div style="text-align:center;padding:0 0 40px;">
+  <p style="font-size:14px;color:var(--text-faint);margin-bottom:8px;">Not sure which plan is right for your pipeline?</p>
+  <a href="/pipeline-leak-audit.html" style="font-size:13px;color:var(--crimson);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;">
+    Start with a free Pipeline Leak Audit →
+  </a>
+</div>
+
 <!-- TRIAL -->
 <section class="trial-section">
   <div class="container">
@@ -536,11 +570,11 @@
   </div>
   <div class="faq-item">
     <button class="faq-question" onclick="this.classList.toggle('open'); this.nextElementSibling.classList.toggle('open')">
-      <span>What happens if I exceed my lead limit?</span>
+      <span>What makes a lead qualify during the trial?</span>
       <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
     </button>
     <div class="faq-answer">
-      <p>Starter plan overage is $6/lead over 50. Growth plan overage is $4/lead over 200. Scale has no overage — it's truly unlimited. You'll be notified when you're approaching your limit so you can decide whether to upgrade.</p>
+      <p>A qualified lead is one that has responded meaningfully to a follow-up sequence — a reply, a meeting request, a demo inquiry, or any form of engagement. Pure bounces, unsubscribes, and non-deliveries do not count toward qualification. The goal is 20 qualifying leads out of your 25-trial-max to continue.</p>
     </div>
   </div>
   <div class="faq-item">

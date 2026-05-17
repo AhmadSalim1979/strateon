@@ -1,9 +1,15 @@
 {
-  "last_heartbeat_check": "2026-05-17T04:52:00Z",
+  "last_heartbeat_check": "2026-05-17T06:26:00Z",
   "checks_performed": {
     "2026-05-17T04:52:00Z": {
       "pm2_status": "online",
       "worker_heartbeat": "STALE_36h_MANUAL_REFRESH",
+      "stale_task_detector": "column_tasks.last_update_at_missing",
+      "gateway": "online"
+    },
+    "2026-05-17T06:26:00Z": {
+      "pm2_status": "online",
+      "worker_heartbeat": "online_refreshed",
       "stale_task_detector": "column_tasks.last_update_at_missing",
       "gateway": "online"
     }
