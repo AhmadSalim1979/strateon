@@ -13,5 +13,10 @@
       "stale_task_detector": "column_tasks.last_update_at_missing",
       "gateway": "online"
     }
+  },
+  "last_checks": {
+    "worker_heartbeat": "2026-05-17T08:22:43.038Z",
+    "operational_state": "2026-05-17T08:22:43.038Z",
+    "memory": "2026-05-17T08:22:43.038Z"
   }
 }
