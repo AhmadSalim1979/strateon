@@ -290,11 +290,20 @@ ICP: VP Sales / Head of Sales at B2B SaaS Series A–C ✅ | LinkedIn posts acti
 
 | Blocker | Weeks Open | Impact |
 |---|---|---|
-| **Delaware C-Corp** | 6 weeks | Cannot sign clients, no Stripe, no legal entity |
-| **Stripe account + links** | 2 weeks | Cannot collect payments |
-| **WhatsApp re-auth** | 1 week | Inbound dead (needs QR scan via physical phone) |
-| **VP Sales outreach** | 6 weeks | Zero pipeline without outbound |
-| **Phase 3 SQL columns** | 1 week | Ahmad must run: `hop_count`, `processed_at`, `processed_by` in `events` table |
+| **Delaware C-Corp** | 7+ weeks | Cannot sign clients, no Stripe, no legal entity |
+| **Stripe account + links** | 3+ weeks | Cannot collect payments |
+| **WhatsApp re-auth** | 2 weeks | Inbound dead (needs QR scan via physical phone) |
+| **VP Sales outreach** | 7+ weeks | Zero pipeline without outbound |
+| **Phase 3 SQL columns** | 2 weeks | Ahmad must run: `hop_count`, `processed_at`, `processed_by` in `events` table |
+| **moosa-worker restart (R4A)** | NEW | Heartbeat R4A code not active — no data loss risk |
+| **EEL Supabase module path** | NEW | All APAC WhatsApp event writes fail silently — CRITICAL data loss |
+
+## EEL Supabase Module Path Bug — CRITICAL
+
+**File:** `strateon/eel/src/apac-whatsapp-hook.js`
+**Error:** `Cannot find module '../../../secrets/supabase.json'`
+**Impact:** Every APAC WhatsApp event write to Supabase fails silently. Approval classifications, audit data — all lost.
+**Fix:** Correct relative require path to `secrets/supabase.json`. Route to qwen2.5-coder:7b sidecar for implementation.
 
 ---
 
@@ -375,9 +384,9 @@ Website AI Governance section live at qiyadon.com. PM2 moosa-worker restarted.
 |---|---|---|
 | Phase 0 (Governance) | ✅ Complete | BOOTSTRAP.md, IDENTITY.md, SOUL.md, AGENTS.md, MEMORY.md |
 | Phase 1 (Instruction Bridge) | ✅ Complete | Supabase tables, instruction bridge SQL |
-| Phase 2 (Wiring) | 🔴 Blocked | Sidecar approach chosen over n8n — Phase 2.1 in progress |
+| Phase 2 (Wiring) | ✅ Complete | Sidecar approach — N8N removed |
 | Phase 3 (Watchdog) | ✅ Complete | state-machine.js, stale-task-detector.js, operational-state.json |
-| Phase 4 (BCDR) | ⏳ Pending | Shadow mode + replay safety — AI Architect owns |
+| Phase 4 (BCDR) | 🔄 In Progress | Phase 4 built, wiring + deployment pending — AI Architect owns |
 | Phase 5 (Go Live) | ⏳ Pending | Client onboarding, Stripe, Delaware entity |
 | Phase 6E (Control Plane Authority) | ✅ Complete | Session mode enforcement in AGENTS.md |
 
@@ -401,11 +410,30 @@ Pattern log moved to: `memory/ARCHIVE-MEMORY-LOGS.md`
 
 ---
 
-## Week 1 + Week 2 Audit Archives
+## Week 3 Audit — Week of May 11–17 (Archived)
 
-Archived scorecards moved to:
-- `strateon/archive/WEEK1-AUDIT-2026-05-03.md`
-- `strateon/archive/WEEK2-AUDIT-2026-05-11.md`
+**Archived:** 2026-05-17
+**Location:** `strateon/weaknesses/audit-2026-05-17.md`
+
+### Scorecard: 6/14
+
+Revenue $0, first client 0, Delaware unregistered (7+ weeks), Stripe not created (3+ weeks) — commercial execution stalled. Website P1–P5 complete ✅, AI Architect Phase 4 built ✅, Business Disruptor Week 3 report delivered ✅, Runtime incident May 17 (recovered) 🟡.
+
+### New Weaknesses This Week
+- **EEL Supabase module path bug:** `strateon/eel/src/apac-whatsapp-hook.js` fails to find `secrets/supabase.json` — all APAC WhatsApp event writes fail silently. CRITICAL.
+- **moosa-worker R4A not active:** Code deployed to `/root/` but worker runs from `/home/node/` — requires `pm2 restart moosa-worker`
+- **Stale task detector wrong column:** Queries `last_update_at` but schema has `lifecycle_state` — returns 0 tasks
+
+### Key Learnings
+- `pm2 kill` destroys the entire daemon — permanently banned
+- Node.js ES modules cached for process lifetime — code changes on disk do NOT propagate into running process
+- Dirty repos prohibited as deployment targets
+- Verification gates required before phase progression
+
+### Pending Approvals
+- POST-017 (CMO LinkedIn)
+- POST-018 "Anthropic's AI Dreams" (CMO LinkedIn)
+- EU AI Act urgency page update (CMO)
 
 ---
 

@@ -46,11 +46,11 @@ done
 
 if [ ${#FAILED[@]} -gt 0 ]; then
   echo "ALERT: ${#FAILED[@]} endpoint(s) genuinely down: ${FAILED[*]}"
-  node -e "
-const { sendWhatsAppMessage } = require('/home/node/.openclaw/workspace/strateon/csuite/CEO/whatsapp-client.js');
-const msg = '🚨 UPTIME ALERT: ' + ['${FAILED[*]}'].join(', ') + ' — check immediately.';
-sendWhatsAppMessage('+923215139934', msg).catch(e => console.error('Alert failed:', e.message));
-" 2>/dev/null || echo "ALERT: ${FAILED[*]}"
+  /opt/node24/node-v24.13.1-linux-x64/bin/node /root/OpenClaw/openclaw.mjs message send \
+    --channel whatsapp \
+    --target "+923215139934" \
+    --message "🚨 UPTIME ALERT: ${#FAILED[@]} endpoint(s) down — ${FAILED[*]} — check immediately." \
+    --json >/dev/null 2>&1
   exit 1
 else
   echo "OK: All endpoints verified"
