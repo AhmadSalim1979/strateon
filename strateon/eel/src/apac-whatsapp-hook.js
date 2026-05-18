@@ -64,7 +64,7 @@ async function writeSupabaseAuditLog(entry, supabaseClientOrConn) {
       client = supabaseClientOrConn;
     } else {
       // Load from secrets
-      const secrets = require('../../../secrets/supabase.json');
+      const secrets = require('../../../../secrets/supabase.json');
       const { Pool } = require('pg');
       const pool = new Pool({ connectionString: secrets.connectionString });
       client = pool;
