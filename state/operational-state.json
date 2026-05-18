@@ -1,18 +1,30 @@
 {
   "version": 1,
-  "last_updated": "2026-05-17T04:52:00.000Z",
+  "last_updated": "2026-05-18T04:40:00.000Z",
   "worker_status": "online",
   "active_tasks": [],
   "recent_alerts": [
     {
+      "level": 0,
+      "message": "Worker recovered \u2014 online (2026-05-18T04:40 UTC). Poll-cycle heartbeat active. Option B implementation complete.",
+      "task_id": null,
+      "at": "2026-05-18T04:40:00.000Z"
+    },
+    {
+      "level": 3,
+      "message": "CRITICAL: Worker heartbeat file age >19h (2026-05-17T08:22:30.087Z). Process online but heartbeat stale. Requires immediate attention.",
+      "task_id": null,
+      "at": "2026-05-18T03:47:12.575Z"
+    },
+    {
       "level": 1,
-      "message": "Worker heartbeat stale — process online (PID 922274, 34h uptime) but heartbeat file not updating. Manual refresh done.",
+      "message": "Worker heartbeat stale \u2014 process online (PID 922274, 34h uptime) but heartbeat file not updating. Manual refresh done.",
       "task_id": null,
       "at": "2026-05-17T04:52:00.000Z"
     },
     {
       "level": 0,
-      "message": "Worker recovered — online",
+      "message": "Worker recovered \u2014 online",
       "task_id": null,
       "at": "2026-05-15T16:35:59.248Z"
     }

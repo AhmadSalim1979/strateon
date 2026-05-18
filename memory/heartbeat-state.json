@@ -1,22 +1,27 @@
 {
-  "last_heartbeat_check": "2026-05-17T06:26:00Z",
+  "last_heartbeat_check": "2026-05-18T05:10:00Z",
   "checks_performed": {
-    "2026-05-17T04:52:00Z": {
-      "pm2_status": "online",
-      "worker_heartbeat": "STALE_36h_MANUAL_REFRESH",
-      "stale_task_detector": "column_tasks.last_update_at_missing",
-      "gateway": "online"
-    },
-    "2026-05-17T06:26:00Z": {
+    "2026-05-18T05:10:00Z": {
       "pm2_status": "online",
       "worker_heartbeat": "online_refreshed",
-      "stale_task_detector": "column_tasks.last_update_at_missing",
-      "gateway": "online"
+      "stale_task_detector": "skipped",
+      "gateway": "whatsapp_connected",
+      "memory": "2026-05-18_exists_contentful",
+      "so_d_report": "delivered_via_cron"
     }
   },
+  "worker_reality": {
+    "old_pid": 922274,
+    "new_pid": 1032561,
+    "new_heartbeat": "/root/.openclaw/workspace/moosa-worker/state/heartbeats/worker.json",
+    "old_heartbeat_stale": true,
+    "stale_task_detector": "points_to_wrong_heartbeat_file",
+    "errors_in_error_log": "from_old_pid_922274_not_new_pid"
+  },
   "last_checks": {
-    "worker_heartbeat": "2026-05-17T08:22:43.038Z",
-    "operational_state": "2026-05-17T08:22:43.038Z",
-    "memory": "2026-05-17T08:22:43.038Z"
-  }
+    "worker_heartbeat": "2026-05-18T07:11:40.429Z",
+    "operational_state": "2026-05-18T04:40:00.000Z",
+    "memory": "2026-05-18T00:00:00Z"
+  },
+  "notes": "Worker restarted May 18 morning. New PID 1032561 running from /root/.openclaw/workspace/moosa-worker. Heartbeat file correctly updated. SoD report delivered via cron (not WhatsApp). All PM2 processes online."
 }

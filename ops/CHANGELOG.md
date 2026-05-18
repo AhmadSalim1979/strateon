@@ -381,3 +381,132 @@ Document created — PROCESS-SAFETY.md exists with:
 - Runtime recovery automation spec
 
 **STATUS:** DOCUMENTED — implementation deferred to future hardening phase
+
+## 2026-05-18 — API Routing Restoration (P1)
+
+### What Happened
+Public API at `api.qiyadon.com` returned HTTP 404 after qiyadon-audit-form restart on May 17. Investigation revealed:
+
+**Root Cause:** Form handler (`qiyadon-audit-form`) was NOT running on port 3001 from ~May 17 17:45 until ~May 18 03:00 (restarted during P0 baseline check). Cloudflared tunnel was routing traffic but getting "connection refused" from localhost:3001. Cloudflare edge returned 404 to clients because the tunnel couldn't reach the origin.
+
+**Secondary Finding:** After form restart during P0, the tunnel DID successfully proxy requests — confirmed by live curl test (HTTP 400 with proper validation error `{"error":"Missing: leads_per_month"}`). The 404 from `curl https://api.qiyadon.com/` was because `curl` without a path doesn't match `/submit-audit` or `/submit-signature` routes — the API has no root handler, so it falls through to the `http_status:404` catchall rule in tunnel.yml (last rule, no hostname match).
+
+### Verification Results (2026-05-18 03:27 UTC)
+- `POST https://api.qiyadon.com/submit-audit` → HTTP 400 `{"error":"Missing: <field>"}` ✅
+- `POST https://api.qiyadon.com/submit-signature` → HTTP 400 `{"error":"Missing: <field>"}` ✅
+- `https://qiyadon.com/` → HTTP 200 ✅
+
+### No Changes Made
+No Cloudflare config, DNS, or tunnel changes. No restarts. No approvals required for changes — investigation proved routing was already functional.
+
+### Files Touched
+None.
+
+### Notes
+- `api.qiyadon.com/` returns 404 because the backend server.js has no root route handler — this is expected behavior
+- The `http_status:404` catchall in tunnel.yml routes unmatched paths to a 404 response
+- Cloudflared tunnel is running outside PM2 (PID 951644, 9 days uptime) — intact
+- PM2 entry `cloudflared-tunnel` remains stopped per prior management decision
+
+## 2026-05-18 05:47 UTC — P2.1 Orphan Cleanup (Ahmad Approved)
+
+### Actions Executed
+1. `kill 891610 891611` — killed zombie orphan processes (strateon-followup-engine PM2 log tailer, 3+ days old)
+2. `pm2 delete instruction-sidecar-shadow` — removed zombie PM2 entry (id:4)
+3. `pm2 save` — saved clean PM2 state
+
+### Results
+- Orphan PIDs 891610/891611: **KILLED** — confirmed no longer running
+- instruction-sidecar-shadow PM2 entry: **DELETED** — no longer in PM2 list
+- strateon-followup-engine: already gone from PM2 (not found on delete attempt)
+- PM2 dump: **5 entries** — clean (cloudflared-tunnel, moosa-worker, moosa-watchdog, openclaw-gateway, qiyadon-audit-form)
+
+### PM2 Stability
+- No new "PM2 is being killed" errors after May 17 21:33 UTC
+- No new "RestartProcessId" errors
+- All 4 active processes: 0 restarts, online
+- Runtime remained stable throughout cleanup
+
+### PM2 State After Cleanup
+| Process | Status | Restarts | Uptime |
+|---|---|---|---|
+| moosa-worker | online | 0 | 10h |
+| moosa-watchdog | online | 0 | 10h |
+| openclaw-gateway | online | 0 | 10h |
+| qiyadon-audit-form | online | 0 | 8h |
+| cloudflared-tunnel | stopped | 0 | — (standalone) |
+
+### Note
+- strateon-followup-engine was NOT in PM2 list (already removed prior) — only orphaned log tailer PIDs were running
+- Watchdog alerts remain disabled per P0 constraints
+
+## 2026-05-18 06:14 UTC — Option B: Poll-Cycle Worker Liveness Heartbeat (P2.3)
+
+### Files Changed
+- `moosa-worker/src/core/loop.js` — added worker liveness heartbeat on every poll cycle
+
+### Changes Made
+1. **Import**: Added `import { writeHeartbeatToFile } from '../handlers/heartbeat-writer.js';`
+2. **Startup heartbeat**: Writes `worker.json` with `status: STARTING` at worker init
+3. **Idle heartbeat**: Writes `worker.json` with `status: IDLE` on every empty poll cycle (every 10s)
+4. **Busy heartbeat**: Writes `worker.json` with `status: BUSY` before processing task batch
+
+### Backup Created
+- `moosa-worker/src/core/loop.js.bak.20260518061415` — pre-change backup
+
+### Not Changed
+- `run_self_check_and_decide.js` — self-check heartbeat semantics preserved separately
+- `watchdog.js` — stale threshold unchanged (10 min)
+- `heartbeat-writer.js` — no changes
+- Alert enablement — NOT enabled yet
+
+### Diff (key sections only)
+```diff
++ import { writeHeartbeatToFile } from '../handlers/heartbeat-writer.js';
+
++ // At start of startWorker():
++ await writeHeartbeatToFile({ process_name: 'worker', pid: process.pid,
++   last_cycle_at: new Date().toISOString(), last_status: 'STARTING', ... });
+
++ // In runCycle() when pendingTasks.length === 0:
++ await writeHeartbeatToFile({ process_name: 'worker', ..., last_status: 'IDLE', ... });
+
++ // In runCycle() before for (const task of...):
++ await writeHeartbeatToFile({ process_name: 'worker', ..., last_status: 'BUSY', ... });
+```
+
+### Syntax Check
+- `node --check src/core/loop.js` — ✅ PASSED (no errors)
+
+### Pending
+- PM2 restart of moosa-worker (awaiting approval)
+- Post-restart verification of worker.json freshness
+- Alert enablement decision
+
+## 2026-05-18 06:38 UTC — P2.3 Alert Readiness Implementation
+
+### Watchdog Alert Categorization (Option B)
+- `moosa-worker/src/watchdog.js` — added `isAlertEnabled(category)` function
+- `moosa-worker/src/watchdog.js` — added `WATCHDOG_ALERT_CATEGORIES` env var parsing
+- `moosa-worker/ecosystem.config.cjs` — added `WATCHDOG_ALERTS_ENABLED=true`, `WATCHDOG_ALERT_CATEGORIES=worker_down`
+- Self-check stale → `ℹ️` informational prefix, `selfcheck_stale` category (disabled)
+- Worker heartbeat stale → `⚠️` alert prefix, `worker_down` category (enabled)
+
+### Counter Reset
+- `watchdog-state.json` — alert_counts and consecutive_failures reset to 0
+- Worker state preserved, self-check state preserved
+
+### Alert Category State After 2 Watchdog Cycles
+| Category | Enabled | consecutive_failures | alert_counts | WhatsApp |
+|---|---|---|---|---|
+| worker_down | ✅ YES | 0 | 0 | NOT SENT (worker healthy) |
+| selfcheck_stale | ❌ NO | 3 | 1 | NOT SENT (disabled) |
+
+### PM2 State
+- moosa-worker: PID 1032561, 15min, 0 restarts ✅
+- moosa-watchdog: PID 1032972, 5min, 0 restarts ✅
+- Worker heartbeat advances every ~10s ✅
+
+### Not Enabled Yet
+- No test alert fired (worker is healthy — no stale trigger)
+- To fire a test alert: stop moosa-worker, wait 11+ minutes, then alert fires
