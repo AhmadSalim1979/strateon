@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continue Your Operational Partnership — Growth Plan</title>
+  <meta name="description" content="Confirm your Qiyadon Growth plan — $750/month. 200 leads, WhatsApp + Email follow-up, daily briefs, and a monthly strategy call.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: #e0e0e0; background: #0F0D0E; padding: 0 24px 120px; }
+    .container { max-width: 760px; margin: 0 auto; padding-top: 80px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 48px; transition: opacity 0.2s; }
+    .back:hover { opacity: 0.75; }
+    .badge { display: inline-block; background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25); border-radius: 6px; padding: 4px 12px; font-size: 12px; font-weight: 600; color: #86efac; margin-bottom: 20px; }
+    h1 { font-size: 36px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .subtitle { font-size: 16px; color: #888888; margin-bottom: 48px; max-width: 600px; }
+    .evaluation-summary { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 32px 36px; margin-bottom: 20px; }
+    .evaluation-summary h2 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #222222; gap: 24px; }
+    .summary-row:last-child { border-bottom: none; }
+    .summary-label { font-size: 14px; color: #888888; flex-shrink: 0; }
+    .summary-value { font-size: 14px; color: #cccccc; text-align: right; }
+    .summary-value.met { color: #22c55e; }
+    .summary-value.not-met { color: #ef4444; }
+    .overall-result { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 10px; padding: 20px 24px; margin-top: 20px; display: flex; gap: 16px; align-items: center; }
+    .overall-result-icon { font-size: 24px; flex-shrink: 0; }
+    .overall-result-text strong { color: #22c55e; font-size: 15px; }
+    .overall-result-text span { color: #aaaaaa; font-size: 14px; }
+    .observed-value { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 32px 36px; margin-bottom: 20px; }
+    .observed-value h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+    .value-item { display: flex; gap: 14px; margin-bottom: 18px; }
+    .value-item:last-child { margin-bottom: 0; }
+    .value-icon { width: 28px; height: 28px; background: #222222; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #22c55e; font-size: 14px; }
+    .value-text { font-size: 15px; color: #cccccc; padding-top: 3px; }
+    .value-text strong { color: #ffffff; }
+    .continuity-outcomes { background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 14px; padding: 28px 32px; margin-bottom: 20px; }
+    .continuity-outcomes h2 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .continuity-item { display: flex; gap: 12px; margin-bottom: 12px; font-size: 14px; color: #cccccc; }
+    .continuity-icon { color: #3b82f6; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+    .plan-explanation { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 32px 36px; margin-bottom: 20px; }
+    .plan-explanation h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+    .plan-pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .pricing-card { background: #222222; border: 1px solid #333333; border-radius: 10px; padding: 20px; text-align: center; }
+    .pricing-card.highlight { border-color: #b81414; background: rgba(184,20,20,0.08); }
+    .pricing-amount { font-size: 28px; font-weight: 800; color: #ffffff; }
+    .pricing-period { font-size: 13px; color: #888888; }
+    .pricing-detail { font-size: 13px; color: #aaaaaa; margin-top: 8px; }
+    .pricing-cap { font-size: 12px; color: #666666; margin-top: 6px; }
+    .pricing-card.highlight .pricing-amount { color: #b81414; }
+    .plan-includes { margin-bottom: 20px; }
+    .plan-includes h3 { font-size: 14px; font-weight: 600; color: #ffffff; margin-bottom: 12px; }
+    .include-item { display: flex; gap: 12px; margin-bottom: 10px; font-size: 14px; color: #cccccc; }
+    .include-icon { color: #22c55e; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .governance { background: rgba(184,20,20,0.06); border: 1px solid rgba(184,20,20,0.15); border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; }
+    .governance h3 { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
+    .governance-item { display: flex; gap: 12px; margin-bottom: 10px; font-size: 14px; color: #cccccc; }
+    .governance-item:last-child { margin-bottom: 0; }
+    .governance-icon { color: #b81414; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+    .upsell-section { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.2); border-radius: 14px; padding: 28px 32px; margin-bottom: 20px; }
+    .upsell-section h2 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .upsell-plan { display: flex; gap: 16px; margin-bottom: 16px; }
+    .upsell-plan:last-child { margin-bottom: 0; }
+    .upsell-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .upsell-text { font-size: 14px; color: #cccccc; }
+    .upsell-text strong { color: #ffffff; }
+    .upsell-text span { color: #888888; font-size: 13px; }
+    .opt-in-section { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 36px 40px; margin-bottom: 20px; }
+    .opt-in-section h2 { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+    .opt-in-section > p { font-size: 14px; color: #888888; margin-bottom: 28px; }
+    .field-group { margin-bottom: 20px; }
+    label.field-label { display: block; font-size: 12px; font-weight: 700; color: #aaaaaa; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    input[type="text"], input[type="email"] { width: 100%; max-width: 440px; padding: 11px 14px; border: 1px solid #444444; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #ffffff; background: #222222; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    input[type="text"]::placeholder, input[type="email"]::placeholder { color: #888888; }
+    input[type="text"]:focus, input[type="email"]:focus { border-color: #b81414; box-shadow: 0 0 0 3px rgba(184,20,20,0.15); }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 12px; background: #222222; border: 1px solid #333333; border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; cursor: pointer; }
+    .checkbox-group input[type="checkbox"] { margin-top: 3px; accent-color: #b81414; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+    .checkbox-label { font-size: 14px; color: #cccccc; line-height: 1.6; cursor: pointer; }
+    .checkbox-label strong { color: #e0e0e0; }
+    .submit-btn { background: #b81414; color: #ffffff; border: none; padding: 14px 40px; border-radius: 999px; font-size: 15px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 8px; }
+    .submit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    #submit-error { color: #ff6666; font-size: 13px; margin-top: 12px; display: none; }
+    #submit-success { display: none; text-align: center; padding: 48px 40px; }
+    #submit-success h3 { font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
+    #submit-success p { font-size: 15px; color: #aaaaaa; }
+    .next-steps { margin-top: 24px; background: #1a1a1a; border: 1px solid #333333; border-radius: 10px; padding: 24px 28px; text-align: left; }
+    .next-steps h4 { font-size: 14px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .next-step-item { display: flex; gap: 14px; margin-bottom: 14px; font-size: 14px; color: #cccccc; align-items: flex-start; }
+    .next-step-item:last-child { margin-bottom: 0; }
+    .next-step-day { background: #222222; border-radius: 6px; padding: 4px 10px; font-size: 12px; font-weight: 600; color: #b81414; flex-shrink: 0; }
+    .footer-links { border-top: 1px solid #222222; margin-top: 60px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-links a { color: #00C2CB; font-size: 13px; font-weight: 500; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-links span { color: #666666; font-size: 12px; }
+  
+
+@media(max-width:600px){.nav-links{display:none;}.mobile-nav-toggle{display:flex!important;}.nav-cta{display:none!important;}.nav-links.active{display:flex!important;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(15,13,14,0.98);padding:20px 24px;border-bottom:1px solid #333;gap:16px;}}
+    </style>
+  <link rel="canonical" href="https://qiyadon.com/sign-growth.html">
+</head>
+<body>
+<!-- NAV -->
+<nav id="navbar" style="position:fixed;top:0;left:0;right:0;background:rgba(15,13,14,0.96);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid #333;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:32px;">
+    <a href="/" style="font-size:26px;font-weight:800;color:#e0e0e0;text-decoration:none;letter-spacing:-0.04em;display:flex;align-items:center;gap:10px;flex-shrink:0;">
+      <img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon" style="height:36px;border-radius:6px;">
+      <span style="color:#e0e0e0;">qiyadon</span>
+    </a>
+    <ul id="navLinks" style="display:flex;gap:28px;list-style:none;margin:0;">
+      <li><a href="/#what-we-do" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">What We Do</a></li>
+      <li><a href="/#how-it-works" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">How It Works</a></li>
+      <li><a href="/pricing.html" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">Pricing</a></li>
+      <li><a href="/#faq" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">FAQ</a></li>
+    </ul>
+    <button id="mobileToggle" aria-label="Toggle navigation" style="display:none;background:none;border:none;cursor:pointer;padding:8px;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+    <a href="/sign-trial.html" style="background:#b81414;color:#fff;font-size:13px;font-weight:600;padding:9px 20px;border-radius:999px;text-decoration:none;flex-shrink:0;">Start Free Trial</a>
+  </div>
+</nav>
+  <div class="container">
+    <a href="/" class="back">← Back to qiyadon.com</a>
+
+    <div class="badge">OPERATIONAL CONTINUATION AVAILABLE</div>
+    <h1>Continue Your Operational Partnership</h1>
+    <p class="subtitle">Based on your 14-day evaluation, operational continuation is available on the Growth plan. This is not a sales decision — it's an assessment of whether the system has demonstrated value for your pipeline.</p>
+
+    <div class="evaluation-summary">
+      <h2>Your 14-Day Operational Assessment</h2>
+      <div class="summary-row">
+        <span class="summary-label">Lead quality score</span>
+        <span class="summary-value met">Met</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Engagement rate</span>
+        <span class="summary-value met">Met</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Timely feedback and data access</span>
+        <span class="summary-value met">Met</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Meetings scheduled</span>
+        <span class="summary-value not-met">Not met</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Sufficient list/data quality</span>
+        <span class="summary-value met">Met</span>
+      </div>
+      <div class="overall-result">
+        <span class="overall-result-icon">✅</span>
+        <div class="overall-result-text">
+          <strong>4 of 5 criteria met</strong><br>
+          <span>Operational continuation is available on Growth. No pressure, no artificial urgency.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="observed-value">
+      <h2>What We Observed During Evaluation</h2>
+      <div class="value-item">
+        <span class="value-icon">⚡</span>
+        <div class="value-text"><strong>Cadence continuity:</strong> Campaigns ran consistently across all channels with no gaps during the evaluation window.</div>
+      </div>
+      <div class="value-item">
+        <span class="value-icon">📊</span>
+        <div class="value-text"><strong>Pipeline velocity:</strong> Outbound activity generated measurable engagement across WhatsApp and Email channels.</div>
+      </div>
+      <div class="value-item">
+        <span class="value-icon">🔍</span>
+        <div class="value-text"><strong>Resonance patterns:</strong> Response data surfaced distinct engagement preferences in your market — enabling more precise targeting.</div>
+      </div>
+      <div class="value-item">
+        <span class="value-icon">📋</span>
+        <div class="value-text"><strong>Artifact delivery:</strong> Weekly reports delivered on schedule. Operational visibility maintained throughout.</div>
+      </div>
+    </div>
+
+    <div class="continuity-outcomes">
+      <h2>What Continuation Enables</h2>
+      <div class="continuity-item">
+        <span class="continuity-icon">→</span>
+        <span>WhatsApp + Email outbound — 5-touch sequence with active nurturing cadence</span>
+      </div>
+      <div class="continuity-item">
+        <span class="continuity-icon">→</span>
+        <span>200 leads/month included — with $4/lead overage if volume scales beyond that</span>
+      </div>
+      <div class="continuity-item">
+        <span class="continuity-icon">→</span>
+        <span>Daily pipeline brief — morning operational summary, every business day</span>
+      </div>
+      <div class="continuity-item">
+        <span class="continuity-icon">→</span>
+        <span>Monthly strategy call — dedicated review of pipeline health and optimization</span>
+      </div>
+      <div class="continuity-item">
+        <span class="continuity-icon">→</span>
+        <span>Priority onboarding — faster activation with a dedicated setup session</span>
+      </div>
+      <div class="continuity-item">
+        <span class="continuity-icon">→</span>
+        <span>CRM integration active — HubSpot sync maintained, pipeline data stays current</span>
+      </div>
+    </div>
+
+    <div class="plan-explanation">
+      <h2>Growth Plan — Transparent Pricing</h2>
+      <div class="plan-pricing">
+        <div class="pricing-card highlight">
+          <div class="pricing-amount">$750</div>
+          <div class="pricing-period">per month</div>
+          <div class="pricing-detail">Month-to-month. Cancel with 30 days written notice.</div>
+          <div class="pricing-cap">No auto-renewal — new agreement required each cycle</div>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-amount">200</div>
+          <div class="pricing-period">leads per month included</div>
+          <div class="pricing-cap">$4/lead overage if volume exceeds cap</div>
+        </div>
+      </div>
+      <div class="plan-includes">
+        <h3>What's Included</h3>
+        <div class="include-item"><span class="include-icon">✓</span><span>WhatsApp + Email outbound channels (5-touch cadence)</span></div>
+        <div class="include-item"><span class="include-icon">✓</span><span>Daily pipeline brief — every business day</span></div>
+        <div class="include-item"><span class="include-icon">✓</span><span>Monthly strategy call — pipeline review and optimization</span></div>
+        <div class="include-item"><span class="include-icon">✓</span><span>Priority onboarding session</span></div>
+        <div class="include-item"><span class="include-icon">✓</span><span>Escalation paths for silence management</span></div>
+        <div class="include-item"><span class="include-icon">✓</span><span>HubSpot CRM integration and sync</span></div>
+        <div class="include-item"><span class="include-icon">✓</span><span>EU data residency</span></div>
+      </div>
+      <div class="governance">
+        <h3>Governance Terms</h3>
+        <div class="governance-item"><span class="governance-icon">○</span><span>Month-to-month. Cancel with 30 days written notice. No auto-renewal.</span></div>
+        <div class="governance-item"><span class="governance-icon">○</span><span>Full AI governance — every decision logged, every silence escalated, no rollbacks</span></div>
+        <div class="governance-item"><span class="governance-icon">○</span><span>No auto-renewal — you sign a new agreement each cycle</span></div>
+        <div class="governance-item"><span class="governance-icon">○</span><span>Monthly invoicing, net 15 payment terms</span></div>
+        <div class="governance-item"><span class="governance-icon">○</span><span>No early termination fee</span></div>
+      </div>
+    </div>
+
+    <div class="upsell-section">
+      <h2>Need to Change Your Plan?</h2>
+      <div class="upsell-plan">
+        <span class="upsell-icon">🚀</span>
+        <div class="upsell-text">
+          <strong>Starter — $300/month</strong><br>
+          <span>50 leads/mo · WhatsApp follow-up · Weekly pipeline report · CRM integration · $6/lead overage</span><br>
+          <a href="/sign-starter.html" style="color:#00C2CB;font-size:13px;font-weight:500;margin-top:6px;display:inline-block;">View Starter Plan →</a>
+        </div>
+      </div>
+      <div class="upsell-plan">
+        <span class="upsell-icon">⚡</span>
+        <div class="upsell-text">
+          <strong>Scale — $1,500/month</strong><br>
+          <span>Unlimited leads · All channels + LinkedIn · Commercial Learning Engine · Dedicated pipeline oversight · No overage</span><br>
+          <a href="/sign-scale.html" style="color:#00C2CB;font-size:13px;font-weight:500;margin-top:6px;display:inline-block;">View Scale Plan →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="opt-in-section" id="opt-in-section">
+      <h2>Continue Operational Partnership — Growth</h2>
+      <p>This is an operational continuity decision — not a sales closing. If the system has demonstrated value for your pipeline, continuation makes sense. If you have questions about what the data shows, reply to this email and let's discuss before signing.</p>
+
+      <form id="opt-in-form">
+        <div class="field-group">
+          <label class="field-label" for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="company">Company Name</label>
+          <input type="text" id="company" name="company" placeholder="Your company" required autocomplete="organization">
+        </div>
+
+        <label class="checkbox-group" for="ackTerms">
+          <input type="checkbox" id="ackTerms" name="ackTerms">
+          <span class="checkbox-label">I have reviewed the operational assessment and understand the Growth plan terms: $750/month, month-to-month with no minimum commitment, 200 leads included, $4/lead overage thereafter. I wish to continue operational partnership on the Growth plan.</span>
+        </label>
+
+        <label class="checkbox-group" for="ackBilling">
+          <input type="checkbox" id="ackBilling" name="ackBilling">
+          <span class="checkbox-label">I understand billing begins after the signed agreement is processed. Monthly invoicing at $750/month, net 15 terms. No auto-renewal — cancel with 30 days written notice.</span>
+        </label>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Continue Operational Partnership — Growth</button>
+        <p id="submit-error"></p>
+      </form>
+    </div>
+
+    <div id="submit-success">
+      <h3>✓ Operational Partnership Confirmed — Growth</h3>
+      <p>A confirmation has been sent to <strong id="confirm-email"></strong>.</p>
+
+      <div class="next-steps">
+        <h4>What Happens Next</h4>
+        <div class="next-step-item">
+          <span class="next-step-day">Day 1</span>
+          <span>Your account manager reviews your evaluation data and confirms your Growth onboarding plan</span>
+        </div>
+        <div class="next-step-item">
+          <span class="next-step-day">Day 2</span>
+          <span>Priority onboarding call — we confirm priorities, cadence setup, and schedule your monthly strategy call</span>
+        </div>
+        <div class="next-step-item">
+          <span class="next-step-day">Day 3+</span>
+          <span>WhatsApp + Email cadence fully operational, daily pipeline brief activated</span>
+        </div>
+        <div class="next-step-item">
+          <span class="next-step-day">Week 1</span>
+          <span>First Growth weekly report — includes evaluation baseline and optimization recommendations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="/pricing" target="_blank">Pricing Details</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+      </div>
+      <span>© 2026 Qiyadon — <a href="/" style="color:#00C2CB;">qiyadon.com</a></span>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('opt-in-form');
+    const ackTerms = document.getElementById('ackTerms');
+    const ackBilling = document.getElementById('ackBilling');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitError = document.getElementById('submit-error');
+    const optInSection = document.getElementById('opt-in-section');
+    const successDiv = document.getElementById('submit-success');
+    const confirmEmail = document.getElementById('confirm-email');
+
+    function updateSubmitState() {
+      submitBtn.disabled = !(ackTerms.checked && ackBilling.checked);
+    }
+    ackTerms.addEventListener('change', updateSubmitState);
+    ackBilling.addEventListener('change', updateSubmitState);
+    submitBtn.disabled = true;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitError.style.display = 'none';
+
+      if (!ackTerms.checked || !ackBilling.checked) {
+        submitError.textContent = 'Please check both boxes to continue.';
+        submitError.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const formData = {
+        type: 'growth-opt-in',
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        agreed: true,
+        agreedAt: new Date().toISOString(),
+        agreementVersion: 'growth-1.0-2026-05-14',
+        lifecycleState: 'GROWTH_PENDING'
+      };
+
+      try {
+        const res = await fetch('https://api.qiyadon.com/submit-signature', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          confirmEmail.textContent = formData.email;
+          optInSection.style.display = 'none';
+          successDiv.style.display = 'block';
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
+      } catch (err) {
+        submitError.textContent = 'Something went wrong: ' + err.message + '. Please try again or email contact@qiyadon.com.';
+        submitError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Continue Operational Partnership — Growth';
+      }
+    });
+  </script>
+<footer style="background:linear-gradient(135deg,#0a0a0a 0%,#111 50%,#0a0a0a 100%);padding:48px 24px 28px;border-top:1px solid #333;margin-top:80px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;padding-bottom:32px;border-bottom:1px solid #333;margin-bottom:20px;">
+      <div>
+        <h3 style="color:#fff;font-size:18px;margin-bottom:8px;">qiya<span style="color:#b81414;">d</span>on</h3>
+        <p style="color:#666;font-size:13px;max-width:220px;line-height:1.5;">Done-for-you pipeline follow-up for founder-led SMBs.</p>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Navigate</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="/#what-we-do" style="color:#888;font-size:13px;text-decoration:none;">What We Do</a></li>
+          <li><a href="/pricing.html" style="color:#888;font-size:13px;text-decoration:none;">Pricing</a></li>
+          <li><a href="/#faq" style="color:#888;font-size:13px;text-decoration:none;">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Try It</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="/sign-trial.html" style="color:#888;font-size:13px;text-decoration:none;">Start Free Trial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Contact</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="mailto:contact@qiyadon.com" style="color:#888;font-size:13px;text-decoration:none;">contact@qiyadon.com</a></li>
+          <li><a href="https://wa.me/923215139934" target="_blank" rel="noopener" style="color:#888;font-size:13px;text-decoration:none;">+92 321 513 9934</a></li>
+          <li><span style="color:#888;font-size:13px;">Islamabad, Pakistan</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Legal</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="/privacy-policy.html" style="color:#888;font-size:13px;text-decoration:none;">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html" style="color:#888;font-size:13px;text-decoration:none;">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <p style="color:#666;font-size:12px;margin:0;">&copy; 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Service Agreement — Qiyadon</title>
+  <meta name="description" content="Review and sign Qiyadon's Client Service Agreement. Terms governing follow-up execution, escalation protocols, and accountability standards.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; font-size: 17px; line-height: 1.7; color: #e0e0e0; background: #171314; padding: 0 24px 120px; }
+    .container { max-width: 760px; margin: 0 auto; }
+    .banner { width: 100%; display: block; margin-bottom: 40px; }
+    .top-bar { background: #171314; border-bottom: 3px solid #b81414; padding: 24px 0 20px; margin-bottom: 40px; }
+    .top-bar-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-size: 26px; font-weight: 850; color: #ffffff; letter-spacing: -0.05em; text-decoration: none; }
+    .brand span { color: #b81414; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 40px; transition: opacity 0.2s; }
+    .back:hover { opacity: 0.75; }
+    h1 { font-size: 38px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .meta { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 48px; }
+    .doc { background: #1E1A1D; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 48px 40px; margin-bottom: 32px; }
+    h2 { font-size: 17px; font-weight: 700; color: #ffffff; margin-top: 28px; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; }
+    h2:first-child { margin-top: 0; }
+    p { color: rgba(255,255,255,0.65); margin-bottom: 14px; }
+    ul, ol { padding-left: 20px; margin-bottom: 14px; }
+    li { color: rgba(255,255,255,0.65); margin-bottom: 8px; }
+    strong { color: #e0e0e0; }
+    .notice { background: rgba(184,20,20,0.12); border: 1px solid rgba(184,20,20,0.3); border-radius: 8px; padding: 16px 20px; font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 32px; }
+    .notice strong { color: #c91818; }
+
+    /* Sign section */
+    .sign-section { background: #1a1a1a; border: 2px solid #b81414; border-radius: 14px; padding: 40px; }
+    .sign-section h2 { font-size: 20px; border: none; padding: 0; margin-top: 0; margin-bottom: 16px; }
+    .sign-section p { font-size: 14px; }
+    .field-group { margin-bottom: 24px; }
+    label.field-label { display: block; font-size: 12px; font-weight: 700; color: #aaaaaa; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    input[type="text"], input[type="email"], input[type="date"] { width: 100%; max-width: 400px; padding: 10px 14px; border: 1px solid #444444; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #ffffff; background: #222222; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    input[type="text"]::placeholder, input[type="email"]::placeholder { color: #888888; }
+    input[type="text"]:focus, input[type="email"]:focus, input[type="date"]:focus { border-color: #b81414; box-shadow: 0 0 0 3px rgba(184,20,20,0.15); }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 12px; background: #222222; border: 1px solid #333333; border-radius: 10px; padding: 16px 20px; margin: 24px 0; cursor: pointer; }
+    .checkbox-group input[type="checkbox"] { margin-top: 4px; accent-color: #b81414; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+    .checkbox-label { font-size: 14px; color: #cccccc; line-height: 1.6; cursor: pointer; }
+    .checkbox-label strong { color: #e0e0e0; }
+    .submit-btn { background: #b81414; color: #ffffff; border: none; padding: 14px 36px; border-radius: 999px; font-size: 15px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
+    .submit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    #submit-error { color: #ff6666; font-size: 13px; margin-top: 12px; display: none; }
+    #submit-success { display: none; background: #1a0000; border: 1px solid #b81414; border-radius: 10px; padding: 20px 24px; text-align: center; }
+    #submit-success h3 { color: #ffcccc; font-size: 18px; margin-bottom: 8px; }
+    #submit-success p { color: #ffcccc; font-size: 14px; }
+    .esign-note { font-size: 11px; color: #888888; margin-top: 16px; text-align: center; }
+  
+
+@media(max-width:600px){.nav-links{display:none;}.mobile-nav-toggle{display:flex!important;}.nav-cta{display:none!important;}.nav-links.active{display:flex!important;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(15,13,14,0.98);padding:20px 24px;border-bottom:1px solid #333;gap:16px;}}
+    </style>
+  <link rel="canonical" href="https://qiyadon.com/sign-csa.html">
+</head>
+<body>
+<!-- NAV -->
+<nav id="navbar" style="position:fixed;top:0;left:0;right:0;background:rgba(15,13,14,0.96);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid #333;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:32px;">
+    <a href="/" style="font-size:26px;font-weight:800;color:#e0e0e0;text-decoration:none;letter-spacing:-0.04em;display:flex;align-items:center;gap:10px;flex-shrink:0;">
+      <img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon" style="height:36px;border-radius:6px;">
+      <span style="color:#e0e0e0;">qiyadon</span>
+    </a>
+    <ul id="navLinks" style="display:flex;gap:28px;list-style:none;margin:0;">
+      <li><a href="/#what-we-do" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">What We Do</a></li>
+      <li><a href="/#how-it-works" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">How It Works</a></li>
+      <li><a href="/pricing.html" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">Pricing</a></li>
+      <li><a href="/#faq" style="font-size:14px;font-weight:500;color:#888;text-decoration:none;">FAQ</a></li>
+    </ul>
+    <button id="mobileToggle" aria-label="Toggle navigation" style="display:none;background:none;border:none;cursor:pointer;padding:8px;align-items:center;justify-content:center;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+    <a href="/sign-trial.html" style="background:#b81414;color:#fff;font-size:13px;font-weight:600;padding:9px 20px;border-radius:999px;text-decoration:none;flex-shrink:0;">Start Free Trial</a>
+  </div>
+</nav>
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="brand">qiya<span>d</span>on</a>
+      <a href="/" class="back">← Back to Qiyadon</a>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Client Service Agreement</h1>
+    <p class="meta">Version 1.1 FINAL &nbsp;•&nbsp; Effective: 2026-05-01 &nbsp;•&nbsp; Governing Law: State of Delaware, USA</p>
+
+    <div class="doc">
+      <div class="notice">
+        <strong>Electronic Signature Notice:</strong> This agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. Each signatory's electronic signature shall be sufficient to bind that party.
+      </div>
+
+      <p>This Client Service Agreement ("Agreement") is entered into as of the Effective Date by and between <strong>Qiyadon</strong> ("Service Provider") and the <strong>Client</strong> as named below.</p>
+
+      <h2>1. Scope of Services</h2>
+      <p>Qiyadon agrees to provide AI-assisted market intelligence, lead generation and outreach, and data analysis and strategy consulting services as defined in Schedule A (Statement of Work), attached hereto and incorporated by reference.</p>
+      <p>Services not expressly listed in Schedule A are excluded unless otherwise agreed in writing by both Parties.</p>
+
+      <h2>2. Client Responsibilities</h2>
+      <ul>
+        <li>Provide Qiyadon with timely, accurate, and complete information necessary to perform the Services</li>
+        <li>Secure all required consents, licenses, and permissions needed for Qiyadon to contact or process data on the Client's behalf</li>
+        <li>Respond to requests for information within 5 business days unless otherwise agreed</li>
+        <li>Designate a single point of contact for all Service-related communications</li>
+      </ul>
+
+      <h2>3. Deliverables</h2>
+      <p>Specific deliverables, formats, and acceptance criteria are set forth in Schedule A. Client shall have 5 business days from delivery to review and provide written acceptance or rejection. If no objection is received, the deliverable is deemed accepted.</p>
+      <p>Qiyadon uses AI-assisted tools in execution. All final outputs are reviewed by qualified personnel before delivery. The Client acknowledges this approach.</p>
+
+      <h2>4. Payment Terms</h2>
+      <p>Fees and payment schedules are set forth in Schedule A. Late payments incur a late fee of 1.5% per month on the outstanding balance. Qiyadon reserves the right to suspend Services if payment is 30 days overdue upon 5 business days' written notice.</p>
+
+      <h2>5. Confidentiality</h2>
+      <p>All non-public information disclosed by either Party is treated as Confidential Information and held in strict confidence, not disclosed to third parties, and used solely for the purposes of this Agreement. Obligations survive termination for 3 years.</p>
+
+      <h2>6. Data Protection</h2>
+      <p>All personal data processed by Qiyadon under this Agreement shall be stored and processed within the <strong>European Union (EU) only</strong>. Data shall not be transferred outside the EU without prior written Client consent.</p>
+
+      <h2>7. Intellectual Property</h2>
+      <p>Each Party retains rights in its pre-existing intellectual property. Deliverables created specifically for the Client ("Work Product") are owned by the Client upon full payment, subject to Qiyadon's retained rights in its pre-existing IP and AI tools.</p>
+
+      <h2>8. Liability and Indemnification</h2>
+      <p><strong>Limitation:</strong> Neither Party shall be liable for indirect, incidental, special, consequential, or punitive damages. Total cumulative liability shall not exceed fees paid by Client in the 6 months preceding the claim.</p>
+      <p>Qiyadon's indemnification is limited to direct negligence only.</p>
+
+      <h2>9. Warranties</h2>
+      <p>Qiyadon warrants best-efforts performance in accordance with Schedule A. Qiyadon does not guarantee specific outcomes. The Client's sole remedy for service level failures is the remediation process described in the applicable SLA schedule. <strong>No SLA credits are provided to Clients.</strong></p>
+
+      <h2>10. Termination</h2>
+      <p>Either Party may terminate for convenience on 30 days' written notice (retainer) or 60 days' written notice (project), subject to payment for work completed. Either Party may terminate immediately for material breach not cured within 15 days of written notice.</p>
+
+      <h2>11. Governing Law and Dispute Resolution</h2>
+      <p>Governed by the laws of the <strong>State of Delaware, USA</strong>. Disputes shall be attempted in good faith through negotiation within 30 days.</p>
+
+      <h2>12. General Provisions</h2>
+      <p>This Agreement constitutes the entire agreement and supersedes all prior agreements. No amendment is effective unless in writing and signed by both Parties. This Agreement may be executed in counterparts.</p>
+
+      <h2>13. Electronic Execution</h2>
+      <p>This Agreement may be executed electronically via click-through signature and shall constitute a valid and binding signature under the ESIGN Act (15 U.S.C. § 7001), the Uniform Electronic Transactions Act (UETA), and Delaware law. By checking the agreement box below and submitting this form, each party confirms intent to be bound by the terms of this Agreement. Electronic signatures created through this method shall have the same legal force and effect as handwritten signatures under applicable law.</p>
+    </div>
+
+    <!-- SIGN SECTION -->
+    <div class="sign-section" id="sign-section">
+      <h2>✍️ Sign the Client Service Agreement</h2>
+      <p>Fill in your details and check the box to sign. This constitutes a legally binding electronic signature under the ESIGN Act, UETA, and Delaware law.</p>
+
+      <form id="sign-form">
+        <div class="field-group">
+          <label class="field-label" for="name">Full Legal Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full legal name" required autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="title">Title / Role</label>
+          <input type="text" id="title" name="title" placeholder="e.g. CEO, Founder, Director" required autocomplete="organization-title">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="company">Client Legal Entity Name</label>
+          <input type="text" id="company" name="company" placeholder="Registered company name" required autocomplete="organization">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="effectiveDate">Effective Date</label>
+          <input type="date" id="effectiveDate" name="effectiveDate" required>
+        </div>
+
+        <label class="checkbox-group" for="agree">
+          <input type="checkbox" id="agree" name="agree">
+          <span class="checkbox-label">By checking this box, I acknowledge that I have read, understood, and agree to be bound by the terms of this <strong>Client Service Agreement</strong>. I understand that this electronic signature constitutes a legally binding signature under applicable law, including the ESIGN Act (15 U.S.C. § 7001) and the Uniform Electronic Transactions Act (UETA), and that no signature block or wet ink signature is required for this Agreement to be fully enforceable.</span>
+        </label>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Sign Agreement</button>
+        <p id="submit-error"></p>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="submit-success">
+      <h3>✓ Agreement Signed</h3>
+      <p>A signed copy of your agreement has been sent to <strong id="confirm-email"></strong>. We'll be in touch shortly to begin execution.</p>
+    </div>
+
+    <p class="esign-note">Your signature is logged with a timestamp, IP address, and agreement text hash for legal validity.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('sign-form');
+    const agreeBox = document.getElementById('agree');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitError = document.getElementById('submit-error');
+    const signSection = document.getElementById('sign-section');
+    const successDiv = document.getElementById('submit-success');
+    const confirmEmail = document.getElementById('confirm-email');
+
+    // Set default effective date to today
+    document.getElementById('effectiveDate').valueAsDate = new Date();
+
+    submitBtn.addEventListener('click', () => {
+      submitError.style.display = 'none';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitError.style.display = 'none';
+
+      if (!agreeBox.checked) {
+        submitError.textContent = 'Please check the box to confirm you agree to the terms.';
+        submitError.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const formData = {
+        type: 'csa',
+        name: document.getElementById('name').value.trim(),
+        title: document.getElementById('title').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        effectiveDate: document.getElementById('effectiveDate').value,
+        agreed: true,
+        agreedAt: new Date().toISOString(),
+        agreementVersion: '1.1-FINAL-2026-05-01'
+      };
+
+      try {
+        const res = await fetch('https://api.qiyadon.com/submit-signature', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          confirmEmail.textContent = formData.email;
+          signSection.style.display = 'none';
+          successDiv.style.display = 'block';
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
+      } catch (err) {
+        submitError.textContent = 'Something went wrong: ' + err.message + '. Please try again or email contact@qiyadon.com.';
+        submitError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign Agreement';
+      }
+    });
+  </script>
+  <style>
+    .mini-footer { border-top: 1px solid #222222; margin-top: 60px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .mini-footer a { color: #00C2CB; font-size: 13px; font-weight: 500; text-decoration: none; }
+    .mini-footer a:hover { text-decoration: underline; }
+    .mini-footer span { color: #666666; font-size: 12px; }
+  </style>
+  <div class="container">
+    <div class="mini-footer">
+      <div style="display:flex;gap:20px;flex-wrap:wrap;">
+        <a href="/#pricing">Pricing</a>
+        <a href="/pricing" target="_blank">Pricing Details</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms-of-service.html">Terms of Service</a>
+      </div>
+      <span>© 2026 Qiyadon — <a href="/" style="color:#00C2CB;">qiyadon.com</a></span>
+    </div>
+  </div>
+<footer style="background:linear-gradient(135deg,#0a0a0a 0%,#111 50%,#0a0a0a 100%);padding:48px 24px 28px;border-top:1px solid #333;margin-top:80px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;padding-bottom:32px;border-bottom:1px solid #333;margin-bottom:20px;">
+      <div>
+        <h3 style="color:#fff;font-size:18px;margin-bottom:8px;">qiya<span style="color:#b81414;">d</span>on</h3>
+        <p style="color:#666;font-size:13px;max-width:220px;line-height:1.5;">Done-for-you pipeline follow-up for founder-led SMBs.</p>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Navigate</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="/#what-we-do" style="color:#888;font-size:13px;text-decoration:none;">What We Do</a></li>
+          <li><a href="/pricing.html" style="color:#888;font-size:13px;text-decoration:none;">Pricing</a></li>
+          <li><a href="/#faq" style="color:#888;font-size:13px;text-decoration:none;">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Try It</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="/sign-trial.html" style="color:#888;font-size:13px;text-decoration:none;">Start Free Trial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Contact</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="mailto:contact@qiyadon.com" style="color:#888;font-size:13px;text-decoration:none;">contact@qiyadon.com</a></li>
+          <li><a href="https://wa.me/923215139934" target="_blank" rel="noopener" style="color:#888;font-size:13px;text-decoration:none;">+92 321 513 9934</a></li>
+          <li><span style="color:#888;font-size:13px;">Islamabad, Pakistan</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#666;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px;">Legal</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;margin:0;">
+          <li><a href="/privacy-policy.html" style="color:#888;font-size:13px;text-decoration:none;">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html" style="color:#888;font-size:13px;text-decoration:none;">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <p style="color:#666;font-size:12px;margin:0;">&copy; 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

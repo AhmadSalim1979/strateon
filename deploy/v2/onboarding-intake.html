@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qiyadon — Operational Intake</title>
+  <meta name="description" content="Complete your Qiyadon onboarding intake. Tell us about your pipeline so we configure follow-up from Day 1.">
+  <link rel="canonical" href="https://qiyadon.com/onboarding-intake.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand-red: #b81414;
+      --crimson: #E03131;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+      --text-light: #e0e0e0;
+      --text-muted: #888888;
+      --text-faint: #666666;
+      --soft-black: #171314;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-light);
+      background: var(--soft-black);
+      -webkit-font-smoothing: antialiased;
+      padding-top: 72px;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(23,19,20,0.96); backdrop-filter: blur(12px);
+      z-index: 1000; border-bottom: 1px solid var(--dark-border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    }
+    .nav-logo {
+      font-size: 26px; font-weight: 800; color: var(--text-light); text-decoration: none;
+      letter-spacing: -0.04em; display: flex; align-items: center; gap: 10px;
+      transition: opacity 0.2s; flex-shrink: 0;
+    }
+    .nav-logo:hover { opacity: 0.75; }
+    .nav-logo img { height: 36px; border-radius: 6px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--crimson); }
+    .nav-cta {
+      background: var(--brand-red); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 9px 20px; border-radius: 999px; text-decoration: none;
+      flex-shrink: 0; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .mobile-nav-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+      align-items: center; justify-content: center;
+    }
+    .mobile-nav-toggle svg { color: var(--text-muted); }
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+      padding: 48px 24px 28px;
+      border-top: 1px solid var(--dark-border);
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 32px; border-bottom: 1px solid var(--dark-border); margin-bottom: 20px; }
+    .footer-brand h3 { color: #ffffff; font-size: 18px; margin-bottom: 8px; }
+    .footer-brand h3 span { color: var(--brand-red); }
+    .footer-brand p { color: var(--text-faint); font-size: 13px; max-width: 220px; line-height: 1.5; }
+    .footer-col h4 { color: var(--text-faint); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: var(--text-muted); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--crimson); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { color: var(--text-faint); font-size: 12px; }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.active {
+        display: flex; flex-direction: column;
+        position: fixed; top: 72px; left: 0; right: 0;
+        background: rgba(23,19,20,0.98); padding: 20px 24px;
+        border-bottom: 1px solid var(--dark-border); gap: 16px;
+      }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    /* original onboarding styles */
+    body { padding-top: 72px; }
+    .container { max-width: 720px; margin: 0 auto; padding-top: 48px; }
+    .container { max-width: 720px; margin: 0 auto; padding-top: 64px; }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 14px; font-weight: 600; text-decoration: none; margin-bottom: 48px; transition: opacity 0.2s; }
+    .back:hover { opacity: 0.75; }
+    .logo-mark { width: 32px; height: 32px; }
+    .header-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+    .header-brand h1 { font-size: 28px; font-weight: 900; color: #fff; letter-spacing: 0.04em; }
+    .header-brand span { font-size: 13px; color: #888; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+    .intro { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 28px 32px; margin-bottom: 32px; }
+    .intro h2 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .intro p { font-size: 15px; color: #aaaaaa; line-height: 1.7; }
+    .trust-note { background: rgba(184,20,20,0.06); border: 1px solid rgba(184,20,20,0.15); border-radius: 8px; padding: 14px 20px; margin-bottom: 32px; font-size: 13px; color: #888; }
+    .trust-note strong { color: #b81414; }
+    .section-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px; padding: 32px 36px; margin-bottom: 24px; }
+    .section-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px; }
+    .section-card { position: relative; overflow: hidden; }
+    .section-card.crm::before { background: #b81414; }
+    .section-card.customer::before { background: #3b82f6; }
+    .section-card.pipeline::before { background: #22c55e; }
+    .section-card.ops::before { background: #f59e0b; }
+    .section-card.constraints::before { background: #8b5cf6; }
+    .section-card.priority::before { background: #06b6d4; }
+    .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; display: block; }
+    .section-card.crm .section-title { color: #b81414; }
+    .section-card.customer .section-title { color: #3b82f6; }
+    .section-card.pipeline .section-title { color: #22c55e; }
+    .section-card.ops .section-title { color: #f59e0b; }
+    .section-card.constraints .section-title { color: #8b5cf6; }
+    .section-card.priority .section-title { color: #06b6d4; }
+    .section-heading { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 24px; }
+    .field-group { margin-bottom: 22px; }
+    .field-group:last-child { margin-bottom: 0; }
+    label.field-label { display: block; font-size: 12px; font-weight: 700; color: #aaaaaa; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    label.field-label span.required { color: #b81414; margin-left: 4px; }
+    input[type="text"], input[type="email"], input[type="url"], input[type="number"], textarea, select { width: 100%; max-width: 520px; padding: 12px 16px; border: 1px solid #333333; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #ffffff; background: #222222; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    input::placeholder, textarea::placeholder { color: #666666; }
+    input:focus, textarea:focus, select:focus { border-color: #b81414; box-shadow: 0 0 0 3px rgba(184,20,20,0.15); }
+    textarea { resize: vertical; min-height: 100px; }
+    select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+    .radio-group, .checkbox-group { display: flex; align-items: flex-start; gap: 12px; background: #222222; border: 1px solid #333333; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: border-color 0.2s; }
+    .radio-group:hover, .checkbox-group:hover { border-color: #b81414; }
+    .radio-group input, .checkbox-group input { margin-top: 2px; accent-color: #b81414; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+    .radio-label { font-size: 15px; color: #e0e0e0; cursor: pointer; }
+    .field-hint { font-size: 12px; color: #666; margin-top: 6px; line-height: 1.5; }
+    .error-msg { font-size: 12px; color: #b81414; margin-top: 5px; display: none; }
+    .error-msg.visible { display: block; }
+    input.error, textarea.error, select.error { border-color: #b81414; }
+    .submit-wrap { text-align: center; padding-top: 8px; padding-bottom: 24px; }
+    .submit-btn { background: #b81414; color: #fff; border: none; padding: 16px 48px; border-radius: 999px; font-size: 16px; font-weight: 800; font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: 0.04em; transition: background 0.2s, transform 0.1s; display: inline-flex; align-items: center; gap: 10px; }
+    .submit-btn:hover { background: #d61a1a; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled { background: #555; cursor: not-allowed; transform: none; }
+    .spinner { width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+    .submit-btn.loading .spinner { display: block; }
+    .submit-btn.loading .btn-text { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .success-overlay { display: none; position: fixed; inset: 0; background: rgba(23,19,20,0.92); z-index: 1000; align-items: center; justify-content: center; }
+    .success-overlay.show { display: flex; }
+    .success-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px; padding: 56px 48px; max-width: 520px; text-align: center; }
+    .success-icon { width: 64px; height: 64px; background: rgba(34,197,94,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+    .success-icon svg { width: 32px; height: 32px; color: #22c55e; }
+    .success-card h2 { font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 12px; }
+    .success-card p { font-size: 15px; color: #aaaaaa; line-height: 1.7; }
+    .server-error { background: rgba(184,20,20,0.1); border: 1px solid rgba(184,20,20,0.3); border-radius: 8px; padding: 14px 20px; margin-top: 20px; font-size: 14px; color: #b81414; text-align: center; display: none; }
+    .server-error.show { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon"> <span style="color:#e0e0e0;">qiyadon</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#what-we-do">What We Do</a></li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+    <a href="/sign-trial.html" class="nav-cta">Start Free Trial</a>
+  </div>
+</nav>
+
+  <div class="container">
+    <a href="https://qiyadon.com" class="back">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="8" fill="#b81414"/>
+        <path d="M8 22L14 10L16.5 16L20 12L24 22H8Z" fill="white"/>
+      </svg>
+      Back to qiyadon.com
+    </a>
+
+    <div class="header-brand">
+      <h1>QIYADON</h1>
+      <span>Operational Intake</span>
+    </div>
+
+    <div class="intro">
+      <h2>Before your evaluation begins</h2>
+      <p>Complete this intake to configure your pipeline workspace. All fields marked with <span style="color:#b81414">*</span> are required. This takes approximately 5 minutes.</p>
+    </div>
+
+    <div class="trust-note">
+      <strong>Your data is encrypted</strong> and governed by our Client Services Agreement and DPA. Qiyadon never shares pipeline or contact data with third parties.
+    </div>
+
+    <form id="intake-form" novalidate>
+
+      <!-- SECTION A: CRM Setup -->
+      <div class="section-card crm">
+        <span class="section-title">Section A</span>
+        <h2 class="section-heading">CRM Setup</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="crm_platform">CRM Platform <span class="required">*</span></label>
+          <select id="crm_platform" name="crm_platform" required>
+            <option value="">Select your CRM…</option>
+            <option value="HubSpot">HubSpot</option>
+            <option value="Pipedrive">Pipedrive</option>
+            <option value="Zoho">Zoho CRM</option>
+            <option value="Salesforce">Salesforce</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="error-msg" id="err-crm_platform">Please select your CRM platform.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">CRM Access Method <span class="required">*</span></label>
+          <div class="radio-group">
+            <input type="radio" id="access_oauth" name="crm_access" value="OAuth" required>
+            <label class="radio-label" for="access_oauth">OAuth connection (secure, recommended)</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" id="access_apikey" name="crm_access" value="API key">
+            <label class="radio-label" for="access_apikey">API key</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" id="access_notconnected" name="crm_access" value="Not connected yet">
+            <label class="radio-label" for="access_notconnected">Not connected yet</label>
+          </div>
+          <div class="error-msg" id="err-crm_access">Please select a CRM access method.</div>
+        </div>
+      </div>
+
+      <!-- SECTION B: Target Customer -->
+      <div class="section-card customer">
+        <span class="section-title">Section B</span>
+        <h2 class="section-heading">Target Customer</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="icp">ICP / Target Customer Profile <span class="required">*</span></label>
+          <textarea id="icp" name="icp" placeholder="Describe your ideal customer in 2–3 sentences — industry, company size, role, challenge…" required></textarea>
+          <div class="error-msg" id="err-icp">Please describe your ideal customer profile.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="industry">Primary Industry Focus <span class="required">*</span></label>
+          <input type="text" id="industry" name="industry" placeholder="e.g. B2B SaaS, Professional Services, E-commerce…" required>
+          <div class="error-msg" id="err-industry">Please enter your primary industry focus.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="geography">Geographic Focus <span style="color:#555">(optional)</span></label>
+          <input type="text" id="geography" name="geography" placeholder="e.g. North America, EMEA, Global…">
+        </div>
+      </div>
+
+      <!-- SECTION C: Pipeline Context -->
+      <div class="section-card pipeline">
+        <span class="section-title">Section C</span>
+        <h2 class="section-heading">Pipeline Context</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="monthly_leads">Average Monthly New Leads <span class="required">*</span></label>
+          <input type="number" id="monthly_leads" name="monthly_leads" min="1" placeholder="e.g. 50" required>
+          <div class="error-msg" id="err-monthly_leads">Please enter your average monthly new leads.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="followup_process">Current Follow-up Process <span class="required">*</span></label>
+          <textarea id="followup_process" name="followup_process" placeholder="How do you currently follow up with leads? (e.g. manual email sequences, no formal process, basic CRM reminders…)…" required></textarea>
+          <div class="error-msg" id="err-followup_process">Please describe your current follow-up process.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="challenge">Biggest Pipeline Challenge <span class="required">*</span></label>
+          <textarea id="challenge" name="challenge" placeholder="What's your #1 pain point with lead follow-up? (e.g. leads go cold after initial contact, too many manual steps, no visibility into what's working…)" required></textarea>
+          <div class="error-msg" id="err-challenge">Please describe your biggest pipeline challenge.</div>
+        </div>
+      </div>
+
+      <!-- SECTION D: Operational Setup -->
+      <div class="section-card ops">
+        <span class="section-title">Section D</span>
+        <h2 class="section-heading">Operational Setup</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="calendar">Calendar Booking Link <span style="color:#555">(optional)</span></label>
+          <input type="url" id="calendar" name="calendar" placeholder="https://calendly.com/your-link">
+          <div class="field-hint">For scheduling your kickoff call once your evaluation is live.</div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="sending_infra">Sending Domain / Email Infrastructure <span style="color:#555">(optional)</span></label>
+          <textarea id="sending_infra" name="sending_infra" placeholder="What sending domain or email infrastructure will be used? (e.g. G Suite, Outlook, cold email platform…)" style="min-height:80px"></textarea>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="team_emails">Team Contacts <span style="color:#555">(optional)</span></label>
+          <input type="email" id="team_emails" name="team_emails" placeholder="Who else should receive pipeline reports? (separate multiple with commas)">
+          <div class="field-hint">Additional recipients for evaluation reports and cadence updates.</div>
+        </div>
+      </div>
+
+      <!-- SECTION E: Constraints -->
+      <div class="section-card constraints">
+        <span class="section-title">Section E</span>
+        <h2 class="section-heading">Constraints</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="compliance">Compliance Constraints <span style="color:#555">(optional)</span></label>
+          <textarea id="compliance" name="compliance" placeholder="Any compliance requirements we should know about? (e.g. CASL, GDPR, PDPA, industry-specific rules…)…" style="min-height:80px"></textarea>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Integrations</label>
+          <div class="checkbox-group">
+            <input type="checkbox" id="int_slack" name="integrations" value="Slack">
+            <label class="radio-label" for="int_slack">Slack</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="int_zapier" name="integrations" value="Zapier">
+            <label class="radio-label" for="int_zapier">Zapier</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="int_sheets" name="integrations" value="Google Sheets">
+            <label class="radio-label" for="int_sheets">Google Sheets</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="int_none" name="integrations" value="None">
+            <label class="radio-label" for="int_none">None of these</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION F: Priority -->
+      <div class="section-card priority">
+        <span class="section-title">Section F</span>
+        <h2 class="section-heading">Priority</h2>
+
+        <div class="field-group">
+          <label class="field-label" for="priority">Top Operational Priority — First 30 Days <span class="required">*</span></label>
+          <textarea id="priority" name="priority" placeholder="What's the one outcome you most want from this evaluation? (e.g. reduce lead drop-off by 40%, close first deal from an inbound lead within 30 days…)" required></textarea>
+          <div class="error-msg" id="err-priority">Please describe your top priority for the first 30 days.</div>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <div class="spinner"></div>
+          <span class="btn-text">Submit Intake</span>
+        </button>
+      </div>
+
+      <div class="server-error" id="server-error">
+        Something went wrong. Please try again in a moment.
+      </div>
+    </form>
+  </div>
+
+  <!-- Success Overlay -->
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-card">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <h2>Intake received.</h2>
+      <p>We'll begin environment preparation. You'll receive your activation briefing within 24 hours.</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('intake-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successOverlay = document.getElementById('success-overlay');
+    const serverError = document.getElementById('server-error');
+
+    function getField(name) {
+      const el = form.querySelector(`[name="${name}"]`);
+      return el;
+    }
+
+    function getValue(name) {
+      const el = getField(name);
+      if (!el) return '';
+      if (el.type === 'radio') {
+        const checked = form.querySelector(`[name="${name}"]:checked`);
+        return checked ? checked.value : '';
+      }
+      return el.value.trim();
+    }
+
+    function showError(name) {
+      const el = getField(name);
+      const err = document.getElementById('err-' + name);
+      if (el) el.classList.add('error');
+      if (err) err.classList.add('visible');
+    }
+
+    function clearError(name) {
+      const el = getField(name);
+      const err = document.getElementById('err-' + name);
+      if (el) el.classList.remove('error');
+      if (err) err.classList.remove('visible');
+    }
+
+    function clearAllErrors() {
+      document.querySelectorAll('.error').forEach(e => e.classList.remove('error'));
+      document.querySelectorAll('.error-msg').forEach(e => e.classList.remove('visible'));
+    }
+
+    function validate() {
+      clearAllErrors();
+      let valid = true;
+      const required = ['crm_platform','crm_access','icp','industry','monthly_leads','followup_process','challenge','priority'];
+      required.forEach(name => {
+        const val = getValue(name);
+        if (!val) {
+          showError(name);
+          valid = false;
+        } else {
+          clearError(name);
+        }
+      });
+      // monthly_leads must be a positive number
+      const leads = getValue('monthly_leads');
+      if (leads && (isNaN(Number(leads)) || Number(leads) < 1)) {
+        showError('monthly_leads');
+        valid = false;
+      }
+      return valid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      serverError.classList.remove('show');
+      if (!validate()) return;
+
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      // Collect integrations
+      const integrations = [];
+      document.querySelectorAll('[name="integrations"]:checked').forEach(cb => {
+        integrations.push(cb.value);
+      });
+
+      const payload = {
+        crm_platform: getValue('crm_platform'),
+        crm_access: getValue('crm_access'),
+        icp: getValue('icp'),
+        industry: getValue('industry'),
+        geography: getValue('geography'),
+        monthly_leads: Number(getValue('monthly_leads')),
+        followup_process: getValue('followup_process'),
+        challenge: getValue('challenge'),
+        calendar: getValue('calendar'),
+        sending_infra: getValue('sending_infra'),
+        team_emails: getValue('team_emails'),
+        compliance: getValue('compliance'),
+        integrations: integrations,
+        priority: getValue('priority'),
+      };
+
+      try {
+        const res = await fetch('/submit-intake', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (json.success) {
+          successOverlay.classList.add('show');
+        } else {
+          serverError.classList.add('show');
+          submitBtn.disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        serverError.classList.add('show');
+        submitBtn.disabled = false;
+      } finally {
+        submitBtn.classList.remove('loading');
+      }
+    });
+  </script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>qiya<span>d</span>on</h3>
+        <p>Done-for-you pipeline follow-up for founder-led SMBs.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/#what-we-do">What We Do</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Try It</h4>
+        <ul>
+          <li><a href="/sign-trial.html">Start Free Trial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a></li>
+          <li><a href="https://wa.me/923215139934" target="_blank" rel="noopener">+92 321 513 9934</a></li>
+          <li><span style="color: var(--slate);">Islamabad, Pakistan</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qiyadon Operational Evaluation — Begin Activation</title>
+  <meta name="description" content="Start your 14-day free Qiyadon trial — no credit card, no discovery call. 25 leads to prove the concept.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand-red: #b81414;
+      --crimson: #E03131;
+      --dark-card: #1a1a1a;
+      --dark-border: #333333;
+      --text-light: #e0e0e0;
+      --text-muted: #888888;
+      --text-faint: #666666;
+      --soft-black: #0F0D0E;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-light);
+      background: var(--soft-black);
+      padding-top: 72px;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(15,13,14,0.95); backdrop-filter: blur(12px);
+      z-index: 1000; border-bottom: 1px solid var(--dark-border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    }
+    .nav-logo {
+      font-size: 26px; font-weight: 800; color: var(--text-light); text-decoration: none;
+      letter-spacing: -0.04em; display: flex; align-items: center; gap: 10px;
+      transition: opacity 0.2s; flex-shrink: 0;
+    }
+    .nav-logo:hover { opacity: 0.75; }
+    .nav-logo img { height: 36px; border-radius: 6px; }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--crimson); }
+    .nav-cta {
+      background: var(--brand-red); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 9px 20px; border-radius: 999px; text-decoration: none;
+      flex-shrink: 0; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; text-decoration: none; }
+    .mobile-nav-toggle {
+      display: none; background: none; border: none; cursor: pointer; padding: 8px;
+      align-items: center; justify-content: center;
+    }
+    .mobile-nav-toggle svg { color: var(--text-muted); }
+    footer {
+      background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+      padding: 48px 24px 28px;
+      border-top: 1px solid var(--dark-border);
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 28px; padding-bottom: 32px; border-bottom: 1px solid var(--dark-border); margin-bottom: 20px; }
+    .footer-brand h3 { color: #ffffff; font-size: 18px; margin-bottom: 8px; }
+    .footer-brand h3 span { color: var(--brand-red); }
+    .footer-brand p { color: var(--text-faint); font-size: 13px; max-width: 220px; line-height: 1.5; }
+    .footer-col h4 { color: var(--text-faint); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul a { color: var(--text-muted); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--crimson); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { color: var(--text-faint); font-size: 12px; }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.active {
+        display: flex; flex-direction: column;
+        position: fixed; top: 72px; left: 0; right: 0;
+        background: rgba(15,13,14,0.98); padding: 20px 24px;
+        border-bottom: 1px solid var(--dark-border); gap: 16px;
+      }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    .back { display: inline-flex; align-items: center; gap: 8px; color: #b81414; font-size: 15px; font-weight: 600; text-decoration: none; margin-bottom: 48px; transition: opacity 0.2s; }
+    .back:hover { opacity: 0.75; }
+    h1 { font-size: 36px; font-weight: 800; color: #ffffff; letter-spacing: -0.03em; margin-bottom: 12px; }
+    .subtitle { font-size: 16px; color: #888888; margin-bottom: 56px; max-width: 600px; }
+    .phase-card { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 32px 36px; margin-bottom: 20px; position: relative; overflow: hidden; }
+    .phase-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; }
+    .phase-card.activation::before { background: #3b82f6; }
+    .phase-card.evaluation::before { background: #22c55e; }
+    .phase-card.decision::before { background: #b81414; }
+    .phase-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; display: block; }
+    .phase-card.activation .phase-tag { color: #3b82f6; }
+    .phase-card.evaluation .phase-tag { color: #22c55e; }
+    .phase-card.decision .phase-tag { color: #b81414; }
+    .phase-title { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+    .phase-duration { font-size: 13px; color: #666666; margin-bottom: 16px; }
+    .phase-desc { font-size: 15px; color: #aaaaaa; margin-bottom: 0; }
+    .divider { height: 1px; background: #222222; margin: 32px 0; }
+    .operational-expectations { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 36px 40px; margin-bottom: 20px; }
+    .operational-expectations h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+    .expectations-grid { display: grid; gap: 16px; }
+    .expectation-item { display: flex; gap: 16px; align-items: flex-start; }
+    .expectation-icon { width: 32px; height: 32px; background: #222222; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #b81414; font-size: 16px; }
+    .expectation-text { font-size: 15px; color: #cccccc; padding-top: 4px; }
+    .expectation-text strong { color: #ffffff; }
+    .disclosure-section { background: rgba(184,20,20,0.06); border: 1px solid rgba(184,20,20,0.2); border-radius: 14px; padding: 28px 32px; margin-bottom: 20px; }
+    .disclosure-section h2 { font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 16px; }
+    .disclosure-item { display: flex; gap: 12px; margin-bottom: 14px; font-size: 14px; color: #cccccc; }
+    .disclosure-item:last-child { margin-bottom: 0; }
+    .disclosure-icon { color: #22c55e; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .agreement-section { background: #1a1a1a; border: 1px solid #333333; border-radius: 14px; padding: 36px 40px; margin-bottom: 20px; }
+    .agreement-section h2 { font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 20px; }
+    .agreement-section p { font-size: 14px; color: #888888; margin-bottom: 24px; }
+    .field-group { margin-bottom: 20px; }
+    label.field-label { display: block; font-size: 12px; font-weight: 700; color: #aaaaaa; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+    input[type="text"], input[type="email"] { width: 100%; max-width: 440px; padding: 11px 14px; border: 1px solid #444444; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; color: #ffffff; background: #222222; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    input[type="text"]::placeholder, input[type="email"]::placeholder { color: #888888; }
+    input[type="text"]:focus, input[type="email"]:focus { border-color: #b81414; box-shadow: 0 0 0 3px rgba(184,20,20,0.15); }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 12px; background: #222222; border: 1px solid #333333; border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; cursor: pointer; }
+    .checkbox-group input[type="checkbox"] { margin-top: 3px; accent-color: #b81414; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+    .checkbox-label { font-size: 14px; color: #cccccc; line-height: 1.6; cursor: pointer; }
+    .checkbox-label strong { color: #e0e0e0; }
+    .submit-btn { background: #b81414; color: #ffffff; border: none; padding: 14px 40px; border-radius: 999px; font-size: 15px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-top: 8px; }
+    .submit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+    #submit-error { color: #ff6666; font-size: 13px; margin-top: 12px; display: none; }
+    #submit-success { display: none; text-align: center; padding: 48px 40px; }
+    #submit-success h3 { font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
+    #submit-success p { font-size: 15px; color: #aaaaaa; }
+    #submit-success .next-step { margin-top: 24px; background: #1a1a1a; border: 1px solid #333333; border-radius: 10px; padding: 20px 24px; text-align: left; }
+    #submit-success .next-step strong { color: #ffffff; font-size: 14px; }
+    #submit-success .next-step p { font-size: 13px; color: #888888; margin: 4px 0 0; }
+    .footer-links { border-top: 1px solid #222222; margin-top: 60px; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-links a { color: #00C2CB; font-size: 13px; font-weight: 500; text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+    .footer-links span { color: #666666; font-size: 12px; }
+  </style>
+  <link rel="canonical" href="https://qiyadon.com/sign-trial.html">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon"> <span style="color:#e0e0e0;">qiyadon</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#what-we-do">What We Do</a></li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <button class="mobile-nav-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+    <a href="/sign-trial.html" class="nav-cta">Start Free Trial</a>
+  </div>
+</nav>
+
+  <div class="container">
+    <a href="/pricing.html" class="back">← Back to pricing</a>
+
+    <h1>Begin Your Operational Evaluation</h1>
+    <p class="subtitle">Qiyadon is operational infrastructure — not a SaaS widget. Here's how the evaluation works before any commitment.</p>
+
+    <!-- SECTION 1: THREE-PHASE LIFECYCLE -->
+    <div class="phase-card activation">
+      <span class="phase-tag">Phase 1 — Activation</span>
+      <div class="phase-title">Hours 0–72: System Setup</div>
+      <div class="phase-duration">Duration: 72 hours</div>
+      <p class="phase-desc">We connect your CRM, activate outbound cadence, initialize workflows, and validate integrations. This is onboarding — you are getting operational, not being evaluated.</p>
+    </div>
+
+    <div class="phase-card evaluation">
+      <span class="phase-tag">Phase 2 — Operational Evaluation</span>
+      <div class="phase-title">Days 1–14: Live System Evaluation</div>
+      <div class="phase-duration">Duration: 14 days from activation completion</div>
+      <p class="phase-desc">Your system runs live. Campaigns execute across WhatsApp, Email, and LinkedIn. You receive weekly operational reports. This is the real evaluation period — it needs the full 14 days to demonstrate value.</p>
+    </div>
+
+    <div class="phase-card decision">
+      <span class="phase-tag">Phase 3 — Explicit Decision</span>
+      <div class="phase-title">Day 14: Shared Assessment + Scale Option</div>
+      <div class="phase-duration">No automatic commitment</div>
+      <p class="phase-desc">We assess together. If Qiyadon is working for you (≥3 of 5 criteria met), you receive a Scale offer you can accept or decline. Billing begins only if you sign a new paid agreement.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: OPERATIONAL EXPECTATIONS -->
+    <div class="operational-expectations">
+      <h2>What to Expect Operationally</h2>
+      <div class="expectations-grid">
+        <div class="expectation-item">
+          <div class="expectation-icon">⚙</div>
+          <div class="expectation-text"><strong>Day 1:</strong> CRM connected, first campaigns activated. You receive confirmation when live.</div>
+        </div>
+        <div class="expectation-item">
+          <div class="expectation-icon">📊</div>
+          <div class="expectation-text"><strong>Day 7:</strong> Midpoint review — operational report delivered. Adjustments made based on your feedback.</div>
+        </div>
+        <div class="expectation-item">
+          <div class="expectation-icon">📋</div>
+          <div class="expectation-text"><strong>Day 14:</strong> Full assessment — qualification criteria reviewed together. Scale offer delivered if criteria are met.</div>
+        </div>
+        <div class="expectation-item">
+          <div class="expectation-icon">🔒</div>
+          <div class="expectation-text"><strong>Throughout:</strong> Your data is confidential. No payment method stored. No auto-billing. No hidden conversions.</div>
+        </div>
+        <div class="expectation-item">
+          <div class="expectation-icon">✍</div>
+          <div class="expectation-text"><strong>Scale decision:</strong> Requires your explicit signature on a new paid agreement. Not automatic.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: TRUST-FIRST DISCLOSURES -->
+    <div class="disclosure-section">
+      <h2>Before You Begin — What You Should Know</h2>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>No credit card required. The 72-hour activation window is free.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>No payment method is stored during activation or evaluation.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>No auto-renewal. No automatic conversion. No billing without a new signed agreement.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>The evaluation period is 14 days — not 72 hours. 72 hours is setup.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>If you qualify at Day 14, the Scale offer is valid for 72 hours. You decide.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>If you do not qualify or choose not to continue — you owe nothing. No follow-up pressure.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>All information shared is treated as confidential under the Client Services Agreement.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>If you qualify and choose Scale: no minimum commitment after trial. Month-to-month billing. Cancel with 30 days written notice.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>Every message Qiyadon sends is governed by rules you approve before any sequence goes live — and reviewed by a human Board for accountability.</span>
+      </div>
+      <div class="disclosure-item">
+        <span class="disclosure-icon">✓</span>
+        <span>Connects natively with HubSpot CRM — and all other major CRM platforms.</span>
+      </div>
+    </div>
+
+    <!-- PLAN SELECTOR -->
+    <div class="plan-selector" style="background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:28px 32px;margin-bottom:20px;">
+      <h2 style="font-size:18px;font-weight:700;color:#fff;margin-bottom:16px;">Choose Your Plan</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+        <label style="background:#222;border:2px solid #333;border-radius:10px;padding:20px;cursor:pointer;transition:border-color 0.2s;">
+          <input type="radio" name="plan" value="starter" checked style="margin-bottom:8px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;">Starter</div>
+          <div style="font-size:24px;font-weight:800;color:#fff;">$300<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">50 leads/mo · WhatsApp · Weekly reports</div>
+        </label>
+        <label style="background:#222;border:2px solid #333;border-radius:10px;padding:20px;cursor:pointer;transition:border-color 0.2s;">
+          <input type="radio" name="plan" value="growth" style="margin-bottom:8px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;">Growth</div>
+          <div style="font-size:24px;font-weight:800;color:#fff;">$750<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">200 leads/mo · WhatsApp + Email · Daily briefs</div>
+        </label>
+        <label style="background:#222;border:2px solid #b81414;border-radius:10px;padding:20px;cursor:pointer;">
+          <input type="radio" name="plan" value="scale" style="margin-bottom:8px;">
+          <div style="font-size:16px;font-weight:700;color:#fff;">Scale</div>
+          <div style="font-size:24px;font-weight:800;color:#b81414;">$1,500<span style="font-size:14px;font-weight:400;color:#888;">/mo</span></div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">Unlimited · All channels · Dedicated manager</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- AGREEMENT + SIGNATURE -->
+    <div class="agreement-section" id="sign-section">
+      <h2>Begin Activation</h2>
+      <p>By signing below, you are beginning the 72-hour activation phase. No payment is required at any point during activation or the 14-day evaluation period.</p>
+
+      <form id="sign-form">
+        <div class="field-group">
+          <label class="field-label" for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="company">Company Name</label>
+          <input type="text" id="company" name="company" placeholder="Your company" required autocomplete="organization">
+        </div>
+
+        <!-- CHECKBOX 1: Activation structure acknowledgment -->
+        <label class="checkbox-group" for="ackActivation">
+          <input type="checkbox" id="ackActivation" name="ackActivation">
+          <span class="checkbox-label">I understand that I am beginning with a <strong>72-hour activation period</strong> (setup and onboarding), followed by a <strong>14-day operational evaluation period</strong>. The real evaluation is 14 days, not 72 hours.</span>
+        </label>
+
+        <!-- CHECKBOX 2: Plan-specific transition acknowledgment -->
+        <label class="checkbox-group" for="ackPlan">
+          <input type="checkbox" id="ackPlan" name="ackPlan">
+          <span class="checkbox-label" id="ackPlanText">If I qualify (≥3 of 5 criteria) at Day 14, I will receive a <strong id="planNameAck">Scale</strong> paid offer valid for 72 hours. I can accept or decline without any charge or obligation. If I accept, a new paid service agreement is signed before any billing begins.</span>
+        </label>
+
+        <button type="submit" class="submit-btn" id="submit-btn">Begin Activation</button>
+        <p id="submit-error"></p>
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div id="submit-success">
+      <h3>✓ Activation Initiated</h3>
+      <p>A confirmation has been sent to <strong id="confirm-email"></strong>.</p>
+      <div class="next-step">
+        <strong>Next: 72-Hour Activation</strong>
+        <p>We will connect your CRM, activate outbound cadence, and initialize workflows. You will receive a confirmation when your system is live — typically within the first 24–48 hours.</p>
+      </div>
+    </div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>qiya<span>d</span>on</h3>
+        <p>Done-for-you pipeline follow-up for founder-led SMBs in IT services, MSPs, SaaS, and professional services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/#what-we-do">What We Do</a></li>
+          <li><a href="/#how-it-works">How It Works</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Try It</h4>
+        <ul>
+          <li><a href="/sign-trial.html">Start Free Trial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a></li>
+          <li><a href="https://wa.me/923215139934" target="_blank" rel="noopener">+92 321 513 9934</a></li>
+          <li><span style="color: var(--slate);">Islamabad, Pakistan</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+    const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+  }
+
+    const form = document.getElementById('sign-form');
+    const ackActivation = document.getElementById('ackActivation');
+    const ackPlan = document.getElementById('ackPlan');
+    const planNameAck = document.getElementById('planNameAck');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitError = document.getElementById('submit-error');
+    const signSection = document.getElementById('sign-section');
+    const successDiv = document.getElementById('submit-success');
+    const confirmEmail = document.getElementById('confirm-email');
+
+    function updateSubmitState() {
+      submitBtn.disabled = !(ackActivation.checked && ackPlan.checked);
+    }
+    ackActivation.addEventListener('change', updateSubmitState);
+    ackPlan.addEventListener('change', updateSubmitState);
+    submitBtn.disabled = true;
+
+    // Plan switcher — update acknowledgment text based on selected plan
+    function updatePlanAckText() {
+      const selectedPlan = document.querySelector('input[name="plan"]:checked')?.value || 'starter';
+      const planLabels = { starter: 'Starter', growth: 'Growth', scale: 'Scale' };
+      planNameAck.textContent = planLabels[selectedPlan] || 'Scale';
+    }
+
+    document.querySelectorAll('input[name="plan"]').forEach(radio => {
+      radio.addEventListener('change', updatePlanAckText);
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitError.style.display = 'none';
+
+      if (!ackActivation.checked || !ackPlan.checked) {
+        submitError.textContent = 'Please check both boxes to acknowledge the evaluation structure.';
+        submitError.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const selectedPlan = document.querySelector('input[name="plan"]:checked')?.value || 'starter';
+      const formData = {
+        type: 'evaluation-start',
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        selectedPlan: selectedPlan,
+        agreed: true,
+        agreedAt: new Date().toISOString(),
+        agreementVersion: '2.0-2026-05-12',
+        lifecycleState: 'ACTIVATION_PENDING'
+      };
+
+      try {
+        const res = await fetch('https://api.qiyadon.com/submit-signature', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        const result = await res.json();
+
+        if (result.success) {
+          confirmEmail.textContent = formData.email;
+          signSection.style.display = 'none';
+          successDiv.style.display = 'block';
+        } else {
+          throw new Error(result.error || 'Submission failed');
+        }
+      } catch (err) {
+        submitError.textContent = 'Something went wrong: ' + err.message + '. Please try again or email contact@qiyadon.com.';
+        submitError.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Begin Activation';
+      }
+    });
+  </script>
+</body>
+</html>
