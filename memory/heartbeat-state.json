@@ -1,19 +1,17 @@
 {
-  "last_heartbeat_check": "2026-05-18T16:48:00Z",
+  "last_heartbeat_check": "2026-05-18T23:22:00Z",
   "checks_performed": {
-    "2026-05-18T16:48:00Z": {
+    "2026-05-18T23:22:00Z": {
       "pm2_status": "online",
-      "worker_heartbeat": "stale_PID_922274_old_code",
-      "worker_current_pid": "1051495",
-      "operational_state": "stale_2026-05-18T04:40",
-      "gateway": "reconnect_loop_499",
-      "memory": "MEMORY.md_pruned_19174_bytes"
+      "worker_heartbeat": "stale_from_May17",
+      "worker_uptime": "13h_PID_1051495",
+      "gateway": "online_pid_1012414_29h",
+      "memory": "on_disk_19174_pruned_but_gateway_caching_old_20487"
     }
   },
   "last_checks": {
     "worker_heartbeat": "2026-05-17T08:22:30.087Z",
-    "operational_state": "2026-05-18T04:40:00.000Z",
-    "memory": "2026-05-18T00:00:00Z"
+    "operational_state": "2026-05-18T04:40:00Z"
   },
-  "notes": "MEMORY.md pruned from 20763 to 19174 bytes (archived Week 3 Audit, GitHub Push, Guarded-Exec sections). Worker heartbeat still stale. WhatsApp reconnect loop continues."
+  "notes": "MEMORY.md on disk is 19174 bytes — clean. openclaw-gateway (PID 1012414, started May 17 16:52 UTC, 29h uptime) is caching its bootstrap and still serving 20,487-byte context to new sessions. Truncation warnings are from the gateway process bootstrap, not disk. Fix: pm2 restart openclaw-gateway — requires Ahmad approval."
 }
