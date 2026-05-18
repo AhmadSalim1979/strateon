@@ -1,0 +1,105 @@
+{
+  "archived_at": "2026-05-18T09:07:52.745Z",
+  "reason": "N8N endpoint dead since 2026-04-15 - legacy orphaned tasks",
+  "total_count": 14,
+  "tasks": [
+    {
+      "id": "2f1c585f-0c85-455e-9cc7-8f384e101839",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:37:45.742593+00:00"
+    },
+    {
+      "id": "e23e43b2-63b1-470a-815f-6e23634c758b",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:37:41.657093+00:00"
+    },
+    {
+      "id": "a412cad8-30a3-4d32-b4d3-1f8f10cd5f08",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:37:38.066099+00:00"
+    },
+    {
+      "id": "292f93ad-0ece-4938-9e56-deac9e04bf58",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "invalid payload format",
+      "created_at": "2026-04-15T21:37:34.798729+00:00"
+    },
+    {
+      "id": "cce14d1f-fd80-4836-bf21-2016e536b00f",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:37:30.915551+00:00"
+    },
+    {
+      "id": "20a688f9-4035-40c3-9b48-fe18d37e8a44",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:35:52.038311+00:00"
+    },
+    {
+      "id": "db0d1a28-f238-48ec-8850-684c9ba6c79e",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:35:47.592015+00:00"
+    },
+    {
+      "id": "49274613-03e4-46e8-9312-2d8e7dbf9731",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:35:44.336534+00:00"
+    },
+    {
+      "id": "862f691a-d48b-4dde-a5d4-2fbc3140be76",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "invalid payload format",
+      "created_at": "2026-04-15T21:35:40.773782+00:00"
+    },
+    {
+      "id": "323f2069-51be-43ba-9788-8c44a05863ff",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:35:35.467551+00:00"
+    },
+    {
+      "id": "59587fa5-25e7-4625-8430-57bd01150f77",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T21:33:36.692678+00:00"
+    },
+    {
+      "id": "4fcbf7bd-4a92-45f7-b5a5-4180b534dd8c",
+      "action_type": "n8n_webhook",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T20:43:15.219+00:00"
+    },
+    {
+      "id": "faeb94b2-3a57-4df3-8686-073264190c13",
+      "action_type": "test",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T20:28:55.112372+00:00"
+    },
+    {
+      "id": "4fcb0fab-b104-4b3d-ad2a-a0c154240f0c",
+      "action_type": "test",
+      "status": "failed",
+      "error_message": "connection timeout",
+      "created_at": "2026-04-15T19:36:05.754236+00:00"
+    }
+  ]
+}

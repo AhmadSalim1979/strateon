@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Qiyadon</title>
+  <meta name="description" content="Get in touch with Qiyadon for pipeline execution support. Operational contact for Qiyadon pipeline clients.">
+  <link rel="canonical" href="https://qiyadon.com/contact.html">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0B1F3A;
+      --teal: #00C2CB;
+      --gold: #F5A623;
+      --cloud-white: #F5F7FA;
+      --slate: #6B7C93;
+      --dark-bg: #0F172A;
+      --text-primary: #1E293B;
+      --text-secondary: #64748B;
+      --border: #E2E8F0;
+      --white: #FFFFFF;
+      --light-bg: #F5F7FA;
+      --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px; --space-5: 40px; --space-6: 48px; --space-8: 64px; --space-10: 80px;
+      --container: 1200px;
+      --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px;
+      --shadow-sm: 0 1px 3px rgba(11,31,58,0.06), 0 1px 2px rgba(11,31,58,0.04);
+      --shadow-md: 0 4px 12px rgba(11,31,58,0.08), 0 2px 6px rgba(11,31,58,0.06);
+      --shadow-lg: 0 8px 24px rgba(11,31,58,0.10), 0 4px 12px rgba(11,31,58,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--white);
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+    nav.scrolled { box-shadow: var(--shadow-md); }
+    .nav-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-3);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .nav-logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.05em;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover { opacity: 0.85; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links { display: flex; gap: var(--space-4); list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px var(--space-3);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: #e09620; transform: translateY(-1px); }
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--navy);
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(0,194,203,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--teal);
+    }
+    .card-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .card-value { font-size: 15px; color: var(--text-secondary); }
+    .card-value a { color: var(--teal); text-decoration: none; font-weight: 500; }
+    .card-value a:hover { text-decoration: underline; }
+    footer {
+      background: var(--dark-bg);
+      color: rgba(255,255,255,0.6);
+      padding: 64px 24px 32px;
+    }
+    .footer-inner { max-width: var(--container); margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+    .footer-brand h3 span { color: var(--teal); }
+    .footer-brand p { font-size: 14px; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--teal); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .footer-bottom p { color: rgba(255,255,255,0.4); }
+    .footer-bottom span { color: rgba(255,255,255,0.35); }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .mobile-toggle { display: flex; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--white);
+        padding: 24px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+      }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo brand-lockup">
+      <span class="brand-mark"><img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon"></span>
+      <span class="brand-name">qiyadon</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/product.html">What We Do</a></li>
+      <li><a href="/product.html#how-it-works">How It Works</a></li>
+      <li><a href="/product.html#first-7-days">First 7 Days</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/faq">FAQ</a></li>
+    </ul>
+    <a href="/pipeline-leak-audit.html" class="nav-cta">Get a Free Pipeline Leak Audit</a>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+      <i data-lucide="menu" style="width:24px;height:24px;"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="contact-hero" style="padding-top: 152px; padding-bottom: 80px; background: var(--white);">
+  <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <h1 style="font-size: 52px; font-weight: 800; color: var(--navy); line-height: 1.08; letter-spacing: -0.035em; margin-bottom: 16px;">Get In Touch</h1>
+    <p style="font-size: 18px; color: var(--slate); line-height: 1.7; max-width: 500px; margin: 0 auto;">Operational support for Qiyadon pipeline clients.</p>
+  </div>
+</section>
+
+<!-- CONTACT GRID -->
+<section style="padding-top: 0; padding-bottom: 80px; background: var(--white);">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <!-- Email -->
+      <div class="card">
+        <div class="card-icon">
+          <i data-lucide="mail" style="width:22px;height:22px;"></i>
+        </div>
+        <div>
+          <p class="card-title">Email</p>
+          <p class="card-value"><a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a></p>
+        </div>
+      </div>
+      <!-- Phone / WhatsApp -->
+      <div class="card">
+        <div class="card-icon">
+          <i data-lucide="message-circle" style="width:22px;height:22px;"></i>
+        </div>
+        <div>
+          <p class="card-title">Phone / WhatsApp</p>
+          <p class="card-value"><a href="https://wa.me/923215139934" target="_blank" rel="noopener">+92 321 513 9934</a></p>
+        </div>
+      </div>
+      <!-- Address -->
+      <div class="card" style="grid-column: 1 / -1;">
+        <div class="card-icon">
+          <i data-lucide="map-pin" style="width:22px;height:22px;"></i>
+        </div>
+        <div>
+          <p class="card-title">Office</p>
+          <p class="card-value">122. Street 65, F-11/4, Islamabad 44100, Pakistan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLAINTS & DISPUTES -->
+<section style="background: var(--light-bg); padding: 64px 24px;">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    <div style="background: var(--white); border-radius: var(--radius-lg); padding: 40px; border: 1px solid var(--border);">
+      <h2 style="font-size: 24px; font-weight: 700; color: var(--navy); margin-bottom: 16px;">Complaints & Disputes</h2>
+      <p style="color: var(--text-primary); margin-bottom: 16px; line-height: 1.7;">If you have a complaint or dispute, contact us through email or Phone / WhatsApp. We respond within 1 business day. Resolution is handled as quickly as reasonably possible depending on issue complexity.</p>
+      <p style="color: var(--text-secondary);">Email: <a href="mailto:contact@qiyadon.com" style="color: var(--teal); text-decoration: none; font-weight: 500;">contact@qiyadon.com</a> · Phone/WhatsApp: <a href="https://wa.me/923215139934" target="_blank" rel="noopener" style="color: var(--teal); text-decoration: none; font-weight: 500;">+92 321 513 9934</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>strate<span>o</span>n</h3>
+        <p>Done-for-you pipeline follow-up for founder-led SMBs in IT services, MSPs, SaaS, and professional services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/#what-we-do">What We Do</a></li>
+          <li><a href="/#how-it-works">How It Works</a></li>
+          <li><a href="/#first-7-days">First 7 Days</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a></li>
+          <li><a href="https://wa.me/923215139934" target="_blank" rel="noopener">+92 321 513 9934</a></li>
+          <li><span style="color: var(--slate);">Islamabad, Pakistan</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms-of-service.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+      <span>Ahmad Salim — Founding Board Member</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
+  });
+</script>
+
+</body>
+</html>
