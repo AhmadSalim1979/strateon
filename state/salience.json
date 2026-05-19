@@ -1,0 +1,188 @@
+{
+  "salience_level": "PERSISTENT",
+  "salient_entities": [
+    "worker-A",
+    "worker-C",
+    "gateway-X"
+  ],
+  "salient_patterns": [
+    {
+      "pattern_type": "chronic_instability",
+      "instances": 2,
+      "entities": [
+        "worker-A",
+        "worker-C"
+      ],
+      "highest_severity": "high"
+    },
+    {
+      "pattern_type": "recurring_contradiction",
+      "instances": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "highest_severity": "medium"
+    },
+    {
+      "pattern_type": "repeated_volatility",
+      "instances": 1,
+      "entities": [
+        "gateway-X"
+      ],
+      "highest_severity": "medium"
+    },
+    {
+      "pattern_type": "unresolved_degradation",
+      "instances": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "highest_severity": "medium"
+    },
+    {
+      "pattern_type": "recurring_verification_decay",
+      "instances": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "highest_severity": "high"
+    },
+    {
+      "pattern_type": "temporal_instability",
+      "instances": 1,
+      "entities": [],
+      "highest_severity": "medium"
+    },
+    {
+      "pattern_type": "repeated_oscillation",
+      "instances": 1,
+      "entities": [],
+      "highest_severity": "medium"
+    }
+  ],
+  "persistence_summary": {
+    "total_salient_entities": 3,
+    "dominant_signals": [
+      "chronic_instability",
+      "recurring_verification_decay"
+    ],
+    "emerging_signals": [
+      "recurring_contradiction",
+      "repeated_volatility",
+      "unresolved_degradation",
+      "temporal_instability",
+      "repeated_oscillation"
+    ],
+    "transient_signals": []
+  },
+  "recurrence_summary": {
+    "recurring_entities": [
+      "worker-A",
+      "worker-C",
+      "gateway-X"
+    ],
+    "cluster_count": 4,
+    "cyclical_patterns": []
+  },
+  "environmental_significance": {
+    "significance": "environment-shaping",
+    "affected_entity_ratio": 0.5,
+    "cluster_density": 0.667,
+    "trajectory_contribution": "INDETERMINATE",
+    "interpretation": "Multiple entities exhibit persistent salience. Multiple clusters detected."
+  },
+  "uncertainty_boundaries": [
+    {
+      "factor": "insufficient_snapshot_history",
+      "impact": "Temporal profile classification may be unreliable with limited snapshots",
+      "confidence_level": "low"
+    },
+    {
+      "factor": "indeterminate_trajectory",
+      "impact": "Cannot determine whether salience is strengthening or weakening",
+      "confidence_level": "low"
+    },
+    {
+      "factor": "limited_recurrence_evidence",
+      "impact": "Salience recurrence patterns may be coincidental without sufficient history",
+      "confidence_level": "low"
+    }
+  ],
+  "temporal_profile": {
+    "current_profile": "INDETERMINATE",
+    "description": "Insufficient observation history to determine salience trajectory. Requires additional snapshot data.",
+    "interpretation": "More observations needed before trajectory can be classified.",
+    "snapshot_count": 0,
+    "confidence": "low",
+    "trend_delta": 0
+  },
+  "clusters": [
+    {
+      "cluster_type": "synchronized_instability",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "description": "3 entities exhibiting concurrent degraded states",
+      "significance": "high"
+    },
+    {
+      "cluster_type": "contradiction_cluster",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "description": "3 entities exhibiting recurring contradiction pressure",
+      "significance": "high"
+    },
+    {
+      "cluster_type": "degradation_continuity",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "description": "3 entities with unresolved degradation continuity",
+      "significance": "high"
+    },
+    {
+      "cluster_type": "multi_signal_concentration",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "description": "3 entities exhibiting multiple concurrent salience patterns",
+      "significance": "high"
+    }
+  ],
+  "generated_at": "2026-05-19T18:59:16.224Z",
+  "shadow_only": true,
+  "persistence_tracking": {
+    "persistent_entity_count": 0,
+    "stabilization_attempt_count": 0,
+    "recovery_interruption_count": 0,
+    "persistent_entities": [],
+    "new_salient_entities": [
+      "worker-A",
+      "worker-B",
+      "worker-C",
+      "gateway-X",
+      "gateway-Y",
+      "db-primary"
+    ],
+    "departed_salient_entities": []
+  }
+}

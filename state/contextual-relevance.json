@@ -1,0 +1,262 @@
+{
+  "contextual_state": "CRITICAL_CONTEXT",
+  "relevant_entities": [
+    {
+      "entity_id": "worker-A",
+      "relevance_level": "CRITICAL_CONTEXT",
+      "context_dependency_score": 8.5,
+      "cluster_membership_count": 3,
+      "high_significance_clusters": 1,
+      "pattern_count": 3,
+      "is_active": true,
+      "activation_level": "DOMINANT",
+      "amplification_from_context": 4,
+      "suppression_from_context": 0
+    },
+    {
+      "entity_id": "worker-C",
+      "relevance_level": "CRITICAL_CONTEXT",
+      "context_dependency_score": 8.5,
+      "cluster_membership_count": 3,
+      "high_significance_clusters": 1,
+      "pattern_count": 3,
+      "is_active": true,
+      "activation_level": "DOMINANT",
+      "amplification_from_context": 4,
+      "suppression_from_context": 0
+    },
+    {
+      "entity_id": "gateway-X",
+      "relevance_level": "CRITICAL_CONTEXT",
+      "context_dependency_score": 8.5,
+      "cluster_membership_count": 3,
+      "high_significance_clusters": 1,
+      "pattern_count": 3,
+      "is_active": true,
+      "activation_level": "ELEVATED",
+      "amplification_from_context": 4,
+      "suppression_from_context": 0
+    }
+  ],
+  "contextual_clusters": [
+    {
+      "cluster_type": "synchronized_instability",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "significance": "high",
+      "relevance_contribution": "critical"
+    },
+    {
+      "cluster_type": "contradiction_cluster",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "significance": "medium",
+      "relevance_contribution": "significant"
+    },
+    {
+      "cluster_type": "degradation_continuity",
+      "entity_count": 3,
+      "entities": [
+        "worker-A",
+        "worker-C",
+        "gateway-X"
+      ],
+      "significance": "medium",
+      "relevance_contribution": "significant"
+    }
+  ],
+  "amplification_patterns": [
+    {
+      "pattern_type": "concurrent_instability",
+      "context_weight": 2,
+      "entities": 3,
+      "description": "Context amplification: concurrent_instability (weight: 2)"
+    },
+    {
+      "pattern_type": "cluster_overlap",
+      "context_weight": 1,
+      "entities": 1,
+      "description": "Context amplification: cluster_overlap (weight: 1)"
+    },
+    {
+      "pattern_type": "environmental_pressure",
+      "context_weight": 2,
+      "entities": null,
+      "description": "Context amplification: environmental_pressure (weight: 2)"
+    },
+    {
+      "pattern_type": "attention_saturation",
+      "context_weight": 1,
+      "entities": null,
+      "description": "Context amplification: attention_saturation (weight: 1)"
+    },
+    {
+      "pattern_type": "unresolved_pressure",
+      "context_weight": 2,
+      "entities": 8,
+      "description": "Context amplification: unresolved_pressure (weight: 2)"
+    }
+  ],
+  "suppression_patterns": [],
+  "environmental_dependencies": [
+    {
+      "entity_a": "worker-A",
+      "entity_b": "worker-C",
+      "cluster": "synchronized_instability",
+      "significance": "high",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-A",
+      "entity_b": "gateway-X",
+      "cluster": "synchronized_instability",
+      "significance": "high",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-C",
+      "entity_b": "gateway-X",
+      "cluster": "synchronized_instability",
+      "significance": "high",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-A",
+      "entity_b": "worker-C",
+      "cluster": "contradiction_cluster",
+      "significance": "medium",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-A",
+      "entity_b": "gateway-X",
+      "cluster": "contradiction_cluster",
+      "significance": "medium",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-C",
+      "entity_b": "gateway-X",
+      "cluster": "contradiction_cluster",
+      "significance": "medium",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-A",
+      "entity_b": "worker-C",
+      "cluster": "degradation_continuity",
+      "significance": "medium",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-A",
+      "entity_b": "gateway-X",
+      "cluster": "degradation_continuity",
+      "significance": "medium",
+      "dependency_type": "synchronized_relevance"
+    },
+    {
+      "entity_a": "worker-C",
+      "entity_b": "gateway-X",
+      "cluster": "degradation_continuity",
+      "significance": "medium",
+      "dependency_type": "synchronized_relevance"
+    }
+  ],
+  "contextual_pressure_relationships": {
+    "amplification_score": 8,
+    "suppression_score": 0,
+    "net_context_score": 8
+  },
+  "contextual_interaction_map": {
+    "overlapping_instability_regions": [
+      {
+        "entities": [
+          "worker-A",
+          "worker-C",
+          "gateway-X"
+        ],
+        "clusters": [
+          "synchronized_instability",
+          "degradation_continuity"
+        ],
+        "overlap_degree": 3
+      }
+    ],
+    "reinforcement_chains": [
+      {
+        "entities": [
+          "worker-A",
+          "worker-C",
+          "gateway-X"
+        ],
+        "chain_strength": 3,
+        "description": "3 entities appear in multiple high-significance clusters"
+      }
+    ],
+    "contradiction_amplification": [
+      {
+        "entities": [
+          "worker-A",
+          "worker-C",
+          "gateway-X"
+        ],
+        "clusters_involved": 2,
+        "description": "Contradiction co-located with instability amplifies relevance"
+      }
+    ],
+    "contextual_volatility_overlap": [],
+    "synchronized_degradation_relevance": [],
+    "pressure_amplification_zones": [
+      {
+        "entities": [
+          "worker-A",
+          "worker-C",
+          "gateway-X"
+        ],
+        "zone_strength": 3,
+        "description": "Pressure amplification zone: 3 high-relevance entities"
+      }
+    ]
+  },
+  "contextual_drift": {
+    "profile": "INDETERMINATE",
+    "description": "Insufficient observation history to determine contextual drift direction.",
+    "interpretation": "More observations needed before contextual drift can be classified.",
+    "drift_strength": 0,
+    "confidence": "low",
+    "contextual_state_history": []
+  },
+  "persistence_summary": {
+    "persistent_relevance_count": 0,
+    "recurring_contextual_cycles": 0,
+    "new_relevant_entities": [
+      "worker-A",
+      "worker-C",
+      "gateway-X"
+    ],
+    "departed_relevant_entities": []
+  },
+  "contextual_uncertainty_boundaries": [
+    {
+      "factor": "unilateral_amplification",
+      "impact": "Only amplification factors detected — no suppression patterns may indicate incomplete contextual picture",
+      "confidence_level": "low"
+    },
+    {
+      "factor": "insufficient_contextual_history",
+      "impact": "Limited contextual history — drift classification may be unreliable",
+      "confidence_level": "low"
+    }
+  ],
+  "generated_at": "2026-05-19T20:08:12.380Z",
+  "shadow_only": true
+}
