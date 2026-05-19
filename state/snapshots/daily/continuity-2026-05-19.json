@@ -1,0 +1,43 @@
+{
+  "ts": "2026-05-19T07:38:18.594Z",
+  "entries": [
+    {
+      "type": "CONTINUITY",
+      "continuity_id": "d101e48d871c",
+      "entity_type": "BELIEF",
+      "entity_id": "audit-test",
+      "field": "status",
+      "old_value": "A",
+      "new_value": "B",
+      "changed_at": "2026-05-19T07:38:18.593Z",
+      "evidence_ref": null,
+      "stability_tag": null
+    },
+    {
+      "type": "BELIEF_CONTINUITY",
+      "continuity_id": "19632f836bac",
+      "entity_type": "BELIEF",
+      "entity_id": "audit-test-belief",
+      "predicate": "test_predicate",
+      "object_value": true,
+      "belief_system": "DEFAULT",
+      "asserted_at": "2026-05-19T07:38:18.593Z",
+      "last_verified_at": "2026-05-19T07:38:18.593Z",
+      "evidence_ref": null,
+      "stability_tag": null,
+      "stale": false
+    },
+    {
+      "type": "COMMITMENT_LIFECYCLE",
+      "lifecycle_id": "961686f62d9e",
+      "entity_type": "COMMITMENT",
+      "commitment_id": "audit-lifecycle-test",
+      "owner": "TEST",
+      "intent": "Audit test",
+      "event_type": "CREATED",
+      "event_value": "PENDING",
+      "deadline": "2026-12-01T00:00:00Z",
+      "event_at": "2026-05-19T07:38:18.594Z"
+    }
+  ]
+}

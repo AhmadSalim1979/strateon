@@ -1,0 +1,5 @@
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-alpha","status":"FAILED","stale":true}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-alpha","status":"PASSED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-alpha","status":"PASSED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-beta","status":"FAILED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-beta","status":"FAILED"}

@@ -1,0 +1,14 @@
+{
+  "ts": "2026-05-19T07:04:23.316Z",
+  "entries": [
+    {
+      "type": "OUTCOME",
+      "commitment_id": "nonexistent-id",
+      "outcome": "orphan",
+      "verification_evidence": [],
+      "verified": false,
+      "completed_at": "2026-05-19T07:04:23.316Z",
+      "notes": ""
+    }
+  ]
+}

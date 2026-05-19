@@ -1,0 +1,8 @@
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-alpha","event_type":"state_transition","from_state":"HEALTHY","to_state":"DEGRADED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-alpha","event_type":"state_transition","from_state":"DEGRADED","to_state":"STALLED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-alpha","event_type":"state_transition","from_state":"STALLED","to_state":"HEALTHY"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-beta","event_type":"state_transition","from_state":"HEALTHY","to_state":"DEGRADED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"worker-beta","event_type":"contradiction_detected"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"gateway-main","event_type":"status_flip","from_state":"ACTIVE","to_state":"DEGRADED"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"gateway-main","event_type":"state_transition","from_state":"DEGRADED","to_state":"ACTIVE"}
+{"timestamp":"2026-05-19T11:44:19.473Z","entity_id":"gateway-main","event_type":"state_transition","from_state":"ACTIVE","to_state":"DEGRADED"}

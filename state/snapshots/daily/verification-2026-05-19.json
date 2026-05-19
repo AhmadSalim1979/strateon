@@ -1,0 +1,24 @@
+{
+  "ts": "2026-05-19T07:21:58.955Z",
+  "entries": [
+    {
+      "type": "VERIFICATION",
+      "verification_id": "5a65398eff82",
+      "commitment_id": "orphan-commitment-id",
+      "verified_at": "2026-05-19T07:21:58.954Z",
+      "verification_method": "pm2_output",
+      "evidence": [
+        {
+          "evidence_type": "pm2_output",
+          "evidence_content": "output",
+          "evidence_ref": null
+        }
+      ],
+      "verifier": "SYSTEM",
+      "confidence_band": "MEDIUM",
+      "verification_status": "VERIFIED",
+      "notes": "",
+      "expires_at": "2026-05-20T07:21:58.954Z"
+    }
+  ]
+}

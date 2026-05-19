@@ -1,0 +1,2 @@
+{"timestamp":"2026-05-19T10:49:01.159Z","event_type":"cognition_request","provider":"ollama-local","model":"qwen2.5-coder:7b","task_type":"unknown","injection_active":true,"message_count":2}
+{"timestamp":"2026-05-19T10:49:50.248Z","event_type":"cognition_request","provider":"ollama-local","model":"qwen2.5-coder:7b","task_type":"unknown","injection_active":true,"message_count":2}
