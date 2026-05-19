@@ -1,48 +1,21 @@
 {
-  "last_heartbeat_check": "2026-05-19T21:17:00Z",
+  "last_heartbeat_check": "2026-05-19T22:47:00Z",
   "checks_performed": {
-    "2026-05-19T01:52:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "online_connected_no_disconnect_since_02:28",
-      "memory_truncation": "still_occurring_gateway_caching_old_bootstrap",
-      "worker": "online_stale_heartbeat_no_change"
+    "2026-05-19T22:17:00Z": {
+      "memory_created": "2026-05-20.md_new_session",
+      "gateway": "reconnect_loop_23:58-00:08_berlin_ahmad_active",
+      "worker": "online_stale_heartbeat_15h_old_06:57_utc"
     },
-    "2026-05-19T03:27:00Z": {
-      "cmo_delivery": "received",
-      "post_019": "board_review_pending_ahmad_approval"
-    },
-    "2026-05-19T08:31:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "reconnect_loop_07:16-07:27_berlin_ahmad_active",
-      "worker": "online_heartbeat_fresh_06:57_utc",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing",
-      "git_status": "12_files_modified_uncommitted"
-    },
-    "2026-05-19T11:44:00Z": {
+    "2026-05-19T22:47:00Z": {
       "pm2_status": "5_online",
       "gateway": "online",
-      "worker": "online_heartbeat_fresh_06:57_utc_pid_922274",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing",
-      "git_status": "12_files_uncommitted"
-    },
-    "2026-05-19T20:45:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "reconnect_22:39_503_then_reconnected",
-      "worker": "online_stale_heartbeat_06:57_utc_14h_old",
-      "git_commit": "still_pending_12_files"
-    },
-    "2026-05-19T21:17:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "online",
-      "worker": "online_pid_1051495_35h_uptime",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing",
-      "git_status": "12_files_uncommitted"
+      "worker": "online_stale_heartbeat_15h+_old",
+      "stale_task_detector": "error_column_tasks.last_update_at_missing_tasks_0"
     }
   },
   "last_checks": {
     "worker_heartbeat": "2026-05-19T06:57:00.000Z",
-    "operational_state": "2026-05-18T04:40:00Z",
-    "cmo_delivery": "2026-05-19T03:27:00Z"
+    "operational_state": "2026-05-18T04:40:00Z"
   },
-  "notes": "End of day check. Worker PID 1051495, 35h uptime, running R1 code (R4A pending Ahmad restart). Heartbeat file still at 06:57 UTC. 12 git files uncommitted. All processes online. No action required."
+  "notes": "All nominal. Worker online (stale heartbeat, no change in 16h). Stale task detector erroring on missing SQL column — no active tasks, no operational impact. No pending Moosa actions."
 }
