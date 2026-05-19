@@ -1,0 +1,1720 @@
+{
+  "executive_focus_state": "EXECUTIVE_DOMINANT",
+  "executive_focus_strength": 1,
+  "focus_candidates": [
+    {
+      "candidate_type": "attention_dominance",
+      "source": "attention",
+      "strength": 0.9,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Attention DOMINANT with 92% saturation"
+    },
+    {
+      "candidate_type": "saturation_convergence",
+      "source": "attention",
+      "strength": 0.64,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Saturation convergence at 92%"
+    },
+    {
+      "candidate_type": "dominant_weight_convergence",
+      "source": "weighting",
+      "strength": 0.85,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Dominant weighting signal: pressure_intensity (100% normalized weight)"
+    },
+    {
+      "candidate_type": "dominant_weight_convergence",
+      "source": "weighting",
+      "strength": 0.74,
+      "persistence": "persistent",
+      "severity": "medium",
+      "description": "Dominant weighting signal: entity_salience (87% normalized weight)"
+    },
+    {
+      "candidate_type": "density_gravity",
+      "source": "weighting",
+      "strength": 0.48,
+      "persistence": "emerging",
+      "severity": "medium",
+      "description": "Environmental density creating executive gravity (60%)"
+    },
+    {
+      "candidate_type": "instability_convergence",
+      "source": "stability",
+      "strength": 0.75,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Instability convergence — stability state UNSTABLE"
+    },
+    {
+      "candidate_type": "bottleneck_convergence",
+      "source": "stability",
+      "strength": 0.7,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Bottleneck-centered convergence: persistent_destabilization"
+    },
+    {
+      "candidate_type": "pressure_convergence",
+      "source": "stability",
+      "strength": 0.75,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "High-severity destabilization pressure convergence (2 high-severity pressures)"
+    },
+    {
+      "candidate_type": "fragmentation_convergence",
+      "source": "coherence",
+      "strength": 0.7,
+      "persistence": "emerging",
+      "severity": "medium",
+      "description": "Coherence fragmentation convergence — state: FRAGMENTED"
+    },
+    {
+      "candidate_type": "contradiction_pressure",
+      "source": "coherence",
+      "strength": 0.65,
+      "persistence": "emerging",
+      "severity": "medium",
+      "description": "Unresolved contradiction zone: p1"
+    },
+    {
+      "candidate_type": "contradiction_pressure",
+      "source": "coherence",
+      "strength": 0.65,
+      "persistence": "emerging",
+      "severity": "medium",
+      "description": "Unresolved contradiction zone: p2"
+    },
+    {
+      "candidate_type": "pressure_dominance",
+      "source": "prioritization",
+      "strength": 0.95,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Prioritization pressure dominance — state: SATURATED"
+    },
+    {
+      "candidate_type": "bottleneck_dominance",
+      "source": "prioritization",
+      "strength": 0.9,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Executive bottleneck: cognitive_congestion"
+    },
+    {
+      "candidate_type": "bottleneck_dominance",
+      "source": "prioritization",
+      "strength": 0.85,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Executive bottleneck: focus_saturation_bottleneck"
+    },
+    {
+      "candidate_type": "persistent_salience",
+      "source": "salience",
+      "strength": 0.8,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Persistent salience dominance — level: PERSISTENT"
+    },
+    {
+      "candidate_type": "cluster_convergence",
+      "source": "salience",
+      "strength": 0.75,
+      "persistence": "persistent",
+      "severity": "medium",
+      "description": "Cross-layer convergence from 3 high-significance clusters"
+    },
+    {
+      "candidate_type": "unresolved_pressure_dominance",
+      "source": "pressure",
+      "strength": 1,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "15 unresolved pressure items creating executive-level dominance"
+    },
+    {
+      "candidate_type": "chronic_pressure_convergence",
+      "source": "pressure",
+      "strength": 0.75,
+      "persistence": "persistent",
+      "severity": "high",
+      "description": "Chronic pressure convergence from 3 entities"
+    },
+    {
+      "candidate_type": "contextual_amplification",
+      "source": "contextual",
+      "strength": 0.7,
+      "persistence": "emerging",
+      "severity": "medium",
+      "description": "Contextual amplification dominance — state: SIGNIFICANT"
+    }
+  ],
+  "dominant_convergence_regions": [
+    {
+      "region_type": "source_convergence_region",
+      "source": "attention",
+      "candidate_count": 2,
+      "combined_strength": 1.54,
+      "persistent_count": 2,
+      "high_severity_count": 2,
+      "severity": "high",
+      "candidates": [
+        "attention_dominance",
+        "saturation_convergence"
+      ],
+      "dominant": true
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "weighting",
+      "candidate_count": 3,
+      "combined_strength": 2.07,
+      "persistent_count": 2,
+      "high_severity_count": 1,
+      "severity": "high",
+      "candidates": [
+        "dominant_weight_convergence",
+        "dominant_weight_convergence",
+        "density_gravity"
+      ],
+      "dominant": false
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "stability",
+      "candidate_count": 3,
+      "combined_strength": 2.2,
+      "persistent_count": 3,
+      "high_severity_count": 3,
+      "severity": "high",
+      "candidates": [
+        "instability_convergence",
+        "bottleneck_convergence",
+        "pressure_convergence"
+      ],
+      "dominant": true
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "coherence",
+      "candidate_count": 3,
+      "combined_strength": 2,
+      "persistent_count": 0,
+      "high_severity_count": 0,
+      "severity": "high",
+      "candidates": [
+        "fragmentation_convergence",
+        "contradiction_pressure",
+        "contradiction_pressure"
+      ],
+      "dominant": false
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "prioritization",
+      "candidate_count": 3,
+      "combined_strength": 2.7,
+      "persistent_count": 3,
+      "high_severity_count": 3,
+      "severity": "high",
+      "candidates": [
+        "pressure_dominance",
+        "bottleneck_dominance",
+        "bottleneck_dominance"
+      ],
+      "dominant": true
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "salience",
+      "candidate_count": 2,
+      "combined_strength": 1.55,
+      "persistent_count": 2,
+      "high_severity_count": 1,
+      "severity": "high",
+      "candidates": [
+        "persistent_salience",
+        "cluster_convergence"
+      ],
+      "dominant": false
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "pressure",
+      "candidate_count": 2,
+      "combined_strength": 1.75,
+      "persistent_count": 2,
+      "high_severity_count": 2,
+      "severity": "high",
+      "candidates": [
+        "unresolved_pressure_dominance",
+        "chronic_pressure_convergence"
+      ],
+      "dominant": true
+    },
+    {
+      "region_type": "source_convergence_region",
+      "source": "contextual",
+      "candidate_count": 1,
+      "combined_strength": 0.7,
+      "persistent_count": 0,
+      "high_severity_count": 0,
+      "severity": "medium",
+      "candidates": [
+        "contextual_amplification"
+      ],
+      "dominant": false
+    }
+  ],
+  "executive_bottleneck_regions": [
+    {
+      "bottleneck_type": "dominant_weight_convergence_bottleneck",
+      "intensity": 1,
+      "description": "Executive bottleneck from 2 dominant_weight_convergence candidates converging",
+      "severity": "high",
+      "candidate_count": 2,
+      "sources": [
+        "weighting"
+      ],
+      "critical": false
+    },
+    {
+      "bottleneck_type": "contradiction_pressure_bottleneck",
+      "intensity": 1,
+      "description": "Executive bottleneck from 2 contradiction_pressure candidates converging",
+      "severity": "high",
+      "candidate_count": 2,
+      "sources": [
+        "coherence"
+      ],
+      "critical": false
+    },
+    {
+      "bottleneck_type": "bottleneck_dominance_bottleneck",
+      "intensity": 1,
+      "description": "Executive bottleneck from 2 bottleneck_dominance candidates converging",
+      "severity": "high",
+      "candidate_count": 2,
+      "sources": [
+        "prioritization"
+      ],
+      "critical": false
+    },
+    {
+      "bottleneck_type": "stability_bottleneck_center",
+      "intensity": 0.725,
+      "description": "Stability bottleneck-centered convergence — instability dominating executive focus",
+      "severity": "high",
+      "candidate_count": 2,
+      "critical": true
+    },
+    {
+      "bottleneck_type": "saturation_executive_bottleneck",
+      "intensity": 0.9,
+      "description": "Attention DOMINANT with 92% saturation",
+      "severity": "high",
+      "critical": false
+    }
+  ],
+  "convergence_clusters": [
+    {
+      "cluster_type": "severity_convergence_cluster",
+      "classification": "high",
+      "candidate_count": 12,
+      "combined_strength": 9.84,
+      "sources": [
+        "attention",
+        "weighting",
+        "stability",
+        "prioritization",
+        "salience",
+        "pressure"
+      ],
+      "candidate_types": [
+        "attention_dominance",
+        "saturation_convergence",
+        "dominant_weight_convergence",
+        "instability_convergence",
+        "bottleneck_convergence",
+        "pressure_convergence",
+        "pressure_dominance",
+        "bottleneck_dominance",
+        "bottleneck_dominance",
+        "persistent_salience",
+        "unresolved_pressure_dominance",
+        "chronic_pressure_convergence"
+      ]
+    },
+    {
+      "cluster_type": "severity_convergence_cluster",
+      "classification": "medium",
+      "candidate_count": 7,
+      "combined_strength": 4.67,
+      "sources": [
+        "weighting",
+        "coherence",
+        "salience",
+        "contextual"
+      ],
+      "candidate_types": [
+        "dominant_weight_convergence",
+        "density_gravity",
+        "fragmentation_convergence",
+        "contradiction_pressure",
+        "contradiction_pressure",
+        "cluster_convergence",
+        "contextual_amplification"
+      ]
+    },
+    {
+      "cluster_type": "persistence_convergence_cluster",
+      "persistence": "persistent",
+      "candidate_count": 14,
+      "combined_strength": 11.33,
+      "sources": [
+        "attention",
+        "weighting",
+        "stability",
+        "prioritization",
+        "salience",
+        "pressure"
+      ],
+      "candidate_types": [
+        "attention_dominance",
+        "saturation_convergence",
+        "dominant_weight_convergence",
+        "dominant_weight_convergence",
+        "instability_convergence",
+        "bottleneck_convergence",
+        "pressure_convergence",
+        "pressure_dominance",
+        "bottleneck_dominance",
+        "bottleneck_dominance",
+        "persistent_salience",
+        "cluster_convergence",
+        "unresolved_pressure_dominance",
+        "chronic_pressure_convergence"
+      ]
+    },
+    {
+      "cluster_type": "persistence_convergence_cluster",
+      "persistence": "emerging",
+      "candidate_count": 5,
+      "combined_strength": 3.18,
+      "sources": [
+        "weighting",
+        "coherence",
+        "contextual"
+      ],
+      "candidate_types": [
+        "density_gravity",
+        "fragmentation_convergence",
+        "contradiction_pressure",
+        "contradiction_pressure",
+        "contextual_amplification"
+      ]
+    }
+  ],
+  "executive_pressure_map": {
+    "dominant_candidates": [
+      {
+        "candidate_type": "unresolved_pressure_dominance",
+        "source": "pressure",
+        "strength": 1,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "pressure_dominance",
+        "source": "prioritization",
+        "strength": 0.95,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "attention_dominance",
+        "source": "attention",
+        "strength": 0.9,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "bottleneck_dominance",
+        "source": "prioritization",
+        "strength": 0.9,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "dominant_weight_convergence",
+        "source": "weighting",
+        "strength": 0.85,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "bottleneck_dominance",
+        "source": "prioritization",
+        "strength": 0.85,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "persistent_salience",
+        "source": "salience",
+        "strength": 0.8,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "instability_convergence",
+        "source": "stability",
+        "strength": 0.75,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "pressure_convergence",
+        "source": "stability",
+        "strength": 0.75,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "cluster_convergence",
+        "source": "salience",
+        "strength": 0.75,
+        "severity": "medium"
+      },
+      {
+        "candidate_type": "chronic_pressure_convergence",
+        "source": "pressure",
+        "strength": 0.75,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "dominant_weight_convergence",
+        "source": "weighting",
+        "strength": 0.7394999999999999,
+        "severity": "medium"
+      },
+      {
+        "candidate_type": "bottleneck_convergence",
+        "source": "stability",
+        "strength": 0.7,
+        "severity": "high"
+      },
+      {
+        "candidate_type": "fragmentation_convergence",
+        "source": "coherence",
+        "strength": 0.7,
+        "severity": "medium"
+      },
+      {
+        "candidate_type": "contextual_amplification",
+        "source": "contextual",
+        "strength": 0.7,
+        "severity": "medium"
+      },
+      {
+        "candidate_type": "saturation_convergence",
+        "source": "attention",
+        "strength": 0.644,
+        "severity": "high"
+      }
+    ],
+    "competing_pairs": [
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "dominant_weight_convergence",
+        "sources": [
+          "attention",
+          "weighting"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "dominant_weight_convergence",
+        "sources": [
+          "attention",
+          "weighting"
+        ],
+        "strength_diff": 0.1605000000000001
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "instability_convergence",
+        "sources": [
+          "attention",
+          "stability"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "pressure_convergence",
+        "sources": [
+          "attention",
+          "stability"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "pressure_dominance",
+        "sources": [
+          "attention",
+          "prioritization"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "attention",
+          "prioritization"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "attention",
+          "prioritization"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "attention",
+          "salience"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "attention",
+          "salience"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "unresolved_pressure_dominance",
+        "sources": [
+          "attention",
+          "pressure"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "attention_dominance",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "attention",
+          "pressure"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "dominant_weight_convergence",
+        "sources": [
+          "attention",
+          "weighting"
+        ],
+        "strength_diff": 0.09549999999999992
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "instability_convergence",
+        "sources": [
+          "attention",
+          "stability"
+        ],
+        "strength_diff": 0.10599999999999998
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "bottleneck_convergence",
+        "sources": [
+          "attention",
+          "stability"
+        ],
+        "strength_diff": 0.05599999999999994
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "pressure_convergence",
+        "sources": [
+          "attention",
+          "stability"
+        ],
+        "strength_diff": 0.10599999999999998
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "fragmentation_convergence",
+        "sources": [
+          "attention",
+          "coherence"
+        ],
+        "strength_diff": 0.05599999999999994
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "attention",
+          "coherence"
+        ],
+        "strength_diff": 0.006000000000000005
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "attention",
+          "coherence"
+        ],
+        "strength_diff": 0.006000000000000005
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "attention",
+          "salience"
+        ],
+        "strength_diff": 0.15600000000000003
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "attention",
+          "salience"
+        ],
+        "strength_diff": 0.10599999999999998
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "attention",
+          "pressure"
+        ],
+        "strength_diff": 0.10599999999999998
+      },
+      {
+        "candidate_1": "saturation_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "attention",
+          "contextual"
+        ],
+        "strength_diff": 0.05599999999999994
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "dominant_weight_convergence",
+        "sources": [
+          "weighting",
+          "weighting"
+        ],
+        "strength_diff": 0.11050000000000004
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "instability_convergence",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "bottleneck_convergence",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "pressure_convergence",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "fragmentation_convergence",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "pressure_dominance",
+        "sources": [
+          "weighting",
+          "prioritization"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "weighting",
+          "prioritization"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "weighting",
+          "prioritization"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "weighting",
+          "salience"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "weighting",
+          "salience"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "unresolved_pressure_dominance",
+        "sources": [
+          "weighting",
+          "pressure"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "weighting",
+          "pressure"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "weighting",
+          "contextual"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "instability_convergence",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "strength_diff": 0.010500000000000065
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "bottleneck_convergence",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "strength_diff": 0.03949999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "pressure_convergence",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "strength_diff": 0.010500000000000065
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "fragmentation_convergence",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "strength_diff": 0.03949999999999998
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "strength_diff": 0.08949999999999991
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "strength_diff": 0.08949999999999991
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "weighting",
+          "prioritization"
+        ],
+        "strength_diff": 0.1605000000000001
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "weighting",
+          "prioritization"
+        ],
+        "strength_diff": 0.11050000000000004
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "weighting",
+          "salience"
+        ],
+        "strength_diff": 0.06050000000000011
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "weighting",
+          "salience"
+        ],
+        "strength_diff": 0.010500000000000065
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "weighting",
+          "pressure"
+        ],
+        "strength_diff": 0.010500000000000065
+      },
+      {
+        "candidate_1": "dominant_weight_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "weighting",
+          "contextual"
+        ],
+        "strength_diff": 0.03949999999999998
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "bottleneck_convergence",
+        "sources": [
+          "stability",
+          "stability"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "pressure_convergence",
+        "sources": [
+          "stability",
+          "stability"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "fragmentation_convergence",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "pressure_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "stability",
+          "pressure"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "instability_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "stability",
+          "contextual"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "pressure_convergence",
+        "sources": [
+          "stability",
+          "stability"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "fragmentation_convergence",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "strength_diff": 0.10000000000000009
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "stability",
+          "pressure"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "bottleneck_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "stability",
+          "contextual"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "fragmentation_convergence",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "pressure_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "stability",
+          "prioritization"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "stability",
+          "pressure"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "pressure_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "stability",
+          "contextual"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "coherence",
+          "coherence"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "coherence",
+          "coherence"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "coherence",
+          "prioritization"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "strength_diff": 0.10000000000000009
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "coherence",
+          "pressure"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "fragmentation_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "coherence",
+          "contextual"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "contradiction_pressure",
+        "sources": [
+          "coherence",
+          "coherence"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "coherence",
+          "prioritization"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "coherence",
+          "pressure"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "coherence",
+          "contextual"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "coherence",
+          "prioritization"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "coherence",
+          "pressure"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "contradiction_pressure",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "coherence",
+          "contextual"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "pressure_dominance",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "prioritization",
+          "prioritization"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "pressure_dominance",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "prioritization",
+          "prioritization"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "pressure_dominance",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "prioritization",
+          "salience"
+        ],
+        "strength_diff": 0.1499999999999999
+      },
+      {
+        "candidate_1": "pressure_dominance",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "prioritization",
+          "salience"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "pressure_dominance",
+        "candidate_2": "unresolved_pressure_dominance",
+        "sources": [
+          "prioritization",
+          "pressure"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "pressure_dominance",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "prioritization",
+          "pressure"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "bottleneck_dominance",
+        "sources": [
+          "prioritization",
+          "prioritization"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "prioritization",
+          "salience"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "prioritization",
+          "salience"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "unresolved_pressure_dominance",
+        "sources": [
+          "prioritization",
+          "pressure"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "prioritization",
+          "pressure"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "persistent_salience",
+        "sources": [
+          "prioritization",
+          "salience"
+        ],
+        "strength_diff": 0.04999999999999993
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "prioritization",
+          "salience"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "unresolved_pressure_dominance",
+        "sources": [
+          "prioritization",
+          "pressure"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "prioritization",
+          "pressure"
+        ],
+        "strength_diff": 0.09999999999999998
+      },
+      {
+        "candidate_1": "bottleneck_dominance",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "prioritization",
+          "contextual"
+        ],
+        "strength_diff": 0.15000000000000002
+      },
+      {
+        "candidate_1": "persistent_salience",
+        "candidate_2": "cluster_convergence",
+        "sources": [
+          "salience",
+          "salience"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "persistent_salience",
+        "candidate_2": "unresolved_pressure_dominance",
+        "sources": [
+          "salience",
+          "pressure"
+        ],
+        "strength_diff": 0.19999999999999996
+      },
+      {
+        "candidate_1": "persistent_salience",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "salience",
+          "pressure"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "persistent_salience",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "salience",
+          "contextual"
+        ],
+        "strength_diff": 0.10000000000000009
+      },
+      {
+        "candidate_1": "cluster_convergence",
+        "candidate_2": "chronic_pressure_convergence",
+        "sources": [
+          "salience",
+          "pressure"
+        ],
+        "strength_diff": 0
+      },
+      {
+        "candidate_1": "cluster_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "salience",
+          "contextual"
+        ],
+        "strength_diff": 0.050000000000000044
+      },
+      {
+        "candidate_1": "chronic_pressure_convergence",
+        "candidate_2": "contextual_amplification",
+        "sources": [
+          "pressure",
+          "contextual"
+        ],
+        "strength_diff": 0.050000000000000044
+      }
+    ],
+    "convergence_chains": [
+      {
+        "source": "attention",
+        "candidate_count": 2,
+        "total_strength": 1.544
+      },
+      {
+        "source": "weighting",
+        "candidate_count": 3,
+        "total_strength": 2.0694999999999997
+      },
+      {
+        "source": "stability",
+        "candidate_count": 3,
+        "total_strength": 2.2
+      },
+      {
+        "source": "coherence",
+        "candidate_count": 3,
+        "total_strength": 2
+      },
+      {
+        "source": "prioritization",
+        "candidate_count": 3,
+        "total_strength": 2.7
+      },
+      {
+        "source": "salience",
+        "candidate_count": 2,
+        "total_strength": 1.55
+      },
+      {
+        "source": "pressure",
+        "candidate_count": 2,
+        "total_strength": 1.75
+      }
+    ],
+    "pressure_intensity": 0.7638684210526316,
+    "fragmentation_index": 0.5
+  },
+  "executive_saturation_assessment": {
+    "saturation_level": 5.59,
+    "saturation_type": "CRITICAL",
+    "overload_indicators": [
+      "executive_congestion",
+      "convergence_overload",
+      "dominance_saturation"
+    ],
+    "saturation_score": 1
+  },
+  "executive_distribution": {
+    "type": "DISTRIBUTED",
+    "concentration_score": 0.48,
+    "uniformity_score": 0.84,
+    "source_count": 8,
+    "dominant_source_count": 4
+  },
+  "executive_stability_assessment": {
+    "convergence_continuity": 0.5,
+    "emergence_volatility": 0,
+    "persistence_continuity": 0.5,
+    "focus_oscillation": 0,
+    "fragmentation_persistence": 0.5,
+    "overall_stability": "INDETERMINATE"
+  },
+  "executive_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Insufficient observation history to determine executive-focus drift direction.",
+    "interpretation": "More observations needed before executive drift can be classified.",
+    "drift_strength": 0,
+    "confidence": "low"
+  },
+  "persistence_summary": {
+    "recurring_dominant_candidates": [],
+    "persistent_convergence_regions": [],
+    "strengthening_candidates": [],
+    "weakening_candidates": []
+  },
+  "uncertainty_boundaries": [
+    {
+      "factor": "insufficient_executive_history",
+      "impact": "Limited executive-focus history — drift classification and stability assessment may be unreliable",
+      "confidence_level": "low"
+    },
+    {
+      "factor": "dominant_classification_uncertain",
+      "impact": "EXECUTIVE_DOMINANT state detected but limited history — dominance may be transient",
+      "confidence_level": "medium"
+    },
+    {
+      "factor": "many_candidates_no_history",
+      "impact": "Many executive candidates detected without history to confirm persistence",
+      "confidence_level": "medium"
+    }
+  ],
+  "environmental_executive_summary": {
+    "summary": "Executive-dominant state. 12 high-severity candidates, 14 persistent. 4 dominant regions, 1 critical bottlenecks. Executive focus is monopolized.",
+    "executive_focus_state": "EXECUTIVE_DOMINANT",
+    "executive_focus_strength": 1,
+    "candidate_count": 19,
+    "persistent_candidate_count": 14,
+    "dominant_region_count": 4,
+    "critical_bottleneck_count": 1
+  },
+  "generated_at": "2026-05-19T21:17:07.671Z",
+  "shadow_only": true
+}

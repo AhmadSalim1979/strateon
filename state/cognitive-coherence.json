@@ -1,0 +1,114 @@
+{
+  "coherence_state": "COHERENT",
+  "coherence_strength": 0.76,
+  "aligned_layers": [
+    "salience",
+    "attention",
+    "contextual",
+    "temporal"
+  ],
+  "fragmented_layers": [],
+  "contradiction_zones": [],
+  "coherence_pressures": [
+    {
+      "pressure_type": "attention_competition",
+      "intensity": 0.21,
+      "description": "Attention competition pressure: 70% intensity",
+      "source_layers": [
+        "attention"
+      ]
+    },
+    {
+      "pressure_type": "unresolved_pressure_accumulation",
+      "intensity": 0.24,
+      "description": "8 unresolved pressure items accumulating",
+      "source_layers": [
+        "pressure"
+      ]
+    }
+  ],
+  "layer_alignments": {
+    "pressure": {
+      "strain_level": "HIGH",
+      "concentration": "CONCENTRATED",
+      "trajectory": "INDETERMINATE",
+      "coherence_score": 0.5,
+      "aligned": false,
+      "fragmented": false
+    },
+    "salience": {
+      "salience_level": "PERSISTENT",
+      "entity_count": 3,
+      "cluster_count": 2,
+      "temporal_profile": "STRENGTHENING",
+      "coherence_score": 0.83,
+      "aligned": true,
+      "fragmented": false
+    },
+    "attention": {
+      "attention_level": "ELEVATED",
+      "capacity_state": "PARTIAL",
+      "transition_profile": "STABILIZING",
+      "competition_intensity": 0.7,
+      "coherence_score": 0.93,
+      "aligned": true,
+      "fragmented": false
+    },
+    "contextual": {
+      "contextual_state": "SIGNIFICANT",
+      "net_context_score": 4,
+      "drift_profile": "STABILIZING",
+      "amplification_count": 2,
+      "suppression_count": 0,
+      "coherence_score": 0.93,
+      "aligned": true,
+      "fragmented": false
+    },
+    "temporal": {
+      "temporal_profile": "STABLE",
+      "stability_trend": "STABLE",
+      "coherence_score": 1,
+      "aligned": true,
+      "fragmented": false
+    }
+  },
+  "fragmentation_signals": [],
+  "coherence_drift_profile": {
+    "profile": "STABILIZING",
+    "description": "Environmental cognitive coherence is maintaining consistent levels. No significant drift in either direction.",
+    "interpretation": "Coherence trend is stable. Environmental cognitive state is in equilibrium.",
+    "drift_strength": 0.5,
+    "confidence": "medium",
+    "coherence_state_history": [
+      3,
+      3,
+      2
+    ],
+    "oscillation_count": 1
+  },
+  "persistence_summary": {
+    "coherent_snapshots": 1,
+    "fragmented_snapshots": 1,
+    "persistent_contradiction_zones": 0,
+    "coherence_recovery_count": 0,
+    "new_contradiction_zones": 0,
+    "resolved_contradiction_zones": 2,
+    "persistent_zone_types": []
+  },
+  "uncertainty_boundaries": [
+    {
+      "factor": "bounded_observation_window",
+      "impact": "All coherence observations bounded by current snapshot window — future observations may alter classification",
+      "confidence_level": "low"
+    }
+  ],
+  "environmental_consistency_summary": {
+    "summary": "Environmental cognitive landscape is coherent. All observed layers align consistently. No significant contradictions or fragmentation detected.",
+    "aligned_layer_count": 4,
+    "fragmented_layer_count": 0,
+    "contradiction_zone_count": 0,
+    "coherence_state": "COHERENT"
+  },
+  "generated_at": "2026-05-19T20:20:13.060Z",
+  "shadow_only": true
+}

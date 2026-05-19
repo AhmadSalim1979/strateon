@@ -1,0 +1,457 @@
+{
+  "prioritization_pressure_state": "SATURATED",
+  "pressure_strength": 0.8,
+  "competing_regions": [
+    {
+      "region_type": "source_competition_region",
+      "source": "weighting",
+      "signal_count": 3,
+      "total_intensity": 1.1,
+      "avg_intensity": 0.37,
+      "severity": "low",
+      "signals": [
+        "dominant_signal_competition",
+        "environmental_density_pressure",
+        "distribution_pressure"
+      ],
+      "dominant": false,
+      "competing_with": "coherence"
+    },
+    {
+      "region_type": "source_competition_region",
+      "source": "stability",
+      "signal_count": 3,
+      "total_intensity": 1.27,
+      "avg_intensity": 0.42,
+      "severity": "medium",
+      "signals": [
+        "destabilization_pressure",
+        "persistent_instability_pressure",
+        "oscillation_pressure"
+      ],
+      "dominant": true,
+      "competing_with": "coherence"
+    },
+    {
+      "region_type": "source_competition_region",
+      "source": "coherence",
+      "signal_count": 2,
+      "total_intensity": 0.89,
+      "avg_intensity": 0.45,
+      "severity": "medium",
+      "signals": [
+        "contradiction_pressure",
+        "fragmentation_pressure"
+      ],
+      "dominant": true,
+      "competing_with": "salience"
+    },
+    {
+      "region_type": "source_competition_region",
+      "source": "attention",
+      "signal_count": 2,
+      "total_intensity": 1.86,
+      "avg_intensity": 0.93,
+      "severity": "high",
+      "signals": [
+        "focus_saturation_pressure",
+        "attention_bottleneck_pressure"
+      ],
+      "dominant": true,
+      "competing_with": "pressure"
+    },
+    {
+      "region_type": "source_competition_region",
+      "source": "pressure",
+      "signal_count": 2,
+      "total_intensity": 1.71,
+      "avg_intensity": 0.86,
+      "severity": "high",
+      "signals": [
+        "unresolved_pressure_accumulation",
+        "chronic_pressure_convergence"
+      ],
+      "dominant": true,
+      "competing_with": "attention"
+    },
+    {
+      "region_type": "source_competition_region",
+      "source": "salience",
+      "signal_count": 1,
+      "total_intensity": 0.6,
+      "avg_intensity": 0.6,
+      "severity": "high",
+      "signals": [
+        "salience_cluster_pressure"
+      ],
+      "dominant": true,
+      "competing_with": "coherence"
+    }
+  ],
+  "dominant_pressure_signals": [
+    {
+      "signal_type": "focus_saturation_pressure",
+      "source": "attention",
+      "intensity": 1.06,
+      "severity": "high",
+      "description": "Focus saturation 90% — competition intensity 85%"
+    },
+    {
+      "signal_type": "unresolved_pressure_accumulation",
+      "source": "pressure",
+      "intensity": 0.96,
+      "severity": "high",
+      "description": "12 unresolved pressure items accumulating"
+    },
+    {
+      "signal_type": "attention_bottleneck_pressure",
+      "source": "attention",
+      "intensity": 0.8,
+      "severity": "high",
+      "description": "Attention level DOMINANT creating bottleneck potential"
+    },
+    {
+      "signal_type": "chronic_pressure_convergence",
+      "source": "pressure",
+      "intensity": 0.75,
+      "severity": "high",
+      "description": "3 chronic pressure entities converging"
+    },
+    {
+      "signal_type": "salience_cluster_pressure",
+      "source": "salience",
+      "intensity": 0.6,
+      "severity": "high",
+      "description": "3 high-significance salience clusters creating pressure convergence"
+    },
+    {
+      "signal_type": "oscillation_pressure",
+      "source": "stability",
+      "intensity": 0.6,
+      "severity": "high",
+      "description": "1 oscillation regions creating unpredictable pressure"
+    },
+    {
+      "signal_type": "contradiction_pressure",
+      "source": "coherence",
+      "intensity": 0.53,
+      "severity": "high",
+      "description": "3 contradiction zones creating prioritization conflict"
+    },
+    {
+      "signal_type": "destabilization_pressure",
+      "source": "stability",
+      "intensity": 0.47,
+      "severity": "high",
+      "description": "2 destabilization pressures creating prioritization strain"
+    },
+    {
+      "signal_type": "persistent_instability_pressure",
+      "source": "stability",
+      "intensity": 0.2,
+      "severity": "high",
+      "description": "1 persistent instability zones maintaining pressure"
+    }
+  ],
+  "bottleneck_regions": [
+    {
+      "bottleneck_type": "cognitive_congestion",
+      "intensity": 0.96,
+      "description": "Cognitive congestion — 6 sources with 8 high-intensity signals converging",
+      "severity": "high",
+      "source_count": 6,
+      "signal_count": 8,
+      "critical": true
+    },
+    {
+      "bottleneck_type": "focus_saturation_bottleneck",
+      "intensity": 1.06,
+      "description": "Focus saturation bottleneck — Focus saturation 90% — competition intensity 85%",
+      "severity": "high",
+      "saturation_score": 0.9,
+      "critical": true
+    },
+    {
+      "bottleneck_type": "attention_bottleneck",
+      "intensity": 0.8,
+      "description": "Attention level DOMINANT creating bottleneck potential",
+      "severity": "high",
+      "attention_level": "DOMINANT",
+      "critical": true
+    },
+    {
+      "bottleneck_type": "stability_bottleneck",
+      "intensity": 0.2,
+      "description": "1 persistent instability zones maintaining pressure",
+      "severity": "high",
+      "critical_zones": 1,
+      "critical": false
+    }
+  ],
+  "pressure_convergence_zones": [
+    {
+      "zone_type": "high_intensity_convergence",
+      "intensity": 0.7262500000000001,
+      "description": "8 high-intensity signals converging",
+      "severity": "high",
+      "signal_count": 8,
+      "sources": [
+        "weighting",
+        "stability",
+        "coherence",
+        "attention",
+        "pressure",
+        "salience"
+      ]
+    },
+    {
+      "zone_type": "stability_saturation_convergence",
+      "intensity": 0.764,
+      "description": "Destabilization and saturation pressures converging — instability meets overload",
+      "severity": "high",
+      "sources": [
+        "stability",
+        "attention"
+      ]
+    },
+    {
+      "zone_type": "competition_saturation_convergence",
+      "intensity": 0.785,
+      "description": "Dominant signal competition and focus saturation converging — overwhelming contention",
+      "severity": "high",
+      "sources": [
+        "weighting",
+        "attention"
+      ]
+    }
+  ],
+  "focus_competition_map": {
+    "dominant_signals": [
+      {
+        "signal_type": "destabilization_pressure",
+        "source": "stability",
+        "intensity": 0.468
+      },
+      {
+        "signal_type": "persistent_instability_pressure",
+        "source": "stability",
+        "intensity": 0.2
+      },
+      {
+        "signal_type": "oscillation_pressure",
+        "source": "stability",
+        "intensity": 0.6
+      },
+      {
+        "signal_type": "contradiction_pressure",
+        "source": "coherence",
+        "intensity": 0.53
+      },
+      {
+        "signal_type": "focus_saturation_pressure",
+        "source": "attention",
+        "intensity": 1.06
+      },
+      {
+        "signal_type": "attention_bottleneck_pressure",
+        "source": "attention",
+        "intensity": 0.8
+      },
+      {
+        "signal_type": "unresolved_pressure_accumulation",
+        "source": "pressure",
+        "intensity": 0.96
+      },
+      {
+        "signal_type": "chronic_pressure_convergence",
+        "source": "pressure",
+        "intensity": 0.75
+      },
+      {
+        "signal_type": "salience_cluster_pressure",
+        "source": "salience",
+        "intensity": 0.6000000000000001
+      }
+    ],
+    "competing_pairs": [
+      {
+        "signal_1": "dominant_signal_competition",
+        "signal_2": "oscillation_pressure",
+        "sources": [
+          "weighting",
+          "stability"
+        ],
+        "intensity_diff": 0.08999999999999997
+      },
+      {
+        "signal_1": "dominant_signal_competition",
+        "signal_2": "contradiction_pressure",
+        "sources": [
+          "weighting",
+          "coherence"
+        ],
+        "intensity_diff": 0.020000000000000018
+      },
+      {
+        "signal_1": "dominant_signal_competition",
+        "signal_2": "salience_cluster_pressure",
+        "sources": [
+          "weighting",
+          "salience"
+        ],
+        "intensity_diff": 0.09000000000000008
+      },
+      {
+        "signal_1": "oscillation_pressure",
+        "signal_2": "contradiction_pressure",
+        "sources": [
+          "stability",
+          "coherence"
+        ],
+        "intensity_diff": 0.06999999999999995
+      },
+      {
+        "signal_1": "oscillation_pressure",
+        "signal_2": "chronic_pressure_convergence",
+        "sources": [
+          "stability",
+          "pressure"
+        ],
+        "intensity_diff": 0.15000000000000002
+      },
+      {
+        "signal_1": "oscillation_pressure",
+        "signal_2": "salience_cluster_pressure",
+        "sources": [
+          "stability",
+          "salience"
+        ],
+        "intensity_diff": 1.1102230246251565e-16
+      },
+      {
+        "signal_1": "contradiction_pressure",
+        "signal_2": "salience_cluster_pressure",
+        "sources": [
+          "coherence",
+          "salience"
+        ],
+        "intensity_diff": 0.07000000000000006
+      },
+      {
+        "signal_1": "focus_saturation_pressure",
+        "signal_2": "unresolved_pressure_accumulation",
+        "sources": [
+          "attention",
+          "pressure"
+        ],
+        "intensity_diff": 0.10000000000000009
+      },
+      {
+        "signal_1": "attention_bottleneck_pressure",
+        "signal_2": "unresolved_pressure_accumulation",
+        "sources": [
+          "attention",
+          "pressure"
+        ],
+        "intensity_diff": 0.15999999999999992
+      },
+      {
+        "signal_1": "attention_bottleneck_pressure",
+        "signal_2": "chronic_pressure_convergence",
+        "sources": [
+          "attention",
+          "pressure"
+        ],
+        "intensity_diff": 0.050000000000000044
+      },
+      {
+        "signal_1": "attention_bottleneck_pressure",
+        "signal_2": "salience_cluster_pressure",
+        "sources": [
+          "attention",
+          "salience"
+        ],
+        "intensity_diff": 0.19999999999999996
+      },
+      {
+        "signal_1": "chronic_pressure_convergence",
+        "signal_2": "salience_cluster_pressure",
+        "sources": [
+          "pressure",
+          "salience"
+        ],
+        "intensity_diff": 0.1499999999999999
+      }
+    ],
+    "competition_intensity": 1,
+    "fragmentation_index": 0.4
+  },
+  "cognitive_saturation_assessment": {
+    "saturation_level": 0.86,
+    "saturation_type": "CRITICAL",
+    "overload_indicators": [
+      "focus_overload",
+      "cognitive_congestion",
+      "pressure_saturation"
+    ],
+    "saturation_score": 0.8624,
+    "direct_attention_saturation": 0.9
+  },
+  "pressure_distribution": {
+    "type": "DISTRIBUTED",
+    "concentration_score": 0.48,
+    "distribution_uniformity": 0.8,
+    "source_count": 6,
+    "dominant_source_count": 3,
+    "distribution_summary": "DISTRIBUTED — 48% pressure in top 30% sources"
+  },
+  "pressure_stability_assessment": {
+    "pressure_continuity": 0.5,
+    "pressure_volatility": 0,
+    "convergence_persistence": 0.5,
+    "competition_persistence": 0.5,
+    "pressure_oscillation": 0,
+    "bottleneck_stability": 0.5,
+    "overall_stability": "INDETERMINATE"
+  },
+  "pressure_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Insufficient observation history to determine prioritization pressure drift direction.",
+    "interpretation": "More observations needed before pressure drift can be classified.",
+    "drift_strength": 0,
+    "confidence": "low"
+  },
+  "persistence_summary": {
+    "persistent_pressure_signals": [],
+    "recurring_bottleneck_regions": [],
+    "strengthening_pressures": [],
+    "weakening_pressures": []
+  },
+  "uncertainty_boundaries": [
+    {
+      "factor": "insufficient_pressure_history",
+      "impact": "Limited prioritization pressure history — drift classification and stability assessment may be unreliable",
+      "confidence_level": "low"
+    },
+    {
+      "factor": "saturated_classification_uncertain",
+      "impact": "SATURATED pressure state detected but limited history — saturation may be transient",
+      "confidence_level": "medium"
+    },
+    {
+      "factor": "convergence_zone_transient",
+      "impact": "High convergence detected but may be transient — insufficient history for confidence",
+      "confidence_level": "medium"
+    }
+  ],
+  "environmental_pressure_summary": {
+    "summary": "Cognitive landscape is saturated with prioritization pressure. 9 high-severity signals, 4 bottlenecks, 6 competing regions. Focus capacity is overloaded.",
+    "prioritization_pressure_state": "SATURATED",
+    "pressure_strength": 0.8,
+    "high_severity_signal_count": 9,
+    "bottleneck_count": 4,
+    "competing_region_count": 6
+  },
+  "generated_at": "2026-05-19T20:56:48.958Z",
+  "shadow_only": true
+}
