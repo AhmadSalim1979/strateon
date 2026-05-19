@@ -1,0 +1,88 @@
+{
+  "awareness_level": "LOW",
+  "environment_pressure": "SEVERE",
+  "dominant_patterns": [],
+  "stability_summary": {
+    "stable_ratio": 0,
+    "problem_ratio": 0.67,
+    "distribution": {
+      "STABLE": 0,
+      "WATCH": 1,
+      "DEGRADED": 2,
+      "VOLATILE": 0,
+      "CRITICAL_PATTERN": 0
+    },
+    "dominant_state": {
+      "category": "DEGRADED",
+      "count": 2
+    },
+    "assessment": "environment is predominantly unstable"
+  },
+  "uncertainty_summary": {
+    "awareness_level": "LOW",
+    "confidence": "LOW",
+    "factors": [
+      {
+        "factor": "observation_coverage",
+        "impact": "LOW awareness level — only 3 entity(ies) observed in 6h window. Confidence in environmental assessment is reduced."
+      },
+      {
+        "factor": "snapshot_comparison_limitation",
+        "impact": "Temporal comparison requires at least two snapshots. Current comparison capability is limited until snapshot history accumulates."
+      }
+    ],
+    "summary": "Environmental awareness is significantly limited by insufficient observation data. Confidence is low — current snapshot may not reliably represent true environmental state."
+  },
+  "pressure_contributors": [
+    {
+      "factor": "degraded_entity_persistence",
+      "severity": "MEDIUM",
+      "value": 2,
+      "description": "2 entity(ies) in DEGRADED state. 0 have multiple degraded periods, indicating persistent degradation.",
+      "entity_count": 2
+    },
+    {
+      "factor": "stale_evidence_accumulation",
+      "severity": "MEDIUM",
+      "value": 1,
+      "description": "Average stale verification pressure is 1.0 per entity. Verification freshness is frequently compromised.",
+      "entity_count": 2
+    },
+    {
+      "factor": "verification_decay",
+      "severity": "MEDIUM",
+      "value": 0.375,
+      "description": "38% of verification attempts failed. Verification reliability is significantly compromised.",
+      "entity_count": 2
+    }
+  ],
+  "temporal_comparison": {
+    "pattern": "STABLE",
+    "description": "Current environment shows no significant change from previous snapshot. Stability indicators remain within normal variation range with no meaningful directional shift.",
+    "interpretation": "Environment is maintaining consistent operational conditions compared to previous observation period.",
+    "deltas": {
+      "entityDelta": 0,
+      "volatileDelta": 0,
+      "contradictionDelta": 0
+    }
+  },
+  "observation_window": "6h",
+  "entity_count": 3,
+  "perception_metrics": {
+    "volatile_entity_count": 0,
+    "chronic_degradation_count": 0,
+    "oscillation_rate": 0,
+    "stale_verification_pressure": 1,
+    "contradiction_density": 0.3,
+    "recovery_rate": 0,
+    "perception_distribution": {
+      "STABLE": 0,
+      "WATCH": 1,
+      "DEGRADED": 2,
+      "VOLATILE": 0,
+      "CRITICAL_PATTERN": 0
+    }
+  },
+  "generated_at": "2026-05-19T12:04:48.870Z",
+  "shadow_only": true
+}
