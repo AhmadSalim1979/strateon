@@ -1,17 +1,21 @@
 {
-  "last_heartbeat_check": "2026-05-18T23:22:00Z",
+  "last_heartbeat_check": "2026-05-19T03:27:00Z",
   "checks_performed": {
-    "2026-05-18T23:22:00Z": {
-      "pm2_status": "online",
-      "worker_heartbeat": "stale_from_May17",
-      "worker_uptime": "13h_PID_1051495",
-      "gateway": "online_pid_1012414_29h",
-      "memory": "on_disk_19174_pruned_but_gateway_caching_old_20487"
+    "2026-05-19T01:52:00Z": {
+      "pm2_status": "5_online",
+      "gateway": "online_connected_no_disconnect_since_02:28",
+      "memory_truncation": "still_occurring_gateway_caching_old_bootstrap",
+      "worker": "online_stale_heartbeat_no_change"
+    },
+    "2026-05-19T03:27:00Z": {
+      "cmo_delivery": "received",
+      "post_019": "board_review_pending_ahmad_approval"
     }
   },
   "last_checks": {
     "worker_heartbeat": "2026-05-17T08:22:30.087Z",
-    "operational_state": "2026-05-18T04:40:00Z"
+    "operational_state": "2026-05-18T04:40:00Z",
+    "cmo_delivery": "2026-05-19T03:27:00Z"
   },
-  "notes": "MEMORY.md on disk is 19174 bytes — clean. openclaw-gateway (PID 1012414, started May 17 16:52 UTC, 29h uptime) is caching its bootstrap and still serving 20,487-byte context to new sessions. Truncation warnings are from the gateway process bootstrap, not disk. Fix: pm2 restart openclaw-gateway — requires Ahmad approval."
+  "notes": "CMO POST-019 delivered via stale subagent session (dated May 5). Board review pending Ahmad approval. No new disconnects since 02:28 UTC. Gateway still caching old bootstrap — pm2 restart needed."
 }
