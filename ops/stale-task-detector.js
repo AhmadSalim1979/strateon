@@ -131,7 +131,7 @@ async function getActiveTasks(supabase) {
     // Schema: id, goal, status, created_at, updated_at (NOT last_update_at)
     const { data: tasks, error } = await supabase
       .from('tasks')
-      .select('id, goal, status, created_at, updated_at, input_json, metadata')
+      .select('id, goal, status, created_at, updated_at, input_json')
       .in('status', ['pending', 'in_progress', 'active'])
       .order('created_at', { ascending: true })
       .limit(50);
@@ -152,7 +152,7 @@ async function getActiveTasks(supabase) {
       goal: t.goal,
       status: t.status === 'pending' ? 'waiting' : t.status === 'in_progress' ? 'active' : t.status,
       last_update_at: t.updated_at || t.created_at,  // Use updated_at, not last_update_at
-      metadata: { ...t.input_json, ...t.metadata, task_type: 'execute' }
+      metadata: { ...t.input_json, task_type: 'execute' }
     })), ...(instructions || []).map(i => ({
       task_id: i.id,
       goal: i.original_message,
