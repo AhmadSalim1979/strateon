@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "description": "GPU window state — managed by gpu-scheduler.js. Do not edit manually.",
+  "window_open": false,
+  "window_open_since": null,
+  "pod_ip": null,
+  "proxy_port": 11440,
+  "instance_id": null,
+  "instance_status": "stopped",
+  "gpu_healthy": false,
+  "last_health_check": null,
+  "window_closing": false,
+  "cost_today": 0,
+  "cost_this_month": 0,
+  "emergency_stop": false,
+  "last_error": null
+}
