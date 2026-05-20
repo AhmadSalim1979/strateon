@@ -1,5 +1,5 @@
 {
-  "last_heartbeat_check": "2026-05-19T22:47:00Z",
+  "last_heartbeat_check": "2026-05-20T05:47:00Z",
   "checks_performed": {
     "2026-05-19T22:17:00Z": {
       "memory_created": "2026-05-20.md_new_session",
@@ -11,11 +11,36 @@
       "gateway": "online",
       "worker": "online_stale_heartbeat_15h+_old",
       "stale_task_detector": "error_column_tasks.last_update_at_missing_tasks_0"
+    },
+    "2026-05-20T03:47:00Z": {
+      "pm2_status": "5_online",
+      "gateway": "online",
+      "worker": "online_pid_1051495_uptime_40h_heartbeat_file_stale_22h",
+      "stale_task_detector": "error_column_tasks.last_update_at_missing_no_active_tasks",
+      "active_tasks": 0,
+      "all_nominal": true
+    },
+    "2026-05-20T04:47:00Z": {
+      "pm2_status": "5_online",
+      "gateway": "connected_+923215139934",
+      "worker": "online_pid_1051495_uptime_40h_heartbeat_file_stale_22h",
+      "stale_task_detector": "error_column_tasks.last_update_at_missing_no_active_tasks",
+      "active_tasks": 0,
+      "all_nominal": true
+    },
+    "2026-05-20T05:47:00Z": {
+      "pm2_status": "5_online",
+      "gateway": "connected_+923215139934",
+      "worker": "online_pid_1051495_uptime_44h_heartbeat_file_stale_23h",
+      "stale_task_detector": "error_column_tasks.last_update_at_missing_no_active_tasks",
+      "active_tasks": 0,
+      "pending_commitments_check": "none_requiring_action",
+      "all_nominal": true
     }
   },
   "last_checks": {
     "worker_heartbeat": "2026-05-19T06:57:00.000Z",
     "operational_state": "2026-05-18T04:40:00Z"
   },
-  "notes": "All nominal. Worker online (stale heartbeat, no change in 16h). Stale task detector erroring on missing SQL column — no active tasks, no operational impact. No pending Moosa actions."
+  "notes": "All nominal. Worker online (PID 1051495, 44h uptime, heartbeat file stale 23h — stale task detector erroring on missing SQL column, no operational impact, 0 active tasks). Gateway connected as +923215139934. No pending commitments requiring action."
 }
