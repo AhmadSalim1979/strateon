@@ -1,52 +1,20 @@
 {
-  "last_heartbeat_check": "2026-05-20T10:14:30.747Z",
+  "last_heartbeat_check": "2026-05-20T22:02:00.000Z",
   "checks_performed": {
-    "2026-05-19T22:17:00Z": {
-      "memory_created": "2026-05-20.md_new_session",
-      "gateway": "reconnect_loop_23:58-00:08_berlin_ahmad_active",
-      "worker": "online_stale_heartbeat_15h_old_06:57_utc"
-    },
-    "2026-05-19T22:47:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "online",
-      "worker": "online_stale_heartbeat_15h+_old",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing_tasks_0"
-    },
-    "2026-05-20T03:47:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "online",
-      "worker": "online_pid_1051495_uptime_40h_heartbeat_file_stale_22h",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing_no_active_tasks",
-      "active_tasks": 0,
-      "all_nominal": true
-    },
-    "2026-05-20T04:47:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "connected_+923215139934",
-      "worker": "online_pid_1051495_uptime_40h_heartbeat_file_stale_22h",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing_no_active_tasks",
-      "active_tasks": 0,
-      "all_nominal": true
-    },
-    "2026-05-20T05:47:00Z": {
-      "pm2_status": "5_online",
-      "gateway": "connected_+923215139934",
-      "worker": "online_pid_1051495_uptime_44h_heartbeat_file_stale_23h",
-      "stale_task_detector": "error_column_tasks.last_update_at_missing_no_active_tasks",
-      "active_tasks": 0,
-      "pending_commitments_check": "none_requiring_action",
-      "all_nominal": true
-    },
-    "2026-05-20T10:14:00Z": {
-      "worker": "online_PID_1447543_heartbeat_refreshed",
+    "2026-05-20T22:02:00Z": {
+      "worker": "online_PID_1447543_uptime_15h_heartbeat_age_30min",
+      "worker_heartbeat_fresh": true,
       "stale_task_detector": "clean_0_tasks",
       "pm2": "5_online_0_restarts",
-      "gateway": "connected_+923215139934"
+      "memory": "created_2026-05-21_md",
+      "session_states_today": "none",
+      "gateway": "not_checked_cli_not_in_path"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-20T10:14:23.971Z",
-    "operational_state": "2026-05-20T06:45:37.963Z"
+    "worker_heartbeat": "2026-05-20T21:32:36.741Z",
+    "operational_state": "2026-05-20T06:45:37.963Z",
+    "memory": "2026-05-20T22:02:00Z"
   },
-  "notes": "All nominal. Worker online (PID 1051495, 44h uptime, heartbeat file stale 23h — stale task detector erroring on missing SQL column, no operational impact, 0 active tasks). Gateway connected as +923215139934. No pending commitments requiring action."
+  "notes": "Self-check run at midnight 2026-05-21 Berlin time. All nominal. Memory for today created. Next heartbeat due per cron schedule."
 }

@@ -1,0 +1,50 @@
+{
+  "continuity_state": "CONTINUOUS",
+  "continuity_strength": 0.72,
+  "stable_continuity_regions": [
+    "INFRASTRUCTURE_TASK_SELECTION"
+  ],
+  "fragmented_continuity_regions": [],
+  "continuity_fragmentation": [],
+  "survivability_regions": [
+    { "region": "INFRASTRUCTURE_TASK_SELECTION", "status": "RESILIENT" },
+    { "region": "INFRASTRUCTURE_TASK_SELECTION", "status": "PERSISTENT" }
+  ],
+  "continuity_stability_assessment": {
+    "continuity_resilience": 0.72,
+    "continuity_survivability": 0.72,
+    "interruption_resistance": 0.85,
+    "transition_stability": 0.85,
+    "continuity_recovery_strength": 0.72,
+    "carryover_stability": 0.85,
+    "fragmentation_resistance": 0.88,
+    "persistence_continuity": 0.85
+  },
+  "continuity_drift_profile": {
+    "profile": "STABILIZING",
+    "description": "Continuity is stable. No significant drift in either direction.",
+    "direction": "NEUTRAL",
+    "drift_magnitude": 0
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_OBSERVATION",
+      "description": "First observation of cognitive continuity. Baseline established.",
+      "confidence": "MEDIUM",
+      "caveat": "Classification may adjust as more long-horizon data accumulates."
+    }
+  ],
+  "environmental_continuity_summary": {
+    "unique_region_count": 2,
+    "dominant_region": "INFRASTRUCTURE_TASK_SELECTION",
+    "persistence_score": 0.85,
+    "fragmentation_score": 0.1,
+    "carryover_score": 0.85,
+    "interruption_recovery_score": 0.85,
+    "oscillation_index": 0.15,
+    "context_change_rate": 0.12,
+    "fragmentation_count": 0
+  },
+  "generated_at": "2026-05-20T21:00:00.000Z",
+  "shadow_only": true
+}

@@ -1,0 +1,51 @@
+{
+  "context_state": "CONSOLIDATED",
+  "consolidation_strength": 0.68,
+  "stable_context_regions": [
+    "INFRASTRUCTURE_TASK_SELECTION"
+  ],
+  "fragmented_context_regions": [],
+  "context_fragmentation": [],
+  "survivability_regions": [
+    { "region": "INFRASTRUCTURE_TASK_SELECTION", "status": "RESILIENT" },
+    { "region": "INFRASTRUCTURE_TASK_SELECTION", "status": "STRENGTHENING" }
+  ],
+  "context_stability_assessment": {
+    "context_resilience": 0.68,
+    "reinforcement_continuity": 0.92,
+    "interruption_resistance": 0.85,
+    "fragmentation_resistance": 0.85,
+    "consolidation_stability": 0.68,
+    "context_survivability": 0.72,
+    "stability_score": 0.85,
+    "transition_stability": 0.88
+  },
+  "context_drift_profile": {
+    "profile": "STABILIZING",
+    "description": "Context consolidation is stable. No significant drift.",
+    "direction": "NEUTRAL",
+    "drift_magnitude": 0
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_OBSERVATION",
+      "description": "First observation of context consolidation. Baseline established.",
+      "confidence": "MEDIUM",
+      "caveat": "Classification may adjust as more reinforcement data accumulates."
+    }
+  ],
+  "environmental_context_summary": {
+    "dominant_context": "INFRASTRUCTURE_TASK_SELECTION",
+    "unique_context_count": 2,
+    "stability_score": 0.85,
+    "fragmentation_score": 0.08,
+    "carryover_score": 0.85,
+    "reinforcement_trend": 0.02,
+    "context_transition_rate": 0.12,
+    "context_oscillation_index": 0.12,
+    "current_reinforcement": 0.68,
+    "fragmentation_count": 0
+  },
+  "generated_at": "2026-05-20T21:15:00.000Z",
+  "shadow_only": true
+}

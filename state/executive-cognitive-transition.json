@@ -1,0 +1,54 @@
+{
+  "transition_state": "STABILIZING",
+  "transition_strength": 0.72,
+  "stable_regime_regions": [
+    "INFRASTRUCTURE_TASK_SELECTION"
+  ],
+  "oscillatory_regime_regions": [],
+  "transition_fragmentation": [],
+  "survivability_regions": [
+    { "region": "INFRASTRUCTURE_TASK_SELECTION", "status": "CARRYOVER_PRESERVED" },
+    { "region": "INFRASTRUCTURE_TASK_SELECTION", "status": "COHERENT" }
+  ],
+  "transition_stability_assessment": {
+    "transition_resilience": 0.72,
+    "transition_survivability": 0.85,
+    "interruption_resistance": 0.72,
+    "regime_stability": 0.85,
+    "transition_continuity": 0.88,
+    "structural_carryover_integrity": 0.85,
+    "coherence_under_transition": 0.72,
+    "oscillation_resistance": 0.88
+  },
+  "transition_drift_profile": {
+    "profile": "STABILIZING",
+    "description": "Transition stability is stable. No significant drift.",
+    "direction": "NEUTRAL",
+    "drift_magnitude": 0
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_OBSERVATION",
+      "description": "First observation of cognitive transition dynamics. Baseline established.",
+      "confidence": "MEDIUM",
+      "caveat": "Classification may adjust as more transition history accumulates."
+    }
+  ],
+  "environmental_transition_summary": {
+    "transition_count": 1,
+    "transition_count_full": 1,
+    "transition_rate": 0.14,
+    "prior_regime_displaced": true,
+    "regime_dominance": 0.85,
+    "regime_dominance_recent": 1.0,
+    "transition_coherence": 0.86,
+    "oscillation_index": 0.12,
+    "carryover_score": 0.85,
+    "transition_strength": 0.72,
+    "dominant_regime": "INFRASTRUCTURE_TASK_SELECTION",
+    "transition_in_progress": false,
+    "fragmentation_count": 0
+  },
+  "generated_at": "2026-05-20T21:45:00.000Z",
+  "shadow_only": true
+}
