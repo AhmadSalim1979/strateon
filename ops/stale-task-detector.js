@@ -128,9 +128,10 @@ async function getActiveTasks(supabase) {
   
   try {
     // Read from tasks table (read-only — no updates)
+    // Schema: id, goal, status, created_at, updated_at (NOT last_update_at)
     const { data: tasks, error } = await supabase
       .from('tasks')
-      .select('id, goal, status, created_at, last_update_at, input_json, metadata')
+      .select('id, goal, status, created_at, updated_at, input_json, metadata')
       .in('status', ['pending', 'in_progress', 'active'])
       .order('created_at', { ascending: true })
       .limit(50);
@@ -138,6 +139,7 @@ async function getActiveTasks(supabase) {
     if (error) throw error;
     
     // Also read from instructions table for instruction-bridge tasks
+    // Schema: id, original_message, status, created_at, received_at, metadata
     const { data: instructions } = await supabase
       .from('instructions')
       .select('id, original_message, status, created_at, received_at, metadata')
@@ -149,7 +151,7 @@ async function getActiveTasks(supabase) {
       task_id: t.id,
       goal: t.goal,
       status: t.status === 'pending' ? 'waiting' : t.status === 'in_progress' ? 'active' : t.status,
-      last_update_at: t.last_update_at || t.created_at,
+      last_update_at: t.updated_at || t.created_at,  // Use updated_at, not last_update_at
       metadata: { ...t.input_json, ...t.metadata, task_type: 'execute' }
     })), ...(instructions || []).map(i => ({
       task_id: i.id,
