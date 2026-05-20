@@ -1,8 +1,8 @@
 {
   "component": "moosa-worker",
-  "last_run_at": "2026-05-19T06:57:00.000Z",
+  "last_run_at": "2026-05-20T10:14:23.971Z",
   "status": "online",
-  "pid": 922274,
-  "uptime_hours": "35+",
-  "note": "Heartbeat refresh May 19 06:57 UTC. Worker online but running R1 code — R4A not active. Restart needed to activate Phase 1A/1B."
+  "pid": 1447543,
+  "uptime_hours": "3",
+  "note": "Heartbeat refresh May 20 10:13 UTC. Worker online."
 }

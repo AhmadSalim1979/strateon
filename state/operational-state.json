@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "last_updated": "2026-05-18T04:40:00.000Z",
+  "last_updated": "2026-05-20T06:45:37.963Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": "2026-05-19T06:57:00.000Z",
   "active_tasks": [],
   "recent_alerts": [
     {
       "level": 0,
-      "message": "Worker recovered \u2014 online (2026-05-18T04:40 UTC). Poll-cycle heartbeat active. Option B implementation complete.",
+      "message": "Worker recovered — online (2026-05-18T04:40 UTC). Poll-cycle heartbeat active. Option B implementation complete.",
       "task_id": null,
       "at": "2026-05-18T04:40:00.000Z"
     },
@@ -19,17 +19,16 @@
     },
     {
       "level": 1,
-      "message": "Worker heartbeat stale \u2014 process online (PID 922274, 34h uptime) but heartbeat file not updating. Manual refresh done.",
+      "message": "Worker heartbeat stale — process online (PID 922274, 34h uptime) but heartbeat file not updating. Manual refresh done.",
       "task_id": null,
       "at": "2026-05-17T04:52:00.000Z"
     },
     {
       "level": 0,
-      "message": "Worker recovered \u2014 online",
+      "message": "Worker recovered — online",
       "task_id": null,
       "at": "2026-05-15T16:35:59.248Z"
     }
   ],
-  "restart_count_last_hour": 0,
-  "stale_task_detector_error": "column tasks.last_update_at does not exist"
+  "restart_count_last_hour": 0
 }
