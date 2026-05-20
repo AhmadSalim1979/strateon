@@ -1,0 +1,48 @@
+{
+  "readiness_state": "NOT_READY",
+  "readiness_score": 0,
+  "support_signals": [],
+  "readiness_blockers": [
+    {
+      "type": "INITIAL_STATE",
+      "severity": "LOW",
+      "description": "Executive readiness state is initialized with no history. First observations will establish baseline.",
+      "evidence": null
+    }
+  ],
+  "readiness_inputs": {
+    "epistemic_integrity": null,
+    "temporal_continuity": null,
+    "cognitive_coherence": null,
+    "cognitive_stability": null,
+    "cognitive_weighting": null,
+    "prioritization_pressure": null,
+    "executive_focus": null,
+    "executive_selection_tension": null,
+    "executive_persistence": null
+  },
+  "readiness_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Readiness drift cannot be determined. Insufficient history or conflicting signals.",
+    "direction": "UNKNOWN",
+    "drift_magnitude": null
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_STATE",
+      "description": "Executive readiness is initialized with no history. First observations will establish baseline.",
+      "confidence": "LOW",
+      "caveat": "Early classifications may be unreliable until history accumulates."
+    }
+  ],
+  "environmental_readiness_summary": {
+    "total_inputs": 0,
+    "total_required": 10,
+    "blocker_count": 1,
+    "high_severity_blockers": 0,
+    "support_signal_count": 0,
+    "readiness_score": 0
+  },
+  "generated_at": "2026-05-20T19:30:00.000Z",
+  "shadow_only": true
+}

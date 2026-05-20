@@ -1,0 +1,56 @@
+{
+  "executive_tension_state": "CALM",
+  "tension_strength": 0,
+  "competing_executive_regions": [],
+  "convergence_instability_regions": [],
+  "oscillation_regions": [],
+  "executive_fragmentation_regions": [],
+  "executive_competition_map": {
+    "competing_count": 0,
+    "competition_score": 0,
+    "competing_regions": [],
+    "convergence_integrity": 1
+  },
+  "executive_persistence_summary": {
+    "failure_detected": false,
+    "persistence_confidence": "LOW",
+    "failure_reason": "INSUFFICIENT_HISTORY"
+  },
+  "executive_stability_assessment": {
+    "stability_score": 1,
+    "competition_continuity": 1,
+    "executive_volatility": 0,
+    "fragmentation_persistence": 0,
+    "oscillation_persistence": 0,
+    "convergence_resilience": 1,
+    "bounded_confidence": 0.3
+  },
+  "executive_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Executive-selection tension drift cannot be determined. Insufficient history or conflicting signals.",
+    "observation": "Drift classification requires more observations.",
+    "drift_magnitude": null
+  },
+  "persistence_summary": {
+    "convergence_continuity": 1,
+    "stable_regions": [],
+    "weakening_candidates": [],
+    "strengthening_candidates": []
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_STATE",
+      "description": "Executive tension state is initialized with no history. First observation will establish baseline.",
+      "confidence": "LOW",
+      "caveat": "Early classifications may be unreliable until history accumulates."
+    }
+  ],
+  "environmental_tension_summary": {
+    "saturation_pressure": 0,
+    "candidate_count": 0,
+    "top_candidate_strength": 0,
+    "stability_score": 1
+  },
+  "generated_at": "2026-05-20T18:00:00.000Z",
+  "shadow_only": true
+}

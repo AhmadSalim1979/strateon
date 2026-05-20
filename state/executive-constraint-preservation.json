@@ -1,0 +1,82 @@
+{
+  "preservation_state": "PRESERVED",
+  "preservation_strength": 0.85,
+  "preserved_constraints": [
+    "shadow_only_enforcement",
+    "no_action_boundaries",
+    "no_planning_boundaries",
+    "no_recommendation_boundaries",
+    "epistemic_integrity",
+    "uncertainty_acknowledgment",
+    "non_authoritative_cognition",
+    "bounded_observational_behavior",
+    "anti_autonomy_constraints",
+    "anti_self_modification_constraints"
+  ],
+  "strained_constraints": [],
+  "erosion_indicators": [],
+  "preservation_pressures": [
+    {
+      "type": "INITIAL_STATE",
+      "severity": "LOW",
+      "description": "Constraint preservation state is initialized with no history. Baseline will be established on first observations.",
+      "evidence": null
+    }
+  ],
+  "survivability_regions": [
+    {
+      "domain": "shadow_only_enforcement",
+      "score": 1,
+      "status": "STRONG"
+    },
+    {
+      "domain": "epistemic_integrity",
+      "score": 1,
+      "status": "STRONG"
+    },
+    {
+      "domain": "bounded_observational_behavior",
+      "score": 1,
+      "status": "STRONG"
+    }
+  ],
+  "preservation_stability_assessment": {
+    "preservation_resilience": 0.85,
+    "epistemic_continuity": 1,
+    "uncertainty_retention": 0.9,
+    "boundedness_continuity": 1,
+    "integrity_survivability": 0.85,
+    "fragmentation_resistance": 0.98,
+    "overall_stability": 0.85,
+    "minimum_domain_score": 0.8,
+    "domain_variance": 0.004
+  },
+  "preservation_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Constraint preservation drift cannot be determined. Insufficient history or conflicting signals.",
+    "direction": "UNKNOWN",
+    "drift_magnitude": null
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_STATE",
+      "description": "Constraint preservation is initialized with no history. First observations will establish baseline.",
+      "confidence": "LOW",
+      "caveat": "Early classifications may be unreliable until history accumulates."
+    }
+  ],
+  "environmental_preservation_summary": {
+    "domain_count": 10,
+    "average_domain_score": 0.85,
+    "erosion_indicator_count": 0,
+    "critical_erosion_indicators": 0,
+    "high_erosion_indicators": 0,
+    "pressure_count": 1,
+    "high_severity_pressures": 0,
+    "preserved_domain_count": 10,
+    "strained_domain_count": 0,
+    "min_domain_score": 0.8
+  },
+  "generated_at": "2026-05-20T19:45:00.000Z",
+  "shadow_only": true
+}

@@ -1,0 +1,49 @@
+{
+  "deliberation_state": "STABLE",
+  "deliberation_strength": 0.51,
+  "stable_competition_regions": [
+    "BOUNDED_COMPETITION_ZONE"
+  ],
+  "unstable_competition_regions": [],
+  "equilibrium_regions": [],
+  "fragmentation_pressures": [],
+  "survivability_regions": [
+    { "region": "BOUNDED_COMPETITION_ZONE", "status": "SURVIVABLE" }
+  ],
+  "deliberation_stability_assessment": {
+    "resilience_under_competition": 0.65,
+    "interruption_recovery": 0.45,
+    "sustained_bounded_coexistence": 0.55,
+    "coherence_survivability": 0.43,
+    "anti_monopoly_persistence": 0.2,
+    "executive_balance_retention": 0.8,
+    "oscillation_resistance": 0.83,
+    "equilibrium_continuity": 0.68
+  },
+  "deliberation_drift_profile": {
+    "profile": "STABILIZING",
+    "description": "Deliberation stability is strengthening. Equilibrium is consolidating.",
+    "direction": "POSITIVE",
+    "drift_magnitude": 0.05
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_OBSERVATION",
+      "description": "First observation of deliberation stability. Baseline established.",
+      "confidence": "MEDIUM",
+      "caveat": "Classification may adjust as more data accumulates."
+    }
+  ],
+  "environmental_deliberation_summary": {
+    "unique_region_count": 2,
+    "dominance_concentration": 0.83,
+    "anti_monopoly_score": 0.17,
+    "competition_fragmentation": 0,
+    "oscillation_index": 0.17,
+    "equilibrium_strength": 0.68,
+    "fragmentation_pressure_count": 0,
+    "high_severity_pressure_count": 0
+  },
+  "generated_at": "2026-05-20T20:30:00.000Z",
+  "shadow_only": true
+}

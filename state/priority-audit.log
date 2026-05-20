@@ -370,3 +370,7 @@
 {"timestamp":"2026-05-19T21:17:00.690Z","phase":"MCAI-6B","audit_action":"executive_focus_snapshot_generated","executive_focus_state":"EXECUTIVE_DOMINANT","executive_focus_strength":1,"candidate_count":20,"dominant_region_count":8,"shadow_only":true}
 {"timestamp":"2026-05-19T21:17:00.693Z","phase":"MCAI-6B","audit_action":"executive_focus_snapshot_generated","executive_focus_state":"EXECUTIVE_DOMINANT","executive_focus_strength":1,"candidate_count":20,"dominant_region_count":8,"shadow_only":true}
 {"timestamp":"2026-05-19T21:17:07.675Z","phase":"MCAI-6B","audit_action":"executive_focus_snapshot_generated","executive_focus_state":"EXECUTIVE_DOMINANT","executive_focus_strength":1,"candidate_count":19,"dominant_region_count":8,"shadow_only":true}
+{"timestamp":"2026-05-20T19:35:00.000Z","type":"EXECUTIVE_READINESS_VALIDATED","state":"NOT_READY","score":0,"blockers":1,"signals":0,"drift":"INDETERMINATE"}
+{"timestamp":"2026-05-20T19:50:00.000Z","type":"EXECUTIVE_CONSTRAINT_PRESERVATION_VALIDATED","state":"PRESERVED","strength":0.95,"erosion_indicators":0,"pressures":1,"drift":"STRENGTHENING"}
+{"timestamp":"2026-05-20T20:00:00.000Z","type":"EXECUTIVE_CONSTRAINT_PRESERVATION_6F1_SYNC","state":"SYNCHRONIZED","passed":18,"failed":0,"drift":"NONE"}
+{"timestamp":"2026-05-20T20:30:00.000Z","type":"EXECUTIVE_DELIBERATION_STABILITY_COMPUTED","state":"STABLE","strength":0.51,"drift":"STABILIZING"}

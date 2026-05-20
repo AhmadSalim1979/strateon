@@ -1,0 +1,52 @@
+{
+  "executive_persistence_state": "TRANSIENT",
+  "persistence_strength": 0,
+  "persistent_executive_regions": [],
+  "survivability_regions": [],
+  "persistence_decay_regions": [],
+  "interruption_resistance_regions": [],
+  "persistence_stability_assessment": {
+    "stability_score": 0,
+    "persistence_resilience": 0,
+    "continuity_stability": 0,
+    "interruption_tolerance": 0,
+    "coherence_survivability": 0,
+    "fragmentation_resistance": 0,
+    "executive_retention_continuity": 0
+  },
+  "persistence_consolidation_summary": {
+    "consolidation_detected": false,
+    "consolidation_score": 0,
+    "consolidating_regions": [],
+    "persistence_reinforcement": false
+  },
+  "persistence_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Executive persistence drift cannot be determined. Insufficient history or conflicting signals.",
+    "observation": "Drift classification requires more observations.",
+    "drift_magnitude": null
+  },
+  "persistence_summary": {
+    "convergence_continuity": 0,
+    "stable_regions": [],
+    "weakening_regions": [],
+    "strengthening_regions": []
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "INITIAL_STATE",
+      "description": "Executive persistence state is initialized with no history. First observations will establish baseline.",
+      "confidence": "LOW",
+      "caveat": "Early classifications may be unreliable until history accumulates."
+    }
+  ],
+  "environmental_persistence_summary": {
+    "candidate_count": 0,
+    "stability_score": 0,
+    "convergence_strength": 0,
+    "top_region": null,
+    "persistence_score": 0
+  },
+  "generated_at": "2026-05-20T19:00:00.000Z",
+  "shadow_only": true
+}
