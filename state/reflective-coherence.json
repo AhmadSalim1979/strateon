@@ -1,95 +1,47 @@
 {
-  "request_id": "rc-1779384348195-2wros",
-  "reflective_coherence_state": "TENSIONED",
-  "coherence_strength": 0.1,
+  "request_id": "rc-1779393645134-zw42c",
+  "reflective_coherence_state": "COHERENT",
+  "coherence_strength": 0.571,
   "aligned_reflective_regions": [],
-  "fragmented_reflective_regions": [
-    {
-      "region_start_index": 0,
-      "region_end_index": 2,
-      "region_length": 3
-    }
-  ],
-  "reflective_contradiction_zones": [
-    {
-      "type": "integrity_continuity_state_contradiction",
-      "severity": "HIGH",
-      "description": "Integrity layer shows OVERREACH_RISK but continuity layer shows stable state",
-      "detected_at": "2026-05-21T17:25:48.196Z"
-    },
-    {
-      "type": "coherence_fragmentation_zone",
-      "severity": "MEDIUM",
-      "description": "Coherence below 0.5 in 3/5 recent entries",
-      "detected_at": "2026-05-21T17:25:48.196Z"
-    }
-  ],
+  "fragmented_reflective_regions": [],
+  "reflective_contradiction_zones": [],
   "integrity_alignment_analysis": {
-    "alignment_score": 0.375,
+    "alignment_score": 0.975,
     "alignment_factors": {
-      "strength_alignment": 0,
-      "classification_alignment": 0,
-      "overreach_alignment": 0.5,
+      "strength_alignment": 0.9,
+      "classification_alignment": 1,
+      "overreach_alignment": 1,
       "uncertainty_alignment": 1
     },
-    "contradictions": [
-      {
-        "type": "integrity_continuity_mismatch",
-        "integrity_class": "OVERREACH_RISK",
-        "continuity_class": "ENTRENCHED_REFLECTIVE_CONTINUITY",
-        "severity": "HIGH",
-        "message": "Integrity shows OVERREACH_RISK but continuity shows ENTRENCHED_REFLECTIVE_CONTINUITY — coherence gap"
-      }
-    ]
+    "contradictions": []
   },
   "continuity_alignment_analysis": {
-    "alignment_score": 0.9,
+    "alignment_score": 0.5,
     "alignment_factors": {
-      "strength_alignment": 1,
-      "overreach_consistency": 0.8
+      "status": "insufficient_data"
     },
     "contradictions": []
   },
   "coherence_recovery_analysis": {
-    "status": "analyzed",
+    "status": "insufficient_history",
     "recovery_count": 0,
-    "total_low_coherence_episodes": 3,
-    "recovery_ratio": 0,
+    "recovery_ratio": null,
     "recovery_episodes": []
   },
-  "coherence_fragmentation": [
-    {
-      "region": "0–2",
-      "length": 3,
-      "severity": "MODERATE"
-    }
-  ],
+  "coherence_fragmentation": [],
   "reflective_coherence_drift_profile": {
-    "drift_type": "ADAPTING",
-    "trend": [
-      0.2,
-      0.22,
-      0.18
-    ],
-    "delta_estimate": -0.01,
-    "std_dev": 0.016
+    "drift_type": "INDETERMINATE",
+    "trend": []
   },
-  "uncertainty_boundaries": [
-    {
-      "type": "low_coherence_strength",
-      "active": true,
-      "required": true,
-      "message": "Uncertainty must be preserved: coherence strength (0.1) critically low"
-    }
-  ],
+  "uncertainty_boundaries": [],
   "environmental_reflective_coherence_summary": {
     "status": "coherence_variable",
-    "history_depth": 4,
+    "history_depth": 2,
     "max_history": 30,
     "shadow_only": true,
-    "assessed_at": "2026-05-21T17:25:48.196Z"
+    "assessed_at": "2026-05-21T20:00:45.134Z"
   },
-  "generated_at": "2026-05-21T17:25:48.196Z",
+  "generated_at": "2026-05-21T20:00:45.134Z",
   "shadow_only": true,
   "version": "8D.1"
 }

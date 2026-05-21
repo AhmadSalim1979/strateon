@@ -295,7 +295,7 @@ function analyzeCoherenceRecovery(history) {
 // === COHERENCE CLASSIFICATION ===
 
 function classifyCoherence(alignmentAnalysis, contradictionZones, coherenceHistory) {
-  const avgAlignment = alignmentAnalysis?.alignment_score || 0.5;
+  const avgAlignment = (alignmentAnalysis?.overall_score ?? alignmentAnalysis?.alignment_score) || 0.5;
   const contradictionCount = contradictionZones?.length || 0;
   const contradictionSeverity = contradictionZones?.some(c => c.severity === 'HIGH') ? 'HIGH' :
                                 contradictionZones?.some(c => c.severity === 'MEDIUM') ? 'MEDIUM' : 'LOW';
@@ -383,7 +383,7 @@ function computeCoherenceStrength(alignmentAnalysis, contradictionZones, recover
   let strength = 0.5;
 
   // Alignment bonus
-  const alignmentScore = alignmentAnalysis?.alignment_score || 0.5;
+  const alignmentScore = (alignmentAnalysis?.overall_score ?? alignmentAnalysis?.alignment_score) || 0.5;
   strength += (alignmentScore - 0.5) * 0.3;
 
   // Contradiction penalty
@@ -541,7 +541,7 @@ function detectContradictionZones(history, integrityState, continuityState) {
 function computeUncertaintyBoundaries(alignmentAnalysis, contradictionZones, coherenceStrength) {
   const boundaries = [];
 
-  if ((alignmentAnalysis?.alignment_score || 0.5) < 0.4) {
+  if (((alignmentAnalysis?.overall_score ?? alignmentAnalysis?.alignment_score) || 0.5) < 0.4) {
     boundaries.push({
       type: 'low_alignment_score',
       active: true,
