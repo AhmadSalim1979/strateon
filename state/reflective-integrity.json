@@ -1,0 +1,80 @@
+{
+  "request_id": "req-mpfkl340-k4zrv",
+  "reflective_integrity_state": "STRONGLY_GROUNDED",
+  "integrity_strength": 1,
+  "overreach_flags": [],
+  "grounding_checks": [
+    {
+      "check": "history_length_grounding",
+      "passed": true,
+      "detail": "history_length=10, required_min=5",
+      "evidence_provided": true
+    },
+    {
+      "check": "drift_profile_grounding",
+      "passed": true,
+      "detail": "drift_profile present",
+      "evidence_provided": true
+    },
+    {
+      "check": "fragmentation_grounding",
+      "passed": true,
+      "detail": "fragmentation_evidence present",
+      "evidence_provided": true
+    },
+    {
+      "check": "survivability_grounding",
+      "passed": true,
+      "detail": "survivability_evidence present",
+      "evidence_provided": true
+    },
+    {
+      "check": "phase7_state_grounding",
+      "passed": true,
+      "detail": "phase7_state present",
+      "evidence_provided": true
+    },
+    {
+      "check": "pattern_recurrence_grounding",
+      "passed": true,
+      "detail": "recurrence unproven (history=10)",
+      "evidence_provided": true
+    }
+  ],
+  "unsupported_reflection_claims": [],
+  "confidence_mismatch_flags": [],
+  "reflection_drift_profile": {
+    "drift_type": "weakening",
+    "trend": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0.2,
+      1,
+      0.3
+    ],
+    "quality_current": 1,
+    "delta_estimate": -0.375,
+    "window_size": 8
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "recurrence_unproven",
+      "active": true,
+      "required": true,
+      "message": "Uncertainty must be preserved: recurrence unproven for current pattern"
+    }
+  ],
+  "environmental_integrity_summary": {
+    "status": "integrity_maintained",
+    "overreach_count": 0,
+    "grounding_ratio": 1,
+    "shadow_only": true,
+    "validated_at": "2026-05-21T14:12:17.280Z"
+  },
+  "generated_at": "2026-05-21T14:12:17.280Z",
+  "shadow_only": true,
+  "version": "8B.1"
+}
