@@ -1,2 +1,2 @@
-{"request_id":"seed-1779393645134","timestamp":"2026-05-21T20:00:45.134Z","coherence_class":"TENSIONED","coherence_strength":0.7,"alignment_score":0.5,"contradiction_count":0}
-{"request_id":"rc-1779393645134-zw42c","timestamp":"2026-05-21T20:00:45.134Z","coherence_class":"COHERENT","coherence_strength":0.571,"alignment_score":0.738,"contradiction_count":0,"integrity_continuity_alignment":0.975,"reflection_integrity_alignment":0.5}
+{"request_id":"seed-1779393688222","timestamp":"2026-05-21T20:01:28.222Z","coherence_class":"TENSIONED","coherence_strength":0.7,"alignment_score":0.5,"contradiction_count":0}
+{"request_id":"rc-1779393688222-stmnl","timestamp":"2026-05-21T20:01:28.222Z","coherence_class":"COHERENT","coherence_strength":0.571,"alignment_score":0.738,"contradiction_count":0,"integrity_continuity_alignment":0.975,"reflection_integrity_alignment":0.5}

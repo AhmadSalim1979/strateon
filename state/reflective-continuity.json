@@ -1,6 +1,6 @@
 {
-  "reflective_continuity_state": "ENTRENCHED_REFLECTIVE_CONTINUITY",
-  "continuity_strength": 0.85,
+  "reflective_continuity_state": "CONTINUOUS",
+  "continuity_strength": 0.8,
   "recurring_overreach_patterns": [],
   "shadow_only": true
 }

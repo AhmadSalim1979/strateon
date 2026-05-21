@@ -1,19 +1,19 @@
 {
-  "last_heartbeat_check": "2026-05-21T17:07:00.000Z",
+  "last_heartbeat_check": "2026-05-22T01:37:00.000+02:00",
   "checks_performed": {
-    "2026-05-21T17:07:00Z": {
-      "worker": "online_PID_1447543_uptime_33h",
+    "2026-05-22T01:37:00+02:00": {
+      "worker": "online_PID_1447543_uptime_50.5h",
       "worker_heartbeat_fresh": true,
-      "heartbeat_file_age_seconds": 7138,
-      "stale_task_detector": "clean_0_waiting_0_stalled_0_total_0",
-      "operational_state": "clean_0_active_tasks",
-      "memory": "exists_2026-05-21_md"
+      "operational_state": "online_no_alerts",
+      "memory": "created_2026-05-22_md",
+      "pending_commitments_check": "none_requiring_action",
+      "stale_tasks": "0"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-21T16:13:08.103Z",
-    "operational_state": "2026-05-21T14:36:35.242Z",
-    "memory": "2026-05-21T00:32:00Z"
+    "worker_heartbeat": "2026-05-21T22:32:57.105Z",
+    "operational_state": "2026-05-22T01:37:00.000+02:00",
+    "stale_task_detector": "2026-05-22T01:37:00.000+02:00"
   },
-  "notes": "All nominal. Worker online, PID 1447543, 33h uptime. No stale tasks. Heartbeat file 2h old (heartbeat writer runs every 3h per moosa-worker config). Active tasks: 0. Memory exists. No action needed."
+  "notes": "Heartbeat self-check triggered. Worker online at PID 1447543. No stale tasks. All pending commitments are Ahmad human-action items. GPU pod stopped since May 21 13:52 UTC."
 }

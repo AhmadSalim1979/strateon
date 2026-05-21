@@ -1,12 +1,6 @@
 {
-  "reflective_integrity_state": "OVERREACH_RISK",
-  "integrity_strength": 0.2,
-  "overreach_flags": [
-    {
-      "signal": "i am aware",
-      "category": "selfAwareness",
-      "severity": "CRITICAL"
-    }
-  ],
+  "reflective_integrity_state": "STRONGLY_GROUNDED",
+  "integrity_strength": 0.85,
+  "overreach_flags": [],
   "shadow_only": true
 }

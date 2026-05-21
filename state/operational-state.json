@@ -1,69 +1,15 @@
 {
   "version": 1,
-  "last_updated": "2026-05-21T14:36:35.242Z",
+  "last_updated": "2026-05-21T23:07:00.000Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": true,
   "active_tasks": [],
   "recent_alerts": [
     {
       "level": 0,
-      "message": "Worker online — heartbeat refreshed (2026-05-21T14:36 UTC). PID 1447543, uptime 16.5h.",
+      "message": "Worker online — heartbeat refreshed (2026-05-21T22:32 UTC). PID 1447543, uptime 50.5h.",
       "task_id": null,
-      "at": "2026-05-21T14:36:35.242Z"
-    },
-    {
-      "level": 0,
-      "message": "Worker online — heartbeat refreshed (2026-05-21T13:58 UTC). PID 1447543, uptime 16.5h.",
-      "task_id": null,
-      "at": "2026-05-21T13:58:07.930Z"
-    },
-    {
-      "level": 0,
-      "message": "Heartbeat manually refreshed — recurring writer stall (no PID death detected). moosa-worker process healthy, PID 1447543, uptime 37.4h.",
-      "task_id": null,
-      "at": "2026-05-21T09:28:18.664Z"
-    },
-    {
-      "level": 0,
-      "message": "Worker online — manual heartbeat refresh (2026-05-21T08:27 UTC). PID 1447543, 32.4h uptime. Heartbeat writer was stalled — manual refresh applied, writer needs investigation.",
-      "task_id": null,
-      "at": "2026-05-21T08:29:32.674Z"
-    },
-    {
-      "level": 3,
-      "message": "CRITICAL: Worker heartbeat file age >8h (2026-05-20T23:32 UTC). PID 1447543 alive but heartbeat writer stalled. Requires immediate attention.",
-      "task_id": null,
-      "at": "2026-05-21T08:28:39.934Z"
-    },
-    {
-      "level": 0,
-      "message": "Worker online — heartbeat fresh (2026-05-20T23:32 UTC). PID 1447543, 17h uptime.",
-      "task_id": null,
-      "at": "2026-05-20T23:55:00.000Z"
-    },
-    {
-      "level": 0,
-      "message": "Worker recovered — online (2026-05-18T04:40 UTC). Poll-cycle heartbeat active. Option B implementation complete.",
-      "task_id": null,
-      "at": "2026-05-18T04:40:00.000Z"
-    },
-    {
-      "level": 3,
-      "message": "CRITICAL: Worker heartbeat file age >19h (2026-05-17T08:22:30.087Z). Process online but heartbeat stale. Requires immediate attention.",
-      "task_id": null,
-      "at": "2026-05-18T03:47:12.575Z"
-    },
-    {
-      "level": 1,
-      "message": "Worker heartbeat stale — process online (PID 922274, 34h uptime) but heartbeat file not updating. Manual refresh done.",
-      "task_id": null,
-      "at": "2026-05-17T04:52:00.000Z"
-    },
-    {
-      "level": 0,
-      "message": "Worker recovered — online",
-      "task_id": null,
-      "at": "2026-05-15T16:35:59.248Z"
+      "at": "2026-05-21T23:07:00.000Z"
     }
   ],
   "restart_count_last_hour": 0

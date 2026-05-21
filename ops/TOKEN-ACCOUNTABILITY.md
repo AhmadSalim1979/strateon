@@ -546,3 +546,80 @@ If any token is found missing from `secrets/` AND no corresponding entry exists 
 [2026-05-21T17:41:05.383Z] Watchdog — GET /api/tags model list check
 [2026-05-21T17:41:15.478Z] Watchdog — GET /api/tags model list check
 [2026-05-21T17:41:25.686Z] Watchdog — GET /api/tags model list check
+[2026-05-21T17:50:02.066Z] Watchdog — secrets loaded
+[2026-05-21T17:50:02.066Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T17:50:04.666Z] Watchdog — GET pod status
+[2026-05-21T17:50:05.413Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T17:50:05.504Z] Watchdog — GET /api/tags model list check
+[2026-05-21T17:50:46.831Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T17:50:56.948Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T17:51:07.308Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T17:51:07.512Z] Watchdog — GET /api/tags model list check
+[2026-05-21T17:51:17.599Z] Watchdog — GET /api/tags model list check
+[2026-05-21T17:51:27.802Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:00:01.176Z] Watchdog — secrets loaded
+[2026-05-21T18:00:01.176Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T18:00:02.448Z] Watchdog — GET pod status
+[2026-05-21T18:00:03.229Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:00:03.342Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:00:44.668Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:00:54.766Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:01:04.961Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:01:05.166Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:01:15.292Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:01:25.491Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:10:02.017Z] Watchdog — secrets loaded
+[2026-05-21T18:10:02.017Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T18:10:03.279Z] Watchdog — GET pod status
+[2026-05-21T18:10:04.000Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:10:04.092Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:10:45.610Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:10:55.734Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:11:05.942Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:11:06.161Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:11:16.295Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:11:26.498Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:20:01.805Z] Watchdog — secrets loaded
+[2026-05-21T18:20:01.805Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T18:20:02.732Z] Watchdog — GET pod status
+[2026-05-21T18:20:03.455Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:20:03.534Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:20:44.867Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:20:54.951Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:21:05.161Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:21:05.353Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:21:15.479Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:21:25.698Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:30:01.086Z] Watchdog — secrets loaded
+[2026-05-21T18:30:01.086Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T18:30:02.179Z] Watchdog — GET pod status
+[2026-05-21T18:30:02.951Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:30:03.046Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:30:44.614Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:30:54.711Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:31:04.919Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:31:05.124Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:31:15.243Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:31:25.450Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:40:01.850Z] Watchdog — secrets loaded
+[2026-05-21T18:40:01.850Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T18:40:03.191Z] Watchdog — GET pod status
+[2026-05-21T18:40:03.950Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:40:04.042Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:40:45.571Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:40:55.665Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:41:05.862Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:41:06.045Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:41:16.138Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:41:26.227Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:50:01.834Z] Watchdog — secrets loaded
+[2026-05-21T18:50:01.834Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-21T18:50:03.680Z] Watchdog — GET pod status
+[2026-05-21T18:50:04.393Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:50:04.496Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:50:45.795Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:50:55.880Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:51:06.215Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-21T18:51:06.452Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:51:16.539Z] Watchdog — GET /api/tags model list check
+[2026-05-21T18:51:26.631Z] Watchdog — GET /api/tags model list check

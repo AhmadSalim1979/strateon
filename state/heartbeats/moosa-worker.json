@@ -1,8 +1,8 @@
 {
   "component": "moosa-worker",
-  "last_run_at": "2026-05-21T17:13:08.837Z",
+  "last_run_at": "2026-05-21T22:32:57.105Z",
   "status": "online",
-  "pid": "1447543",
-  "uptime_h": "33.0",
-  "note": "Heartbeat refresh 2026-05-21T17:13:08.837Z UTC via self-check"
+  "pid": 1447543,
+  "uptime_h": "50.5",
+  "note": "Heartbeat refresh 2026-05-21T22:32:00Z UTC"
 }
