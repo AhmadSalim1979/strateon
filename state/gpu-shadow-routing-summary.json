@@ -1,0 +1,24 @@
+{
+  "first_comparison_at": "2026-05-21T10:57:24.782Z",
+  "last_comparison_at": "2026-05-21T10:57:24.782Z",
+  "total_comparisons": 1,
+  "gpu_success_count": 1,
+  "gpu_failure_count": 0,
+  "gpu_timeout_count": 0,
+  "avg_latency_gpu_ms": 1010,
+  "avg_latency_minimax_ms": 0,
+  "avg_similarity": 0,
+  "avg_hallucination_score": 0,
+  "latest_gpu_quality": "COMPARABLE",
+  "recent_comparisons": [
+    {
+      "comparison_id": "cmp-mpfdmh4e",
+      "gpu_quality": "COMPARABLE",
+      "similarity": 0,
+      "hallucination": 0,
+      "latency_ms": 1010,
+      "status": "success",
+      "timestamp": "2026-05-21T10:57:24.782Z"
+    }
+  ]
+}

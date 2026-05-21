@@ -1,10 +1,28 @@
 {
   "version": 1,
-  "last_updated": "2026-05-20T23:55:00.000Z",
+  "last_updated": "2026-05-21T09:28:18.664Z",
   "worker_status": "online",
-  "worker_heartbeat_fresh": "2026-05-20T23:32:53.253Z",
+  "worker_heartbeat_fresh": true,
   "active_tasks": [],
   "recent_alerts": [
+    {
+      "level": 0,
+      "message": "Heartbeat manually refreshed — recurring writer stall (no PID death detected). moosa-worker process healthy, PID 1447543, uptime 37.4h.",
+      "task_id": null,
+      "at": "2026-05-21T09:28:18.664Z"
+    },
+    {
+      "level": 0,
+      "message": "Worker online — manual heartbeat refresh (2026-05-21T08:27 UTC). PID 1447543, 32.4h uptime. Heartbeat writer was stalled — manual refresh applied, writer needs investigation.",
+      "task_id": null,
+      "at": "2026-05-21T08:29:32.674Z"
+    },
+    {
+      "level": 3,
+      "message": "CRITICAL: Worker heartbeat file age >8h (2026-05-20T23:32 UTC). PID 1447543 alive but heartbeat writer stalled. Requires immediate attention.",
+      "task_id": null,
+      "at": "2026-05-21T08:28:39.934Z"
+    },
     {
       "level": 0,
       "message": "Worker online — heartbeat fresh (2026-05-20T23:32 UTC). PID 1447543, 17h uptime.",
@@ -34,6 +52,12 @@
       "message": "Worker recovered — online",
       "task_id": null,
       "at": "2026-05-15T16:35:59.248Z"
+    },
+    {
+      "level": 0,
+      "message": "Worker recovered — online",
+      "task_id": null,
+      "at": "2026-05-21T08:29:17.332Z"
     }
   ],
   "restart_count_last_hour": 0

@@ -1,0 +1,99 @@
+{
+  "timestamp": "2026-05-21T11:40:01.223Z",
+  "executionId": "wd-mpff59on",
+  "startedAt": 1779363601223,
+  "podId": "c1as99lq8xtphy",
+  "gpuIp": "c1as99lq8xtphy-11440.proxy.runpod.net",
+  "durationMs": 2268,
+  "finishedAt": 1779363603491,
+  "results": [
+    {
+      "check": "pod_rest_status",
+      "pass": true,
+      "details": {
+        "pod_id": "c1as99lq8xtphy",
+        "name": "moosa-brain-node-01-migration-migration",
+        "desiredStatus": "RUNNING",
+        "publicIp": "157.157.221.29",
+        "volumeMount": "/workspace",
+        "gpuCount": 1,
+        "vcpuCount": 16,
+        "memoryGb": 62,
+        "ports": [
+          "11440/http",
+          "22/tcp"
+        ]
+      },
+      "status_code": "200",
+      "_severity": "INFO"
+    },
+    {
+      "check": "auth_proxy_health",
+      "pass": true,
+      "details": {
+        "url": "https://c1as99lq8xtphy-11440.proxy.runpod.net/health",
+        "http_code": "200"
+      },
+      "status_code": "200",
+      "_severity": "INFO"
+    },
+    {
+      "check": "token_invalid_rejected",
+      "pass": true,
+      "details": {
+        "url": "https://c1as99lq8xtphy-11440.proxy.runpod.net/api/tags",
+        "http_code": "401",
+        "expected": "401"
+      },
+      "status_code": "401",
+      "_severity": "INFO"
+    },
+    {
+      "check": "token_valid_accepted",
+      "pass": true,
+      "details": {
+        "url": "https://c1as99lq8xtphy-11440.proxy.runpod.net/api/tags",
+        "http_code": "200",
+        "model_count": 1,
+        "first_model": "mistral-small3.2:latest"
+      },
+      "status_code": "200",
+      "_severity": "INFO"
+    },
+    {
+      "check": "model_mistral_present",
+      "pass": true,
+      "details": {
+        "url": "https://c1as99lq8xtphy-11440.proxy.runpod.net/api/tags",
+        "models_found": [
+          "mistral-small3.2:latest"
+        ],
+        "target_model": "mistral-small3.2:latest",
+        "model_found": true,
+        "http_code": "200"
+      },
+      "status_code": "200",
+      "_severity": "INFO"
+    }
+  ],
+  "severity": "INFO",
+  "summary": {
+    "timestamp": "2026-05-21T11:40:01.223Z",
+    "overall": "INFO",
+    "executionId": "wd-mpff59on",
+    "podId": "c1as99lq8xtphy",
+    "gpuIp": "c1as99lq8xtphy-11440.proxy.runpod.net",
+    "checks": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    },
+    "alertCount": 0,
+    "alerts": [],
+    "recovery": false,
+    "durationMs": 2268,
+    "status": "ALL_SYSTEMS_NOMINAL"
+  },
+  "alerts": []
+}

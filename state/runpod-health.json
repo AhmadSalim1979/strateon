@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-05-21T08:04:17.179Z",
+  "overall": "PASS_WITH_SKIPPED",
+  "pod_id": "c1as99lq8xtphy",
+  "public_ip": "157.157.221.29",
+  "checks": [
+    {
+      "check": "pod_rest_status",
+      "pass": true,
+      "details": {
+        "pod_id": "c1as99lq8xtphy",
+        "name": "moosa-brain-node-01-migration-migration",
+        "desiredStatus": "RUNNING",
+        "publicIp": "157.157.221.29",
+        "volumeMount": "/workspace",
+        "gpuCount": 1,
+        "vcpuCount": 16,
+        "memoryGb": 62,
+        "ports": [
+          "11440/http",
+          "22/tcp"
+        ]
+      },
+      "status_code": "200"
+    },
+    {
+      "check": "auth_proxy_health",
+      "pass": "SKIPPED",
+      "details": {
+        "url": "http://157.157.221.29:11440/health",
+        "note": "Hetzner cannot reach RunPod:11440 — connection filtered by upstream. Proxy validated internally on RunPod. Configure RunPod firewall to allow Hetzner IP or use web-terminal validation.",
+        "host_blocked": "157.157.221.29",
+        "port": 11440
+      },
+      "status_code": "SKIPPED"
+    },
+    {
+      "check": "token_invalid_rejected",
+      "pass": "SKIPPED",
+      "details": {
+        "url": "http://157.157.221.29:11440/api/tags",
+        "note": "Hetzner cannot reach 157.157.221.29:11440 — port filtered by upstream.",
+        "host_blocked": "157.157.221.29",
+        "port": 11440
+      },
+      "status_code": "SKIPPED"
+    },
+    {
+      "check": "token_valid_accepted",
+      "pass": "SKIPPED",
+      "details": {
+        "url": "http://157.157.221.29:11440/api/tags",
+        "note": "GPU auth proxy token not available on Hetzner. Store token in secrets/gpu-auth-proxy.json to enable full validation.",
+        "token_source": "secrets/gpu-auth-proxy.json"
+      },
+      "status_code": "SKIPPED"
+    },
+    {
+      "check": "model_mistral_present",
+      "pass": "SKIPPED",
+      "details": {
+        "note": "Token required for model check — not available on Hetzner"
+      },
+      "status_code": "SKIPPED"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 4
+  }
+}
