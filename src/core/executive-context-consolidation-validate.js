@@ -12,7 +12,7 @@ const {
     saveContextState,
     CONTEXT_STATES,
     DRIFT_PROFILES
-} = require('../executive-context-consolidation.js');
+} = require('./executive-context-consolidation.js');
 
 // === TEST DATA ===
 

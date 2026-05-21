@@ -12,7 +12,7 @@ const {
     saveContinuityState,
     CONTINUITY_STATES,
     DRIFT_PROFILES
-} = require('../executive-cognitive-continuity.js');
+} = require('./executive-cognitive-continuity.js');
 
 // === TEST DATA ===
 
