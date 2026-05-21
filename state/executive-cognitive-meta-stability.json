@@ -1,0 +1,83 @@
+{
+  "meta_stability_state": "BRITTLE",
+  "meta_stability_strength": 0.83,
+  "stable_meta_stability_regions": [
+    "equilibrium",
+    "adaptive_capacity"
+  ],
+  "brittle_regions": [],
+  "meta_stability_fragmentation": [],
+  "survivability_regions": [
+    {
+      "region": "SYSTEM",
+      "status": "RESILIENT"
+    },
+    {
+      "region": "SYSTEM",
+      "status": "SURVIVABLE"
+    }
+  ],
+  "meta_stability_assessment": {
+    "resilience_integrity": 0.89,
+    "survivability_integrity": 0.91,
+    "adaptive_continuity": 0.69,
+    "disruption_resistance": 1,
+    "recovery_coherence": 1,
+    "structural_resilience_integrity": 0.81
+  },
+  "meta_stability_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Meta-stability drift cannot be determined. Insufficient history or conflicting signals.",
+    "direction": "UNKNOWN",
+    "drift_magnitude": null
+  },
+  "brittleness_analysis": {
+    "brittleness_index": 0,
+    "brittleness_factors": [],
+    "structural_integrity": 0.6866886873984459,
+    "adaptive_capacity": 1
+  },
+  "adaptive_capacity_analysis": {
+    "adaptive_capacity": 1,
+    "recovery_rate": 1,
+    "disruption_count": 0,
+    "disruption_resistance": 1
+  },
+  "structural_integrity_analysis": {
+    "continuity_structural": 0.72,
+    "context_structural": 0.68,
+    "transition_structural": 0.65,
+    "equilibrium_structural": 0.7,
+    "overall_structural_integrity": 0.6866886873984459
+  },
+  "equilibrium_integration": {
+    "equilibrium_state": "ESTABLISHED",
+    "equilibrium_strength": 0.7,
+    "continuity_state": "CONTINUOUS",
+    "context_state": "CONSOLIDATED",
+    "transition_state": "STABILIZING"
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "LONG_WINDOW_INSUFFICIENT",
+      "description": "ENTRENCHED_META_STABILITY classification requires more history.",
+      "confidence": "LOW",
+      "caveat": "Early classifications may not reflect stable long-term patterns."
+    }
+  ],
+  "bounded_memory": {
+    "max_history": 30,
+    "equilibrium_history_used": 3,
+    "meta_stability_history_used": 1,
+    "retention_policy": "bounded_rolling_30"
+  },
+  "generated_at": "2026-05-21T03:16:17.281Z",
+  "shadow_only": true,
+  "phase": "MCAI Phase 7E",
+  "parent_phases": [
+    "7A (Continuity)",
+    "7B (Context Consolidation)",
+    "7C (Transition)",
+    "7D (Equilibrium)"
+  ]
+}

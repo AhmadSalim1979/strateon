@@ -1,20 +1,22 @@
 {
-  "last_heartbeat_check": "2026-05-20T22:02:00.000Z",
+  "last_heartbeat_check": "2026-05-21T05:27:00.000Z",
   "checks_performed": {
-    "2026-05-20T22:02:00Z": {
-      "worker": "online_PID_1447543_uptime_15h_heartbeat_age_30min",
+    "2026-05-21T05:27:00Z": {
+      "worker": "online_PID_1447543",
       "worker_heartbeat_fresh": true,
-      "stale_task_detector": "clean_0_tasks",
-      "pm2": "5_online_0_restarts",
-      "memory": "created_2026-05-21_md",
-      "session_states_today": "none",
-      "gateway": "not_checked_cli_not_in_path"
+      "heartbeat_file_age_seconds": 38,
+      "stale_task_detector": "clean_0_tasks_waiting_0_stalled",
+      "pm2": "5_online_4_disabled_1",
+      "ollama": "available_qwen2.5-coder:7b",
+      "whatsapp_gateway": "connected_as_+923215139934",
+      "memory": "exists_2026-05-21_md",
+      "pending_commitments_checked": "none_actionable"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-20T21:32:36.741Z",
-    "operational_state": "2026-05-20T06:45:37.963Z",
-    "memory": "2026-05-20T22:02:00Z"
+    "worker_heartbeat": "2026-05-20T23:32:53.253Z",
+    "operational_state": "2026-05-20T23:55:00Z",
+    "memory": "2026-05-21T00:32:00Z"
   },
-  "notes": "Self-check run at midnight 2026-05-21 Berlin time. All nominal. Memory for today created. Next heartbeat due per cron schedule."
+  "notes": "All nominal. Worker online PID 1447543, heartbeat fresh (38s old, under 60s threshold). 0 stalled tasks. Ollama sidecar available. WhatsApp gateway connected as +923215139934. Pending commitments unchanged — all require Ahmad action."
 }

@@ -1,0 +1,85 @@
+{
+  "equilibrium_state": "ESTABLISHED",
+  "equilibrium_strength": 0.7,
+  "stable_equilibrium_regions": [
+    "continuity",
+    "context",
+    "transition"
+  ],
+  "fragmented_equilibrium_regions": [],
+  "equilibrium_fragmentation": [
+    {
+      "type": "OSCILLATORY_EQUILIBRIUM",
+      "severity": "MEDIUM",
+      "description": "Equilibrium is oscillatory. Balance alternates without stabilizing.",
+      "detection": "equilibrium_oscillation_index > 0.5 AND equilibrium_strength > 0.4",
+      "evidence": {
+        "oscillation_index": 1,
+        "equilibrium_strength": 0.7
+      }
+    }
+  ],
+  "survivability_regions": [],
+  "equilibrium_stability_assessment": {
+    "equilibrium_resilience": 0.48,
+    "equilibrium_stability": 0.8,
+    "equilibrium_continuity": 0,
+    "dimensional_balance": 0.98,
+    "integration_coherence": 0.7,
+    "mutual_reinforcement": 0.5,
+    "oscillation_resistance": 0,
+    "fragmentation_resistance": 0.98
+  },
+  "equilibrium_drift_profile": {
+    "profile": "INDETERMINATE",
+    "description": "Equilibrium drift cannot be determined. Insufficient history or conflicting signals.",
+    "direction": "UNKNOWN",
+    "drift_magnitude": null
+  },
+  "uncertainty_boundaries": [
+    {
+      "type": "EQUILIBRIUM_WINDOW_INSUFFICIENT",
+      "description": "Equilibrium classification requires more history for stable assessment.",
+      "confidence": "LOW",
+      "caveat": "Early classifications may not reflect true equilibrium state."
+    }
+  ],
+  "component_summaries": {
+    "continuity": {
+      "state": "CONTINUOUS",
+      "strength": 0.72,
+      "drift": "STABILIZING"
+    },
+    "context": {
+      "state": "CONSOLIDATED",
+      "strength": 0.68,
+      "drift": "STABILIZING"
+    },
+    "transition": {
+      "state": "STABILIZING",
+      "strength": 0.72,
+      "drift": "STABILIZING"
+    }
+  },
+  "dimensional_analysis": {
+    "dimension_strengths": {
+      "continuity": 0.72,
+      "context": 0.68,
+      "transition": 0.72
+    },
+    "balance_score": 0.98,
+    "alignment_score": 0.67,
+    "mutual_reinforcement": 0.5,
+    "integration_score": 0.7,
+    "weakest_dimension": "context",
+    "strongest_dimension": "continuity"
+  },
+  "generated_at": "2026-05-21T03:16:15.790Z",
+  "shadow_only": true,
+  "phase": "MCAI Phase 7D",
+  "parent_phases": [
+    "7A (Continuity)",
+    "7B (Context Consolidation)",
+    "7C (Cognitive Transition)"
+  ]
+}

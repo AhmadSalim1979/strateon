@@ -1,10 +1,16 @@
 {
   "version": 1,
-  "last_updated": "2026-05-20T06:45:37.963Z",
+  "last_updated": "2026-05-20T23:55:00.000Z",
   "worker_status": "online",
-  "worker_heartbeat_fresh": "2026-05-19T06:57:00.000Z",
+  "worker_heartbeat_fresh": "2026-05-20T23:32:53.253Z",
   "active_tasks": [],
   "recent_alerts": [
+    {
+      "level": 0,
+      "message": "Worker online — heartbeat fresh (2026-05-20T23:32 UTC). PID 1447543, 17h uptime.",
+      "task_id": null,
+      "at": "2026-05-20T23:55:00.000Z"
+    },
     {
       "level": 0,
       "message": "Worker recovered — online (2026-05-18T04:40 UTC). Poll-cycle heartbeat active. Option B implementation complete.",
