@@ -1,0 +1,4 @@
+{"request_id":"seed-1779377933088","timestamp":"2026-05-21T15:38:53.088Z","coherence_class":"COHERENT","coherence_strength":0.85,"alignment_score":0.5,"contradiction_count":0}
+{"request_id":"seed-1779377933088","timestamp":"2026-05-21T15:38:53.088Z","coherence_class":"COHERENT","coherence_strength":0.88,"alignment_score":0.5,"contradiction_count":0}
+{"request_id":"seed-1779377933088","timestamp":"2026-05-21T15:38:53.088Z","coherence_class":"STRONGLY_COHERENT","coherence_strength":0.9,"alignment_score":0.5,"contradiction_count":0}
+{"request_id":"rc-1779377933088-11dd9","timestamp":"2026-05-21T15:38:53.089Z","coherence_class":"TENSIONED","coherence_strength":0.5,"alignment_score":0.993,"contradiction_count":0,"integrity_continuity_alignment":0.99,"reflection_integrity_alignment":0.996}
