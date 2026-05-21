@@ -1,10 +1,22 @@
 {
   "version": 1,
-  "last_updated": "2026-05-21T09:28:18.664Z",
+  "last_updated": "2026-05-21T14:36:35.242Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": true,
   "active_tasks": [],
   "recent_alerts": [
+    {
+      "level": 0,
+      "message": "Worker online — heartbeat refreshed (2026-05-21T14:36 UTC). PID 1447543, uptime 16.5h.",
+      "task_id": null,
+      "at": "2026-05-21T14:36:35.242Z"
+    },
+    {
+      "level": 0,
+      "message": "Worker online — heartbeat refreshed (2026-05-21T13:58 UTC). PID 1447543, uptime 16.5h.",
+      "task_id": null,
+      "at": "2026-05-21T13:58:07.930Z"
+    },
     {
       "level": 0,
       "message": "Heartbeat manually refreshed — recurring writer stall (no PID death detected). moosa-worker process healthy, PID 1447543, uptime 37.4h.",
@@ -52,12 +64,6 @@
       "message": "Worker recovered — online",
       "task_id": null,
       "at": "2026-05-15T16:35:59.248Z"
-    },
-    {
-      "level": 0,
-      "message": "Worker recovered — online",
-      "task_id": null,
-      "at": "2026-05-21T08:29:17.332Z"
     }
   ],
   "restart_count_last_hour": 0

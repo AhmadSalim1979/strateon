@@ -1,0 +1,19 @@
+{
+  "burnInStartTime": "2026-05-21T11:52:26.873Z",
+  "lastUpdated": "2026-05-21T11:52:26.873Z",
+  "totalObservations": 1,
+  "totalShadowSamples": 1,
+  "gpuAvailabilityPct": 100,
+  "timeoutRate": 0,
+  "malformedResponseRate": 0,
+  "hallucinationRate": 0,
+  "semanticDriftPct": 0,
+  "avgLatencyMs": 47353,
+  "p95LatencyMs": 47353,
+  "coldStartCount": 1,
+  "coldStartAvgMs": 47353,
+  "recentSamples": [
+    47353
+  ],
+  "riskScore": "LOW"
+}

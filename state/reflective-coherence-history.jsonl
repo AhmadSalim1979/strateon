@@ -1,4 +1,4 @@
-{"request_id":"seed-1779377933088","timestamp":"2026-05-21T15:38:53.088Z","coherence_class":"COHERENT","coherence_strength":0.85,"alignment_score":0.5,"contradiction_count":0}
-{"request_id":"seed-1779377933088","timestamp":"2026-05-21T15:38:53.088Z","coherence_class":"COHERENT","coherence_strength":0.88,"alignment_score":0.5,"contradiction_count":0}
-{"request_id":"seed-1779377933088","timestamp":"2026-05-21T15:38:53.088Z","coherence_class":"STRONGLY_COHERENT","coherence_strength":0.9,"alignment_score":0.5,"contradiction_count":0}
-{"request_id":"rc-1779377933088-11dd9","timestamp":"2026-05-21T15:38:53.089Z","coherence_class":"TENSIONED","coherence_strength":0.5,"alignment_score":0.993,"contradiction_count":0,"integrity_continuity_alignment":0.99,"reflection_integrity_alignment":0.996}
+{"request_id":"seed-1779384348194","timestamp":"2026-05-21T17:25:48.194Z","coherence_class":"INCOHERENT","coherence_strength":0.2,"alignment_score":0.5,"contradiction_count":2}
+{"request_id":"seed-1779384348195","timestamp":"2026-05-21T17:25:48.195Z","coherence_class":"INCOHERENT","coherence_strength":0.22,"alignment_score":0.5,"contradiction_count":3}
+{"request_id":"seed-1779384348195","timestamp":"2026-05-21T17:25:48.195Z","coherence_class":"INCOHERENT","coherence_strength":0.18,"alignment_score":0.5,"contradiction_count":3}
+{"request_id":"rc-1779384348195-2wros","timestamp":"2026-05-21T17:25:48.196Z","coherence_class":"TENSIONED","coherence_strength":0.1,"alignment_score":0.638,"contradiction_count":2,"integrity_continuity_alignment":0.375,"reflection_integrity_alignment":0.9}

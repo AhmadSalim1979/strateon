@@ -1,0 +1,86 @@
+{
+  "timestamp": "2026-05-21T12:00:11.426Z",
+  "windowSummaries": {
+    "1h": {
+      "windowMs": "1h",
+      "observationCount": 0,
+      "successCount": 0,
+      "timeoutCount": 0,
+      "gpuAvailabilityPct": null,
+      "avgLatencyMs": null,
+      "p95LatencyMs": null,
+      "maxLatencyMs": null,
+      "hallucinationCount": 0,
+      "hallucinationRatePct": 0,
+      "majorDivergenceCount": 0,
+      "coldStartCount": 0,
+      "generatedAt": "2026-05-21T12:00:11.425Z"
+    },
+    "6h": {
+      "windowMs": "6h",
+      "observationCount": 0,
+      "successCount": 0,
+      "timeoutCount": 0,
+      "gpuAvailabilityPct": null,
+      "avgLatencyMs": null,
+      "p95LatencyMs": null,
+      "maxLatencyMs": null,
+      "hallucinationCount": 0,
+      "hallucinationRatePct": 0,
+      "majorDivergenceCount": 0,
+      "coldStartCount": 0,
+      "generatedAt": "2026-05-21T12:00:11.425Z"
+    },
+    "24h": {
+      "windowMs": "24h",
+      "observationCount": 0,
+      "successCount": 0,
+      "timeoutCount": 0,
+      "gpuAvailabilityPct": null,
+      "avgLatencyMs": null,
+      "p95LatencyMs": null,
+      "maxLatencyMs": null,
+      "hallucinationCount": 0,
+      "hallucinationRatePct": 0,
+      "majorDivergenceCount": 0,
+      "coldStartCount": 0,
+      "generatedAt": "2026-05-21T12:00:11.425Z"
+    },
+    "72h": {
+      "windowMs": "72h",
+      "observationCount": 0,
+      "successCount": 0,
+      "timeoutCount": 0,
+      "gpuAvailabilityPct": null,
+      "avgLatencyMs": null,
+      "p95LatencyMs": null,
+      "maxLatencyMs": null,
+      "hallucinationCount": 0,
+      "hallucinationRatePct": 0,
+      "majorDivergenceCount": 0,
+      "coldStartCount": 0,
+      "generatedAt": "2026-05-21T12:00:11.425Z"
+    }
+  },
+  "degradationStatus": {
+    "degraded": false,
+    "recovering": false,
+    "alertLevel": "NOMINAL"
+  },
+  "degradationEvents": [],
+  "confidenceScores": {
+    "operational": 50,
+    "stability": 100,
+    "semanticConsistency": 100,
+    "infrastructureReliability": 100,
+    "overall": 90,
+    "timestamp": "2026-05-21T12:00:11.425Z"
+  },
+  "responseAction": {
+    "action": "NONE",
+    "samplingRate": 0.1,
+    "reason": "NOMINAL"
+  },
+  "baselineEstablishedAt": "2026-05-21T11:54:56.479Z",
+  "baselineObservationCount": 0
+}

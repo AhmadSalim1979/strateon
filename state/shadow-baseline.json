@@ -1,0 +1,10 @@
+{
+  "avgHallucinationRate": 0,
+  "avgSemanticDriftPct": 0,
+  "avgTimeoutRate": 0,
+  "avgLatencyMs": 0,
+  "avgMalformedRate": 0,
+  "observationCount": 0,
+  "establishedAt": "2026-05-21T11:54:56.479Z",
+  "sourceObservations": 0
+}

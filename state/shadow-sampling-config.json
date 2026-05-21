@@ -1,0 +1,21 @@
+{
+  "enabled": true,
+  "maxSampleRate": 0.1,
+  "minIntervalMs": 300000,
+  "lastSampleAt": null,
+  "burnInStartTime": "2026-05-21T12:00:05.235Z",
+  "totalObservedProductionRequests": 0,
+  "totalShadowSamples": 0,
+  "maxConcurrentShadowCalls": 1,
+  "observationWindowMs": 86400000,
+  "failOpen": true,
+  "neverSampleCategories": [
+    "NEVER_GPU",
+    "APPROVAL_REQUIRED",
+    "EXECUTIVE_DECISION",
+    "EXTERNAL_COMMUNICATION",
+    "BILLING_PAYMENT",
+    "SECURITY_CREDENTIAL",
+    "LEGAL_CONTRACTUAL"
+  ]
+}

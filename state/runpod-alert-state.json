@@ -1,11 +1,5 @@
 {
-  "suppressed": {
-    "pod_rest_status::CRITICAL": {
-      "lastSent": 1779350902186,
-      "check": "pod_rest_status",
-      "severity": "CRITICAL"
-    }
-  },
+  "suppressed": {},
   "lastAlertAt": "2026-05-21T08:08:22.186Z",
   "totalSent": 3
 }
