@@ -1,19 +1,43 @@
 {
-  "last_heartbeat_check": "2026-05-22T01:37:00.000+02:00",
+  "last_heartbeat_check": "2026-05-22T05:05:00.000Z",
   "checks_performed": {
-    "2026-05-22T01:37:00+02:00": {
-      "worker": "online_PID_1447543_uptime_50.5h",
+    "2026-05-22T01:07:00.000Z": {
+      "worker": "online_PID_1447543_uptime_36.6h",
       "worker_heartbeat_fresh": true,
       "operational_state": "online_no_alerts",
-      "memory": "created_2026-05-22_md",
+      "memory": "exists_with_content",
       "pending_commitments_check": "none_requiring_action",
+      "stale_tasks": "0"
+    },
+    "2026-05-22T02:08:17.483Z": {
+      "worker": "online_PID_1447543_uptime_37.0h",
+      "worker_heartbeat_fresh": true,
+      "operational_state": "online_no_alerts",
+      "memory": "exists_with_content",
+      "pending_commitments_check": "none_requiring_action",
+      "stale_tasks": "0"
+    },
+    "2026-05-22T04:35:00.000Z": {
+      "worker": "online_PID_1447543_uptime_39.0h",
+      "worker_heartbeat_fresh": true,
+      "operational_state": "online_no_alerts",
+      "memory": "exists_with_content",
+      "pending_commitments_check": "CMO POST-021 WhatsApp delivery PENDING (sub-agent isolation blocked)",
+      "stale_tasks": "0"
+    },
+    "2026-05-22T05:05:00.000Z": {
+      "worker": "online_PID_1447543_uptime_39.6h",
+      "worker_heartbeat_fresh": true,
+      "operational_state": "online_no_alerts",
+      "memory": "exists_with_content",
+      "pending_commitments_check": "CMO POST-021 WhatsApp delivery PENDING",
       "stale_tasks": "0"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-21T22:32:57.105Z",
-    "operational_state": "2026-05-22T01:37:00.000+02:00",
-    "stale_task_detector": "2026-05-22T01:37:00.000+02:00"
+    "worker_heartbeat": "2026-05-22T05:05:00.000Z",
+    "operational_state": "2026-05-22T05:05:00.000Z",
+    "stale_task_detector": "2026-05-22T05:05:00.000Z"
   },
-  "notes": "Heartbeat self-check triggered. Worker online at PID 1447543. No stale tasks. All pending commitments are Ahmad human-action items. GPU pod stopped since May 21 13:52 UTC."
+  "notes": "Heartbeat self-check 2026-05-22T05:05 UTC. Worker online PID 1447543 uptime ~39.6h. No stale tasks. CMO POST-021 WhatsApp delivery still PENDING. Stale task detector ran at 05:05 (was due ~05:35-06:05 window)."
 }

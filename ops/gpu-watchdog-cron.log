@@ -328,3 +328,47 @@
 [2026-05-21T18:51:26.877Z] Watchdog run completed
 [2026-05-21T18:51:26.878Z] === Watchdog cron wrapper finished ===
 
+[2026-05-22T04:00:01.619Z] === Watchdog cron wrapper started ===
+[2026-05-22T04:00:01.620Z] OUTSIDE_ACTIVE_WINDOW: hour=4 UTC — checking pod status
+[2026-05-22T04:00:02.603Z] OK: Pod not running, no billing concern
+[2026-05-22T04:00:02.603Z] EXIT: Outside active window
+[2026-05-22T04:10:01.601Z] === Watchdog cron wrapper started ===
+[2026-05-22T04:10:01.602Z] OUTSIDE_ACTIVE_WINDOW: hour=4 UTC — checking pod status
+[2026-05-22T04:10:02.532Z] OK: Pod not running, no billing concern
+[2026-05-22T04:10:02.532Z] EXIT: Outside active window
+[2026-05-22T04:20:01.564Z] === Watchdog cron wrapper started ===
+[2026-05-22T04:20:01.565Z] OUTSIDE_ACTIVE_WINDOW: hour=4 UTC — checking pod status
+[2026-05-22T04:20:02.500Z] OK: Pod not running, no billing concern
+[2026-05-22T04:20:02.500Z] EXIT: Outside active window
+[2026-05-22T04:30:01.463Z] === Watchdog cron wrapper started ===
+[2026-05-22T04:30:01.464Z] OUTSIDE_ACTIVE_WINDOW: hour=4 UTC — checking pod status
+[2026-05-22T04:30:02.425Z] OK: Pod not running, no billing concern
+[2026-05-22T04:30:02.426Z] EXIT: Outside active window
+[2026-05-22T04:40:01.099Z] === Watchdog cron wrapper started ===
+[2026-05-22T04:40:01.100Z] OUTSIDE_ACTIVE_WINDOW: hour=4 UTC — checking pod status
+[2026-05-22T04:40:02.054Z] OK: Pod not running, no billing concern
+[2026-05-22T04:40:02.055Z] EXIT: Outside active window
+[2026-05-22T04:50:01.976Z] === Watchdog cron wrapper started ===
+[2026-05-22T04:50:01.977Z] OUTSIDE_ACTIVE_WINDOW: hour=4 UTC — checking pod status
+[2026-05-22T04:50:03.662Z] OK: Pod not running, no billing concern
+[2026-05-22T04:50:03.662Z] EXIT: Outside active window
+[2026-05-22T05:00:01.580Z] === Watchdog cron wrapper started ===
+[2026-05-22T05:00:01.582Z] OUTSIDE_ACTIVE_WINDOW: hour=5 UTC — checking pod status
+[2026-05-22T05:00:02.536Z] OK: Pod not running, no billing concern
+[2026-05-22T05:00:02.536Z] EXIT: Outside active window
+[2026-05-22T05:10:01.543Z] === Watchdog cron wrapper started ===
+[2026-05-22T05:10:01.544Z] OUTSIDE_ACTIVE_WINDOW: hour=5 UTC — checking pod status
+[2026-05-22T05:10:02.565Z] OK: Pod not running, no billing concern
+[2026-05-22T05:10:02.565Z] EXIT: Outside active window
+[2026-05-22T05:20:01.766Z] === Watchdog cron wrapper started ===
+[2026-05-22T05:20:01.767Z] OUTSIDE_ACTIVE_WINDOW: hour=5 UTC — checking pod status
+[2026-05-22T05:20:02.779Z] OK: Pod not running, no billing concern
+[2026-05-22T05:20:02.779Z] EXIT: Outside active window
+[2026-05-22T05:30:01.903Z] === Watchdog cron wrapper started ===
+[2026-05-22T05:30:01.904Z] OUTSIDE_ACTIVE_WINDOW: hour=5 UTC — checking pod status
+[2026-05-22T05:30:03.876Z] OK: Pod not running, no billing concern
+[2026-05-22T05:30:03.876Z] EXIT: Outside active window
+[2026-05-22T05:40:01.990Z] === Watchdog cron wrapper started ===
+[2026-05-22T05:40:01.991Z] OUTSIDE_ACTIVE_WINDOW: hour=5 UTC — checking pod status
+[2026-05-22T05:40:03.340Z] OK: Pod not running, no billing concern
+[2026-05-22T05:40:03.341Z] EXIT: Outside active window

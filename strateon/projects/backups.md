@@ -174,3 +174,13 @@ No backup performed; workspace is clean.
   - Modified: memory/2026-05-21.md, memory/heartbeat-state.json, ops/TOKEN-ACCOUNTABILITY.md, ops/gpu-watchdog-cron.log, state/gpu-shadow-routing-history.jsonl, state/gpu-shadow-routing-summary.json, state/heartbeats/moosa-worker.json, state/operational-state.json, state/reflective-coherence-history.jsonl, state/reflective-coherence.json, state/reflective-continuity-history.jsonl, state/reflective-continuity.json, state/reflective-integrity-history.jsonl, state/reflective-integrity.json, state/runpod-alert-state.json, state/runpod-watchdog-history.jsonl, state/runpod-watchdog-state.json, strateon/ops/uptime-monitor.log
 - **Commit:** `2311dd49` — "Auto-backup: Thu May 21 07:48:41 PM CEST 2026"
 - **Secrets scan:** No secrets detected — push allowed
+
+## 2026-05-22 (Friday) — 1:48 AM Europe/Berlin (2026-05-21 23:48 UTC)
+- **Status:** ✅ Success — 25 files changed, 1229 insertions(+), 480 deletions(-)
+- **Branches pushed:** deploy/v2 ← master
+- **Files affected:**
+  - Created: memory/2026-05-22.md, state/reflective-coherence-validate-BACKUP-20260521_213051.js
+  - Modified: memory/2026-05-21.md, memory/heartbeat-state.json, ops/TOKEN-ACCOUNTABILITY.md, state/heartbeats/moosa-worker.json, state/operational-state.json, state/reflective-coherence-history.jsonl, state/reflective-coherence.json, state/reflective-continuity-history.jsonl, state/reflective-continuity.json, state/reflective-integrity-history.jsonl, state/reflective-integrity.json, state/runpod-watchdog-history.jsonl, state/runpod-watchdog-state.json, strateon/ops/uptime-monitor.log, strateon/projects/backups.md
+  - Deleted: ops/debug-brackets.mjs, ops/debug-brackets2.mjs, ops/debug-brackets3.mjs, ops/debug-brackets4.mjs, ops/debug-brackets5.mjs, ops/debug-brackets6.mjs, ops/debug-brackets7.mjs
+- **Commit:** `ceffdc0c` — "Auto-backup: Fri May 22 01:48:44 AM CEST 2026"
+- **Secrets scan:** No secrets detected — push allowed
