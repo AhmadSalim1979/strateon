@@ -1,43 +1,24 @@
 {
-  "last_heartbeat_check": "2026-05-22T05:05:00.000Z",
+  "last_heartbeat_check": "2026-05-22T16:27:00.000Z",
   "checks_performed": {
-    "2026-05-22T01:07:00.000Z": {
-      "worker": "online_PID_1447543_uptime_36.6h",
-      "worker_heartbeat_fresh": true,
-      "operational_state": "online_no_alerts",
+    "2026-05-22T16:27:00.000Z": {
+      "worker": "online_PID_1447543_uptime_35.9h",
+      "worker_heartbeat_fresh": false,
+      "worker_heartbeat_age_h": 15.0,
+      "operational_state": "alert_raised_worker_heartbeat_stale",
       "memory": "exists_with_content",
-      "pending_commitments_check": "none_requiring_action",
-      "stale_tasks": "0"
-    },
-    "2026-05-22T02:08:17.483Z": {
-      "worker": "online_PID_1447543_uptime_37.0h",
-      "worker_heartbeat_fresh": true,
-      "operational_state": "online_no_alerts",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "none_requiring_action",
-      "stale_tasks": "0"
-    },
-    "2026-05-22T04:35:00.000Z": {
-      "worker": "online_PID_1447543_uptime_39.0h",
-      "worker_heartbeat_fresh": true,
-      "operational_state": "online_no_alerts",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "CMO POST-021 WhatsApp delivery PENDING (sub-agent isolation blocked)",
-      "stale_tasks": "0"
-    },
-    "2026-05-22T05:05:00.000Z": {
-      "worker": "online_PID_1447543_uptime_39.6h",
-      "worker_heartbeat_fresh": true,
-      "operational_state": "online_no_alerts",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "CMO POST-021 WhatsApp delivery PENDING",
-      "stale_tasks": "0"
+      "pending_commitments_check": "multiple_pending_items",
+      "stale_tasks": "0",
+      "gateway": "online_pid_1857058",
+      "watchdog": "online_pid_1861086",
+      "gpu_pod": "pod_1f5f732ea96c_auth_proxy_unresponsive"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-22T05:05:00.000Z",
-    "operational_state": "2026-05-22T05:05:00.000Z",
-    "stale_task_detector": "2026-05-22T05:05:00.000Z"
+    "worker_heartbeat": "2026-05-22T16:27:00.000Z",
+    "operational_state": "2026-05-22T16:27:00.000Z",
+    "stale_task_detector": "2026-05-22T16:27:00.000Z",
+    "gpu_pod": "2026-05-22T16:27:00.000Z"
   },
-  "notes": "Heartbeat self-check 2026-05-22T05:05 UTC. Worker online PID 1447543 uptime ~39.6h. No stale tasks. CMO POST-021 WhatsApp delivery still PENDING. Stale task detector ran at 05:05 (was due ~05:35-06:05 window)."
+  "notes": "Worker running (PID 1447543) but heartbeat not refreshed since 01:33 UTC — 15h stale. Watchdog PM2 restarted at 17:29 (new PID 1861086). Operational-state alerted. GPU pod auth proxy non-responsive."
 }

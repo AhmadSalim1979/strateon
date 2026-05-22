@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "last_updated": "2026-05-21T23:07:00.000Z",
+  "last_updated": "2026-05-22T16:28:52.958Z",
   "worker_status": "online",
-  "worker_heartbeat_fresh": true,
+  "worker_heartbeat_fresh": false,
   "active_tasks": [],
   "recent_alerts": [
     {
-      "level": 0,
-      "message": "Worker online — heartbeat refreshed (2026-05-21T22:32 UTC). PID 1447543, uptime 50.5h.",
+      "level": 1,
+      "message": "Heartbeat file stale — moosa-worker running but heartbeat not refreshed since 01:33 UTC (15h ago)",
       "task_id": null,
-      "at": "2026-05-21T23:07:00.000Z"
+      "at": "2026-05-22T16:28:52.958Z"
     }
   ],
   "restart_count_last_hour": 0
