@@ -1,0 +1,17 @@
+{
+  "recovery": {
+    "active": true,
+    "outageStartAt": "2026-05-23T10:55:02+0200",
+    "recoveryAt": "2026-05-23T10:55:02+0200",
+    "listenerResumedAt": "2026-05-23T10:56:02+0200",
+    "previousGatewayPid": 0,
+    "newGatewayPid": 2004591,
+    "recoveryReason": "supervisor_emergency",
+    "notificationSent": true,
+    "resumeRequested": false,
+    "resumeDecisionPending": true,
+    "resumeApproved": false,
+    "lastKnownInboundTimestamp": null,
+    "notifiedAt": "2026-05-23T10:56:10+0200"
+  }
+}
