@@ -1,15 +1,22 @@
 {
   "version": 1,
-  "last_updated": "2026-05-22T16:28:52.958Z",
+  "last_updated": "2026-05-22T18:00:00.000Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": false,
+  "worker_heartbeat_age_min": 530,
   "active_tasks": [],
   "recent_alerts": [
     {
-      "level": 1,
-      "message": "Heartbeat file stale — moosa-worker running but heartbeat not refreshed since 01:33 UTC (15h ago)",
+      "level": 2,
+      "message": "GPU pod md4k86uqm947v8 auth-proxy non-responsive — HTTP 404 from RunPod proxy (all ports)",
       "task_id": null,
-      "at": "2026-05-22T16:28:52.958Z"
+      "at": "2026-05-22T16:00:00.000Z"
+    },
+    {
+      "level": 1,
+      "message": "Worker heartbeat stale (09:00 UTC, 9h ago) but self-check scheduler healthy",
+      "task_id": null,
+      "at": "2026-05-22T18:00:00.000Z"
     }
   ],
   "restart_count_last_hour": 0

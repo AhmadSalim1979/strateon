@@ -1,0 +1,58 @@
+{
+  "schema": "retry-policy.v1",
+  "description": "Retry rules for failed or timed-out jobs.",
+  "lastUpdated": "2026-05-22",
+
+  "retryLimits": {
+    "defaultMaxRetries": 2,
+    "pod_ssh_validate": {
+      "maxRetries": 2,
+      "retryableStatuses": ["failed", "timeout"],
+      "nonRetryableStatuses": ["shadow_violation", "cancelled"]
+    },
+    "pod_pm2_status": {
+      "maxRetries": 1,
+      "retryableStatuses": ["failed", "timeout"],
+      "nonRetryableStatuses": ["shadow_violation", "cancelled"]
+    },
+    "pod_health_check": {
+      "maxRetries": 2,
+      "retryableStatuses": ["failed", "timeout"],
+      "nonRetryableStatuses": ["shadow_violation", "cancelled"]
+    },
+    "pod_proxy_inspect": {
+      "maxRetries": 3,
+      "retryableStatuses": ["failed", "timeout"],
+      "nonRetryableStatuses": ["shadow_violation", "cancelled"]
+    },
+    "pod_gpu_generate_test": {
+      "maxRetries": 0,
+      "retryableStatuses": [],
+      "nonRetryableStatuses": ["requires_approval", "cancelled"],
+      "reason": "GPU generate test requires explicit approval — no automatic retry"
+    },
+    "pod_remediation_readonly": {
+      "maxRetries": 1,
+      "retryableStatuses": ["failed"],
+      "nonRetryableStatuses": ["shadow_violation", "cancelled"]
+    }
+  },
+
+  "retryDelays": {
+    "defaultDelayMs": 5000,
+    "pod_proxy_inspect": {
+      "delayMs": 10000,
+      "reason": "RunPod proxy instability — longer delay between retries"
+    },
+    "pod_ssh_validate": {
+      "delayMs": 3000,
+      "reason": "Quick retry for transient SSH failure"
+    }
+  },
+
+  "staleJobPolicy": {
+    "maxAgeHours": 24,
+    "action": "mark_failed",
+    "markStatusAs": "stale"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schema": "allowed-commands.v1",
+  "description": "Command allowlist per job type. No commands outside this list may be executed.",
+  "lastUpdated": "2026-05-22",
+  "lastUpdatedBy": "moosa-ceo",
+
+  "jobTypes": {
+    "pod_ssh_validate": {
+      "description": "SSH reachability and token validation",
+      "allowedCommands": [
+        "cat /workspace/gpu-api-token.txt",
+        "curl -s --max-time 10 http://localhost:11434/api/tags",
+        "curl -s --max-time 10 http://localhost:11434/api/version",
+        "ls -la /workspace/",
+        "ls -la /workspace/*.log 2>/dev/null | head -5"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly"]
+    },
+
+    "pod_pm2_status": {
+      "description": "PM2 process status on GPU pod",
+      "allowedCommands": [
+        "pm2 jlist 2>/dev/null || echo 'PM2_NOT_RUNNING'",
+        "pm2 describe openclaw-gateway 2>/dev/null | head -20",
+        "pm2 status 2>/dev/null || echo 'PM2_NOT_FOUND'"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly"]
+    },
+
+    "pod_health_check": {
+      "description": "Ollama local health endpoint check",
+      "allowedCommands": [
+        "curl -s --max-time 10 http://localhost:11434/",
+        "curl -s --max-time 10 http://localhost:11434/api/version",
+        "curl -s --max-time 10 http://localhost:11434/api/tags"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly"]
+    },
+
+    "pod_proxy_inspect": {
+      "description": "Inspect RunPod proxy routing to pod ports",
+      "allowedCommands": [
+        "curl -s --max-time 15 -I https://{pod}-11440.proxy.runpod.net/",
+        "curl -s --max-time 15 https://{pod}-11440.proxy.runpod.net/api/tags",
+        "curl -s --max-time 15 https://{pod}-11434.proxy.runpod.net/api/tags"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly"]
+    },
+
+    "pod_gpu_generate_test": {
+      "description": "Minimal GPU generation test — shadow mode only",
+      "allowedCommands": [
+        "curl -s --max-time 120 -X POST http://localhost:11434/api/generate -H 'Content-Type: application/json' -d '{\"model\":\"qwen2.5-coder:7b\",\"prompt\":\"test\",\"options\":{\"num_predict\":10}}'"
+      ],
+      "requiresExplicitApproval": true,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "shadowGenerate"]
+    },
+
+    "pod_remediation_readonly": {
+      "description": "Read-only inspection for remediation — logs, config, state",
+      "allowedCommands": [
+        "cat /workspace/*.log 2>/dev/null | tail -50",
+        "ls -la /workspace/",
+        "ls -la /workspace/*.log 2>/dev/null",
+        "pm2 describe openclaw-gateway 2>/dev/null | head -20",
+        "cat /workspace/gpu-api-token.txt 2>/dev/null | head -1 || echo 'TOKEN_NOT_FOUND'"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly"]
+    },
+
+    "pod_runpod_api_status": {
+      "description": "Query RunPod API for pod existence, status, and runtime ports — no inside-pod SSH",
+      "allowedCommands": [
+        "curl -s --max-time 15 https://api.runpod.io/graphql -H 'Content-Type: application/json' -H 'Authorization: Bearer {token}' -d '{\"query\":\"query { pod(input: {podId: \\\"{podId}\\\"}) { id name desiredStatus runtime { ports { ip publicPort } } } }\"}'"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly", "apiOnly"]
+    },
+
+    "pod_proxy_health_check": {
+      "description": "HTTP health check against RunPod proxy endpoint — tests proxy routing only",
+      "allowedCommands": [
+        "curl -s --max-time 10 -o /dev/null -w '%{http_code}' https://{pod}-11440.proxy.runpod.net/",
+        "curl -s --max-time 10 https://{pod}-11440.proxy.runpod.net/api/tags",
+        "curl -s --max-time 10 https://{pod}-11434.proxy.runpod.net/api/tags",
+        "curl -s --max-time 60 -X POST https://{pod}-11434.proxy.runpod.net/api/generate -H 'Content-Type: application/json' -d '{\"model\":\"qwen2.5-coder:7b\",\"prompt\":\"test\"}'"
+      ],
+      "requiresExplicitApproval": false,
+      "safetyFlags": ["gpuShadowOnly", "noProductionRouting", "noRebuildOrRedeploy", "readonly"]
+    }
+  },
+
+  "globalForbiddenCommands": [
+    "rm", "rm -rf", "kill", "killall", "reboot", "shutdown",
+    "curl -X DELETE", "curl -X PUT", "curl -X PATCH",
+    "sed -i", "awk '{print}'", "export", "source",
+    "pm2 stop", "pm2 delete", "pm2 restart",
+    "docker", "kubectl", "iptables", "ufw"
+  ],
+
+  "safetyGates": {
+    "gpuShadowOnly": {
+      "description": "GPU remains shadow-only — no changes to production routing or model serving"
+    },
+    "noProductionRouting": {
+      "description": "No changes to Nginx, routing tables, DNS, or proxy configuration"
+    },
+    "noRebuildOrRedeploy": {
+      "description": "No docker build, docker push, kubectl apply, or redeployment of any kind"
+    }
+  }
+}

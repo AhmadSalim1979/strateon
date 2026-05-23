@@ -1,0 +1,67 @@
+{
+  "schema": "pod-targets.v1",
+  "description": "Known GPU pod targets for MCSI-POD-BRIDGE. SSH access requires RunPod gateway.",
+  "lastUpdated": "2026-05-22",
+
+  "runpodGateway": {
+    "sshHost": "ssh.runpod.io",
+    "sshUser": "ku2tmyupp8tkbs",
+    "sshKeyPath": "/root/.ssh/gpu_pod_key",
+    "sshPort": 22,
+    "note": "Gateway account — for executing RunPod API commands. Pod-specific SSH requires pod-level key."
+  },
+
+  "knownPods": [
+    {
+      "podId": "md4k86uqm947v8",
+      "displayName": "primary-gpu-pod",
+      "proxyEndpoint": "https://md4k86uqm947v8-{port}.proxy.runpod.net",
+      "proxyPorts": [80, 443, 8080, 11434, 11440],
+      "internalPort": 11434,
+      "status": "unknown",
+      "lastSeen": null,
+      "notes": "Has GPU token at /workspace/gpu-api-token.txt — token not retrievable without SSH"
+    },
+    {
+      "podId": "ku2tmyupp8tkbs",
+      "displayName": "gateway-pod",
+      "proxyEndpoint": "https://ku2tmyupp8tkbs-{port}.proxy.runpod.net",
+      "proxyPorts": [80, 443, 11434, 11440],
+      "internalPort": 11434,
+      "status": "unknown",
+      "lastSeen": null,
+      "notes": "RunPod gateway account — used for RunPod API access"
+    },
+    {
+      "podId": "eivab2dx3kxge",
+      "displayName": "backup-gpu-pod",
+      "proxyEndpoint": "https://eivab2dx3kxge-{port}.proxy.runpod.net",
+      "proxyPorts": [80, 443, 11434, 11440],
+      "internalPort": 11434,
+      "status": "unknown",
+      "lastSeen": null,
+      "notes": "Backup pod — status unconfirmed"
+    }
+  ],
+
+  "accessConstraints": {
+    "directPodSSH": {
+      "status": "requires_pod_level_key",
+      "explanation": "SSH to individual pod requires the token from /workspace/gpu-api-token.txt generated at pod bootstrap. This token cannot be retrieved without SSH access to the pod — chicken-and-egg.",
+      "workaround": "Use RunPod API (HTTP/graphql) for pod status queries instead of SSH"
+    },
+    "runpodApiAccess": {
+      "status": "available",
+      "endpoint": "https://api.runpod.io/graphql",
+      "authMethod": "Bearer token",
+      "tokenEnvVar": "RUNPOD_API_KEY",
+      "tokenPath": "/home/node/.openclaw/secrets/runpod.json"
+    }
+  },
+
+  "sshExecutionModel": {
+    "primary": "runpod-api-graphql",
+    "fallback": "ssh-via-gateway",
+    "directPodSsh": "not_available_without_pod_key"
+  }
+}

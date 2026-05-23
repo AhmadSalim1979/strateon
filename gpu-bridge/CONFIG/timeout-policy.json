@@ -1,0 +1,45 @@
+{
+  "schema": "timeout-policy.v1",
+  "description": "Per-job-type timeout enforcement. Runner terminates SSH if exceeded.",
+  "lastUpdated": "2026-05-22",
+
+  "timeouts": {
+    "pod_ssh_validate": {
+      "timeoutMs": 30000,
+      "description": "Token check + basic SSH reachability — 30s is generous"
+    },
+    "pod_pm2_status": {
+      "timeoutMs": 20000,
+      "description": "PM2 jlist is fast — 20s covers network variance"
+    },
+    "pod_health_check": {
+      "timeoutMs": 20000,
+      "description": "Single curl to local health endpoint — 20s"
+    },
+    "pod_proxy_inspect": {
+      "timeoutMs": 35000,
+      "description": "Proxy round-trip may be slow — 35s for RunPod proxy"
+    },
+    "pod_gpu_generate_test": {
+      "timeoutMs": 130000,
+      "description": "Generation can take 60-90s + network — 130s max"
+    },
+    "pod_remediation_readonly": {
+      "timeoutMs": 30000,
+      "description": "Log reading — 30s for multiple files"
+    }
+  },
+
+  "globalTimeoutDefaults": {
+    "sshConnectTimeoutMs": 15000,
+    "maxTotalJobTimeMs": 180000,
+    "runnerHeartbeatIntervalMs": 30000
+  },
+
+  "timeoutBehavior": {
+    "onTimeout": "terminate_process_write_result",
+    "markStatusAs": "timeout",
+    "capturePartialOutput": true,
+    "logTimeoutEvent": true
+  }
+}

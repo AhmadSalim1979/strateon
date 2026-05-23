@@ -1,0 +1,29 @@
+{
+  "jobId": "pod-runpod-api-status-2026-05-22T19-58-21-d7dd8d",
+  "status": "succeeded",
+  "exitCode": 0,
+  "completedAt": "2026-05-22T19:58:57.619Z",
+  "durationMs": 607,
+  "stdout": "{\n  \"data\": {\n    \"pod\": {\n      \"id\": \"md4k86uqm947v8\",\n      \"name\": \"progressive_rose_monkey-migration\",\n      \"desiredStatus\": \"RUNNING\",\n      \"runtime\": {\n        \"ports\": [\n          {\n            \"ip\": \"100.65.11.34\",\n            \"publicPort\": 60877\n          },\n          {\n            \"ip\": \"100.65.11.34\",\n            \"publicPort\": 60878\n          }\n        ]\n      }\n    }\n  }\n}",
+  "stderr": "",
+  "retryCount": 0,
+  "runpodApiResponse": {
+    "id": "md4k86uqm947v8",
+    "name": "progressive_rose_monkey-migration",
+    "desiredStatus": "RUNNING",
+    "runtime": {
+      "ports": [
+        {
+          "ip": "100.65.11.34",
+          "publicPort": 60877
+        },
+        {
+          "ip": "100.65.11.34",
+          "publicPort": 60878
+        }
+      ]
+    }
+  },
+  "errorMessage": null,
+  "message": "RunPod API for pod 'md4k86uqm947v8' — desiredStatus: RUNNING"
+}

@@ -1,0 +1,19 @@
+{
+  "jobId": "pod-proxy-health-check-2026-05-22T19-58-23-ef75f8",
+  "status": "proxy_failed",
+  "exitCode": 0,
+  "completedAt": "2026-05-22T19:58:37.847Z",
+  "durationMs": 86,
+  "stdout": "",
+  "stderr": "",
+  "retryCount": 0,
+  "proxyResponse": {
+    "httpCode": 404,
+    "timeTotal": 0.07222,
+    "url": "https://md4k86uqm947v8-11440.proxy.runpod.net/",
+    "pod": "md4k86uqm947v8",
+    "proxyPort": "11440",
+    "headersSnippet": "HTTP/2 404 \r\ndate: Fri, 22 May 2026 19:58:37 GMT\r\ncontent-length: 0\r\nstrict-transport-security: max-age=63072000; includeSubDomains\r\ncf-cache-status: BYPASS\r\nserver: cloudflare\r\ncf-ray: 9ffe658e7f634da6-FRA\r\n\r\n"
+  },
+  "message": "Proxy health check for 'md4k86uqm947v8-11440': HTTP 404 in 0.07222s"
+}

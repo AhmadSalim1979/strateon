@@ -1,0 +1,22 @@
+{
+  "jobId": "pod-runpod-api-status-2026-05-22T19-58-21-d7dd8d",
+  "jobType": "pod_runpod_api_status",
+  "targetPod": "md4k86uqm947v8",
+  "command": "curl -s --max-time 15 https://api.runpod.io/graphql",
+  "createdAt": "2026-05-22T19:58:21.177Z",
+  "createdBy": "moosa-ceo",
+  "status": "succeeded",
+  "retryCount": 0,
+  "maxRetries": 2,
+  "timeoutMs": 30000,
+  "safety": {
+    "gpuShadowOnly": true,
+    "noProductionRouting": true,
+    "noRebuildOrRedeploy": true
+  },
+  "metadata": {
+    "requiresExplicitApproval": false,
+    "phase": "phase-2a-dry-run"
+  },
+  "completedAt": "2026-05-22T19:58:57.620Z"
+}

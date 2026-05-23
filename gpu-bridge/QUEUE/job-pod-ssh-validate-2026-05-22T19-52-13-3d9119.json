@@ -1,0 +1,23 @@
+{
+  "jobId": "pod-ssh-validate-2026-05-22T19-52-13-3d9119",
+  "jobType": "pod_ssh_validate",
+  "targetPod": "ku2tmyupp8tkbs",
+  "command": "cat /workspace/gpu-api-token.txt",
+  "createdAt": "2026-05-22T19:52:13.012Z",
+  "createdBy": "moosa-ceo",
+  "status": "succeeded",
+  "retryCount": 0,
+  "maxRetries": 2,
+  "timeoutMs": 30000,
+  "safety": {
+    "gpuShadowOnly": true,
+    "noProductionRouting": true,
+    "noRebuildOrRedeploy": true
+  },
+  "metadata": {
+    "requiresExplicitApproval": false,
+    "phase": "phase-2a-dry-run"
+  },
+  "startedAt": "2026-05-22T19:52:16.608Z",
+  "completedAt": "2026-05-22T19:52:16.612Z"
+}

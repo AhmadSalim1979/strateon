@@ -1,0 +1,18 @@
+{
+  "jobId": "pod-ssh-validate-2026-05-22T19-52-13-3d9119",
+  "status": "dry_run_validated",
+  "exitCode": null,
+  "completedAt": "2026-05-22T19:52:16.612Z",
+  "durationMs": 0,
+  "stdout": "[DRY-RUN] Job validated — no SSH/curl executed. Phase 2A dry-run only.",
+  "stderr": "",
+  "retryCount": 0,
+  "dryRun": true,
+  "message": "Phase 2A dry-run: job schema, safety flags, and command allowlist all validated. No network calls made.",
+  "validation": {
+    "schemaValid": true,
+    "safetyFlagsValid": true,
+    "commandAllowlistChecked": true,
+    "targetPodValid": true
+  }
+}
