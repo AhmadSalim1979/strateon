@@ -14,7 +14,7 @@ export default {
       headers['Content-Type'] = 'application/json';
       
       try {
-        const response = await fetch('https://api.qiyadon.com/submit-audit', {
+        const response = await fetch('http://5.9.81.5:3001/submit-audit', {
           method: 'POST',
           headers,
           body

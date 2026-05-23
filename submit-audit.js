@@ -318,6 +318,28 @@ function sendAuditEmail(data, callback) {
   });
 }
 
+
+function sendSignatureEmail(data, callback) {
+  const { html, text } = buildAuditEmail(data);
+  const mailOptions = {
+    from: creds.user,
+    to: 'contact@qiyadon.com',
+    subject: 'Qiyadon Sign-Up Request from ' + (data.name || 'Unknown') + ' / ' + (data.company || 'Unknown'),
+    text: text,
+    html: html,
+    attachments: [{
+      filename: 'qiyadon-email-signature.jpg',
+      path: '/home/node/.openclaw/workspace/strateon-site/public/assets/qiyadon-email-signature.jpg',
+      cid: 'signature@qiyadon',
+      contentType: 'image/jpeg'
+    }]
+  };
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) console.error('[submit-signature] Email send error:', err.message);
+    else console.log('[submit-signature] Email sent:', info.messageId, 'accepted:', info.accepted);
+    callback(err, info);
+  });
+}
 // ── HTTP Server ──────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 const HOST = '0.0.0.0'; // listen on all interfaces
@@ -336,13 +358,20 @@ const server = http.createServer(async (req, res) => {
   }
 
   // Only accept POST to /submit-audit.js
-  if (req.method !== 'POST' || !req.url.includes('submit-audit')) {
+  if (req.method !== 'POST') {
+    res.writeHead(405, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Method not allowed' }));
+    return;
+  }
+  const isAudit = req.url.includes('submit-audit');
+  const isSig   = req.url.includes('submit-signature');
+  if (!isAudit && !isSig) {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ error: 'Not found' }));
     return;
   }
-
   let body = '';
+
   req.on('data', chunk => { body += chunk; });
   req.on('end', () => {
     let data;
@@ -354,7 +383,8 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
-    sendAuditEmail(data, (err, info) => {
+    const sendFn = isAudit ? sendAuditEmail : sendSignatureEmail;
+    sendFn(data, (err, info) => {
       if (err) {
         res.writeHead(500, {
           'Content-Type': 'application/json',

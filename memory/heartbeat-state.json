@@ -1,23 +1,22 @@
 {
-  "last_heartbeat_check": "2026-05-22T18:00:00.000Z",
+  "last_heartbeat_check": "2026-05-23T07:35:00.000Z",
   "checks_performed": {
-    "2026-05-22T18:00:00.000Z": {
-      "worker": "online_PID_1447543",
+    "2026-05-23T07:35:00.000Z": {
+      "worker": "online_PID_1447543_uptime_3D",
       "worker_heartbeat_fresh": false,
-      "worker_heartbeat_age_min": 530,
+      "worker_heartbeat_age_min": 2220,
       "operational_state": "updated",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "gpu_pending",
+      "memory": "created_today",
+      "pending_commitments_check": "all_pending",
       "stale_tasks": "0",
-      "gateway": "online_pid_1857058",
-      "watchdog": "online_pid_1861086",
-      "gpu_pod": "md4k86uqm947v8_RUNNING_but_auth_proxy_404"
+      "gateway": "online_pid_1985784",
+      "watchdog": "online_pid_1861086"
     }
   },
   "last_checks": {
     "worker_heartbeat": "2026-05-22T09:00:00.000Z",
-    "operational_state": "2026-05-22T18:00:00.000Z",
-    "stale_task_detector": "2026-05-22T18:00:00.000Z",
+    "operational_state": "2026-05-23T07:35:00.000Z",
+    "stale_task_detector": "2026-05-23T07:35:00.000Z",
     "gpu_pod": "2026-05-22T18:00:00.000Z"
   }
 }

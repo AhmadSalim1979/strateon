@@ -17,7 +17,7 @@ export async function onRequest({ request }) {
   headers['Content-Type'] = 'application/json';
   
   try {
-    const response = await fetch('https://api.qiyadon.com/submit-signature', {
+    const response = await fetch('http://5.9.81.5:3001/submit-signature', {
       method: 'POST',
       headers,
       body
