@@ -1,0 +1,18 @@
+{
+  "last_updated": "2026-05-23T18:54:21.351Z",
+  "total_shadow_calls": 1,
+  "gpu_success": 0,
+  "gpu_failure": 1,
+  "gpu_timeout": 0,
+  "avg_gpu_latency_ms": 371,
+  "avg_similarity": 0,
+  "recent_calls": [
+    {
+      "comparison_id": "cmp-mpipjj50-n1o9",
+      "gpu_status": "api_error",
+      "latency_ms": 371,
+      "similarity": null,
+      "timestamp": "2026-05-23T18:54:21.348Z"
+    }
+  ]
+}

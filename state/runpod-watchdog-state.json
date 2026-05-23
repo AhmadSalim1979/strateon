@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-05-23T13:00:01.342Z",
-  "executionId": "wd-mpicvuta",
-  "startedAt": 1779541201342,
+  "timestamp": "2026-05-23T18:50:01.667Z",
+  "executionId": "wd-mpipdyrn",
+  "startedAt": 1779562201667,
   "podId": "c1as99lq8xtphy",
   "gpuIp": "c1as99lq8xtphy-11440.proxy.runpod.net",
-  "durationMs": 84265,
-  "finishedAt": 1779541285607,
+  "durationMs": 83914,
+  "finishedAt": 1779562285581,
   "results": [
     {
       "check": "pod_rest_status",
@@ -73,9 +73,9 @@
   ],
   "severity": "CRITICAL",
   "summary": {
-    "timestamp": "2026-05-23T13:00:01.342Z",
+    "timestamp": "2026-05-23T18:50:01.667Z",
     "overall": "CRITICAL",
-    "executionId": "wd-mpicvuta",
+    "executionId": "wd-mpipdyrn",
     "podId": "c1as99lq8xtphy",
     "gpuIp": "c1as99lq8xtphy-11440.proxy.runpod.net",
     "checks": {
@@ -118,7 +118,7 @@
       }
     ],
     "recovery": false,
-    "durationMs": 84265,
+    "durationMs": 83914,
     "status": "FAILURE"
   },
   "alerts": [

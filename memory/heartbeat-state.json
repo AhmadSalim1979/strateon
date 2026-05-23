@@ -1,22 +1,23 @@
 {
-  "last_heartbeat_check": "2026-05-23T07:35:00.000Z",
+  "last_heartbeat_check": "2026-05-23T18:05:00.000Z",
   "checks_performed": {
-    "2026-05-23T07:35:00.000Z": {
-      "worker": "online_PID_1447543_uptime_3D",
+    "2026-05-23T18:05:00.000Z": {
+      "worker": "online_PID_1447543",
       "worker_heartbeat_fresh": false,
-      "worker_heartbeat_age_min": 2220,
+      "worker_heartbeat_age_h": 40.5,
       "operational_state": "updated",
-      "memory": "created_today",
+      "memory": "exists_with_content",
       "pending_commitments_check": "all_pending",
       "stale_tasks": "0",
-      "gateway": "online_pid_1985784",
+      "gateway": "online_pid_2036351",
+      "gateway_status": "cycling_499_but_recovering",
       "watchdog": "online_pid_1861086"
     }
   },
   "last_checks": {
     "worker_heartbeat": "2026-05-22T09:00:00.000Z",
-    "operational_state": "2026-05-23T07:35:00.000Z",
-    "stale_task_detector": "2026-05-23T07:35:00.000Z",
+    "operational_state": "2026-05-23T18:05:00.000Z",
+    "stale_task_detector": "2026-05-23T18:05:00.000Z",
     "gpu_pod": "2026-05-22T18:00:00.000Z"
   }
 }
