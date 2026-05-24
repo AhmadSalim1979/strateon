@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "last_updated": "2026-05-22T18:00:00.000Z",
+  "last_updated": "2026-05-23T21:21:00.000Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": false,
-  "worker_heartbeat_age_min": 530,
+  "worker_heartbeat_age_min": 2220,
   "active_tasks": [],
   "recent_alerts": [
     {
@@ -13,11 +13,11 @@
       "at": "2026-05-22T16:00:00.000Z"
     },
     {
-      "level": 1,
-      "message": "Worker heartbeat stale (09:00 UTC, 9h ago) but self-check scheduler healthy",
+      "level": 2,
+      "message": "moosa-worker stopped at 20:28 UTC — PM2 shutdown during updates. Restarted at 21:21 UTC.",
       "task_id": null,
-      "at": "2026-05-22T18:00:00.000Z"
+      "at": "2026-05-23T21:21:00.000Z"
     }
   ],
-  "restart_count_last_hour": 0
+  "restart_count_last_hour": 1
 }
