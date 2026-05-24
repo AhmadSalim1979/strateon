@@ -1467,3 +1467,178 @@
 [2026-05-24T13:00:04.272Z] Watchdog run completed
 [2026-05-24T13:00:04.273Z] === Watchdog cron wrapper finished ===
 
+[2026-05-24T13:10:01.382Z] === Watchdog cron wrapper started ===
+[2026-05-24T13:10:01.384Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T13:10:03.391Z] Watchdog run completed
+[2026-05-24T13:10:03.391Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T13:20:01.492Z] === Watchdog cron wrapper started ===
+[2026-05-24T13:20:01.494Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T13:20:03.817Z] Watchdog run completed
+[2026-05-24T13:20:03.818Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T13:30:01.272Z] === Watchdog cron wrapper started ===
+[2026-05-24T13:30:01.274Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T13:30:03.601Z] Watchdog run completed
+[2026-05-24T13:30:03.602Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T13:40:01.922Z] === Watchdog cron wrapper started ===
+[2026-05-24T13:40:01.924Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T13:40:04.800Z] Watchdog run completed
+[2026-05-24T13:40:04.800Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T13:50:01.845Z] === Watchdog cron wrapper started ===
+[2026-05-24T13:50:01.846Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T13:50:03.808Z] Watchdog run completed
+[2026-05-24T13:50:03.809Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T14:00:01.273Z] === Watchdog cron wrapper started ===
+[2026-05-24T14:00:01.275Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T14:00:03.693Z] Watchdog run completed
+[2026-05-24T14:00:03.693Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T14:10:01.942Z] === Watchdog cron wrapper started ===
+[2026-05-24T14:10:01.944Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T14:10:04.446Z] Watchdog run completed
+[2026-05-24T14:10:04.446Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T14:20:01.599Z] === Watchdog cron wrapper started ===
+[2026-05-24T14:20:01.600Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T14:20:03.636Z] Watchdog run completed
+[2026-05-24T14:20:03.637Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T14:30:01.672Z] === Watchdog cron wrapper started ===
+[2026-05-24T14:30:01.673Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T14:30:03.722Z] Watchdog run completed
+[2026-05-24T14:30:03.723Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T14:40:01.852Z] === Watchdog cron wrapper started ===
+[2026-05-24T14:40:01.853Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T14:40:03.733Z] Watchdog run completed
+[2026-05-24T14:40:03.734Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T14:50:01.784Z] === Watchdog cron wrapper started ===
+[2026-05-24T14:50:01.785Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T14:50:05.216Z] Watchdog run completed
+[2026-05-24T14:50:05.217Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T15:00:01.959Z] === Watchdog cron wrapper started ===
+[2026-05-24T15:00:01.960Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T15:00:04.755Z] Watchdog run completed
+[2026-05-24T15:00:04.755Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T15:10:01.152Z] === Watchdog cron wrapper started ===
+[2026-05-24T15:10:01.153Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T15:10:02.963Z] Watchdog run completed
+[2026-05-24T15:10:02.963Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T15:20:02.002Z] === Watchdog cron wrapper started ===
+[2026-05-24T15:20:02.004Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T15:20:04.149Z] Watchdog run completed
+[2026-05-24T15:20:04.150Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T15:30:01.429Z] === Watchdog cron wrapper started ===
+[2026-05-24T15:30:01.430Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T15:30:03.463Z] Watchdog run completed
+[2026-05-24T15:30:03.463Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T15:40:01.854Z] === Watchdog cron wrapper started ===
+[2026-05-24T15:40:01.855Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T15:40:04.146Z] Watchdog run completed
+[2026-05-24T15:40:04.146Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T15:50:01.182Z] === Watchdog cron wrapper started ===
+[2026-05-24T15:50:01.183Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T15:50:03.284Z] Watchdog run completed
+[2026-05-24T15:50:03.285Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T16:00:01.197Z] === Watchdog cron wrapper started ===
+[2026-05-24T16:00:01.199Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T16:00:03.359Z] Watchdog run completed
+[2026-05-24T16:00:03.359Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T16:10:01.243Z] === Watchdog cron wrapper started ===
+[2026-05-24T16:10:01.245Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T16:10:03.356Z] Watchdog run completed
+[2026-05-24T16:10:03.356Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T16:20:01.391Z] === Watchdog cron wrapper started ===
+[2026-05-24T16:20:01.392Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T16:20:03.597Z] Watchdog run completed
+[2026-05-24T16:20:03.597Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T16:30:01.149Z] === Watchdog cron wrapper started ===
+[2026-05-24T16:30:01.150Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T16:30:03.201Z] Watchdog run completed
+[2026-05-24T16:30:03.202Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T16:40:01.102Z] === Watchdog cron wrapper started ===
+[2026-05-24T16:40:01.103Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T16:40:02.838Z] Watchdog run completed
+[2026-05-24T16:40:02.838Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T16:50:01.689Z] === Watchdog cron wrapper started ===
+[2026-05-24T16:50:01.691Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T16:50:03.935Z] Watchdog run completed
+[2026-05-24T16:50:03.935Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T17:00:01.410Z] === Watchdog cron wrapper started ===
+[2026-05-24T17:00:01.411Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T17:00:03.414Z] Watchdog run completed
+[2026-05-24T17:00:03.414Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T17:10:01.466Z] === Watchdog cron wrapper started ===
+[2026-05-24T17:10:01.467Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T17:10:03.713Z] Watchdog run completed
+[2026-05-24T17:10:03.714Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T17:20:01.141Z] === Watchdog cron wrapper started ===
+[2026-05-24T17:20:01.143Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T17:20:02.910Z] Watchdog run completed
+[2026-05-24T17:20:02.910Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T17:30:01.141Z] === Watchdog cron wrapper started ===
+[2026-05-24T17:30:01.143Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T17:30:03.277Z] Watchdog run completed
+[2026-05-24T17:30:03.278Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T17:40:01.812Z] === Watchdog cron wrapper started ===
+[2026-05-24T17:40:01.814Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T17:40:03.655Z] Watchdog run completed
+[2026-05-24T17:40:03.656Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T17:50:01.968Z] === Watchdog cron wrapper started ===
+[2026-05-24T17:50:01.970Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T17:50:04.821Z] Watchdog run completed
+[2026-05-24T17:50:04.822Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T18:00:01.556Z] === Watchdog cron wrapper started ===
+[2026-05-24T18:00:01.558Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T18:00:04.283Z] Watchdog run completed
+[2026-05-24T18:00:04.283Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T18:10:01.343Z] === Watchdog cron wrapper started ===
+[2026-05-24T18:10:01.344Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T18:10:03.358Z] Watchdog run completed
+[2026-05-24T18:10:03.359Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T18:20:01.259Z] === Watchdog cron wrapper started ===
+[2026-05-24T18:20:01.260Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T18:20:03.325Z] Watchdog run completed
+[2026-05-24T18:20:03.325Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T18:30:02.032Z] === Watchdog cron wrapper started ===
+[2026-05-24T18:30:02.034Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T18:30:04.702Z] Watchdog run completed
+[2026-05-24T18:30:04.702Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T18:40:01.253Z] === Watchdog cron wrapper started ===
+[2026-05-24T18:40:01.254Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T18:40:03.385Z] Watchdog run completed
+[2026-05-24T18:40:03.386Z] === Watchdog cron wrapper finished ===
+
+[2026-05-24T18:50:01.806Z] === Watchdog cron wrapper started ===
+[2026-05-24T18:50:01.808Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-24T18:50:04.648Z] Watchdog run completed
+[2026-05-24T18:50:04.648Z] === Watchdog cron wrapper finished ===
+

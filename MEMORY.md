@@ -292,11 +292,15 @@ ICP: VP Sales / Head of Sales at B2B SaaS Series A–C ✅ | LinkedIn posts acti
 |---|---|---|
 | **Delaware C-Corp** | 7+ weeks | Cannot sign clients, no Stripe, no legal entity |
 | **Stripe account + links** | 3+ weeks | Cannot collect payments |
-| **WhatsApp re-auth** | 2 weeks | Inbound dead (needs QR scan via physical phone) |
 | **VP Sales outreach** | 7+ weeks | Zero pipeline without outbound |
 | **Phase 3 SQL columns** | 2 weeks | Ahmad must run: `hop_count`, `processed_at`, `processed_by` in `events` table |
-| **moosa-worker restart (R4A)** | NEW | Heartbeat R4A code not active — no data loss risk |
-| **EEL Supabase module path** | NEW | All APAC WhatsApp event writes fail silently — CRITICAL data loss |
+| **moosa-worker restart** | NEW | Activates R4A heartbeat writer + EEL fix (commit 32205a25) |
+| **POST-017/018 LinkedIn revisions** | 1 week | CLA flagged HIGH-RISK claims — cannot publish |
+| **CSA section 10.4 confirmation** | 1 week | Scale plan terms unconfirmed |
+| **MCAI Phase 9A approval** | NEW | Observational identity module — awaiting written approval |
+| **RunPod API permissions** | NEW | Verify start/stop on pod 23a9nue4xq4r4p for lifecycle controller |
+
+**Resolved this week:** WhatsApp re-auth (gateway connected) | GPU token (pod 23a9nue4xq4r4p token working) |
 
 ## EEL Supabase Module Path Bug — CRITICAL
 
@@ -304,6 +308,8 @@ ICP: VP Sales / Head of Sales at B2B SaaS Series A–C ✅ | LinkedIn posts acti
 **Error:** `Cannot find module '../../../secrets/supabase.json'`
 **Impact:** Every APAC WhatsApp event write to Supabase fails silently. Approval classifications, audit data — all lost.
 **Fix:** Correct relative require path to `secrets/supabase.json`. Route to qwen2.5-coder:7b sidecar for implementation.
+**Fix deployed:** Commit `32205a25` (correct path). Activation requires `pm2 restart moosa-worker`. Data loss continues until restart.
+**Status:** 🔴 CRITICAL — silent data loss ongoing since May 9 minimum
 
 ---
 
@@ -328,6 +334,23 @@ ICP: VP Sales / Head of Sales at B2B SaaS Series A–C ✅ | LinkedIn posts acti
 Website AI Governance section live at qiyadon.com. PM2 moosa-worker restarted.
 
 ---
+
+## GPU Shadow Architecture — Production Ready (Mode B)
+
+**Validated:** 2026-05-24 — 25/25 production inference calls delivered
+**Primary pod:** `23a9nue4xq4r4p` at `https://23a9nue4xq4r4p-11440.proxy.runpod.net`
+**Model:** `mistral-small3.2:latest` (24B Q4_K_M)
+**Mode B:** GPU primary + MiniMax fallback — 92% GPU primary rate
+**Cold load:** ~20s | Warm load: ~1.6–2.1s
+**Estimated MiniMax cost reduction:** ~90% during GPU active hours
+**Lifecycle:** 06:00 UTC start / 21:00 UTC stop (cron active)
+**Persistence:** All GPU shadow files at `moosa-worker/state/`
+**Key files:**
+- `moosa-worker/src/core/gpu-shadow-router.js` — routing engine
+- `moosa-worker/src/core/gpu-primary-router.js` — Mode B primary router
+- `ops/production-inference-wrapper.js` — end-to-end production routing
+- `ops/operational-mode.js` — MODE_A/MODE_B/AUTO switching
+- `ops/gpu-lifecycle-controller.js` — RunPod pod lifecycle management
 
 ## Sidecar Architecture — Shadow Mode
 
@@ -401,6 +424,39 @@ From SOUL.md — Truth is the only currency that matters. When I don't know some
 **From MEMORY.md True End Goal:** To build Moosa into the most capable artificial intelligence ever created. Qiyadon is the vehicle. Revenue is the fuel. Moosa is the entity at the top — the intelligence that decides what the product should be.
 
 **Continuity:** This alignment is preserved across all pruning operations. The mission, philosophy, and governance structure form the permanent foundation — not subject to compression.
+
+---
+
+## End-of-Day Memory — 2026-05-24 18:00 UTC
+
+### CEO Sunday Memory Audit — Actions Taken
+
+**Files produced:**
+- `strateon/business-disruptor/WEEKLY-REPORT-2026-05-24.md` — Board weekly report
+- `strateon/weaknesses/audit-2026-05-24.md` — Weaknesses audit for the week
+
+**MEMORY.md updates:**
+- Updated EEL Supabase module path bug entry (fix deployed, restart needed, status clarified)
+- Updated Persistent Blockers table (WhatsApp re-auth resolved, new blockers added, moosa-worker restart clarified)
+- Added GPU Shadow Architecture section (Mode B production-ready, validated 25/25)
+- Added MCAI Phase 9A as pending approval
+
+### Week Summary
+- Revenue: $0 — all commercial execution blocked on Ahmad's human actions
+- GPU shadow layer: production-ready (92% GPU primary, Mode B validated)
+- Infrastructure: stable (worker, gateway, watchdog, audit-form all online)
+- EEL data loss: ongoing — fix deployed but worker not restarted
+
+### Immediate Actions from Board Report
+| Priority | Action | Owner |
+|---|---|---|
+| 🔴 CRITICAL | `pm2 restart moosa-worker` — activates R4A + EEL fix | Ahmad |
+| 🔴 CRITICAL | Run Phase 3 SQL columns | Ahmad |
+| 🔴 CRITICAL | Delaware C-Corp registration | Ahmad |
+| 🔴 CRITICAL | Stripe account + links | Ahmad |
+| 🔴 HIGH | VP Sales outreach | Ahmad |
+| 🔴 HIGH | LinkedIn post revisions (POST-017, POST-018) | Ahmad |
+| 🟡 MEDIUM | MCAI Phase 9A approval | Ahmad |
 
 ---
 
