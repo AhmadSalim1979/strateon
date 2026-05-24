@@ -20,7 +20,7 @@ const path = require('path');
 
 // === PATH CONFIG ===
 
-const STATE_DIR = path.join(__dirname, '..', '..', 'state');
+const STATE_DIR = '/home/node/.openclaw/workspace/moosa-worker/state';
 const SAMPLING_CONFIG_FILE = path.join(STATE_DIR, 'shadow-sampling-config.json');
 const OBSERVATION_LOG = path.join(STATE_DIR, 'shadow-observation-log.jsonl');
 const METRICS_FILE = path.join(STATE_DIR, 'shadow-burnin-metrics.json');

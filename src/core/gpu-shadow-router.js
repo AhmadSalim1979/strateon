@@ -20,8 +20,8 @@ const { execSync } = require('child_process');
 // === PATH CONFIG ===
 
 const SECRETS_FILE = '/home/node/.openclaw/secrets/gpu-auth-proxy.json';
-const HISTORY_FILE = '/home/node/.openclaw/workspace/state/gpu-shadow-routing-history.jsonl';
-const SUMMARY_FILE = '/home/node/.openclaw/workspace/state/gpu-shadow-routing-summary.json';
+const HISTORY_FILE = '/home/node/.openclaw/workspace/moosa-worker/state/gpu-shadow-routing-history.jsonl';
+const SUMMARY_FILE = '/home/node/.openclaw/workspace/moosa-worker/state/gpu-shadow-routing-summary.json';
 
 // === GPU CONFIG ===
 // Verified: 2026-05-21 — proxy /api/generate succeeds with actual prompt forwarding
@@ -29,7 +29,7 @@ const SUMMARY_FILE = '/home/node/.openclaw/workspace/state/gpu-shadow-routing-su
 // Production route: MiniMax remains primary — GPU is shadow-only
 
 const GPU_CONFIG = {
-    url: 'https://c1as99lq8xtphy-11440.proxy.runpod.net/api/generate',
+    url: 'https://23a9nue4xq4r4p-11440.proxy.runpod.net/api/generate',
     model: 'mistral-small3.2:latest',
     timeoutMs: 180_000,  // 180s for cold load, then sub-second
     maxTokens: 2048

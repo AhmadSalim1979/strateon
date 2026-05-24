@@ -1,22 +1,20 @@
 {
-  "last_heartbeat_check": "2026-05-23T21:51:00.000Z",
+  "last_heartbeat_check": "2026-05-24T05:57:44.000Z",
   "checks_performed": {
-    "2026-05-23T21:51:00.000Z": {
-      "worker": "online_PID_2148921_uptime_30m",
-      "worker_heartbeat_fresh": false,
-      "operational_state": "updated",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "eel_fix_pending",
-      "stale_tasks": "0",
-      "gateway": "online_pid_2036351_9h",
-      "watchdog": "online_pid_1861086_30h",
-      "audit_form": "online_pid_2011538_12h"
+    "2026-05-24T05:57:44.000Z": {
+      "worker": "online_PID_2148921",
+      "worker_heartbeat_fresh": true,
+      "operational_state": "online_alerts_2_old",
+      "memory": "exists_with_content_updated",
+      "pending_commitments_check": "none_pending",
+      "stale_tasks": "not_checked_this_cycle",
+      "gpu_pod": "operational_25_prompts_100pct"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-22T09:00:00.000Z",
-    "operational_state": "2026-05-23T21:51:00.000Z",
-    "stale_task_detector": "2026-05-23T07:35:00.000Z",
-    "gpu_pod": "2026-05-22T18:00:00.000Z"
+    "worker_heartbeat": "2026-05-24T05:57:44.000Z",
+    "operational_state": "2026-05-24T05:57:44.000Z",
+    "stale_task_detector": "not_checked",
+    "gpu_pod": "2026-05-24T05:53:00.000Z"
   }
 }

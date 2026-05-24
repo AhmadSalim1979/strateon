@@ -27,9 +27,9 @@ const GPU_POD_URL = process.env.GPU_POD_URL || 'https://23a9nue4xq4r4p-11440.pro
 const GPU_MODEL = process.env.GPU_MODEL || 'mistral-small3.2:latest';
 
 const SECRETS_FILE = '/home/node/.openclaw/secrets/gpu-auth-proxy.json';
-const SHADOW_LOG = '/home/node/.openclaw/workspace/state/gpu-shadow-routing-history.jsonl';
-const SHADOW_SUMMARY = '/home/node/.openclaw/workspace/state/gpu-shadow-routing-summary.json';
-const SHADOW_METRICS = '/home/node/.openclaw/workspace/state/gpu-shadow-routing-metrics.json';
+const SHADOW_LOG = '/home/node/.openclaw/workspace/moosa-worker/state/gpu-shadow-routing-history.jsonl';
+const SHADOW_SUMMARY = '/home/node/.openclaw/workspace/moosa-worker/state/gpu-shadow-routing-summary.json';
+const SHADOW_METRICS = '/home/node/.openclaw/workspace/moosa-worker/state/gpu-shadow-routing-metrics.json';
 
 // === HELPERS ===
 
