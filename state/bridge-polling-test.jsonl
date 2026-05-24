@@ -1,0 +1,10 @@
+{"timestamp":"2026-05-24T09:49:55.785Z","msg":"pollMessageFile called"}
+{"timestamp":"2026-05-24T09:49:55.787Z","msg":"MESSAGE_FILE exists, 106 bytes"}
+{"timestamp":"2026-05-24T09:49:55.787Z","msg":"Lines: 2"}
+{"timestamp":"2026-05-24T09:49:55.788Z","msg":"Parsed: {\"message_id\":\"test-poll-1\",\"text\":\"hello\",\"from\":\"+923001234567\",\"timestamp\":\"2"}
+{"timestamp":"2026-05-24T09:49:57.790Z","msg":"pollMessageFile called"}
+{"timestamp":"2026-05-24T09:49:57.791Z","msg":"MESSAGE_FILE exists, 0 bytes"}
+{"timestamp":"2026-05-24T09:49:57.791Z","msg":"Lines: 1"}
+{"timestamp":"2026-05-24T09:49:59.790Z","msg":"pollMessageFile called"}
+{"timestamp":"2026-05-24T09:49:59.791Z","msg":"MESSAGE_FILE exists, 0 bytes"}
+{"timestamp":"2026-05-24T09:49:59.793Z","msg":"Lines: 1"}

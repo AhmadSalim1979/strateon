@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-05-24T11:22:21.012Z",
+  "overall_healthy": true,
+  "latency_ms": 18593,
+  "endpoint": {
+    "step": "endpoint",
+    "ok": true,
+    "raw": "GPU brain auth proxy OK"
+  },
+  "auth": {
+    "step": "auth",
+    "ok": true,
+    "model_count": 0
+  },
+  "tags": {
+    "step": "tags",
+    "ok": true,
+    "total_models": 0,
+    "target_model_loaded": false,
+    "target_model": null,
+    "models": []
+  },
+  "inference": {
+    "step": "inference",
+    "ok": true,
+    "passed": true,
+    "response": "OK",
+    "expected": "OK",
+    "latency_ms": 17783,
+    "raw": "{\"model\":\"mistral-small3.2:latest\",\"created_at\":\"2026-05-24T11:22:20.94808847Z\",\"message\":{\"role\":\"assistant\",\"content\":\"OK\"},\"done\":false}\n{\"model\":\"mistral-small3.2:latest\",\"created_at\":\"2026-05-24T11:22:20.988861152Z\",\"message\":{\"role\":\"assistant\",\"content\":\"\"},\"done\":true,\"done_reason\":\"stop\",\"t"
+  },
+  "consecutive_failures": 0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "moosa-ops",
+  "version": "1.0.0",
+  "description": "Moosa operational scripts",
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}

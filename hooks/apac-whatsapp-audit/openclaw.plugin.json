@@ -1,0 +1,12 @@
+{
+  "id": "apac-whatsapp-audit",
+  "name": "APAC WhatsApp Audit + GPU Bridge",
+  "version": "1.0.0",
+  "description": "GPU-primary WhatsApp message routing hook. Intercepts inbound messages before MiniMax inference.",
+  "subscribesTo": ["inbound_claim"],
+  "hooks": {
+    "inbound_claim": {
+      "handler": "index.js"
+    }
+  }
+}

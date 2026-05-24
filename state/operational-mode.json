@@ -1,13 +1,44 @@
 {
-  "current_mode": "MODE_A",
-  "target_mode": "MODE_A",
-  "gpu_status": "unknown",
-  "gpu_health": null,
+  "current_mode": "MODE_B",
+  "target_mode": "MODE_B",
+  "gpu_status": "HEALTHY",
+  "gpu_health": {
+    "healthy": true,
+    "models": [
+      {
+        "name": "mistral-small3.2:latest",
+        "model": "mistral-small3.2:latest",
+        "modified_at": "2026-05-23T16:19:35Z",
+        "size": 15177384862,
+        "digest": "5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "mistral3",
+          "families": [
+            "mistral3"
+          ],
+          "parameter_size": "24.0B",
+          "quantization_level": "Q4_K_M"
+        }
+      }
+    ],
+    "last_watchdog_check": "2026-05-24T11:22:21.012Z",
+    "watchdog_latency_ms": 18593,
+    "endpoint_check": true,
+    "auth_check": true,
+    "tags_check": true,
+    "inference_check": true,
+    "inference_response": "OK",
+    "inference_latency_ms": 17783,
+    "target_model_loaded": false,
+    "total_models": 0
+  },
   "gpu_primary_active": false,
   "minimax_primary_active": true,
-  "mode_start_time": "2026-05-24T06:21:55.819Z",
-  "mode_switches": 2,
-  "last_mode_switch": "2026-05-24T06:21:55.819Z",
+  "mode_start_time": "2026-05-24T06:29:21.095Z",
+  "mode_switches": 3,
+  "last_mode_switch": "2026-05-24T06:29:21.095Z",
   "gpu_uptime_start": null,
   "active_hours": {
     "start": "11:00",
@@ -33,6 +64,12 @@
       "from": "MODE_B",
       "to": "MODE_A",
       "reason": "session-end"
+    },
+    {
+      "timestamp": "2026-05-24T06:29:21.095Z",
+      "from": "MODE_A",
+      "to": "MODE_B",
+      "reason": "testing"
     }
   ]
 }
