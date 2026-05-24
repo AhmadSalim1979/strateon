@@ -1,13 +1,13 @@
 {
-  "current_mode": "MODE_B",
-  "target_mode": "MODE_B",
+  "current_mode": "MODE_A",
+  "target_mode": "MODE_A",
   "gpu_status": "unknown",
   "gpu_health": null,
-  "gpu_primary_active": true,
+  "gpu_primary_active": false,
   "minimax_primary_active": true,
-  "mode_start_time": "2026-05-24T06:29:21.095Z",
-  "mode_switches": 3,
-  "last_mode_switch": "2026-05-24T06:29:21.095Z",
+  "mode_start_time": "2026-05-24T06:21:55.819Z",
+  "mode_switches": 2,
+  "last_mode_switch": "2026-05-24T06:21:55.819Z",
   "gpu_uptime_start": null,
   "active_hours": {
     "start": "11:00",
@@ -33,12 +33,6 @@
       "from": "MODE_B",
       "to": "MODE_A",
       "reason": "session-end"
-    },
-    {
-      "timestamp": "2026-05-24T06:29:21.095Z",
-      "from": "MODE_A",
-      "to": "MODE_B",
-      "reason": "testing"
     }
   ]
 }
