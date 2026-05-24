@@ -2354,3 +2354,8 @@ If any token is found missing from `secrets/` AND no corresponding entry exists 
 [2026-05-24T06:20:02.425Z] Watchdog — GET pod status
 [2026-05-24T06:20:03.089Z] Watchdog — GET /api/tags via proxy with valid token
 [2026-05-24T06:20:03.215Z] Watchdog — GET /api/tags model list check
+[2026-05-24T06:30:01.728Z] Watchdog — secrets loaded
+[2026-05-24T06:30:01.728Z] Watchdog — gpu-auth-proxy config loaded
+[2026-05-24T06:30:03.299Z] Watchdog — GET pod status
+[2026-05-24T06:30:03.645Z] Watchdog — GET /api/tags via proxy with valid token
+[2026-05-24T06:30:03.763Z] Watchdog — GET /api/tags model list check
