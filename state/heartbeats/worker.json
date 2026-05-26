@@ -1,10 +1,10 @@
 {
   "process_name": "worker",
-  "pid": 2148768,
-  "last_cycle_at": "2026-05-23T21:20:37.935Z",
+  "pid": 2959479,
+  "last_cycle_at": "2026-05-26T06:20:03.598Z",
   "last_status": "STARTING",
   "cycle_count": 0,
   "note": "Worker starting, initialization in progress",
-  "_written_at": "2026-05-23T21:20:37.935Z",
-  "_watchdog_ts": 1779571237935
+  "_written_at": "2026-05-26T06:20:03.598Z",
+  "_watchdog_ts": 1779776403598
 }

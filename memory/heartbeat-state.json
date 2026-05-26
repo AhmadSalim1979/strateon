@@ -1,5 +1,5 @@
 {
-  "last_heartbeat_check": "2026-05-26T01:43:00.000Z",
+  "last_heartbeat_check": "2026-05-26T06:22:49.843Z",
   "checks_performed": {
     "2026-05-26T01:43:00.000Z": {
       "worker": "online_PID_2148921",
@@ -11,11 +11,22 @@
       "pm2_services": "all_online",
       "whatsapp": "stable_7h_no_499_listening_03:28",
       "github": "clean-push-final_branch_success_deploy_v2_blocked"
+    },
+    "2026-05-26T06:22:49.843Z": {
+      "worker": "online_PID_2959479",
+      "worker_heartbeat_fresh": true,
+      "worker_heartbeat_age_min": 0,
+      "operational_state": "updated",
+      "memory": "exists_with_content",
+      "pending_commitments_check": "none_new_today",
+      "pm2_services": "all_online",
+      "whatsapp": "stable_no_499",
+      "github": "clean-push-final_branch_ok"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-26T01:43:00.000Z",
-    "operational_state": "2026-05-26T01:43:00.000Z",
+    "worker_heartbeat": "2026-05-26T06:22:49.843Z",
+    "operational_state": "2026-05-26T06:22:49.843Z",
     "stale_task_detector": "not_checked_this_cycle",
     "gpu_pod": "not_checked_this_cycle"
   }

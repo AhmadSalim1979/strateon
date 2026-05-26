@@ -1,39 +1,8 @@
 {
   "current_mode": "MODE_B",
   "target_mode": "MODE_B",
-  "gpu_status": "DEGRADED",
-  "gpu_health": {
-    "healthy": false,
-    "models": [
-      {
-        "name": "mistral-small3.2:latest",
-        "model": "mistral-small3.2:latest",
-        "modified_at": "2026-05-23T16:19:35Z",
-        "size": 15177384862,
-        "digest": "5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b",
-        "details": {
-          "parent_model": "",
-          "format": "gguf",
-          "family": "mistral3",
-          "families": [
-            "mistral3"
-          ],
-          "parameter_size": "24.0B",
-          "quantization_level": "Q4_K_M"
-        }
-      }
-    ],
-    "last_watchdog_check": "2026-05-26T04:26:54.372Z",
-    "watchdog_latency_ms": 803,
-    "endpoint_check": false,
-    "auth_check": false,
-    "tags_check": false,
-    "inference_check": false,
-    "inference_response": null,
-    "inference_latency_ms": 275,
-    "target_model_loaded": false,
-    "total_models": 0
-  },
+  "gpu_status": "unknown",
+  "gpu_health": null,
   "gpu_primary_active": false,
   "minimax_primary_active": true,
   "mode_start_time": "2026-05-24T06:29:21.095Z",

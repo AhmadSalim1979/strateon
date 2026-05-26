@@ -1,1 +1,10 @@
-{"status":"UNAVAILABLE","pod_id":"23a9nue4xq4r4p","started_at":null,"stopped_at":null,"last_health_check":null,"health_check_failures":0,"restarts_24h":0,"last_error":"API request failed: RunPod unavailable"}
+{
+  "status": "UNAVAILABLE",
+  "pod_id": "23a9nue4xq4r4p",
+  "started_at": null,
+  "stopped_at": null,
+  "last_health_check": null,
+  "health_check_failures": 0,
+  "restarts_24h": 0,
+  "last_error": "API request failed: Command failed: curl -s -X POST -H Authorization: Bearer rpa_CQUU0R1I2WUMPY3GELXVA3V24XM7JQHKNJ9CF8DI10dn23 -H Content-Type: application/json -w \n%{http_code} https://api.runpod.io/v1/pod/23a9nue4xq4r"
+}

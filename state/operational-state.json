@@ -1,28 +1,40 @@
 {
   "version": 1,
-  "last_updated": "2026-05-26T01:43:00.000Z",
+  "last_updated": "2026-05-26T06:21:00.000Z",
   "worker_status": "online",
-  "worker_heartbeat_fresh": false,
-  "worker_heartbeat_age_min": 2335,
+  "worker_heartbeat_fresh": true,
+  "worker_heartbeat_age_min": 0,
   "active_tasks": [],
   "recent_alerts": [
     {
+      "level": 3,
+      "message": "moosa-worker restarted at 08:12 Berlin — PID 2148921 → 2959479. RIM-1 sent-dedup patch applied. maintenance flag deleted.",
+      "task_id": null,
+      "at": "2026-05-26T06:12:00.000Z"
+    },
+    {
+      "level": 3,
+      "message": "Supabase API key INVALID — moosa-worker logging 'Invalid API key' errors. Service key in .env may be stale.",
+      "task_id": null,
+      "at": "2026-05-26T06:12:00.000Z"
+    },
+    {
       "level": 0,
-      "message": "WhatsApp stable 7h+: no 499 events. Listening at 03:28. Gateway PID 135 (5h), worker PID 48 (2D).",
+      "message": "WhatsApp stable 7h+: no 499 events. Listening at 03:28. Gateway PID 136 (17m), worker PID 138 (102s).",
       "task_id": null,
       "at": "2026-05-26T03:28:00.000Z"
     },
     {
       "level": 0,
-      "message": "GitHub backup resolved: clean-push-final branch pushed successfully. deploy/v2 still blocked by RunPod key in 7a1227db — unblock via secret-scanning link.",
+      "message": "GitHub backup resolved: clean-push-final branch pushed successfully. deploy/v2 still blocked by RunPod key in 7a1227db.",
       "task_id": null,
       "at": "2026-05-26T01:06:00.000Z"
     },
     {
       "level": 0,
-      "message": "WhatsApp stable: 5h continuous connection. No 499 events.",
+      "message": "WhatsApp 499 flapping — ongoing since 07:39 Berlin. Gateway recovers after each 499.",
       "task_id": null,
-      "at": "2026-05-26T01:13:00.000Z"
+      "at": "2026-05-26T05:39:00.000Z"
     }
   ],
   "restart_count_last_hour": 0

@@ -1,5 +1,5 @@
 {
-  "consecutive_failures": 3,
+  "consecutive_failures": 5,
   "last_healthy": "2026-05-24T11:22:21.009Z",
   "slo_violations": 0
 }

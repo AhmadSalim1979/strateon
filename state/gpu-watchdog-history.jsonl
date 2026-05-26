@@ -12,3 +12,5 @@
 {"timestamp":"2026-05-26T01:46:53.720Z","healthy":false,"latency_ms":1035,"endpoint_ok":false,"auth_ok":false,"tags_ok":false,"inference_ok":false,"inference_latency_ms":272,"consecutive_failures":1,"gpu_status":"DEGRADED"}
 {"timestamp":"2026-05-26T02:16:56.502Z","healthy":false,"latency_ms":837,"endpoint_ok":false,"auth_ok":false,"tags_ok":false,"inference_ok":false,"inference_latency_ms":93,"consecutive_failures":2,"gpu_status":"DEGRADED"}
 {"timestamp":"2026-05-26T04:26:54.374Z","healthy":false,"latency_ms":803,"endpoint_ok":false,"auth_ok":false,"tags_ok":false,"inference_ok":false,"inference_latency_ms":275,"consecutive_failures":3,"gpu_status":"DEGRADED"}
+{"timestamp":"2026-05-26T05:36:54.987Z","healthy":false,"latency_ms":782,"endpoint_ok":false,"auth_ok":false,"tags_ok":false,"inference_ok":false,"inference_latency_ms":271,"consecutive_failures":4,"gpu_status":"DEGRADED"}
+{"timestamp":"2026-05-26T06:07:06.127Z","healthy":false,"latency_ms":815,"endpoint_ok":false,"auth_ok":false,"tags_ok":false,"inference_ok":false,"inference_latency_ms":286,"consecutive_failures":5,"gpu_status":"DEGRADED"}

@@ -1,0 +1,7 @@
+{
+  "connected": false,
+  "status": "stopped",
+  "reason": "sigint_received",
+  "pid": 2965636,
+  "lastChecked": "2026-05-26T07:05:40.095Z"
+}
