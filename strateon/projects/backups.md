@@ -273,3 +273,12 @@ No backup performed; workspace is clean.
   - Modified: hooks/apac-whatsapp-audit/HOOK.md (99% rewrite), hooks/apac-whatsapp-audit/handler.ts (99% rewrite), hooks/apac-whatsapp-audit/index.js (97% rewrite)
 - **Commit:** `c0fa72d7` — "Auto-backup: Sun May 24 03:06:07 PM CEST 2026"
 - **Secrets scan:** No secrets detected — push allowed
+
+## 2026-05-26 (Tuesday) — 3:06 AM Europe/Berlin (01:06 UTC)
+- **Status:** ⚠️ Pushed to `clean-push-final` (non-secret branch); `deploy/v2` push blocked by GitHub secret scan on old commits
+- **Branches pushed:** `clean-push-final` (safe branch, clean gpu-lifecycle-state.json)
+- **Files affected:**
+  - Modified: state/gpu-lifecycle-state.json (scrubbed back to clean `b50ce0c3` — no API key), memory/heartbeat-state.json, state/operational-state.json, strateon/projects/backups.md
+- **Commit:** `72c09b96` — "Clean backup: gpu-lifecycle-state scrubbed, state files synced, May 26 entry logged"
+- **Secrets scan:** No secrets detected — push allowed
+- **Note:** `deploy/v2` push blocked due to secret scan on commit `7a1227db` (gpu-lifecycle-state.json with full RunPod API key in earlier commits). Branch `clean-push-final` carries the fix via `b50ce0c3`.
