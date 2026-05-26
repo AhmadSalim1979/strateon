@@ -282,3 +282,5 @@ No backup performed; workspace is clean.
 - **Commit:** `72c09b96` — "Clean backup: gpu-lifecycle-state scrubbed, state files synced, May 26 entry logged"
 - **Secrets scan:** No secrets detected — push allowed
 - **Note:** `deploy/v2` push blocked due to secret scan on commit `7a1227db` (gpu-lifecycle-state.json with full RunPod API key in earlier commits). Branch `clean-push-final` carries the fix via `b50ce0c3`.
+
+> **Incident resolved — backup log current as of 2026-05-26 03:14 AM Berlin**
