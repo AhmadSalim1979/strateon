@@ -1,23 +1,35 @@
 {
   "version": 1,
-  "last_updated": "2026-05-23T21:21:00.000Z",
+  "last_updated": "2026-05-26T01:13:00.000Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": false,
-  "worker_heartbeat_age_min": 2220,
+  "worker_heartbeat_age_min": 2265,
   "active_tasks": [],
   "recent_alerts": [
     {
-      "level": 2,
-      "message": "GPU pod md4k86uqm947v8 auth-proxy non-responsive — HTTP 404 from RunPod proxy (all ports)",
+      "level": 0,
+      "message": "WhatsApp stable: 5h continuous connection. No 499 events. Gateway PID 135, worker PID 48.",
       "task_id": null,
-      "at": "2026-05-22T16:00:00.000Z"
+      "at": "2026-05-26T01:13:00.000Z"
     },
     {
-      "level": 2,
-      "message": "moosa-worker stopped at 20:28 UTC — PM2 shutdown during updates. Restarted at 21:21 UTC.",
+      "level": 0,
+      "message": "WhatsApp: health-monitor restart (stale-socket) at 01:43, immediate recovery. Stable for 35m prior.",
       "task_id": null,
-      "at": "2026-05-23T21:21:00.000Z"
+      "at": "2026-05-26T01:43:00.000Z"
+    },
+    {
+      "level": 0,
+      "message": "WhatsApp gateway reconnected clean at 01:08 UTC after 3h40m flapping.",
+      "task_id": null,
+      "at": "2026-05-26T01:08:00.000Z"
+    },
+    {
+      "level": 1,
+      "message": "GitHub push blocked: RunPod API key in state/gpu-lifecycle-state.json commit 7a1227db — needs cleanup",
+      "task_id": null,
+      "at": "2026-05-25T15:06:00.000Z"
     }
   ],
-  "restart_count_last_hour": 1
+  "restart_count_last_hour": 0
 }
