@@ -1,9 +1,9 @@
 {
   "current_mode": "MODE_B",
   "target_mode": "MODE_B",
-  "gpu_status": "HEALTHY",
+  "gpu_status": "DEGRADED",
   "gpu_health": {
-    "healthy": true,
+    "healthy": false,
     "models": [
       {
         "name": "mistral-small3.2:latest",
@@ -23,14 +23,14 @@
         }
       }
     ],
-    "last_watchdog_check": "2026-05-24T11:22:21.012Z",
-    "watchdog_latency_ms": 18593,
-    "endpoint_check": true,
-    "auth_check": true,
-    "tags_check": true,
-    "inference_check": true,
-    "inference_response": "OK",
-    "inference_latency_ms": 17783,
+    "last_watchdog_check": "2026-05-26T04:26:54.372Z",
+    "watchdog_latency_ms": 803,
+    "endpoint_check": false,
+    "auth_check": false,
+    "tags_check": false,
+    "inference_check": false,
+    "inference_response": null,
+    "inference_latency_ms": 275,
     "target_model_loaded": false,
     "total_models": 0
   },

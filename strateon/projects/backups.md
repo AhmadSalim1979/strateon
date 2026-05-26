@@ -274,6 +274,13 @@ No backup performed; workspace is clean.
 - **Commit:** `c0fa72d7` — "Auto-backup: Sun May 24 03:06:07 PM CEST 2026"
 - **Secrets scan:** No secrets detected — push allowed
 
+## 2026-05-26 (Tuesday) — 7:10 AM Europe/Berlin (05:10 UTC)
+- **Status:** ✅ Hardened — pre-push secret scanner updated
+- **Action:** Extended `.git/hooks/pre-push` to catch RunPod `rpa_` keys + all other API key patterns
+- **Patterns added:** `rpa_[a-zA-Z0-9]{20,}` (RunPod), `ghp_[a-zA-Z0-9]{30,}` (GitHub), `sk-(live|test)` (Stripe), `AI[a-zA-Z0-9]{48,}` (OpenAI), `xox[baprs]-` (Slack), `Bearer` tokens, `api[_-]?key` patterns
+- **Note:** `.git/hooks/` lives outside version control (inside `.git/`). The hook is live on disk at `.git/hooks/pre-push` and will block any future push containing detected secret patterns — including `rpa_` RunPod keys.
+- **Commit:** `ce20b420` on `clean-push-final` (clean backup branch, no API key present)
+
 ## 2026-05-26 (Tuesday) — 3:06 AM Europe/Berlin (01:06 UTC)
 - **Status:** ⚠️ Pushed to `clean-push-final` (non-secret branch); `deploy/v2` push blocked by GitHub secret scan on old commits
 - **Branches pushed:** `clean-push-final` (safe branch, clean gpu-lifecycle-state.json)

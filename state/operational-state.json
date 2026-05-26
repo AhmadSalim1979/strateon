@@ -1,34 +1,28 @@
 {
   "version": 1,
-  "last_updated": "2026-05-26T01:13:00.000Z",
+  "last_updated": "2026-05-26T01:43:00.000Z",
   "worker_status": "online",
   "worker_heartbeat_fresh": false,
-  "worker_heartbeat_age_min": 2265,
+  "worker_heartbeat_age_min": 2335,
   "active_tasks": [],
   "recent_alerts": [
     {
       "level": 0,
-      "message": "WhatsApp stable: 5h continuous connection. No 499 events. Gateway PID 135, worker PID 48.",
+      "message": "WhatsApp stable 7h+: no 499 events. Listening at 03:28. Gateway PID 135 (5h), worker PID 48 (2D).",
+      "task_id": null,
+      "at": "2026-05-26T03:28:00.000Z"
+    },
+    {
+      "level": 0,
+      "message": "GitHub backup resolved: clean-push-final branch pushed successfully. deploy/v2 still blocked by RunPod key in 7a1227db — unblock via secret-scanning link.",
+      "task_id": null,
+      "at": "2026-05-26T01:06:00.000Z"
+    },
+    {
+      "level": 0,
+      "message": "WhatsApp stable: 5h continuous connection. No 499 events.",
       "task_id": null,
       "at": "2026-05-26T01:13:00.000Z"
-    },
-    {
-      "level": 0,
-      "message": "WhatsApp: health-monitor restart (stale-socket) at 01:43, immediate recovery. Stable for 35m prior.",
-      "task_id": null,
-      "at": "2026-05-26T01:43:00.000Z"
-    },
-    {
-      "level": 0,
-      "message": "WhatsApp gateway reconnected clean at 01:08 UTC after 3h40m flapping.",
-      "task_id": null,
-      "at": "2026-05-26T01:08:00.000Z"
-    },
-    {
-      "level": 1,
-      "message": "GitHub push blocked: RunPod API key in state/gpu-lifecycle-state.json commit 7a1227db — needs cleanup",
-      "task_id": null,
-      "at": "2026-05-25T15:06:00.000Z"
     }
   ],
   "restart_count_last_hour": 0
