@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-05-26T06:07:06.126Z",
+  "timestamp": "2026-05-26T15:33:16.451Z",
   "overall_healthy": false,
-  "latency_ms": 815,
+  "latency_ms": 703,
   "endpoint": {
     "step": "endpoint",
     "ok": false,
@@ -25,8 +25,8 @@
     "passed": false,
     "response": "",
     "expected": "OK",
-    "latency_ms": 286,
+    "latency_ms": 99,
     "raw": ""
   },
-  "consecutive_failures": 5
+  "consecutive_failures": 9
 }

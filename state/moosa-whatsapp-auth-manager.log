@@ -1685,3 +1685,134 @@
 [2026-05-26T07:05:39.799Z] [INFO] [RIM-1] Inference request: Thanks for your message! I'll get back to you shortly. 🙏 [RUN_ID=rim-20260526-090340-2965497]
 [2026-05-26T07:05:40.095Z] [INFO] SIGINT — shutting down transport
 [2026-05-26T07:05:40.100Z] [INFO] Transport stopped cleanly.
+[2026-05-26T15:41:10.445Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T15:41:10.446Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T15:41:10.446Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T15:41:10.446Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T15:41:10.446Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T15:41:10.446Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T15:41:10.446Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T15:41:10.446Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T15:41:10.446Z] [INFO] Process PID: 3037085
+[2026-05-26T15:41:10.641Z] [INFO] Baileys loaded successfully
+[2026-05-26T15:41:10.641Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T15:41:10.645Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T15:41:10.661Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T15:41:10.662Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T15:41:10.662Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T15:41:10.662Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T15:41:10.663Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T15:41:10.663Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T15:41:14.670Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T15:41:14.670Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T15:41:14.675Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T15:41:16.678Z] [INFO] Attempting reconnect...
+[2026-05-26T15:42:13.881Z] [INFO] SIGTERM — shutting down
+[2026-05-26T17:16:59.600Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T17:16:59.601Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T17:16:59.601Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T17:16:59.601Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T17:16:59.601Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T17:16:59.601Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T17:16:59.601Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T17:16:59.601Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T17:16:59.601Z] [INFO] Process PID: 3061354
+[2026-05-26T17:16:59.800Z] [INFO] Baileys loaded successfully
+[2026-05-26T17:16:59.800Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T17:16:59.803Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T17:16:59.820Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T17:16:59.821Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T17:16:59.821Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T17:16:59.821Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T17:16:59.822Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T17:16:59.822Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T17:17:01.197Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T17:17:01.197Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T17:17:01.201Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T17:17:03.203Z] [INFO] Attempting reconnect...
+[2026-05-26T17:18:03.022Z] [INFO] SIGTERM — shutting down
+[2026-05-26T17:28:03.023Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T17:28:03.024Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T17:28:03.025Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T17:28:03.025Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T17:28:03.025Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T17:28:03.025Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T17:28:03.025Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T17:28:03.025Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T17:28:03.025Z] [INFO] Process PID: 3063729
+[2026-05-26T17:28:03.223Z] [INFO] Baileys loaded successfully
+[2026-05-26T17:28:03.223Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T17:28:03.227Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T17:28:03.244Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T17:28:03.244Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T17:28:03.244Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T17:28:03.244Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T17:28:03.246Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T17:28:03.246Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T17:28:05.153Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T17:28:05.153Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T17:28:05.158Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T17:28:07.161Z] [INFO] Attempting reconnect...
+[2026-05-26T17:29:06.497Z] [INFO] SIGTERM — shutting down
+[2026-05-26T17:51:42.963Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T17:51:42.964Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T17:51:42.964Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T17:51:42.964Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T17:51:42.964Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T17:51:42.964Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T17:51:42.964Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T17:51:42.964Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T17:51:42.964Z] [INFO] Process PID: 3069357
+[2026-05-26T17:51:43.162Z] [INFO] Baileys loaded successfully
+[2026-05-26T17:51:43.162Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T17:51:43.165Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T17:51:43.166Z] [EVENT] native_auth_valid_existing_session {"authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+[2026-05-26T17:51:43.166Z] [INFO] [Native] creds.json valid — using existing session
+[2026-05-26T17:51:43.182Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T17:51:43.183Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T17:51:43.183Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T17:51:43.183Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T17:51:43.185Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T17:51:43.185Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T17:51:43.185Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T17:51:43.185Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T17:51:46.286Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T17:51:46.287Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T17:51:46.291Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T17:51:46.291Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T17:51:46.291Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T17:51:46.291Z] [INFO] 🔄 Reconnecting in 4000ms (attempt 2/10)...
+[2026-05-26T17:51:48.293Z] [INFO] Attempting reconnect...
+[2026-05-26T17:51:50.294Z] [INFO] Attempting reconnect...
+[2026-05-26T17:52:46.380Z] [INFO] SIGTERM — shutting down
+[2026-05-26T18:17:20.996Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T18:17:20.997Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T18:17:20.997Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T18:17:20.997Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T18:17:20.997Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T18:17:20.997Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T18:17:20.997Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T18:17:20.997Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T18:17:20.997Z] [INFO] Process PID: 3075169
+[2026-05-26T18:17:21.204Z] [INFO] Baileys loaded successfully
+[2026-05-26T18:17:21.204Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T18:17:21.207Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T18:17:21.207Z] [EVENT] native_auth_valid_existing_session {"authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+[2026-05-26T18:17:21.207Z] [INFO] [Native] creds.json valid — using existing session
+[2026-05-26T18:17:21.224Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T18:17:21.225Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T18:17:21.225Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T18:17:21.225Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T18:17:21.227Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T18:17:21.227Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T18:17:21.227Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T18:17:21.227Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T18:17:23.149Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T18:17:23.149Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T18:17:23.152Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T18:17:23.152Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T18:17:23.152Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T18:17:23.152Z] [INFO] 🔄 Reconnecting in 4000ms (attempt 2/10)...
+[2026-05-26T18:17:25.154Z] [INFO] Attempting reconnect...
+[2026-05-26T18:17:27.155Z] [INFO] Attempting reconnect...
+[2026-05-26T18:18:24.552Z] [INFO] SIGTERM — shutting down
