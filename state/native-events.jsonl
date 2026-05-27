@@ -1,0 +1,24 @@
+{"ts":"2026-05-27T12:10:04.289Z","runId":"rim-20260527-141000-3301460","event":"native_auth_valid_existing_session","authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+{"ts":"2026-05-27T12:10:04.310Z","runId":"rim-20260527-141000-3301460","hasQR":false}
+{"ts":"2026-05-27T12:10:04.971Z","runId":"rim-20260527-141000-3301460","hasQR":false,"reason":"Connection Failure"}
+{"ts":"2026-05-27T12:28:42.367Z","runId":"rim-20260527-142838-3306578","event":"native_auth_valid_existing_session","authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+{"ts":"2026-05-27T12:28:42.388Z","runId":"rim-20260527-142838-3306578","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T12:30:42.249Z","runId":"rim-20260527-143038-3307775","event":"native_auth_valid_existing_session","authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+{"ts":"2026-05-27T12:30:42.281Z","runId":"rim-20260527-143038-3307775","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T12:30:44.261Z","runId":"rim-20260527-143038-3307775","event":"connection_update","connection":"close","hasQR":false,"reason":"Connection Failure"}
+{"ts":"2026-05-27T12:30:44.261Z","runId":"rim-20260527-143038-3307775","event":"native_close_diagnostic","reason":"Connection Failure","statusCode":401,"reconnectAttempts":0,"authMode":"valid","everHadOpen":false,"hasQR":false,"canRetry":true,"timestamp":"2026-05-27T12:30:44.261Z"}
+{"ts":"2026-05-27T12:41:30.262Z","runId":"rim-20260527-144125-3311049","event":"native_auth_valid_existing_session","authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+{"ts":"2026-05-27T12:41:30.283Z","runId":"rim-20260527-144125-3311049","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T12:41:35.062Z","runId":"rim-20260527-144125-3311049","event":"connection_update","connection":"close","hasQR":false,"reason":"Connection Failure"}
+{"ts":"2026-05-27T12:41:35.063Z","runId":"rim-20260527-144125-3311049","event":"native_close_diagnostic","reason":"Connection Failure","statusCode":401,"reconnectAttempts":0,"authMode":"valid","everHadOpen":false,"hasQR":false,"canRetry":true,"timestamp":"2026-05-27T12:41:35.063Z"}
+{"ts":"2026-05-27T12:51:28.492Z","runId":"rim-20260527-145124-3314108","event":"native_auth_valid_existing_session","authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+{"ts":"2026-05-27T12:51:28.530Z","runId":"rim-20260527-145124-3314108","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T12:51:29.634Z","runId":"rim-20260527-145124-3314108","event":"connection_update","connection":"close","hasQR":false,"reason":"Connection Failure"}
+{"ts":"2026-05-27T12:51:29.634Z","runId":"rim-20260527-145124-3314108","event":"native_close_diagnostic","reason":"Connection Failure","statusCode":401,"reconnectAttempts":0,"authMode":"valid","everHadOpen":false,"hasQR":false,"canRetry":true,"timestamp":"2026-05-27T12:51:29.634Z"}
+{"ts":"2026-05-27T12:51:31.646Z","runId":"rim-20260527-145124-3314108","event":"native_auth_valid_existing_session","authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+{"ts":"2026-05-27T12:51:31.654Z","runId":"rim-20260527-145124-3314108","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T12:51:37.160Z","runId":"rim-20260527-145124-3314108","event":"connection_update","connection":"close","hasQR":false,"reason":"Connection Failure"}
+{"ts":"2026-05-27T12:51:37.160Z","runId":"rim-20260527-145124-3314108","event":"native_close_diagnostic","reason":"Connection Failure","statusCode":401,"reconnectAttempts":1,"authMode":"valid","everHadOpen":false,"hasQR":false,"canRetry":true,"timestamp":"2026-05-27T12:51:37.160Z"}
+{"ts":"2026-05-27T12:51:37.160Z","runId":"rim-20260527-145124-3314108","event":"native_auth_stale_quarantined","reason":"Connection Failure","attempts":1}
+{"ts":"2026-05-27T12:51:37.161Z","runId":"rim-20260527-145124-3314108","event":"native_qr_forced_after_stale_auth","staleDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.stale.1779886297161"}
+{"ts":"2026-05-27T12:51:37.162Z","runId":"rim-20260527-145124-3314108","event":"native_qr_forced","reason":"stale_auth_relinked"}

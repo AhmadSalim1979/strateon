@@ -1,7 +1,8 @@
 {
-  "connected": false,
-  "status": "stopped",
-  "reason": "sigterm_received",
-  "pid": 3091278,
-  "lastChecked": "2026-05-26T19:38:34.837Z"
+  "pid": 3314360,
+  "status": "qr_waiting",
+  "reason": "stale_auth_relinked",
+  "qr_file": "/home/node/.openclaw/workspace/state/native-whatsapp-qr.txt",
+  "qr_timestamp": "2026-05-27T12:51:37.162Z",
+  "last_update": "2026-05-27T12:51:37.162Z"
 }
