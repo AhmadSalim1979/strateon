@@ -1816,3 +1816,34 @@
 [2026-05-26T18:17:25.154Z] [INFO] Attempting reconnect...
 [2026-05-26T18:17:27.155Z] [INFO] Attempting reconnect...
 [2026-05-26T18:18:24.552Z] [INFO] SIGTERM — shutting down
+[2026-05-26T19:33:29.562Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T19:33:29.563Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T19:33:29.563Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T19:33:29.563Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T19:33:29.563Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T19:33:29.563Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T19:33:29.564Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T19:33:29.564Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T19:33:29.564Z] [INFO] Process PID: 3091278
+[2026-05-26T19:33:29.762Z] [INFO] Baileys loaded successfully
+[2026-05-26T19:33:29.762Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T19:33:29.766Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T19:33:29.766Z] [EVENT] native_auth_valid_existing_session {"authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+[2026-05-26T19:33:29.766Z] [INFO] [Native] creds.json valid — using existing session
+[2026-05-26T19:33:29.783Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T19:33:29.783Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T19:33:29.784Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T19:33:29.784Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T19:33:29.785Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T19:33:29.785Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T19:33:29.787Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T19:33:29.788Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T19:33:31.134Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T19:33:31.134Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T19:33:31.137Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T19:33:31.137Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T19:33:31.137Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T19:33:31.137Z] [INFO] 🔄 Reconnecting in 4000ms (attempt 2/10)...
+[2026-05-26T19:33:33.139Z] [INFO] Attempting reconnect...
+[2026-05-26T19:33:35.140Z] [INFO] Attempting reconnect...
+[2026-05-26T19:38:34.837Z] [INFO] SIGTERM — shutting down

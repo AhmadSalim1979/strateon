@@ -3684,3 +3684,81 @@ test
 [2026-05-26T20:18:27+02:00] [INFO] PM2: ONLINE at 0s
 [2026-05-26T20:18:27+02:00] [OK] OpenClaw FULLY RESTORED — PM2 online + WhatsApp listener active
 [2026-05-26T20:18:27+02:00] [OK] Cleanup complete
+[2026-05-26T21:33:25+02:00] [INFO] MRSI RIM-1 — REAL INFERENCE EXECUTE MODE
+[2026-05-26T21:33:25+02:00] [INFO] Started: 2026-05-26T21:33:25+02:00
+[2026-05-26T21:33:25+02:00] [STEP] [VALIDATE] Checking script integrity...
+[2026-05-26T21:33:25+02:00] [OK] All constants defined — PASS
+[2026-05-26T21:33:25+02:00] [STEP] [PRE-CHECK] Safety validations...
+[2026-05-26T21:33:25+02:00] [STEP] [PRE-CHECK] Asserting OpenClaw PM2 readiness...
+[2026-05-26T21:33:25+02:00] [INFO] Maintenance flag clear ✅
+[2026-05-26T21:33:25+02:00] [INFO] PM2 status online ✅
+[2026-05-26T21:33:25+02:00] [INFO] Canonical gateway mode verified ✅
+[2026-05-26T21:33:25+02:00] [INFO] Checking for non-PM2 OpenClaw gateway processes...
+[2026-05-26T21:33:25+02:00] [INFO] openclaw-gateway found in PM2 — not an orphan
+[2026-05-26T21:33:25+02:00] [INFO] No orphan gateways ✅
+[2026-05-26T21:33:25+02:00] [INFO] WhatsApp listener active in /tmp/openclaw/openclaw-2026-05-26.log ✅
+[2026-05-26T21:33:25+02:00] [OK] OpenClaw PM2 ready — all 5 checks passed
+[2026-05-26T21:33:25+02:00] [OK] OpenClaw PM2 ready — all checks passed
+[2026-05-26T21:33:25+02:00] [INFO] Checking maintenance flag...
+[2026-05-26T21:33:25+02:00] [OK] Maintenance flag clear — PASS
+[2026-05-26T21:33:25+02:00] [INFO] Checking for existing native transport...
+[2026-05-26T21:33:26+02:00] [OK] No native transport running — PASS
+[2026-05-26T21:33:26+02:00] [OK] All pre-checks passed
+[2026-05-26T21:33:26+02:00] [INFO] Starting atomic sequence...
+[2026-05-26T21:33:26+02:00] [STEP] [PHASE A] Enabling maintenance mode...
+[2026-05-26T21:33:26+02:00] [OK] Maintenance mode ENABLED
+[2026-05-26T21:33:26+02:00] [STEP] [PHASE B] Stopping OpenClaw gateway...
+[2026-05-26T21:33:29+02:00] [OK] OpenClaw STOPPED via PM2
+[2026-05-26T21:33:29+02:00] [STEP] [PHASE B] Starting MOOSA-native WhatsApp transport (REAL_INFERENCE_MODE)...
+[2026-05-26T21:33:29+02:00] [INFO] Native transport started — PID 3091278
+[2026-05-26T19:33:29.562Z] [INFO] ╔════════════════════════════════════════╗
+[2026-05-26T19:33:29.563Z] [INFO] ║  MRSI Native WhatsApp Transport        ║
+[2026-05-26T19:33:29.563Z] [INFO] ║  Starting MOOSA-owned WhatsApp client ║
+[2026-05-26T19:33:29.563Z] [INFO] ╚════════════════════════════════════════╝
+[2026-05-26T19:33:29.563Z] [INFO] Auth dir: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T19:33:29.563Z] [INFO] Health file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-health.json
+[2026-05-26T19:33:29.564Z] [INFO] PID file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.pid
+[2026-05-26T19:33:29.564Z] [INFO] Log file: /home/node/.openclaw/workspace/state/moosa-whatsapp-auth-manager.log
+[2026-05-26T19:33:29.564Z] [INFO] Process PID: 3091278
+[2026-05-26T19:33:29.762Z] [INFO] Baileys loaded successfully
+[2026-05-26T19:33:29.762Z] [INFO] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-26T19:33:29.766Z] [INFO] Auth state loaded — me: 923215139934:23@s.whatsapp.net
+[2026-05-26T19:33:29.766Z] [EVENT] native_auth_valid_existing_session {"authDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth"}
+[2026-05-26T19:33:29.766Z] [INFO] [Native] creds.json valid — using existing session
+[2026-05-26T19:33:29.783Z] [INFO] [RIM-1] Real inference mode ENABLED
+[2026-05-26T19:33:29.783Z] [INFO] [RIM-1] Real inference callback registered — waiting for self-chat
+[2026-05-26T19:33:29.784Z] [INFO] Native MOOSA WhatsApp transport started successfully.
+[2026-05-26T19:33:29.784Z] [INFO] Ready to send/receive messages independently of OpenClaw.
+[2026-05-26T19:33:29.785Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T19:33:29.785Z] [INFO] ⏳ WhatsApp connecting...
+[2026-05-26T19:33:29.787Z] [EVENT] connection_update {"connection":"connecting","hasQR":false}
+[2026-05-26T19:33:29.788Z] [INFO] ⏳ WhatsApp connecting...
+{"level":30,"time":"2026-05-26T19:33:29.832Z","pid":3091278,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","browser":["Mac OS","Chrome","14.4.1"],"helloMsg":{"clientHello":{"ephemeral":"4sGh17ZgLivaIPfeVaKoblxOVTXGxvWLdtdId0HU7z0="}},"msg":"connected to WA"}
+{"level":30,"time":"2026-05-26T19:33:29.918Z","pid":3091278,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","node":{"username":"923215139934","passive":true,"userAgent":{"platform":"WEB","appVersion":{"primary":2,"secondary":3000,"tertiary":1035194821},"mcc":"000","mnc":"000","osVersion":"0.1","device":"Desktop","osBuildNumber":"0.1","releaseChannel":"RELEASE","localeLanguageIso6391":"en","localeCountryIso31661Alpha2":"US"},"webInfo":{"webSubPlatform":"WEB_BROWSER"},"connectType":"WIFI_UNKNOWN","connectReason":"USER_ACTIVATED","device":23,"pull":true,"lidDbMigrated":false},"msg":"logging in..."}
+{"level":30,"time":"2026-05-26T19:33:31.132Z","pid":3091278,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","trace":"Error: Connection Failure\n    at WebSocketClient.<anonymous> (file:///root/.openclaw/workspace/moosa-worker/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:797:18)\n    at WebSocketClient.emit (node:events:519:28)\n    at file:///root/.openclaw/workspace/moosa-worker/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:462:35\n    at processData (file:///root/.openclaw/workspace/moosa-worker/node_modules/@whiskeysockets/baileys/lib/Utils/noise-handler.js:126:13)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Object.decodeFrame (file:///root/.openclaw/workspace/moosa-worker/node_modules/@whiskeysockets/baileys/lib/Utils/noise-handler.js:197:13)\n    at async WebSocketClient.onMessageReceived (file:///root/.openclaw/workspace/moosa-worker/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:439:9)","msg":"connection errored"}
+[2026-05-26T19:33:31.134Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T19:33:31.134Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T19:33:31.137Z] [INFO] 🔄 Reconnecting in 2000ms (attempt 1/10)...
+[2026-05-26T19:33:31.137Z] [EVENT] connection_update {"connection":"close","hasQR":false,"reason":"Connection Failure"}
+[2026-05-26T19:33:31.137Z] [ERROR] ❌ WhatsApp connection CLOSED: Connection Failure (reconnectable)
+[2026-05-26T19:33:31.137Z] [INFO] 🔄 Reconnecting in 4000ms (attempt 2/10)...
+[2026-05-26T21:33:32+02:00] [OK] Native transport STARTED (PID 3091278)
+[2026-05-26T21:33:32+02:00] [STEP] Waiting for native transport to connect...
+[2026-05-26T19:33:33.139Z] [INFO] Attempting reconnect...
+[2026-05-26T19:33:35.140Z] [INFO] Attempting reconnect...
+[2026-05-26T21:38:34+02:00] [ERROR] Native transport did not connect within 300s
+[2026-05-26T21:38:34+02:00] [ERROR] Connect phase failed
+[2026-05-26T21:38:34+02:00] [STEP] [CLEANUP] Running cleanup handlers...
+[2026-05-26T21:38:34+02:00] [INFO] Stopping native transport...
+[2026-05-26T21:38:34+02:00] [STEP] [PHASE D] Stopping native transport...
+[2026-05-26T19:38:34.837Z] [INFO] SIGTERM — shutting down
+[2026-05-26T21:38:36+02:00] [INFO] Native transport PID 3091278 stopped
+[2026-05-26T21:38:36+02:00] [OK] Native transport STOPPED
+[2026-05-26T21:38:36+02:00] [STEP] [PHASE D] Disabling maintenance mode...
+[2026-05-26T21:38:36+02:00] [OK] Maintenance mode DISABLED
+[2026-05-26T21:38:36+02:00] [INFO] Restoring OpenClaw via supervisor...
+[2026-05-26T21:38:36+02:00] [STEP] [PHASE D] Restarting OpenClaw...
+[2026-05-26T21:38:36+02:00] [INFO] Calling gateway-supervisor.sh...
+[2026-05-26T21:38:37+02:00] [INFO] PM2: ONLINE at 0s
+[2026-05-26T21:38:38+02:00] [OK] OpenClaw FULLY RESTORED — PM2 online + WhatsApp listener active
+[2026-05-26T21:38:38+02:00] [OK] Cleanup complete

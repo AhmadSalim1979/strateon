@@ -1,6 +1,6 @@
 /**
  * GPU Lifecycle Controller — RunPod Pod Management
- * 
+ *
  * Startup: 06:00 UTC (11:00 AM PKT)
  * Shutdown: 21:00 UTC (2:00 AM PKT)
  * Health check before activation
@@ -8,8 +8,13 @@
  * Fallback to MiniMax if GPU unavailable
  */
 
-const fs = require('fs');
-const { execSync, exec } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
 const SECRETS_FILE = '/home/node/.openclaw/secrets/runpod.json';
 const STATE_FILE = '/home/node/.openclaw/workspace/state/gpu-lifecycle-state.json';
@@ -73,6 +78,8 @@ function loadGpuToken() {
         return null;
     }
 }
+
+const { execSync, exec } = await import('child_process');
 
 function runpodApi(method, endpoint, body) {
     const { apiKey } = loadRunPodSecrets();
@@ -244,7 +251,7 @@ async function scheduledShutdown() {
 }
 
 // === CLI ===
-if (require.main === module) {
+if (import.meta.url === 'file://' + process.argv[1]) {
     const cmd = process.argv[2];
     if (cmd === 'start') {
         startGpuPod().then(r => { console.log(JSON.stringify(r, null, 2)); process.exit(r.success ? 0 : 1); });
@@ -261,7 +268,7 @@ if (require.main === module) {
     }
 }
 
-module.exports = {
+export {
     startGpuPod, stopGpuPod, getLifecycleStatus, verifyGpuHealth,
     periodicHealthCheck, scheduledStartup, scheduledShutdown,
     isGpuAvailable, getGpuFallbackMode, CONFIG
