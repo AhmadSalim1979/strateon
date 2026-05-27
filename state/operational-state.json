@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "last_updated": "2026-05-26T06:21:00.000Z",
-  "worker_status": "online",
-  "worker_heartbeat_fresh": true,
+  "last_updated": "2026-05-27T02:38:00.000Z",
+  "worker_status": "unhealthy",
+  "worker_heartbeat_fresh": false,
   "worker_heartbeat_age_min": 0,
   "active_tasks": [],
   "recent_alerts": [

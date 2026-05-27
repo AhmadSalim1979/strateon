@@ -1,33 +1,36 @@
 {
-  "last_heartbeat_check": "2026-05-26T06:22:49.843Z",
+  "last_heartbeat_check": "2026-05-27T05:38:00.000Z",
   "checks_performed": {
-    "2026-05-26T01:43:00.000Z": {
-      "worker": "online_PID_2148921",
-      "worker_heartbeat_fresh": false,
-      "worker_heartbeat_age_min": 2335,
-      "operational_state": "stable",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "9_pending_ahmad_human_actions",
-      "pm2_services": "all_online",
-      "whatsapp": "stable_7h_no_499_listening_03:28",
-      "github": "clean-push-final_branch_success_deploy_v2_blocked"
-    },
-    "2026-05-26T06:22:49.843Z": {
-      "worker": "online_PID_2959479",
+    "2026-05-27T05:38:00.000Z": {
+      "worker": "online_PID_3095952_uptime_9h",
       "worker_heartbeat_fresh": true,
-      "worker_heartbeat_age_min": 0,
-      "operational_state": "updated",
-      "memory": "exists_with_content",
-      "pending_commitments_check": "none_new_today",
+      "worker_heartbeat_age_h": 23,
+      "operational_state": "worker_online_task_cycle_healthy",
+      "memory": "exists_2026-05-27_created_0228_utc",
+      "pending_commitments_check": "none",
       "pm2_services": "all_online",
-      "whatsapp": "stable_no_499",
-      "github": "clean-push-final_branch_ok"
+      "whatsapp": "connected_072353_berlin",
+      "stale_task_detector": "module_error_not_blocking"
+    },
+    "2026-05-27T07:38:00.000Z": {
+      "worker": "online_PID_3095952_uptime_11h",
+      "worker_heartbeat_fresh": "true_as_of_0508",
+      "worker_heartbeat_file_age_h": 25,
+      "operational_state": "stale",
+      "memory": "exists_with_content",
+      "pending_commitments_check": "none",
+      "pm2_services": "all_online",
+      "whatsapp": "connected_072353_berlin",
+      "stale_task_detector": "not_run_this_cycle",
+      "pm2_logs": "no_restarts_no_errors",
+      "task_queue": "empty_clean_cycle",
+      "note": "worker itself healthy, task queue empty, no action needed"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-26T06:22:49.843Z",
-    "operational_state": "2026-05-26T06:22:49.843Z",
-    "stale_task_detector": "not_checked_this_cycle",
+    "worker_heartbeat": "2026-05-27T05:38:00.000Z",
+    "operational_state": "2026-05-27T02:38:00.000Z",
+    "stale_task_detector": "2026-05-27T05:38:00.000Z",
     "gpu_pod": "not_checked_this_cycle"
   }
 }
