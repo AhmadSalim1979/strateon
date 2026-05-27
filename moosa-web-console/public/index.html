@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>MOOSA Web Console</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 760px; margin: 30px auto; padding: 0 16px; }
+    textarea, input, button { width: 100%; padding: 12px; margin: 8px 0; box-sizing: border-box; }
+    #log { border: 1px solid #ccc; padding: 12px; min-height: 260px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>MOOSA Web Console v1</h2>
+  <input id="token" type="password" placeholder="Admin token" />
+  <textarea id="msg" rows="5" placeholder="Message MOOSA..."></textarea>
+  <button onclick="sendMsg()">Send</button>
+  <button onclick="status()">Status</button>
+  <div id="log"></div>
+<script>
+async function api(path, opts={}) {
+  const token = document.getElementById('token').value;
+  return fetch(path, {
+    ...opts,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token,
+      ...(opts.headers || {})
+    }
+  });
+}
+function write(x) { document.getElementById('log').textContent += x + "\n\n"; }
+async function sendMsg() {
+  const message = document.getElementById('msg').value;
+  write("You: " + message);
+
+  const r = await api('/api/chat', {
+    method: 'POST',
+    body: JSON.stringify({ message })
+  });
+
+  const j = await r.json();
+
+  if (!j.accepted || !j.taskId) {
+    write("MOOSA: " + JSON.stringify(j));
+    return;
+  }
+
+  write("MOOSA: thinking... task " + j.taskId);
+
+  for (let i = 0; i < 18; i++) {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    const tr = await api('/api/task/' + j.taskId);
+    const tj = await tr.json();
+    const task = tj.task;
+
+    if (!task) continue;
+
+    if (task.status === 'completed') {
+      const response = task.output_json?.response || JSON.stringify(task.output_json);
+      write("MOOSA: " + response);
+      return;
+    }
+
+    if (task.status === 'failed') {
+      write("MOOSA ERROR: " + (task.error_message || 'Task failed'));
+      return;
+    }
+  }
+
+  write("MOOSA: response still pending. Please check task status manually.");
+}
+async function status() {
+  const r = await api('/api/status');
+  const j = await r.json();
+  write(JSON.stringify(j, null, 2));
+}
+</script>
+</body>
+</html>

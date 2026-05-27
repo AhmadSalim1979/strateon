@@ -1,8 +1,6 @@
 {
-  "pid": 3314360,
-  "status": "qr_waiting",
-  "reason": "stale_auth_relinked",
-  "qr_file": "/home/node/.openclaw/workspace/state/native-whatsapp-qr.txt",
-  "qr_timestamp": "2026-05-27T12:51:37.162Z",
-  "last_update": "2026-05-27T12:51:37.162Z"
+  "pid": 3338146,
+  "status": "connecting",
+  "detail": "websocket_connecting",
+  "last_update": "2026-05-27T14:02:03.478Z"
 }

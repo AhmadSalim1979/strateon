@@ -1,21 +1,24 @@
 {
-  "last_heartbeat_check": "2026-05-27T12:07:00.000Z",
+  "last_heartbeat_check": "2026-05-27T18:46:00.000Z",
   "checks_performed": {
-    "2026-05-27T12:07:00.000Z": {
-      "worker": "online_PID_3264826_uptime_3h",
-      "worker_heartbeat_fresh": true,
-      "operational_state": "online_clean",
-      "memory": "exists_2026-05-27_updated_morning",
-      "pending_commitments_check": "gpu_critical_unchanged_ahmad_notified",
-      "pm2_services": "all_online",
-      "whatsapp": "connected_1207_utc",
-      "gpu_pod": "still_EXITED_since_0608_unchanged"
+    "2026-05-27T18:46:00.000Z": {
+      "worker": "online_PID_3389244_uptime_100m",
+      "worker_heartbeat": "fresh",
+      "operational_state": "updated",
+      "memory": "exists_with_content",
+      "pending_commitments_check": "gpu_unavailable_ahmad_action_pending",
+      "pm2_services": "all_online_cloudflared_restarted",
+      "whatsapp": "connected_184600_berlin",
+      "gpu_lifecycle": "still_unavailable_desiredStatus_EXITED",
+      "csuite_sessions_today": "0",
+      "stale_task_detector": "module_error_not_blocking_queue_empty"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-27T12:07:00.000Z",
-    "operational_state": "2026-05-27T12:07:00.000Z",
-    "stale_task_detector": "not_checked_this_cycle",
-    "gpu_pod": "2026-05-27T12:07:00.000Z"
-  }
+    "worker_heartbeat": "2026-05-27T18:46:00.000Z",
+    "operational_state": "2026-05-27T18:46:00.000Z",
+    "stale_task_detector": "2026-05-27T18:46:00.000Z",
+    "gpu_pod": "2026-05-27T18:46:00.000Z"
+  },
+  "notes": "GPU pod still EXITED, Ahmad alerted at 06:08 UTC (~12h ago). No response yet. Stale task detector has ES module bug but queue is empty — not blocking. All PM2 services online."
 }

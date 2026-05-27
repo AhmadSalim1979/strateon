@@ -1,0 +1,11 @@
+════════════════════════════════════════════
+  NATIVE WHATSAPP QR — SCAN WITHIN 60 SECONDS
+════════════════════════════════════════════
+QR timestamp: 2026-05-27T14:02:03.739Z
+QR file: /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt
+────────────────────────────────────────────
+QR DATA:
+https://wa.me/settings/linked_devices#2@d/yjaMz1D7I0APgF9YopP/Iy2zpQX2NvdgY3CmYfUm9QAkFhVvQsCLmFigjRc6xHRBEs2sYPrl+ZDUa9Va+GXC8uMxboXy2Inl8=,5+Rz6TJshbgMvwdmC63XhzwbWMhu2jGKRehR9clAe30=,CXjkdDHNtifzAmjFmjBjs7W+xU+CV9UHuu9ISccglxw=,UaDl39THsoImc6ni5Bc3d8MyiotOcLOaPYWpJeQNpW8=,1
+────────────────────────────────────────────
+To scan: WhatsApp app → Linked Devices → Scan this QR
+════════════════════════════════════════════

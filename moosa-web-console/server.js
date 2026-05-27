@@ -1,0 +1,132 @@
+import express from 'express';
+import fs from 'node:fs';
+import { execSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createMoosaTask, getTaskResult } from './worker-task-client.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const HOST = '127.0.0.1';
+const PORT = Number(process.env.MOOSA_CONSOLE_PORT || 3099);
+const TOKEN = process.env.MOOSA_CONSOLE_TOKEN;
+
+if (!TOKEN) {
+  console.error('[moosa-web-console] Missing MOOSA_CONSOLE_TOKEN');
+  process.exit(1);
+}
+
+const app = express();
+const DATA_DIR = path.join(__dirname, 'data');
+const HISTORY_FILE = path.join(DATA_DIR, 'messages.jsonl');
+
+fs.mkdirSync(DATA_DIR, { recursive: true });
+app.use(express.json({ limit: '256kb' }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+function requireAuth(req, res, next) {
+  const auth = req.headers.authorization || '';
+  const token = auth.startsWith('Bearer ') ? auth.slice(7) : req.headers['x-moosa-token'];
+  if (token !== TOKEN) return res.status(401).json({ error: 'unauthorized' });
+  next();
+}
+
+function appendHistory(entry) {
+  fs.appendFileSync(HISTORY_FILE, JSON.stringify(entry) + '\n', 'utf8');
+}
+
+function pm2Status(name) {
+  try {
+    const raw = execSync('pm2 jlist', { encoding: 'utf8', timeout: 3000 });
+    const list = JSON.parse(raw);
+    const proc = list.find(p => p.name === name);
+    if (!proc) return { name, status: 'missing' };
+    return {
+      name,
+      status: proc.pm2_env?.status || 'unknown',
+      pid: proc.pid || 0,
+      uptime_ms: proc.pm2_env?.pm_uptime ? Date.now() - proc.pm2_env.pm_uptime : null,
+      restarts: proc.pm2_env?.restart_time ?? null
+    };
+  } catch (err) {
+    return { name, status: 'error', error: err.message };
+  }
+}
+
+app.get('/api/status', requireAuth, (req, res) => {
+  res.json({
+    web_console: 'online',
+    timestamp: new Date().toISOString(),
+    bind: `${HOST}:${PORT}`,
+    processes: {
+      moosa_worker: pm2Status('moosa-worker'),
+      openclaw_gateway: pm2Status('openclaw-gateway')
+    }
+  });
+});
+
+app.post('/api/chat', requireAuth, async (req, res) => {
+  const text = String(req.body?.message || '').trim();
+  if (!text) return res.status(400).json({ error: 'message_required' });
+
+  const inbound = {
+    ts: new Date().toISOString(),
+    role: 'user',
+    source: 'web-console',
+    text
+  };
+  appendHistory(inbound);
+
+  try {
+    const created = await createMoosaTask({
+      actionType: 'web_chat',
+      goal: 'MOOSA Web Console natural-language chat',
+      source: 'moosa-web-console',
+      inputJson: {
+        message: text,
+        channel: 'web_console',
+        requires_reply: true
+      }
+    });
+
+    appendHistory({
+      ts: new Date().toISOString(),
+      role: 'system',
+      source: 'web-console-task-created',
+      text: `Created worker task ${created.taskId} for inbound web-console message`
+    });
+
+    res.json({
+      accepted: true,
+      mode: 'worker_task_created',
+      taskId: created.taskId,
+      dispatchId: created.dispatchId,
+      actionType: created.actionType,
+      note: 'WC2 created a real worker task. Poll /api/task/:taskId for result.'
+    });
+  } catch (err) {
+    appendHistory({
+      ts: new Date().toISOString(),
+      role: 'system',
+      source: 'web-console-error',
+      text: err.message
+    });
+
+    res.status(500).json({
+      accepted: false,
+      error: err.message
+    });
+  }
+});
+
+app.get('/api/task/:taskId', requireAuth, async (req, res) => {
+  try {
+    const task = await getTaskResult(req.params.taskId);
+    res.json({ ok: true, task });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message });
+  }
+});
+
+app.listen(PORT, HOST, () => {
+  console.log(`[moosa-web-console] listening on http://${HOST}:${PORT}`);
+});

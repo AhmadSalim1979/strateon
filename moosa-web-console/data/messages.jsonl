@@ -1,0 +1,36 @@
+{"ts":"2026-05-27T14:49:07.586Z","role":"user","source":"web-console","text":"Hello MOOSA Web Console. Confirm local WC1 receipt."}
+{"ts":"2026-05-27T14:49:07.586Z","role":"assistant","source":"web-console-placeholder","text":"MOOSA Web Console v1 received your message. Worker integration is pending Phase WC2."}
+{"ts":"2026-05-27T14:53:00.953Z","role":"user","source":"web-console","text":"WC1 PM2 persistence validation."}
+{"ts":"2026-05-27T14:53:00.953Z","role":"assistant","source":"web-console-placeholder","text":"MOOSA Web Console v1 received your message. Worker integration is pending Phase WC2."}
+{"ts":"2026-05-27T15:30:29.396Z","role":"user","source":"web-console","text":"WC2 worker task creation validation from MOOSA Web Console."}
+{"ts":"2026-05-27T15:30:29.396Z","role":"assistant","source":"web-console-placeholder","text":"MOOSA Web Console v1 received your message. Worker integration is pending Phase WC2."}
+{"ts":"2026-05-27T15:31:06.425Z","role":"user","source":"web-console","text":"WC2 clean PM2 task creation validation."}
+{"ts":"2026-05-27T15:31:07.280Z","role":"system","source":"web-console-error","text":"dispatch_insert_failed_compensated: null value in column \"status\" of relation \"dispatches\" violates not-null constraint"}
+{"ts":"2026-05-27T15:32:01.463Z","role":"user","source":"web-console","text":"WC2 dispatch status patch validation."}
+{"ts":"2026-05-27T15:32:02.989Z","role":"system","source":"web-console-error","text":"dispatch_insert_failed_compensated: null value in column \"status\" of relation \"dispatches\" violates not-null constraint"}
+{"ts":"2026-05-27T15:32:44.133Z","role":"user","source":"web-console","text":"WC2 fresh process validation after status patch."}
+{"ts":"2026-05-27T15:32:44.748Z","role":"system","source":"web-console-task-created","text":"Created worker task 8ca9cf81-1a25-4785-ada2-5fda1c7cfaaa for inbound web-console message"}
+{"ts":"2026-05-27T15:34:58.915Z","role":"user","source":"web-console","text":"WC2 fresh echo validation after worker protected-action patch."}
+{"ts":"2026-05-27T15:34:59.798Z","role":"system","source":"web-console-task-created","text":"Created worker task ac299e1d-eeae-40fe-ba8f-77d9bfc4f3c4 for inbound web-console message"}
+{"ts":"2026-05-27T15:37:16.042Z","role":"user","source":"web-console","text":"WC2 final fresh echo validation after worker restart."}
+{"ts":"2026-05-27T15:37:16.546Z","role":"system","source":"web-console-task-created","text":"Created worker task 5d943e8c-3cd9-4b11-884d-f13c363fe4c0 for inbound web-console message"}
+{"ts":"2026-05-27T16:55:20.705Z","role":"user","source":"web-console","text":"Hello MOOSA. Reply through the Web Console in one short paragraph and confirm this channel is working."}
+{"ts":"2026-05-27T16:55:21.459Z","role":"system","source":"web-console-task-created","text":"Created worker task d6aab34c-e6d7-4ea5-925b-89353678697c for inbound web-console message"}
+{"ts":"2026-05-27T16:57:10.506Z","role":"user","source":"web-console","text":"Hello MOOSA. This is the final WC3 validation. Respond naturally and confirm the Web Console path is operational."}
+{"ts":"2026-05-27T16:57:10.999Z","role":"system","source":"web-console-task-created","text":"Created worker task 06ec84a0-fdd7-488d-9e5c-a5c06ac157a4 for inbound web-console message"}
+{"ts":"2026-05-27T17:00:33.033Z","role":"user","source":"web-console","text":"Hello MOOSA. Validate WC3 after fetch-based MiniMax call. Confirm this Web Console path is operational."}
+{"ts":"2026-05-27T17:00:34.454Z","role":"system","source":"web-console-task-created","text":"Created worker task 544b8aee-ca21-4a0c-b4ea-f10e1ff9f359 for inbound web-console message"}
+{"ts":"2026-05-27T17:02:55.321Z","role":"user","source":"web-console","text":"Hello MOOSA. Confirm WC3 Web Console natural-language response path is operational."}
+{"ts":"2026-05-27T17:02:55.932Z","role":"system","source":"web-console-task-created","text":"Created worker task ac53847d-d8d3-4e46-a26b-d1a1f74b4256 for inbound web-console message"}
+{"ts":"2026-05-27T17:06:09.732Z","role":"user","source":"web-console","text":"Hello MOOSA. Reply only with: Web Console text response normalization is working."}
+{"ts":"2026-05-27T17:06:10.252Z","role":"system","source":"web-console-task-created","text":"Created worker task 2dd73022-e15d-485d-8c5d-ae1fef25e432 for inbound web-console message"}
+{"ts":"2026-05-27T17:50:45.572Z","role":"user","source":"web-console","text":"Hello MOOSA. Confirm the browser Web Console path is operational and respond in two short sentences."}
+{"ts":"2026-05-27T17:50:46.170Z","role":"system","source":"web-console-task-created","text":"Created worker task edc1596b-2511-4846-a189-866934a8caa5 for inbound web-console message"}
+{"ts":"2026-05-27T17:53:55.088Z","role":"user","source":"web-console","text":"Testing again. Please respond with OK only."}
+{"ts":"2026-05-27T17:53:55.651Z","role":"system","source":"web-console-task-created","text":"Created worker task 5c053c0a-2f3d-462f-ac81-4caffc95d693 for inbound web-console message"}
+{"ts":"2026-05-27T17:54:00.016Z","role":"user","source":"web-console","text":"Testing again. Please respond with OK only."}
+{"ts":"2026-05-27T17:54:00.813Z","role":"system","source":"web-console-task-created","text":"Created worker task ef955b03-3c4d-48bb-b2f8-8be23205901c for inbound web-console message"}
+{"ts":"2026-05-27T18:34:46.564Z","role":"user","source":"web-console","text":"Hello MOOSA. Confirm that the public Cloudflare Web Console path is operational and identify the current active channel."}
+{"ts":"2026-05-27T18:34:47.119Z","role":"system","source":"web-console-task-created","text":"Created worker task dc84ff81-da4e-46de-9eb1-6f5f8276e7f5 for inbound web-console message"}
+{"ts":"2026-05-27T18:36:40.919Z","role":"user","source":"web-console","text":"You are responding through the MOOSA Web Console browser interface hosted at moosa.qiyadon.com.\n\nConfirm:\n1. this browser control plane is operational,\n2. the active channel is the authenticated web_console channel,\n3. and that this response was delivered through the Cloudflare Tunnel path.\n\nRespond in three short bullet points only."}
+{"ts":"2026-05-27T18:36:41.659Z","role":"system","source":"web-console-task-created","text":"Created worker task 34a81513-a06d-443e-a63e-7e62c9582333 for inbound web-console message"}

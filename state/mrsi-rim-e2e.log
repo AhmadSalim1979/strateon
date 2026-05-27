@@ -4147,3 +4147,164 @@ Node.js v22.22.2
 [2026-05-27T14:56:36+02:00] [INFO] PM2: ONLINE at 0s
 [2026-05-27T14:56:36+02:00] [OK] OpenClaw FULLY RESTORED — PM2 online + WhatsApp listener active
 [2026-05-27T14:56:36+02:00] [OK] Cleanup complete
+[2026-05-27T15:03:33+02:00] [INFO] MRSI RIM-1 — REAL INFERENCE EXECUTE MODE
+[2026-05-27T15:03:33+02:00] [INFO] Started: 2026-05-27T15:03:33+02:00
+[2026-05-27T15:03:33+02:00] [STEP] [VALIDATE] Checking script integrity...
+[2026-05-27T15:03:33+02:00] [OK] All constants defined — PASS
+[2026-05-27T15:03:33+02:00] [STEP] [PRE-CHECK] Safety validations...
+[2026-05-27T15:03:33+02:00] [STEP] [PRE-CHECK] Asserting OpenClaw PM2 readiness...
+[2026-05-27T15:03:33+02:00] [INFO] Maintenance flag clear ✅
+[2026-05-27T15:03:33+02:00] [INFO] PM2 status online ✅
+[2026-05-27T15:03:33+02:00] [INFO] Canonical gateway mode verified ✅
+[2026-05-27T15:03:33+02:00] [INFO] Checking for non-PM2 OpenClaw gateway processes...
+[2026-05-27T15:03:33+02:00] [INFO] openclaw-gateway found in PM2 — not an orphan
+[2026-05-27T15:03:33+02:00] [INFO] No orphan gateways ✅
+[2026-05-27T15:03:33+02:00] [INFO] WhatsApp listener active in /tmp/openclaw/openclaw-2026-05-27.log ✅
+[2026-05-27T15:03:33+02:00] [OK] OpenClaw PM2 ready — all 5 checks passed
+[2026-05-27T15:03:33+02:00] [OK] OpenClaw PM2 ready — all checks passed
+[2026-05-27T15:03:33+02:00] [INFO] Checking maintenance flag...
+[2026-05-27T15:03:33+02:00] [OK] Maintenance flag clear — PASS
+[2026-05-27T15:03:33+02:00] [INFO] Checking for existing native transport...
+[2026-05-27T15:03:33+02:00] [OK] No native transport running — PASS
+[2026-05-27T15:03:33+02:00] [OK] All pre-checks passed
+[2026-05-27T15:03:33+02:00] [INFO] Starting atomic sequence...
+[2026-05-27T15:03:33+02:00] [STEP] [PHASE A] Enabling maintenance mode...
+[2026-05-27T15:03:33+02:00] [OK] Maintenance mode ENABLED
+[2026-05-27T15:03:33+02:00] [STEP] [PHASE B] Stopping OpenClaw gateway...
+[2026-05-27T15:03:37+02:00] [OK] OpenClaw STOPPED via PM2
+[2026-05-27T15:03:37+02:00] [STEP] [PHASE B] Starting MOOSA-native WhatsApp transport (REAL_INFERENCE_MODE)...
+[2026-05-27T15:03:37+02:00] [INFO] Native transport started — PID 3317903
+[2026-05-27T13:03:37.483Z] [INFO] [Native] WhatsApp native transport starting (PID 3317903)...
+[2026-05-27T13:03:37.483Z] [INFO] [Native] WhatsApp native transport starting (PID 3317903)...
+[2026-05-27T13:03:37.483Z] [INFO] [Native] REAL_INFERENCE_MODE=true BRIDGE_TEST_MODE=false RUN_ID=rim-20260527-150333-3317676
+[2026-05-27T13:03:37.483Z] [INFO] [Native] REAL_INFERENCE_MODE=true BRIDGE_TEST_MODE=false RUN_ID=rim-20260527-150333-3317676
+[2026-05-27T13:03:37.489Z] [WARN] [Native] Auth corrupt — quarantined to /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779887017489 — entering QR mode
+[2026-05-27T13:03:37.489Z] [WARN] [Native] Auth corrupt — quarantined to /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779887017489 — entering QR mode
+[2026-05-27T13:03:37.489Z] [INFO] [Native] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-27T13:03:37.489Z] [INFO] [Native] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-27T13:03:37.523Z] [INFO] [Native] Auth state loaded — me: none
+[2026-05-27T13:03:37.523Z] [INFO] [Native] Auth state loaded — me: none
+[2026-05-27T13:03:37.541Z] [INFO] [Native] WhatsApp connecting...
+[2026-05-27T13:03:37.541Z] [INFO] [Native] WhatsApp connecting...
+{"level":30,"time":"2026-05-27T13:03:37.667Z","pid":3317903,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","browser":["Mac OS","Chrome","14.4.1"],"helloMsg":{"clientHello":{"ephemeral":"FcsSpBKVA5oYjZixOj5PF6rZJz006Cs2Fw1wU8dpG1M="}},"msg":"connected to WA"}
+{"level":30,"time":"2026-05-27T13:03:37.833Z","pid":3317903,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","node":{"passive":false,"userAgent":{"platform":"WEB","appVersion":{"primary":2,"secondary":3000,"tertiary":1035194821},"mcc":"000","mnc":"000","osVersion":"0.1","device":"Desktop","osBuildNumber":"0.1","releaseChannel":"RELEASE","localeLanguageIso6391":"en","localeCountryIso31661Alpha2":"US"},"webInfo":{"webSubPlatform":"WEB_BROWSER"},"connectType":"WIFI_UNKNOWN","connectReason":"USER_ACTIVATED","devicePairingData":{"eRegid":"AAAAJg==","eKeytype":"BQ==","eIdent":"NufaPjMppQnHSiJO12eTdhUdzIdP1hcMbQmDSIriSCg=","eSkeyId":"AAAB","eSkeyVal":"wp049atAdPnuHak6NOR2/uqw59a2ntZkfxs9R+qVS00=","eSkeySig":"i1PIyjHTsBjfju9kfI1HDijyAY9K8xSe890Jfpj+//TT3dLHezkalRhw8CyR5EEgQSCGqcltODHv9s8/w3gAAg==","buildHash":"oslHHv+RCp4a5lmJCiiHLQ==","deviceProps":"CgZNYWMgT1MSBggKEA8YBxgBIAAqFxiAUCABMAA4AUABSAFQAVgBYAFwAXgA"},"pull":false},"msg":"not logged in, attempting registration..."}
+[2026-05-27T13:03:38.066Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:03:38.066Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:03:38.070Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:03:38.070Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T15:03:40+02:00] [OK] Native transport STARTED (PID 3317903)
+[2026-05-27T15:03:40+02:00] [STEP] Waiting for native transport to connect...
+[2026-05-27T13:04:38.071Z] [ERROR] [Native] QR timeout — scan expired after 60 seconds
+[2026-05-27T13:04:38.071Z] [ERROR] [Native] QR timeout — scan expired after 60 seconds
+[2026-05-27T13:04:38.073Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:04:38.073Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:04:38.074Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:04:38.074Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:04:58.076Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:04:58.076Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:04:58.083Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:04:58.083Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T15:20:39+02:00] [INFO] MRSI RIM-1 — REAL INFERENCE EXECUTE MODE
+[2026-05-27T15:20:39+02:00] [INFO] Started: 2026-05-27T15:20:39+02:00
+[2026-05-27T15:20:39+02:00] [STEP] [VALIDATE] Checking script integrity...
+[2026-05-27T15:20:39+02:00] [OK] All constants defined — PASS
+[2026-05-27T15:20:39+02:00] [STEP] [PRE-CHECK] Safety validations...
+[2026-05-27T15:20:39+02:00] [STEP] [PRE-CHECK] Asserting OpenClaw PM2 readiness...
+[2026-05-27T15:20:39+02:00] [INFO] Maintenance flag clear ✅
+[2026-05-27T15:20:39+02:00] [INFO] PM2 status online ✅
+[2026-05-27T15:20:39+02:00] [INFO] Canonical gateway mode verified ✅
+[2026-05-27T15:20:39+02:00] [INFO] Checking for non-PM2 OpenClaw gateway processes...
+[2026-05-27T15:20:40+02:00] [INFO] openclaw-gateway found in PM2 — not an orphan
+[2026-05-27T15:20:40+02:00] [INFO] No orphan gateways ✅
+[2026-05-27T15:20:40+02:00] [INFO] WhatsApp listener active in /tmp/openclaw/openclaw-2026-05-27.log ✅
+[2026-05-27T15:20:40+02:00] [OK] OpenClaw PM2 ready — all 5 checks passed
+[2026-05-27T15:20:40+02:00] [OK] OpenClaw PM2 ready — all checks passed
+[2026-05-27T15:20:40+02:00] [INFO] Checking maintenance flag...
+[2026-05-27T15:20:40+02:00] [OK] Maintenance flag clear — PASS
+[2026-05-27T15:20:40+02:00] [INFO] Checking for existing native transport...
+[2026-05-27T15:20:40+02:00] [OK] No native transport running — PASS
+[2026-05-27T15:20:40+02:00] [OK] All pre-checks passed
+[2026-05-27T15:20:40+02:00] [INFO] Starting atomic sequence...
+[2026-05-27T15:20:40+02:00] [STEP] [PHASE A] Enabling maintenance mode...
+[2026-05-27T15:20:40+02:00] [OK] Maintenance mode ENABLED
+[2026-05-27T15:20:40+02:00] [STEP] [PHASE B] Stopping OpenClaw gateway...
+[2026-05-27T15:20:43+02:00] [OK] OpenClaw STOPPED via PM2
+[2026-05-27T15:20:43+02:00] [STEP] [PHASE B] Starting MOOSA-native WhatsApp transport (REAL_INFERENCE_MODE)...
+[2026-05-27T15:20:43+02:00] [INFO] Native transport started — PID 3324594
+[2026-05-27T13:20:44.112Z] [INFO] [Native] WhatsApp native transport starting (PID 3324594)...
+[2026-05-27T13:20:44.112Z] [INFO] [Native] WhatsApp native transport starting (PID 3324594)...
+[2026-05-27T13:20:44.113Z] [INFO] [Native] REAL_INFERENCE_MODE=true BRIDGE_TEST_MODE=false RUN_ID=rim-20260527-152039-3324365
+[2026-05-27T13:20:44.113Z] [INFO] [Native] REAL_INFERENCE_MODE=true BRIDGE_TEST_MODE=false RUN_ID=rim-20260527-152039-3324365
+[2026-05-27T13:20:44.116Z] [WARN] [Native] Auth corrupt — quarantined to /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779888044116 — entering QR mode
+[2026-05-27T13:20:44.116Z] [WARN] [Native] Auth corrupt — quarantined to /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779888044116 — entering QR mode
+[2026-05-27T13:20:44.116Z] [INFO] [Native] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-27T13:20:44.116Z] [INFO] [Native] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-27T13:20:44.151Z] [INFO] [Native] Auth state loaded — me: none
+[2026-05-27T13:20:44.151Z] [INFO] [Native] Auth state loaded — me: none
+[2026-05-27T13:20:44.168Z] [INFO] [Native] WhatsApp connecting...
+[2026-05-27T13:20:44.168Z] [INFO] [Native] WhatsApp connecting...
+{"level":30,"time":"2026-05-27T13:20:44.224Z","pid":3324594,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","browser":["Mac OS","Chrome","14.4.1"],"helloMsg":{"clientHello":{"ephemeral":"yU5y/eN+CBc1rfpX5J0oGBaUeMWbOS+z2Tf/zZ13fAU="}},"msg":"connected to WA"}
+{"level":30,"time":"2026-05-27T13:20:44.306Z","pid":3324594,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","node":{"passive":false,"userAgent":{"platform":"WEB","appVersion":{"primary":2,"secondary":3000,"tertiary":1035194821},"mcc":"000","mnc":"000","osVersion":"0.1","device":"Desktop","osBuildNumber":"0.1","releaseChannel":"RELEASE","localeLanguageIso6391":"en","localeCountryIso31661Alpha2":"US"},"webInfo":{"webSubPlatform":"WEB_BROWSER"},"connectType":"WIFI_UNKNOWN","connectReason":"USER_ACTIVATED","devicePairingData":{"eRegid":"AAAAFA==","eKeytype":"BQ==","eIdent":"XAB0T6fdwE6GCjQIxg2rYH4SUVxRS/IGj4v7rxwVpQU=","eSkeyId":"AAAB","eSkeyVal":"8mvBeYOfwMfH/F/iXjGsf0VDs3M9aAITXcKxsSg8Kiw=","eSkeySig":"oM8j7lJP2+6aIZOdtpO5KGckklmyCDaSUr7L1W9sBwNnzXn/cSsAiOxbn4MfB3OsFtLip/qFOq10iyEvRIHeAA==","buildHash":"oslHHv+RCp4a5lmJCiiHLQ==","deviceProps":"CgZNYWMgT1MSBggKEA8YBxgBIAAqFxiAUCABMAA4AUABSAFQAVgBYAFwAXgA"},"pull":false},"msg":"not logged in, attempting registration..."}
+[2026-05-27T13:20:44.524Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:20:44.524Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:20:44.524Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:20:44.524Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T15:20:46+02:00] [OK] Native transport STARTED (PID 3324594)
+[2026-05-27T15:20:46+02:00] [STEP] Waiting for native transport to connect...
+[2026-05-27T13:21:44.525Z] [ERROR] [Native] QR timeout — scan expired after 60 seconds
+[2026-05-27T13:21:44.525Z] [ERROR] [Native] QR timeout — scan expired after 60 seconds
+[2026-05-27T13:21:44.527Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:21:44.527Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:21:44.530Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:21:44.530Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:22:04.532Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:22:04.532Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T13:22:04.534Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T13:22:04.534Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T16:01:59+02:00] [INFO] MRSI RIM-1 — REAL INFERENCE EXECUTE MODE
+[2026-05-27T16:01:59+02:00] [INFO] Started: 2026-05-27T16:01:59+02:00
+[2026-05-27T16:01:59+02:00] [STEP] [VALIDATE] Checking script integrity...
+[2026-05-27T16:01:59+02:00] [OK] All constants defined — PASS
+[2026-05-27T16:01:59+02:00] [STEP] [PRE-CHECK] Safety validations...
+[2026-05-27T16:01:59+02:00] [STEP] [PRE-CHECK] Asserting OpenClaw PM2 readiness...
+[2026-05-27T16:01:59+02:00] [INFO] Maintenance flag clear ✅
+[2026-05-27T16:01:59+02:00] [INFO] PM2 status online ✅
+[2026-05-27T16:01:59+02:00] [INFO] Canonical gateway mode verified ✅
+[2026-05-27T16:01:59+02:00] [INFO] Checking for non-PM2 OpenClaw gateway processes...
+[2026-05-27T16:01:59+02:00] [INFO] openclaw-gateway found in PM2 — not an orphan
+[2026-05-27T16:01:59+02:00] [INFO] No orphan gateways ✅
+[2026-05-27T16:01:59+02:00] [INFO] WhatsApp listener active in /tmp/openclaw/openclaw-2026-05-27.log ✅
+[2026-05-27T16:01:59+02:00] [OK] OpenClaw PM2 ready — all 5 checks passed
+[2026-05-27T16:01:59+02:00] [OK] OpenClaw PM2 ready — all checks passed
+[2026-05-27T16:01:59+02:00] [INFO] Checking maintenance flag...
+[2026-05-27T16:01:59+02:00] [OK] Maintenance flag clear — PASS
+[2026-05-27T16:01:59+02:00] [INFO] Checking for existing native transport...
+[2026-05-27T16:01:59+02:00] [OK] No native transport running — PASS
+[2026-05-27T16:01:59+02:00] [OK] All pre-checks passed
+[2026-05-27T16:01:59+02:00] [INFO] Starting atomic sequence...
+[2026-05-27T16:01:59+02:00] [STEP] [PHASE A] Enabling maintenance mode...
+[2026-05-27T16:01:59+02:00] [OK] Maintenance mode ENABLED
+[2026-05-27T16:01:59+02:00] [STEP] [PHASE B] Stopping OpenClaw gateway...
+[2026-05-27T16:02:03+02:00] [OK] OpenClaw STOPPED via PM2
+[2026-05-27T16:02:03+02:00] [STEP] [PHASE B] Starting MOOSA-native WhatsApp transport (REAL_INFERENCE_MODE)...
+[2026-05-27T16:02:03+02:00] [INFO] Native transport started — PID 3338146
+[2026-05-27T14:02:03.420Z] [INFO] [Native] WhatsApp native transport starting (PID 3338146)...
+[2026-05-27T14:02:03.420Z] [INFO] [Native] WhatsApp native transport starting (PID 3338146)...
+[2026-05-27T14:02:03.420Z] [INFO] [Native] REAL_INFERENCE_MODE=true BRIDGE_TEST_MODE=false RUN_ID=rim-20260527-160159-3337891
+[2026-05-27T14:02:03.420Z] [INFO] [Native] REAL_INFERENCE_MODE=true BRIDGE_TEST_MODE=false RUN_ID=rim-20260527-160159-3337891
+[2026-05-27T14:02:03.421Z] [WARN] [Native] Auth corrupt — quarantined to /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779890523421 — entering QR mode
+[2026-05-27T14:02:03.421Z] [WARN] [Native] Auth corrupt — quarantined to /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779890523421 — entering QR mode
+[2026-05-27T14:02:03.421Z] [INFO] [Native] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-27T14:02:03.421Z] [INFO] [Native] Loading auth state from: /home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth
+[2026-05-27T14:02:03.460Z] [INFO] [Native] Auth state loaded — me: none
+[2026-05-27T14:02:03.460Z] [INFO] [Native] Auth state loaded — me: none
+[2026-05-27T14:02:03.478Z] [INFO] [Native] WhatsApp connecting...
+[2026-05-27T14:02:03.478Z] [INFO] [Native] WhatsApp connecting...
+{"level":30,"time":"2026-05-27T14:02:03.517Z","pid":3338146,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","browser":["Mac OS","Chrome","14.4.1"],"helloMsg":{"clientHello":{"ephemeral":"mKsc8t8OE2BUNqXg7O7aNP0O7eCHluWD6RZgy1tLWS0="}},"msg":"connected to WA"}
+{"level":30,"time":"2026-05-27T14:02:03.564Z","pid":3338146,"hostname":"Ubuntu-2204-jammy-amd64-base","class":"baileys","node":{"passive":false,"userAgent":{"platform":"WEB","appVersion":{"primary":2,"secondary":3000,"tertiary":1035194821},"mcc":"000","mnc":"000","osVersion":"0.1","device":"Desktop","osBuildNumber":"0.1","releaseChannel":"RELEASE","localeLanguageIso6391":"en","localeCountryIso31661Alpha2":"US"},"webInfo":{"webSubPlatform":"WEB_BROWSER"},"connectType":"WIFI_UNKNOWN","connectReason":"USER_ACTIVATED","devicePairingData":{"eRegid":"AAAAkQ==","eKeytype":"BQ==","eIdent":"CXjkdDHNtifzAmjFmjBjs7W+xU+CV9UHuu9ISccglxw=","eSkeyId":"AAAB","eSkeyVal":"aexwRK1CrwBOg144it4DR1gKn6JEerRzssvERrwjLhk=","eSkeySig":"PJYE7vPYtkpR10F/AHiFwJytsNZRaVheKBJaCaTHRQpIwOTWwMh5dnxTNDn39cm0RpNelCfWnWrR7JzSodUQDw==","buildHash":"oslHHv+RCp4a5lmJCiiHLQ==","deviceProps":"CgZNYWMgT1MSBggKEA8YBxgBIAAqFxiAUCABMAA4AUABSAFQAVgBYAFwAXgA"},"pull":false},"msg":"not logged in, attempting registration..."}
+[2026-05-27T14:02:03.739Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T14:02:03.739Z] [INFO] [Native] QR received — scan within 60 seconds
+[2026-05-27T14:02:03.740Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T14:02:03.740Z] [INFO] [Native] QR written to /home/node/.openclaw/workspace/state/native-whatsapp-qr.txt [277 chars]
+[2026-05-27T16:02:06+02:00] [OK] Native transport STARTED (PID 3338146)
+[2026-05-27T16:02:06+02:00] [STEP] Waiting for native transport to connect...

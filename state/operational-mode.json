@@ -4,14 +4,14 @@
   "gpu_status": "DEGRADED",
   "gpu_health": {
     "healthy": false,
-    "last_watchdog_check": "2026-05-26T20:13:14.002Z",
-    "watchdog_latency_ms": 933,
+    "last_watchdog_check": "2026-05-27T18:16:18.750Z",
+    "watchdog_latency_ms": 1084,
     "endpoint_check": false,
     "auth_check": false,
     "tags_check": false,
     "inference_check": false,
     "inference_response": null,
-    "inference_latency_ms": 115,
+    "inference_latency_ms": 303,
     "target_model_loaded": false,
     "total_models": 0
   },

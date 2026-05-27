@@ -22,3 +22,25 @@
 {"ts":"2026-05-27T12:51:37.160Z","runId":"rim-20260527-145124-3314108","event":"native_auth_stale_quarantined","reason":"Connection Failure","attempts":1}
 {"ts":"2026-05-27T12:51:37.161Z","runId":"rim-20260527-145124-3314108","event":"native_qr_forced_after_stale_auth","staleDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.stale.1779886297161"}
 {"ts":"2026-05-27T12:51:37.162Z","runId":"rim-20260527-145124-3314108","event":"native_qr_forced","reason":"stale_auth_relinked"}
+{"ts":"2026-05-27T13:03:37.489Z","runId":"rim-20260527-150333-3317676","event":"native_auth_corrupt_quarantined","corruptDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779887017489"}
+{"ts":"2026-05-27T13:03:37.540Z","runId":"rim-20260527-150333-3317676","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T13:03:38.066Z","runId":"rim-20260527-150333-3317676","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T13:03:38.066Z","runId":"rim-20260527-150333-3317676","event":"native_qr_generated"}
+{"ts":"2026-05-27T13:04:38.071Z","runId":"rim-20260527-150333-3317676","event":"native_qr_timeout","qr_file":"/home/node/.openclaw/workspace/state/native-whatsapp-qr.txt","elapsed_ms":60000}
+{"ts":"2026-05-27T13:04:38.073Z","runId":"rim-20260527-150333-3317676","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T13:04:38.073Z","runId":"rim-20260527-150333-3317676","event":"native_qr_generated"}
+{"ts":"2026-05-27T13:04:58.075Z","runId":"rim-20260527-150333-3317676","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T13:04:58.076Z","runId":"rim-20260527-150333-3317676","event":"native_qr_generated"}
+{"ts":"2026-05-27T13:20:44.116Z","runId":"rim-20260527-152039-3324365","event":"native_auth_corrupt_quarantined","corruptDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779888044116"}
+{"ts":"2026-05-27T13:20:44.168Z","runId":"rim-20260527-152039-3324365","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T13:20:44.524Z","runId":"rim-20260527-152039-3324365","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T13:20:44.524Z","runId":"rim-20260527-152039-3324365","event":"native_qr_generated"}
+{"ts":"2026-05-27T13:21:44.525Z","runId":"rim-20260527-152039-3324365","event":"native_qr_timeout","qr_file":"/home/node/.openclaw/workspace/state/native-whatsapp-qr.txt","elapsed_ms":60000}
+{"ts":"2026-05-27T13:21:44.526Z","runId":"rim-20260527-152039-3324365","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T13:21:44.527Z","runId":"rim-20260527-152039-3324365","event":"native_qr_generated"}
+{"ts":"2026-05-27T13:22:04.532Z","runId":"rim-20260527-152039-3324365","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T13:22:04.532Z","runId":"rim-20260527-152039-3324365","event":"native_qr_generated"}
+{"ts":"2026-05-27T14:02:03.421Z","runId":"rim-20260527-160159-3337891","event":"native_auth_corrupt_quarantined","corruptDir":"/home/node/.openclaw/workspace/moosa-worker/state/whatsapp-auth.corrupt.1779890523421"}
+{"ts":"2026-05-27T14:02:03.478Z","runId":"rim-20260527-160159-3337891","event":"connection_update","connection":"connecting","hasQR":false}
+{"ts":"2026-05-27T14:02:03.738Z","runId":"rim-20260527-160159-3337891","event":"connection_update","hasQR":true}
+{"ts":"2026-05-27T14:02:03.739Z","runId":"rim-20260527-160159-3337891","event":"native_qr_generated"}
