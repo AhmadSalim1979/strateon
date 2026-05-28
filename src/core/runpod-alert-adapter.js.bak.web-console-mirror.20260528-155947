@@ -153,52 +153,9 @@ function buildCriticalAlertText(alert) {
     return lines.join('\n');
 }
 
-
-// === WEB CONSOLE MIRROR ===
-function mirrorToWebConsole(text, severity = 'gpu') {
-  try {
-    const fs = require('fs');
-    const { execFileSync } = require('child_process');
-    const secretPath = '/root/.openclaw/workspace/moosa-worker/state/web-console-delivery.secret';
-    if (!fs.existsSync(secretPath)) return false;
-
-    const secret = fs.readFileSync(secretPath, 'utf8').trim();
-    if (!secret) return false;
-
-    const payloadPath = `/tmp/moosa-web-console-gpu-alert-${Date.now()}.json`;
-    fs.writeFileSync(payloadPath, JSON.stringify({
-      category: 'gpu',
-      source: 'runpod-alert-adapter',
-      title: `GPU / RunPod Alert — ${severity}`,
-      message: text,
-      metadata: {
-        mirrored_from: 'runpod-alert-adapter.js',
-        severity,
-        timestamp: new Date().toISOString()
-      }
-    }));
-
-    execFileSync('curl', [
-      '-sS',
-      '-X', 'POST',
-      'http://127.0.0.1:3099/api/system-message',
-      '-H', `X-MOOSA-SECRET: ${secret}`,
-      '-H', 'Content-Type: application/json',
-      '--data-binary', `@${payloadPath}`
-    ], { stdio: 'ignore' });
-
-    try { fs.unlinkSync(payloadPath); } catch {}
-    return true;
-  } catch (err) {
-    try { console.error('[runpod-alert-adapter] Web Console mirror failed:', err.message); } catch {}
-    return false;
-  }
-}
-
 // === WHATSAPP SEND ===
 
 function sendWhatsAppAlert(text) {
-    mirrorToWebConsole(text, 'runpod');
     // Escape single quotes for shell
     const escaped = text.replace(/'/g, "'\\''");
     const cmd = 'openclaw send-whatsapp \'' + ALERT_CONFIG.destination + '\' \'' + escaped + '\'';

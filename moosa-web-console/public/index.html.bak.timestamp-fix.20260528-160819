@@ -322,11 +322,8 @@ function streamTextIntoBubble(row, text, onDone){
   },18);
 }
 
-function createBubble(role,text,allowCopy=false,persist=true,messageMeta={},fallbackTs=null){
-  const rawTs = messageMeta.timestamp || messageMeta.created_at || messageMeta.createdAt || messageMeta.ts || messageMeta.time || fallbackTs || null;
-  const ts = rawTs
-    ? new Date(rawTs).toLocaleTimeString('en-PK',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Karachi'}) + ' PKT'
-    : '';
+function createBubble(role,text,allowCopy=false,persist=true){
+  const ts=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
 
   const row=document.createElement('div');
   row.className='message-row '+role;
@@ -400,7 +397,7 @@ function loadConversation(id){
   }
 
   conv.messages.forEach(m=>{
-    createBubble(m.role,m.text,m.role==='assistant',false,m,conv.updatedAt || conv.createdAt || null);
+    createBubble(m.role,m.text,m.role==='assistant',false);
   });
 
   scrollBottom();
