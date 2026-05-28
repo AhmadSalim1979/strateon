@@ -1,29 +1,16 @@
 {
-  "timestamp": "2026-05-27T18:50:01.974Z",
-  "executionId": "wd-mpof5do6",
-  "startedAt": 1779907801974,
+  "timestamp": "2026-05-28T06:50:01.738Z",
+  "executionId": "wd-mpp4vatm",
+  "startedAt": 1779951001738,
   "podId": "23a9nue4xq4r4p",
   "gpuIp": "23a9nue4xq4r4p-11440.proxy.runpod.net",
-  "durationMs": 84092,
-  "finishedAt": 1779907886066,
+  "durationMs": 83171,
+  "finishedAt": 1779951084909,
   "results": [
     {
       "check": "pod_rest_status",
       "pass": false,
-      "details": {
-        "pod_id": "c1as99lq8xtphy",
-        "name": "moosa-brain-node-01-migration-migration",
-        "desiredStatus": "EXITED",
-        "publicIp": "",
-        "volumeMount": "/workspace",
-        "gpuCount": 1,
-        "vcpuCount": 16,
-        "memoryGb": 62,
-        "ports": [
-          "11440/http",
-          "22/tcp"
-        ]
-      },
+      "details": {},
       "status_code": "200",
       "_severity": "CRITICAL"
     },
@@ -73,9 +60,9 @@
   ],
   "severity": "CRITICAL",
   "summary": {
-    "timestamp": "2026-05-27T18:50:01.974Z",
+    "timestamp": "2026-05-28T06:50:01.738Z",
     "overall": "CRITICAL",
-    "executionId": "wd-mpof5do6",
+    "executionId": "wd-mpp4vatm",
     "podId": "23a9nue4xq4r4p",
     "gpuIp": "23a9nue4xq4r4p-11440.proxy.runpod.net",
     "checks": {
@@ -118,7 +105,7 @@
       }
     ],
     "recovery": false,
-    "durationMs": 84092,
+    "durationMs": 83171,
     "status": "FAILURE"
   },
   "alerts": [
@@ -127,20 +114,7 @@
       "level": "CRITICAL",
       "status_code": "200",
       "summary": "CRITICAL failure — immediate escalation required",
-      "details": {
-        "pod_id": "c1as99lq8xtphy",
-        "name": "moosa-brain-node-01-migration-migration",
-        "desiredStatus": "EXITED",
-        "publicIp": "",
-        "volumeMount": "/workspace",
-        "gpuCount": 1,
-        "vcpuCount": 16,
-        "memoryGb": 62,
-        "ports": [
-          "11440/http",
-          "22/tcp"
-        ]
-      },
+      "details": {},
       "error": null
     },
     {
