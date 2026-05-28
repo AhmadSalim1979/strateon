@@ -1,8 +1,8 @@
 {
   "component": "moosa-worker",
-  "last_run_at": "2026-05-28T06:16:00.000Z",
+  "last_run_at": "2026-05-28T11:46:41.440Z",
   "status": "online",
-  "pid": 3603506,
-  "uptime_h": "2.0",
-  "note": "Heartbeat refreshed — worker restarted, PID changed from 3451924 to 3603506"
+  "pid": 3683179,
+  "uptime_h": "4.5",
+  "note": "Heartbeat refreshed by heartbeat check — worker running, PID updated"
 }

@@ -1,21 +1,38 @@
 {
-  "last_heartbeat_check": "2026-05-28T06:46:00.000Z",
+  "last_heartbeat_check": "2026-05-28T11:46:00.000Z",
   "checks_performed": {
-    "2026-05-28T06:46:00.000Z": {
-      "worker": "online_PID_3609813_uptime_~2h",
+    "2026-05-28T01:46:00.000Z": {
+      "worker": "online_PID_3451924_uptime_4h",
       "worker_heartbeat_fresh": true,
-      "operational_state": "online_worker_restarted_since_last_memory",
+      "operational_state": "online_healthy",
       "memory": "exists_2026-05-28_with_content",
       "pending_commitments_check": "gpu_unavailable_ahmad_action_required",
-      "pm2_services": "all_online_6_services",
+      "pm2_services": "all_online_6_services_cloudflared_restarted",
       "whatsapp": "active",
       "gpu_pod": "still_EXITED_no_change_since_yesterday_alert"
+    },
+    "2026-05-28T09:46:00.000Z": {
+      "worker": "online_PID_3609813_uptime_3h",
+      "worker_heartbeat_fresh": true,
+      "operational_state": "online_healthy_no_new_alerts",
+      "pm2_services": "all_online_6_services",
+      "gpu_pod": "DEGRADED_pending_Ahmad_action",
+      "pending_commitments": "unchanged_gpu_start_awaiting_ahmad"
+    },
+    "2026-05-28T11:46:00.000Z": {
+      "worker": "online_PID_3683179_uptime_4.5h_worker_restarted_since_last_check",
+      "worker_heartbeat_fresh": true,
+      "operational_state": "online_healthy_worker_status_refreshed",
+      "pm2_services": "all_online_6_services",
+      "gpu_pod": "DEGRADED_unchanged_Ahmad_action_required",
+      "pending_commitments": "unchanged_gpu_start_awaiting_ahmad",
+      "stale_task_detector": "not_run_esm_issue_unchanged"
     }
   },
   "last_checks": {
-    "worker_heartbeat": "2026-05-28T06:46:00.000Z",
-    "operational_state": "2026-05-28T06:46:00.000Z",
-    "stale_task_detector": "not_checked_this_cycle",
-    "gpu_pod": "2026-05-28T06:46:00.000Z"
+    "worker_heartbeat": "2026-05-28T11:46:00.000Z",
+    "operational_state": "2026-05-28T11:46:00.000Z",
+    "stale_task_detector": "not_checked",
+    "gpu_pod": "2026-05-28T11:46:00.000Z"
   }
 }

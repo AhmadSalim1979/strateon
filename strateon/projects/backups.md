@@ -20,3 +20,11 @@
 - **Files changed:** 13 (1159 insertions, 196 deletions)
 - **Notable:** heartbeat-state.json rewritten (90%), state/native-events.jsonl created, state/native-inbound-dedup.jsonl rewritten (100%)
 - **Secrets scan:** No staged files (clean push)
+
+## 2026-05-28 08:56 UTC — Auto-backup
+- **Status:** ✅ SUCCESS
+- **Commit:** 6bbba18f
+- **Branch:** master
+- **Files changed:** 17 files (1394 insertions, 172 deletions)
+- **Notable changes:** heartbeat-state, moosa-web-console data + server.js, ops files, state files, uptime monitor log, gpu watchdog files
+- **New files:** 4 server.js.bak backups created
