@@ -34,3 +34,39 @@
 {"ts":"2026-05-27T18:34:47.119Z","role":"system","source":"web-console-task-created","text":"Created worker task dc84ff81-da4e-46de-9eb1-6f5f8276e7f5 for inbound web-console message"}
 {"ts":"2026-05-27T18:36:40.919Z","role":"user","source":"web-console","text":"You are responding through the MOOSA Web Console browser interface hosted at moosa.qiyadon.com.\n\nConfirm:\n1. this browser control plane is operational,\n2. the active channel is the authenticated web_console channel,\n3. and that this response was delivered through the Cloudflare Tunnel path.\n\nRespond in three short bullet points only."}
 {"ts":"2026-05-27T18:36:41.659Z","role":"system","source":"web-console-task-created","text":"Created worker task 34a81513-a06d-443e-a63e-7e62c9582333 for inbound web-console message"}
+{"ts":"2026-05-27T19:13:14.030Z","role":"user","source":"web-console","text":"Hello MOOSA. Confirm the polished chat interface is working."}
+{"ts":"2026-05-27T19:13:14.617Z","role":"system","source":"web-console-task-created","text":"Created worker task be4570a0-61bd-4be1-96d3-f3fe6c0e15de for inbound web-console message"}
+{"ts":"2026-05-27T19:15:22.895Z","role":"user","source":"web-console","text":"Give me:\n- one bold line\n- three bullets\n- one tiny bash code block"}
+{"ts":"2026-05-27T19:15:34.275Z","role":"system","source":"web-console-task-created","text":"Created worker task d9765f17-e086-4ac5-9490-55181804e9c1 for inbound web-console message"}
+{"ts":"2026-05-27T19:19:31.966Z","role":"user","source":"web-console","text":"Hello Moosa.. Please respond only with Hello."}
+{"ts":"2026-05-27T19:19:33.288Z","role":"system","source":"web-console-task-created","text":"Created worker task fea15c58-0474-4808-a3ba-3c549364e284 for inbound web-console message"}
+{"ts":"2026-05-27T19:37:57.120Z","role":"user","source":"web-console","text":"Hello Moosa. Reply only with Hello"}
+{"ts":"2026-05-27T19:37:57.687Z","role":"system","source":"web-console-task-created","text":"Created worker task 779e3e32-41d4-4da7-8cf5-a4b71ac7f988 for inbound web-console message"}
+{"ts":"2026-05-27T19:38:50.756Z","role":"user","source":"web-console","text":"Testing again. Reply only with YooHoo."}
+{"ts":"2026-05-27T19:38:51.295Z","role":"system","source":"web-console-task-created","text":"Created worker task 4ab26604-ec1e-4cbd-94d1-181935258372 for inbound web-console message"}
+{"ts":"2026-05-27T19:50:19.236Z","role":"user","source":"web-console","text":"Moosa. Will you please do a quick status check of all systems. Thank you very much."}
+{"ts":"2026-05-27T19:50:19.844Z","role":"system","source":"web-console-task-created","text":"Created worker task bc9e239b-b9c8-443f-bdef-76ead3dbddff for inbound web-console message"}
+{"ts":"2026-05-27T20:11:48.665Z","role":"user","source":"web-console","text":"Hello Moosa. Respond with Hello.."}
+{"ts":"2026-05-27T20:11:49.500Z","role":"system","source":"web-console-task-created","text":"Created worker task 6a5e85b4-4e6a-4f8d-97fc-6409f929e882 for inbound web-console message"}
+{"ts":"2026-05-27T20:12:41.023Z","role":"user","source":"web-console","text":"Hey my Friend.. give a very quick health check of yourself."}
+{"ts":"2026-05-27T20:12:41.663Z","role":"system","source":"web-console-task-created","text":"Created worker task 639343fb-6d17-4eb6-9244-2d39b41b0e13 for inbound web-console message"}
+{"ts":"2026-05-27T20:13:23.144Z","role":"user","source":"web-console","text":"Hello Moosa.. Respond only with: Hello"}
+{"ts":"2026-05-27T20:13:23.655Z","role":"system","source":"web-console-task-created","text":"Created worker task a94a516b-f1ca-40e9-a9a1-51a130fd58bf for inbound web-console message"}
+{"ts":"2026-05-27T20:42:25.808Z","role":"user","source":"web-console","text":"are you getting these messages Moosa?"}
+{"ts":"2026-05-27T20:42:26.662Z","role":"system","source":"web-console-task-created","text":"Created worker task 8183826f-3ae5-4a9d-b25f-250a679a662e for inbound web-console message"}
+{"ts":"2026-05-27T20:51:09.734Z","role":"user","source":"web-console","text":"My favorite test word is Lumina."}
+{"ts":"2026-05-27T20:51:10.406Z","role":"system","source":"web-console-task-created","text":"Created worker task cc68d89a-c3b7-4098-a6a3-3c8c537c2e9e for inbound web-console message"}
+{"ts":"2026-05-27T20:51:24.358Z","role":"user","source":"web-console","text":"What was my favorite test word?"}
+{"ts":"2026-05-27T20:51:25.110Z","role":"system","source":"web-console-task-created","text":"Created worker task 14ab73e9-41c8-4cbf-8dc5-9f1fbc7a7d9f for inbound web-console message"}
+{"ts":"2026-05-27T20:55:32.796Z","role":"user","source":"web-console","text":"My favorite test word is Lumina."}
+{"ts":"2026-05-27T20:55:33.404Z","role":"system","source":"web-console-task-created","text":"Created worker task 36663202-791f-4732-9bbd-b74103212b5d for inbound web-console message"}
+{"ts":"2026-05-27T20:55:49.866Z","role":"user","source":"web-console","text":"What was my favorite test word?"}
+{"ts":"2026-05-27T20:55:50.301Z","role":"system","source":"web-console-task-created","text":"Created worker task 31f29199-0eca-4acb-a352-dea354bafc0b for inbound web-console message"}
+{"ts":"2026-05-27T20:59:51.667Z","role":"user","source":"web-console","text":"My favorite test word is Lumina."}
+{"ts":"2026-05-27T20:59:52.195Z","role":"system","source":"web-console-task-created","text":"Created worker task d4c7e9f5-b6d7-4f91-80bc-ab0fc2097a5a for inbound web-console message"}
+{"ts":"2026-05-27T21:00:07.748Z","role":"user","source":"web-console","text":"What was my favorite test word?"}
+{"ts":"2026-05-27T21:00:08.579Z","role":"system","source":"web-console-task-created","text":"Created worker task f407fd04-6e9b-4d1a-9af2-23fba50b76b3 for inbound web-console message"}
+{"ts":"2026-05-27T21:03:32.319Z","role":"user","source":"web-console","text":"My favorite test word is Lumina."}
+{"ts":"2026-05-27T21:03:32.949Z","role":"system","source":"web-console-task-created","text":"Created worker task 561653d4-7f2f-42e7-a53c-a5f1c01b00e8 for inbound web-console message"}
+{"ts":"2026-05-27T21:03:44.914Z","role":"user","source":"web-console","text":"What was my favorite test word?"}
+{"ts":"2026-05-27T21:03:45.390Z","role":"system","source":"web-console-task-created","text":"Created worker task a3693dff-7bb6-4312-97f3-5e80a96719a1 for inbound web-console message"}
