@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-05-28T19:37:44.060Z",
-  "executionId": "wd-mppwakqk",
-  "startedAt": 1779997064060,
-  "podId": "23a9nue4xq4r4p",
-  "gpuIp": "23a9nue4xq4r4p-11440.proxy.runpod.net",
-  "durationMs": 83443,
-  "finishedAt": 1779997147503,
+  "timestamp": "2026-05-29T06:50:01.534Z",
+  "executionId": "wd-mpqkb5by",
+  "startedAt": 1780037401534,
+  "podId": "7w00z8lbxch6r8",
+  "gpuIp": "7w00z8lbxch6r8-11440.proxy.runpod.net",
+  "durationMs": 1873,
+  "finishedAt": 1780037403407,
   "results": [
     {
       "check": "pod_rest_status",
@@ -16,96 +16,77 @@
     },
     {
       "check": "auth_proxy_health",
-      "pass": false,
+      "pass": true,
       "details": {
-        "url": "https://23a9nue4xq4r4p-11440.proxy.runpod.net/health",
-        "http_code": "404"
+        "url": "https://7w00z8lbxch6r8-11440.proxy.runpod.net/health",
+        "http_code": "200"
       },
-      "status_code": "404",
-      "_attempt": 3,
-      "_severity": "HIGH"
+      "status_code": "200",
+      "_severity": "INFO"
     },
     {
       "check": "token_invalid_rejected",
-      "pass": false,
+      "pass": true,
       "details": {
-        "url": "https://23a9nue4xq4r4p-11440.proxy.runpod.net/api/tags",
-        "http_code": "404",
+        "url": "https://7w00z8lbxch6r8-11440.proxy.runpod.net/api/tags",
+        "http_code": "401",
         "expected": "401"
       },
-      "status_code": "404",
-      "_attempt": 3,
-      "_severity": "HIGH"
+      "status_code": "401",
+      "_severity": "INFO"
     },
     {
       "check": "token_valid_accepted",
-      "pass": false,
+      "pass": true,
       "details": {
-        "raw": "",
-        "parse_error": true
+        "url": "https://7w00z8lbxch6r8-11440.proxy.runpod.net/api/tags",
+        "http_code": "200",
+        "model_count": 1,
+        "first_model": "mistral-small3.2:latest"
       },
       "status_code": "200",
-      "_attempt": 3,
-      "_severity": "HIGH"
+      "_severity": "INFO"
     },
     {
       "check": "model_mistral_present",
-      "pass": false,
-      "details": {},
-      "error": "Unexpected end of JSON input",
-      "status_code": "ERROR",
-      "_attempt": 3,
-      "_severity": "HIGH"
+      "pass": true,
+      "details": {
+        "url": "https://7w00z8lbxch6r8-11440.proxy.runpod.net/api/tags",
+        "models_found": [
+          "mistral-small3.2:latest"
+        ],
+        "target_model": "mistral-small3.2:latest",
+        "model_found": true,
+        "http_code": "200"
+      },
+      "status_code": "200",
+      "_severity": "INFO"
     }
   ],
   "severity": "CRITICAL",
   "summary": {
-    "timestamp": "2026-05-28T19:37:44.060Z",
+    "timestamp": "2026-05-29T06:50:01.534Z",
     "overall": "CRITICAL",
-    "executionId": "wd-mppwakqk",
-    "podId": "23a9nue4xq4r4p",
-    "gpuIp": "23a9nue4xq4r4p-11440.proxy.runpod.net",
+    "executionId": "wd-mpqkb5by",
+    "podId": "7w00z8lbxch6r8",
+    "gpuIp": "7w00z8lbxch6r8-11440.proxy.runpod.net",
     "checks": {
       "total": 5,
-      "passed": 0,
-      "failed": 5,
+      "passed": 4,
+      "failed": 1,
       "skipped": 0
     },
-    "alertCount": 5,
+    "alertCount": 1,
     "alerts": [
       {
         "check": "pod_rest_status",
         "level": "CRITICAL",
         "status_code": "200",
         "summary": "CRITICAL failure — immediate escalation required"
-      },
-      {
-        "check": "auth_proxy_health",
-        "level": "HIGH",
-        "status_code": "404",
-        "summary": "HIGH failure — retry before escalation"
-      },
-      {
-        "check": "token_invalid_rejected",
-        "level": "HIGH",
-        "status_code": "404",
-        "summary": "HIGH failure — retry before escalation"
-      },
-      {
-        "check": "token_valid_accepted",
-        "level": "HIGH",
-        "status_code": "200",
-        "summary": "HIGH failure — retry before escalation"
-      },
-      {
-        "check": "model_mistral_present",
-        "level": "HIGH",
-        "status_code": "ERROR",
-        "summary": "HIGH failure — retry before escalation"
       }
     ],
     "recovery": false,
-    "durationMs": 83443,
+    "durationMs": 1873,
     "status": "FAILURE"
   },
   "alerts": [
@@ -116,48 +97,6 @@
       "summary": "CRITICAL failure — immediate escalation required",
       "details": {},
       "error": null
-    },
-    {
-      "check": "auth_proxy_health",
-      "level": "HIGH",
-      "status_code": "404",
-      "summary": "HIGH failure — retry before escalation",
-      "details": {
-        "url": "https://23a9nue4xq4r4p-11440.proxy.runpod.net/health",
-        "http_code": "404"
-      },
-      "error": null
-    },
-    {
-      "check": "token_invalid_rejected",
-      "level": "HIGH",
-      "status_code": "404",
-      "summary": "HIGH failure — retry before escalation",
-      "details": {
-        "url": "https://23a9nue4xq4r4p-11440.proxy.runpod.net/api/tags",
-        "http_code": "404",
-        "expected": "401"
-      },
-      "error": null
-    },
-    {
-      "check": "token_valid_accepted",
-      "level": "HIGH",
-      "status_code": "200",
-      "summary": "HIGH failure — retry before escalation",
-      "details": {
-        "raw": "",
-        "parse_error": true
-      },
-      "error": null
-    },
-    {
-      "check": "model_mistral_present",
-      "level": "HIGH",
-      "status_code": "ERROR",
-      "summary": "HIGH failure — retry before escalation",
-      "details": {},
-      "error": "Unexpected end of JSON input"
     }
   ]
 }

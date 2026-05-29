@@ -4,7 +4,7 @@
     "title": "MOOSA System Notifications",
     "pinned": true,
     "createdAt": "2026-05-28T06:02:30.888Z",
-    "updatedAt": "2026-05-28T19:39:07.565Z",
+    "updatedAt": "2026-05-29T06:50:03.418Z",
     "messages": [
       {
         "id": "sys-1779948150888-cd6e241a17b4",
@@ -1587,6 +1587,292 @@
           "severity": "runpod",
           "timestamp": "2026-05-28T19:39:07.558Z"
         }
+      },
+      {
+        "id": "sys-1780034484853-f4867ef1f2702",
+        "role": "assistant",
+        "text": "🚨 GPU WATCHDOG ALERT — CRITICAL\n\nCheck: pod_rest_status\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 200\n\n🚨 CRITICAL — Immediate attention required.\n\nAction: Log into RunPod dashboard now.\nGPU billing continues while pod is RUNNING.\n\nTime: 2026-05-29T06:01:24.843Z",
+        "ts": "2026-05-29T06:01:24.853Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:01:24.844Z"
+        }
+      },
+      {
+        "id": "sys-1780034484867-ce87ba40f9d6e",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: auth_proxy_health\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:01:24.859Z",
+        "ts": "2026-05-29T06:01:24.867Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:01:24.860Z"
+        }
+      },
+      {
+        "id": "sys-1780034484881-39de0788a49d9",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_invalid_rejected\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:01:24.874Z",
+        "ts": "2026-05-29T06:01:24.881Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:01:24.874Z"
+        }
+      },
+      {
+        "id": "sys-1780034484895-295a04ad7c60b",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_valid_accepted\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 200\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:01:24.888Z",
+        "ts": "2026-05-29T06:01:24.895Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:01:24.888Z"
+        }
+      },
+      {
+        "id": "sys-1780034484910-e1b1fa0b6047a",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: model_mistral_present\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: ERROR\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:01:24.903Z",
+        "ts": "2026-05-29T06:01:24.910Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:01:24.903Z"
+        }
+      },
+      {
+        "id": "sys-1780035085089-3307af5c3d5bd",
+        "role": "assistant",
+        "text": "🚨 GPU WATCHDOG ALERT — CRITICAL\n\nCheck: pod_rest_status\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 200\n\n🚨 CRITICAL — Immediate attention required.\n\nAction: Log into RunPod dashboard now.\nGPU billing continues while pod is RUNNING.\n\nTime: 2026-05-29T06:11:25.076Z",
+        "ts": "2026-05-29T06:11:25.089Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:11:25.077Z"
+        }
+      },
+      {
+        "id": "sys-1780035085103-94ab0e67f59b3",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: auth_proxy_health\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:11:25.095Z",
+        "ts": "2026-05-29T06:11:25.103Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:11:25.096Z"
+        }
+      },
+      {
+        "id": "sys-1780035085118-44f9d21318f69",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_invalid_rejected\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:11:25.110Z",
+        "ts": "2026-05-29T06:11:25.118Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:11:25.110Z"
+        }
+      },
+      {
+        "id": "sys-1780035085132-8de36cd8a1549",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_valid_accepted\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: 200\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:11:25.125Z",
+        "ts": "2026-05-29T06:11:25.132Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:11:25.125Z"
+        }
+      },
+      {
+        "id": "sys-1780035085148-96e521d8644bd",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: model_mistral_present\nPod: 23a9nue4xq4r4p\nEndpoint: https://23a9nue4xq4r4p-11440.proxy.runpod.net\nStatus: ERROR\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:11:25.140Z",
+        "ts": "2026-05-29T06:11:25.148Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:11:25.140Z"
+        }
+      },
+      {
+        "id": "sys-1780035684550-524b6ae252818",
+        "role": "assistant",
+        "text": "🚨 GPU WATCHDOG ALERT — CRITICAL\n\nCheck: pod_rest_status\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 200\n\n🚨 CRITICAL — Immediate attention required.\n\nAction: Log into RunPod dashboard now.\nGPU billing continues while pod is RUNNING.\n\nTime: 2026-05-29T06:21:24.543Z",
+        "ts": "2026-05-29T06:21:24.550Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:21:24.544Z"
+        }
+      },
+      {
+        "id": "sys-1780035684565-cb807f423411a",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: auth_proxy_health\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:21:24.557Z",
+        "ts": "2026-05-29T06:21:24.565Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:21:24.557Z"
+        }
+      },
+      {
+        "id": "sys-1780035684583-c471017d2ab3c",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_invalid_rejected\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:21:24.574Z",
+        "ts": "2026-05-29T06:21:24.583Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:21:24.574Z"
+        }
+      },
+      {
+        "id": "sys-1780035684601-fac542c163658",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_valid_accepted\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 200\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:21:24.592Z",
+        "ts": "2026-05-29T06:21:24.601Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:21:24.592Z"
+        }
+      },
+      {
+        "id": "sys-1780035684619-3eb799eacb4fc",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: model_mistral_present\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: ERROR\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:21:24.610Z",
+        "ts": "2026-05-29T06:21:24.619Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:21:24.610Z"
+        }
+      },
+      {
+        "id": "sys-1780036284459-00ab86dc9a873",
+        "role": "assistant",
+        "text": "🚨 GPU WATCHDOG ALERT — CRITICAL\n\nCheck: pod_rest_status\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 200\n\n🚨 CRITICAL — Immediate attention required.\n\nAction: Log into RunPod dashboard now.\nGPU billing continues while pod is RUNNING.\n\nTime: 2026-05-29T06:31:24.446Z",
+        "ts": "2026-05-29T06:31:24.459Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:31:24.447Z"
+        }
+      },
+      {
+        "id": "sys-1780036284474-7b87d3307a",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: auth_proxy_health\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:31:24.466Z",
+        "ts": "2026-05-29T06:31:24.474Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:31:24.466Z"
+        }
+      },
+      {
+        "id": "sys-1780036284488-006f28ea60e0b",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_invalid_rejected\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 404\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:31:24.481Z",
+        "ts": "2026-05-29T06:31:24.488Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:31:24.482Z"
+        }
+      },
+      {
+        "id": "sys-1780036284502-745ea620cab43",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: token_valid_accepted\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: 200\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:31:24.496Z",
+        "ts": "2026-05-29T06:31:24.502Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:31:24.496Z"
+        }
+      },
+      {
+        "id": "sys-1780036284516-8cfb8ee4f7252",
+        "role": "assistant",
+        "text": "🔶 GPU WATCHDOG ALERT — HIGH\n\nCheck: model_mistral_present\nPod: c40524386ec6\nEndpoint: https://c40524386ec6-11440.proxy.runpod.net\nStatus: ERROR\n\n⚠️ HIGH — Retry exhausted, issue persisting.\n\nAction: Check RunPod dashboard for pod health.\nGPU billing may still be active — verify stop if unused.\n\nTime: 2026-05-29T06:31:24.509Z",
+        "ts": "2026-05-29T06:31:24.516Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:31:24.509Z"
+        }
+      },
+      {
+        "id": "sys-1780036802402-43efddc2e7808",
+        "role": "assistant",
+        "text": "🚨 GPU WATCHDOG ALERT — CRITICAL\n\nCheck: pod_rest_status\nPod: 7w00z8lbxch6r8\nEndpoint: https://7w00z8lbxch6r8-11440.proxy.runpod.net\nStatus: 200\n\n🚨 CRITICAL — Immediate attention required.\n\nAction: Log into RunPod dashboard now.\nGPU billing continues while pod is RUNNING.\n\nTime: 2026-05-29T06:40:02.395Z",
+        "ts": "2026-05-29T06:40:02.402Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:40:02.395Z"
+        }
+      },
+      {
+        "id": "sys-1780037403418-05e4615eb8751",
+        "role": "assistant",
+        "text": "🚨 GPU WATCHDOG ALERT — CRITICAL\n\nCheck: pod_rest_status\nPod: 7w00z8lbxch6r8\nEndpoint: https://7w00z8lbxch6r8-11440.proxy.runpod.net\nStatus: 200\n\n🚨 CRITICAL — Immediate attention required.\n\nAction: Log into RunPod dashboard now.\nGPU billing continues while pod is RUNNING.\n\nTime: 2026-05-29T06:50:03.411Z",
+        "ts": "2026-05-29T06:50:03.418Z",
+        "source": "moosa-worker",
+        "category": "gpu",
+        "metadata": {
+          "mirrored_from": "runpod-alert-adapter.js",
+          "severity": "runpod",
+          "timestamp": "2026-05-29T06:50:03.411Z"
+        }
       }
     ]
   },
@@ -1595,7 +1881,7 @@
     "title": "MOOSA Health Checks",
     "pinned": true,
     "createdAt": "2026-05-28T06:18:46.056Z",
-    "updatedAt": "2026-05-29T00:56:16.031Z",
+    "updatedAt": "2026-05-29T06:56:15.554Z",
     "messages": [
       {
         "id": "sys-1779949126056-5fe84dc7ebf85",
@@ -5416,6 +5702,1806 @@
           "recipient": "+923215139934",
           "whatsapp_message_id": null,
           "timestamp": "2026-05-29T00:56:16.026Z"
+        }
+      },
+      {
+        "id": "sys-1780016355460-6cce6c13bc177",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (885min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T00:59:15.460Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780016355453",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T00:59:15.453Z"
+        }
+      },
+      {
+        "id": "sys-1780016535463-a3602287cbf52",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (888min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:02:15.463Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780016535455",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:02:15.456Z"
+        }
+      },
+      {
+        "id": "sys-1780016715991-da60255833a7c",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (891min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:05:15.991Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780016715986",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:05:15.986Z"
+        }
+      },
+      {
+        "id": "sys-1780016895544-605c8d14ad0ac",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (894min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:08:15.544Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780016895533",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:08:15.533Z"
+        }
+      },
+      {
+        "id": "sys-1780017075902-3b9966a8069bd",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (897min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:11:15.902Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780017075894",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:11:15.894Z"
+        }
+      },
+      {
+        "id": "sys-1780017255478-48fab39f55851",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (900min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:14:15.478Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780017255470",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:14:15.470Z"
+        }
+      },
+      {
+        "id": "sys-1780017435870-bdf0f3931c94",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (903min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:17:15.870Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780017435863",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:17:15.863Z"
+        }
+      },
+      {
+        "id": "sys-1780017615500-7d534657408e7",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (906min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:20:15.500Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780017615492",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:20:15.492Z"
+        }
+      },
+      {
+        "id": "sys-1780017795562-3a176928c81e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (909min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:23:15.562Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780017795553",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:23:15.554Z"
+        }
+      },
+      {
+        "id": "sys-1780017975505-5113a58a44336",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (912min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:26:15.505Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780017975497",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:26:15.498Z"
+        }
+      },
+      {
+        "id": "sys-1780018155491-0ed46e5bd43ac",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (915min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:29:15.491Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780018155483",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:29:15.483Z"
+        }
+      },
+      {
+        "id": "sys-1780018335520-9d55f72634bd4",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (918min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:32:15.520Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780018335515",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:32:15.515Z"
+        }
+      },
+      {
+        "id": "sys-1780018515840-e9bdbd0848e69",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (921min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:35:15.840Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780018515836",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:35:15.836Z"
+        }
+      },
+      {
+        "id": "sys-1780018695472-9421572fdfdeb",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (924min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:38:15.472Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780018695464",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:38:15.464Z"
+        }
+      },
+      {
+        "id": "sys-1780018875613-8e88fcad5d825",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (927min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:41:15.613Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780018875606",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:41:15.606Z"
+        }
+      },
+      {
+        "id": "sys-1780019055524-ab459b68128a6",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (930min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:44:15.523Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780019055513",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:44:15.513Z"
+        }
+      },
+      {
+        "id": "sys-1780019235480-f02e82b425496",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (933min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:47:15.480Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780019235472",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:47:15.472Z"
+        }
+      },
+      {
+        "id": "sys-1780019415529-49f10e33ea92",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (936min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:50:15.529Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780019415521",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:50:15.521Z"
+        }
+      },
+      {
+        "id": "sys-1780019595612-addf9fb4f0cd4",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (939min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:53:15.612Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780019595604",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:53:15.604Z"
+        }
+      },
+      {
+        "id": "sys-1780019775615-33636e60ef9a2",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (942min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:56:15.615Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780019775606",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:56:15.606Z"
+        }
+      },
+      {
+        "id": "sys-1780019955499-9132b6c03f69d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (945min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T01:59:15.499Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780019955491",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T01:59:15.491Z"
+        }
+      },
+      {
+        "id": "sys-1780020135658-0b8c1b8b70c08",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (948min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:02:15.658Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780020135650",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:02:15.650Z"
+        }
+      },
+      {
+        "id": "sys-1780020315500-e364a3cec24b8",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (951min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:05:15.500Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780020315492",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:05:15.492Z"
+        }
+      },
+      {
+        "id": "sys-1780020495486-c4f392787d832",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (954min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:08:15.486Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780020495477",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:08:15.478Z"
+        }
+      },
+      {
+        "id": "sys-1780020675484-cf5a92b19f3cf",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (957min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:11:15.484Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780020675475",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:11:15.476Z"
+        }
+      },
+      {
+        "id": "sys-1780020855475-1daf747e4590a",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (960min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:14:15.475Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780020855467",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:14:15.467Z"
+        }
+      },
+      {
+        "id": "sys-1780021035597-c7cc5f695e2ee",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (963min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:17:15.597Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780021035593",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:17:15.593Z"
+        }
+      },
+      {
+        "id": "sys-1780021215888-47c6f71265f38",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (966min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:20:15.888Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780021215879",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:20:15.880Z"
+        }
+      },
+      {
+        "id": "sys-1780021395620-aab51a10f2a71",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (969min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:23:15.620Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780021395616",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:23:15.616Z"
+        }
+      },
+      {
+        "id": "sys-1780021575484-39e94d9fe8fb7",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (972min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:26:15.484Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780021575475",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:26:15.476Z"
+        }
+      },
+      {
+        "id": "sys-1780021755491-c2fe3dc28f96d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (975min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:29:15.491Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780021755480",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:29:15.480Z"
+        }
+      },
+      {
+        "id": "sys-1780021935543-b31f939b05f91",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (978min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:32:15.543Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780021935535",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:32:15.535Z"
+        }
+      },
+      {
+        "id": "sys-1780022115875-bd6b5ae7f4e55",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (981min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:35:15.875Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780022115871",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:35:15.871Z"
+        }
+      },
+      {
+        "id": "sys-1780022295460-86eed4da00f75",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (984min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:38:15.460Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780022295455",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:38:15.456Z"
+        }
+      },
+      {
+        "id": "sys-1780022475687-4bc3060bddc6d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (987min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:41:15.687Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780022475679",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:41:15.679Z"
+        }
+      },
+      {
+        "id": "sys-1780022655630-19079c71aaab7",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (990min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:44:15.630Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780022655621",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:44:15.621Z"
+        }
+      },
+      {
+        "id": "sys-1780022835544-a50dae97d497d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (993min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:47:15.544Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780022835536",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:47:15.536Z"
+        }
+      },
+      {
+        "id": "sys-1780023015477-deac3c4141227",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (996min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:50:15.477Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780023015472",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:50:15.473Z"
+        }
+      },
+      {
+        "id": "sys-1780023195457-376362be89a2e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (999min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:53:15.457Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780023195448",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:53:15.448Z"
+        }
+      },
+      {
+        "id": "sys-1780023375544-28be160f7d3be",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1002min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:56:15.544Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780023375539",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:56:15.540Z"
+        }
+      },
+      {
+        "id": "sys-1780023555483-a2f785675457e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1005min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T02:59:15.483Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780023555474",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T02:59:15.474Z"
+        }
+      },
+      {
+        "id": "sys-1780023735625-30a2248f9db55",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1008min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:02:15.625Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780023735620",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:02:15.621Z"
+        }
+      },
+      {
+        "id": "sys-1780023915650-307741dd568e8",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1011min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:05:15.650Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780023915641",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:05:15.641Z"
+        }
+      },
+      {
+        "id": "sys-1780024095502-044d4a1602fef",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1014min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:08:15.502Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780024095494",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:08:15.494Z"
+        }
+      },
+      {
+        "id": "sys-1780024275473-7bfc058f7bce7",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1017min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:11:15.473Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780024275469",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:11:15.469Z"
+        }
+      },
+      {
+        "id": "sys-1780024455666-2ebf0bd82f04f",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1020min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:14:15.666Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780024455658",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:14:15.658Z"
+        }
+      },
+      {
+        "id": "sys-1780024635646-b2c91625dbae7",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1023min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:17:15.646Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780024635637",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:17:15.638Z"
+        }
+      },
+      {
+        "id": "sys-1780024815839-d5ade876e4a8e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1026min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:20:15.839Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780024815834",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:20:15.834Z"
+        }
+      },
+      {
+        "id": "sys-1780024995642-8d05619d8faee",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1029min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:23:15.642Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780024995634",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:23:15.634Z"
+        }
+      },
+      {
+        "id": "sys-1780025175514-f4d8b7be0b212",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1032min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:26:15.514Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780025175506",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:26:15.507Z"
+        }
+      },
+      {
+        "id": "sys-1780025355496-7ef920ffa8afc",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1035min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:29:15.496Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780025355488",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:29:15.488Z"
+        }
+      },
+      {
+        "id": "sys-1780025535484-c52b184b79706",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1038min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:32:15.484Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780025535475",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:32:15.475Z"
+        }
+      },
+      {
+        "id": "sys-1780025715629-92ff3e704798",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1041min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:35:15.629Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780025715624",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:35:15.625Z"
+        }
+      },
+      {
+        "id": "sys-1780025895879-e603534eab85",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1044min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:38:15.879Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780025895871",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:38:15.871Z"
+        }
+      },
+      {
+        "id": "sys-1780026075715-059f91c932afe",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1047min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:41:15.715Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780026075707",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:41:15.707Z"
+        }
+      },
+      {
+        "id": "sys-1780026255520-bc55ca639fe47",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1050min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:44:15.520Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780026255511",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:44:15.511Z"
+        }
+      },
+      {
+        "id": "sys-1780026435506-10fa650b4201c",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1053min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:47:15.506Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780026435497",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:47:15.497Z"
+        }
+      },
+      {
+        "id": "sys-1780026615896-a71a05aa7dafc",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1056min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:50:15.896Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780026615887",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:50:15.888Z"
+        }
+      },
+      {
+        "id": "sys-1780026795751-44129cbaeb4c1",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1059min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:53:15.751Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780026795743",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:53:15.743Z"
+        }
+      },
+      {
+        "id": "sys-1780026975562-703bf8d15aa68",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1062min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:56:15.562Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780026975553",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:56:15.553Z"
+        }
+      },
+      {
+        "id": "sys-1780027155510-0c18ddf4a3392",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1065min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T03:59:15.510Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780027155501",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T03:59:15.502Z"
+        }
+      },
+      {
+        "id": "sys-1780027335512-302fa469215d3",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1068min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:02:15.512Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780027335507",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:02:15.507Z"
+        }
+      },
+      {
+        "id": "sys-1780027515593-d2a12370ea628",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1071min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:05:15.593Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780027515589",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:05:15.590Z"
+        }
+      },
+      {
+        "id": "sys-1780027695505-0efc19f5178e7",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1074min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:08:15.505Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780027695498",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:08:15.499Z"
+        }
+      },
+      {
+        "id": "sys-1780027875543-04c2a5312fe63",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1077min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:11:15.543Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780027875535",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:11:15.535Z"
+        }
+      },
+      {
+        "id": "sys-1780028055738-0ddc40dba9fe4",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1080min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:14:15.738Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780028055733",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:14:15.733Z"
+        }
+      },
+      {
+        "id": "sys-1780028235498-552abad0408cb",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1083min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:17:15.498Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780028235487",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:17:15.487Z"
+        }
+      },
+      {
+        "id": "sys-1780028415548-59b1125e46d1d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1086min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:20:15.548Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780028415543",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:20:15.544Z"
+        }
+      },
+      {
+        "id": "sys-1780028595695-fda48be89e9a1",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1089min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:23:15.695Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780028595691",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:23:15.691Z"
+        }
+      },
+      {
+        "id": "sys-1780028775549-ac3fa979661e3",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1092min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:26:15.549Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780028775540",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:26:15.541Z"
+        }
+      },
+      {
+        "id": "sys-1780028955514-ef6164edd9938",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1095min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:29:15.514Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780028955505",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:29:15.505Z"
+        }
+      },
+      {
+        "id": "sys-1780029135524-6aa2a41642ef8",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1098min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:32:15.524Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780029135519",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:32:15.520Z"
+        }
+      },
+      {
+        "id": "sys-1780029315581-7b44a857731b9",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1101min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:35:15.581Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780029315573",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:35:15.573Z"
+        }
+      },
+      {
+        "id": "sys-1780029495473-38f91177e3232",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1104min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:38:15.473Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780029495461",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:38:15.461Z"
+        }
+      },
+      {
+        "id": "sys-1780029675489-8401dfdb8c2b8",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1107min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:41:15.489Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780029675480",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:41:15.480Z"
+        }
+      },
+      {
+        "id": "sys-1780029855649-4622e2defb4b2",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1110min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:44:15.649Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780029855640",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:44:15.640Z"
+        }
+      },
+      {
+        "id": "sys-1780030035509-9940dcd038805",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1113min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:47:15.509Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780030035505",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:47:15.505Z"
+        }
+      },
+      {
+        "id": "sys-1780030215524-8339912926c1f",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1116min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:50:15.524Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780030215519",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:50:15.519Z"
+        }
+      },
+      {
+        "id": "sys-1780030395513-6e6f96e5f2b65",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1119min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:53:15.513Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780030395508",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:53:15.508Z"
+        }
+      },
+      {
+        "id": "sys-1780030575698-d07bc2b5c2374",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1122min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:56:15.698Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780030575689",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:56:15.690Z"
+        }
+      },
+      {
+        "id": "sys-1780030755515-b9dfb2ec7b2be",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1125min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T04:59:15.515Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780030755502",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T04:59:15.503Z"
+        }
+      },
+      {
+        "id": "sys-1780030935702-5b60154cc7bda",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1128min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:02:15.702Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780030935690",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:02:15.690Z"
+        }
+      },
+      {
+        "id": "sys-1780031115602-12364a71e9882",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1131min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:05:15.602Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780031115593",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:05:15.593Z"
+        }
+      },
+      {
+        "id": "sys-1780031295714-9d22b30d4d336",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1134min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:08:15.714Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780031295710",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:08:15.710Z"
+        }
+      },
+      {
+        "id": "sys-1780031475862-b1e66121c40f4",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1137min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:11:15.862Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780031475854",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:11:15.854Z"
+        }
+      },
+      {
+        "id": "sys-1780031655475-76a5a57c253ba",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1140min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:14:15.475Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780031655466",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:14:15.466Z"
+        }
+      },
+      {
+        "id": "sys-1780031835538-88c45e505d425",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1143min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:17:15.538Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780031835530",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:17:15.530Z"
+        }
+      },
+      {
+        "id": "sys-1780032015986-5d4c9ecf096e3",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1146min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:20:15.986Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780032015978",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:20:15.978Z"
+        }
+      },
+      {
+        "id": "sys-1780032195558-02086aedf33fb",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1149min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:23:15.558Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780032195549",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:23:15.549Z"
+        }
+      },
+      {
+        "id": "sys-1780032375504-ce95d713b5e83",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1152min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:26:15.504Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780032375492",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:26:15.492Z"
+        }
+      },
+      {
+        "id": "sys-1780032555483-a650723013bac",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1155min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:29:15.483Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780032555474",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:29:15.475Z"
+        }
+      },
+      {
+        "id": "sys-1780032735838-9e3436d34fd8e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1158min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:32:15.838Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780032735830",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:32:15.830Z"
+        }
+      },
+      {
+        "id": "sys-1780032915580-f17c4b5db5a8d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1161min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:35:15.580Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780032915575",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:35:15.576Z"
+        }
+      },
+      {
+        "id": "sys-1780033095529-521eb0d5a559",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1164min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:38:15.529Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780033095521",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:38:15.521Z"
+        }
+      },
+      {
+        "id": "sys-1780033275541-2fa6a22d41896",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1167min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:41:15.541Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780033275533",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:41:15.533Z"
+        }
+      },
+      {
+        "id": "sys-1780033455515-f090bd4c52a32",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1170min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:44:15.515Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780033455507",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:44:15.507Z"
+        }
+      },
+      {
+        "id": "sys-1780033635545-fea1ac25fbdac",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1173min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:47:15.545Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780033635536",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:47:15.536Z"
+        }
+      },
+      {
+        "id": "sys-1780033815593-bc8792894ed6e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1176min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:50:15.593Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780033815585",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:50:15.585Z"
+        }
+      },
+      {
+        "id": "sys-1780033995574-ca1c1e23e485a",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1179min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:53:15.574Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780033995566",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:53:15.566Z"
+        }
+      },
+      {
+        "id": "sys-1780034175526-e51d9bc144ace",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1182min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:56:15.526Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780034175517",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:56:15.517Z"
+        }
+      },
+      {
+        "id": "sys-1780034355547-722bd86da4872",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1185min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T05:59:15.547Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780034355538",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T05:59:15.538Z"
+        }
+      },
+      {
+        "id": "sys-1780034535508-bbc13d21d2b6d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1188min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:02:15.508Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780034535500",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:02:15.500Z"
+        }
+      },
+      {
+        "id": "sys-1780034715630-d336e5199dfe2",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1191min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:05:15.630Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780034715621",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:05:15.622Z"
+        }
+      },
+      {
+        "id": "sys-1780034895568-15fd2c78d0377",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1194min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:08:15.568Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780034895558",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:08:15.559Z"
+        }
+      },
+      {
+        "id": "sys-1780035075551-13683bd20ab3f",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1197min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:11:15.551Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780035075538",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:11:15.539Z"
+        }
+      },
+      {
+        "id": "sys-1780035255594-60410c57ddcd",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1200min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:14:15.594Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780035255585",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:14:15.585Z"
+        }
+      },
+      {
+        "id": "sys-1780035435601-248448b547ece",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1203min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:17:15.601Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780035435592",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:17:15.593Z"
+        }
+      },
+      {
+        "id": "sys-1780035615570-af47a7e8c5677",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1206min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:20:15.570Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780035615561",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:20:15.562Z"
+        }
+      },
+      {
+        "id": "sys-1780035795667-16817b85bf67a",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1209min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:23:15.667Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780035795658",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:23:15.659Z"
+        }
+      },
+      {
+        "id": "sys-1780035975603-a7e3988d4d92a",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1212min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:26:15.603Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780035975591",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:26:15.592Z"
+        }
+      },
+      {
+        "id": "sys-1780036155567-08ce87e8addf",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1215min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:29:15.567Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780036155559",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:29:15.559Z"
+        }
+      },
+      {
+        "id": "sys-1780036335525-7539c4605e64d",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1218min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:32:15.525Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780036335512",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:32:15.513Z"
+        }
+      },
+      {
+        "id": "sys-1780036515651-2550834f4ae58",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1221min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:35:15.651Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780036515643",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:35:15.643Z"
+        }
+      },
+      {
+        "id": "sys-1780036695558-c144e7354fb29",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1224min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:38:15.558Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780036695550",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:38:15.550Z"
+        }
+      },
+      {
+        "id": "sys-1780036875534-ef8e0845acd79",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1227min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:41:15.534Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780036875525",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:41:15.526Z"
+        }
+      },
+      {
+        "id": "sys-1780037055513-67ee43d161aab",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1230min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:44:15.513Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780037055504",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:44:15.504Z"
+        }
+      },
+      {
+        "id": "sys-1780037235571-ebab5f15ddedb",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1233min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:47:15.571Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780037235562",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:47:15.563Z"
+        }
+      },
+      {
+        "id": "sys-1780037415925-c35ce594dd35e",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1236min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:50:15.925Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780037415916",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:50:15.916Z"
+        }
+      },
+      {
+        "id": "sys-1780037595592-7a0c2946e04c",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1239min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:53:15.592Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780037595579",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:53:15.579Z"
+        }
+      },
+      {
+        "id": "sys-1780037775554-c276f2db9ff4c",
+        "role": "assistant",
+        "text": "⚠️ MOOSA self-check heartbeat STALE. Last run: 2026-05-28T10:14:43.299Z (1242min ago). Self-check scheduler may have stopped. Check OpenClaw cron for schedule-self-check.",
+        "ts": "2026-05-29T06:56:15.554Z",
+        "source": "moosa-worker",
+        "category": "health_check",
+        "metadata": {
+          "mirrored_from": "send_whatsapp",
+          "taskId": "watchdog-1780037775540",
+          "recipient": "+923215139934",
+          "whatsapp_message_id": null,
+          "timestamp": "2026-05-29T06:56:15.541Z"
         }
       }
     ]

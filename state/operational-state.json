@@ -1,11 +1,17 @@
 {
   "version": 1,
-  "last_updated": "2026-05-28T11:46:41.440Z",
-  "worker_status": "online",
-  "worker_heartbeat_fresh": true,
-  "worker_heartbeat_age_min": 0,
+  "last_updated": "2026-05-29T05:46:42.754Z",
+  "worker_status": "unhealthy",
+  "worker_heartbeat_fresh": false,
+  "worker_heartbeat_age_min": 1079,
   "active_tasks": [],
   "recent_alerts": [
+    {
+      "level": 3,
+      "message": "CRITICAL: moosa-worker heartbeat file age 1079min — worker running but heartbeat writer stalled. PID 3724655 online. Restart moosa-worker.",
+      "task_id": null,
+      "at": "2026-05-29T05:46:42.754Z"
+    },
     {
       "level": 3,
       "message": "moosa-worker restarted at 08:12 Berlin — PID 2148921 → 2959479. RIM-1 sent-dedup patch applied. maintenance flag deleted.",

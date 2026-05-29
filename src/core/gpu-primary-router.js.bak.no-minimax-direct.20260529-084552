@@ -14,7 +14,7 @@ const fs = require('fs');
 
 const GPU_PRIMARY_CONFIG = {
     GOOD_QUALITIES: ['COMPARABLE', 'COMPARABLE_CORRECT', 'COMPARABLE_CORRECT_REFUSAL',
-                     'COMPARABLE_REFINED', 'COMPARABLE_DIFFERENT', 'PARTIALLY_COMPARABLE', 'DIRECT_GPU_NO_REFERENCE'],
+                     'COMPARABLE_REFINED', 'COMPARABLE_DIFFERENT', 'PARTIALLY_COMPARABLE'],
     GPU_TIMEOUT_MS: 180_000,
     METRICS_FILE: '/home/node/.openclaw/workspace/moosa-worker/state/gpu-primary-metrics.json'
 };
@@ -97,14 +97,9 @@ function gpuPrimaryRoute({ userMessage, systemContext, minimax_response, minimax
         const gpuLatency = gpuResult.gpu?.latency_ms || 0;
         const gpuStatus = gpuResult.gpu?.status || 'unknown';
         const gpuResponse = gpuResult.gpu?.response || null;
-        let quality = gpuResult.comparison?.overall_gpu_quality || 'FAILED';
+        const quality = gpuResult.comparison?.overall_gpu_quality || 'FAILED';
         const halScore = gpuResult.comparison?.hallucination_score || 0;
         const comparison = gpuResult.comparison;
-        const noMiniMaxReference = !String(minimax_response || '').trim();
-
-        if (noMiniMaxReference && gpuStatus === 'success' && !isMalformedResponse(gpuResponse)) {
-            quality = 'DIRECT_GPU_NO_REFERENCE';
-        }
 
         result.gpu = {
             response: gpuResponse,

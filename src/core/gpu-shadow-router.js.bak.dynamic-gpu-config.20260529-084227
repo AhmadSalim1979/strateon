@@ -28,31 +28,12 @@ const SUMMARY_FILE = '/home/node/.openclaw/workspace/moosa-worker/state/gpu-shad
 // Cold model load: up to 180s | Warm inference: sub-second
 // Production route: MiniMax remains primary — GPU is shadow-only
 
-function loadGpuConfig() {
-    try {
-        const cfg = JSON.parse(fs.readFileSync(SECRETS_FILE, 'utf8'));
-        const baseUrl = String(cfg.proxy_url || '').replace(/\/$/, '');
-        const apiPath = cfg.api_path || '/api/generate';
-
-        return {
-            url: baseUrl + apiPath,
-            model: cfg.model || 'mistral-small3.2:latest',
-            timeoutMs: 180_000,
-            maxTokens: 2048
-        };
-    } catch {
-        return {
-            url: 'https://23a9nue4xq4r4p-11440.proxy.runpod.net/api/generate',
-            model: 'mistral-small3.2:latest',
-            timeoutMs: 180_000,
-            maxTokens: 2048
-        };
-    }
-}
-
-function getGpuConfig() {
-    return loadGpuConfig();
-}
+const GPU_CONFIG = {
+    url: 'https://23a9nue4xq4r4p-11440.proxy.runpod.net/api/generate',
+    model: 'mistral-small3.2:latest',
+    timeoutMs: 180_000,  // 180s for cold load, then sub-second
+    maxTokens: 2048
+};
 
 // === HELPERS ===
 
@@ -88,16 +69,16 @@ function callGpuApi(messages, token) {
     // Build prompt string from messages array
     const promptStr = messages.map(m => m.role === 'system' ? '[SYS] ' + m.content : '[USER] ' + m.content).join('\n');
     const payload = JSON.stringify({
-        model: getGpuConfig().model,
+        model: GPU_CONFIG.model,
         prompt: promptStr,
-        max_tokens: getGpuConfig().maxTokens,
+        max_tokens: GPU_CONFIG.maxTokens,
         stream: false
     });
 
     // Use double-quote wrapper, escape internal double quotes for shell
     const escapedPayload = payload.replace(/"/g, '\\"');
     const escapedToken = token.replace(/"/g, '\\"');
-    const cmd = 'curl -s -X POST -H "Authorization: Bearer ' + escapedToken + '" -H "Content-Type: application/json" -H "Accept: application/json" -d "' + escapedPayload + '" "' + getGpuConfig().url + '" --max-time 180 --connect-timeout 15';
+    const cmd = 'curl -s -X POST -H "Authorization: Bearer ' + escapedToken + '" -H "Content-Type: application/json" -H "Accept: application/json" -d "' + escapedPayload + '" "' + GPU_CONFIG.url + '" --max-time 180 --connect-timeout 15';
 
     const startMs = Date.now();
     let raw;
@@ -345,4 +326,4 @@ if (require.main === module) {
     console.log(JSON.stringify(result, null, 2));
 }
 
-module.exports = { sendShadowRequest, callGpuApi, loadGpuToken, generateRequestId, loadGpuConfig, getGpuConfig };
+module.exports = { sendShadowRequest, callGpuApi, loadGpuToken, generateRequestId, GPU_CONFIG };
