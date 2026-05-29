@@ -2956,3 +2956,8 @@
 [2026-05-28T18:51:25.349Z] Watchdog run completed
 [2026-05-28T18:51:25.349Z] === Watchdog cron wrapper finished ===
 
+[2026-05-28T19:37:44.034Z] === Watchdog cron wrapper started ===
+[2026-05-28T19:37:44.036Z] WITHIN_ACTIVE_WINDOW — proceeding with watchdog
+[2026-05-28T19:39:07.576Z] Watchdog run completed
+[2026-05-28T19:39:07.577Z] === Watchdog cron wrapper finished ===
+

@@ -1,5 +1,5 @@
 {
-  "status": "UNAVAILABLE",
+  "status": "DEGRADED",
   "pod_id": "23a9nue4xq4r4p",
   "started_at": null,
   "stopped_at": null,
