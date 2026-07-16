@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Done-For-You Back-Office Financial Operations — Qiyadon</title>
+  <meta name="description" content="An agent that actually runs your bookkeeping, invoicing, and collections -- not another tool you have to operate yourself. Join the waitlist.">
+  <link rel="canonical" href="https://qiyadon.com/back-office.html">
+  <meta property="og:title" content="Done-For-You Back-Office Financial Operations — Qiyadon">
+  <meta property="og:description" content="An agent that actually runs your bookkeeping, invoicing, and collections -- not another tool you have to operate yourself.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qiyadon.com/back-office.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --soft-black: #171314;
+      --charcoal: #1D1B1B;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+      --brand-red: #b81414;
+      --crimson: #E03131;
+      --text-light: #e0e0e0;
+      --text-muted: #aaaaaa;
+      --text-faint: #888888;
+      --accent-red: rgba(184,20,20,0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px; line-height: 1.7;
+      color: var(--text-light); background: var(--soft-black);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1 { font-size: 58px; font-weight: 800; color: #ffffff; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 20px; }
+    h2 { font-size: 40px; font-weight: 700; color: #ffffff; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 16px; }
+    h3 { font-size: 22px; font-weight: 700; color: #ffffff; line-height: 1.3; margin-bottom: 16px; }
+    p { color: var(--text-muted); line-height: 1.7; font-size: 17px; }
+    a { color: var(--crimson); text-decoration: none; }
+    a:hover { opacity: 0.8; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 640px) { h1 { font-size: 36px; } h2 { font-size: 28px; } }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(18px); z-index: 1000; border-bottom: 1px solid var(--dark-border); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .nav-logo { font-size: 26px; font-weight: 800; color: var(--text-light); text-decoration: none; letter-spacing: -0.04em; display: flex; align-items: center; gap: 10px; }
+    .brand-logo-img { height: 40px; border-radius: 6px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+    .nav-links a:hover { color: var(--brand-red); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    section { padding: 140px 0 80px; }
+    section.tight { padding: 60px 0; }
+    .badge { display: inline-block; background: var(--accent-red); color: var(--crimson); font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; }
+
+    .card { background: var(--dark-card); border: 1px solid var(--dark-border); border-radius: 14px; padding: 32px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+
+    .cta-button { display: inline-block; background: linear-gradient(135deg, #B11226 0%, #E03131 100%); color: #fff; font-weight: 700; font-size: 16px; padding: 16px 32px; border-radius: 10px; border: none; cursor: pointer; }
+    .cta-button:hover { opacity: 0.9; }
+    .cta-button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .waitlist-form { max-width: 480px; }
+    .waitlist-form input[type="email"], .waitlist-form input[type="text"] {
+      width: 100%; padding: 14px 16px; margin-bottom: 14px; border-radius: 8px;
+      border: 1px solid var(--dark-border); background: var(--charcoal); color: var(--text-light); font-size: 16px;
+    }
+    .form-message { margin-top: 16px; font-size: 15px; padding: 12px 16px; border-radius: 8px; display: none; }
+    .form-message.success { display: block; background: rgba(46, 160, 67, 0.15); color: #4ade80; }
+    .form-message.error { display: block; background: var(--accent-red); color: var(--crimson); }
+    .form-message.loading { display: block; background: var(--charcoal); color: var(--text-muted); }
+
+    .faq-item { border-bottom: 1px solid var(--dark-border); padding: 20px 0; }
+    .faq-item h3 { font-size: 18px; margin-bottom: 8px; }
+
+    footer { background: var(--black); padding: 60px 0 30px; margin-top: 40px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .footer-bottom { border-top: 1px solid var(--dark-border); margin-top: 40px; padding-top: 24px; display: flex; justify-content: space-between; color: var(--text-faint); font-size: 14px; flex-wrap: wrap; gap: 12px; }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="assets/qiyadon-kun-logo.jpg" alt="Qiyadon" class="brand-logo-img"> <span>qiyadon</span></a>
+    <ul class="nav-links">
+      <li><a href="/#what-we-do">What We Do</a></li>
+      <li><a href="/pricing.html">Pricing</a></li>
+      <li><a href="/back-office.html" style="color: var(--brand-red); font-weight:600;">Back Office (New)</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <a href="#waitlist" class="nav-cta" style="color: var(--crimson); font-weight:600; font-size:15px;">Join Waitlist</a>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <span class="badge">Coming Soon — Early Access Waitlist</span>
+    <h1>Your Back Office Is Bleeding Time and Money</h1>
+    <p style="font-size:20px; max-width:640px;">Qiyadon's done-for-you financial operations keep your bookkeeping, invoicing, and collections running — automatically, accurately, and on time. Not another tool to operate. An agent that actually runs it for you.</p>
+    <div style="margin-top:32px;">
+      <a href="#waitlist" class="cta-button">Join the Waitlist</a>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <h2>Manual bookkeeping is killing your cash flow</h2>
+    <p style="max-width:680px;">Nearly half of small businesses have neither an accountant nor a bookkeeper. The result: late invoices, missed collections, and no real-time view of where the money actually stands — until it's a crisis.</p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Bookkeeping overwhelm</h3>
+        <p>Recording transactions by hand eats hours every single week — hours you don't have.</p>
+      </div>
+      <div class="card">
+        <h3>Invoicing &amp; collections</h3>
+        <p>Late payments aren't rare — they're the norm. Chasing them yourself costs you the relationship or the cash.</p>
+      </div>
+      <div class="card">
+        <h3>No real financial visibility</h3>
+        <p>You find out about a cash-flow problem after it's already a problem, not before.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <h2>How it works</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>1. We take over your books</h3>
+        <p>Your real accounts payable and receivable, processed and reconciled without you entering a single line item.</p>
+      </div>
+      <div class="card">
+        <h3>2. We chase what's overdue</h3>
+        <p>The agent follows up on late invoices proactively — before it becomes a cash-flow emergency.</p>
+      </div>
+      <div class="card">
+        <h3>3. You see it in real time</h3>
+        <p>A live view of your real financial position, not a report your accountant emails you next month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" class="tight">
+  <div class="container">
+    <h2>Join the early access waitlist</h2>
+    <p style="margin-bottom:24px;">We're validating demand before building further. Tell us you're interested and we'll reach out when early access opens.</p>
+
+    <form class="waitlist-form" id="waitlistForm" method="post" action="https://list.qiyadon.com/subscription/form">
+      <input type="hidden" name="l" value="069be87c-c8e0-4ef2-9c5e-2e1547c4eded">
+      <input type="hidden" name="nonce" value="">
+      <label for="wl-email" style="display:block; margin-bottom:6px; font-size:14px; color:var(--text-muted);">Email</label>
+      <input id="wl-email" name="email" type="email" required placeholder="you@yourbusiness.com" autocomplete="email">
+      <label for="wl-name" style="display:block; margin-bottom:6px; font-size:14px; color:var(--text-muted);">Name (optional)</label>
+      <input id="wl-name" name="name" type="text" placeholder="Your name" autocomplete="name">
+      <button type="submit" class="cta-button" id="wlSubmitBtn">Join the Waitlist</button>
+      <div class="form-message" id="wlMessage"></div>
+    </form>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <h2>Questions</h2>
+    <div class="faq-item">
+      <h3>Is this the same as Qiyadon's pipeline follow-up service?</h3>
+      <p>No — this is a new capability. If you're already a Qiyadon customer, this will eventually work alongside your existing pipeline execution, not replace it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I already signed up?</h3>
+      <p>You're already on the list — we'll only reach out once, when early access opens. No duplicate emails.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is my data safe?</h3>
+      <p>We'll share full details on data handling before you connect any real financial accounts. Joining the waitlist only registers your interest — no financial data is connected at this stage.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Qiyadon. Pipeline execution that actually follows up.</p>
+      <span>Ahmad Salim — Founding Board Member</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// MOOSA_WAITLIST_FORM_PLAIN_SUBMIT_ACTIVE_20260716
+// Real, verified finding: Listmonk's /subscription/form endpoint sends no
+// Access-Control-Allow-Origin header, confirmed via a direct cross-origin
+// POST test -- a JS fetch() submission would be silently blocked by the
+// browser's CORS policy. Using a plain HTML form submission instead, which
+// is not subject to CORS (a simple top-level navigation, not an XHR read).
+// The browser will navigate to Listmonk's own confirmation page after
+// submit; only client-side email-format validation happens here.
+document.getElementById('waitlistForm').addEventListener('submit', function (e) {
+  var email = document.getElementById('wl-email').value.trim();
+  var msg = document.getElementById('wlMessage');
+  if (!email || email.indexOf('@') === -1) {
+    e.preventDefault();
+    msg.textContent = 'Please enter a valid email address.';
+    msg.className = 'form-message error';
+    return;
+  }
+  document.getElementById('wlSubmitBtn').disabled = true;
+});
+</script>
+
+</body>
+</html>
