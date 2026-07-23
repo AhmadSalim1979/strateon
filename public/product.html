@@ -39,70 +39,82 @@
     <a class="btn btn-primary nav-cta" href="/contact">Contact Sales</a>
   </div>
 </header>
-<section id="autonomous-agent-overview" class="section section-light"><div class="container narrow section-head centered">
-  <h2>Autonomous Agent Overview</h2>
-  <p class="section-lede" style="margin:14px auto 0;">How the agent handles AP/AR autonomously</p>
+<section id="intro-section" class="section-white"><div class="container narrow content-page">
+  <h1>Autonomous AP/AR Agent: The Future of SMB Bookkeeping</h1>
+  
+  <h2>What is the Autonomous AP/AR Agent?</h2><p>The Autonomous AP/AR Agent is a cutting-edge solution designed to streamline accounts payable (AP) and accounts receivable (AR) processes for founder-led SMBs. This autonomous agent creates and matches vendor and customer invoices to ERPNext records without requiring manual data entry from founders, saving time and reducing errors.</p>
+    <h2>The Problem It Solves</h2><p>Founders of SMBs often spend significant time on bookkeeping and invoicing/collections, which are major pain points. According to a Bluevine study, bookkeeping is a significant time drain for 42% of founders. Additionally, 82% of SMB failures are traced to cash-flow and late-payment issues, as highlighted in a Jessie Hagen study. By automating these processes, the Autonomous AP/AR Agent allows founders to focus on growing their business.</p>
+    <h2>Why It Matters</h2><p>The Autonomous AP/AR Agent is particularly relevant for founder-led SMBs that need to optimize their financial operations. By leveraging the real erpnext_purchase_invoice_create and erpnext_sales_invoice_create capabilities, the agent ensures seamless integration with ERPNext, a widely-used ERP system. This integration enables the agent to proactively manage overdue receivables and flag anomalies, further enhancing financial efficiency.</p>
+</div></section>
+<section id="workflow-diagram-section" class="section section-light"><div class="container narrow section-head centered">
+  <h2>How the Autonomous Agent Works</h2>
+  <p class="section-lede" style="margin:14px auto 0;">A step-by-step visual guide to invoice creation and matching with ERPNext.</p>
 </div>
 <div class="container">
-  <div class="card-grid">
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
-        <h3>Autonomous Invoice Processing</h3>
-        <p>The agent creates and matches vendor and customer invoices to ERPNext records without requiring founder data entry.</p>
+  <div class="workflow-diagram">
+      <div class="workflow-step">
+        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 12h6M9 16h6M13 3v5h5"/></svg></div>
+        <h3>Invoice Detected</h3>
+        <p>A vendor bill or customer invoice enters the workflow.</p>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-8"/><path d="M15 6h5v5"/></svg></div>
-        <h3>Proactive Receivables Management</h3>
-        <p>It proactively acts on overdue receivables to ensure timely payments and maintain cash flow.</p>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step">
+        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 10"/></svg></div>
+        <h3>Created & Matched in ERPNext</h3>
+        <p>erpnext_purchase_invoice_create / erpnext_sales_invoice_create autonomously create and match the record -- no manual data entry.</p>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
-        <h3>Anomaly Detection</h3>
-        <p>The agent flags anomalies in invoicing and payments to prevent errors and discrepancies.</p>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step">
+        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
+        <h3>Anomaly Check</h3>
+        <p>The agent checks the invoice and payment pattern for anomalies before it moves forward.</p>
+      </div>
+      <div class="workflow-arrow">&rarr;</div>
+      <div class="workflow-step">
+        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0115-6.7L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 01-15 6.7L3 16M3 21v-5h5"/></svg></div>
+        <h3>Overdue Action</h3>
+        <p>If a receivable is overdue, the agent proactively flags it and acts to prompt collection.</p>
       </div>
   </div>
 </div></section>
-<section id="how-it-works-steps" class="section section-white"><div class="container narrow section-head centered">
-  <h2>How It Works</h2>
-  <p class="section-lede" style="margin:14px auto 0;">Step-by-step process of the autonomous AP/AR agent</p>
-</div>
-<div class="container">
-  <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Invoice Creation</h3>
-        <p>The agent uses erpnext_purchase_invoice_create and erpnext_sales_invoice_create capabilities to autonomously create and match vendor and customer invoices to ERPNext records.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Overdue Receivables</h3>
-        <p>The agent proactively acts on overdue receivables, ensuring timely collections and reducing cash flow disruptions.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Anomaly Detection</h3>
-        <p>The agent flags anomalies in invoicing and payments, helping to prevent errors and fraud.</p>
-      </div>
-  </div>
+<section id="invoice-creation-section" class="section-white"><div class="container narrow content-page">
+  <h1>Autonomous Invoice Creation and Matching</h1>
+  <p class="page-lede">The agent autonomously creates and matches invoices to ERPNext records, eliminating manual data entry for founders.</p>
+  <h2>How It Works</h2><p>The agent uses the erpnext_purchase_invoice_create and erpnext_sales_invoice_create capabilities to autonomously create and match invoices to ERPNext records. This means that when a purchase or sales invoice is generated, the agent ensures it is accurately recorded in ERPNext without any manual intervention from the founder.</p>
+    <h2>ERPNext Integration</h2><p>The seamless integration with ERPNext ensures that all invoice data is accurately and efficiently processed. This integration is crucial for maintaining up-to-date financial records, which is essential for effective cash flow management and decision-making.</p>
+    <h2>Practical Implications</h2><p>By automating the creation and matching of invoices, the agent significantly reduces the time and effort required for bookkeeping. This allows founders to focus on core business activities, ultimately contributing to business growth.</p>
+</div></section>
+<section id="overdue-receivables-section" class="section-white"><div class="container narrow content-page">
+  <h1>Proactive Overdue Receivables Management</h1>
   
+  <h2>How It Works</h2><p>The autonomous agent proactively acts on overdue receivables, ensuring that your business maintains healthy cash flow without requiring constant oversight from you. This capability is designed to handle the critical task of collections autonomously, reducing the administrative burden on founder-led SMBs.</p>
+    <h2>Why It Matters</h2><p>Late payments are a leading cause of SMB failures, with 82% of failures traced to cash-flow and late-payment issues. By autonomously managing overdue receivables, the agent helps mitigate this risk, allowing you to focus on growing your business rather than chasing payments.</p>
+    <h2>Integration with ERPNext</h2><p>The agent seamlessly integrates with ERPNext, leveraging its capabilities to create and match invoices autonomously. This integration ensures that all receivables data is accurately recorded and managed within your existing financial systems, providing a cohesive and efficient workflow.</p>
+</div></section>
+<section id="anomaly-detection-section" class="section-white"><div class="container narrow content-page">
+  <h1>Anomaly Detection</h1>
+  
+  <h2>Proactive Anomaly Flagging</h2><p>Our agent continuously monitors your invoicing and payment patterns to identify irregularities that may indicate errors or potential issues. By flagging anomalies, we help you maintain accurate financial records and avoid costly mistakes.</p>
+    <h2>How It Works</h2><p>The agent analyzes your invoicing and payment data to detect deviations from established patterns, flagging anything that warrants a closer look before it becomes a bigger problem.</p>
+    <h2>Why It Matters</h2><p>Accurate financial records are crucial for making informed business decisions. By proactively flagging anomalies, our agent helps you maintain the integrity of your financial data, ensuring that you have a clear and reliable picture of your business's financial health.</p>
 </div></section>
 <section id="faq" class="section section-light"><div class="container narrow section-head centered">
   <h2>Frequently Asked Questions</h2>
 </div>
 <div class="container narrow">
   <div class="faq-list">
-      <details><summary>Who is the target segment for this autonomous AP/AR agent?</summary><p>The target segment is founder-led SMBs broadly, not sector-specific. These businesses often struggle with time-consuming bookkeeping and invoicing tasks.</p></details>
-      <details><summary>How is this agent different from other bookkeeping tools?</summary><p>Unlike generic bookkeeping software or tools that require founder operation, Qiyadon's agent fully manages AP/AR autonomously. It uses real erpnext_purchase_invoice_create and erpnext_sales_invoice_create capabilities to create and match invoices to ERPNext records without founder data entry.</p></details>
-      <details><summary>What problem does this agent solve?</summary><p>Founders of SMBs spend significant time on bookkeeping and invoicing/collections, which are major pain points. Automating these processes allows founders to focus on growing their business.</p></details>
-      <details><summary>What evidence supports the need for this agent?</summary><p>A Bluevine study found that bookkeeping is a significant time drain for 42% of founders, and a Jessie Hagen study traced 82% of SMB failures to cash-flow/late-payment issues.</p></details>
-      <details><summary>What is the current state of the prototype?</summary><p>The autonomous AP/AR agent is in the prototype stage. It has been implemented and tested for creating and matching invoices to ERPNext records autonomously, as well as proactively acting on overdue receivables and flagging anomalies.</p></details>
-      <details><summary>How can I learn more about this agent?</summary><p>For more information, visit our homepage or contact us directly to get in touch with our team.</p></details>
+      <details><summary>What exactly does the autonomous AP/AR agent do?</summary><p>The agent processes accounts payable and receivable by creating and matching vendor and customer invoices to ERPNext records without requiring founder data entry. It also proactively manages overdue receivables and flags anomalies in invoicing and payment patterns.</p></details>
+      <details><summary>How does the agent integrate with ERPNext?</summary><p>The agent uses the real erpnext_purchase_invoice_create and erpnext_sales_invoice_create capabilities to autonomously create and match invoices to ERPNext records.</p></details>
+      <details><summary>Who is the target segment for this agent?</summary><p>The agent is designed for founder-led SMBs across various sectors, helping them automate bookkeeping and invoicing tasks.</p></details>
+      <details><summary>What makes this agent different from other bookkeeping tools?</summary><p>Unlike generic bookkeeping software or tools that require founder operation, Qiyadon's agent fully manages AP/AR processes autonomously.</p></details>
+      <details><summary>Is the agent currently available for use?</summary><p>The agent is in the prototype stage and not yet available for production use. We are actively working on validating customer demand and refining the product.</p></details>
+      <details><summary>How can I learn more about the agent?</summary><p>For more information, visit our homepage or contact us directly to stay updated on the latest developments.</p></details>
   </div>
 </div></section>
-<section id="final-cta" class="section section-dark"><div class="container narrow final-cta">
+<section id="cta-section" class="section section-dark"><div class="container narrow final-cta">
   <h2>Ready to Automate Your AP/AR?</h2>
-  <p class="section-lede">Join our pilot program and experience the benefits of autonomous AP/AR processing. Let our agent handle your invoices while you focus on growing your business.</p>
-  <a class="btn btn-primary" href="/product">Learn More</a>
+  <p class="section-lede">Experience how our autonomous agent can transform your accounts payable and receivable processes. Sign up to stay updated on our latest developments and be the first to know when we launch.</p>
+  <a class="btn btn-primary" href="/contact">Get Started</a>
 </div></section>
 <footer class="site-footer">
   <div class="container">
@@ -122,7 +134,7 @@
         <h4>Contact</h4>
         <a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a>
         <a href="tel:+923215139934">+92 321 513 9934</a>
-        <a href="#">Islamabad, Pakistan</a>
+        <span class="footer-static">Islamabad, Pakistan</span>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
