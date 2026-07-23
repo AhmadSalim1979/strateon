@@ -245,6 +245,17 @@ body.waitlist-modal-open { overflow: hidden; }
 .workflow-step h3 { font-size: 16px; margin-bottom: 8px; }
 .workflow-step p { font-size: 13.5px; color: var(--slate-500); }
 .workflow-arrow { align-self: center; color: var(--slate-400); font-size: 22px; padding: 0 2px; margin-top: 42px; }
+.transform-visual { position: relative; max-width: 900px; margin: 40px auto 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); background: var(--navy-950); }
+.transform-visual img { display: block; width: 100%; height: auto; }
+.transform-frame-b { position: absolute; inset: 0; }
+.transform-frame-a { animation: transformCrossfadeA 8s ease-in-out infinite; }
+.transform-frame-b { animation: transformCrossfadeB 8s ease-in-out infinite; }
+@keyframes transformCrossfadeA { 0%, 40% { opacity: 1; } 50%, 90% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes transformCrossfadeB { 0%, 40% { opacity: 0; } 50%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .transform-frame-a, .transform-frame-b { animation: none; }
+  .transform-frame-b { opacity: 0; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
