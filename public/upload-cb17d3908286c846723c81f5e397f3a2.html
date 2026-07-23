@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Upload image</title>
+<style>body{font-family:sans-serif;max-width:480px;margin:60px auto;padding:0 20px;}
+input,button{font-size:16px;padding:10px;margin-top:10px;width:100%;box-sizing:border-box;}
+button{background:#10B981;color:#fff;border:none;border-radius:6px;cursor:pointer;}
+#status{margin-top:14px;font-size:14px;}</style></head>
+<body>
+<h2>Upload image to Claude</h2>
+<input type="file" id="f" accept="image/png,image/jpeg">
+<button id="btn">Upload</button>
+<p id="status"></p>
+<script>
+document.getElementById('btn').onclick = function () {
+  var input = document.getElementById('f');
+  var status = document.getElementById('status');
+  if (!input.files[0]) { status.textContent = 'Choose a file first.'; return; }
+  var reader = new FileReader();
+  reader.onload = function () {
+    status.textContent = 'Uploading...';
+    fetch('https://api.qiyadon.com/tmp-upload-cb17d3908286c846723c81f5e397f3a2', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: input.files[0].name, data_base64: reader.result })
+    }).then(function (r) { return r.json(); }).then(function (body) {
+      status.textContent = body.success ? ('Done: ' + body.saved_as) : ('Error: ' + body.error);
+    }).catch(function () { status.textContent = 'Upload failed -- try again.'; });
+  };
+  reader.readAsDataURL(input.files[0]);
+};
+</script>
+</body></html>
