@@ -36,7 +36,7 @@
         <a href="/#faq">FAQ</a>
         <a href="/contact">Contact</a>
     </nav>
-    <a class="btn btn-primary nav-cta" href="/contact">Contact Sales</a>
+    <button type="button" class="btn btn-primary nav-cta" data-waitlist-open>Join the Waitlist</button>
   </div>
 </header>
 <section class="section-white"><div class="container narrow content-page">
@@ -84,5 +84,120 @@
     </div>
   </div>
 </footer>
+<div class="waitlist-modal-overlay" id="waitlist-modal-overlay" hidden>
+  <div class="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-modal-title">
+    <button type="button" class="waitlist-modal-close" id="waitlist-modal-close" aria-label="Close">&times;</button>
+    <h2 id="waitlist-modal-title">Join the Waitlist</h2>
+    <p class="waitlist-modal-sub">Tell us a bit about your business and we'll be in touch soon.</p>
+    <form id="waitlist-form">
+      <div class="form-row">
+        <label for="wl-name">Full Name *</label>
+        <input type="text" id="wl-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-phone">Phone *</label>
+        <input type="tel" id="wl-phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-email">Email *</label>
+        <input type="email" id="wl-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-company">Company Name *</label>
+        <input type="text" id="wl-company" name="company" autocomplete="organization" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-industry">Industry</label>
+        <select id="wl-industry" name="industry">
+          <option value="">Select an industry</option>
+          <option>Retail &amp; E-commerce</option>
+          <option>Professional Services</option>
+          <option>Technology &amp; Software</option>
+          <option>Manufacturing</option>
+          <option>Construction &amp; Real Estate</option>
+          <option>Healthcare</option>
+          <option>Hospitality &amp; Food Service</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-company-size">Company Size</label>
+        <select id="wl-company-size" name="company_size">
+          <option value="">Select company size</option>
+          <option>1-10 employees</option>
+          <option>11-50 employees</option>
+          <option>51-200 employees</option>
+          <option>200+ employees</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-notes">Anything else we should know? (optional)</label>
+        <textarea id="wl-notes" name="notes" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p class="form-status" id="waitlist-form-status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var overlay = document.getElementById('waitlist-modal-overlay');
+  if (!overlay) return;
+  var closeBtn = document.getElementById('waitlist-modal-close');
+  var form = document.getElementById('waitlist-form');
+  var status = document.getElementById('waitlist-form-status');
+
+  function openModal() {
+    overlay.hidden = false;
+    document.body.classList.add('waitlist-modal-open');
+  }
+  function closeModal() {
+    overlay.hidden = true;
+    document.body.classList.remove('waitlist-modal-open');
+  }
+
+  document.querySelectorAll('[data-waitlist-open]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    var payload = {
+      name: document.getElementById('wl-name').value.trim(),
+      phone: document.getElementById('wl-phone').value.trim(),
+      email: document.getElementById('wl-email').value.trim(),
+      company: document.getElementById('wl-company').value.trim(),
+      industry: document.getElementById('wl-industry').value,
+      company_size: document.getElementById('wl-company-size').value,
+      notes: document.getElementById('wl-notes').value.trim()
+    };
+    fetch('/submit-waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          form.reset();
+          status.textContent = '';
+          closeModal();
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
 </body>
 </html>

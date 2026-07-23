@@ -215,6 +215,25 @@ a { color: inherit; text-decoration: none; }
 .contact-form .form-status { font-size: 14px; min-height: 20px; }
 .contact-form .form-status.success { color: var(--emerald-dark); }
 .contact-form .form-status.error { color: #B42318; }
+.waitlist-modal-overlay { position: fixed; inset: 0; background: rgba(10,15,28,0.6); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+.waitlist-modal-overlay[hidden] { display: none; }
+.waitlist-modal { background: var(--white); border-radius: var(--radius-lg); padding: 36px; max-width: 480px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.28); }
+.waitlist-modal-close { position: absolute; top: 14px; right: 14px; background: none; border: none; font-size: 26px; line-height: 1; cursor: pointer; color: var(--slate-400); padding: 4px 8px; }
+.waitlist-modal-close:hover { color: var(--slate-900); }
+.waitlist-modal h2 { font-size: 24px; margin-bottom: 8px; }
+.waitlist-modal-sub { color: var(--slate-500); font-size: 14px; margin-bottom: 24px; }
+.waitlist-modal form { display: flex; flex-direction: column; gap: 16px; }
+.waitlist-modal .form-row { display: flex; flex-direction: column; gap: 6px; }
+.waitlist-modal label { font-size: 13px; font-weight: 700; color: var(--slate-700); }
+.waitlist-modal input, .waitlist-modal select, .waitlist-modal textarea { font-family: inherit; font-size: 15px; padding: 11px 13px; border: 1px solid var(--slate-200); border-radius: var(--radius-sm); color: var(--slate-900); background: var(--white); }
+.waitlist-modal input:focus, .waitlist-modal select:focus, .waitlist-modal textarea:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px var(--emerald-soft); }
+.waitlist-modal button[type="submit"] { border: none; cursor: pointer; margin-top: 4px; }
+.waitlist-modal .form-status { font-size: 13.5px; min-height: 18px; }
+.waitlist-modal .form-status.error { color: #B42318; }
+body.waitlist-modal-open { overflow: hidden; }
+@media (max-width: 500px) {
+  .waitlist-modal { padding: 28px 22px; }
+}
 .contact-card { background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-card); }
 .contact-card h3 { margin-bottom: 8px; font-size: 16px; }
 .contact-card a, .contact-card p { color: var(--slate-500); font-size: 14.5px; }
