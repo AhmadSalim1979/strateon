@@ -68,6 +68,7 @@
 <section id="transformation" class="section-white"><div class="container">
   <div class="transform-visual" data-transform-root>
     <div class="transform-scene transform-scene-chaos" data-scene="chaos">
+      <svg class="transform-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 11 20 Q 30 45 41 70" class="transform-line transform-line-chaos" data-delay="2"/><path d="M 42 11 Q 25 40 9 68" class="transform-line transform-line-chaos" data-delay="3"/><path d="M 80 22 Q 60 45 41 70" class="transform-line transform-line-chaos" data-delay="4"/><path d="M 9 68 Q 45 50 80 22" class="transform-line transform-line-chaos" data-delay="5"/><path d="M 11 20 Q 60 15 80 22" class="transform-line transform-line-chaos" data-delay="6"/><path d="M 41 70 Q 60 70 80 70" class="transform-line transform-line-chaos" data-delay="7"/><path d="M 42 11 Q 60 40 80 70" class="transform-line transform-line-chaos" data-delay="8"/></svg>
       <div class="transform-node" style="--tx:11%;--ty:20%;" data-delay="0">
         <div class="transform-node-icon-wrap"><img src="/assets/transform-invoice.webp" alt="" class="transform-node-icon" loading="lazy"><span class="transform-warn-dot">!</span></div>
         <span class="transform-node-label">Unpaid Invoices</span>
@@ -126,7 +127,7 @@
   if (!root) return;
   var scenes = { chaos: root.querySelector('[data-scene="chaos"]'), order: root.querySelector('[data-scene="order"]') };
   var started = false;
-  var STAGGER_MS = 150, POP_MS = 500, CHAOS_HOLD_MS = 3800, ORDER_HOLD_MS = 4400;
+  var STAGGER_MS = 230, POP_MS = 700, CHAOS_HOLD_MS = 5400, ORDER_HOLD_MS = 6200;
   var isMobile = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -136,13 +137,18 @@
     var scene = scenes[name];
     scene.classList.add('is-active');
     var targets = scene.querySelectorAll('.transform-node, .transform-tag, .transform-line');
-    targets.forEach(function (n) { n.classList.remove('is-in'); n.style.animationDelay = ''; });
+    targets.forEach(function (n) { n.classList.remove('is-in'); n.style.animationDelay = ''; n.style.transitionDelay = ''; });
     void scene.offsetWidth;
     targets.forEach(function (n) {
       var delay = parseInt(n.getAttribute('data-delay'), 10) || 0;
       var popDelay = (delay * STAGGER_MS) / 1000;
       var idleDelay = popDelay + (POP_MS / 1000);
+      // Nodes/tags use CSS animation (animation-delay); lines use a plain
+      // CSS transition (transition-delay) -- set both so the stagger
+      // applies correctly regardless of which mechanism a given element
+      // uses. Harmless no-op on elements that don't have the other one.
       n.style.animationDelay = popDelay + 's, ' + idleDelay + 's';
+      n.style.transitionDelay = popDelay + 's';
       n.classList.add('is-in');
     });
   }
