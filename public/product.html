@@ -48,35 +48,127 @@
 </div></section>
 <section id="workflow-diagram-section" class="section section-light"><div class="container narrow section-head centered">
   <h2>How the Autonomous Agent Works</h2>
-  <p class="section-lede" style="margin:14px auto 0;">A step-by-step visual guide to invoice creation and matching with ERPNext.</p>
+  <p class="section-lede" style="margin:14px auto 0;">Two parallel tracks -- Payables and Receivables -- both handled autonomously from invoice to resolution.</p>
 </div>
 <div class="container">
-  <div class="workflow-diagram">
-      <div class="workflow-step">
-        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 12h6M9 16h6M13 3v5h5"/></svg></div>
-        <h3>Invoice Detected</h3>
-        <p>A vendor bill or customer invoice enters the workflow.</p>
+  <div class="process-visual" data-process-root>
+  <div class="process-track" data-process-track="ap">
+    <div class="process-track-label ap">Payables</div>
+    <div class="process-nodes">
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-vendor-invoice.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Vendor Invoice Detected</span>
       </div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step">
-        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.3 2.3L16 10"/></svg></div>
-        <h3>Created & Matched in ERPNext</h3>
-        <p>erpnext_purchase_invoice_create / erpnext_sales_invoice_create autonomously create and match the record -- no manual data entry.</p>
+      <div class="process-connector" data-process-connector></div>
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-matched-erpnext.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Matched to ERPNext</span>
       </div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step">
-        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
-        <h3>Anomaly Check</h3>
-        <p>The agent checks the invoice and payment pattern for anomalies before it moves forward.</p>
+      <div class="process-connector" data-process-connector></div>
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-anomaly-check.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Anomaly Check</span>
       </div>
-      <div class="workflow-arrow">&rarr;</div>
-      <div class="workflow-step">
-        <div class="workflow-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0115-6.7L21 8M21 3v5h-5"/><path d="M21 12a9 9 0 01-15 6.7L3 16M3 21v-5h5"/></svg></div>
-        <h3>Overdue Action</h3>
-        <p>If a receivable is overdue, the agent proactively flags it and acts to prompt collection.</p>
+      <div class="process-connector" data-process-connector></div>
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-payment-scheduled.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Payment Scheduled</span>
       </div>
+    </div>
   </div>
-</div></section>
+  <div class="process-track" data-process-track="ar">
+    <div class="process-track-label ar">Receivables</div>
+    <div class="process-nodes">
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-customer-invoice.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Customer Invoice Created</span>
+      </div>
+      <div class="process-connector" data-process-connector></div>
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-matched-erpnext.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Matched to ERPNext</span>
+      </div>
+      <div class="process-connector" data-process-connector></div>
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-anomaly-check.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Anomaly Check</span>
+      </div>
+      <div class="process-connector" data-process-connector></div>
+      <div class="process-node" data-process-node>
+        <img src="/assets/process-overdue-followup.webp" alt="" class="process-node-icon" loading="lazy">
+        <span class="process-node-label">Overdue Follow-Up</span>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.querySelector('[data-process-root]');
+  if (!root) return;
+  var isMobile = window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isMobile || reducedMotion) return; // static CSS fallback shows every stage already active
+
+  var SEGMENT_MS = 900, NODE_PAUSE_MS = 250, START_DELAY_MS = 300;
+  var started = false;
+
+  function animateTrack(track) {
+    var nodes = track.querySelectorAll('[data-process-node]');
+    var connectors = track.querySelectorAll('[data-process-connector]');
+    var trackRect = track.getBoundingClientRect();
+    var nodeCenters = [];
+    nodes.forEach(function (n) {
+      var r = n.getBoundingClientRect();
+      nodeCenters.push({ x: r.left + r.width / 2 - trackRect.left, y: r.top + r.height / 2 - trackRect.top });
+    });
+
+    function activateNode(i, delay) {
+      setTimeout(function () { nodes[i].classList.add('is-active'); }, delay);
+    }
+    function firePulse(segIndex, delay) {
+      if (!connectors[segIndex]) return;
+      setTimeout(function () {
+        var from = nodeCenters[segIndex], to = nodeCenters[segIndex + 1];
+        var pulse = document.createElement('div');
+        pulse.className = 'process-pulse ' + track.getAttribute('data-process-track');
+        track.appendChild(pulse);
+        var anim = pulse.animate([
+          { transform: 'translate(' + (from.x - 7) + 'px,' + (from.y - 7) + 'px)', opacity: 0 },
+          { transform: 'translate(' + (from.x - 7) + 'px,' + (from.y - 7) + 'px)', opacity: 1, offset: 0.08 },
+          { transform: 'translate(' + (to.x - 7) + 'px,' + (to.y - 7) + 'px)', opacity: 1, offset: 0.92 },
+          { transform: 'translate(' + (to.x - 7) + 'px,' + (to.y - 7) + 'px)', opacity: 0 }
+        ], { duration: SEGMENT_MS, easing: 'ease-in-out' });
+        anim.onfinish = function () { pulse.remove(); };
+      }, delay);
+    }
+
+    var t = START_DELAY_MS;
+    activateNode(0, t);
+    for (var i = 0; i < nodeCenters.length - 1; i++) {
+      t += NODE_PAUSE_MS;
+      firePulse(i, t);
+      t += SEGMENT_MS;
+      activateNode(i + 1, t);
+    }
+  }
+
+  function start() {
+    if (started) return;
+    started = true;
+    root.querySelectorAll('[data-process-track]').forEach(animateTrack);
+  }
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { start(); obs.disconnect(); } });
+    }, { threshold: 0.3 });
+    obs.observe(root);
+  } else {
+    start();
+  }
+})();
+</script></section>
 <section id="invoice-creation-section" class="section-white"><div class="container narrow content-page">
   <h1>Autonomous Invoice Creation and Matching</h1>
   <p class="page-lede">The agent autonomously creates and matches invoices to ERPNext records, eliminating manual data entry for founders.</p>
