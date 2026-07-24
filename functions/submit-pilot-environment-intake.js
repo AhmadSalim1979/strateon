@@ -1,15 +1,13 @@
 /**
- * functions/submit-readiness-assessment.js
- * Cloudflare Pages Function — Qiyadon Pilot Readiness Assessment handler
+ * functions/submit-pilot-environment-intake.js
+ * Cloudflare Pages Function — Qiyadon Pilot Environment Intake handler
  *
- * Handles POST /submit-readiness-assessment from pilot-readiness-assessment.html
- * (a private link sent only to pilot applicants found 'eligible' by Phase 5
- * of the CMO daily pipeline). Proxies to the real backend at
- * api.qiyadon.com (Cloudflare Tunnel -> qiyadon-audit-form pm2 process,
- * port 3001), which validates the per-prospect readiness token and writes
- * the answers directly into that prospect's Customer Discovery Tracker
- * record in NocoDB. Does not trigger onboarding or any conversation step --
- * it only records the answers.
+ * Handles POST /submit-pilot-environment-intake from
+ * pilot-environment-intake.html (a private link sent only when Phase 6 of
+ * the CMO daily pipeline finds a pilot application 'ready'). Proxies to
+ * the real backend at api.qiyadon.com. This form (and this handler) never
+ * accept a password/API-key/access-token field -- only non-secret
+ * operational details, per Ahmad's explicit instruction.
  */
 
 const CORS_HEADERS = {
@@ -26,28 +24,22 @@ function corsResponse(status, body) {
   });
 }
 
-async function sendReadinessSubmission(data) {
-  const res = await fetch('https://api.qiyadon.com/submit-readiness-assessment', {
+async function sendIntakeSubmission(data) {
+  const res = await fetch('https://api.qiyadon.com/submit-pilot-environment-intake', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
   });
   const body = await res.json().catch(() => ({}));
   if (!res.ok) {
-    const err = new Error(body?.error || `Readiness assessment backend error ${res.status}`);
+    const err = new Error(body?.error || `Pilot environment intake backend error ${res.status}`);
     err.status = res.status;
     throw err;
   }
   return body;
 }
 
-const REQUIRED_ANSWER_KEYS = [
-  'erpnext_hosting',
-  'sandbox_availability',
-  'technical_access',
-  'monthly_transaction_volume',
-  'pilot_timeframe'
-];
+const REQUIRED_ANSWER_KEYS = ['sandbox_url', 'erpnext_version', 'integration_method', 'coordination_contact'];
 
 export async function onRequest({ request }) {
   if (request.method === 'OPTIONS') {
@@ -65,7 +57,7 @@ export async function onRequest({ request }) {
   }
 
   const token = String(data?.token || '').trim();
-  if (!token) return corsResponse(400, { error: 'This assessment link is missing its token.' });
+  if (!token) return corsResponse(400, { error: 'This link is missing its token.' });
 
   const answers = {};
   for (const key of REQUIRED_ANSWER_KEYS) {
@@ -77,10 +69,10 @@ export async function onRequest({ request }) {
   answers.additional_notes = String(data?.answers?.additional_notes || '').trim().slice(0, 2000);
 
   try {
-    await sendReadinessSubmission({ token, answers, submitted_at: new Date().toISOString() });
-    return corsResponse(200, { success: true, message: 'Assessment submitted' });
+    await sendIntakeSubmission({ token, answers, submitted_at: new Date().toISOString() });
+    return corsResponse(200, { success: true, message: 'Intake submitted' });
   } catch (err) {
-    console.error('[submit-readiness-assessment] Submission error:', err.message);
+    console.error('[submit-pilot-environment-intake] Submission error:', err.message);
     return corsResponse(err.status && err.status < 500 ? err.status : 500, {
       error: err.status && err.status < 500 ? err.message : 'Failed to submit. Please try again or email us directly.'
     });

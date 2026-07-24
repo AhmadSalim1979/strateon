@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pilot Readiness Assessment — Qiyadon</title>
-  <meta name="description" content="A short assessment to prepare your Qiyadon AP/AR pilot." />
+  <title>A Quick Follow-Up — Qiyadon</title>
+  <meta name="description" content="A couple of quick questions to finish preparing your Qiyadon pilot." />
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="canonical" href="https://qiyadon.com/pilot-readiness-assessment">
-  <meta property="og:title" content="Pilot Readiness Assessment — Qiyadon">
-  <meta property="og:description" content="A short assessment to prepare your Qiyadon AP/AR pilot.">
+  <link rel="canonical" href="https://qiyadon.com/pilot-readiness-followup">
+  <meta property="og:title" content="A Quick Follow-Up — Qiyadon">
+  <meta property="og:description" content="A couple of quick questions to finish preparing your Qiyadon pilot.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://qiyadon.com/pilot-readiness-assessment">
+  <meta property="og:url" content="https://qiyadon.com/pilot-readiness-followup">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,69 +41,11 @@
 </header>
 <section class="section-white">
 <div class="container narrow content-page" style="padding-top:48px; padding-bottom:64px;">
-  <h1>Qiyadon Pilot Readiness Assessment</h1>
-  <p class="page-lede">A few quick questions so we can prepare your pilot -- pick the closest answer, or type your own in the box below each question.</p>
-  <form id="readiness-form">
-    <div class="diag-question">
-      <label class="diag-question-label">1. How is your ERPNext instance hosted?</label>
-      <div class="diag-options">
-        <label class="diag-option"><input type="radio" name="erpnext_hosting" value="Frappe Cloud" id="erpnext_hosting-0"> <span>Frappe Cloud</span></label>
-        <label class="diag-option"><input type="radio" name="erpnext_hosting" value="Self-hosted (our own server)" id="erpnext_hosting-1"> <span>Self-hosted (our own server)</span></label>
-        <label class="diag-option"><input type="radio" name="erpnext_hosting" value="Third-party managed hosting" id="erpnext_hosting-2"> <span>Third-party managed hosting</span></label>
-        <label class="diag-option"><input type="radio" name="erpnext_hosting" value="Not sure" id="erpnext_hosting-3"> <span>Not sure</span></label>
-      </div>
-      <input type="text" class="diag-manual" data-for="erpnext_hosting" placeholder="Other / additional detail (optional)">
-    </div>
-    <div class="diag-question">
-      <label class="diag-question-label">2. Can you provide a test or sandbox ERPNext environment for the pilot (separate from production)?</label>
-      <div class="diag-options">
-        <label class="diag-option"><input type="radio" name="sandbox_availability" value="Yes, we have one already" id="sandbox_availability-0"> <span>Yes, we have one already</span></label>
-        <label class="diag-option"><input type="radio" name="sandbox_availability" value="We can set one up before the pilot" id="sandbox_availability-1"> <span>We can set one up before the pilot</span></label>
-        <label class="diag-option"><input type="radio" name="sandbox_availability" value="No, only production is available" id="sandbox_availability-2"> <span>No, only production is available</span></label>
-        <label class="diag-option"><input type="radio" name="sandbox_availability" value="Not sure" id="sandbox_availability-3"> <span>Not sure</span></label>
-      </div>
-      <input type="text" class="diag-manual" data-for="sandbox_availability" placeholder="Other / additional detail (optional)">
-    </div>
-    <div class="diag-question">
-      <label class="diag-question-label">3. Do you (or someone on your team) have admin/API access to your ERPNext instance?</label>
-      <div class="diag-options">
-        <label class="diag-option"><input type="radio" name="technical_access" value="Yes, I have access" id="technical_access-0"> <span>Yes, I have access</span></label>
-        <label class="diag-option"><input type="radio" name="technical_access" value="Someone on my team has access" id="technical_access-1"> <span>Someone on my team has access</span></label>
-        <label class="diag-option"><input type="radio" name="technical_access" value="Not sure" id="technical_access-2"> <span>Not sure</span></label>
-        <label class="diag-option"><input type="radio" name="technical_access" value="No" id="technical_access-3"> <span>No</span></label>
-      </div>
-      <input type="text" class="diag-manual" data-for="technical_access" placeholder="Other / additional detail (optional)">
-    </div>
-    <div class="diag-question">
-      <label class="diag-question-label">4. Approximately how many AP/AR transactions would be in scope for a pilot per month?</label>
-      <div class="diag-options">
-        <label class="diag-option"><input type="radio" name="monthly_transaction_volume" value="0-10" id="monthly_transaction_volume-0"> <span>0-10</span></label>
-        <label class="diag-option"><input type="radio" name="monthly_transaction_volume" value="11-25" id="monthly_transaction_volume-1"> <span>11-25</span></label>
-        <label class="diag-option"><input type="radio" name="monthly_transaction_volume" value="26-50" id="monthly_transaction_volume-2"> <span>26-50</span></label>
-        <label class="diag-option"><input type="radio" name="monthly_transaction_volume" value="51-100" id="monthly_transaction_volume-3"> <span>51-100</span></label>
-        <label class="diag-option"><input type="radio" name="monthly_transaction_volume" value="100+" id="monthly_transaction_volume-4"> <span>100+</span></label>
-      </div>
-      <input type="text" class="diag-manual" data-for="monthly_transaction_volume" placeholder="Other / additional detail (optional)">
-    </div>
-    <div class="diag-question">
-      <label class="diag-question-label">5. What is your preferred pilot start timeframe?</label>
-      <div class="diag-options">
-        <label class="diag-option"><input type="radio" name="pilot_timeframe" value="As soon as possible" id="pilot_timeframe-0"> <span>As soon as possible</span></label>
-        <label class="diag-option"><input type="radio" name="pilot_timeframe" value="Within 2-4 weeks" id="pilot_timeframe-1"> <span>Within 2-4 weeks</span></label>
-        <label class="diag-option"><input type="radio" name="pilot_timeframe" value="Within 1-3 months" id="pilot_timeframe-2"> <span>Within 1-3 months</span></label>
-        <label class="diag-option"><input type="radio" name="pilot_timeframe" value="Just exploring for now" id="pilot_timeframe-3"> <span>Just exploring for now</span></label>
-      </div>
-      <input type="text" class="diag-manual" data-for="pilot_timeframe" placeholder="Other / additional detail (optional)">
-    </div>
-    <div class="diag-question">
-      <label class="diag-question-label">6. Anything else we should know before starting a pilot? (optional)</label>
-      <textarea id="readiness-additional-notes" rows="3" style="width:100%; font-family:inherit; font-size:14px; padding:9px 12px; border:1px solid var(--slate-200); border-radius:var(--radius-sm); color:var(--slate-900); background:var(--white);"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" id="readiness-submit">Submit Assessment</button>
-    <p class="form-status" id="readiness-form-status" aria-live="polite"></p>
-  </form>
-  <div id="readiness-invalid-token" hidden>
-    <p class="page-lede">This assessment link is missing its token and can't be submitted. Please use the link from the email invitation you received.</p>
+  <h1>A Quick Follow-Up</h1>
+  <p class="page-lede">Just a couple of details we still need to finish reviewing your pilot readiness.</p>
+  <form id="followup-form"></form>
+  <div id="followup-invalid-token" hidden>
+    <p class="page-lede">This link is missing its token or its questions and can't be submitted. Please use the link from the email you received.</p>
   </div>
 </div>
 </section>
@@ -115,35 +57,53 @@
   .diag-option { display: flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--slate-700); cursor: pointer; font-weight: 400; }
   .diag-option input { width: auto; }
   .diag-manual { width: 100%; font-family: inherit; font-size: 14px; padding: 9px 12px; border: 1px solid var(--slate-200); border-radius: var(--radius-sm); color: var(--slate-900); background: var(--white); }
-  .diag-manual:focus, #readiness-additional-notes:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px var(--emerald-soft); }
-  #readiness-submit { margin-top: 8px; }
+  .diag-manual:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px var(--emerald-soft); }
+  #followup-submit { margin-top: 8px; }
   .form-status.error { color: #B42318; }
 </style>
 <script>
 (function () {
-  var form = document.getElementById('readiness-form');
-  var status = document.getElementById('readiness-form-status');
+  var ALL_QUESTIONS = [{"key":"erpnext_hosting","label":"How is your ERPNext instance hosted?","options":["Frappe Cloud","Self-hosted (our own server)","Third-party managed hosting","Not sure"]},{"key":"sandbox_availability","label":"Can you provide a test or sandbox ERPNext environment for the pilot (separate from production)?","options":["Yes, we have one already","We can set one up before the pilot","No, only production is available","Not sure"]},{"key":"technical_access","label":"Do you (or someone on your team) have admin/API access to your ERPNext instance?","options":["Yes, I have access","Someone on my team has access","Not sure","No"]},{"key":"monthly_transaction_volume","label":"Approximately how many AP/AR transactions would be in scope for a pilot per month?","options":["0-10","11-25","26-50","51-100","100+"]},{"key":"pilot_timeframe","label":"What is your preferred pilot start timeframe?","options":["As soon as possible","Within 2-4 weeks","Within 1-3 months","Just exploring for now"]}];
+  var form = document.getElementById('followup-form');
   var params = new URLSearchParams(window.location.search);
   var token = params.get('token');
+  var fieldsParam = params.get('fields') || '';
+  var wantedKeys = fieldsParam.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  var questions = ALL_QUESTIONS.filter(function (q) { return wantedKeys.indexOf(q.key) !== -1; });
 
-  if (!token) {
-    form.hidden = true;
-    document.getElementById('readiness-invalid-token').hidden = false;
+  if (!token || !questions.length) {
+    document.getElementById('followup-invalid-token').hidden = false;
     return;
   }
+
+  function renderQuestion(q, index) {
+    var optionsHtml = q.options.map(function (opt, i) {
+      return '<label class="diag-option"><input type="radio" name="' + q.key + '" value="' + opt + '" id="' + q.key + '-' + i + '"> <span>' + opt + '</span></label>';
+    }).join('');
+    return '<div class="diag-question">' +
+      '<label class="diag-question-label">' + (index + 1) + '. ' + q.label + '</label>' +
+      '<div class="diag-options">' + optionsHtml + '</div>' +
+      '<input type="text" class="diag-manual" data-for="' + q.key + '" placeholder="Other / additional detail (optional)">' +
+      '</div>';
+  }
+
+  form.innerHTML = questions.map(renderQuestion).join('') +
+    '<button type="submit" class="btn btn-primary" id="followup-submit">Submit</button>' +
+    '<p class="form-status" id="followup-form-status" aria-live="polite"></p>';
+
+  var status = document.getElementById('followup-form-status');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var answers = {};
     var missing = null;
-    ["erpnext_hosting","sandbox_availability","technical_access","monthly_transaction_volume","pilot_timeframe"].forEach(function (key) {
-      var manual = form.querySelector('.diag-manual[data-for="' + key + '"]').value.trim();
-      var checked = form.querySelector('input[name="' + key + '"]:checked');
+    questions.forEach(function (q) {
+      var manual = form.querySelector('.diag-manual[data-for="' + q.key + '"]').value.trim();
+      var checked = form.querySelector('input[name="' + q.key + '"]:checked');
       var value = manual || (checked ? checked.value : '');
-      if (!value) missing = key;
-      answers[key] = value;
+      if (!value) missing = q.key;
+      answers[q.key] = value;
     });
-    answers.additional_notes = document.getElementById('readiness-additional-notes').value.trim();
     if (missing) {
       status.textContent = 'Please answer every question (pick an option or type your own).';
       status.className = 'form-status error';
@@ -151,7 +111,7 @@
     }
     status.textContent = 'Submitting...';
     status.className = 'form-status';
-    fetch('/submit-readiness-assessment', {
+    fetch('/submit-readiness-followup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: token, answers: answers })
@@ -159,7 +119,7 @@
       .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
       .then(function (result) {
         if (result.ok) {
-          form.innerHTML = '<p class="page-lede">Thank you -- your readiness assessment has been recorded. Our team will follow up soon.</p>';
+          form.innerHTML = '<p class="page-lede">Thank you -- we have what we need. Our team will follow up soon.</p>';
         } else {
           status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
           status.className = 'form-status error';
