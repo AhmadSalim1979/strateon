@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AP/AR Discovery Diagnostic — Qiyadon</title>
+  <meta name="description" content="A short diagnostic to understand your current accounts payable and receivable process." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://qiyadon.com/diagnostic">
+  <meta property="og:title" content="AP/AR Discovery Diagnostic — Qiyadon">
+  <meta property="og:description" content="A short diagnostic to understand your current accounts payable and receivable process.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qiyadon.com/diagnostic">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Qiyadon",
+    "url": "https://qiyadon.com/",
+    "description": "Autonomous AP/AR processing for founder-led SMBs."
+  }
+  </script>
+</head>
+<body>
+<header class="site-header" data-header>
+  <div class="nav-shell">
+    <a href="/" class="brand"><span class="brand-mark">&#9670;</span>&nbsp;qiyadon</a>
+    <nav class="nav-links" data-nav>
+        <a href="/product">Product</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <button type="button" class="btn btn-primary nav-cta" data-waitlist-open>Join the Waitlist</button>
+  </div>
+</header>
+<section class="section-white">
+<div class="container narrow content-page" style="padding-top:48px; padding-bottom:64px;">
+  <h1>AP/AR Discovery Diagnostic</h1>
+  <p class="page-lede">Nine quick questions about how you currently handle accounts payable and receivable. Takes about 2 minutes -- pick the closest answer, or type your own in the box below each question.</p>
+  <form id="diagnostic-form">
+    <div class="diag-question">
+      <label class="diag-question-label">1. Which accounting or ERP system do you use?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="erp_system" value="ERPNext" id="erp_system-0"> <span>ERPNext</span></label>
+        <label class="diag-option"><input type="radio" name="erp_system" value="QuickBooks" id="erp_system-1"> <span>QuickBooks</span></label>
+        <label class="diag-option"><input type="radio" name="erp_system" value="Xero" id="erp_system-2"> <span>Xero</span></label>
+        <label class="diag-option"><input type="radio" name="erp_system" value="Zoho Books" id="erp_system-3"> <span>Zoho Books</span></label>
+        <label class="diag-option"><input type="radio" name="erp_system" value="Wave" id="erp_system-4"> <span>Wave</span></label>
+        <label class="diag-option"><input type="radio" name="erp_system" value="FreshBooks" id="erp_system-5"> <span>FreshBooks</span></label>
+        <label class="diag-option"><input type="radio" name="erp_system" value="Excel / Spreadsheets only" id="erp_system-6"> <span>Excel / Spreadsheets only</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="erp_system" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">2. Approximately how many supplier invoices do you process monthly?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="monthly_supplier_invoices" value="0-10" id="monthly_supplier_invoices-0"> <span>0-10</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_supplier_invoices" value="11-25" id="monthly_supplier_invoices-1"> <span>11-25</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_supplier_invoices" value="26-50" id="monthly_supplier_invoices-2"> <span>26-50</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_supplier_invoices" value="51-100" id="monthly_supplier_invoices-3"> <span>51-100</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_supplier_invoices" value="100+" id="monthly_supplier_invoices-4"> <span>100+</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="monthly_supplier_invoices" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">3. Approximately how many customer invoices do you issue monthly?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="monthly_customer_invoices" value="0-10" id="monthly_customer_invoices-0"> <span>0-10</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_customer_invoices" value="11-25" id="monthly_customer_invoices-1"> <span>11-25</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_customer_invoices" value="26-50" id="monthly_customer_invoices-2"> <span>26-50</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_customer_invoices" value="51-100" id="monthly_customer_invoices-3"> <span>51-100</span></label>
+        <label class="diag-option"><input type="radio" name="monthly_customer_invoices" value="100+" id="monthly_customer_invoices-4"> <span>100+</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="monthly_customer_invoices" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">4. How are invoices currently created, matched, and reconciled?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="invoice_process" value="Manually in spreadsheets" id="invoice_process-0"> <span>Manually in spreadsheets</span></label>
+        <label class="diag-option"><input type="radio" name="invoice_process" value="Manually in our accounting software" id="invoice_process-1"> <span>Manually in our accounting software</span></label>
+        <label class="diag-option"><input type="radio" name="invoice_process" value="Partially automated (some manual steps)" id="invoice_process-2"> <span>Partially automated (some manual steps)</span></label>
+        <label class="diag-option"><input type="radio" name="invoice_process" value="Mostly automated" id="invoice_process-3"> <span>Mostly automated</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="invoice_process" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">5. How are overdue customer invoices followed up?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="overdue_followup" value="We don't have a formal process" id="overdue_followup-0"> <span>We don't have a formal process</span></label>
+        <label class="diag-option"><input type="radio" name="overdue_followup" value="Manual phone calls or emails as needed" id="overdue_followup-1"> <span>Manual phone calls or emails as needed</span></label>
+        <label class="diag-option"><input type="radio" name="overdue_followup" value="Scheduled manual reminders" id="overdue_followup-2"> <span>Scheduled manual reminders</span></label>
+        <label class="diag-option"><input type="radio" name="overdue_followup" value="Automated reminders (email/SMS)" id="overdue_followup-3"> <span>Automated reminders (email/SMS)</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="overdue_followup" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">6. Which AP or AR task consumes the most time?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="time_consuming_task" value="Invoice data entry" id="time_consuming_task-0"> <span>Invoice data entry</span></label>
+        <label class="diag-option"><input type="radio" name="time_consuming_task" value="Matching invoices to POs/receipts" id="time_consuming_task-1"> <span>Matching invoices to POs/receipts</span></label>
+        <label class="diag-option"><input type="radio" name="time_consuming_task" value="Chasing overdue payments" id="time_consuming_task-2"> <span>Chasing overdue payments</span></label>
+        <label class="diag-option"><input type="radio" name="time_consuming_task" value="Reconciling accounts" id="time_consuming_task-3"> <span>Reconciling accounts</span></label>
+        <label class="diag-option"><input type="radio" name="time_consuming_task" value="Approvals / sign-off" id="time_consuming_task-4"> <span>Approvals / sign-off</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="time_consuming_task" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">7. What is the main cause of errors or delays?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="error_cause" value="Manual data entry mistakes" id="error_cause-0"> <span>Manual data entry mistakes</span></label>
+        <label class="diag-option"><input type="radio" name="error_cause" value="Lack of visibility into invoice status" id="error_cause-1"> <span>Lack of visibility into invoice status</span></label>
+        <label class="diag-option"><input type="radio" name="error_cause" value="Too many manual approval steps" id="error_cause-2"> <span>Too many manual approval steps</span></label>
+        <label class="diag-option"><input type="radio" name="error_cause" value="Disorganized records or communication" id="error_cause-3"> <span>Disorganized records or communication</span></label>
+        <label class="diag-option"><input type="radio" name="error_cause" value="Staff turnover / no dedicated finance staff" id="error_cause-4"> <span>Staff turnover / no dedicated finance staff</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="error_cause" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">8. What would prevent you from trusting an autonomous AP/AR agent?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="trust_blockers" value="Concerns about accuracy or errors" id="trust_blockers-0"> <span>Concerns about accuracy or errors</span></label>
+        <label class="diag-option"><input type="radio" name="trust_blockers" value="Concerns about data security" id="trust_blockers-1"> <span>Concerns about data security</span></label>
+        <label class="diag-option"><input type="radio" name="trust_blockers" value="Cost" id="trust_blockers-2"> <span>Cost</span></label>
+        <label class="diag-option"><input type="radio" name="trust_blockers" value="Lack of understanding of how it works" id="trust_blockers-3"> <span>Lack of understanding of how it works</span></label>
+        <label class="diag-option"><input type="radio" name="trust_blockers" value="Nothing -- I'd be open to it" id="trust_blockers-4"> <span>Nothing -- I'd be open to it</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="trust_blockers" placeholder="Other / additional detail (optional)">
+    </div>
+    <div class="diag-question">
+      <label class="diag-question-label">9. Would you consider testing one in a controlled pilot?</label>
+      <div class="diag-options">
+        <label class="diag-option"><input type="radio" name="pilot_interest" value="Yes, I'm interested" id="pilot_interest-0"> <span>Yes, I'm interested</span></label>
+        <label class="diag-option"><input type="radio" name="pilot_interest" value="Maybe, I'd need more information" id="pilot_interest-1"> <span>Maybe, I'd need more information</span></label>
+        <label class="diag-option"><input type="radio" name="pilot_interest" value="Not right now" id="pilot_interest-2"> <span>Not right now</span></label>
+        <label class="diag-option"><input type="radio" name="pilot_interest" value="No" id="pilot_interest-3"> <span>No</span></label>
+      </div>
+      <input type="text" class="diag-manual" data-for="pilot_interest" placeholder="Other / additional detail (optional)">
+    </div>
+    <button type="submit" class="btn btn-primary" id="diagnostic-submit">Submit Diagnostic</button>
+    <p class="form-status" id="diagnostic-form-status" aria-live="polite"></p>
+  </form>
+  <div id="diagnostic-invalid-token" hidden>
+    <p class="page-lede">This diagnostic link is missing its token and can't be submitted. Please use the link from the email invitation you received.</p>
+  </div>
+</div>
+</section>
+<style>
+  .diag-question { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--slate-200); }
+  .diag-question:last-of-type { border-bottom: none; }
+  .diag-question-label { display: block; font-size: 15px; font-weight: 700; color: var(--slate-900); margin-bottom: 12px; }
+  .diag-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+  .diag-option { display: flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--slate-700); cursor: pointer; font-weight: 400; }
+  .diag-option input { width: auto; }
+  .diag-manual { width: 100%; font-family: inherit; font-size: 14px; padding: 9px 12px; border: 1px solid var(--slate-200); border-radius: var(--radius-sm); color: var(--slate-900); background: var(--white); }
+  .diag-manual:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px var(--emerald-soft); }
+  #diagnostic-submit { margin-top: 8px; }
+  .form-status.error { color: #B42318; }
+</style>
+<script>
+(function () {
+  var form = document.getElementById('diagnostic-form');
+  var status = document.getElementById('diagnostic-form-status');
+  var params = new URLSearchParams(window.location.search);
+  var token = params.get('token');
+
+  if (!token) {
+    form.hidden = true;
+    document.getElementById('diagnostic-invalid-token').hidden = false;
+    return;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var answers = {};
+    var missing = null;
+    ["erp_system","monthly_supplier_invoices","monthly_customer_invoices","invoice_process","overdue_followup","time_consuming_task","error_cause","trust_blockers","pilot_interest"].forEach(function (key) {
+      var manual = form.querySelector('.diag-manual[data-for="' + key + '"]').value.trim();
+      var checked = form.querySelector('input[name="' + key + '"]:checked');
+      var value = manual || (checked ? checked.value : '');
+      if (!value) missing = key;
+      answers[key] = value;
+    });
+    if (missing) {
+      status.textContent = 'Please answer every question (pick an option or type your own).';
+      status.className = 'form-status error';
+      return;
+    }
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    fetch('/submit-diagnostic', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: token, answers: answers })
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          form.innerHTML = '<p class="page-lede">Thank you -- your diagnostic has been recorded. Our team will follow up soon.</p>';
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">qiyadon</div>
+        <p>Autonomous AP/AR processing for founder-led SMBs -- invoicing and collections, handled without manual work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/product">Product</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/cancellation-refund-policy">Cancellation & Refund Policy</a>
+        <a href="/ownership-statement">Ownership Statement</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Qiyadon. Autonomous AP/AR that actually gets done.</span>
+      <span>Ahmad Salim &mdash; Founding Board Member</span>
+    </div>
+  </div>
+</footer>
+<div class="waitlist-modal-overlay" id="waitlist-modal-overlay" hidden>
+  <div class="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-modal-title">
+    <button type="button" class="waitlist-modal-close" id="waitlist-modal-close" aria-label="Close">&times;</button>
+    <h2 id="waitlist-modal-title">Join the Waitlist</h2>
+    <p class="waitlist-modal-sub">Tell us a bit about your business and we'll be in touch soon.</p>
+    <form id="waitlist-form">
+      <div class="form-row">
+        <label for="wl-name">Full Name *</label>
+        <input type="text" id="wl-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-phone">Phone *</label>
+        <input type="tel" id="wl-phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-email">Email *</label>
+        <input type="email" id="wl-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-company">Company Name *</label>
+        <input type="text" id="wl-company" name="company" autocomplete="organization" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-industry">Industry</label>
+        <select id="wl-industry" name="industry">
+          <option value="">Select an industry</option>
+          <option>Retail &amp; E-commerce</option>
+          <option>Professional Services</option>
+          <option>Technology &amp; Software</option>
+          <option>Manufacturing</option>
+          <option>Construction &amp; Real Estate</option>
+          <option>Healthcare</option>
+          <option>Hospitality &amp; Food Service</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-company-size">Company Size</label>
+        <select id="wl-company-size" name="company_size">
+          <option value="">Select company size</option>
+          <option>1-10 employees</option>
+          <option>11-50 employees</option>
+          <option>51-200 employees</option>
+          <option>200+ employees</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-notes">Anything else we should know? (optional)</label>
+        <textarea id="wl-notes" name="notes" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p class="form-status" id="waitlist-form-status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var overlay = document.getElementById('waitlist-modal-overlay');
+  if (!overlay) return;
+  var closeBtn = document.getElementById('waitlist-modal-close');
+  var form = document.getElementById('waitlist-form');
+  var status = document.getElementById('waitlist-form-status');
+
+  function openModal() {
+    overlay.hidden = false;
+    document.body.classList.add('waitlist-modal-open');
+  }
+  function closeModal() {
+    overlay.hidden = true;
+    document.body.classList.remove('waitlist-modal-open');
+  }
+
+  document.querySelectorAll('[data-waitlist-open]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    var payload = {
+      name: document.getElementById('wl-name').value.trim(),
+      phone: document.getElementById('wl-phone').value.trim(),
+      email: document.getElementById('wl-email').value.trim(),
+      company: document.getElementById('wl-company').value.trim(),
+      industry: document.getElementById('wl-industry').value,
+      company_size: document.getElementById('wl-company-size').value,
+      notes: document.getElementById('wl-notes').value.trim()
+    };
+    fetch('/submit-waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          form.reset();
+          status.textContent = '';
+          closeModal();
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
+</body>
+</html>
