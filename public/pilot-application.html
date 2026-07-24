@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilot Application — Qiyadon</title>
+  <meta name="description" content="Apply for a Qiyadon AP/AR autonomous agent pilot." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://qiyadon.com/pilot-application">
+  <meta property="og:title" content="Pilot Application — Qiyadon">
+  <meta property="og:description" content="Apply for a Qiyadon AP/AR autonomous agent pilot.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qiyadon.com/pilot-application">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Qiyadon",
+    "url": "https://qiyadon.com/",
+    "description": "Autonomous AP/AR processing for founder-led SMBs."
+  }
+  </script>
+</head>
+<body>
+<header class="site-header" data-header>
+  <div class="nav-shell">
+    <a href="/" class="brand"><span class="brand-mark">&#9670;</span>&nbsp;qiyadon</a>
+    <nav class="nav-links" data-nav>
+        <a href="/product">Product</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <button type="button" class="btn btn-primary nav-cta" data-waitlist-open>Join the Waitlist</button>
+  </div>
+</header>
+<section class="section-white">
+<div class="container narrow content-page" style="padding-top:48px; padding-bottom:32px; text-align:center;">
+  <h1>Qiyadon Pilot Program</h1>
+  <p class="page-lede">Thanks for completing our AP/AR diagnostic. Based on your answers, we'd like to invite you to apply for a pilot.</p>
+  <div id="pilot-app-invalid-token" hidden>
+    <p class="page-lede">This application link is invalid or has expired. Please email us at <a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a> instead.</p>
+  </div>
+</div>
+</section>
+<div class="waitlist-modal-overlay" id="pilot-app-modal-overlay" hidden>
+  <div class="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="pilot-app-modal-title">
+    <h2 id="pilot-app-modal-title">Qiyadon Pilot Application Form</h2>
+    <p class="waitlist-modal-sub">Tell us a bit about your business so we can review your pilot application.</p>
+    <form id="pilot-app-form">
+      <div class="form-row">
+        <label for="pa-name">Full Name *</label>
+        <input type="text" id="pa-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label for="pa-phone">Phone *</label>
+        <input type="tel" id="pa-phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="form-row">
+        <label for="pa-email">Email *</label>
+        <input type="email" id="pa-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="pa-company">Company Name *</label>
+        <input type="text" id="pa-company" name="company" autocomplete="organization" required>
+      </div>
+      <div class="form-row">
+        <label for="pa-industry">Industry</label>
+        <select id="pa-industry" name="industry">
+          <option value="">Select an industry</option>
+          <option>Retail &amp; E-commerce</option>
+          <option>Professional Services</option>
+          <option>Technology &amp; Software</option>
+          <option>Manufacturing</option>
+          <option>Construction &amp; Real Estate</option>
+          <option>Healthcare</option>
+          <option>Hospitality &amp; Food Service</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="pa-company-size">Company Size</label>
+        <select id="pa-company-size" name="company_size">
+          <option value="">Select company size</option>
+          <option>1-10 employees</option>
+          <option>11-50 employees</option>
+          <option>51-200 employees</option>
+          <option>200+ employees</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="pa-notes">Anything else we should know? (optional)</label>
+        <textarea id="pa-notes" name="notes" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Application</button>
+      <p class="form-status" id="pilot-app-form-status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var overlay = document.getElementById('pilot-app-modal-overlay');
+  var form = document.getElementById('pilot-app-form');
+  var status = document.getElementById('pilot-app-form-status');
+  var params = new URLSearchParams(window.location.search);
+  var token = params.get('token');
+
+  if (!token) {
+    document.getElementById('pilot-app-invalid-token').hidden = false;
+    return;
+  }
+
+  overlay.hidden = false;
+  document.body.classList.add('waitlist-modal-open');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    var payload = {
+      token: token,
+      name: document.getElementById('pa-name').value.trim(),
+      phone: document.getElementById('pa-phone').value.trim(),
+      email: document.getElementById('pa-email').value.trim(),
+      company: document.getElementById('pa-company').value.trim(),
+      industry: document.getElementById('pa-industry').value,
+      company_size: document.getElementById('pa-company-size').value,
+      notes: document.getElementById('pa-notes').value.trim()
+    };
+    fetch('/submit-pilot-application', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          document.querySelector('.waitlist-modal').innerHTML = '<h2>Application received</h2><p class="waitlist-modal-sub">Thanks -- we have received your pilot application and will follow up soon.</p>';
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">qiyadon</div>
+        <p>Autonomous AP/AR processing for founder-led SMBs -- invoicing and collections, handled without manual work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/product">Product</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/cancellation-refund-policy">Cancellation & Refund Policy</a>
+        <a href="/ownership-statement">Ownership Statement</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Qiyadon. Autonomous AP/AR that actually gets done.</span>
+      <span>Ahmad Salim &mdash; Founding Board Member</span>
+    </div>
+  </div>
+</footer>
+<div class="waitlist-modal-overlay" id="waitlist-modal-overlay" hidden>
+  <div class="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-modal-title">
+    <button type="button" class="waitlist-modal-close" id="waitlist-modal-close" aria-label="Close">&times;</button>
+    <h2 id="waitlist-modal-title">Join the Waitlist</h2>
+    <p class="waitlist-modal-sub">Tell us a bit about your business and we'll be in touch soon.</p>
+    <form id="waitlist-form">
+      <div class="form-row">
+        <label for="wl-name">Full Name *</label>
+        <input type="text" id="wl-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-phone">Phone *</label>
+        <input type="tel" id="wl-phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-email">Email *</label>
+        <input type="email" id="wl-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-company">Company Name *</label>
+        <input type="text" id="wl-company" name="company" autocomplete="organization" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-industry">Industry</label>
+        <select id="wl-industry" name="industry">
+          <option value="">Select an industry</option>
+          <option>Retail &amp; E-commerce</option>
+          <option>Professional Services</option>
+          <option>Technology &amp; Software</option>
+          <option>Manufacturing</option>
+          <option>Construction &amp; Real Estate</option>
+          <option>Healthcare</option>
+          <option>Hospitality &amp; Food Service</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-company-size">Company Size</label>
+        <select id="wl-company-size" name="company_size">
+          <option value="">Select company size</option>
+          <option>1-10 employees</option>
+          <option>11-50 employees</option>
+          <option>51-200 employees</option>
+          <option>200+ employees</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-notes">Anything else we should know? (optional)</label>
+        <textarea id="wl-notes" name="notes" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p class="form-status" id="waitlist-form-status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var overlay = document.getElementById('waitlist-modal-overlay');
+  if (!overlay) return;
+  var closeBtn = document.getElementById('waitlist-modal-close');
+  var form = document.getElementById('waitlist-form');
+  var status = document.getElementById('waitlist-form-status');
+
+  function openModal() {
+    overlay.hidden = false;
+    document.body.classList.add('waitlist-modal-open');
+  }
+  function closeModal() {
+    overlay.hidden = true;
+    document.body.classList.remove('waitlist-modal-open');
+  }
+
+  document.querySelectorAll('[data-waitlist-open]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    var payload = {
+      name: document.getElementById('wl-name').value.trim(),
+      phone: document.getElementById('wl-phone').value.trim(),
+      email: document.getElementById('wl-email').value.trim(),
+      company: document.getElementById('wl-company').value.trim(),
+      industry: document.getElementById('wl-industry').value,
+      company_size: document.getElementById('wl-company-size').value,
+      notes: document.getElementById('wl-notes').value.trim()
+    };
+    fetch('/submit-waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          form.reset();
+          status.textContent = '';
+          closeModal();
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
+</body>
+</html>
