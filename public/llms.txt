@@ -3,3 +3,10 @@
 > Qiyadon is an autonomous agent that processes accounts payable and receivable for founder-led SMBs, creating and matching invoices to ERPNext records without requiring founder data entry.
 
 - Home: https://qiyadon.com/
+- Pricing: https://qiyadon.com/pricing
+- Product: https://qiyadon.com/product
+- Contact: https://qiyadon.com/contact
+- Privacy Policy: https://qiyadon.com/privacy-policy
+- Terms Of Service: https://qiyadon.com/terms-of-service
+- Cancellation Refund Policy: https://qiyadon.com/cancellation-refund-policy
+- Ownership Statement: https://qiyadon.com/ownership-statement
