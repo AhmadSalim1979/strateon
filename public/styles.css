@@ -254,6 +254,10 @@ a { color: inherit; text-decoration: none; }
 .claim-template-card pre { white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; line-height: 1.7; color: var(--slate-700); background: var(--slate-50); border: 1px dashed var(--slate-200); border-radius: var(--radius-sm); padding: 20px; margin: 0; }
 .claim-template-card .hint { font-size: 13px; color: var(--slate-500); margin-top: 14px; }
 @media print { .site-header, .site-footer, .waitlist-modal-overlay { display: none !important; } }
+.calc-form .form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.calc-form label { font-size: 13.5px; font-weight: 700; color: var(--slate-700); }
+.calc-form input { font-family: inherit; font-size: 15px; color: var(--slate-900); background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-sm); padding: 12px 14px; }
+.calc-form .hint { font-size: 12.5px; color: var(--slate-500); }
 .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
 .contact-form { max-width: 620px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 18px; }
 .contact-form .form-row { display: flex; flex-direction: column; gap: 6px; }
