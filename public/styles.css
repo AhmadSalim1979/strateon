@@ -105,13 +105,32 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; overflow: hidden; }
-.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; padding: 100px 0 96px; }
+.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: stretch; padding: 100px 0 96px; }
 .hero-copy .section-lede { margin: 18px 0 32px; }
 .hero-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .hero-note { margin-top: 22px; font-size: 13px; color: var(--slate-400); }
 .hero-glow { position: absolute; inset: -20% -10% auto auto; width: 640px; height: 640px; background: radial-gradient(circle, var(--emerald-soft), transparent 70%); filter: blur(10px); z-index: 0; }
 
-/* Dashboard mockup visual */
+/* Product wordmark inside hero copy */
+.hero-product-mark { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+.hero-product-mark .mark-name { font-size: 16px; font-weight: 800; letter-spacing: 0.01em; color: var(--emerald); }
+.hero-product-mark .mark-by { font-size: 12px; font-weight: 600; color: var(--slate-400); }
+
+/* Hero visual: real image, or an explicit pending placeholder */
+.hero-visual { position: relative; z-index: 2; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.35); min-height: 420px; }
+.hero-visual img {
+  position: absolute; inset: 0; display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.hero-visual-placeholder {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: var(--surface-dark); border: 1px dashed var(--border-dark);
+  color: var(--slate-400); font-size: 13px; text-align: center; padding: 24px;
+}
+.hero-visual-placeholder svg { width: 40px; height: 40px; opacity: 0.5; }
+
+/* Dashboard mockup visual (legacy -- no longer used by the hero, kept in
+   case another section still references it) */
 .dash-card { position: relative; z-index: 2; background: var(--surface-dark); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,0.35); overflow: hidden; }
 .dash-bar { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid var(--border-dark); }
 .dash-dot { width: 9px; height: 9px; border-radius: 50%; }
