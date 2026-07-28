@@ -249,6 +249,11 @@ a { color: inherit; text-decoration: none; }
 .content-page h2 { font-size: 22px; margin: 36px 0 12px; }
 .content-page p { color: var(--slate-700); font-size: 15px; margin-bottom: 14px; }
 .content-page ul { margin: 0 0 14px 20px; color: var(--slate-700); font-size: 15px; }
+.claim-template-card { background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 32px; margin: 28px 0; }
+.claim-template-card h3 { font-size: 17px; margin: 0 0 16px; }
+.claim-template-card pre { white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, "SF Mono", Consolas, monospace; font-size: 13.5px; line-height: 1.7; color: var(--slate-700); background: var(--slate-50); border: 1px dashed var(--slate-200); border-radius: var(--radius-sm); padding: 20px; margin: 0; }
+.claim-template-card .hint { font-size: 13px; color: var(--slate-500); margin-top: 14px; }
+@media print { .site-header, .site-footer, .waitlist-modal-overlay { display: none !important; } }
 .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
 .contact-form { max-width: 620px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 18px; }
 .contact-form .form-row { display: flex; flex-direction: column; gap: 6px; }
