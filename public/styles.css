@@ -224,7 +224,7 @@ a { color: inherit; text-decoration: none; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
 .price-card {
   background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md);
-  padding: 34px 28px; box-shadow: var(--shadow-card); display: flex; flex-direction: column;
+  padding: 30px 22px; box-shadow: var(--shadow-card); display: flex; flex-direction: column;
 }
 .price-card.featured { border: 2px solid var(--emerald); position: relative; }
 .price-tag {
@@ -233,8 +233,10 @@ a { color: inherit; text-decoration: none; }
   padding: 5px 14px; border-radius: var(--radius-pill); letter-spacing: 0.04em; text-transform: uppercase;
 }
 .price-card h3 { margin-bottom: 6px; }
-.price-amount { font-size: 40px; font-weight: 800; color: var(--slate-900); margin: 10px 0 20px; }
-.price-amount span { font-size: 15px; font-weight: 600; color: var(--slate-500); }
+.price-truck-range { font-size: 12.5px; font-weight: 700; color: var(--emerald-dark); text-transform: uppercase; letter-spacing: 0.03em; }
+.price-amount { font-size: 34px; font-weight: 800; color: var(--slate-900); margin: 10px 0 2px; }
+.price-amount span { font-size: 14px; font-weight: 600; color: var(--slate-500); }
+.price-annual-note { font-size: 12.5px; color: var(--slate-500); margin: 0 0 18px; }
 .price-card ul { list-style: none; margin: 0 0 26px; flex: 1; }
 .price-card li { position: relative; padding: 7px 0 7px 26px; font-size: 14.5px; color: var(--slate-700); }
 .price-card li::before { content: ""; position: absolute; left: 0; top: 13px; width: 16px; height: 16px; border-radius: 50%; background: var(--emerald-soft); }
