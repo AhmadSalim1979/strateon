@@ -129,6 +129,26 @@ a { color: inherit; text-decoration: none; }
 }
 .hero-visual-placeholder svg { width: 40px; height: 40px; opacity: 0.5; }
 
+/* Media feature: repeatable two-column image+text block for detail pages */
+.media-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: stretch; padding: 88px 0; }
+.media-feature-section.reverse .media-visual { order: 2; }
+.media-feature-section.reverse .media-copy { order: 1; }
+.media-visual { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.12); min-height: 340px; }
+.media-visual img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.media-visual-placeholder {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: var(--slate-50); border: 1px dashed var(--slate-200);
+  color: var(--slate-400); font-size: 13px; text-align: center; padding: 24px;
+}
+.media-visual-placeholder svg { width: 40px; height: 40px; opacity: 0.5; }
+.media-copy { display: flex; flex-direction: column; justify-content: center; }
+.media-copy h2 { margin-bottom: 14px; }
+.media-copy .section-lede { max-width: none; }
+@media (max-width: 860px) {
+  .media-feature-grid { grid-template-columns: 1fr; gap: 28px; padding: 56px 0; }
+  .media-visual { min-height: 260px; }
+}
+
 /* Dashboard mockup visual (legacy -- no longer used by the hero, kept in
    case another section still references it) */
 .dash-card { position: relative; z-index: 2; background: var(--surface-dark); border: 1px solid var(--border-dark); border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,0.35); overflow: hidden; }
@@ -260,13 +280,13 @@ body.waitlist-modal-open { overflow: hidden; }
 .contact-card h3 { margin-bottom: 8px; font-size: 16px; }
 .contact-card a, .contact-card p { color: var(--slate-500); font-size: 14.5px; }
 .contact-card a:hover { color: var(--emerald); }
-.workflow-diagram { display: flex; align-items: flex-start; justify-content: center; gap: 6px; margin-top: 44px; flex-wrap: wrap; }
-.workflow-step { background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 26px 20px; box-shadow: var(--shadow-card); width: 230px; text-align: center; }
-.workflow-step-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--emerald-soft); color: var(--emerald-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.workflow-diagram { display: flex; align-items: stretch; justify-content: center; gap: 6px; margin-top: 44px; flex-wrap: wrap; }
+.workflow-step { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 26px 20px; box-shadow: var(--shadow-card); width: 230px; text-align: center; }
+.workflow-step-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--emerald-soft); color: var(--emerald-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
 .workflow-step-icon svg { width: 26px; height: 26px; }
-.workflow-step h3 { font-size: 16px; margin-bottom: 8px; }
-.workflow-step p { font-size: 13.5px; color: var(--slate-500); }
-.workflow-arrow { align-self: center; color: var(--slate-400); font-size: 22px; padding: 0 2px; margin-top: 42px; }
+.workflow-step h3 { flex-shrink: 0; font-size: 16px; margin-bottom: 8px; }
+.workflow-step p { flex-grow: 1; font-size: 13.5px; color: var(--slate-500); }
+.workflow-arrow { align-self: center; color: var(--slate-400); font-size: 22px; padding: 0 2px; }
 /* MOOSA_TRANSFORM_VISUAL_V6_CSS_ACTIVE_20260723: Ahmad's fourth-round
    request on the homepage visual -- bigger/richer icons matching the
    product-page mockup style, chaos loops spread across the whole canvas
