@@ -4,7 +4,12 @@
 
 - Home: https://qiyadon.com/
 - Product (how it works): https://qiyadon.com/product
-- Guide: Why detention terms vary by broker or shipper: https://qiyadon.com/why-detention-terms-vary-by-broker
+- Guides hub: https://qiyadon.com/guides
+  - Why detention terms vary by broker or shipper: https://qiyadon.com/why-detention-terms-vary-by-broker
+  - How to file a detention claim: https://qiyadon.com/how-to-file-a-detention-claim
+  - Layover vs. TONU vs. lumper fees: https://qiyadon.com/layover-vs-tonu-vs-lumper-fees
+  - How to avoid detention claim disputes: https://qiyadon.com/how-to-avoid-detention-claim-disputes
+  - Detention pay rates for owner-operators & small fleets: https://qiyadon.com/detention-pay-rates-owner-operators-small-fleets
 - Tool: Detention & accessorial savings calculator: https://qiyadon.com/detention-pay-calculator
 - Pricing: https://qiyadon.com/pricing
 - FAQ: https://qiyadon.com/faq
