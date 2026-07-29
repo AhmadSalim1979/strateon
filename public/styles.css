@@ -258,6 +258,16 @@ a { color: inherit; text-decoration: none; }
 .calc-form label { font-size: 13.5px; font-weight: 700; color: var(--slate-700); }
 .calc-form input { font-family: inherit; font-size: 15px; color: var(--slate-900); background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-sm); padding: 12px 14px; }
 .calc-form .hint { font-size: 12.5px; color: var(--slate-500); }
+.compare-table-wrap { overflow-x: auto; margin: 28px 0; border: 1px solid var(--slate-200); border-radius: var(--radius-md); }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--white); }
+.compare-table th, .compare-table td { padding: 16px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--slate-200); }
+.compare-table th { background: var(--slate-50); font-weight: 800; color: var(--slate-900); font-size: 13px; white-space: nowrap; }
+.compare-table td:first-child, .compare-table th:first-child { font-weight: 700; color: var(--slate-700); white-space: nowrap; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td.chargeguard-col, .compare-table th.chargeguard-col { background: var(--emerald-soft); }
+.compare-sources { font-size: 12.5px; color: var(--slate-500); margin-top: 10px; }
+.compare-sources a { color: var(--slate-500); text-decoration: underline; }
+.compare-caveat { font-size: 13.5px; color: var(--slate-500); background: var(--slate-50); border: 1px dashed var(--slate-200); border-radius: var(--radius-sm); padding: 18px 20px; margin: 24px 0; }
 .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
 .contact-form { max-width: 620px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 18px; }
 .contact-form .form-row { display: flex; flex-direction: column; gap: 6px; }
