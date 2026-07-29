@@ -60,7 +60,7 @@ export async function onRequest({ request }) {
   const email = String(data?.email || '').trim();
   const company = String(data?.company || '').trim();
   const industry = String(data?.industry || '').trim();
-  const companySize = String(data?.company_size || '').trim();
+  const fleetSize = String(data?.fleet_size || '').trim();
   const notes = String(data?.notes || '').trim();
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -73,7 +73,7 @@ export async function onRequest({ request }) {
   const submittedAt = new Date().toISOString();
 
   try {
-    await sendWaitlistSignup({ name, phone, email, company, industry, company_size: companySize, notes, submitted_at: submittedAt });
+    await sendWaitlistSignup({ name, phone, email, company, industry, fleet_size: fleetSize, notes, submitted_at: submittedAt });
     return corsResponse(200, { success: true, message: 'Added to waitlist' });
   } catch (err) {
     console.error('[submit-waitlist] Submission error:', err.message);

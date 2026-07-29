@@ -266,7 +266,7 @@ Please remit payment within [your standard terms, e.g. 30 days], or contact us w
       phone: document.getElementById('wl-phone').value.trim(),
       email: document.getElementById('wl-email').value.trim(),
       company: document.getElementById('wl-company').value.trim(),
-      company_size: document.getElementById('wl-fleet-size').value,
+      fleet_size: document.getElementById('wl-fleet-size').value,
       notes: document.getElementById('wl-notes').value.trim()
     };
     fetch('/submit-waitlist', {
