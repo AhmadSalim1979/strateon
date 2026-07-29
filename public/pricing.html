@@ -105,15 +105,6 @@
         <p>ChargeGuard by Qiyadon -- automated detention and accessorial charge recovery for small-to-midsize US trucking carriers.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigate</h4>
-        <a href="/product">Product</a>
-        <a href="/guides">Guides</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/faq">FAQ</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-      </div>
-      <div class="footer-col">
         <h4>Legal</h4>
         <a href="/privacy-policy">Privacy Policy</a>
         <a href="/terms-of-service">Terms of Service</a>
@@ -121,8 +112,13 @@
         <a href="/ownership-statement">Ownership Statement</a>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:contact@qiyadon.com">contact@qiyadon.com</a>
+        <h4>Navigate</h4>
+        <a href="/product">Product</a>
+        <a href="/guides">Guides</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/faq">FAQ</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -154,27 +150,14 @@
         <input type="text" id="wl-company" name="company" autocomplete="organization" required>
       </div>
       <div class="form-row">
-        <label for="wl-industry">Industry</label>
-        <select id="wl-industry" name="industry">
-          <option value="">Select an industry</option>
-          <option>Retail &amp; E-commerce</option>
-          <option>Professional Services</option>
-          <option>Technology &amp; Software</option>
-          <option>Manufacturing</option>
-          <option>Construction &amp; Real Estate</option>
-          <option>Healthcare</option>
-          <option>Hospitality &amp; Food Service</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label for="wl-company-size">Company Size</label>
-        <select id="wl-company-size" name="company_size">
-          <option value="">Select company size</option>
-          <option>1-10 employees</option>
-          <option>11-50 employees</option>
-          <option>51-200 employees</option>
-          <option>200+ employees</option>
+        <label for="wl-fleet-size">Fleet Size</label>
+        <select id="wl-fleet-size" name="fleet_size">
+          <option value="">Select fleet size</option>
+          <option>1-4 trucks</option>
+          <option>5-15 trucks</option>
+          <option>16-50 trucks</option>
+          <option>51-150 trucks</option>
+          <option>150+ trucks</option>
         </select>
       </div>
       <div class="form-row">
@@ -219,8 +202,7 @@
       phone: document.getElementById('wl-phone').value.trim(),
       email: document.getElementById('wl-email').value.trim(),
       company: document.getElementById('wl-company').value.trim(),
-      industry: document.getElementById('wl-industry').value,
-      company_size: document.getElementById('wl-company-size').value,
+      company_size: document.getElementById('wl-fleet-size').value,
       notes: document.getElementById('wl-notes').value.trim()
     };
     fetch('/submit-waitlist', {
