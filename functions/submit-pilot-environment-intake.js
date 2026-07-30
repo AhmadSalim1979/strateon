@@ -39,7 +39,7 @@ async function sendIntakeSubmission(data) {
   return body;
 }
 
-const REQUIRED_ANSWER_KEYS = ['sandbox_url', 'erpnext_version', 'integration_method', 'coordination_contact'];
+const REQUIRED_ANSWER_KEYS = ['tms_eld_platform', 'integration_method', 'load_data_format', 'coordination_contact'];
 
 export async function onRequest({ request }) {
   if (request.method === 'OPTIONS') {

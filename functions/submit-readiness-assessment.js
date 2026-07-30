@@ -42,10 +42,10 @@ async function sendReadinessSubmission(data) {
 }
 
 const REQUIRED_ANSWER_KEYS = [
-  'erpnext_hosting',
-  'sandbox_availability',
-  'technical_access',
-  'monthly_transaction_volume',
+  'tms_eld_integration_pref',
+  'historical_records_availability',
+  'primary_point_of_contact',
+  'monthly_loads_in_scope',
   'pilot_timeframe'
 ];
 

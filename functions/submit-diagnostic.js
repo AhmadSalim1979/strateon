@@ -1,6 +1,7 @@
 /**
  * functions/submit-diagnostic.js
- * Cloudflare Pages Function — Qiyadon AP/AR Discovery Diagnostic handler
+ * Cloudflare Pages Function — ChargeGuard Detention & Accessorial Discovery
+ * Diagnostic handler
  *
  * Handles POST /submit-diagnostic from the diagnostic.html form (a private
  * link sent to specific prospects, not linked from site navigation).
@@ -41,11 +42,11 @@ async function sendDiagnosticSubmission(data) {
 }
 
 const REQUIRED_ANSWER_KEYS = [
-  'erp_system',
-  'monthly_supplier_invoices',
-  'monthly_customer_invoices',
-  'invoice_process',
-  'overdue_followup',
+  'tms_eld_system',
+  'monthly_loads',
+  'monthly_detention_incidents',
+  'detention_tracking_process',
+  'claim_followup',
   'time_consuming_task',
   'error_cause',
   'trust_blockers',
