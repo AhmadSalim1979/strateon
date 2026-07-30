@@ -287,7 +287,7 @@ a { color: inherit; text-decoration: none; }
 .contact-form .form-status.error { color: #B42318; }
 .contact-form-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; margin-top: 40px; }
 .contact-form-grid .contact-form { max-width: none; margin: 0; }
-.contact-form-aside { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 28px; }
+.contact-form-aside { background: var(--slate-50); border: 1px solid var(--slate-200); border-radius: var(--radius-md); padding: 28px; margin-top: 27px; }
 .contact-form-aside h3 { font-size: 17px; margin-bottom: 14px; }
 .contact-form-aside ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
 .contact-form-aside li { font-size: 14.5px; color: var(--slate-700); line-height: 1.6; padding-left: 22px; position: relative; }
