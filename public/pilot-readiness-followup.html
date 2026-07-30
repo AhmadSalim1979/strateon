@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Quick Follow-Up — Qiyadon</title>
+  <meta name="description" content="A couple of quick questions to finish preparing your Qiyadon pilot." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://qiyadon.com/pilot-readiness-followup">
+  <meta property="og:title" content="A Quick Follow-Up — Qiyadon">
+  <meta property="og:description" content="A couple of quick questions to finish preparing your Qiyadon pilot.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qiyadon.com/pilot-readiness-followup">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Qiyadon",
+    "url": "https://qiyadon.com/",
+    "description": "ChargeGuard -- automated detention and accessorial charge recovery for small-to-midsize US trucking carriers."
+  }
+  </script>
+</head>
+<body>
+<header class="site-header" data-header>
+  <div class="nav-shell">
+    <a href="/" class="brand"><img src="/logo-mark.png" alt="Qiyadon" class="brand-mark-img">&nbsp;qiyadon</a>
+    <nav class="nav-links" data-nav>
+        <a href="/product">Product</a>
+        <a href="/guides">Guides</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/faq">FAQ</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <button type="button" class="btn btn-primary nav-cta" data-waitlist-open>Join the Waitlist</button>
+  </div>
+</header>
+<section class="section-white">
+<div class="container narrow content-page" style="padding-top:48px; padding-bottom:64px;">
+  <h1>A Quick Follow-Up</h1>
+  <p class="page-lede">Just a couple of details we still need to finish reviewing your pilot readiness.</p>
+  <form id="followup-form"></form>
+  <div id="followup-invalid-token" hidden>
+    <p class="page-lede">This link is missing its token or its questions and can't be submitted. Please use the link from the email you received.</p>
+  </div>
+</div>
+</section>
+<style>
+  .diag-question { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--slate-200); }
+  .diag-question:last-of-type { border-bottom: none; }
+  .diag-question-label { display: block; font-size: 15px; font-weight: 700; color: var(--slate-900); margin-bottom: 12px; }
+  .diag-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+  .diag-option { display: flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--slate-700); cursor: pointer; font-weight: 400; }
+  .diag-option input { width: auto; }
+  .diag-manual { width: 100%; font-family: inherit; font-size: 14px; padding: 9px 12px; border: 1px solid var(--slate-200); border-radius: var(--radius-sm); color: var(--slate-900); background: var(--white); }
+  .diag-manual:focus { outline: none; border-color: var(--emerald); box-shadow: 0 0 0 3px var(--emerald-soft); }
+  #followup-submit { margin-top: 8px; }
+  .form-status.error { color: #B42318; }
+</style>
+<script>
+(function () {
+  var ALL_QUESTIONS = [{"key":"tms_eld_integration_pref","label":"If you use a TMS/ELD system, would you be open to a data integration for automatic timestamp capture (optional -- manual entry/CSV upload always works too)?","options":["Yes, open to integration","Prefer manual entry/CSV upload for now","We don't use a TMS/ELD","Not sure"]},{"key":"historical_records_availability","label":"Do you have historical load/detention records you'd want migrated into the pilot (e.g. past claims, rate confirmations)?","options":["Yes, readily available","Some, would need to gather them","No, happy to start fresh","Not sure"]},{"key":"primary_point_of_contact","label":"Who would be the primary point of contact for setting up and using ChargeGuard day to day?","options":["Owner/founder","Dispatcher","Office/admin staff","Not yet decided"]},{"key":"monthly_loads_in_scope","label":"Approximately how many loads would be in scope for a pilot per month?","options":["0-25","26-50","51-100","101-250","250+"]},{"key":"pilot_timeframe","label":"What is your preferred pilot start timeframe?","options":["As soon as possible","Within 2-4 weeks","Within 1-3 months","Just exploring for now"]}];
+  var form = document.getElementById('followup-form');
+  var params = new URLSearchParams(window.location.search);
+  var token = params.get('token');
+  var fieldsParam = params.get('fields') || '';
+  var wantedKeys = fieldsParam.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  var questions = ALL_QUESTIONS.filter(function (q) { return wantedKeys.indexOf(q.key) !== -1; });
+
+  if (!token || !questions.length) {
+    document.getElementById('followup-invalid-token').hidden = false;
+    return;
+  }
+
+  function renderQuestion(q, index) {
+    var optionsHtml = q.options.map(function (opt, i) {
+      return '<label class="diag-option"><input type="radio" name="' + q.key + '" value="' + opt + '" id="' + q.key + '-' + i + '"> <span>' + opt + '</span></label>';
+    }).join('');
+    return '<div class="diag-question">' +
+      '<label class="diag-question-label">' + (index + 1) + '. ' + q.label + '</label>' +
+      '<div class="diag-options">' + optionsHtml + '</div>' +
+      '<input type="text" class="diag-manual" data-for="' + q.key + '" placeholder="Other / additional detail (optional)">' +
+      '</div>';
+  }
+
+  form.innerHTML = questions.map(renderQuestion).join('') +
+    '<button type="submit" class="btn btn-primary" id="followup-submit">Submit</button>' +
+    '<p class="form-status" id="followup-form-status" aria-live="polite"></p>';
+
+  var status = document.getElementById('followup-form-status');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var answers = {};
+    var missing = null;
+    questions.forEach(function (q) {
+      var manual = form.querySelector('.diag-manual[data-for="' + q.key + '"]').value.trim();
+      var checked = form.querySelector('input[name="' + q.key + '"]:checked');
+      var value = manual || (checked ? checked.value : '');
+      if (!value) missing = q.key;
+      answers[q.key] = value;
+    });
+    if (missing) {
+      status.textContent = 'Please answer every question (pick an option or type your own).';
+      status.className = 'form-status error';
+      return;
+    }
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    fetch('/submit-readiness-followup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token: token, answers: answers })
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          form.innerHTML = '<p class="page-lede">Thank you -- we have what we need. Our team will follow up soon.</p>';
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">qiyadon</div>
+        <p>ChargeGuard by Qiyadon -- automated detention and accessorial charge recovery for small-to-midsize US trucking carriers.</p>
+      </div>
+      <div class="footer-spacer" aria-hidden="true"></div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="/cancellation-refund-policy">Cancellation & Refund Policy</a>
+        <a href="/ownership-statement">Ownership Statement</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/product">Product</a>
+        <a href="/guides">Guides</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/faq">FAQ</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Qiyadon. ChargeGuard -- get paid for the time you’re owed.</span>
+      <span>Ahmad Salim &mdash; Founding Board Member</span>
+    </div>
+  </div>
+</footer>
+<div class="waitlist-modal-overlay" id="waitlist-modal-overlay" hidden>
+  <div class="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-modal-title">
+    <button type="button" class="waitlist-modal-close" id="waitlist-modal-close" aria-label="Close">&times;</button>
+    <h2 id="waitlist-modal-title">Join the Waitlist</h2>
+    <p class="waitlist-modal-sub">Tell us a bit about your business. We onboard new carriers on a rolling basis and will follow up as capacity opens up.</p>
+    <form id="waitlist-form">
+      <div class="form-row">
+        <label for="wl-name">Full Name *</label>
+        <input type="text" id="wl-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-phone">Phone *</label>
+        <input type="tel" id="wl-phone" name="phone" autocomplete="tel" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-email">Email *</label>
+        <input type="email" id="wl-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-company">Company Name *</label>
+        <input type="text" id="wl-company" name="company" autocomplete="organization" required>
+      </div>
+      <div class="form-row">
+        <label for="wl-fleet-size">Fleet Size</label>
+        <select id="wl-fleet-size" name="fleet_size">
+          <option value="">Select fleet size</option>
+          <option>1-4 trucks</option>
+          <option>5-15 trucks</option>
+          <option>16-50 trucks</option>
+          <option>51-150 trucks</option>
+          <option>150+ trucks</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="wl-notes">Anything else we should know? (optional)</label>
+        <textarea id="wl-notes" name="notes" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p class="form-status" id="waitlist-form-status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var overlay = document.getElementById('waitlist-modal-overlay');
+  if (!overlay) return;
+  var closeBtn = document.getElementById('waitlist-modal-close');
+  var form = document.getElementById('waitlist-form');
+  var status = document.getElementById('waitlist-form-status');
+
+  function openModal() {
+    overlay.hidden = false;
+    document.body.classList.add('waitlist-modal-open');
+  }
+  function closeModal() {
+    overlay.hidden = true;
+    document.body.classList.remove('waitlist-modal-open');
+  }
+
+  document.querySelectorAll('[data-waitlist-open]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Submitting...';
+    status.className = 'form-status';
+    var payload = {
+      name: document.getElementById('wl-name').value.trim(),
+      phone: document.getElementById('wl-phone').value.trim(),
+      email: document.getElementById('wl-email').value.trim(),
+      company: document.getElementById('wl-company').value.trim(),
+      fleet_size: document.getElementById('wl-fleet-size').value,
+      notes: document.getElementById('wl-notes').value.trim()
+    };
+    fetch('/submit-waitlist', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json().then(function (body) { return { ok: res.ok, body: body }; }); })
+      .then(function (result) {
+        if (result.ok) {
+          form.reset();
+          status.textContent = '';
+          closeModal();
+        } else {
+          status.textContent = (result.body && result.body.error) || 'Something went wrong -- please try again or email us directly.';
+          status.className = 'form-status error';
+        }
+      })
+      .catch(function () {
+        status.textContent = 'Something went wrong -- please try again or email us directly.';
+        status.className = 'form-status error';
+      });
+  });
+})();
+</script>
+</body>
+</html>
