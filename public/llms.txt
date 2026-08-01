@@ -1,18 +1,6 @@
 # Qiyadon
 
-> ChargeGuard by Qiyadon helps small-to-midsize US trucking carriers document and recover the detention and accessorial charges they are owed, automatically. ChargeGuard applies each broker or shipper's own actual agreed terms to every claim, instead of one generic default rule for every customer.
+> Qiyadon builds real, working systems where decisions, execution, and accountability are driven by disciplined intelligence, not guesswork or hype. ChargeGuard is Qiyadon's first product in the field.
 
-- Home: https://qiyadon.com/
-- Product (how it works): https://qiyadon.com/product
-- Guides hub: https://qiyadon.com/guides
-  - Why detention terms vary by broker or shipper: https://qiyadon.com/why-detention-terms-vary-by-broker
-  - How to file a detention claim: https://qiyadon.com/how-to-file-a-detention-claim
-  - Layover vs. TONU vs. lumper fees: https://qiyadon.com/layover-vs-tonu-vs-lumper-fees
-  - How to avoid detention claim disputes: https://qiyadon.com/how-to-avoid-detention-claim-disputes
-  - Detention pay rates for owner-operators & small fleets: https://qiyadon.com/detention-pay-rates-owner-operators-small-fleets
-- Tool: Detention & accessorial savings calculator: https://qiyadon.com/detention-pay-calculator
-- Comparison: ChargeGuard vs. DetentionIQ, HaulClaim & DockClaim: https://qiyadon.com/detention-software-comparison
-- Pricing: https://qiyadon.com/pricing
-- FAQ: https://qiyadon.com/faq
-- About: https://qiyadon.com/about
-- Contact: https://qiyadon.com/contact
+- Home / vision: https://qiyadon.com/
+- First product, ChargeGuard (detention & accessorial charge recovery for US trucking carriers): https://chargeguard.net
