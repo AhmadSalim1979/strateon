@@ -1,8 +1,9 @@
 {
-  "_about": "Image slots for the dental site. To supply an image, place files under public/dental-preview/assets/img/ and set 'src' (and 'src_mobile' where a mobile crop exists) plus 'status'. While 'src' is null the build renders a styled placeholder with the same fixed aspect ratio, so swapping in real images causes no layout shift. status: placeholder | illustrative-sample | authentic-approved. Illustrative samples must never depict someone presented as a real clinician or patient.",
+  "_about": "Image slots for the dental site. To supply an image, place files under dental-preview-src/img/ (the build copies them to assets/img/) and set 'src' (and 'src_mobile' where a mobile crop exists) plus 'status'. While 'src' is null the build renders a styled placeholder showing only 'placeholder_caption' (slot IDs, ratios and sizes are never shown on the page) with the same fixed aspect ratio, so swapping in real images causes no layout shift. status: placeholder | illustrative-sample | authentic-approved. Illustrative samples must never depict someone presented as a real clinician or patient.",
   "slots": {
     "hero-clinic": {
       "label": "The clinic, in natural light",
+      "placeholder_caption": "Clinic photograph to be added",
       "appears_on": [
         "Home hero (right column desktop, above headline on mobile)"
       ],
@@ -28,6 +29,7 @@
     },
     "team-portrait-*": {
       "label": "Current clinician portrait",
+      "placeholder_caption": "Portrait to be added",
       "appears_on": [
         "Team page cards",
         "Individual clinician profile",
@@ -55,6 +57,7 @@
     },
     "team-group": {
       "label": "The current team, together",
+      "placeholder_caption": "Team photograph to be added",
       "appears_on": [
         "Our Practice page",
         "Team page intro"
@@ -79,13 +82,14 @@
       "src_mobile": null,
       "status": "placeholder"
     },
-    "founder-portrait": {
-      "label": "Dr. Asif Niaz Arain, archival portrait",
+    "namesake-portrait": {
+      "label": "Dr. Asif Niaz Arain, authentic portrait",
+      "placeholder_caption": "Portrait of Dr. Asif Niaz Arain, to be supplied and approved by his family",
       "appears_on": [
         "Our Practice page legacy section",
         "Home namesake section"
       ],
-      "subject": "Family-approved archival photograph of Dr. Asif Niaz Arain",
+      "subject": "Authentic, family-approved photograph of Dr. Asif Niaz Arain. Never a generated or reconstructed likeness",
       "aspect_ratio": "4:5",
       "px": [
         1200,
@@ -97,7 +101,7 @@
         1125
       ],
       "text_safe_area": "No overlay. Archival images may be black and white; do not colourise or retouch without family approval",
-      "filename": "founder-portrait.jpg",
+      "filename": "namesake-portrait.jpg",
       "alt_guidance": "'Dr. Asif Niaz Arain' plus year if known",
       "authentic_required": true,
       "consent_required": "Family approval and rights confirmation",
@@ -107,6 +111,7 @@
     },
     "interior-reception": {
       "label": "Reception and waiting area",
+      "placeholder_caption": "Reception photograph to be added",
       "appears_on": [
         "Home patient-experience section",
         "Your Visit page"
@@ -133,6 +138,7 @@
     },
     "interior-room": {
       "label": "A treatment room",
+      "placeholder_caption": "Treatment room photograph to be added",
       "appears_on": [
         "Care overview",
         "Our Practice page"
@@ -159,6 +165,7 @@
     },
     "service-*": {
       "label": "Treatment detail image",
+      "placeholder_caption": "Photograph to be added",
       "appears_on": [
         "Care overview cards (confirmed treatments only)",
         "Treatment detail page header"
@@ -185,6 +192,7 @@
     },
     "first-visit": {
       "label": "A first-visit consultation",
+      "placeholder_caption": "Consultation photograph to be added",
       "appears_on": [
         "Home first-visit pathway",
         "Your Visit page header"
@@ -211,6 +219,7 @@
     },
     "location-exterior": {
       "label": "Street entrance and signage",
+      "placeholder_caption": "Entrance photograph to be added",
       "appears_on": [
         "Home location section",
         "Contact page"
@@ -237,6 +246,7 @@
     },
     "location-map": {
       "label": "Map at the verified location",
+      "placeholder_caption": "Map to be added once the address is confirmed",
       "appears_on": [
         "Contact page"
       ],
@@ -262,6 +272,7 @@
     },
     "social-share": {
       "label": "Social preview image",
+      "placeholder_caption": "Social preview image to be added",
       "appears_on": [
         "og:image / twitter:image for every page on the production domain"
       ],

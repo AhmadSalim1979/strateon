@@ -136,7 +136,7 @@ export function pages(h, en) {
       ${legacyNote}
       <p><a class="dp-textlink" href="${url('/our-practice/')}">Our story</a></p>
     </div>
-    <div style="max-width:420px;justify-self:center;width:100%">${img('founder-portrait')}</div>
+    <div style="max-width:420px;justify-self:center;width:100%">${img('namesake-portrait')}</div>
   </div>
 </section>
 
@@ -190,7 +190,7 @@ ${closingCta()}`,
 
 <section class="dp-section">
   <div class="dp-wrap dp-split dp-split--top">
-    <div style="max-width:440px;width:100%">${img('founder-portrait')}</div>
+    <div style="max-width:440px;width:100%">${img('namesake-portrait')}</div>
     <div>
       <p class="dp-eyebrow">The practice's name</p>
       <h2>Dr. Asif Niaz Arain</h2>
