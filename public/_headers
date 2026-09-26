@@ -1,0 +1,7 @@
+# Scoped to the dental concept preview only. Every other qiyadon.com path is
+# unaffected. Remove this file (or these rules) when the preview is retired.
+/dental-preview
+  X-Robots-Tag: noindex, nofollow
+
+/dental-preview/*
+  X-Robots-Tag: noindex, nofollow

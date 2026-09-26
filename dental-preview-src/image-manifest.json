@@ -1,0 +1,286 @@
+{
+  "_about": "Image slots for the dental site. To supply an image, place files under public/dental-preview/assets/img/ and set 'src' (and 'src_mobile' where a mobile crop exists) plus 'status'. While 'src' is null the build renders a styled placeholder with the same fixed aspect ratio, so swapping in real images causes no layout shift. status: placeholder | illustrative-sample | authentic-approved. Illustrative samples must never depict someone presented as a real clinician or patient.",
+  "slots": {
+    "hero-clinic": {
+      "label": "The clinic, in natural light",
+      "appears_on": [
+        "Home hero (right column desktop, above headline on mobile)"
+      ],
+      "subject": "Calm, naturally lit view of the actual clinic: reception or treatment room, no patients in the chair",
+      "aspect_ratio": "4:5",
+      "px": [
+        1600,
+        2000
+      ],
+      "mobile_aspect_ratio": "4:3",
+      "mobile_px": [
+        1200,
+        900
+      ],
+      "text_safe_area": "No text is overlaid; keep the key subject within the central 70% so both crops work",
+      "filename": "hero-clinic.jpg / hero-clinic-mobile.jpg",
+      "alt_guidance": "Describe the real space, e.g. 'The treatment room at the Clifton practice'. Don't mention smiles or outcomes.",
+      "authentic_required": true,
+      "consent_required": "Only if staff are identifiable",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "team-portrait-*": {
+      "label": "Current clinician portrait",
+      "appears_on": [
+        "Team page cards",
+        "Individual clinician profile",
+        "Home current-team area"
+      ],
+      "subject": "One portrait per current clinician, consistent background and lighting across the team",
+      "aspect_ratio": "4:5",
+      "px": [
+        1200,
+        1500
+      ],
+      "mobile_aspect_ratio": "4:5",
+      "mobile_px": [
+        900,
+        1125
+      ],
+      "text_safe_area": "No overlay; head and shoulders in the upper two-thirds",
+      "filename": "team-portrait-<clinician-slug>.jpg",
+      "alt_guidance": "'Portrait of Dr. <Full Name>' — name exactly as registered",
+      "authentic_required": true,
+      "consent_required": "Written consent from each clinician",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "team-group": {
+      "label": "The current team, together",
+      "appears_on": [
+        "Our Practice page",
+        "Team page intro"
+      ],
+      "subject": "The actual current team together at the clinic",
+      "aspect_ratio": "3:2",
+      "px": [
+        2400,
+        1600
+      ],
+      "mobile_aspect_ratio": "4:3",
+      "mobile_px": [
+        1200,
+        900
+      ],
+      "text_safe_area": "No overlay; leave ~10% margin at the sides for the 4:3 mobile crop",
+      "filename": "team-group.jpg / team-group-mobile.jpg",
+      "alt_guidance": "'The team at Dr. Asif Niaz Arain & Associates, Clifton' — name individuals in the caption, not the alt text",
+      "authentic_required": true,
+      "consent_required": "Written consent from everyone pictured",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "founder-portrait": {
+      "label": "Dr. Asif Niaz Arain, archival portrait",
+      "appears_on": [
+        "Our Practice page legacy section",
+        "Home founder teaser"
+      ],
+      "subject": "Family-approved archival photograph of Dr. Asif Niaz Arain",
+      "aspect_ratio": "4:5",
+      "px": [
+        1200,
+        1500
+      ],
+      "mobile_aspect_ratio": "4:5",
+      "mobile_px": [
+        900,
+        1125
+      ],
+      "text_safe_area": "No overlay. Archival images may be black and white; do not colourise or retouch without family approval",
+      "filename": "founder-portrait.jpg",
+      "alt_guidance": "'Dr. Asif Niaz Arain' plus year if known",
+      "authentic_required": true,
+      "consent_required": "Family approval and rights confirmation",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "interior-reception": {
+      "label": "Reception and waiting area",
+      "appears_on": [
+        "Home patient-experience section",
+        "Your Visit page"
+      ],
+      "subject": "The real reception and waiting area",
+      "aspect_ratio": "3:2",
+      "px": [
+        2400,
+        1600
+      ],
+      "mobile_aspect_ratio": "4:3",
+      "mobile_px": [
+        1200,
+        900
+      ],
+      "text_safe_area": "No overlay",
+      "filename": "interior-reception.jpg",
+      "alt_guidance": "Describe the space plainly",
+      "authentic_required": true,
+      "consent_required": "Only if people are identifiable",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "interior-room": {
+      "label": "A treatment room",
+      "appears_on": [
+        "Care overview",
+        "Our Practice page"
+      ],
+      "subject": "A real treatment room, tidy, no patient",
+      "aspect_ratio": "3:2",
+      "px": [
+        2400,
+        1600
+      ],
+      "mobile_aspect_ratio": "4:3",
+      "mobile_px": [
+        1200,
+        900
+      ],
+      "text_safe_area": "No overlay",
+      "filename": "interior-room.jpg",
+      "alt_guidance": "Describe the room; don't imply specific equipment unless confirmed",
+      "authentic_required": true,
+      "consent_required": "None if nobody is pictured",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "service-*": {
+      "label": "Treatment detail image",
+      "appears_on": [
+        "Care overview cards (confirmed treatments only)",
+        "Treatment detail page header"
+      ],
+      "subject": "Environment, instruments or hands-at-work detail relevant to the treatment. No before/after images and no identifiable patients",
+      "aspect_ratio": "3:2",
+      "px": [
+        1800,
+        1200
+      ],
+      "mobile_aspect_ratio": "3:2",
+      "mobile_px": [
+        1200,
+        800
+      ],
+      "text_safe_area": "No overlay",
+      "filename": "service-<treatment-slug>.jpg",
+      "alt_guidance": "Describe what is shown, not a promised result",
+      "authentic_required": true,
+      "consent_required": "Written consent if any patient is visible",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "first-visit": {
+      "label": "A first-visit consultation",
+      "appears_on": [
+        "Home first-visit pathway",
+        "Your Visit page header"
+      ],
+      "subject": "A clinician talking with a patient before treatment, seated upright, conversation rather than procedure",
+      "aspect_ratio": "3:2",
+      "px": [
+        2400,
+        1600
+      ],
+      "mobile_aspect_ratio": "4:3",
+      "mobile_px": [
+        1200,
+        900
+      ],
+      "text_safe_area": "No overlay",
+      "filename": "first-visit.jpg",
+      "alt_guidance": "'A consultation at the Clifton practice'",
+      "authentic_required": true,
+      "consent_required": "Written consent from the patient (or a consenting model, disclosed as such internally)",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "location-exterior": {
+      "label": "Street entrance and signage",
+      "appears_on": [
+        "Home location section",
+        "Contact page"
+      ],
+      "subject": "Street entrance and signage as a patient would see it on arrival",
+      "aspect_ratio": "4:3",
+      "px": [
+        2000,
+        1500
+      ],
+      "mobile_aspect_ratio": "1:1",
+      "mobile_px": [
+        1080,
+        1080
+      ],
+      "text_safe_area": "No overlay; keep the door and sign central for the square crop",
+      "filename": "location-exterior.jpg / location-exterior-mobile.jpg",
+      "alt_guidance": "'Entrance to the clinic on <street>, Clifton Block 5' once the address is verified",
+      "authentic_required": true,
+      "consent_required": "Blur passers-by and vehicle plates",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "location-map": {
+      "label": "Map at the verified location",
+      "appears_on": [
+        "Contact page"
+      ],
+      "subject": "Static map or click-to-load map at the verified Google Business Profile pin",
+      "aspect_ratio": "16:10",
+      "px": [
+        1600,
+        1000
+      ],
+      "mobile_aspect_ratio": "4:3",
+      "mobile_px": [
+        1200,
+        900
+      ],
+      "text_safe_area": "n/a",
+      "filename": "location-map.png (or click-to-load embed)",
+      "alt_guidance": "'Map showing the clinic in Clifton Block 5, Karachi' with a text address alongside",
+      "authentic_required": false,
+      "consent_required": "None. Prefer a static image plus a directions link to avoid third-party tracking on load",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    },
+    "social-share": {
+      "label": "Social preview image",
+      "appears_on": [
+        "og:image / twitter:image for every page on the production domain"
+      ],
+      "subject": "Approved wordmark on ivory with one authentic clinic image",
+      "aspect_ratio": "1.91:1",
+      "px": [
+        1200,
+        630
+      ],
+      "mobile_aspect_ratio": null,
+      "mobile_px": null,
+      "text_safe_area": "Keep text within the central 1000x500",
+      "filename": "social-share.jpg",
+      "alt_guidance": "Practice name and 'Clifton, Karachi'",
+      "authentic_required": true,
+      "consent_required": "As for the image used",
+      "src": null,
+      "src_mobile": null,
+      "status": "placeholder"
+    }
+  }
+}

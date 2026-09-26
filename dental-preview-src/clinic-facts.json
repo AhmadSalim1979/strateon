@@ -1,0 +1,174 @@
+{
+  "_about": "Single source of truth for every clinic fact the site may show. status: verified | candidate | missing. The build only renders a fact as a current assertion when status is 'verified'; candidate and missing facts render as a 'being confirmed' state. Change a status only with the named approver's sign-off and record the date.",
+  "_schema": {
+    "value": "The fact itself (null when missing).",
+    "status": "verified = confirmed by an authoritative source AND approved for display; candidate = seen in public sources but unconfirmed or conflicting; missing = no reliable source yet.",
+    "sources": "Where the value was seen.",
+    "last_checked": "ISO date the sources were last checked.",
+    "approver": "Who must approve before the fact can go live.",
+    "notes": "Conflicts, caveats, and what is needed to verify."
+  },
+  "facts": {
+    "practice_name": {
+      "value": "Dr. Asif Niaz Arain & Associates Dental Professionals",
+      "status": "verified",
+      "sources": [
+        "Sindh Healthcare Commission, List of Registered HCEs (May 2025 PDF): 'Dr. Asif Niaz Arain & Associates'",
+        "Facebook page title: 'Dr. Asif Niaz Arain & Associates Dental Professionals | Karachi'",
+        "citysearch.pk listing"
+      ],
+      "last_checked": "2026-09-26",
+      "approver": "Family / practice owner",
+      "notes": "Consistent across all sources. Family to confirm preferred display form and whether '&' or 'and' is used on signage."
+    },
+    "location_broad": {
+      "value": "Clifton, Karachi",
+      "status": "verified",
+      "sources": [
+        "SHCC list (May 2025): 'ground floor F 175/1 block 5 clifton karachi'",
+        "citysearch.pk: 'F-175 Street No. 1 Clifton - Block 5, Karachi'",
+        "Project owner instruction (2026-09-26) to use 'Clifton, Karachi' as the broad location"
+      ],
+      "last_checked": "2026-09-26",
+      "approver": "Family / practice owner",
+      "notes": "Broad locality only. Independent sources agree on Clifton Block 5."
+    },
+    "address_full": {
+      "value": "F-175/1, Block 5, Clifton, Karachi",
+      "status": "candidate",
+      "sources": [
+        "SHCC list (May 2025): 'ground floor F 175/1 block 5 clifton karachi'",
+        "citysearch.pk: 'F-175 Street No. 1 Clifton - Block 5, Karachi'"
+      ],
+      "last_checked": "2026-09-26",
+      "approver": "Family / practice manager",
+      "notes": "Formatting differs between sources (F-175/1 vs F-175 Street No. 1; 'ground floor'). Needs the practice's own formatting, a landmark, and a map pin that matches Google Business Profile."
+    },
+    "map_coordinates": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Take from the verified Google Business Profile pin, not a geocoder guess."
+    },
+    "phone_primary": {
+      "value": null,
+      "status": "candidate",
+      "sources": ["citysearch.pk lists three numbers (two landlines, one mobile)"],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Project owner reports conflicting numbers across public sources; the directory alone lists three. None is confirmed current. Candidate numbers are deliberately not stored here to avoid accidental publication; see the directory listing. Call-test the chosen number before activation."
+    },
+    "whatsapp": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Needs a clinic-owned WhatsApp Business number, who answers it, and response hours. Do not publish a personal number."
+    },
+    "email": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager", "notes": "Not found in public sources."
+    },
+    "opening_hours": {
+      "value": null,
+      "status": "candidate",
+      "sources": ["citysearch.pk: Monday–Saturday 10:00 AM – 8:00 PM, Sunday closed", "Project owner reports conflicting hours across public sources (not independently re-checked in this pass)"],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Conflicting. Confirm regular hours, Friday prayer break, Ramadan hours and public holidays."
+    },
+    "booking_channel": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager + data-protection owner",
+      "notes": "No appointment channel is active. Before activation define owner, secure endpoint, access control, consent text and retention period (see docs/LAUNCH-CHECKLIST.md)."
+    },
+    "shcc_registration": {
+      "value": "SHCC/P-KHI/01138",
+      "status": "candidate",
+      "sources": ["Sindh Healthcare Commission, List of Registered HCEs, uploaded 2025-05 (entry 1080, type 'Dental Clinic')"],
+      "last_checked": "2026-09-26",
+      "approver": "Practice owner",
+      "notes": "The list shows registration as of its publication; it does not prove current licensing status. Obtain the current certificate before displaying."
+    },
+    "clinicians": {
+      "value": [], "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Each clinician + practice owner",
+      "notes": "For each: full name as registered, PMDC registration number (verify on the PMDC register), qualifications, role, languages, focus areas, days at the clinic, written consent for portrait and bio."
+    },
+    "practice_leadership": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Family / practice owner",
+      "notes": "Who leads the practice today. Do not infer a succession narrative."
+    },
+    "services": {
+      "value": [], "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Lead clinician",
+      "notes": "Proposed categories to validate are listed in content/en.mjs (proposedCareCategories). Only the approved list may drive live navigation and treatment pages."
+    },
+    "fees_and_payment": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager", "notes": "Consultation fee, payment methods, estimates policy."
+    },
+    "insurance_and_panels": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager", "notes": "Corporate panels / insurers accepted, if any."
+    },
+    "languages": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Practice manager", "notes": "Languages spoken by clinicians and front desk (e.g. English, Urdu, Sindhi)."
+    },
+    "accessibility_and_parking": {
+      "value": null, "status": "missing", "sources": ["SHCC list mentions 'ground floor' (not verified as step-free access)"], "last_checked": "2026-09-26",
+      "approver": "Practice manager", "notes": "Step-free entry, parking, drop-off point, lift if any."
+    },
+    "urgent_care_policy": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Lead clinician", "notes": "Whether same-day urgent appointments are offered and how. Do not claim emergency availability until confirmed."
+    },
+    "equipment": {
+      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "approver": "Lead clinician", "notes": "Only describe equipment the clinic confirms, and only where it helps patients."
+    },
+    "social_profiles": {
+      "value": ["https://www.facebook.com/dr.asifniazaraindentalprofessional/"],
+      "status": "candidate",
+      "sources": ["Project owner supplied link"],
+      "last_checked": "2026-09-26",
+      "approver": "Practice owner",
+      "notes": "Confirm the page is clinic-controlled and still active before linking."
+    },
+    "logo": {
+      "value": null,
+      "status": "missing",
+      "sources": ["citysearch.pk image /UF/Companies/5782/dr-asif-neaz-arain-and-associates-logo.jpg (280x167 JPEG, 'Neaz' spelling in filename, usage rights unknown)"],
+      "last_checked": "2026-09-26",
+      "approver": "Family / practice owner",
+      "notes": "Directory image is a low-resolution unverified candidate and is not used. Request the original SVG or high-resolution transparent PNG. Temporary typographic wordmark in use."
+    },
+    "founder_name": {
+      "value": "Dr. Asif Niaz Arain",
+      "status": "verified",
+      "sources": ["Dental News Pakistan, 12 March 2024", "SHCC list", "Facebook page title"],
+      "last_checked": "2026-09-26",
+      "approver": "Family",
+      "notes": "Namesake of the practice. Never presented as a current treating or bookable clinician."
+    },
+    "founder_date_of_death": {
+      "value": "2024-03-09",
+      "status": "verified",
+      "sources": ["Dental News Pakistan, 12 March 2024: passed away on the evening of Saturday 9 March 2024, aged 68, at Aga Khan University Hospital"],
+      "last_checked": "2026-09-26",
+      "approver": "Family",
+      "notes": "Family to approve whether and how this date appears on the production site."
+    },
+    "founder_biography": {
+      "value": [
+        "Former Vice President of the Asia Pacific Dental Federation",
+        "Senior member of the Pakistan Dental Association",
+        "Involved in national and international dental conferences"
+      ],
+      "status": "candidate",
+      "sources": ["Dental News Pakistan, 12 March 2024 (single source)"],
+      "last_checked": "2026-09-26",
+      "approver": "Family",
+      "notes": "Shown on the preview only inside a clearly labelled 'draft for family review' block. Qualifications not stated in the source."
+    }
+  }
+}
