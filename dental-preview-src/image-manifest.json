@@ -23,9 +23,46 @@
       "alt_guidance": "Describe the real space, e.g. 'The treatment room at the Clifton practice'. Don't mention smiles or outcomes.",
       "authentic_required": true,
       "consent_required": "Only if staff are identifiable",
-      "src": null,
-      "src_mobile": null,
-      "status": "placeholder"
+      "src": "hero-clinic",
+      "src_mobile": "hero-clinic-m",
+      "status": "illustrative-sample",
+      "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
+      "disclosure": "Illustrative image of an imagined clinic",
+      "alt": "A calm reception desk in warm stone and walnut, with a dental treatment room visible through an arched glass doorway",
+      "source": {
+        "master": "masters/hero-clinic.jpg",
+        "mobile_crop": {
+          "left": 0,
+          "top": 160,
+          "width": 1122,
+          "height": 842
+        }
+      },
+      "variants": {
+        "desktop": {
+          "widths": [
+            640,
+            960,
+            1122
+          ],
+          "px": [
+            1122,
+            1402
+          ]
+        },
+        "mobile": {
+          "widths": [
+            480,
+            720,
+            960,
+            1122
+          ],
+          "px": [
+            1122,
+            842
+          ]
+        }
+      }
     },
     "team-portrait-*": {
       "label": "Current clinician portrait",
@@ -132,9 +169,47 @@
       "alt_guidance": "Describe the space plainly",
       "authentic_required": true,
       "consent_required": "Only if people are identifiable",
-      "src": null,
-      "src_mobile": null,
-      "status": "placeholder"
+      "src": "interior-reception",
+      "src_mobile": "interior-reception-m",
+      "status": "illustrative-sample",
+      "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
+      "disclosure": "Illustrative image of an imagined clinic",
+      "alt": "A reception and waiting area with a curved stone desk, sage-green seating and daylight through tall windows",
+      "source": {
+        "master": "masters/interior-reception.jpg",
+        "mobile_crop": {
+          "left": 85,
+          "top": 0,
+          "width": 1365,
+          "height": 1024
+        }
+      },
+      "variants": {
+        "desktop": {
+          "widths": [
+            640,
+            960,
+            1280,
+            1536
+          ],
+          "px": [
+            1536,
+            1024
+          ]
+        },
+        "mobile": {
+          "widths": [
+            480,
+            720,
+            960,
+            1365
+          ],
+          "px": [
+            1365,
+            1024
+          ]
+        }
+      }
     },
     "interior-room": {
       "label": "A treatment room",
@@ -159,9 +234,47 @@
       "alt_guidance": "Describe the room; don't imply specific equipment unless confirmed",
       "authentic_required": true,
       "consent_required": "None if nobody is pictured",
-      "src": null,
-      "src_mobile": null,
-      "status": "placeholder"
+      "src": "interior-room",
+      "src_mobile": "interior-room-m",
+      "status": "illustrative-sample",
+      "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
+      "disclosure": "Illustrative image of an imagined clinic",
+      "alt": "A treatment room with a sage-green dental chair beside a large garden window",
+      "source": {
+        "master": "masters/interior-room.jpg",
+        "mobile_crop": {
+          "left": 85,
+          "top": 0,
+          "width": 1365,
+          "height": 1024
+        }
+      },
+      "variants": {
+        "desktop": {
+          "widths": [
+            640,
+            960,
+            1280,
+            1536
+          ],
+          "px": [
+            1536,
+            1024
+          ]
+        },
+        "mobile": {
+          "widths": [
+            480,
+            720,
+            960,
+            1365
+          ],
+          "px": [
+            1365,
+            1024
+          ]
+        }
+      }
     },
     "service-*": {
       "label": "Treatment detail image",
@@ -240,9 +353,47 @@
       "alt_guidance": "'Entrance to the clinic on <street>, Clifton Block 5' once the address is verified",
       "authentic_required": true,
       "consent_required": "Blur passers-by and vehicle plates",
-      "src": null,
-      "src_mobile": null,
-      "status": "placeholder"
+      "src": "location-exterior",
+      "src_mobile": "location-exterior-m",
+      "status": "illustrative-sample",
+      "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
+      "disclosure": "Illustrative image, not the clinic's actual entrance. Not for directions.",
+      "alt": "A stone-clad entrance with a glass door, planters and dappled sunlight",
+      "source": {
+        "master": "masters/location-exterior.jpg",
+        "mobile_crop": {
+          "left": 330,
+          "top": 0,
+          "width": 1086,
+          "height": 1086
+        }
+      },
+      "variants": {
+        "desktop": {
+          "widths": [
+            640,
+            960,
+            1280,
+            1448
+          ],
+          "px": [
+            1448,
+            1086
+          ]
+        },
+        "mobile": {
+          "widths": [
+            480,
+            720,
+            960,
+            1086
+          ],
+          "px": [
+            1086,
+            1086
+          ]
+        }
+      }
     },
     "location-map": {
       "label": "Map at the verified location",

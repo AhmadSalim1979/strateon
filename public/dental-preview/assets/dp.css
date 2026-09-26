@@ -141,7 +141,7 @@ body.dp {
 .dp-media { position: relative; margin: 0; width: 100%; overflow: hidden; border-radius: var(--dp-radius); background: var(--dp-ivory); }
 .dp-media > picture, .dp-media > img, .dp-media picture img { width: 100%; height: 100%; object-fit: cover; }
 .dp-media--mobile-crop { aspect-ratio: var(--dp-ar-m, var(--dp-ar)); }
-@media (min-width: 641px) { .dp-media--mobile-crop { aspect-ratio: var(--dp-ar); } }
+@media (min-width: 821px) { .dp-media--mobile-crop { aspect-ratio: var(--dp-ar); } }
 .dp-ph {
   position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px;
   padding: clamp(26px, 3.4vw, 36px);
@@ -156,6 +156,7 @@ body.dp {
 .dp-ph__rule { width: 28px; height: 1px; background: rgba(116, 86, 44, .55); }
 .dp-ph__caption { font-family: var(--dp-serif); font-style: italic; font-weight: 500; font-size: clamp(1.02rem, 1.7vw, 1.2rem); line-height: 1.3; color: #4a4235; max-width: 22em; }
 .dp-media--compact .dp-ph__caption { font-size: 1rem; }
+.dp-media__disclosure { position: absolute; inset-inline-start: 12px; inset-block-end: 12px; max-width: calc(100% - 24px); padding: 5px 10px; border-radius: 3px; background: rgba(251, 250, 247, .9); color: var(--dp-ink-soft); font-size: .72rem; font-weight: 500; line-height: 1.35; letter-spacing: .01em; }
 .dp-media figcaption, .dp-figcaption { font-size: .82rem; color: var(--dp-ink-muted); margin-block-start: 10px; }
 
 /* Grids & cards ------------------------------------------------------- */

@@ -224,7 +224,7 @@ ${closingCta()}`,
     <div class="dp-head"><div>
       <p class="dp-eyebrow">The clinic</p>
       <h2>The clinic's spaces.</h2>
-      <p class="dp-lede">Authentic photographs of the reception and treatment rooms are to replace these panels.</p>
+      <p class="dp-lede">Illustrative images of an imagined clinic are shown here until authentic photographs of the practice are supplied.</p>
     </div></div>
     <div class="dp-grid dp-grid--2">
       <div>${img('interior-reception', { compact: false })}</div>
@@ -592,7 +592,7 @@ ${closingCta()}`,
     <h2 id="terms">Preview terms</h2>
     <ul>
       <li>All clinic details shown are provisional and are being confirmed with the practice. Items marked "being confirmed" or "subject to clinic confirmation" should not be relied on.</li>
-      <li>Placeholder panels show where the practice's own photographs will go. No image on this preview shows a real clinician or patient.</li>
+      <li>Some images are illustrations of an imagined clinic interior and entrance. They are not photographs of the practice, and the entrance image is not the clinic's actual entrance. Captioned panels show where the practice's own photographs will go. No image on this preview shows a real clinician or patient.</li>
       <li>Qiyadon's own commercial terms do not apply to dental care, and nothing on this preview forms an agreement for dental treatment.</li>
       <li>Separate privacy and patient-information policies will be prepared for the clinic's own website and reviewed by the clinic and its legal adviser before launch.</li>
     </ul>
