@@ -11,6 +11,12 @@ clinic's own domain.
 - [ ] DNS, TLS and email (SPF/DKIM/DMARC) configured on the clinic domain.
 - [ ] If an older clinic website exists: inventory its URLs and plan 301 redirects to the matching new pages.
 
+## 2a. Remove all fictional and illustrative material
+- [ ] Delete the three fictional sample clinicians (Dr. Amina Rahman, Dr. Zoya Siddiqui, Dr. Hamza Khan): empty `sampleClinicians` in `content/team.mjs`, remove the `team-portrait-sample-*` slots from `image-manifest.json`, and delete their files from `img/` and `img/masters/`.
+- [ ] Replace the four AI-generated clinic illustrations (`hero-clinic`, `interior-reception`, `interior-room`, `location-exterior`) with authentic, approved photographs, or revert them to placeholders.
+- [ ] `node build.mjs --mode=production ...` refuses to run until both steps are done. Don't bypass this check.
+- [ ] Replace proposed wording (approach, visit journey, philosophy of care) with text the practice has approved, and remove the "proposed" labels only once it has.
+
 ## 2. Facts and approvals (`clinic-facts.json`)
 - [ ] Every fact shown on the site has `status: "verified"`, a source, a `last_checked` date and the named approver's sign-off.
 - [ ] Address, phone, WhatsApp, hours and map pin match the Google Business Profile **exactly**.
@@ -21,6 +27,8 @@ clinic's own domain.
 - [ ] Logo: original SVG or high-resolution transparent file received, with usage confirmed.
 
 ## 3. Clinical content
+- [ ] Care: a named local clinician reviews all 9 care pages (11 categories) in `content/care.mjs`, confirms which treatments the practice actually provides, deletes or rewrites the rest, and records their name and review date in `careStatus`. Check every source in `content/sources.mjs` for newer versions.
+- [ ] Remove "Availability to be confirmed" labels only for treatments the practice has confirmed, and remove the page-level illustrative notice only when every item on the page is confirmed.
 - [ ] Every treatment page and guide reviewed by a named clinician; reviewer name and review date shown on the page.
 - [ ] Emergency guidance localised for Karachi (which hospital emergency departments and numbers to use), approved by the lead clinician.
 - [ ] No guarantees, success statistics, "pain-free" or "best" claims, before/after images without written consent, or invented reviews.

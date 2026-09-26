@@ -1,22 +1,31 @@
-// English content for the dental site. Every page body is a function of the
-// shared helpers `h` (see build.mjs) so operational facts always come from
-// clinic-facts.json and images from image-manifest.json. An Urdu locale would
-// be a sibling file (content/ur.mjs) with dir: 'rtl', reviewed by a human
-// translator and a clinician; never machine-translated medical copy.
+// English content for the dental site. Page bodies live in pages.mjs and use
+// the shared helpers `h` (see build.mjs), so operational facts always come
+// from clinic-facts.json and images from image-manifest.json. Care and team
+// copy live in content/care.mjs and content/team.mjs; health sources in
+// content/sources.mjs. An Urdu locale would be a sibling set of files with
+// dir: 'rtl', reviewed by a human translator and a clinician; never
+// machine-translated medical copy.
 
 export const locale = { lang: 'en', dir: 'ltr' };
 
 export const ui = {
-  previewNotice: 'Concept preview — clinic details and appointments are being confirmed.',
+  previewNotice: 'Concept preview: clinic details and appointments are being confirmed. Team profiles are fictional examples.',
   previewMore: 'About this preview',
   skip: 'Skip to main content',
   menu: 'Menu',
   requestAppointment: 'Request an appointment',
+  appointmentPreview: 'View the appointment preview',
   beingConfirmed: 'Being confirmed',
-  subjectToConfirmation: 'Subject to clinic confirmation',
+  awaitingConfirmation: 'Awaiting practice confirmation',
+  awaitingVerification: 'Awaiting verification',
+  availabilityTbc: 'Availability to be confirmed',
+  clinicalReviewPending: 'Clinical review pending',
+  illustrativeNotice: 'Illustrative content for family and clinician review. Service availability and the actual patient experience have not been confirmed.',
   conceptCopy: 'Proposed wording, for clinic review',
   proposedExperience: 'Proposed experience, for clinic review',
+  sampleWorkflow: 'Sample workflow, to be approved by the clinic',
   draftForReview: 'Draft for family review',
+  guideDraft: 'Draft · awaiting clinician review',
   breadcrumb: 'Breadcrumb',
 };
 
@@ -30,30 +39,6 @@ export const nav = [
   { key: 'contact', label: 'Contact', path: '/contact/' },
 ];
 
-// Proposed categories only. None is a confirmed offering until the lead
-// clinician approves the list in clinic-facts.json -> services.
-export const proposedCareCategories = [
-  { group: 'Everyday and preventive care', items: [
-    { slug: 'checkups-and-cleaning', name: 'Check-ups and cleaning', text: 'An examination of teeth, gums and soft tissues, with professional cleaning where needed, and advice on how often to return.' },
-    { slug: 'fillings', name: 'Fillings', text: 'Repairing a tooth affected by decay or minor damage, and explaining the filling materials that suit that tooth.' },
-    { slug: 'gum-care', name: 'Gum care', text: 'Checking for gum inflammation and disease, cleaning below the gum line where appropriate, and a plan for keeping gums healthy at home.' },
-    { slug: 'childrens-dentistry', name: "Children's dentistry", text: 'Dental care for children, with guidance for parents on brushing, diet and developing teeth.' },
-  ]},
-  { group: 'Restoring teeth', items: [
-    { slug: 'crowns', name: 'Crowns', text: 'A cap that covers and protects a weakened or heavily restored tooth.' },
-    { slug: 'root-canal-care', name: 'Root canal care', text: 'Treating infection inside a tooth so that the tooth can be kept, often followed by a crown.' },
-    { slug: 'extractions', name: 'Extractions', text: 'Removing a tooth that cannot be saved, and discussing options for the space afterwards.' },
-    { slug: 'implants', name: 'Implants', text: 'Replacing a missing tooth with an implant-supported crown where assessment shows it is suitable.' },
-  ]},
-  { group: 'Alignment and appearance', items: [
-    { slug: 'orthodontics-and-aligners', name: 'Orthodontics or aligners', text: 'Straightening teeth with braces or clear aligners after an assessment of bite, gums and expectations.' },
-    { slug: 'whitening', name: 'Whitening', text: 'Clinician-supervised whitening after a check that teeth and gums are healthy enough for it. Whitening does not change the colour of crowns or fillings.' },
-  ]},
-  { group: 'When something hurts', items: [
-    { slug: 'urgent-dental-concerns', name: 'Urgent dental concerns', text: 'Help with toothache, a broken tooth or a lost filling. Whether same-day appointments are available is still being confirmed.' },
-  ]},
-];
-
 export const articles = [
   {
     slug: 'how-often-dental-check-up',
@@ -61,10 +46,9 @@ export const articles = [
     description: 'Why the right interval between check-ups depends on your own oral health, and what guidance says about it.',
     question: 'Do I really need a check-up every six months?',
     readMinutes: 4,
-    sources: [
-      ['NICE guideline CG19, Dental checks: intervals between oral health reviews', 'https://www.nice.org.uk/guidance/cg19'],
-      ['NICE CG19, 1 Guidance', 'https://www.nice.org.uk/guidance/cg19/chapter/1-guidance'],
-    ],
+    sources: ['nice-cg19', 'nice-cg19-guidance', 'nhs-checkups', 'nhs-mouth-ulcers'],
+    relatedCare: ['checkups-and-cleaning', 'gum-care', 'childrens-dentistry'],
+    summary: ['There is no single right interval for everyone. UK guidance ranges from 3 months to 2 years for adults.', 'Your dentist should explain why they suggest a particular interval, and it can change over time.', "Don't wait for a scheduled check-up if something new appears or doesn't heal."],
     body: `
 <p>Many people grow up with the idea that everyone should see a dentist every six months. Current clinical guidance is more personal than that. The right interval between check-ups depends on the health of your teeth and gums, and on your risk of developing problems.</p>
 <h2>What the guidance says</h2>
@@ -83,7 +67,7 @@ export const articles = [
   <li>Is there anything about my teeth or gums you would like me to keep an eye on?</li>
   <li>Is there one thing I could change at home that would make the most difference?</li>
 </ul>
-<p>If something changes between visits, such as pain, bleeding gums that don't settle, a broken tooth or a lump or ulcer that doesn't heal within a couple of weeks, don't wait for your next check-up. Contact a dentist sooner.</p>`,
+<p>If something changes between visits, such as pain, bleeding gums that don't settle, a broken tooth, or a mouth ulcer that hasn't healed after three weeks, don't wait for your next check-up. Contact a dentist sooner.</p>`,
   },
   {
     slug: 'what-happens-root-canal-treatment',
@@ -91,9 +75,9 @@ export const articles = [
     description: 'A plain explanation of why root canal treatment is done, what the appointments involve, and what recovery usually feels like.',
     question: 'I have been told I need a root canal. What does that involve?',
     readMinutes: 5,
-    sources: [
-      ['NHS: Root canal treatment (page last reviewed 3 October 2025)', 'https://www.nhs.uk/conditions/root-canal-treatment/'],
-    ],
+    sources: ['nhs-root-canal'],
+    relatedCare: ['root-canal-and-extraction', 'fillings-and-crowns', 'urgent-dental-concerns'],
+    summary: ['Root canal treatment aims to save a tooth whose inner pulp is infected or badly damaged.', 'It is done under local anaesthetic and often takes two or more appointments; a crown may follow.', 'The main alternative is removing the tooth, so ask about the prospects of each option.'],
     body: `
 <p>Being told you need root canal treatment can sound alarming. Knowing what the treatment is for, and what happens at each stage, often makes it much easier to face.</p>
 <h2>What it is for</h2>
@@ -108,7 +92,7 @@ export const articles = [
 </ol>
 <p>It commonly takes <strong>two or more appointments</strong>, which may each last one to two hours, or sometimes longer. If the tooth was badly damaged, your dentist may recommend a <strong>crown</strong> afterwards to protect it.</p>
 <h2>Afterwards</h2>
-<p>It is normal for the area to feel numb for a few hours, and for the tooth and gum to feel sore or a little swollen for a while. Your dentist will tell you which pain relief is suitable for you and how to look after the tooth until treatment is complete.</p>
+<p>It is normal for the area to feel numb for a few hours, and for the tooth and gum to feel sore or a little swollen for a while; the NHS says this should improve within a couple of weeks. Your dentist will tell you which pain relief is suitable for you and how to look after the tooth until treatment is complete.</p>
 <p>Contact your dentist if pain or swelling gets worse rather than better, or if you develop a high temperature.</p>
 <h2>Questions you might ask</h2>
 <ul>
@@ -123,9 +107,9 @@ export const articles = [
     description: 'Sensible first steps for toothache, the signs that mean you should see a dentist, and when to seek emergency help.',
     question: 'My tooth hurts. Is it urgent?',
     readMinutes: 4,
-    sources: [
-      ['NHS: Toothache (page last reviewed 1 July 2024)', 'https://www.nhs.uk/symptoms/toothache/'],
-    ],
+    sources: ['nhs-toothache', 'nhs-abscess'],
+    relatedCare: ['urgent-dental-concerns', 'root-canal-and-extraction', 'gum-care'],
+    summary: ['Facial, eye or neck swelling, or difficulty breathing, swallowing or speaking, needs hospital emergency care straight away.', 'Toothache lasting more than two days, or not settling with painkillers, needs a dental assessment.', 'Home measures can ease pain for a while, but they do not treat the cause.'],
     body: `
 <div class="dp-urgent" role="note"><p><strong>Seek emergency medical help straight away</strong> if you have toothache with swelling around your eye or in your neck, or swelling in your mouth or neck that makes it hard to breathe, swallow or speak. Go to a hospital emergency department rather than waiting for a dental appointment.</p></div>
 <p>Toothache has many possible causes, including decay, an abscess, a cracked tooth, a loose or broken filling, gum disease, a wisdom tooth coming through, teeth grinding and sensitive teeth. A dentist needs to find the cause to treat it properly.</p>
@@ -153,11 +137,14 @@ export const articles = [
 ];
 
 export const faqs = [
-  ['Is an appointment request the same as a confirmed booking?', 'No. If the clinic adds appointment requests to its website, a request would only tell the clinic when you would prefer to come. An appointment is confirmed only when the clinic itself confirms a date and time with you.'],
-  ['Can I book through this website today?', 'Not yet. This is a concept preview of the clinic\'s future website. The phone number, WhatsApp and booking details are being confirmed with the practice and would be listed here only once verified.'],
-  ['What will my first visit cost?', 'Consultation fees are being confirmed with the practice. Whatever clinic you visit, it is reasonable to ask about fees, and for an estimate, before agreeing to treatment.'],
-  ['Do you accept insurance or corporate panels?', 'This is being confirmed with the practice.'],
-  ['Which languages do the dentists speak?', 'This is being confirmed with the practice.'],
-  ['Is the clinic accessible, and is there parking?', 'Step-free access, parking and drop-off arrangements are being confirmed with the practice.'],
-  ['Who will treat me?', 'Current clinician profiles will be added after review, once each clinician has confirmed their details.'],
+  { q: 'Is an appointment request the same as a confirmed booking?', a: `<p>No. If the clinic adds appointment requests to its website, a request would only tell the clinic when you would prefer to come. An appointment is confirmed only when the clinic itself confirms a date and time with you.</p>` },
+  { q: 'Can I book through this website today?', a: `<p>Not yet. This is a concept preview of the clinic's future website. The phone number, WhatsApp and booking details are being confirmed with the practice and will appear on the Contact page once verified.</p>` },
+  { q: 'How often should I have a check-up?', a: `<p>It depends on your own oral health. UK guidance suggests intervals from three months to two years for adults, and up to one year for children, set by your dentist after an examination rather than a fixed six months for everyone. <a href="{{guide:how-often-dental-check-up}}">Read the guide on check-up intervals</a>.</p>` },
+  { q: 'Will I need X-rays at my first visit?', a: `<p>Not necessarily. X-rays are usually taken when a dentist judges they will show something an examination can't, such as decay between teeth or the bone around the roots. If X-rays are suggested, it is reasonable to ask what they are for. If you have recent X-rays from another dentist, mention them.</p>` },
+  { q: "I'm anxious about visiting a dentist. What can I do?", a: `<p>Many people feel this way. It helps to say so at the start, ask for each step to be explained before it happens, and agree a simple signal, such as raising a hand, for when you'd like a pause. Bringing someone with you, or booking a first visit that is only a conversation and examination, can also make it easier.</p>` },
+  { q: 'Can I ask for a written estimate before treatment?', a: `<p>Asking for the cost of a proposed treatment, and for it in writing, is a sensible step at any dental practice, particularly for treatment over several visits. How this practice provides estimates is being confirmed.</p>` },
+  { q: 'When should a child first see a dentist?', a: `<p>UK guidance suggests a first visit when the first teeth appear, or before a child's first birthday, followed by regular check-ups. Whether this practice sees children is being confirmed. <a href="{{care:childrens-dentistry}}">Read about children's dental care</a>.</p>` },
+  { q: 'What should I do if I have pain before an appointment?', a: `<p>If you have facial, eye or neck swelling, or difficulty breathing, swallowing or speaking, go to a hospital emergency department straight away. For toothache that lasts more than two days or doesn't settle with painkillers, see a dentist you can reach promptly. <a href="{{care:urgent-dental-concerns}}">Read about urgent dental concerns</a>.</p>` },
+  { q: 'What will my first visit cost?', a: `<p>Consultation fees, payment methods and any insurance or corporate panel arrangements are being confirmed with the practice.</p>` },
+  { q: 'Who will treat me?', a: `<p>The clinic's current clinicians are awaiting confirmation. The Team page shows three fictional example profiles that demonstrate how real profiles could look; those people do not work at the practice.</p>` },
 ];

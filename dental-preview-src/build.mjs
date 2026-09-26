@@ -16,6 +16,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as en from './content/en.mjs';
+import * as care from './content/care.mjs';
+import * as team from './content/team.mjs';
+import { sources, CHECKED } from './content/sources.mjs';
 import { pages } from './pages.mjs';
 
 const SRC = path.dirname(fileURLToPath(import.meta.url));
@@ -36,6 +39,15 @@ if (MODE === 'production') {
 
 const facts = JSON.parse(fs.readFileSync(path.join(SRC, 'clinic-facts.json'), 'utf8')).facts;
 const images = JSON.parse(fs.readFileSync(path.join(SRC, 'image-manifest.json'), 'utf8')).slots;
+
+// Fictional people and illustrative images exist only for the family review
+// preview. A production (indexable, clinic-domain) build must not contain them.
+if (MODE === 'production') {
+  const illustrative = Object.entries(images).filter(([, v]) => /illustrative|fictional/.test(v.status || '')).map(([k]) => k);
+  if (team.sampleClinicians.length || illustrative.length) {
+    throw new Error(`Production build blocked: remove fictional sample clinicians (${team.sampleClinicians.length}) and replace illustrative images (${illustrative.join(', ') || 'none'}) first.`);
+  }
+}
 const { ui, nav, locale } = en;
 
 // ---------------------------------------------------------------- helpers
@@ -153,7 +165,7 @@ function footer() {
     </div>
     <div class="dp-footer__legal">
       <span>Concept preview prepared by Qiyadon for review by the practice. This is not yet the clinic's official website.</span>
-      <span>No appointments or medical information are collected on this preview.</span>
+      <span>No appointments or medical information are collected on this preview. Team profiles shown are fictional examples, and clinic images are illustrations.</span>
     </div>
   </div>
 </footer>`;
@@ -243,8 +255,30 @@ ${bookingDialog()}
 `;
 }
 
+// A moved page: noindex, instant refresh and a visible link (for no-JS and
+// assistive technology). Static hosting can't send a 301 for one path without
+// touching the site-wide _redirects file, which this preview must not modify.
+function redirectStub(page) {
+  const to = url(page.redirectTo);
+  return `<!doctype html>
+<html lang="${locale.lang}" dir="${locale.dir}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${esc(page.title)} | Dr. Asif Niaz Arain &amp; Associates</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="refresh" content="0; url=${to}">
+  <link rel="stylesheet" href="${url('/assets/dp.css')}">
+</head>
+<body class="dp">
+<main class="dp-section"><div class="dp-wrap dp-narrow"><h1>${esc(page.title)}</h1><p>${esc(page.description)} <a href="${to}">Continue to the Team page</a>.</p></div></main>
+</body>
+</html>
+`;
+}
+
 // ---------------------------------------------------------------- pages
-const allPages = pages(h, en);
+const allPages = pages(h, { ...en, care, team, sources, CHECKED });
 
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
@@ -258,7 +292,7 @@ for (const page of allPages) {
   const file = page.file || path.join(page.path.replace(/^\//, ''), 'index.html');
   const dest = path.join(OUT, file);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
-  fs.writeFileSync(dest, layout(page));
+  fs.writeFileSync(dest, page.redirectTo ? redirectStub(page) : layout(page));
 }
 
 // Internal image-slot documentation, regenerated from the manifest on every build.

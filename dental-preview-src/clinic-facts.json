@@ -45,91 +45,150 @@
       "notes": "Formatting differs between sources (F-175/1 vs F-175 Street No. 1; 'ground floor'). Needs the practice's own formatting, a landmark, and a map pin that matches Google Business Profile."
     },
     "map_coordinates": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
       "approver": "Practice manager",
       "notes": "Take from the verified Google Business Profile pin, not a geocoder guess."
     },
     "phone_primary": {
       "value": null,
       "status": "candidate",
-      "sources": ["citysearch.pk lists three numbers (two landlines, one mobile)"],
+      "sources": [
+        "citysearch.pk lists three numbers (two landlines, one mobile)"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Practice manager",
       "notes": "Project owner reports conflicting numbers across public sources; the directory alone lists three. None is confirmed current. Candidate numbers are deliberately not stored here to avoid accidental publication; see the directory listing. Call-test the chosen number before activation."
     },
     "whatsapp": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
       "approver": "Practice manager",
       "notes": "Needs a clinic-owned WhatsApp Business number, who answers it, and response hours. Do not publish a personal number."
     },
     "email": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
-      "approver": "Practice manager", "notes": "Not found in public sources."
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Not found in public sources."
     },
     "opening_hours": {
       "value": null,
       "status": "candidate",
-      "sources": ["citysearch.pk: Monday–Saturday 10:00 AM – 8:00 PM, Sunday closed", "Project owner reports conflicting hours across public sources (not independently re-checked in this pass)"],
+      "sources": [
+        "citysearch.pk: Monday–Saturday 10:00 AM – 8:00 PM, Sunday closed",
+        "Project owner reports conflicting hours across public sources (not independently re-checked in this pass)"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Practice manager",
       "notes": "Conflicting. Confirm regular hours, Friday prayer break, Ramadan hours and public holidays."
     },
     "booking_channel": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
       "approver": "Practice manager + data-protection owner",
       "notes": "No appointment channel is active. Before activation define owner, secure endpoint, access control, consent text and retention period (see docs/LAUNCH-CHECKLIST.md)."
     },
     "shcc_registration": {
       "value": "SHCC/P-KHI/01138",
       "status": "candidate",
-      "sources": ["Sindh Healthcare Commission, List of Registered HCEs, uploaded 2025-05 (entry 1080, type 'Dental Clinic')"],
+      "sources": [
+        "Sindh Healthcare Commission, List of Registered HCEs, uploaded 2025-05 (entry 1080, type 'Dental Clinic')"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Practice owner",
       "notes": "The list shows registration as of its publication; it does not prove current licensing status. Obtain the current certificate before displaying."
     },
     "clinicians": {
-      "value": [], "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "value": [],
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
       "approver": "Each clinician + practice owner",
-      "notes": "For each: full name as registered, PMDC registration number (verify on the PMDC register), qualifications, role, languages, focus areas, days at the clinic, written consent for portrait and bio."
+      "notes": "None confirmed; content/team.mjs `clinicians` is empty. For each: full name as registered, PMDC registration number (verify on the PMDC register, record the check date), qualifications with institution and year, actual role and clinical scope, languages, clinic days, written consent for portrait and bio. The three people on the preview Team page are fictional (see fictional_samples)."
     },
     "practice_leadership": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
       "approver": "Family / practice owner",
       "notes": "Who leads the practice today. Do not infer a succession narrative."
     },
     "services": {
-      "value": [], "status": "missing", "sources": [], "last_checked": "2026-09-26",
+      "value": [],
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
       "approver": "Lead clinician",
-      "notes": "Proposed categories to validate are listed in content/en.mjs (proposedCareCategories). Only the approved list may drive live navigation and treatment pages."
+      "notes": "No service is confirmed. content/care.mjs holds illustrative explanations for 11 proposed categories on 9 pages (availability 'not-confirmed', clinical review 'pending'). Only the lead clinician's approved list may drive live navigation and treatment pages."
     },
     "fees_and_payment": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
-      "approver": "Practice manager", "notes": "Consultation fee, payment methods, estimates policy."
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Consultation fee, payment methods, estimates policy."
     },
     "insurance_and_panels": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
-      "approver": "Practice manager", "notes": "Corporate panels / insurers accepted, if any."
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Corporate panels / insurers accepted, if any."
     },
     "languages": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
-      "approver": "Practice manager", "notes": "Languages spoken by clinicians and front desk (e.g. English, Urdu, Sindhi)."
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Languages spoken by clinicians and front desk (e.g. English, Urdu, Sindhi)."
     },
     "accessibility_and_parking": {
-      "value": null, "status": "missing", "sources": ["SHCC list mentions 'ground floor' (not verified as step-free access)"], "last_checked": "2026-09-26",
-      "approver": "Practice manager", "notes": "Step-free entry, parking, drop-off point, lift if any."
+      "value": null,
+      "status": "missing",
+      "sources": [
+        "SHCC list mentions 'ground floor' (not verified as step-free access)"
+      ],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": "Step-free entry, parking, drop-off point, lift if any."
     },
     "urgent_care_policy": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
-      "approver": "Lead clinician", "notes": "Whether same-day urgent appointments are offered and how. Do not claim emergency availability until confirmed."
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Lead clinician",
+      "notes": "Whether same-day urgent appointments are offered and how. Do not claim emergency availability until confirmed."
     },
     "equipment": {
-      "value": null, "status": "missing", "sources": [], "last_checked": "2026-09-26",
-      "approver": "Lead clinician", "notes": "Only describe equipment the clinic confirms, and only where it helps patients."
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Lead clinician",
+      "notes": "Only describe equipment the clinic confirms, and only where it helps patients."
     },
     "social_profiles": {
-      "value": ["https://www.facebook.com/dr.asifniazaraindentalprofessional/"],
+      "value": [
+        "https://www.facebook.com/dr.asifniazaraindentalprofessional/"
+      ],
       "status": "candidate",
-      "sources": ["Project owner supplied link"],
+      "sources": [
+        "Project owner supplied link"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Practice owner",
       "notes": "Confirm the page is clinic-controlled and still active before linking."
@@ -137,7 +196,9 @@
     "logo": {
       "value": null,
       "status": "missing",
-      "sources": ["citysearch.pk image /UF/Companies/5782/dr-asif-neaz-arain-and-associates-logo.jpg (280x167 JPEG, 'Neaz' spelling in filename, usage rights unknown)"],
+      "sources": [
+        "citysearch.pk image /UF/Companies/5782/dr-asif-neaz-arain-and-associates-logo.jpg (280x167 JPEG, 'Neaz' spelling in filename, usage rights unknown)"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Family / practice owner",
       "notes": "Directory image is a low-resolution unverified candidate and is not used. Request the original SVG or high-resolution transparent PNG. Temporary typographic wordmark in use."
@@ -145,7 +206,11 @@
     "founder_name": {
       "value": "Dr. Asif Niaz Arain",
       "status": "verified",
-      "sources": ["Dental News (dentalnews.pk), article dated 10 March 2024 (URL path 12-Mar-2024)", "SHCC list", "Facebook page title"],
+      "sources": [
+        "Dental News (dentalnews.pk), article dated 10 March 2024 (URL path 12-Mar-2024)",
+        "SHCC list",
+        "Facebook page title"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Family",
       "notes": "The practice bears his name. 'Founder' designation and any succession story are NOT confirmed; family to confirm. Never presented as a current treating or bookable clinician."
@@ -153,7 +218,9 @@
     "founder_date_of_death": {
       "value": "2024-03-09",
       "status": "verified",
-      "sources": ["Dental News (dentalnews.pk), article dated 10 March 2024 (URL path 12-Mar-2024): passed away on the evening of Saturday 9 March 2024, aged 68, at Aga Khan University Hospital"],
+      "sources": [
+        "Dental News (dentalnews.pk), article dated 10 March 2024 (URL path 12-Mar-2024): passed away on the evening of Saturday 9 March 2024, aged 68, at Aga Khan University Hospital"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Family",
       "notes": "Family to approve whether and how this date appears on the production site."
@@ -165,10 +232,58 @@
         "Involved in national and international dental conferences"
       ],
       "status": "candidate",
-      "sources": ["Dental News (dentalnews.pk), article dated 10 March 2024 (URL path 12-Mar-2024) (single source)"],
+      "sources": [
+        "Dental News (dentalnews.pk), article dated 10 March 2024 (URL path 12-Mar-2024) (single source)"
+      ],
       "last_checked": "2026-09-26",
       "approver": "Family",
       "notes": "Shown on the preview only inside a clearly labelled 'draft for family review' block. Qualifications not stated in the source."
+    },
+    "patient_experience": {
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Practice owner + lead clinician",
+      "notes": "The visit journey, 'approach' wording and treatment-decision copy are proposals labelled on the site. Confirm the real process: how patients book, arrival, how medical history is collected and stored, visit length, estimates, cancellations."
+    },
+    "cancellation_policy": {
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Practice manager",
+      "notes": ""
     }
+  },
+  "fictional_samples": {
+    "_about": "Deliberately fictional material shown ONLY on the family-review preview. The production build refuses to run while any of it remains (build.mjs).",
+    "sample_clinicians": [
+      {
+        "name": "Dr. Amina Rahman",
+        "profile": "/team/sample-amina-rahman/",
+        "image_slot": "team-portrait-sample-amina-rahman",
+        "nature": "Invented person; AI-generated portrait supplied by project owner 2026-09-26"
+      },
+      {
+        "name": "Dr. Zoya Siddiqui",
+        "profile": "/team/sample-zoya-siddiqui/",
+        "image_slot": "team-portrait-sample-zoya-siddiqui",
+        "nature": "Invented person; AI-generated portrait supplied by project owner 2026-09-26"
+      },
+      {
+        "name": "Dr. Hamza Khan",
+        "profile": "/team/sample-hamza-khan/",
+        "image_slot": "team-portrait-sample-hamza-khan",
+        "nature": "Invented person; AI-generated portrait supplied by project owner 2026-09-26"
+      }
+    ],
+    "illustrative_images": [
+      "hero-clinic",
+      "interior-reception",
+      "interior-room",
+      "location-exterior"
+    ],
+    "removal": "Before production: empty sampleClinicians in content/team.mjs, delete the three team-portrait-sample-* manifest slots and their files in img/, and replace every illustrative image with authentic, approved photography."
   }
 }
