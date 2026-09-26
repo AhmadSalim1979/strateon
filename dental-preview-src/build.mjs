@@ -153,7 +153,7 @@ function bookingDialog() {
     <p class="dp-eyebrow">Appointments</p>
     <h2 id="dp-booking-title">Booking isn't open on this preview yet</h2>
     <div id="dp-booking-desc">
-      <p>You're viewing a concept of the clinic's future website. The practice is confirming its phone number, WhatsApp and appointment process, and these will appear here once verified.</p>
+      <p>You're viewing a concept of the clinic's future website. The practice's phone number, WhatsApp and appointment process are being confirmed, and would be listed here only once verified.</p>
       <p>Nothing has been sent and no appointment has been requested. Please don't share symptoms or medical details through this website.</p>
     </div>
     <div class="dp-urgent" role="note" style="margin:18px 0 24px"><p style="margin:0"><strong>In an emergency:</strong> if you have dental pain with facial or neck swelling, or difficulty breathing or swallowing, seek emergency medical care straight away.</p></div>
@@ -209,9 +209,8 @@ function layout(page) {
   ${ogImage}
   <meta name="theme-color" content="#fbfaf7">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="preload" href="${url('/assets/fonts/cormorant-garamond-latin.woff2')}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${url('/assets/fonts/inter-latin.woff2')}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${url('/assets/dp.css')}">
   <script src="${url('/assets/dp.js')}" defer></script>
   ${jsonLd(page)}
@@ -237,6 +236,7 @@ const allPages = pages(h, en);
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
 for (const f of ['dp.css', 'dp.js']) fs.copyFileSync(path.join(SRC, 'assets', f), path.join(OUT, 'assets', f));
+fs.cpSync(path.join(SRC, 'assets', 'fonts'), path.join(OUT, 'assets', 'fonts'), { recursive: true });
 const imgDir = path.join(SRC, 'img');
 if (fs.existsSync(imgDir)) fs.cpSync(imgDir, path.join(OUT, 'assets', 'img'), { recursive: true });
 

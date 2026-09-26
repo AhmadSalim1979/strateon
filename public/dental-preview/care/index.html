@@ -14,9 +14,8 @@
   
   <meta name="theme-color" content="#fbfaf7">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="preload" href="/dental-preview/assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/dental-preview/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/dental-preview/assets/dp.css">
   <script src="/dental-preview/assets/dp.js" defer></script>
   
@@ -50,7 +49,7 @@
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap">
-    <div class="dp-note dp-note--sage" style="margin-block-end:48px"><p><strong>How treatment pages will work.</strong> Each confirmed treatment will have its own page explaining who it's for, what happens, how long it takes, recovery, alternatives and how fees are discussed, reviewed and signed off by a named clinician. <a href="/dental-preview/care/checkups-and-cleaning/">See the template, using check-ups as the example.</a></p></div>
+    <div class="dp-note dp-note--sage" style="margin-block-end:48px"><p><strong>How treatment pages would work.</strong> Each confirmed treatment would have its own page explaining who it's for, what happens, how long it takes, recovery, alternatives and how fees are discussed, reviewed and signed off by a named clinician. <a href="/dental-preview/care/checkups-and-cleaning/">See the template, using check-ups as the example.</a></p></div>
     
   <div style="margin-block-end:48px">
     <h2 style="font-size:1.8rem;margin-block-end:18px">Everyday and preventive care</h2>
@@ -58,7 +57,7 @@
       <article class="dp-card dp-card--link">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
         <h3 style="font-size:1.12rem;margin:0 0 .4em"><a href="/dental-preview/care/checkups-and-cleaning/">Check-ups and cleaning</a></h3>
-        <p class="dp-muted">An examination of teeth, gums and soft tissues, with professional cleaning when it is needed, and advice on how often to return.</p>
+        <p class="dp-muted">An examination of teeth, gums and soft tissues, with professional cleaning where needed, and advice on how often to return.</p>
         <p style="margin:0"><a class="dp-textlink" href="/dental-preview/care/checkups-and-cleaning/">See the treatment-page template</a></p>
       </article><article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
@@ -73,7 +72,7 @@
       </article><article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
         <h3 style="font-size:1.12rem;margin:0 0 .4em">Children&#39;s dentistry</h3>
-        <p class="dp-muted">Gentle, unhurried visits for children, with guidance for parents on brushing, diet and developing teeth.</p>
+        <p class="dp-muted">Dental care for children, with guidance for parents on brushing, diet and developing teeth.</p>
         
       </article>
     </div>
@@ -84,7 +83,7 @@
       <article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
         <h3 style="font-size:1.12rem;margin:0 0 .4em">Crowns</h3>
-        <p class="dp-muted">A cap that covers and protects a weakened or heavily restored tooth, usually made over two visits.</p>
+        <p class="dp-muted">A cap that covers and protects a weakened or heavily restored tooth.</p>
         
       </article><article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
@@ -94,7 +93,7 @@
       </article><article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
         <h3 style="font-size:1.12rem;margin:0 0 .4em">Extractions</h3>
-        <p class="dp-muted">Removing a tooth when it cannot be saved, with a clear explanation of the options for the space afterwards.</p>
+        <p class="dp-muted">Removing a tooth that cannot be saved, and discussing options for the space afterwards.</p>
         
       </article><article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
@@ -115,7 +114,7 @@
       </article><article class="dp-card">
         <div class="dp-card__meta"><span class="dp-pill dp-pill--pending">Subject to clinic confirmation</span></div>
         <h3 style="font-size:1.12rem;margin:0 0 .4em">Whitening</h3>
-        <p class="dp-muted">Clinician-supervised whitening after a check that teeth and gums are healthy enough for it, with honest guidance on what it can and cannot change.</p>
+        <p class="dp-muted">Clinician-supervised whitening after a check that teeth and gums are healthy enough for it. Whitening does not change the colour of crowns or fillings.</p>
         
       </article>
     </div>
@@ -143,7 +142,7 @@
     <div>
       <p class="dp-eyebrow">Not sure what you need?</p>
       <h2>Start with a consultation.</h2>
-      <p class="dp-lede">You don't need to know the name of a treatment to book. Tell us what's bothering you and your dentist will explain the options.</p>
+      <p class="dp-lede">You don't need to know the name of a treatment first. At a consultation, a dentist can look at what's bothering you and explain the options.</p>
       <div class="dp-actions"><a class="dp-btn" href="/dental-preview/contact/#appointments" data-dp-booking aria-haspopup="dialog">Request an appointment</a></div>
     </div>
   </div>
@@ -185,7 +184,7 @@
     <p class="dp-eyebrow">Appointments</p>
     <h2 id="dp-booking-title">Booking isn't open on this preview yet</h2>
     <div id="dp-booking-desc">
-      <p>You're viewing a concept of the clinic's future website. The practice is confirming its phone number, WhatsApp and appointment process, and these will appear here once verified.</p>
+      <p>You're viewing a concept of the clinic's future website. The practice's phone number, WhatsApp and appointment process are being confirmed, and would be listed here only once verified.</p>
       <p>Nothing has been sent and no appointment has been requested. Please don't share symptoms or medical details through this website.</p>
     </div>
     <div class="dp-urgent" role="note" style="margin:18px 0 24px"><p style="margin:0"><strong>In an emergency:</strong> if you have dental pain with facial or neck swelling, or difficulty breathing or swallowing, seek emergency medical care straight away.</p></div>

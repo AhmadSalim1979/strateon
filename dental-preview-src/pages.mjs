@@ -7,13 +7,13 @@ export function pages(h, en) {
   const { proposedCareCategories, articles, faqs } = en;
   const loc = factText('location_broad');
 
-  const closingCta = (title = 'When you\'re ready, we\'ll be here.') => `
+  const closingCta = (title = 'Appointments are being confirmed.') => `
 <section class="dp-section dp-section--ink">
   <div class="dp-wrap dp-split">
     <div>
       <p class="dp-eyebrow">Appointments</p>
       <h2>${title}</h2>
-      <p class="dp-lede">Requests will open once the clinic confirms its booking process. A request is not a booking: the clinic will contact you to confirm a date and time.</p>
+      <p class="dp-lede">Appointment requests aren't open on this preview. If the clinic adds them, a request would not be a booking until the clinic confirms a date and time with you.</p>
     </div>
     <div class="dp-actions" style="justify-content:flex-start">
       ${bookBtn(ui.requestAppointment, 'dp-btn dp-btn--light')}
@@ -26,10 +26,10 @@ export function pages(h, en) {
 <div class="dp-empty">
   <p class="dp-eyebrow" style="justify-content:center">Our team</p>
   <h${level} class="dp-empty__title">${heading}</h${level}>
-  <p>We want you to know exactly who will look after you. Each profile will show the clinician's name as registered, qualifications, the care they focus on, the languages they speak and the days they see patients, once each detail has been confirmed with them.</p>
+  <p>The proposal is for each profile to show the clinician's name as registered, qualifications, the care they focus on, the languages they speak and the days they see patients, once each clinician has confirmed those details.</p>
 </div>`;
 
-  const legacyNote = `<p class="dp-muted" style="font-size:.95rem">Dr. Asif Niaz Arain passed away on 9 March 2024. The practice continues to carry his name. He does not treat patients and cannot be booked.</p>`;
+  const legacyNote = `<p class="dp-muted" style="font-size:.95rem">Dr. Asif Niaz Arain passed away on 9 March 2024. The practice bears his name. He does not treat patients and cannot be booked.</p>`;
 
   const careGroupsHtml = (withPills = true) => proposedCareCategories.map((g) => `
   <div style="margin-block-end:48px">
@@ -45,13 +45,16 @@ export function pages(h, en) {
   </div>`).join('');
 
   const visitSteps = `
-<ol class="dp-steps">
-  <li><div><h3>Before you arrive</h3><p>You request an appointment and the clinic contacts you to confirm a time. You'll know who you are seeing and roughly how long the visit will take.</p></div></li>
-  <li><div><h3>Arriving and settling in</h3><p>A short welcome at reception. You'll be asked to complete a medical history form in person, kept with your clinical records rather than sent online.</p></div></li>
-  <li><div><h3>A conversation first</h3><p>Your dentist asks what brought you in and what matters to you, whether that's pain, a worry or a check-up you've been putting off.</p></div></li>
-  <li><div><h3>An unhurried examination</h3><p>A careful look at your teeth, gums and mouth. X-rays are taken only when they are clinically useful, and you'll be told why.</p></div></li>
-  <li><div><h3>Clear options, in plain language</h3><p>What your dentist found, the realistic options including doing nothing, and what each option involves and costs. There's no pressure to decide on the day.</p></div></li>
-</ol>`;
+<div class="dp-visit-steps">
+<p style="margin:0 0 14px">${pill('draft', ui.proposedExperience)}</p>
+<ol class="dp-steps" aria-label="Proposed first-visit journey, for clinic review">
+  <li><div><h3>Before you arrive</h3><p>The clinic arranges a time with you. The proposal is that patients are told who they'll see and roughly how long to allow.</p></div></li>
+  <li><div><h3>Arriving and settling in</h3><p>A short welcome at reception. How medical history is collected and kept would follow the clinic's own confirmed process, never this website.</p></div></li>
+  <li><div><h3>A conversation first</h3><p>The visit starts with what brought you in and what matters to you, whether that's pain, a worry or a check-up you've been putting off.</p></div></li>
+  <li><div><h3>A careful examination</h3><p>A look at your teeth, gums and mouth, with X-rays where the dentist judges them clinically useful.</p></div></li>
+  <li><div><h3>Options, in plain language</h3><p>What the dentist found and the realistic options, including doing nothing. You can ask what each involves and costs, and take time to think before agreeing to treatment.</p></div></li>
+</ol>
+</div>`;
 
   const list = [];
 
@@ -90,9 +93,9 @@ export function pages(h, en) {
       </div>
     </div>
     <div class="dp-grid dp-grid--3">
-      <article class="dp-card dp-card--quiet"><span class="dp-card__num">i.</span><h3>Listen before we look</h3><p class="dp-muted">Every visit begins with what you want to talk about, whether that's a specific worry or simply a check-up.</p></article>
-      <article class="dp-card dp-card--quiet"><span class="dp-card__num">ii.</span><h3>Explain before we treat</h3><p class="dp-muted">You'll hear what we found, the options, what each involves and costs, and time to decide.</p></article>
-      <article class="dp-card dp-card--quiet"><span class="dp-card__num">iii.</span><h3>Care that lasts</h3><p class="dp-muted">Prevention, sensible follow-up and honest advice, so small problems are less likely to become big ones.</p></article>
+      <article class="dp-card dp-card--quiet"><span class="dp-card__num">i.</span><h3>Listen before we look</h3><p class="dp-muted">A visit that begins with what you want to talk about, whether that's a specific worry or simply a check-up.</p></article>
+      <article class="dp-card dp-card--quiet"><span class="dp-card__num">ii.</span><h3>Explain before we treat</h3><p class="dp-muted">Findings, options, and what each involves and costs, discussed before treatment is agreed.</p></article>
+      <article class="dp-card dp-card--quiet"><span class="dp-card__num">iii.</span><h3>Care that lasts</h3><p class="dp-muted">An emphasis on prevention and sensible follow-up, so small problems are less likely to become big ones.</p></article>
     </div>
   </div>
 </section>
@@ -101,9 +104,10 @@ export function pages(h, en) {
   <div class="dp-wrap dp-split">
     <div>${img('interior-reception')}</div>
     <div>
-      <p class="dp-eyebrow">What your visit will be like</p>
+      <p class="dp-eyebrow">The visit we're proposing</p>
       <h2>Calm, clear, and at your pace.</h2>
-      <p class="dp-lede">If you haven't seen a dentist in a while, or you feel anxious about it, tell us. We'll explain each step before it happens and you can ask us to pause at any time.</p>
+      <p>${pill('draft', ui.proposedExperience)}</p>
+      <p class="dp-lede">An approach for anxious or returning patients: say how you feel, have each step explained before it happens, and ask to pause whenever you need to.</p>
       <p><a class="dp-textlink" href="${url('/your-visit/')}">Your first visit, step by step</a></p>
     </div>
   </div>
@@ -115,7 +119,7 @@ export function pages(h, en) {
       <div>
         <p class="dp-eyebrow">Who will treat you</p>
         <h2>Meet the people behind your care.</h2>
-        <p class="dp-lede">The most important question before any visit: who will I see? This section will introduce the practice's current dentists.</p>
+        <p class="dp-lede">The most important question before any visit: who will I see? This space is reserved for the practice's current dentists, once each has confirmed their details.</p>
       </div>
       <a class="dp-textlink" href="${url('/team/')}">About the team</a>
     </div>
@@ -126,9 +130,9 @@ export function pages(h, en) {
 <section class="dp-section dp-section--ivory">
   <div class="dp-wrap dp-split">
     <div>
-      <p class="dp-eyebrow">Our name</p>
+      <p class="dp-eyebrow">The practice's name</p>
       <h2>In memory of Dr. Asif Niaz Arain.</h2>
-      <p class="dp-lede">The practice carries the name of its founder. A tribute, approved by his family, will be shared here.</p>
+      <p class="dp-lede">The practice bears Dr. Asif Niaz Arain's name. Any tribute to him is subject to his family's approval and will appear only with it.</p>
       ${legacyNote}
       <p><a class="dp-textlink" href="${url('/our-practice/')}">Our story</a></p>
     </div>
@@ -141,7 +145,7 @@ export function pages(h, en) {
     <div class="dp-head">
       <div>
         <p class="dp-eyebrow">Your first visit</p>
-        <h2>What happens when you come in.</h2>
+        <h2>A first visit, as we'd propose it.</h2>
       </div>
       <a class="dp-textlink" href="${url('/your-visit/')}">Full patient information</a>
     </div>
@@ -157,7 +161,7 @@ export function pages(h, en) {
     <div>
       <p class="dp-eyebrow">Find us</p>
       <h2>${loc}</h2>
-      <p class="dp-lede">The exact address, directions, parking and opening hours are being confirmed with the practice and will be shown here once verified.</p>
+      <p class="dp-lede">The exact address, directions, parking and opening hours are being confirmed with the practice, and would be shown here only once verified.</p>
       <ul class="dp-list-lines" style="margin-block:24px">
         <li><span>Address</span>${factText('address_full')}</li>
         <li><span>Opening hours</span>${factText('opening_hours')}</li>
@@ -176,25 +180,25 @@ ${closingCta()}`,
     path: '/our-practice/', nav: 'practice', approvedForProduction: true,
     crumbs: [{ label: 'Our Practice', path: '/our-practice/' }],
     title: 'Our Practice',
-    description: 'The story of Dr. Asif Niaz Arain & Associates Dental Professionals in Clifton, Karachi, and the people who lead it today.',
+    description: 'A space for the story of Dr. Asif Niaz Arain & Associates Dental Professionals in Clifton, Karachi, to be written with the family and practice once they have reviewed it.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Our practice</p>
-  <h1>A Clifton practice, and the name it carries.</h1>
-  <p class="dp-lede">This page will tell the practice's story in the family's and team's own words: where it began, who leads it now, and how it cares for patients today.</p>
+  <h1>A Clifton practice, and the name it bears.</h1>
+  <p class="dp-lede">This page is reserved for the practice's story, in the family's and team's own words, once they have reviewed and approved it.</p>
 </div></header>
 
 <section class="dp-section">
   <div class="dp-wrap dp-split dp-split--top">
     <div style="max-width:440px;width:100%">${img('founder-portrait')}</div>
     <div>
-      <p class="dp-eyebrow">Founder and namesake</p>
+      <p class="dp-eyebrow">The practice's name</p>
       <h2>Dr. Asif Niaz Arain</h2>
-      <p class="dp-lede">A tribute approved by the family will appear here.</p>
+      <p class="dp-lede">A tribute to Dr. Arain is subject to his family's approval and will appear here only with it.</p>
       ${legacyNote}
       <div class="dp-note" style="margin-block:28px">
         <p style="margin-bottom:.6em">${pill('draft', ui.draftForReview)}</p>
-        <p style="margin-bottom:.6em">Public reporting at the time of his passing (Dental News Pakistan, 12 March 2024) described Dr. Arain as:</p>
+        <p style="margin-bottom:.6em">Public reporting at the time of his passing (<a href="https://www.dentalnews.pk/12-Mar-2024/renowned-dentist-dr-asif-niaz-arain-is-no-more" rel="noopener">Dental News</a>, article dated 10 March 2024) described Dr. Arain as:</p>
         <ul style="margin-bottom:.6em">${fact('founder_biography').value.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
         <p>These points are shown only so the family can confirm, correct or replace them. They will not be published as part of the tribute without the family's approval.</p>
       </div>
@@ -206,9 +210,9 @@ ${closingCta()}`,
   <div class="dp-wrap dp-split">
     <div>
       <p class="dp-eyebrow">The practice today</p>
-      <h2>Who leads the practice now.</h2>
+      <h2>Current leadership: to be confirmed.</h2>
       <p>${pill('pending', ui.beingConfirmed)}</p>
-      <p class="dp-lede">This section is reserved for the practice's current leadership and its story in the present tense, written with them. We won't describe a succession or history that hasn't been confirmed.</p>
+      <p class="dp-lede">This section is reserved for the practice's current leadership, written with them after confirmation. No succession or operating history is described until the family and practice confirm it.</p>
       <p><a class="dp-textlink" href="${url('/team/')}">Meet the team</a></p>
     </div>
     <div>${img('team-group')}</div>
@@ -219,8 +223,8 @@ ${closingCta()}`,
   <div class="dp-wrap">
     <div class="dp-head"><div>
       <p class="dp-eyebrow">The clinic</p>
-      <h2>The space you'll visit.</h2>
-      <p class="dp-lede">Authentic photographs of the reception and treatment rooms will replace these panels.</p>
+      <h2>The clinic's spaces.</h2>
+      <p class="dp-lede">Authentic photographs of the reception and treatment rooms are to replace these panels.</p>
     </div></div>
     <div class="dp-grid dp-grid--2">
       <div>${img('interior-reception', { compact: false })}</div>
@@ -249,12 +253,12 @@ ${closingCta()}`,
     path: '/team/', nav: 'team', approvedForProduction: true,
     crumbs: [{ label: 'Team', path: '/team/' }],
     title: 'Meet the Team',
-    description: 'The dentists and team at Dr. Asif Niaz Arain & Associates Dental Professionals, Clifton, Karachi.',
+    description: 'Clinician profiles for Dr. Asif Niaz Arain & Associates Dental Professionals, Clifton, Karachi, will be added after each clinician has confirmed their details.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Our team</p>
   <h1>Who will treat you.</h1>
-  <p class="dp-lede">Knowing who you'll see makes a visit easier. Each dentist's profile will show their registered name and qualifications, the care they focus on, and the days they're at the clinic.</p>
+  <p class="dp-lede">Knowing who you'll see makes a visit easier. The proposal is for each dentist's profile to show their registered name and qualifications, the care they focus on, and the days they're at the clinic.</p>
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap">
@@ -302,7 +306,7 @@ ${closingCta()}`,
       </ul>
       <h3 style="margin-top:32px">Before publication</h3>
       <p class="dp-muted">The clinician reviews and approves the full text, confirms their registration details, and gives written consent for their portrait and profile.</p>
-      <div class="dp-actions" style="margin-top:28px">${bookBtn('Request an appointment with this clinician')}</div>
+      <div class="dp-actions" style="margin-top:28px">${bookBtn('View the appointment preview', 'dp-btn dp-btn--ghost')}</div>
     </div>
   </div>
 </section>`,
@@ -322,7 +326,7 @@ ${closingCta()}`,
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap">
-    <div class="dp-note dp-note--sage" style="margin-block-end:48px"><p><strong>How treatment pages will work.</strong> Each confirmed treatment will have its own page explaining who it's for, what happens, how long it takes, recovery, alternatives and how fees are discussed, reviewed and signed off by a named clinician. <a href="${url('/care/checkups-and-cleaning/')}">See the template, using check-ups as the example.</a></p></div>
+    <div class="dp-note dp-note--sage" style="margin-block-end:48px"><p><strong>How treatment pages would work.</strong> Each confirmed treatment would have its own page explaining who it's for, what happens, how long it takes, recovery, alternatives and how fees are discussed, reviewed and signed off by a named clinician. <a href="${url('/care/checkups-and-cleaning/')}">See the template, using check-ups as the example.</a></p></div>
     ${careGroupsHtml()}
   </div>
 </section>
@@ -332,7 +336,7 @@ ${closingCta()}`,
     <div>
       <p class="dp-eyebrow">Not sure what you need?</p>
       <h2>Start with a consultation.</h2>
-      <p class="dp-lede">You don't need to know the name of a treatment to book. Tell us what's bothering you and your dentist will explain the options.</p>
+      <p class="dp-lede">You don't need to know the name of a treatment first. At a consultation, a dentist can look at what's bothering you and explain the options.</p>
       <div class="dp-actions">${bookBtn()}</div>
     </div>
   </div>
@@ -359,14 +363,14 @@ ${closingCta()}`,
       <ul>
         <li>A conversation about any concerns, your medical history and medicines.</li>
         <li>An examination of your teeth, gums, tongue and the soft tissues of your mouth.</li>
-        <li>X-rays only when they're clinically useful. Your dentist will explain why.</li>
+        <li>X-rays where the dentist judges them clinically useful.</li>
         <li>Professional cleaning where it's needed, and advice for cleaning at home.</li>
         <li>A recommended interval before your next check-up, based on your own oral health.</li>
       </ul>
       <h2>How long it takes</h2>
-      <p>${pill('pending', ui.beingConfirmed)} Typical appointment length will be confirmed by the clinic.</p>
+      <p>${pill('pending', ui.beingConfirmed)} Typical appointment length is being confirmed with the practice.</p>
       <h2>Fees</h2>
-      <p>${pill('pending', ui.beingConfirmed)} Fees will be explained before any treatment begins.</p>
+      <p>${pill('pending', ui.beingConfirmed)} Fees are being confirmed with the practice.</p>
       <h2>Related reading</h2>
       <p><a href="${url('/insights/how-often-dental-check-up/')}">How often should you have a dental check-up?</a></p>
       <div class="dp-note" style="margin-top:32px"><p><strong>Clinical review:</strong> pending. This page must be reviewed and approved by a named clinician, with a review date, before production.</p></div>
@@ -375,7 +379,7 @@ ${closingCta()}`,
       ${img('service-*', { instance: 'checkups-and-cleaning' })}
       <div class="dp-card" style="margin-top:24px">
         <h3>Ready to book?</h3>
-        <p class="dp-muted">Appointments open once the clinic confirms its booking process.</p>
+        <p class="dp-muted">Appointments aren't open on this preview.</p>
         ${bookBtn()}
       </div>
     </div>
@@ -388,13 +392,13 @@ ${closingCta()}`,
     path: '/your-visit/', nav: 'visit', approvedForProduction: true,
     crumbs: [{ label: 'Your Visit', path: '/your-visit/' }],
     title: 'Your First Visit',
-    description: 'What to expect at your first visit to Dr. Asif Niaz Arain & Associates in Clifton, Karachi: how to prepare, what to ask, and answers to common questions.',
+    description: 'A proposed first-visit journey for Dr. Asif Niaz Arain & Associates in Clifton, Karachi, shared for clinic review, with preparation tips and questions to ask.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap dp-split">
   <div>
     <p class="dp-eyebrow">Your visit</p>
     <h1>Your first visit, step by step.</h1>
-    <p class="dp-lede">What happens from the moment you get in touch to the moment you leave, so there are no surprises.</p>
+    <p class="dp-lede">A sample first-visit journey, shared for the clinic to review and adapt to how it actually works.</p>
   </div>
   <div>${img('first-visit')}</div>
 </div></header>
@@ -404,7 +408,7 @@ ${closingCta()}`,
     <div>
       <p class="dp-eyebrow">The journey</p>
       <h2>From request to consultation.</h2>
-      <div class="dp-note" style="margin-block:22px 8px"><p><strong>A request is not a booking.</strong> When booking opens, sending a request tells the clinic when you'd prefer to come. Your appointment is confirmed only when the clinic contacts you with a date and time.</p></div>
+      <div class="dp-note" style="margin-block:22px 8px"><p><strong>A request is not a booking.</strong> If the clinic adds appointment requests, a request would only tell the clinic when you'd prefer to come. An appointment is confirmed only when the clinic confirms a date and time with you.</p></div>
     </div>
     ${visitSteps}
   </div>
@@ -419,9 +423,9 @@ ${closingCta()}`,
         <li>Details of any allergies or medical conditions.</li>
         <li>Previous dental X-rays or treatment notes, if you have them.</li>
         <li>Your questions, written down so nothing is forgotten.</li>
-        <li>For children: a parent or guardian should come along.</li>
+        <li>For children: check whether a parent or guardian needs to attend.</li>
       </ul>
-      <p class="dp-muted" style="font-size:.92rem">Please bring this information with you. Don't send it through this website.</p>
+      <p class="dp-muted" style="font-size:.92rem">General suggestions. Please don't send any of this through this website.</p>
     </div>
     <div class="dp-card">
       <h2 style="font-size:1.9rem">Questions you can ask</h2>
@@ -478,19 +482,19 @@ ${closingCta()}`,
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Contact</p>
   <h1>Find us in Clifton.</h1>
-  <p class="dp-lede">${loc}. The exact address, phone number, WhatsApp and opening hours are being confirmed with the practice and will be activated here once verified.</p>
+  <p class="dp-lede">${loc}. The exact address, phone number, WhatsApp and opening hours are being confirmed with the practice, and would be activated here only once verified.</p>
 </div></header>
 
 <section class="dp-section">
   <div class="dp-wrap dp-split dp-split--top">
     <div>
       <h2 id="appointments" style="scroll-margin-top:120px">Appointments</h2>
-      <div class="dp-note" style="margin-block:12px 28px"><p><strong>Booking isn't open on this preview yet.</strong> No form on this site collects appointment requests or medical information. When the clinic's booking channel is confirmed, you'll be able to request a time here, and the clinic will contact you to confirm it.</p></div>
+      <div class="dp-note" style="margin-block:12px 28px"><p><strong>Booking isn't open on this preview yet.</strong> No form on this site collects appointment requests or medical information. If the clinic confirms a booking channel, it would be listed here.</p></div>
       <div>
-        ${channel('Telephone', 'Call the front desk to book or ask a question.', ui.beingConfirmed)}
-        ${channel('WhatsApp', 'Message the clinic about appointments. Please don\'t send photos or medical details.', ui.beingConfirmed)}
-        ${channel('Directions', 'Open the clinic\'s location in your maps app.', 'After address is verified')}
-        ${channel('Opening hours', 'Regular hours, Friday timings and holidays.', ui.beingConfirmed)}
+        ${channel('Telephone', 'The clinic\'s phone number is being confirmed.', ui.beingConfirmed)}
+        ${channel('WhatsApp', 'Whether the clinic uses WhatsApp for appointments is being confirmed.', ui.beingConfirmed)}
+        ${channel('Directions', 'A map link is to be added once the address is verified.', 'After address is verified')}
+        ${channel('Opening hours', 'Regular hours, Friday timings and holidays are being confirmed.', ui.beingConfirmed)}
       </div>
       <div class="dp-actions" style="margin-top:32px">${bookBtn()}</div>
       <div class="dp-urgent" role="note" style="margin-top:32px"><p style="margin:0"><strong>In an emergency:</strong> if you have dental pain with facial or neck swelling, or difficulty breathing or swallowing, seek emergency medical care straight away.</p></div>
@@ -513,7 +517,7 @@ ${closingCta()}`,
     path: '/insights/', nav: 'insights', approvedForProduction: true,
     crumbs: [{ label: 'Insights', path: '/insights/' }],
     title: 'Dental Guides',
-    description: 'Plain-language answers to common dental questions, prepared from authoritative health sources and reviewed by the practice\'s clinicians.',
+    description: 'Draft plain-language guides to common dental questions, prepared from NHS and NICE sources and awaiting review by a named clinician.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Insights</p>
@@ -539,7 +543,7 @@ ${closingCta()}`,
     list.push({
       path: `/insights/${a.slug}/`, nav: 'insights', ogType: 'article',
       crumbs: [{ label: 'Insights', path: '/insights/' }, { label: a.title, path: `/insights/${a.slug}/` }],
-      title: a.title, description: a.description,
+      title: a.title, description: `Draft guide awaiting clinician review: ${a.description}`,
       body: () => `
 <header class="dp-pagehead"><div class="dp-wrap dp-narrow">
   <p class="dp-eyebrow">Dental guide</p>
@@ -550,6 +554,7 @@ ${closingCta()}`,
     <span>Clinical reviewer: to be named</span>
     <span>Sources checked 26 September 2026</span>
   </div>
+  <div class="dp-note" style="margin-top:20px"><p><strong>Draft.</strong> This guide awaits review by a named clinician before the clinic's production launch. It draws on UK (NHS and NICE) guidance; the reviewer will also check how that guidance applies to patients in Karachi.</p></div>
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap dp-narrow dp-article">
@@ -581,7 +586,7 @@ ${closingCta()}`,
     <ul>
       <li>This preview has <strong>no forms</strong> and does not collect names, contact details, symptoms, medical history, prescriptions or payment details.</li>
       <li>The appointment buttons open an information message only. Nothing is sent anywhere.</li>
-      <li>The preview pages load no analytics, advertising or tracking scripts, and set no cookies of their own. Fonts are loaded from Google Fonts, which receives standard request information such as your IP address.</li>
+      <li>The preview pages load no analytics, advertising or tracking scripts, set no cookies of their own, and make no requests to third-party services. Fonts are served from this site.</li>
       <li>Like any website, the hosting provider (Cloudflare) processes basic technical request data to deliver and protect the site.</li>
     </ul>
     <h2 id="terms">Preview terms</h2>

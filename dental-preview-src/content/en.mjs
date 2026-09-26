@@ -14,7 +14,8 @@ export const ui = {
   requestAppointment: 'Request an appointment',
   beingConfirmed: 'Being confirmed',
   subjectToConfirmation: 'Subject to clinic confirmation',
-  conceptCopy: 'Concept copy',
+  conceptCopy: 'Proposed wording, for clinic review',
+  proposedExperience: 'Proposed experience, for clinic review',
   draftForReview: 'Draft for family review',
   breadcrumb: 'Breadcrumb',
 };
@@ -33,20 +34,20 @@ export const nav = [
 // clinician approves the list in clinic-facts.json -> services.
 export const proposedCareCategories = [
   { group: 'Everyday and preventive care', items: [
-    { slug: 'checkups-and-cleaning', name: 'Check-ups and cleaning', text: 'An examination of teeth, gums and soft tissues, with professional cleaning when it is needed, and advice on how often to return.' },
+    { slug: 'checkups-and-cleaning', name: 'Check-ups and cleaning', text: 'An examination of teeth, gums and soft tissues, with professional cleaning where needed, and advice on how often to return.' },
     { slug: 'fillings', name: 'Fillings', text: 'Repairing a tooth affected by decay or minor damage, and explaining the filling materials that suit that tooth.' },
     { slug: 'gum-care', name: 'Gum care', text: 'Checking for gum inflammation and disease, cleaning below the gum line where appropriate, and a plan for keeping gums healthy at home.' },
-    { slug: 'childrens-dentistry', name: "Children's dentistry", text: 'Gentle, unhurried visits for children, with guidance for parents on brushing, diet and developing teeth.' },
+    { slug: 'childrens-dentistry', name: "Children's dentistry", text: 'Dental care for children, with guidance for parents on brushing, diet and developing teeth.' },
   ]},
   { group: 'Restoring teeth', items: [
-    { slug: 'crowns', name: 'Crowns', text: 'A cap that covers and protects a weakened or heavily restored tooth, usually made over two visits.' },
+    { slug: 'crowns', name: 'Crowns', text: 'A cap that covers and protects a weakened or heavily restored tooth.' },
     { slug: 'root-canal-care', name: 'Root canal care', text: 'Treating infection inside a tooth so that the tooth can be kept, often followed by a crown.' },
-    { slug: 'extractions', name: 'Extractions', text: 'Removing a tooth when it cannot be saved, with a clear explanation of the options for the space afterwards.' },
+    { slug: 'extractions', name: 'Extractions', text: 'Removing a tooth that cannot be saved, and discussing options for the space afterwards.' },
     { slug: 'implants', name: 'Implants', text: 'Replacing a missing tooth with an implant-supported crown where assessment shows it is suitable.' },
   ]},
   { group: 'Alignment and appearance', items: [
     { slug: 'orthodontics-and-aligners', name: 'Orthodontics or aligners', text: 'Straightening teeth with braces or clear aligners after an assessment of bite, gums and expectations.' },
-    { slug: 'whitening', name: 'Whitening', text: 'Clinician-supervised whitening after a check that teeth and gums are healthy enough for it, with honest guidance on what it can and cannot change.' },
+    { slug: 'whitening', name: 'Whitening', text: 'Clinician-supervised whitening after a check that teeth and gums are healthy enough for it. Whitening does not change the colour of crowns or fillings.' },
   ]},
   { group: 'When something hurts', items: [
     { slug: 'urgent-dental-concerns', name: 'Urgent dental concerns', text: 'Help with toothache, a broken tooth or a lost filling. Whether same-day appointments are available is still being confirmed.' },
@@ -152,11 +153,11 @@ export const articles = [
 ];
 
 export const faqs = [
-  ['Is an appointment request the same as a confirmed booking?', 'No. When booking opens, a request tells the clinic when you would prefer to come. Your appointment is only confirmed once the clinic contacts you with a date and time. Until then, please don\'t assume a slot is reserved.'],
-  ['Can I book through this website today?', 'Not yet. This is a concept preview of the clinic\'s future website. The phone number, WhatsApp and booking details are being confirmed with the practice and will be added once verified.'],
-  ['What will my first visit cost?', 'Consultation fees are being confirmed. Once published, the clinic will explain fees before any treatment begins, and you can ask for a written estimate for any treatment plan.'],
+  ['Is an appointment request the same as a confirmed booking?', 'No. If the clinic adds appointment requests to its website, a request would only tell the clinic when you would prefer to come. An appointment is confirmed only when the clinic itself confirms a date and time with you.'],
+  ['Can I book through this website today?', 'Not yet. This is a concept preview of the clinic\'s future website. The phone number, WhatsApp and booking details are being confirmed with the practice and would be listed here only once verified.'],
+  ['What will my first visit cost?', 'Consultation fees are being confirmed with the practice. Whatever clinic you visit, it is reasonable to ask about fees, and for an estimate, before agreeing to treatment.'],
   ['Do you accept insurance or corporate panels?', 'This is being confirmed with the practice.'],
-  ['Which languages do the dentists speak?', 'This is being confirmed. It will be listed on each clinician\'s profile.'],
-  ['Is the clinic accessible, and is there parking?', 'Step-free access, parking and drop-off arrangements are being confirmed and will be published on the Contact page.'],
-  ['Who will treat me?', 'Profiles of the practice\'s current clinicians will be added after review, so you can see who you will meet before you arrive.'],
+  ['Which languages do the dentists speak?', 'This is being confirmed with the practice.'],
+  ['Is the clinic accessible, and is there parking?', 'Step-free access, parking and drop-off arrangements are being confirmed with the practice.'],
+  ['Who will treat me?', 'Current clinician profiles will be added after review, once each clinician has confirmed their details.'],
 ];
