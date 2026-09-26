@@ -254,6 +254,14 @@
       "last_checked": "2026-09-26",
       "approver": "Practice manager",
       "notes": ""
+    },
+    "tribute_approval": {
+      "value": null,
+      "status": "missing",
+      "sources": [],
+      "last_checked": "2026-09-26",
+      "approver": "Family",
+      "notes": "Family decisions on: approved tribute wording; the portrait to use; whether Dr. Arain is described as the practice's founder; whether his date of death is displayed. Record each decision in `value` (e.g. {\"tribute_text_approved\": true, \"founder_designation\": false, \"show_date_of_death\": true, \"portrait_approved\": true})."
     }
   },
   "fictional_samples": {

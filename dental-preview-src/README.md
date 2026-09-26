@@ -42,6 +42,9 @@ node dental-preview-src/build.mjs          # regenerates public/dental-preview/
   The build refuses to write production output into this repository's
   `public/` directory.
 
+## Production launch gate
+`production-gate.mjs` blocks any production (clinic-domain) build until facts, clinicians, services, clinical reviews and images are verified, and no preview-only wording remains. Run `node dental-preview-src/build.mjs --mode=production --check-only` for the current list. The preview build is unaffected. See `docs/LAUNCH-CHECKLIST.md` §2b.
+
 ## File inventory (all new, nothing existing modified)
 | Path | Purpose |
 |---|---|

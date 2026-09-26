@@ -11,6 +11,13 @@
 //        + og:url, sitemap.xml of approved pages, and Dentist JSON-LD ONLY for
 //        facts whose status is 'verified' in clinic-facts.json.
 //        Never run production mode into this repository's public/ directory.
+//        Production builds pass through production-gate.mjs first: nothing is
+//        written unless every fact, clinician, service, image and clinical
+//        review is verified and no preview-only wording remains.
+//
+//   node dental-preview-src/build.mjs --mode=production --check-only
+//     -> prints the production readiness report and exits (1 if not ready).
+//        Writes nothing.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -20,6 +27,7 @@ import * as care from './content/care.mjs';
 import * as team from './content/team.mjs';
 import { sources, CHECKED } from './content/sources.mjs';
 import { pages } from './pages.mjs';
+import { checkData, scanRendered, formatReport } from './production-gate.mjs';
 
 const SRC = path.dirname(fileURLToPath(import.meta.url));
 const args = Object.fromEntries(process.argv.slice(2).map((a) => {
@@ -28,26 +36,19 @@ const args = Object.fromEntries(process.argv.slice(2).map((a) => {
 }));
 const MODE = args.mode === 'production' ? 'production' : 'preview';
 const BASE = MODE === 'preview' ? '/dental-preview' : '';
-const SITE_URL = MODE === 'production' ? String(args['site-url'] || '').replace(/\/$/, '') : '';
+const CHECK_ONLY = MODE === 'production' && args['check-only'] === true;
+const SITE_URL = MODE === 'production' ? String(args['site-url'] || (CHECK_ONLY ? 'https://clinic-domain.invalid' : '')).replace(/\/$/, '') : '';
 const OUT = path.resolve(args.out || path.join(SRC, '..', 'public', 'dental-preview'));
 
 if (path.basename(OUT) === 'public' || OUT === path.resolve(SRC, '..')) throw new Error('Refusing to use a shared directory as the output root');
 if (MODE === 'production') {
   if (!/^https:\/\//.test(SITE_URL)) throw new Error('--site-url=https://... is required in production mode');
-  if (OUT.startsWith(path.resolve(SRC, '..', 'public'))) throw new Error('Refusing to write a production (indexable) build into the Qiyadon public/ directory');
+  if (!CHECK_ONLY && OUT.startsWith(path.resolve(SRC, '..', 'public'))) throw new Error('Refusing to write a production (indexable) build into the Qiyadon public/ directory');
 }
 
 const facts = JSON.parse(fs.readFileSync(path.join(SRC, 'clinic-facts.json'), 'utf8')).facts;
 const images = JSON.parse(fs.readFileSync(path.join(SRC, 'image-manifest.json'), 'utf8')).slots;
 
-// Fictional people and illustrative images exist only for the family review
-// preview. A production (indexable, clinic-domain) build must not contain them.
-if (MODE === 'production') {
-  const illustrative = Object.entries(images).filter(([, v]) => /illustrative|fictional/.test(v.status || '')).map(([k]) => k);
-  if (team.sampleClinicians.length || illustrative.length) {
-    throw new Error(`Production build blocked: remove fictional sample clinicians (${team.sampleClinicians.length}) and replace illustrative images (${illustrative.join(', ') || 'none'}) first.`);
-  }
-}
 const { ui, nav, locale } = en;
 
 // ---------------------------------------------------------------- helpers
@@ -280,6 +281,28 @@ function redirectStub(page) {
 // ---------------------------------------------------------------- pages
 const allPages = pages(h, { ...en, care, team, sources, CHECKED });
 
+// Render everything in memory first, so the production gate can inspect the
+// final HTML before a single file is written.
+const rendered = allPages.map((page) => ({
+  page,
+  path: page.path,
+  file: page.file || path.join(page.path.replace(/^\//, ''), 'index.html'),
+  html: page.redirectTo ? redirectStub(page) : layout(page),
+}));
+
+if (MODE === 'production') {
+  const failures = [
+    ...checkData({ facts, images, care, team, articles: en.articles }),
+    ...scanRendered(rendered.filter((r) => !r.page.redirectTo)),
+  ];
+  if (failures.length) {
+    const report = `Production launch gate: ${failures.length} blocking issue(s).${formatReport(failures)}\n`;
+    if (CHECK_ONLY) { process.stdout.write(report); process.exit(1); }
+    throw new Error(`Production build blocked. ${report}`);
+  }
+  if (CHECK_ONLY) { console.log('Production launch gate: all checks passed.'); process.exit(0); }
+}
+
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(path.join(OUT, 'assets'), { recursive: true });
 for (const f of ['dp.css', 'dp.js']) fs.copyFileSync(path.join(SRC, 'assets', f), path.join(OUT, 'assets', f));
@@ -288,11 +311,10 @@ const imgDir = path.join(SRC, 'img');
 // Publish generated variants only; full-size masters stay in the source tree.
 if (fs.existsSync(imgDir)) fs.cpSync(imgDir, path.join(OUT, 'assets', 'img'), { recursive: true, filter: (f) => !f.includes(`${path.sep}masters`) });
 
-for (const page of allPages) {
-  const file = page.file || path.join(page.path.replace(/^\//, ''), 'index.html');
-  const dest = path.join(OUT, file);
+for (const r of rendered) {
+  const dest = path.join(OUT, r.file);
   fs.mkdirSync(path.dirname(dest), { recursive: true });
-  fs.writeFileSync(dest, page.redirectTo ? redirectStub(page) : layout(page));
+  fs.writeFileSync(dest, r.html);
 }
 
 // Internal image-slot documentation, regenerated from the manifest on every build.

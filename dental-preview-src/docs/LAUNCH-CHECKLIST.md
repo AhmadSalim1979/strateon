@@ -15,6 +15,15 @@ clinic's own domain.
 - [ ] Delete the three fictional sample clinicians (Dr. Amina Rahman, Dr. Zoya Siddiqui, Dr. Hamza Khan): empty `sampleClinicians` in `content/team.mjs`, remove the `team-portrait-sample-*` slots from `image-manifest.json`, and delete their files from `img/` and `img/masters/`.
 - [ ] Replace the four AI-generated clinic illustrations (`hero-clinic`, `interior-reception`, `interior-room`, `location-exterior`) with authentic, approved photographs, or revert them to placeholders.
 - [ ] `node build.mjs --mode=production ...` refuses to run until both steps are done. Don't bypass this check.
+
+## 2b. Production launch gate (`production-gate.mjs`)
+Run `node dental-preview-src/build.mjs --mode=production --check-only` at any time to list everything still blocking launch. A production build writes nothing until this passes. It checks:
+- [ ] Required facts verified with a value and last-checked date: address, map pin, phone, WhatsApp, email, booking channel, hours, clinicians, leadership, services, patient experience, fees, insurance, languages, access and parking, urgent-care policy, cancellations, and the family's tribute decisions. A channel the practice doesn't use is recorded as verified "Not used".
+- [ ] At least one verified clinician, each with registered name, role, scope, languages, clinic days, qualifications (name, institution, year), PMDC number plus register-check date, written consent (portrait and profile, dated), approval of the text, and an authentic-approved portrait.
+- [ ] No fictional sample clinicians remain.
+- [ ] Every care topic confirmed as offered (others removed), and every care page and guide approved by a named local clinician with a review date.
+- [ ] Every published image is `authentic-approved`.
+- [ ] No preview-only wording in any rendered page (fictional, illustrative, being confirmed, draft, this preview...).
 - [ ] Replace proposed wording (approach, visit journey, philosophy of care) with text the practice has approved, and remove the "proposed" labels only once it has.
 
 ## 2. Facts and approvals (`clinic-facts.json`)

@@ -29,6 +29,13 @@ export const verificationFields = [
   ['Consent to publish', 'Written consent for the portrait and profile text'],
 ];
 
+// Verified clinician schema (every field required by the production gate):
+// { slug, registeredName, role, clinicalScope, languages: [], clinicDays,
+//   qualifications: [{ name, institution, year }],
+//   pmdc: { number, verifiedOn: 'YYYY-MM-DD' },
+//   consent: { portrait: true, profile: true, date: 'YYYY-MM-DD' },
+//   portraitSlot: 'team-portrait-<slug>' (image status 'authentic-approved'),
+//   approvedBy, approvedOn: 'YYYY-MM-DD' }
 export const clinicians = [];
 
 export const sampleClinicians = [

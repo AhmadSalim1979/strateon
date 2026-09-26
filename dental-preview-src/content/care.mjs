@@ -8,6 +8,11 @@
 // review pending by a named local clinician. Nothing here says a procedure is
 // performed at this practice. Copy is original, drafted from `sources`.
 
+// Defaults for every page and topic. Override per page with `status: {...}`
+// and per topic with `status: { availability }`. Production requires, for
+// each page, clinicalReview 'approved' + reviewer (named local clinician) +
+// reviewedOn (YYYY-MM-DD), and for each topic availability 'confirmed';
+// topics the practice doesn't offer must be removed.
 export const careStatus = {
   availability: 'not-confirmed',
   clinicalReview: 'pending',
