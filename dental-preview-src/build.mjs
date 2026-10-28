@@ -15,6 +15,13 @@
 //        written unless every fact, clinician, service, image and clinical
 //        review is verified and no preview-only wording remains.
 //
+//   node dental-preview-src/build.mjs --mode=template --host=draraindental.com --out=/some/dir
+//     -> handover template served at a domain root: identical to the preview
+//        (noindex everywhere, preview notices, fictional-team labels, image
+//        disclosures, inactive booking) but with root paths and its own
+//        _headers file. It is NOT a production build and never bypasses the
+//        production gate; it can only ever be noindexed.
+//
 //   node dental-preview-src/build.mjs --mode=production --check-only
 //     -> prints the production readiness report and exits (1 if not ready).
 //        Writes nothing.
@@ -34,13 +41,17 @@ const args = Object.fromEntries(process.argv.slice(2).map((a) => {
   const m = a.match(/^--([^=]+)=?(.*)$/);
   return m ? [m[1], m[2] || true] : [a, true];
 }));
-const MODE = args.mode === 'production' ? 'production' : 'preview';
+const MODE = ['production', 'template'].includes(args.mode) ? args.mode : 'preview';
+const HOST = MODE === 'template' ? String(args.host || '') : '';
+if (MODE === 'template' && !/^[a-z0-9.-]+\.[a-z]{2,}$/.test(HOST)) throw new Error('--host=<domain> is required in template mode');
+if (MODE === 'template' && !args.out) throw new Error('--out=<dir> is required in template mode');
 const BASE = MODE === 'preview' ? '/dental-preview' : '';
 const CHECK_ONLY = MODE === 'production' && args['check-only'] === true;
 const SITE_URL = MODE === 'production' ? String(args['site-url'] || (CHECK_ONLY ? 'https://clinic-domain.invalid' : '')).replace(/\/$/, '') : '';
 const OUT = path.resolve(args.out || path.join(SRC, '..', 'public', 'dental-preview'));
 
 if (path.basename(OUT) === 'public' || OUT === path.resolve(SRC, '..')) throw new Error('Refusing to use a shared directory as the output root');
+if (MODE === 'template' && OUT.startsWith(path.resolve(SRC, '..', 'public'))) throw new Error('Refusing to write a template build into the Qiyadon public/ directory');
 if (MODE === 'production') {
   if (!/^https:\/\//.test(SITE_URL)) throw new Error('--site-url=https://... is required in production mode');
   if (!CHECK_ONLY && OUT.startsWith(path.resolve(SRC, '..', 'public'))) throw new Error('Refusing to write a production (indexable) build into the Qiyadon public/ directory');
@@ -108,7 +119,10 @@ function img(slotKey, { instance, eager = false, compact = false, caption = '', 
   return `<figure class="${cls}" style="${style}" data-slot="${esc(id)}">${inner}</figure>${caption ? `<p class="dp-figcaption">${caption}</p>` : ''}`;
 }
 
-const h = { esc, url, fact, factText, pill, bookBtn, img, ui };
+const hostingNote = MODE === 'template'
+  ? `It is shared at ${HOST} as a design template for the practice and its marketing firm to complete and approve.`
+  : 'It is hosted temporarily on qiyadon.com by Qiyadon so the family and practice can review it.';
+const h = { esc, url, fact, factText, pill, bookBtn, img, ui, hostingNote };
 
 // ---------------------------------------------------------------- layout
 function wordmark() {
@@ -216,7 +230,7 @@ function jsonLd(page) {
 function layout(page) {
   const title = page.path === '/' ? `${page.title}` : `${page.title} | Dr. Asif Niaz Arain & Associates`;
   const share = images['social-share'];
-  const robots = MODE === 'preview' ? 'noindex, nofollow' : (page.noindex ? 'noindex, follow' : 'index, follow');
+  const robots = MODE !== 'production' ? 'noindex, nofollow' : (page.noindex ? 'noindex, follow' : 'index, follow');
   const canonical = MODE === 'production' && !page.noindex ? `<link rel="canonical" href="${SITE_URL}${page.path}">\n  <meta property="og:url" content="${SITE_URL}${page.path}">` : '';
   const ogImage = MODE === 'production' && share.src ? `<meta property="og:image" content="${SITE_URL}/assets/img/${share.src}">\n  <meta name="twitter:card" content="summary_large_image">` : '';
   return `<!doctype html>
@@ -243,7 +257,7 @@ function layout(page) {
 </head>
 <body class="dp">
 <a class="dp-skip" href="#main">${esc(ui.skip)}</a>
-${MODE === 'preview' ? `<aside class="dp-preview-bar" aria-label="Preview notice"><div class="dp-wrap"><strong>${esc(ui.previewNotice)}</strong><a href="${url('/notice/')}">${esc(ui.previewMore)}</a></div></aside>` : ''}
+${MODE !== 'production' ? `<aside class="dp-preview-bar" aria-label="Preview notice"><div class="dp-wrap"><strong>${esc(ui.previewNotice)}</strong><a href="${url('/notice/')}">${esc(ui.previewMore)}</a></div></aside>` : ''}
 ${header(page.nav)}
 <main id="main" tabindex="-1">
 ${crumbsHtml(page.crumbs)}
@@ -331,6 +345,11 @@ To add an image: put the files in \`dental-preview-src/img/\`, set \`src\` / \`s
 |---|---|---|---|---|---|---|---|---|---|---|---|
 ${rows.join('\n')}
 `);
+}
+
+if (MODE === 'template') {
+  // Whole-site noindex at the header level (the meta tag is on every page too).
+  fs.writeFileSync(path.join(OUT, '_headers'), `# Handover template: never indexed until the production build replaces it.\n/*\n  X-Robots-Tag: noindex, nofollow\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
 }
 
 if (MODE === 'production') {

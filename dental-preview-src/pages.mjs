@@ -702,7 +702,7 @@ ${nextSteps('/contact/')}`,
 <header class="dp-pagehead"><div class="dp-wrap dp-narrow">
   <p class="dp-eyebrow">About this preview</p>
   <h1 style="font-size:clamp(2.1rem,4.5vw,3.2rem)">A concept, shared for review.</h1>
-  <p class="dp-lede">This website is a concept preview of a future website for Dr. Asif Niaz Arain &amp; Associates Dental Professionals. It is hosted temporarily on qiyadon.com by Qiyadon so the family and practice can review it. It is not the clinic's official website.</p>
+  <p class="dp-lede">This website is a concept preview of a future website for Dr. Asif Niaz Arain &amp; Associates Dental Professionals. ${esc(h.hostingNote)} It is not the clinic's official website.</p>
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap dp-narrow dp-article">
