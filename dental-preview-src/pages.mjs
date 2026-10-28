@@ -7,7 +7,6 @@ export function pages(h, c) {
   const { url, img, pill, bookBtn, factText, fact, esc, ui } = h;
   const { articles, faqs, care, team, sources, CHECKED } = c;
   const { carePages, careGroups, concerns, redFlags } = care;
-  const loc = factText('location_broad');
   const careBySlug = Object.fromEntries(carePages.map((p) => [p.slug, p]));
   const articleBySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
 
@@ -25,22 +24,24 @@ export function pages(h, c) {
     return `<li><a href="${esc(s.url)}" rel="noopener">${esc(s.publisher)}: ${esc(s.title)}</a> <span class="dp-muted">(${reviewed}; checked ${fmtDate(CHECKED)})</span></li>`;
   }).join('')}</ul>`;
 
-  const closingCta = (title = 'Appointments are being confirmed.') => `
-<section class="dp-section dp-section--ink">
-  <div class="dp-wrap dp-split">
-    <div>
-      <p class="dp-eyebrow">Appointments</p>
-      <h2>${title}</h2>
-      <p class="dp-lede">Appointment requests aren't open on this preview. If the clinic adds them, a request would not be a booking until the clinic confirms a date and time with you.</p>
-    </div>
-    <div class="dp-actions" style="justify-content:flex-start">
-      ${bookBtn(ui.appointmentPreview, 'dp-btn dp-btn--light')}
-      <a class="dp-btn dp-btn--ghost dp-btn--on-ink" href="${url('/contact/')}">Contact details</a>
-    </div>
+  // A light "next steps" strip replaces the old dark appointment banner, so
+  // pages don't end on a call to book when booking isn't open.
+  const nextSteps = (exclude = '') => {
+    const items = [
+      ['/your-visit/', 'Plan your visit'],
+      ['/care/', 'Explore care topics'],
+      ['/contact/', 'Contact information'],
+    ].filter(([p]) => p !== exclude);
+    return `
+<section class="dp-section dp-section--ivory dp-section--tight">
+  <div class="dp-wrap dp-next">
+    <p class="dp-eyebrow" style="margin:0">Next steps</p>
+    <ul class="dp-next__links">${items.map(([p, l]) => `<li><a class="dp-textlink" href="${url(p)}">${esc(l)}</a></li>`).join('')}</ul>
   </div>
 </section>`;
+  };
 
-  const legacyNote = `<p class="dp-muted" style="font-size:.95rem">Dr. Asif Niaz Arain passed away on 9 March 2024. The practice bears his name. He does not treat patients and cannot be booked.</p>`;
+  const legacyNote = `<p class="dp-muted" style="font-size:.95rem">Dr. Asif Niaz Arain died on 9 March 2024. The practice bears his name. He is not available for appointments.</p>`;
 
   const redFlagBox = (compact = false) => `<div class="dp-urgent dp-redflags" role="note">
   <p class="dp-redflags__title"><strong>${esc(redFlags.heading)}</strong></p>
@@ -79,24 +80,22 @@ export function pages(h, c) {
   const list = [];
 
   // ================================================================ HOME
+  const homeTopics = ['checkups-and-cleaning', 'gum-care', 'fillings-and-crowns', 'urgent-dental-concerns'];
   list.push({
     path: '/', nav: 'home', approvedForProduction: true,
-    title: 'Dr. Asif Niaz Arain & Associates Dental Professionals | Clifton, Karachi',
-    description: 'A concept preview of the website for Dr. Asif Niaz Arain & Associates Dental Professionals in Clifton, Karachi. Clinic details and appointments are being confirmed.',
+    title: 'Dr. Asif Niaz Arain & Associates Dental Professionals',
+    description: 'A concept preview of the website for Dr. Asif Niaz Arain & Associates Dental Professionals. Clinic details, treatments and appointments are awaiting confirmation by the practice.',
     body: () => `
 <section class="dp-hero">
   <div class="dp-wrap dp-hero__grid">
     <div>
-      <p class="dp-eyebrow">Dental practice · ${loc}</p>
-      <h1>Thoughtful dental care in Clifton, Karachi.</h1>
-      <p class="dp-lede">A practice that takes time to listen, explains every option clearly, and treats each visit with care, from a routine check-up to more involved treatment. ${pill('draft', ui.conceptCopy)}</p>
+      <p class="dp-eyebrow">Dental Professionals</p>
+      <h1>Care begins with a conversation.</h1>
+      <p class="dp-lede">Time to talk about what brought you in, clear explanations of what the dentist finds, and decisions you make together.</p>
+      <p class="dp-hero__qualifier">${pill('draft', ui.conceptCopy)}</p>
       <div class="dp-actions">
-        ${bookBtn()}
-        <a class="dp-btn dp-btn--ghost" href="${url('/your-visit/')}">Plan your first visit</a>
-      </div>
-      <div class="dp-hero__meta">
-        <span>${loc}</span>
-        <span>Opening hours: ${factText('opening_hours')}</span>
+        <a class="dp-btn" href="${url('/your-visit/')}">Plan your visit</a>
+        <a class="dp-btn dp-btn--ghost" href="${url('/care/')}">Explore care</a>
       </div>
     </div>
     <div class="dp-hero__media">${img('hero-clinic', { eager: true })}</div>
@@ -105,21 +104,17 @@ export function pages(h, c) {
 
 <section class="dp-section">
   <div class="dp-wrap">
-    <div class="dp-split dp-split--top">
+    <div class="dp-head">
       <div>
-        <p class="dp-eyebrow">The experience we're proposing</p>
-        <h2>Unhurried conversations, clear choices.</h2>
-        <p>${pill('draft', ui.conceptCopy)}</p>
-      </div>
-      <div class="dp-prose">
-        <p>A good dental visit starts before anyone picks up an instrument. It starts with being asked what brought you in, being listened to, and understanding what happens next.</p>
-        <p>The approach proposed for this website is simple: explain findings in everyday language, set out the realistic options and their costs, and leave room for questions before any decision is made. These are suggestions for the family and the clinical team to shape, not a description of how the practice works today.</p>
+        <p class="dp-eyebrow">The approach</p>
+        <h2>Listening, explaining, deciding together.</h2>
+        <p class="dp-lede">The approach proposed for the practice, for the family and clinical team to shape before it describes how the practice works.</p>
       </div>
     </div>
-    <div class="dp-grid dp-grid--3" style="margin-top:clamp(32px,5vw,56px)">
-      <article class="dp-card dp-card--quiet"><span class="dp-card__num">i.</span><h3>Listen before we look</h3><p class="dp-muted">A visit that begins with what you want to talk about, whether that's a specific worry or simply a check-up.</p></article>
-      <article class="dp-card dp-card--quiet"><span class="dp-card__num">ii.</span><h3>Explain before we treat</h3><p class="dp-muted">Findings, options, and what each involves and costs, discussed before treatment is agreed.</p></article>
-      <article class="dp-card dp-card--quiet"><span class="dp-card__num">iii.</span><h3>Care that lasts</h3><p class="dp-muted">An emphasis on prevention and sensible follow-up, so small problems are less likely to become big ones.</p></article>
+    <div class="dp-grid dp-grid--3">
+      <article class="dp-card dp-card--quiet"><span class="dp-card__num">i.</span><h3>Listen first</h3><p class="dp-muted">A visit that begins with what you want to talk about, whether that's a specific worry or simply a check-up.</p></article>
+      <article class="dp-card dp-card--quiet"><span class="dp-card__num">ii.</span><h3>Explain the options</h3><p class="dp-muted">What the dentist found, the realistic options and what each involves and costs, in everyday language.</p></article>
+      <article class="dp-card dp-card--quiet"><span class="dp-card__num">iii.</span><h3>Decide together</h3><p class="dp-muted">Time for questions, and no treatment until you have agreed to it.</p></article>
     </div>
   </div>
 </section>
@@ -128,147 +123,76 @@ export function pages(h, c) {
   <div class="dp-wrap">
     <div class="dp-head">
       <div>
-        <p class="dp-eyebrow">Care topics</p>
-        <h2>Understand your options before you decide.</h2>
-        <p class="dp-lede">Plain-language explanations of common dental care, from check-ups to replacing a missing tooth. Illustrative content for family and clinician review; which treatments the practice offers has not been confirmed.</p>
+        <p class="dp-eyebrow">Common topics</p>
+        <h2>Understand your options.</h2>
+        <p class="dp-lede">Plain-language explanations of common dental care. Which treatments the practice offers is awaiting confirmation.</p>
       </div>
-      <a class="dp-textlink" href="${url('/care/')}">All care topics</a>
+      <a class="dp-textlink" href="${url('/care/')}">See all nine topics</a>
     </div>
-    <ul class="dp-topic-grid">
-      ${carePages.map((p) => `<li><a class="dp-topic" href="${careUrl(p.slug)}"><span class="dp-topic__name">${esc(p.title)}</span><span class="dp-topic__text">${esc(p.summary)}</span></a></li>`).join('')}
+    <ul class="dp-topic-grid dp-topic-grid--4">
+      ${homeTopics.map((slug) => careBySlug[slug]).map((p) => `<li><a class="dp-topic" href="${careUrl(p.slug)}"><span class="dp-topic__name">${esc(p.title)}</span><span class="dp-topic__text">${esc(p.summary)}</span></a></li>`).join('')}
     </ul>
   </div>
 </section>
 
 <section class="dp-section">
-  <div class="dp-wrap dp-split dp-split--top">
-    <div>
-      <p class="dp-eyebrow">What happens when you enquire</p>
-      <h2>From first contact to a clear plan.</h2>
-      <p class="dp-lede">A proposed journey for the practice to review, so patients know what to expect before they get in touch.</p>
-      <div style="margin-top:28px">${img('interior-reception')}</div>
-    </div>
-    ${stepsHtml(ui.proposedExperience)}
-  </div>
-</section>
-
-<section class="dp-section dp-section--ivory">
-  <div class="dp-wrap">
-    <div class="dp-head">
-      <div>
-        <p class="dp-eyebrow">Who will treat you</p>
-        <h2>How clinician profiles will appear.</h2>
-        <p class="dp-lede">${esc(team.teamStatus)} To show how real profiles could look, the Team page presents three <strong>fictional examples</strong>. They are invented people with AI-generated portraits, and they do not work at this practice.</p>
-      </div>
-      <a class="dp-textlink" href="${url('/team/')}">See the sample Team page</a>
-    </div>
-    <div class="dp-grid dp-grid--3">${team.sampleClinicians.map((s) => sampleCard(s)).join('')}</div>
-  </div>
-</section>
-
-<section class="dp-section">
   <div class="dp-wrap dp-split">
+    <div>${img('interior-reception')}</div>
     <div>
-      <p class="dp-eyebrow">The practice's name</p>
-      <h2>In memory of Dr. Asif Niaz Arain.</h2>
-      <p class="dp-lede">The practice bears Dr. Asif Niaz Arain's name. Any tribute to him is subject to his family's approval and will appear only with it.</p>
-      ${legacyNote}
-      <p><a class="dp-textlink" href="${url('/our-practice/')}#remembering">About the practice and its name</a></p>
+      <p class="dp-eyebrow">Your first visit</p>
+      <h2>Know what to expect.</h2>
+      <p class="dp-lede">A first visit as proposed for the practice: a conversation, a careful examination, then a clear explanation of your options.</p>
+      <p>The full journey, what to bring and answers to common questions are on Your Visit.</p>
+      <p><a class="dp-textlink" href="${url('/your-visit/')}">Plan your visit</a></p>
     </div>
-    <div style="max-width:420px;justify-self:center;width:100%">${img('namesake-portrait')}</div>
   </div>
 </section>
 
 <section class="dp-section dp-section--ivory dp-section--tight">
-  <div class="dp-wrap">
-    <div class="dp-plan">
-      <div>
-        <p class="dp-eyebrow">Planning a first visit?</p>
-        <h2 class="dp-plan__title">A little preparation helps.</h2>
-      </div>
-      <ul class="dp-checklist">
-        <li>Note what you've noticed and when it started.</li>
-        <li>List any medicines and health conditions.</li>
-        <li>Find previous dental records or X-rays, if you have them.</li>
-        <li>Write down your questions about options and costs.</li>
-      </ul>
-      <p style="margin:0"><a class="dp-textlink" href="${url('/your-visit/')}">Your visit, step by step</a></p>
+  <div class="dp-wrap dp-teaser">
+    <div>
+      <p class="dp-eyebrow">The team</p>
+      <p class="dp-teaser__text">Verified profiles of the practice's clinicians will be published once they are confirmed. Until then, the team page shows its layout using clearly labelled fictional examples.</p>
     </div>
+    <a class="dp-textlink" href="${url('/team/')}">Preview the team page</a>
   </div>
 </section>
 
-<section class="dp-section">
-  <div class="dp-wrap dp-split">
-    <div>
-      <p class="dp-eyebrow">Location</p>
-      <h2>${loc}</h2>
-      <p class="dp-lede">The practice is in Clifton, Karachi. Its exact address, directions, opening hours and telephone number will be published on the Contact page once the practice has confirmed them.</p>
-      <p><a class="dp-textlink" href="${url('/contact/')}">Contact details</a></p>
-    </div>
-    <div>${img('location-exterior')}</div>
+<section class="dp-section dp-section--tight">
+  <div class="dp-wrap dp-next">
+    <p class="dp-eyebrow" style="margin:0">Next steps</p>
+    <ul class="dp-next__links">
+      <li><a class="dp-textlink" href="${url('/your-visit/')}">Plan your visit</a></li>
+      <li><a class="dp-textlink" href="${url('/contact/')}">Contact information</a></li>
+    </ul>
   </div>
-</section>
-${closingCta()}`,
+</section>`,
   });
 
-  // ================================================================ OUR PRACTICE
+  // ================================================================ ABOUT (/our-practice/)
   list.push({
     path: '/our-practice/', nav: 'practice', approvedForProduction: true,
-    crumbs: [{ label: 'Our Practice', path: '/our-practice/' }],
-    title: 'Our Practice',
-    description: 'What is known about Dr. Asif Niaz Arain & Associates Dental Professionals in Clifton, Karachi, a family-review tribute to Dr. Arain, and proposed website language about the practice’s approach.',
+    crumbs: [{ label: 'About', path: '/our-practice/' }],
+    title: 'About the Practice',
+    description: 'About Dr. Asif Niaz Arain & Associates Dental Professionals: the approach to care proposed for the practice, and a remembrance of Dr. Asif Niaz Arain for his family to review.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap">
-  <p class="dp-eyebrow">Our practice</p>
-  <h1>A Clifton practice, and the name it bears.</h1>
-  <p class="dp-lede">What is known about the practice today, a tribute to Dr. Asif Niaz Arain for his family to review, and proposed language about the care the practice could describe to patients.</p>
+  <p class="dp-eyebrow">About the practice</p>
+  <h1>Dr. Asif Niaz Arain &amp; Associates</h1>
+  <p class="dp-lede">Dr. Asif Niaz Arain &amp; Associates Dental Professionals bears the name of Dr. Asif Niaz Arain. This page introduces the approach to care proposed for the practice, and remembers Dr. Arain.</p>
 </div></header>
 
 <section class="dp-section">
   <div class="dp-wrap dp-split dp-split--top">
     <div>
-      <p class="dp-eyebrow">What is known</p>
-      <h2>The facts this page can state.</h2>
-      <p class="dp-muted">Everything else on this page is either a draft for the family's review or proposed website language.</p>
-    </div>
-    <dl class="dp-facts">
-      <div><dt>Practice name</dt><dd>${factText('practice_name')}</dd></div>
-      <div><dt>Location</dt><dd>${loc}</dd></div>
-      <div><dt>Name</dt><dd>The practice bears the name of Dr. Asif Niaz Arain.</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="dp-section dp-section--ivory" id="remembering">
-  <div class="dp-wrap dp-split dp-split--top">
-    <div style="max-width:440px;width:100%">${img('namesake-portrait')}</div>
-    <div>
-      <p class="dp-eyebrow">Remembering Dr. Arain</p>
-      <h2>Dr. Asif Niaz Arain</h2>
-      <p class="dp-lede">A tribute to Dr. Arain is subject to his family's approval and will appear here only with it.</p>
-      ${legacyNote}
-      <div class="dp-note" style="margin-block:28px">
-        <p style="margin-bottom:.6em">${pill('draft', ui.draftForReview)}</p>
-        <p style="margin-bottom:.6em"><strong>His public record.</strong> Reporting at the time of his passing (<a href="https://www.dentalnews.pk/12-Mar-2024/renowned-dentist-dr-asif-niaz-arain-is-no-more" rel="noopener">Dental News</a>, article dated 10 March 2024) described Dr. Arain as:</p>
-        <ul style="margin-bottom:.8em">${fact('founder_biography').value.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
-        <p style="margin-bottom:.6em"><strong>What this page does not claim.</strong> That reporting concerns Dr. Arain's professional life. It does not describe how this practice began, who has led it since, or how it operates today, and this page makes no such claims.</p>
-        <p>These points are shown only so the family can confirm, correct or replace them. Nothing here will be published as part of a tribute without the family's approval.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="dp-section">
-  <div class="dp-wrap dp-split dp-split--top">
-    <div>
-      <p class="dp-eyebrow">A proposed philosophy of care</p>
+      <p class="dp-eyebrow">Our approach</p>
       <h2>How the practice could describe its care.</h2>
       <p>${pill('draft', ui.conceptCopy)}</p>
-      <p class="dp-muted">Proposed website language for the family and clinical team to approve, adapt or replace. It is not a statement of how the practice currently operates.</p>
+      <p class="dp-muted">Proposed wording for the family and clinical team to approve, adapt or replace before it describes how the practice works.</p>
     </div>
     <div class="dp-prose dp-principles">
       <h3>Listening first</h3>
-      <p>Every visit begins with the patient's own account: what they have noticed, what worries them, and what they hope for. Time spent listening is rarely wasted; it shapes everything that follows.</p>
+      <p>Every visit begins with the patient's own account: what they have noticed, what worries them, and what they hope for. Time spent listening shapes everything that follows.</p>
       <h3>Clear explanations</h3>
       <p>Findings are explained in everyday language, with the chance to see what the dentist sees. Clinical terms are used only when they help, and always explained.</p>
       <h3>Informed decisions</h3>
@@ -279,36 +203,39 @@ ${closingCta()}`,
   </div>
 </section>
 
-<section class="dp-section dp-section--ivory">
-  <div class="dp-wrap">
-    <div class="dp-head"><div>
-      <p class="dp-eyebrow">The clinic</p>
-      <h2>The clinic's spaces.</h2>
-      <p class="dp-lede">Illustrative images of an imagined clinic are shown here until authentic photographs of the practice are supplied.</p>
-    </div></div>
-    <div class="dp-grid dp-grid--2">
-      <div>${img('interior-reception')}</div>
-      <div>${img('interior-room')}</div>
+<section class="dp-section dp-section--ivory" id="remembering">
+  <div class="dp-wrap dp-split dp-split--top">
+    <div style="max-width:440px;width:100%">${img('namesake-portrait')}</div>
+    <div>
+      <p class="dp-eyebrow">In memory</p>
+      <h2>Remembering Dr. Asif Niaz Arain</h2>
+      <p class="dp-lede">The practice bears the name of Dr. Asif Niaz Arain, who died on 9 March 2024. He is not available for appointments.</p>
+      <p>A tribute to Dr. Arain will appear here once his family has reviewed and approved it. His portrait will be shown only with the family's approval.</p>
+      <div class="dp-note" style="margin-block:28px 0">
+        <p style="margin-bottom:.6em">${pill('draft', ui.draftForReview)}</p>
+        <p style="margin-bottom:.6em">Public reporting at the time of his death (<a href="https://www.dentalnews.pk/12-Mar-2024/renowned-dentist-dr-asif-niaz-arain-is-no-more" rel="noopener">Dental News</a>, article dated 10 March 2024) described Dr. Arain as:</p>
+        <ul style="margin-bottom:.8em">${fact('founder_biography').value.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
+        <p>That reporting concerns Dr. Arain's professional life. It does not describe how this practice began or who has led it since, and this page makes no such claims. These points are shown so the family can confirm, correct or replace them.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="dp-section">
-  <div class="dp-wrap dp-split dp-split--top">
-    <div>
-      <p class="dp-eyebrow">The finished page</p>
-      <h2>What this page could show patients.</h2>
-      <p class="dp-muted">Once the family and practice approve them, this page will introduce:</p>
+  <div class="dp-wrap">
+    <div class="dp-head"><div>
+      <p class="dp-eyebrow">The clinic</p>
+      <h2>Picturing the practice.</h2>
+      <p class="dp-lede">Illustrations of an imagined clinic, shown until authentic photographs of the practice are supplied.</p>
+    </div></div>
+    <div class="dp-grid dp-grid--2">
+      <div>${img('interior-reception')}</div>
+      <div>${img('interior-room')}</div>
     </div>
-    <ul class="dp-feature-list">
-      <li><strong>The practice today.</strong> Its current leadership and clinicians, with verified names, roles and registrations. <a href="${url('/team/')}">See how profiles could look</a>.</li>
-      <li><strong>The real clinic.</strong> Authentic photographs of the reception, treatment rooms and entrance, replacing the illustrations.</li>
-      <li><strong>Confirmed care.</strong> The treatments the practice actually provides, each reviewed by a named clinician.</li>
-      <li><strong>Practical details.</strong> Address, hours, contact channels, access and fees, verified with the practice.</li>
-    </ul>
+    <p class="dp-muted" style="margin-top:32px;max-width:44em">Introductions to the practice's clinicians, photographs of the practice and practical details will be added here once the practice has confirmed them.</p>
   </div>
 </section>
-${closingCta()}`,
+${nextSteps()}`,
   });
 
   // ================================================================ TEAM
@@ -324,19 +251,19 @@ ${closingCta()}`,
   list.push({
     path: '/team/', nav: 'team', approvedForProduction: true,
     crumbs: [{ label: 'Team', path: '/team/' }],
-    title: 'Team',
-    description: 'How clinician profiles for Dr. Asif Niaz Arain & Associates could be presented, shown with three fictional examples. The clinic’s current clinicians are awaiting confirmation.',
+    title: 'Team Page Preview',
+    description: 'A layout preview of the team page, using three fictional examples. The practice’s real clinicians, credentials and photographs are awaiting verification.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Team</p>
-  <h1>Who will treat you.</h1>
-  <p class="dp-lede">Knowing who you'll see makes a visit easier. This page shows how the practice's clinicians could be introduced.</p>
+  <h1>A preview of the team page.</h1>
+  <p class="dp-lede">Real clinician names, credentials, roles, photographs and biographies are awaiting verification. Until they are confirmed, this page shows its layout using three fictional examples.</p>
 </div></header>
 
 <section class="dp-section dp-section--tight">
   <div class="dp-wrap">
     <div class="dp-disclosure" role="note">
-      <p class="dp-disclosure__label">Fictional examples</p>
+      <p class="dp-disclosure__label">Fictional layout examples</p>
       <p class="dp-disclosure__text">${esc(team.teamDisclosure)}</p>
       <p class="dp-disclosure__status"><strong>Current team status:</strong> ${esc(team.teamStatus)}</p>
     </div>
@@ -354,7 +281,7 @@ ${closingCta()}`,
   <div class="dp-wrap dp-split dp-split--top">
     <div>
       <p class="dp-eyebrow">Before a real profile appears</p>
-      <h2>What we'll verify for every clinician.</h2>
+      <h2>What will be verified for every clinician.</h2>
       <p class="dp-muted">Each real profile will be checked against the PMDC register and approved by the clinician before publication. Portraits will be authentic photographs, used with written consent.</p>
     </div>
     <ul class="dp-feature-list">
@@ -362,14 +289,7 @@ ${closingCta()}`,
     </ul>
   </div>
 </section>
-
-<section class="dp-section">
-  <div class="dp-wrap dp-narrow" style="text-align:center">
-    <p class="dp-eyebrow" style="justify-content:center">In memory</p>
-    <p class="dp-lede" style="margin-inline:auto">The practice bears the name of Dr. Asif Niaz Arain, who passed away in 2024. He is remembered on <a href="${url('/our-practice/')}#remembering">Our Practice</a>, separately from the current team.</p>
-  </div>
-</section>
-${closingCta()}`,
+${nextSteps()}`,
   });
 
   for (const s of team.sampleClinicians) {
@@ -429,7 +349,7 @@ ${closingCta()}`,
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Care</p>
   <h1>Care, explained clearly.</h1>
-  <p class="dp-lede">What common dental care involves, what a dentist looks at first, and the questions worth asking, so you can take part in decisions about your own mouth.</p>
+  <p class="dp-lede">What common dental care involves, what a dentist looks at first, and the questions worth asking. These are educational explanations, not a list of services confirmed at this practice.</p>
 </div></header>
 <section class="dp-section dp-section--tight">
   <div class="dp-wrap">${illustrativeNote('Each topic below is also awaiting review by a named local clinician.')}</div>
@@ -481,10 +401,10 @@ ${closingCta()}`,
   <div class="dp-wrap dp-split">
     <div>${img('interior-room')}</div>
     <div>
-      <p class="dp-eyebrow">Not sure what you need?</p>
-      <h2>Start with a consultation.</h2>
-      <p class="dp-lede">You don't need to know the name of a treatment first. At a consultation, a dentist can look at what's bothering you and explain the options.</p>
-      <div class="dp-actions">${bookBtn(ui.appointmentPreview)}<a class="dp-btn dp-btn--ghost" href="${url('/your-visit/')}">What to expect</a></div>
+      <p class="dp-eyebrow">Not sure which topic fits?</p>
+      <h2>An assessment comes first.</h2>
+      <p class="dp-lede">You don't need to know the name of a treatment. A dentist can assess what's bothering you and explain the options. Appointment details will be published once the practice confirms them.</p>
+      <div class="dp-actions"><a class="dp-btn dp-btn--ghost" href="${url('/your-visit/')}">What to expect at a first visit</a></div>
     </div>
   </div>
 </section>`,
@@ -547,7 +467,7 @@ ${closingCta()}`,
       </section>` : ''}
       <hr class="dp-rule" style="margin-block:48px 28px">
       <h2 class="dp-sources__title">Sources and review</h2>
-      <p class="dp-muted" style="font-size:.95rem">Drafted from the sources below, which describe UK and US practice. <strong>Clinical review pending:</strong> a named local clinician must review this page, including how the guidance applies in Karachi, before it is published on the clinic's own website.</p>
+      <p class="dp-muted" style="font-size:.95rem">Drafted from the sources below, which describe UK and US practice. <strong>Clinical review pending:</strong> a named clinician must review this page, including how the guidance applies under local requirements and practice, before it can appear on the clinic's official website.</p>
       ${sourcesList(p.sources)}
     </div>
     <aside class="dp-care-aside" aria-label="Related">
@@ -565,7 +485,7 @@ ${closingCta()}`,
     path: '/your-visit/', nav: 'visit', approvedForProduction: true,
     crumbs: [{ label: 'Your Visit', path: '/your-visit/' }],
     title: 'Your Visit',
-    description: 'A sample first-visit workflow for Dr. Asif Niaz Arain & Associates in Clifton, Karachi, for the clinic to approve, with what to bring, how treatment decisions work and common questions.',
+    description: 'A sample first-visit workflow for Dr. Asif Niaz Arain & Associates, for the clinic to approve, with what to bring, how treatment decisions work and common questions.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap dp-split">
   <div>
@@ -653,47 +573,36 @@ ${closingCta()}`,
     </div>
   </div>
 </section>
-${closingCta()}`,
+${nextSteps('/your-visit/')}`,
   });
 
   // ================================================================ CONTACT
-  const channelCard = (title, purpose, where) => `
-<article class="dp-channel-card">
-  <h3>${esc(title)}</h3>
-  <p class="dp-muted">${esc(purpose)}</p>
-  <p class="dp-channel-card__state"><span class="dp-channel-card__dot" aria-hidden="true"></span>Not active on this preview</p>
-  <p class="dp-channel-card__where">${esc(where)}</p>
-</article>`;
-
   list.push({
     path: '/contact/', nav: 'contact', approvedForProduction: true,
     crumbs: [{ label: 'Contact', path: '/contact/' }],
     title: 'Contact',
-    description: 'How to reach Dr. Asif Niaz Arain & Associates in Clifton, Karachi once contact details are confirmed, and why this preview cannot take appointments or health information.',
+    description: 'Contact information for Dr. Asif Niaz Arain & Associates Dental Professionals is being confirmed. Why this preview cannot take appointment requests or health information.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Contact</p>
-  <h1>Find us in Clifton.</h1>
-  <p class="dp-lede">The practice is in ${loc}. Its telephone, WhatsApp, exact address, opening hours and appointment process are being confirmed and will appear on this page once verified.</p>
+  <h1>Contact information is being confirmed.</h1>
+  <p class="dp-lede">The verified address, directions, telephone, WhatsApp, opening hours and appointment process will appear here after the practice confirms them.</p>
 </div></header>
 
 <section class="dp-section">
   <div class="dp-wrap">
     <div class="dp-head"><div>
-      <p class="dp-eyebrow">How to reach us</p>
-      <h2 id="appointments" style="scroll-margin-top:120px">Once details are confirmed.</h2>
-      <p class="dp-lede">Each of these will be switched on only after the practice has confirmed it.</p>
+      <p class="dp-eyebrow">What will appear here</p>
+      <h2>Once the practice confirms its details.</h2>
+      <p class="dp-lede">None of these is available yet. Each will be added only after the practice has confirmed it.</p>
     </div></div>
-    <div class="dp-channel-grid">
-      ${channelCard('Telephone', 'Call the practice to arrange an appointment or ask a question.', 'The verified number will appear here and in the site footer.')}
-      ${channelCard('WhatsApp', 'Message the practice about appointments, if it chooses to use WhatsApp.', 'Shown here only if the practice confirms a clinic-owned WhatsApp number.')}
-      ${channelCard('Directions', 'Open the practice’s location in your maps app.', 'Added once the exact address and map location are verified.')}
-      ${channelCard('Appointment requests', 'Ask for a preferred date and time; the clinic would then confirm.', 'Added only with a secure, clinic-owned system and a privacy policy.')}
-    </div>
-    <ul class="dp-list-lines" style="margin-top:36px">
-      <li><span>Area</span>${loc}</li>
-      <li><span>Street address</span><span class="dp-muted">To be published once verified</span></li>
-      <li><span>Opening hours</span><span class="dp-muted">To be published once verified</span></li>
+    <ul class="dp-pending-list">
+      <li><strong>Address and directions</strong><span>The verified street address, with a map link and directions.</span></li>
+      <li><strong>Telephone</strong><span>The practice's number for appointments and questions.</span></li>
+      <li><strong>WhatsApp</strong><span>Only if the practice confirms a clinic-owned WhatsApp number.</span></li>
+      <li><strong>Opening hours</strong><span>Regular hours, Friday timings and holidays.</span></li>
+      <li><strong>Appointment requests</strong><span>Only with a secure, clinic-owned system and a published privacy policy.</span></li>
+      <li><strong>Getting here</strong><span>Parking, step-free access and drop-off arrangements.</span></li>
     </ul>
   </div>
 </section>
@@ -701,36 +610,24 @@ ${closingCta()}`,
 <section class="dp-section dp-section--ivory">
   <div class="dp-wrap dp-split dp-split--top">
     <div>
-      <p class="dp-eyebrow">Why this preview can't take requests</p>
-      <h2>Protecting your information.</h2>
+      <p class="dp-eyebrow">About appointment requests</p>
+      <h2 id="appointments" style="scroll-margin-top:120px">Why this preview can't take requests.</h2>
     </div>
     <div class="dp-prose">
       <p>This is a concept preview, not the clinic's official website. It has no verified contact channel, so there is nobody at the practice to receive a message sent here, and no appointment could be confirmed.</p>
-      <p>Health information needs particular care. Before the clinic's own website collects any appointment request, the practice will decide who reads requests, where they are stored, how they are protected and how long they are kept, and publish a privacy policy that explains this. Until then, please don't send symptoms, medical history or personal details through this site. The "Request an appointment" buttons only open an explanation; nothing is sent.</p>
-      <p>${bookBtn(ui.appointmentPreview, 'dp-btn dp-btn--ghost')}</p>
+      <p>Health information needs particular care. Before the clinic's own website collects any appointment request, the practice will decide who reads requests, where they are stored, how they are protected and how long they are kept, and publish a privacy policy that explains this. Until then, please don't send symptoms, medical history or personal details through this site.</p>
     </div>
   </div>
 </section>
 
 <section class="dp-section">
-  <div class="dp-wrap dp-split dp-split--top">
-    <div>
-      <p class="dp-eyebrow">Location</p>
-      <h2>${loc}</h2>
-      <p class="dp-muted">The entrance image is an illustration of an imagined clinic. It is not the practice's entrance and must not be used for directions. A map will be added once the address is verified.</p>
-      <div style="margin-top:24px">${img('location-map', { compact: true })}</div>
-    </div>
-    <div>${img('location-exterior')}</div>
-  </div>
-</section>
-
-<section class="dp-section dp-section--tight">
   <div class="dp-wrap dp-narrow">
     <h2 class="dp-visually-hidden">In an emergency</h2>
     ${redFlagBox(true)}
     <p class="dp-muted" style="margin-top:16px">For toothache or a dental problem that isn't an emergency, contact a dentist you can reach promptly. <a href="${careUrl('urgent-dental-concerns')}">Read about urgent dental concerns</a>.</p>
   </div>
-</section>`,
+</section>
+${nextSteps('/contact/')}`,
   });
 
   // ================================================================ INSIGHTS
@@ -743,7 +640,7 @@ ${closingCta()}`,
 <header class="dp-pagehead"><div class="dp-wrap">
   <p class="dp-eyebrow">Insights</p>
   <h1>Clear answers to real questions.</h1>
-  <p class="dp-lede">Short guides to questions patients often ask. Each is a draft prepared from NHS and NICE sources, awaiting review by a named clinician before it is published.</p>
+  <p class="dp-lede">Short guides to questions patients often ask. Each is a draft prepared from NHS and NICE sources, awaiting review by a named clinician before it can appear on the clinic's official website.</p>
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap">
@@ -776,7 +673,7 @@ ${closingCta()}`,
     <span>Clinical reviewer: to be named</span>
     <span>Sources checked ${fmtDate(CHECKED)}</span>
   </div>
-  <div class="dp-note" style="margin-top:20px"><p><strong>Draft.</strong> This guide awaits review by a named clinician before the clinic's production launch. It draws on UK (NHS and NICE) guidance; the reviewer will also check how that guidance applies to patients in Karachi.</p></div>
+  <div class="dp-note" style="margin-top:20px"><p><strong>Draft.</strong> This guide is not yet approved clinical advice. It awaits review by a named clinician before it can appear on the clinic's official website. It draws on UK (NHS and NICE) guidance; the reviewer will also check how that guidance applies under local requirements and practice.</p></div>
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap dp-narrow dp-article">
@@ -800,22 +697,25 @@ ${closingCta()}`,
     path: '/notice/', nav: null,
     crumbs: [{ label: 'About this preview', path: '/notice/' }],
     title: 'About This Preview: Privacy, Terms and Medical Information',
-    description: 'Privacy, terms and medical-information notice for the concept preview of the Dr. Asif Niaz Arain & Associates website, including its fictional examples and illustrative content.',
+    description: 'What this concept preview of the Dr. Asif Niaz Arain & Associates website is, what is fictional or illustrative, and its privacy, terms and medical-information notices.',
     body: () => `
 <header class="dp-pagehead"><div class="dp-wrap dp-narrow">
   <p class="dp-eyebrow">About this preview</p>
   <h1 style="font-size:clamp(2.1rem,4.5vw,3.2rem)">A concept, shared for review.</h1>
-  <p class="dp-lede">This website is a concept preview of a future website for Dr. Asif Niaz Arain &amp; Associates Dental Professionals. It is hosted temporarily on qiyadon.com by Qiyadon so the family and practice can review it. It is not yet the clinic's official website.</p>
+  <p class="dp-lede">This website is a concept preview of a future website for Dr. Asif Niaz Arain &amp; Associates Dental Professionals. It is hosted temporarily on qiyadon.com by Qiyadon so the family and practice can review it. It is not the clinic's official website.</p>
 </div></header>
 <section class="dp-section">
   <div class="dp-wrap dp-narrow dp-article">
-    <h2 id="illustrative" style="margin-top:0">What is illustrative</h2>
+    <h2 id="summary" style="margin-top:0">In brief</h2>
     <ul>
-      <li><strong>Fictional team examples.</strong> Dr. Amina Rahman, Dr. Zoya Siddiqui and Dr. Hamza Khan are invented people. Their portraits are AI-generated and their profiles are hypothetical copy. They do not work at this practice and cannot be booked. The practice's actual clinicians and leadership are awaiting confirmation.</li>
-      <li><strong>Clinic images.</strong> The reception, treatment room, clinic and entrance images are AI-generated illustrations of an imagined clinic, not photographs of the practice. The entrance image is not the clinic's entrance and must not be used for directions.</li>
-      <li><strong>Care information.</strong> The Care pages are illustrative content for family and clinician review. They do not state which treatments the practice offers, and they await review by a named local clinician.</li>
-      <li><strong>Patient experience.</strong> The visit journey and "approach" wording are proposals for the practice to approve, not descriptions of how it currently works.</li>
+      <li><strong>This is a concept.</strong> It shows how the clinic's website could look and read once its details are approved.</li>
+      <li><strong>Clinic details are unconfirmed.</strong> The address, contact channels, opening hours, fees and which treatments are available have not yet been confirmed by the practice.</li>
+      <li><strong>The team profiles are fictional.</strong> Dr. Amina Rahman, Dr. Zoya Siddiqui and Dr. Hamza Khan are invented examples with AI-generated portraits. They do not work at this practice and cannot be booked. The practice's actual clinicians and leadership are awaiting confirmation.</li>
+      <li><strong>Clinic images are illustrative.</strong> The reception, treatment-room and clinic images are AI-generated illustrations of an imagined clinic, not photographs of the practice.</li>
+      <li><strong>Health information needs clinical review.</strong> The care pages and guides are general information drafted from UK and US public health sources and await review by a named clinician.</li>
+      <li><strong>Appointment requests are not being collected.</strong> The appointment buttons only open an explanation.</li>
     </ul>
+    <p>The practice bears the name of Dr. Asif Niaz Arain; he is remembered on the <a href="${url('/our-practice/')}#remembering">About</a> page.</p>
     <h2 id="privacy">Preview privacy notice</h2>
     <ul>
       <li>This preview has <strong>no forms</strong> and does not collect names, contact details, symptoms, medical history, prescriptions or payment details.</li>
@@ -825,16 +725,14 @@ ${closingCta()}`,
     </ul>
     <h2 id="terms">Preview terms</h2>
     <ul>
-      <li>Apart from the practice's name, its location in Clifton, Karachi, and the public record of Dr. Asif Niaz Arain, clinic details on this preview are provisional and should not be relied on.</li>
+      <li>Apart from the practice's name and the public record of Dr. Asif Niaz Arain, clinic details on this preview are provisional and should not be relied on.</li>
       <li>Qiyadon's own commercial terms do not apply to dental care, and nothing on this preview forms an agreement for dental treatment.</li>
       <li>Separate privacy and patient-information policies will be prepared for the clinic's own website and reviewed by the clinic and its legal adviser before launch.</li>
     </ul>
     <h2 id="medical">Medical information notice</h2>
-    <p>The guides and care pages on this preview are general information drafted from public health sources in the UK and US. They have not yet been reviewed by the practice's clinicians and are not a substitute for an examination or personal advice from a dentist.</p>
+    <p>The guides and care pages on this preview are general information. They have not yet been reviewed by the practice's clinicians and are not a substitute for an examination or personal advice from a dentist.</p>
     <p><strong>Please don't send medical details through this website</strong>, and don't delay seeking care because of anything you read here.</p>
     ${redFlagBox(true)}
-    <h2>In memory</h2>
-    ${legacyNote}
   </div>
 </section>`,
   });

@@ -411,13 +411,23 @@ body.dp {
 .dp-channel-card__dot { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--dp-ink-muted); }
 .dp-channel-card__where { margin: 0; font-size: .84rem; color: var(--dp-ink-muted); }
 
+/* Home: hero qualifier, compact topics, teaser, next steps ------------------- */
+.dp-hero__qualifier { margin: -0.6em 0 1.8em; }
+.dp-topic-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.dp-teaser { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 48px; }
+.dp-teaser > div { max-width: 44em; }
+.dp-teaser__text { margin: 0; font-family: var(--dp-serif); font-size: clamp(1.25rem, 2.2vw, 1.5rem); line-height: 1.4; color: var(--dp-ink); }
+.dp-next { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 40px; }
+.dp-next__links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 36px; }
+.dp-next__links li { margin: 0; }
+
 /* Responsive ------------------------------------------------------------ */
 @media (max-width: 1080px) {
   .dp-nav__list a { padding-inline: 8px; font-size: .86rem; }
 }
 @media (max-width: 980px) {
   .dp-channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .dp-topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dp-topic-grid, .dp-topic-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dp-care-layout { grid-template-columns: 1fr; }
   .dp-care-aside { position: static; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .dp-plan { grid-template-columns: 1fr; }
@@ -455,7 +465,7 @@ body.dp {
 }
 @media (max-width: 640px) {
   body.dp { font-size: 1rem; }
-  .dp-channel-grid, .dp-topic-grid { grid-template-columns: 1fr; }
+  .dp-channel-grid, .dp-topic-grid, .dp-topic-grid--4 { grid-template-columns: 1fr; }
   .dp-facts > div, .dp-decide > div, .dp-verify__list > div { grid-template-columns: 1fr; }
   .dp-grid--3, .dp-grid--4 { grid-template-columns: 1fr; }
   .dp-footer__grid { grid-template-columns: 1fr; }

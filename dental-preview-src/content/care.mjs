@@ -233,7 +233,7 @@ export const carePages = [
       why: `<p>People ask about whitening when their teeth have become darker or more yellow over time, with age or from tea, coffee or smoking, for example.</p>`,
       assessment: `<p>Before any whitening, a dentist should check that the teeth and gums are healthy, look for decay, gum problems or worn enamel that would need attention first, and consider what is causing the discolouration, because some kinds of staining respond poorly to whitening.</p>`,
       approaches: `<p>Whitening only affects natural tooth surfaces. Crowns, fillings, veneers, dentures and implants do not change colour, so they may look different from the surrounding teeth afterwards and could need replacing to match. Temporary sensitivity to cold or sweet things and gum irritation are recognised side effects. Results vary between people and fade over time.</p>
-<p>Rules on who may provide whitening, and for whom, differ between countries. How local requirements apply in Karachi is to be confirmed by the reviewing clinician before this page is published.</p>`,
+<p>Rules on who may provide whitening, and for whom, differ between countries. How local requirements apply is to be confirmed by the reviewing clinician.</p>`,
       ask: ['Is my discolouration likely to respond to whitening?', 'Will my fillings or crowns still match afterwards?', 'What side effects might I notice, and how are they managed?', 'What result is realistic for me, and how long might it last?'],
       limitation: `No particular shade can be promised. Whitening is cosmetic: it doesn't treat decay or gum disease, which should be dealt with first.`,
     }],

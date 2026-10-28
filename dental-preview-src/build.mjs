@@ -93,7 +93,7 @@ function img(slotKey, { instance, eager = false, compact = false, caption = '', 
     inner = `<picture>${mobile}
       <source type="image/webp" srcset="${set(slot.src, d, 'webp')}" sizes="${sizes}">
       <img src="${url(`/assets/img/${slot.src}-${fallbackW}.jpg`)}" srcset="${set(slot.src, d, 'jpg')}" sizes="${sizes}" width="${d.px[0]}" height="${d.px[1]}" alt="${esc(alt || slot.alt || '')}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
-    </picture>${slot.disclosure ? `<span class="dp-media__disclosure">${esc(slot.disclosure)}</span>` : ''}`;
+    </picture>${slot.disclosure ? `<span class="dp-media__disclosure" aria-hidden="true">${esc(slot.disclosure)}</span>` : ''}`;
   } else if (slot.src) {
     const [w, hgt] = slot.px;
     const src = url('/assets/img/' + slot.src);
@@ -127,10 +127,10 @@ function header(active) {
       <button class="dp-menu-btn" type="button" data-dp-menu-btn aria-expanded="false" aria-controls="dp-nav-panel"><span class="dp-menu-btn__bars" aria-hidden="true"></span>${esc(ui.menu)}</button>
       <div class="dp-nav__panel" id="dp-nav-panel">
         <ul class="dp-nav__list">${items}</ul>
-        <div class="dp-nav__cta">${bookBtn()}</div>
+        <div class="dp-nav__cta">${bookBtn('Appointments', 'dp-btn dp-btn--ghost')}</div>
       </div>
     </nav>
-    <div class="dp-header__cta">${bookBtn(ui.requestAppointment, 'dp-btn dp-btn--sm')}</div>
+    <div class="dp-header__cta">${bookBtn('Appointments', 'dp-btn dp-btn--ghost dp-btn--sm')}</div>
   </div>
 </header>`;
 }
@@ -148,7 +148,7 @@ function footer() {
     <div class="dp-footer__grid">
       <div>
         ${wordmark()}
-        <p style="margin-top:22px;max-width:30em">${factText('location_broad')}. Clinic phone, WhatsApp, opening hours and appointment details are being confirmed with the practice.</p>
+        <p style="margin-top:22px;max-width:30em">The practice's address, contact details, opening hours and appointment information will be published once the practice confirms them.</p>
       </div>
       <div>
         <h2>Explore</h2>
@@ -200,7 +200,7 @@ function jsonLd(page) {
     blocks.push({
       '@context': 'https://schema.org', '@type': 'Dentist',
       name: fact('practice_name').value, url: SITE_URL + '/',
-      address: { '@type': 'PostalAddress', streetAddress: fact('address_full').value, addressLocality: 'Karachi', addressCountry: 'PK' },
+      address: { '@type': 'PostalAddress', streetAddress: fact('address_full').value },
       telephone: fact('phone_primary').value,
       openingHours: fact('opening_hours').value,
       ...(fact('map_coordinates').verified ? { geo: { '@type': 'GeoCoordinates', ...fact('map_coordinates').value } } : {}),

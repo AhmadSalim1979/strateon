@@ -31,7 +31,7 @@ export const ui = {
 
 export const nav = [
   { key: 'home', label: 'Home', path: '/' },
-  { key: 'practice', label: 'Our Practice', path: '/our-practice/' },
+  { key: 'practice', label: 'About', path: '/our-practice/' },
   { key: 'team', label: 'Team', path: '/team/' },
   { key: 'care', label: 'Care', path: '/care/' },
   { key: 'visit', label: 'Your Visit', path: '/your-visit/' },

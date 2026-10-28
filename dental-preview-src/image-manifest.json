@@ -5,7 +5,7 @@
       "label": "The clinic, in natural light",
       "placeholder_caption": "Clinic photograph to be added",
       "appears_on": [
-        "Home hero (right column desktop, above headline on mobile)"
+        "Home hero"
       ],
       "subject": "Calm, naturally lit view of the actual clinic: reception or treatment room, no patients in the chair",
       "aspect_ratio": "4:5",
@@ -28,7 +28,7 @@
       "status": "illustrative-sample",
       "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
       "disclosure": "Illustrative image of an imagined clinic",
-      "alt": "A calm reception desk in warm stone and walnut, with a dental treatment room visible through an arched glass doorway",
+      "alt": "Illustration of an imagined clinic: a reception desk in warm stone and walnut, with a treatment room visible through an arched glass doorway",
       "source": {
         "master": "masters/hero-clinic.jpg",
         "mobile_crop": {
@@ -267,8 +267,7 @@
       "label": "Dr. Asif Niaz Arain, authentic portrait",
       "placeholder_caption": "Portrait of Dr. Asif Niaz Arain, to be supplied and approved by his family",
       "appears_on": [
-        "Our Practice page legacy section",
-        "Home namesake section"
+        "About #remembering"
       ],
       "subject": "Authentic, family-approved photograph of Dr. Asif Niaz Arain. Never a generated or reconstructed likeness",
       "aspect_ratio": "4:5",
@@ -294,8 +293,8 @@
       "label": "Reception and waiting area",
       "placeholder_caption": "Reception photograph to be added",
       "appears_on": [
-        "Home \"What happens when you enquire\"",
-        "Our Practice",
+        "Home first-visit teaser",
+        "About (\"A calm place to be seen\")",
         "Your Visit header"
       ],
       "subject": "The real reception and waiting area",
@@ -319,7 +318,7 @@
       "status": "illustrative-sample",
       "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
       "disclosure": "Illustrative image of an imagined clinic",
-      "alt": "A reception and waiting area with a curved stone desk, sage-green seating and daylight through tall windows",
+      "alt": "Illustration of an imagined clinic: a reception and waiting area with a curved stone desk, sage-green seating and tall windows",
       "source": {
         "master": "masters/interior-reception.jpg",
         "mobile_crop": {
@@ -360,7 +359,7 @@
       "label": "A treatment room",
       "placeholder_caption": "Treatment room photograph to be added",
       "appears_on": [
-        "Our Practice",
+        "About (\"A calm place to be seen\")",
         "Care overview"
       ],
       "subject": "A real treatment room, tidy, no patient",
@@ -384,7 +383,7 @@
       "status": "illustrative-sample",
       "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
       "disclosure": "Illustrative image of an imagined clinic",
-      "alt": "A treatment room with a sage-green dental chair beside a large garden window",
+      "alt": "Illustration of an imagined clinic: a treatment room with a sage-green dental chair beside a large garden window",
       "source": {
         "master": "masters/interior-room.jpg",
         "mobile_crop": {
@@ -452,7 +451,7 @@
       "label": "A first-visit consultation",
       "placeholder_caption": "Consultation photograph to be added",
       "appears_on": [
-        "Not currently placed (Your Visit header uses the reception illustration until an authentic consultation photograph is supplied)"
+        "Not currently placed"
       ],
       "subject": "A clinician talking with a patient before treatment, seated upright, conversation rather than procedure",
       "aspect_ratio": "3:2",
@@ -478,8 +477,7 @@
       "label": "Street entrance and signage",
       "placeholder_caption": "Entrance photograph to be added",
       "appears_on": [
-        "Home location section",
-        "Contact (illustration only, not for directions)"
+        "Not currently placed. Removed from Home and Contact so an imagined entrance is never mistaken for the real one; the authentic entrance photograph belongs on Contact once the address is verified"
       ],
       "subject": "Street entrance and signage as a patient would see it on arrival",
       "aspect_ratio": "4:3",
@@ -502,7 +500,7 @@
       "status": "illustrative-sample",
       "sample_note": "Illustrative image of an imagined clinic supplied by the project owner (2026-09-26). Not the real practice. Replace with authentic photography before production.",
       "disclosure": "Illustrative image, not the clinic's actual entrance. Not for directions.",
-      "alt": "A stone-clad entrance with a glass door, planters and dappled sunlight",
+      "alt": "Illustration of an imagined clinic entrance, not the practice: a stone-clad doorway with planters",
       "source": {
         "master": "masters/location-exterior.jpg",
         "mobile_crop": {
@@ -543,7 +541,7 @@
       "label": "Map at the verified location",
       "placeholder_caption": "Map to be added once the address is confirmed",
       "appears_on": [
-        "Contact page"
+        "Not currently placed. Add to Contact only with the verified address and map pin"
       ],
       "subject": "Static map or click-to-load map at the verified Google Business Profile pin",
       "aspect_ratio": "16:10",
